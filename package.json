@@ -1,0 +1,8 @@
+{
+    "name": "gmail-api-typings-generator",
+    "description": "GMAIL API Typescript definitions generator",
+    "main": "generator.ts",
+    "devDependencies": {
+        "typings": "^0.6.8"
+    }
+}
