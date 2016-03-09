@@ -1,0 +1,1 @@
+# google-api-typings-generator
