@@ -8,30 +8,31 @@
 
 // A task runner that calls the Typescript compiler (tsc) and
 // Compiles a HelloWorld.ts program
-{
-	"version": "0.1.0",
+// {
+// 	"version": "0.1.0",
 
-	// The command is tsc. Assumes that tsc has been installed using npm install -g typescript
-	"command": "tsc",
+// 	// The command is tsc. Assumes that tsc has been installed using npm install -g typescript
+// 	"command": "tsc",
 
-	// The command is a shell script
-	"isShellCommand": true,
+// 	// The command is a shell script
+// 	"isShellCommand": true,
 
-	// Show the output window only if unrecognized errors occur.
-	"showOutput": "silent",
+// 	// Show the output window only if unrecognized errors occur.
+// 	"showOutput": "silent",
 
-	// args is the HelloWorld program to compile.
-	"args": ["generator.ts"],
+// 	// args is the HelloWorld program to compile.
+// 	"args": ["generator.ts"],
 
-	// use the standard tsc problem matcher to find compile problems
-	// in the output.
-	"problemMatcher": "$tsc"
-}
+// 	// use the standard tsc problem matcher to find compile problems
+// 	// in the output.
+// 	"problemMatcher": "$tsc",
+    
+//     "echoCommand": true    
+// }
 
 // A task runner that calls the Typescript compiler (tsc) and
 // compiles based on a tsconfig.json file that is present in
 // the root of the folder open in VSCode
-/*
 {
 	"version": "0.1.0",
 
@@ -42,7 +43,7 @@
 	"isShellCommand": true,
 
 	// Show the output window only if unrecognized errors occur.
-	"showOutput": "silent",
+	"showOutput": "always",
 
 	// Tell the tsc compiler to use the tsconfig.json from the open folder.
 	"args": ["-p", "."],
@@ -51,8 +52,6 @@
 	// in the output.
 	"problemMatcher": "$tsc"
 }
-*/
-
 // A task runner configuration for gulp. Gulp provides a less task
 // which compiles less to css.
 /*

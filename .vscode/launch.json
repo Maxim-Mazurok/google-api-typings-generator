@@ -1,6 +1,6 @@
 {
 	"version": "0.2.0",
-	"configurations": [
+	"configurations": [        
 		{
 			"name": "Launch",
 			"type": "node",
@@ -17,8 +17,9 @@
 				"NODE_ENV": "development"
 			},
 			"externalConsole": false,
-			"sourceMaps": false,
-			"outDir": null
+			"sourceMaps": true,            
+			"outDir": null,
+            "preLaunchTask": "tsc"
 		},
 		{
 			"name": "Attach",
