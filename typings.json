@@ -4,7 +4,10 @@
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#48c1e3c1d6baefa4f1a126f188c27c4fefd36bff"
   },
   "ambientDependencies": {
+    "commander": "github:DefinitelyTyped/DefinitelyTyped/commander/commander.d.ts#6d09e1a5aea3240e7290be602ed03c88e38cd07d",
     "form-data": "github:DefinitelyTyped/DefinitelyTyped/form-data/form-data.d.ts#bb1b99052bf1d697f0368fbff56898bc1f5a525c",
+    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#3379a636096ee2f8a825308881877f91e75ed0cc",
+    "promise": "github:DefinitelyTyped/DefinitelyTyped/promise/promise.d.ts#52b68b9e9c434c51c78ee27066a5c473b112ba3f",
     "request": "github:DefinitelyTyped/DefinitelyTyped/request/request.d.ts#abc2bcfb8524b1e027e6298d3348012b5b06eda5"
   }
 }

@@ -7,12 +7,16 @@
         "inlineSources": true,
         "noImplicitAny": false,
         "suppressExcessPropertyErrors": true,
-        "diagnostics": true,
-        "listFiles": true
+        "diagnostics": false,
+        "listFiles": false,
+        "outDir": "distr"       
     },
+    
     "files": [
-        "generator.ts",
+        "src/google-api-typings-generator.ts",
+        "tests/tests.ts",
         "typings/main.d.ts",
-        "gapi.d.ts"
-    ]    
+        "gapi.d.ts",
+        "gapi.discovery.d.ts"
+    ]
 }

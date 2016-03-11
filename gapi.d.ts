@@ -17,6 +17,8 @@ declare namespace gapi {
         }
 
         function load(api, version, callback: () => void);
+        function load(api, version) : PromiseLike<void>;
+        
         function setApiKey(key: string);
         function newBatch(): Batch;
     }

@@ -1,11 +1,11 @@
 {
 	"version": "0.2.0",
-	"configurations": [        
+	"configurations": [        		    
 		{
 			"name": "Launch",
 			"type": "node",
 			"request": "launch",
-			"program": "${workspaceRoot}/generator.js",
+			"program": "${workspaceRoot}/distr/google-api-typings-generator.js",
 			"stopOnEntry": false,
 			"args": [],
 			"cwd": "${workspaceRoot}",

@@ -5,52 +5,54 @@
 // ${fileDirname}: the current opened file's dirname
 // ${fileExtname}: the current opened file's extension
 // ${cwd}: the current working directory of the spawned process
-
 // A task runner that calls the Typescript compiler (tsc) and
 // Compiles a HelloWorld.ts program
 // {
 // 	"version": "0.1.0",
-
 // 	// The command is tsc. Assumes that tsc has been installed using npm install -g typescript
 // 	"command": "tsc",
-
 // 	// The command is a shell script
 // 	"isShellCommand": true,
-
 // 	// Show the output window only if unrecognized errors occur.
 // 	"showOutput": "silent",
-
 // 	// args is the HelloWorld program to compile.
 // 	"args": ["generator.ts"],
-
 // 	// use the standard tsc problem matcher to find compile problems
 // 	// in the output.
 // 	"problemMatcher": "$tsc",
-    
 //     "echoCommand": true    
 // }
-
 // A task runner that calls the Typescript compiler (tsc) and
 // compiles based on a tsconfig.json file that is present in
 // the root of the folder open in VSCode
+// {
+// 	"version": "0.1.0",
+// 	// The command is tsc. Assumes that tsc has been installed using npm install -g typescript
+// 	"command": "tsc",
+// 	// The command is a shell script
+// 	"isShellCommand": true,
+// 	// Show the output window only if unrecognized errors occur.
+// 	"showOutput": "always",
+// 	// Tell the tsc compiler to use the tsconfig.json from the open folder.
+// 	"args": ["-p", "."],
+// 	// use the standard tsc problem matcher to find compile problems
+// 	// in the output.
+// 	"problemMatcher": "$tsc"
+// }
 {
-	"version": "0.1.0",
-
-	// The command is tsc. Assumes that tsc has been installed using npm install -g typescript
-	"command": "tsc",
-
-	// The command is a shell script
-	"isShellCommand": true,
-
-	// Show the output window only if unrecognized errors occur.
-	"showOutput": "always",
-
-	// Tell the tsc compiler to use the tsconfig.json from the open folder.
-	"args": ["-p", "."],
-
-	// use the standard tsc problem matcher to find compile problems
-	// in the output.
-	"problemMatcher": "$tsc"
+    "version": "0.1.0",
+    "command": "npm",
+    "isShellCommand": true,
+    "showOutput": "always",
+    "args": [
+        "run"
+    ],
+    "isWatching": false,    
+    "tasks": [
+        { "taskName": "start" },
+        { "taskName": "tsc" },
+        { "taskName": "test" }
+    ]
 }
 // A task runner configuration for gulp. Gulp provides a less task
 // which compiles less to css.
@@ -72,7 +74,6 @@
 	]
 }
 */
-
 // Uncomment the following section to use jake to build a workspace
 // cloned from https://github.com/Microsoft/TypeScript.git
 /*
@@ -99,7 +100,6 @@
 	]
 }
 */
-
 // Uncomment the section below to use msbuild and generate problems
 // for csc, cpp, tsc and vb. The configuration assumes that msbuild
 // is available on the path and a solution file exists in the
@@ -126,7 +126,6 @@
 	]
 }
 */
-
 // Uncomment the following section to use msbuild which compiles Typescript
 // and less files.
 /*
@@ -186,4 +185,4 @@
 		}
 	}
 }
-*/
+*/ 
