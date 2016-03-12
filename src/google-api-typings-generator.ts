@@ -16,6 +16,7 @@ interface ITextWriter {
     end();
 }
 
+
 class StringWriter implements ITextWriter {
 
     private buffer = "";
@@ -99,6 +100,11 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
         this.braces(`namespace ${name}`, context);
     }
 
+    public module(name: string, context: TypescriptWriterCallback) {
+        this.writer.writeLine();
+        this.braces(`declare module ${name}`, context);
+    }
+
     public declareNamespace(name: string, context: TypescriptWriterCallback) {
         this.writer.writeLine();
         this.braces(`declare namespace ${name}`, context);
@@ -136,16 +142,35 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
         _.forEach(lines, line => this.writer.writeLine(`// ${line}`));
     }
 
-    public method(name: string, parameters: [{ parameter: string, type: string }], returnType: string) {
-        this.writer.writeLine(`${name}(${parameters.map(p => p.parameter + ": " + p.type).join(", ")}): ${returnType};`);
+    public method(name: string, parameters: [{ parameter: string, type: string | TypescriptWriterCallback }], returnType: string) {
+        this.writer.startIndentedLine(`${name} (`);
+
+        _.forEach(parameters, (parameter, index) => {
+            this.write(parameter.parameter + ": ");
+            this.write(parameter.type);
+
+            if (index + 1 < parameters.length) {
+                this.writeLine(",");
+            }
+        });
+
+        this.writer.write(`) : ${returnType};`);
+
+        this.writer.writeLine();
+        //this.writer.writeLine(`${name}(${parameters.map(p => p.parameter + ": " + p.type).join(", ")}): ${returnType};`);
     }
 
     public writeLine(chunk = "") {
         this.writer.writeLine(chunk);
     }
 
-    public write(chunk = "") {
-        this.writer.write(chunk);
+    public write(chunk: string | TypescriptWriterCallback = "") {
+        if (typeof chunk === "string") {
+            this.writer.write(chunk);
+        }
+        else if (typeof chunk === "function") {
+            chunk(this);
+        }
     }
 
     public end() {
@@ -197,7 +222,7 @@ function firstLetterUp(text: string) {
     return text[0].toUpperCase() + text.substring(1);
 }
 
-function getMethodParameterInterfaceName(resource, method: gapi.discovery.description.Method) {
+function getMethodParameterInterfaceName(resource, method: gapi.client.discovery.v1.RestMethod) {
     return firstLetterUp(resource) + firstLetterUp(getName(method.id)) + "Request";
 }
 
@@ -239,13 +264,13 @@ function formatComment(comment: string) {
     return comment;
 }
 
-function getMethodReturn(method: gapi.discovery.description.Method) {
+function getMethodReturn(method: gapi.client.discovery.v1.RestMethod) {
 
     if (method.response) {
-        return "PromiseLike<ApiResult<" + method.response.$ref + ">>";
+        return "gapi.client.Request<" + method.response.$ref + ">";
     }
     else {
-        return "PromiseLike<void>";
+        return "gapi.client.Request<void>";
     }
 }
 
@@ -271,44 +296,51 @@ export class App {
 
     static parseVersion(version: string) {
         var major, minor, patch;
-        var match = version.match(/v(\d+)(?:\.(\d+))?(.*)?/);
+        var match = version.match(/v(\d+)?(?:\.(\d+))?(.*)?/);
 
         if (match) {
-            major = match[1];
+            major = match[1] || 0;
             minor = match[2];
             patch = match[3];
 
             return `${major}${minor ? "." + minor : ""}${patch ? "-" + patch : ""}`;
         }
+    }
 
+    private getResourceTypeName(resourceName: string) {
+        return resourceName[0].toUpperCase() + resourceName.substring(1) + "Resource";
     }
 
     // writes specified resource definition
-    private writeResources(out: TypescriptTextWriter, resources: gapi.discovery.description.Resources) {
+    private writeResources(out: TypescriptTextWriter, resources: gapi.client.discovery.v1.RestResource[]) {
 
-        _.forEach(resources, (resource: gapi.discovery.description.Resource, resourceName: string) => {
+        _.forEach(resources, (resource: gapi.client.discovery.v1.RestResource, resourceName: string) => {
 
-            var resourceInterfaceName = resourceName[0].toUpperCase() + resourceName.substring(1) + "Resource";
+            var resourceInterfaceName = this.getResourceTypeName(resourceName);
 
             this.writeResources(out, resource.resources);
 
-            _.forEach(resource.methods, (method: gapi.discovery.description.Method, name: string) => {
-                out.interface(getMethodParameterInterfaceName(resourceName, method), () => {
-                    _.forEach(method.parameters, (parameter: gapi.discovery.description.Parameter, key) => {
-                        out.comment(formatComment(parameter.description));
-                        out.property(key, typesMap[parameter.type] || parameter.type, parameter.required || false);
-                    });
-                });
-            });
-
             out.interface(resourceInterfaceName, () => {
 
-                _.forEach(resource.methods, (method: gapi.discovery.description.Method, name: string) => {
+                _.forEach(resource.methods, (method: gapi.client.discovery.v1.RestMethod, name: string) => {
                     out.comment(formatComment(method.description));
-                    out.method(getName(method.id), [{ parameter: "request", type: getMethodParameterInterfaceName(resourceName, method) }], getMethodReturn(method));
+                    out.method(getName(method.id), [{
+                        parameter: "request",
+                        type: (writer: TypescriptTextWriter) => {
+                            writer.anonymysType(() =>
+                                _.forEach(method.parameters, (data: any, key) => {
+                                    writer.comment(formatComment(data.description));
+                                    writer.property(key, getType(data), data.required || false);
+                                })
+                            );
+                        }
+
+                    }], getMethodReturn(method));
+
+                    out.writeLine();
                 });
 
-                _.forEach(resource.resources, (childResource: gapi.discovery.description.Resource, childResourceName: string) => {
+                _.forEach(resource.resources, (childResource: gapi.client.discovery.v1.RestResource, childResourceName: string) => {
                     var childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + "Resource";
                     out.property(childResourceName, childResourceInterfaceName);
                 });
@@ -316,18 +348,30 @@ export class App {
             });
 
             out.writeLine();
-
-            out.writeLine(`var ${resourceName}: ${resourceInterfaceName}; `);
-            out.writeLine();
         });
     }
 
+    private getTypingsUrl(api: string, version: string) {
+        return `https://guthub.com/bolisov/typings-gapi/typings/${this.getTypingsName(api, version)}`;
+    }
+
+    private getTypingsName(api: string, version: string) {
+        if (version == null)
+            return `gapi.client.${api}`;
+        else
+            return `gapi.client.${api}-${version}`;
+    }
+
+    private getTypingsDirectory(api: string, version: string) {
+        return `${this.typingsDirectory}/${this.getTypingsName(api, version)}`;
+    }
+
     /// writes api description for specified JSON object
-    private processApi(api: gapi.discovery.description.Api, actualVersion: boolean) {
+    private processApi(api: gapi.client.discovery.v1.RestDescription, actualVersion: boolean) {
 
         console.log(`Generating ${api.id} definitions...`);
 
-        var destinationDirectory = `${this.typingsDirectory}/${api.name}-${api.version}`;
+        var destinationDirectory = this.getTypingsDirectory(api.name, api.version);
 
         if (!fs.existsSync(destinationDirectory)) {
             fs.mkdirSync(destinationDirectory);
@@ -341,26 +385,37 @@ export class App {
             }
         }).value(),
             grouped = _.groupBy(methods, method => method.namespace),
-            filename = api.name + (actualVersion ? "" : "-" + api.version) + ".d.ts",
+            filename = "gapi.client." + api.name + (actualVersion ? "" : "-" + api.version) + ".d.ts",
             stream = fs.createWriteStream(destinationDirectory + "/" + filename),
-            writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream)));
+            writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream))),
+            rootNamespace = `gapi.client.${api.name}.${api.version.replace(/\./, "_")}`;
 
-        writer.reference("gapi.d.ts");
+        writer.comment(`Type definitions for ${api.ownerName} ${api.title} ${api.version}`);
+        writer.comment(`Project: ${api.documentationLink}`);
+        writer.comment(`Definitions by: Bolisov Alexey`);
+        writer.writeLine();
+        writer.reference("../gapi.client/gapi.client.d.ts");
 
-        writer.declareNamespace("gapi", () => {
-            writer.namespace("client", () => {
-
-                _.forEach(api.schemas, (schema: gapi.discovery.description.Schema, key) => {
-                    writer.interface(schema.id, () => {
-                        _.forEach(schema.properties, (data: any, key) => {
-                            writer.comment(formatComment(data.description));
-                            writer.property(key, getType(data), data.required || false);
-                        })
+        // write main namespace
+        writer.module(rootNamespace, () => {
+            _.forEach(api.schemas, (schema : gapi.client.discovery.v1.JsonSchema, key) => {
+                writer.interface(schema.id, () => {
+                    _.forEach(schema.properties, (data: any, key) => {
+                        writer.comment(formatComment(data.description));
+                        writer.property(key, getType(data), data.required || false);
                     })
-                });
-
-                this.writeResources(writer, api.resources);
+                })
             });
+
+            this.writeResources(writer, api.resources);
+        });
+
+        // expose root resources to gapi.client namespace
+        writer.module(`gapi.client.${api.name}`, () => {
+            _.forEach(api.resources, (resource: gapi.client.discovery.v1.RestResource, resourceName: string) => {
+                writer.writeLine(`var ${resourceName}: ${rootNamespace}.${this.getResourceTypeName(resourceName)}; `);
+                writer.writeLine();
+            })
         });
 
         writer.end();
@@ -371,29 +426,16 @@ export class App {
             "name": api.name,
             "main": filename,
             "version": App.parseVersion(api.version),
-            "author": "Bolisov Alexey",
+            "author": "Typed by Bolisov Alexey",
             "description": api.description,
             "homepage": "https://github.com/bolisov/typings-gapi",
             "dependencies": {
-                "gapi": "github:bolisov/typings-gapi/gapi"
+                "gapi.client": "github:bolisov/typings-gapi/gapi.client"
             }
-        }));
+        }, null, 4));
 
         typingsStream.end();
 
-        // typingsWriter.writeLine("{");
-        // typingsWriter.indent += 1;
-        // typingsWriter.writeLine(`"name": "${api.name}"`);
-        // typingsWriter.writeLine(`"main": "${api.name}.d.ts"`);
-        // typingsWriter.writeLine(`"homepage": "https://github.com/bolisov"`);
-        // typingsWriter.writeLine(`"dependencies": {`);
-        // typingsWriter.indent += 1;
-        // typingsWriter.writeLine(`"gapi.client": "https://github.com/bolisov"`);
-        // typingsWriter.indent -= 1;
-        // typingsWriter.writeLine(`}`);        
-        // typingsWriter.indent -= 1;
-        // typingsWriter.writeLine("}")
-        // typingsWriter.end();
     }
 
     private request(url: string) {
@@ -411,49 +453,48 @@ export class App {
         });
     }
 
-    private filterServices(apis: gapi.discovery.directory.Api[], service: string, allVersions: boolean) {
-        apis = _.filter(apis, api => service == null || api.name === service);
-        apis = _.filter(apis, (api: gapi.discovery.directory.Api) => allVersions || api.preferred);
-        return apis;
-    }
-
     public processService(url: string, actualVersion: boolean) {
         return this
             .request(url)
-            .then((api: gapi.discovery.description.Api) => this.processApi(api, actualVersion))
+            .then(api => this.processApi(api, actualVersion))
     }
 
     public discover(service: string = null, allVersions: boolean = false) {
         console.log("Discovering Google services...");
-        let services: gapi.discovery.directory.Api[] = null;
+
 
         return this
             .request("https://www.googleapis.com/discovery/v1/apis")
-            .then((apis: gapi.discovery.directory.Apis) => this.filterServices(apis.items, service, allVersions))
+            .then((list: gapi.client.discovery.v1.DirectoryList) => {
+                var apis = _.filter(list.items, api => service == null || api.name === service);
+                apis = _.filter(apis, api => allVersions || api.preferred);
+                return apis;
+            })
             .then(items => {
-                services = items;
+
                 if (items.length === 0) {
                     console.error("Can't find services");
                     throw Error("Can't find services");
                 } else {
-                    return items.reduce((cur, api: any) => cur.then(() => this.processService(api.discoveryRestUrl, api.preferred)), Promise.resolve(null));
+                    var generation: Promise.IThenable<any> = items.reduce((cur, api: any) => cur.then(() => this.processService(api.discoveryRestUrl, api.preferred)), Promise.resolve(null));
+                    return generation.then(() => items);
                 }
             })
-            .then(() => {
+            .then(services => {
 
                 _.forEach(
                     _.groupBy(services, service => service.name),
                     (versions, service) => {
 
-                        var typingsStream = fs.createWriteStream(`${this.typingsDirectory}/${service}.json`),
+                        var typingsStream = fs.createWriteStream(`${this.typingsDirectory}/${this.getTypingsName(service, null)}.json`),
                             v = _.reduce(versions, (current, api) => {
-                                current[App.parseVersion(api.version)] = `https://github.com/bolisov/typings-gapi/${api.name}-${api.version}`;
+                                current[App.parseVersion(api.version)] = this.getTypingsUrl(api.name, api.version);
                                 return current;
                             }, {});
 
                         typingsStream.write(JSON.stringify({
                             "versions": v
-                        }));
+                        }, null, 4));
 
                         typingsStream.end();
                     });

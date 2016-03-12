@@ -16,7 +16,7 @@
         "src/google-api-typings-generator.ts",
         "tests/tests.ts",
         "typings/main.d.ts",
-        "gapi.d.ts",
-        "gapi.discovery.d.ts"
+        "gapi.client/gapi.client.d.ts",
+        "gapi.client.discovery-v1/gapi.client.discovery.d.ts"
     ]
 }
