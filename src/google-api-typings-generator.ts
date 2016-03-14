@@ -388,7 +388,7 @@ export class App {
             filename = "gapi.client." + api.name + (actualVersion ? "" : "-" + api.version) + ".d.ts",
             stream = fs.createWriteStream(destinationDirectory + "/" + filename),
             writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream))),
-            rootNamespace = `gapi.client.${api.name}.${api.version.replace(/\./, "_")}`;
+            rootNamespace = `gapi.client.${api.name}`;
 
         writer.comment(`Type definitions for ${api.ownerName} ${api.title} ${api.version}`);
         writer.comment(`Project: ${api.documentationLink}`);
@@ -426,10 +426,13 @@ export class App {
             "name": api.name,
             "main": filename,
             "version": App.parseVersion(api.version),
-            "author": "Typed by Bolisov Alexey",
+            "author": "Bolisov Alexey",
             "description": api.description,
             "homepage": "https://github.com/bolisov/typings-gapi",
-            "dependencies": {
+            "ambient": true,
+            "dependencies": {},
+            "devDependencies": {},
+            "ambientDependencies": {
                 "gapi.client": "github:bolisov/typings-gapi/gapi.client"
             }
         }, null, 4));
