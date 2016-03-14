@@ -5,6 +5,7 @@ import * as request from 'request';
 import * as fs from 'fs';
 import * as _ from "lodash";
 import * as Promise from 'promise';
+const doT: doT.doTStatic = require('dot');
 
 var typesMap = {
     "integer": "number",
@@ -277,6 +278,7 @@ function getMethodReturn(method: gapi.client.discovery.v1.RestMethod) {
 export class App {
 
     private typingsDirectory: string;
+    private readmeTpl = this.loadReadmeTemplate();
 
     constructor(private base = __dirname + "/../out/") {
         this.typingsDirectory = base + "/typings";
@@ -292,6 +294,24 @@ export class App {
         console.log(`base directory: ${this.base}`);
         console.log(`typings directory: ${this.typingsDirectory}`);
         console.log();
+    }
+
+    private loadReadmeTemplate() {
+        var filename = '';
+
+        if (fs.existsSync('readme.dot')) {
+            filename = 'readme.dot';
+        }
+        else if (fs.existsSync('../readme.dot')) {
+            filename = '../readme.dot';
+        }
+        else {
+            throw Error('Can\'t find readme.md file template');
+        }
+
+        doT.templateSettings.strip = false;
+
+        return doT.template(fs.readFileSync(filename, "utf-8"));
     }
 
     static parseVersion(version: string) {
@@ -398,7 +418,7 @@ export class App {
 
         // write main namespace
         writer.module(rootNamespace, () => {
-            _.forEach(api.schemas, (schema : gapi.client.discovery.v1.JsonSchema, key) => {
+            _.forEach(api.schemas, (schema: gapi.client.discovery.v1.JsonSchema, key) => {
                 writer.interface(schema.id, () => {
                     _.forEach(schema.properties, (data: any, key) => {
                         writer.comment(formatComment(data.description));
@@ -439,6 +459,7 @@ export class App {
 
         typingsStream.end();
 
+        return api;
     }
 
     private request(url: string) {
@@ -456,10 +477,24 @@ export class App {
         });
     }
 
+    public writeReadme(api: gapi.client.discovery.v1.RestDescription) {
+        var destinationDirectory = this.getTypingsDirectory(api.name, api.version),
+            stream = fs.createWriteStream(destinationDirectory + "/readme.md"),
+            writer = new StreamWriter(stream);
+
+        try {
+            writer.write(this.readmeTpl(api));
+        }
+        finally {
+            writer.end();
+        }
+    }
+
     public processService(url: string, actualVersion: boolean) {
         return this
             .request(url)
             .then(api => this.processApi(api, actualVersion))
+            .then(api => this.writeReadme(api));
     }
 
     public discover(service: string = null, allVersions: boolean = false) {

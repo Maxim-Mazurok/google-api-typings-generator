@@ -1,0 +1,65 @@
+# Typescript typings for {{=it.title}}
+{{=it.description}}
+For detailed description please check [documentation]({{=it.documentationLink}}).
+
+## Installing
+
+First you need to install *typings*:
+```
+npm install typings --save 
+```
+
+Then install typings for *Google API client*:
+```
+typings install gapi.client --save 
+```
+
+And finally install typings for {{=it.title}}:
+```
+typings install gapi.client.{{=it.name}} --save 
+```
+
+## Usage
+
+In your code you need to initialize Google API client:
+```typescript
+gapi.load("client", () => { 
+    // now we can use gapi.client
+    // ... 
+});
+```
+
+Then load api client wrapper:
+```typescript
+gapi.client.load('{{=it.name}}', '{{=it.version}}', () => {
+    // now we can use gapi.client.{{=it.name}}
+    // ... 
+});```
+
+{{? it.auth }}Don't forget to authenticate your client before sending any requests to resources:
+```typescript
+
+// declare client_id registered in Google Developers Console
+var client_id = '',
+    scope = [ {{ for(var scope in it.auth.oauth2.scopes) { }}    
+        // {{=it.auth.oauth2.scopes[scope].description}}
+        '{{=scope}}',
+{{ } }}    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+    if (authResult && !authResult.error) {
+        /* handle succesfull authorization */
+    } else {
+        /* handle authorization error */
+    }
+});            
+```{{?}}
+
+After that you can use {{=it.title}} resources:
+
+```typescript{{ for(var resource in it.resources) { }}
+gapi.client.{{=resource}}.<method name>({ /* method parameters */ })
+    .then(response => { /* handling response */ });
+{{ } }}```

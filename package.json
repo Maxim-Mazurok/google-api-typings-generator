@@ -1,6 +1,6 @@
 {
   "name": "gmail-api-typings-generator",
-  "description": "GMAIL API Typescript definitions generator",
+  "description": "Google API Typescript typings definitions generator",
   "main": "generator.ts",
   "scripts": {
     "start": "ts-node src/google-api-typings-generator.ts",
@@ -15,6 +15,7 @@
     "typings": "^0.6.8"
   },
   "dependencies": {
+    "dot": "^1.0.3",
     "promise": "^7.1.1"
   }
 }
