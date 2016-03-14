@@ -21,7 +21,7 @@ typings install gapi.client.{{=it.name}} --save
 
 ## Usage
 
-In your code you need to initialize Google API client:
+You need to initialize Google API client in your code:
 ```typescript
 gapi.load("client", () => { 
     // now we can use gapi.client
@@ -36,7 +36,7 @@ gapi.client.load('{{=it.name}}', '{{=it.version}}', () => {
     // ... 
 });```
 
-{{? it.auth }}Don't forget to authenticate your client before sending any requests to resources:
+{{? it.auth }}Don't forget to authenticate your client before sending any request to resources:
 ```typescript
 
 // declare client_id registered in Google Developers Console
