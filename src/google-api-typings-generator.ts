@@ -1,11 +1,8 @@
-/// <reference path="../typings/main.d.ts" />
-
 import * as program from 'commander';
 import * as request from 'request';
 import * as fs from 'fs';
 import * as _ from "lodash";
-import * as Promise from 'promise';
-const doT: doT.doTStatic = require('dot');
+import * as doT from 'dot';
 
 var typesMap = {
     "integer": "number",
@@ -16,7 +13,6 @@ interface ITextWriter {
     write(chunk?);
     end();
 }
-
 
 class StringWriter implements ITextWriter {
 
@@ -179,9 +175,11 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
     }
 }
 
-function processResource(resource) {
-    var childs = _.map(resource.resources || {}, value => processResource(value));
-    return _.union(_.map(resource.methods || {}, value => value), childs);
+function processResource(resource: gapi.client.discovery.RestDescription): any[] {
+    var childs = _.flatten(_.map(resource.resources || {}, value => processResource(value)));
+    const methodsArray = _.map(resource.methods || {}, value => value);
+
+    return [...methodsArray, ...childs];
 }
 
 function getNamespace(path: string) {
@@ -223,7 +221,7 @@ function firstLetterUp(text: string) {
     return text[0].toUpperCase() + text.substring(1);
 }
 
-function getMethodParameterInterfaceName(resource, method: gapi.client.discovery.v1.RestMethod) {
+function getMethodParameterInterfaceName(resource, method: gapi.client.discovery.RestMethod) {
     return firstLetterUp(resource) + firstLetterUp(getName(method.id)) + "Request";
 }
 
@@ -265,7 +263,7 @@ function formatComment(comment: string) {
     return comment;
 }
 
-function getMethodReturn(method: gapi.client.discovery.v1.RestMethod) {
+function getMethodReturn(method: gapi.client.discovery.RestMethod) {
 
     if (method.response) {
         return "gapi.client.Request<" + method.response.$ref + ">";
@@ -332,9 +330,9 @@ export class App {
     }
 
     // writes specified resource definition
-    private writeResources(out: TypescriptTextWriter, resources: gapi.client.discovery.v1.RestResource[]) {
+    private writeResources(out: TypescriptTextWriter, resources: gapi.client.discovery.RestResource[]) {
 
-        _.forEach(resources, (resource: gapi.client.discovery.v1.RestResource, resourceName: string) => {
+        _.forEach(resources, (resource: gapi.client.discovery.RestResource, resourceName: string) => {
 
             var resourceInterfaceName = this.getResourceTypeName(resourceName);
 
@@ -342,7 +340,7 @@ export class App {
 
             out.interface(resourceInterfaceName, () => {
 
-                _.forEach(resource.methods, (method: gapi.client.discovery.v1.RestMethod, name: string) => {
+                _.forEach(resource.methods, (method: gapi.client.discovery.RestMethod, name: string) => {
                     out.comment(formatComment(method.description));
                     out.method(getName(method.id), [{
                         parameter: "request",
@@ -360,7 +358,7 @@ export class App {
                     out.writeLine();
                 });
 
-                _.forEach(resource.resources, (childResource: gapi.client.discovery.v1.RestResource, childResourceName: string) => {
+                _.forEach(resource.resources, (childResource: gapi.client.discovery.RestResource, childResourceName: string) => {
                     var childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + "Resource";
                     out.property(childResourceName, childResourceInterfaceName);
                 });
@@ -387,8 +385,8 @@ export class App {
     }
 
     /// writes api description for specified JSON object
-    private processApi(api: gapi.client.discovery.v1.RestDescription, actualVersion: boolean) {
-
+    private processApi(api: gapi.client.discovery.RestDescription, actualVersion: boolean) {
+        
         console.log(`Generating ${api.id} definitions...`);
 
         var destinationDirectory = this.getTypingsDirectory(api.name, api.version);
@@ -397,13 +395,13 @@ export class App {
             fs.mkdirSync(destinationDirectory);
         }
 
-        var methods = _(processResource(api)).flatten(true).map((x: any) => {
-            return {
-                namespace: getNamespace(x.id),
-                name: getName(x.id),
-                method: x
-            }
-        }).value(),
+        const rawMethods = processResource(api);
+
+        const methods = rawMethods.map((x: any) => ({
+            namespace: getNamespace(x.id),
+            name: getName(x.id),
+            method: x
+        })),
             grouped = _.groupBy(methods, method => method.namespace),
             filename = "gapi.client." + api.name + (actualVersion ? "" : "-" + api.version) + ".d.ts",
             stream = fs.createWriteStream(destinationDirectory + "/" + filename),
@@ -418,7 +416,7 @@ export class App {
 
         // write main namespace
         writer.module(rootNamespace, () => {
-            _.forEach(api.schemas, (schema: gapi.client.discovery.v1.JsonSchema, key) => {
+            _.forEach(api.schemas, (schema: gapi.client.discovery.JsonSchema, key) => {
                 writer.interface(schema.id, () => {
                     _.forEach(schema.properties, (data: any, key) => {
                         writer.comment(formatComment(data.description));
@@ -432,7 +430,7 @@ export class App {
 
         // expose root resources to gapi.client namespace
         writer.module(`gapi.client.${api.name}`, () => {
-            _.forEach(api.resources, (resource: gapi.client.discovery.v1.RestResource, resourceName: string) => {
+            _.forEach(api.resources, (resource: gapi.client.discovery.RestResource, resourceName: string) => {
                 writer.writeLine(`var ${resourceName}: ${rootNamespace}.${this.getResourceTypeName(resourceName)}; `);
                 writer.writeLine();
             })
@@ -477,7 +475,7 @@ export class App {
         });
     }
 
-    public writeReadme(api: gapi.client.discovery.v1.RestDescription) {
+    public writeReadme(api: gapi.client.discovery.RestDescription) {
         var destinationDirectory = this.getTypingsDirectory(api.name, api.version),
             stream = fs.createWriteStream(destinationDirectory + "/readme.md"),
             writer = new StreamWriter(stream);
@@ -490,59 +488,49 @@ export class App {
         }
     }
 
-    public processService(url: string, actualVersion: boolean) {
-        return this
-            .request(url)
-            .then(api => this.processApi(api, actualVersion))
-            .then(api => this.writeReadme(api));
+    public async processService(url: string, actualVersion: boolean) {
+        const api = await this.request(url);
+        const description = await this.processApi(api, actualVersion);
+
+        this.writeReadme(description);
     }
 
-    public discover(service: string = null, allVersions: boolean = false) {
+    public async discover(service: string = null, allVersions: boolean = false) {
         console.log("Discovering Google services...");
 
+        const list: gapi.client.discovery.DirectoryList = await this.request("https://www.googleapis.com/discovery/v1/apis");
 
-        return this
-            .request("https://www.googleapis.com/discovery/v1/apis")
-            .then((list: gapi.client.discovery.v1.DirectoryList) => {
-                var apis = _.filter(list.items, api => service == null || api.name === service);
-                apis = _.filter(apis, api => allVersions || api.preferred);
-                return apis;
-            })
-            .then(items => {
+        var apis = _.filter(list.items, api => service == null || api.name === service);
+        var items = _.filter(apis, api => allVersions || api.preferred);
 
-                if (items.length === 0) {
-                    console.error("Can't find services");
-                    throw Error("Can't find services");
-                } else {
-                    var generation: Promise.IThenable<any> = items.reduce((cur, api: any) => cur.then(() => this.processService(api.discoveryRestUrl, api.preferred)), Promise.resolve(null));
-                    return generation.then(() => items);
-                }
-            })
-            .then(services => {
+        if (items.length === 0) {
+            console.error("Can't find services");
+            throw Error("Can't find services");
+        }
 
-                _.forEach(
-                    _.groupBy(services, service => service.name),
-                    (versions, service) => {
+        for (const api of items) {
+            const service = await this.processService(api.discoveryRestUrl, api.preferred);
+        }
 
-                        var typingsStream = fs.createWriteStream(`${this.typingsDirectory}/${this.getTypingsName(service, null)}.json`),
-                            v = _.reduce(versions, (current, api) => {
-                                current[App.parseVersion(api.version)] = this.getTypingsUrl(api.name, api.version);
-                                return current;
-                            }, {});
+        _.forEach(
+            _.groupBy(items, service => service.name),
+            (versions, service) => {
 
-                        typingsStream.write(JSON.stringify({
-                            "versions": v
-                        }, null, 4));
+                var typingsStream = fs.createWriteStream(`${this.typingsDirectory}/${this.getTypingsName(service, null)}.json`),
+                    v = _.reduce(versions, (current, api) => {
+                        current[App.parseVersion(api.version)] = this.getTypingsUrl(api.name, api.version);
+                        return current;
+                    }, {});
 
-                        typingsStream.end();
-                    });
+                typingsStream.write(JSON.stringify({ "versions": v }, null, 4));
+
+                typingsStream.end();
             });
     }
 }
 
-var params: any = program
+var params = program
     .version("0.0.1")
-    .allowUnknownOption(false)
     .option("-u, --url [url]", "process only specific REST service definition by url")
     .option("-s, --service [name]", "process only specific REST service definition by name")
     //.option("-a, --all", "include previously versions", true)

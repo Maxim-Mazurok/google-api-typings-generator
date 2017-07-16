@@ -8,14 +8,20 @@
     "test": "mocha tests/tests.ts --require ts-node/register"
   },
   "devDependencies": {
+    "@types/commander": "^2.9.1",
+    "@types/dot": "^1.1.2",
+    "@types/form-data": "0.0.33",
+    "@types/lodash": "^4.14.69",
+    "@types/request": "0.0.47",
     "jasmine": "^2.4.1",
     "mocha": "^2.4.5",
-    "ts-node": "^0.5.5",
-    "typescript": "^1.8.7",
-    "typings": "^0.6.8"
+    "ts-node": "^3.2.0",
+    "typescript": "^2.4.1"
   },
   "dependencies": {
+    "commander": "^2.11.0",
     "dot": "^1.0.3",
-    "promise": "^7.1.1"
+    "lodash": "^4.17.4",
+    "request": "^2.81.0"
   }
 }

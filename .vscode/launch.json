@@ -1,7 +1,6 @@
 {
 	"version": "0.2.0",
-	"configurations": [        		    
-		{
+	"configurations": [{
 			"name": "Launch",
 			"type": "node",
 			"request": "launch",
@@ -16,10 +15,8 @@
 			"env": {
 				"NODE_ENV": "development"
 			},
-			"externalConsole": false,
-			"sourceMaps": true,            
-			"outDir": null,
-            "preLaunchTask": "tsc"
+			"sourceMaps": true,
+			"smartStep": true
 		},
 		{
 			"name": "Attach",

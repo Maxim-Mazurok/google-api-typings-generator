@@ -1,22 +1,28 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es2015",
         "module": "commonjs",
-        "sourceMap": false,
-        "inlineSourceMap": true,
-        "inlineSources": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "inlineSourceMap": false,
+        "inlineSources": false,
         "noImplicitAny": false,
         "suppressExcessPropertyErrors": true,
         "diagnostics": false,
         "listFiles": false,
-        "outDir": "distr"       
+        "outDir": "distr",
+        "noEmitOnError": false
     },
-    
-    "files": [
-        "src/google-api-typings-generator.ts",
-        "tests/tests.ts",
-        "typings/main.d.ts",
-        "gapi.client/gapi.client.d.ts",
-        "gapi.client.discovery-v1/gapi.client.discovery.d.ts"
+    "include": [
+        "src/**/*.ts",
+        "test/**/*.ts",
+        "node_modules/@types"
+    ],
+    "exclude": [
+        "/Local/**",
+        "bin",
+        "app",
+        "out",
+        "distr"
     ]
 }

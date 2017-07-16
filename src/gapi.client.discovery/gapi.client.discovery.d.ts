@@ -4,7 +4,7 @@
 
 /// <reference path="../gapi.client/gapi.client.d.ts" />
 
-declare module gapi.client.discovery.v1 {
+declare module gapi.client.discovery {
     
     interface DirectoryList {
         // Indicate the version of the Discovery API used to generate this doc.
@@ -267,6 +267,6 @@ declare module gapi.client.discovery.v1 {
 }
 
 declare module gapi.client.discovery {
-    var apis: gapi.client.discovery.v1.ApisResource; 
+    var apis: gapi.client.discovery.ApisResource; 
     
 }
