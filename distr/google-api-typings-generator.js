@@ -264,20 +264,23 @@ class App {
         return resourceName[0].toUpperCase() + resourceName.substring(1) + "Resource";
     }
     // writes specified resource definition
-    writeResources(out, resources) {
+    writeResources(out, resources, parameters) {
         _.forEach(resources, (resource, resourceName) => {
             var resourceInterfaceName = this.getResourceTypeName(resourceName);
-            this.writeResources(out, resource.resources);
+            this.writeResources(out, resource.resources, parameters);
             out.interface(resourceInterfaceName, () => {
                 _.forEach(resource.methods, (method, name) => {
                     out.comment(formatComment(method.description));
                     out.method(getName(method.id), [{
                             parameter: "request",
                             type: (writer) => {
-                                writer.anonymysType(() => _.forEach(method.parameters, (data, key) => {
-                                    writer.comment(formatComment(data.description));
-                                    writer.property(key, getType(data), data.required || false);
-                                }));
+                                writer.anonymysType(() => {
+                                    const requestParameters = Object.assign({}, parameters, method.parameters);
+                                    _.forEach(requestParameters, (data, key) => {
+                                        writer.comment(formatComment(data.description));
+                                        writer.property(key, getType(data), data.required || false);
+                                    });
+                                });
                             }
                         }], getMethodReturn(method));
                     out.writeLine();
@@ -330,7 +333,7 @@ class App {
                     });
                 });
             });
-            this.writeResources(writer, api.resources);
+            this.writeResources(writer, api.resources, api.parameters);
         });
         // expose root resources to gapi.client namespace
         writer.module(`gapi.client.${api.name}`, () => {

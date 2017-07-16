@@ -330,13 +330,13 @@ export class App {
     }
 
     // writes specified resource definition
-    private writeResources(out: TypescriptTextWriter, resources: gapi.client.discovery.RestResource[]) {
-
+    private writeResources(out: TypescriptTextWriter, resources: gapi.client.discovery.RestResource[], parameters: any = {}) {
+        
         _.forEach(resources, (resource: gapi.client.discovery.RestResource, resourceName: string) => {
 
             var resourceInterfaceName = this.getResourceTypeName(resourceName);
 
-            this.writeResources(out, resource.resources);
+            this.writeResources(out, resource.resources, parameters);
 
             out.interface(resourceInterfaceName, () => {
 
@@ -345,12 +345,14 @@ export class App {
                     out.method(getName(method.id), [{
                         parameter: "request",
                         type: (writer: TypescriptTextWriter) => {
-                            writer.anonymysType(() =>
-                                _.forEach(method.parameters, (data: any, key) => {
+                            writer.anonymysType(() => {
+                                const requestParameters = { ...parameters, ...method.parameters };
+
+                                _.forEach(requestParameters, (data: any, key) => {
                                     writer.comment(formatComment(data.description));
                                     writer.property(key, getType(data), data.required || false);
-                                })
-                            );
+                                });
+                            });
                         }
 
                     }], getMethodReturn(method));
@@ -386,7 +388,7 @@ export class App {
 
     /// writes api description for specified JSON object
     private processApi(api: gapi.client.discovery.RestDescription, actualVersion: boolean) {
-        
+
         console.log(`Generating ${api.id} definitions...`);
 
         var destinationDirectory = this.getTypingsDirectory(api.name, api.version);
@@ -425,7 +427,7 @@ export class App {
                 })
             });
 
-            this.writeResources(writer, api.resources);
+            this.writeResources(writer, api.resources, api.parameters);
         });
 
         // expose root resources to gapi.client namespace
