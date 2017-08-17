@@ -3,6 +3,7 @@ import * as request from 'request';
 import * as fs from 'fs';
 import * as _ from "lodash";
 import * as doT from 'dot';
+import * as path from "path";
 
 var typesMap = {
     "integer": "number",
@@ -76,6 +77,13 @@ interface ITypescriptTextWriter {
 
 type TypescriptWriterCallback = (writer) => void;
 
+function formatPropertyName(name: string) {
+    if (name.indexOf(".") >= 0) {
+        return `"${name}"`;
+    }
+    return name;
+}
+
 class TypescriptTextWriter implements ITypescriptTextWriter {
     constructor(private writer: IndentedTextWriter) {
     }
@@ -88,8 +96,12 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
         this.writer.writeLine("}");
     }
 
-    public reference(path: string) {
+    public referencePath(path: string) {
         this.writer.writeLine(`/// <reference path="${path}" />`);
+    }
+
+    public referenceTypes(type: string) {
+        this.writer.writeLine(`/// <reference types="${type}" />`);
     }
 
     public namespace(name: string, context: TypescriptWriterCallback) {
@@ -123,13 +135,13 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
 
     public property(name: string, type: string | TypescriptWriterCallback, required = true) {
         if (typeof type === 'function') {
-            this.writer.startIndentedLine(`${name}${required ? "" : "?"}: `);
+            this.writer.startIndentedLine(`${formatPropertyName(name)}${required ? "" : "?"}: `);
             type(this);
             this.writer.write(",");
             this.writer.writeLine();
         }
         else if (typeof type === 'string') {
-            this.writer.writeLine(`${name}${required ? "" : "?"}: ${type},`);
+            this.writer.writeLine(`${formatPropertyName(name)}${required ? "" : "?"}: ${type},`);
         }
 
     }
@@ -139,7 +151,7 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
         _.forEach(lines, line => this.writer.writeLine(`// ${line}`));
     }
 
-    public method(name: string, parameters: [{ parameter: string, type: string | TypescriptWriterCallback }], returnType: string) {
+    public method(name: string, parameters: [{ parameter: string, type: string | TypescriptWriterCallback }], returnType: string, singleLine = false) {
         this.writer.startIndentedLine(`${name} (`);
 
         _.forEach(parameters, (parameter, index) => {
@@ -147,7 +159,13 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
             this.write(parameter.type);
 
             if (index + 1 < parameters.length) {
-                this.writeLine(",");
+                this.write(",");
+
+                if (singleLine) {
+                    this.write(" ");
+                } else {
+                    this.writeLine();
+                }
             }
         });
 
@@ -273,10 +291,32 @@ function getMethodReturn(method: gapi.client.discovery.RestMethod) {
     }
 }
 
+function loadTemplate(name: string) {
+    var filename = '';
+
+    if (fs.existsSync(name)) {
+        filename = name;
+    }
+    else if (fs.existsSync(path.join("..", name))) {
+        filename = path.join("..", name);
+    }
+    else {
+        throw Error(`Can\'t find ${name} file template`);
+    }
+
+    doT.templateSettings.strip = false;
+
+    return doT.template(fs.readFileSync(filename, "utf-8"));
+}
+
+const readmeTpl = loadTemplate("readme.dot");
+const tsconfigTpl = loadTemplate("tsconfig.dot");
+const tslintTpl = loadTemplate("tslint.dot");
+const testsTpl = loadTemplate("tests.dot");
+
 export class App {
 
     private typingsDirectory: string;
-    private readmeTpl = this.loadReadmeTemplate();
 
     constructor(private base = __dirname + "/../out/") {
         this.typingsDirectory = base + "/typings";
@@ -294,23 +334,7 @@ export class App {
         console.log();
     }
 
-    private loadReadmeTemplate() {
-        var filename = '';
 
-        if (fs.existsSync('readme.dot')) {
-            filename = 'readme.dot';
-        }
-        else if (fs.existsSync('../readme.dot')) {
-            filename = '../readme.dot';
-        }
-        else {
-            throw Error('Can\'t find readme.md file template');
-        }
-
-        doT.templateSettings.strip = false;
-
-        return doT.template(fs.readFileSync(filename, "utf-8"));
-    }
 
     static parseVersion(version: string) {
         var major, minor, patch;
@@ -331,7 +355,7 @@ export class App {
 
     // writes specified resource definition
     private writeResources(out: TypescriptTextWriter, resources: gapi.client.discovery.RestResource[], parameters: any = {}) {
-        
+
         _.forEach(resources, (resource: gapi.client.discovery.RestResource, resourceName: string) => {
 
             var resourceInterfaceName = this.getResourceTypeName(resourceName);
@@ -405,19 +429,24 @@ export class App {
             method: x
         })),
             grouped = _.groupBy(methods, method => method.namespace),
-            filename = "gapi.client." + api.name + (actualVersion ? "" : "-" + api.version) + ".d.ts",
-            stream = fs.createWriteStream(destinationDirectory + "/" + filename),
+            filename = "index.d.ts",//"gapi.client." + api.name + (actualVersion ? "" : "-" + api.version) + ".d.ts",
+            stream = fs.createWriteStream(path.join(destinationDirectory, filename)),
             writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream))),
             rootNamespace = `gapi.client.${api.name}`;
 
         writer.comment(`Type definitions for ${api.ownerName} ${api.title} ${api.version}`);
         writer.comment(`Project: ${api.documentationLink}`);
-        writer.comment(`Definitions by: Bolisov Alexey`);
+        writer.comment(`Definitions by: Bolisov Alexey <https://github.com/Bolisov>`);
+        writer.comment(`TypeScript Version: 2.3`);        
         writer.writeLine();
-        writer.reference("../gapi.client/gapi.client.d.ts");
+        writer.comment(`IMPORTANT. 
+This file was generated by https://github.com/Bolisov/google-api-typings-generator. Please do not edit it manually.
+In case of any problems please post issue to https://github.com/Bolisov/google-api-typings-generator`);
+        writer.writeLine();
+        writer.referenceTypes("gapi.client");
 
         // write main namespace
-        writer.module(rootNamespace, () => {
+        writer.declareNamespace(rootNamespace, () => {
             _.forEach(api.schemas, (schema: gapi.client.discovery.JsonSchema, key) => {
                 writer.interface(schema.id, () => {
                     _.forEach(schema.properties, (data: any, key) => {
@@ -430,34 +459,31 @@ export class App {
             this.writeResources(writer, api.resources, api.parameters);
         });
 
-        // expose root resources to gapi.client namespace
-        writer.module(`gapi.client.${api.name}`, () => {
+        writer.declareNamespace(`gapi.client`, () => {
+            writer.comment(formatComment(`Load ${api.title} ${api.version}`));
+
+            writer.method(`export function load`, [
+                { parameter: `name`, type: `"${api.name}"` },
+                { parameter: `version`, type: `"${api.version}"` }
+            ], "PromiseLike<void>", true);
+
+            writer.method(`export function load`, [
+                { parameter: `name`, type: `"${api.name}"` },
+                { parameter: `version`, type: `"${api.version}"` },
+                { parameter: `callback`, type: `() => any` }
+            ], "void", true);
+
+            // expose root resources to gapi.client namespace
+
+            writer.writeLine();
+
             _.forEach(api.resources, (resource: gapi.client.discovery.RestResource, resourceName: string) => {
-                writer.writeLine(`var ${resourceName}: ${rootNamespace}.${this.getResourceTypeName(resourceName)}; `);
+                writer.writeLine(`const ${resourceName}: ${rootNamespace}.${this.getResourceTypeName(resourceName)}; `);
                 writer.writeLine();
-            })
+            });
         });
 
         writer.end();
-
-        var typingsStream = fs.createWriteStream(destinationDirectory + "/typings.json");
-
-        typingsStream.write(JSON.stringify({
-            "name": api.name,
-            "main": filename,
-            "version": App.parseVersion(api.version),
-            "author": "Bolisov Alexey",
-            "description": api.description,
-            "homepage": "https://github.com/bolisov/typings-gapi",
-            "ambient": true,
-            "dependencies": {},
-            "devDependencies": {},
-            "ambientDependencies": {
-                "gapi.client": "github:bolisov/typings-gapi/gapi.client"
-            }
-        }, null, 4));
-
-        typingsStream.end();
 
         return api;
     }
@@ -477,13 +503,30 @@ export class App {
         });
     }
 
+    public writeTemplate(name: string, template: (api: gapi.client.discovery.RestDescription) => string, api: gapi.client.discovery.RestDescription) {
+        var destinationDirectory = this.getTypingsDirectory(api.name, api.version),
+            filepath = path.join(destinationDirectory, name);
+
+        //if (!fs.existsSync(filepath)) {
+        var stream = fs.createWriteStream(filepath),
+            writer = new StreamWriter(stream);
+
+        try {
+            writer.write(template(api));
+        }
+        finally {
+            writer.end();
+        }
+        //}
+    }
+
     public writeReadme(api: gapi.client.discovery.RestDescription) {
         var destinationDirectory = this.getTypingsDirectory(api.name, api.version),
             stream = fs.createWriteStream(destinationDirectory + "/readme.md"),
             writer = new StreamWriter(stream);
 
         try {
-            writer.write(this.readmeTpl(api));
+            writer.write(readmeTpl(api));
         }
         finally {
             writer.end();
@@ -495,6 +538,9 @@ export class App {
         const description = await this.processApi(api, actualVersion);
 
         this.writeReadme(description);
+        this.writeTemplate(`tsconfig.json`, tsconfigTpl, api);
+        this.writeTemplate(`tslint.json`, tslintTpl, api);
+        this.writeTemplate(`gapi.client.${description.name}-tests.ts`, testsTpl, api);
     }
 
     public async discover(service: string = null, allVersions: boolean = false) {
@@ -510,24 +556,14 @@ export class App {
             throw Error("Can't find services");
         }
 
-        for (const api of items) {
-            const service = await this.processService(api.discoveryRestUrl, api.preferred);
-        }
-
-        _.forEach(
-            _.groupBy(items, service => service.name),
-            (versions, service) => {
-
-                var typingsStream = fs.createWriteStream(`${this.typingsDirectory}/${this.getTypingsName(service, null)}.json`),
-                    v = _.reduce(versions, (current, api) => {
-                        current[App.parseVersion(api.version)] = this.getTypingsUrl(api.name, api.version);
-                        return current;
-                    }, {});
-
-                typingsStream.write(JSON.stringify({ "versions": v }, null, 4));
-
-                typingsStream.end();
-            });
+        items.forEach(async (api) => {
+            try {
+                const service = await this.processService(api.discoveryRestUrl, api.preferred);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        });
     }
 }
 

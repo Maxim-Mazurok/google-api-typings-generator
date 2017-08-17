@@ -4,19 +4,9 @@ For detailed description please check [documentation]({{=it.documentationLink}})
 
 ## Installing
 
-First you need to install *typings*:
+Install typings for {{=it.title}}:
 ```
-npm install typings --save 
-```
-
-Then install typings for *Google API client*:
-```
-typings install gapi.client --save 
-```
-
-And finally install typings for {{=it.title}}:
-```
-typings install gapi.client.{{=it.name}} --save 
+npm install @types/gapi.client.{{=it.name}}-{{=it.version}} --save-dev
 ```
 
 ## Usage
@@ -34,7 +24,8 @@ Then load api client wrapper:
 gapi.client.load('{{=it.name}}', '{{=it.version}}', () => {
     // now we can use gapi.client.{{=it.name}}
     // ... 
-});```
+});
+```
 
 {{? it.auth }}Don't forget to authenticate your client before sending any request to resources:
 ```typescript
@@ -59,7 +50,10 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 
 After that you can use {{=it.title}} resources:
 
-```typescript{{ for(var resource in it.resources) { }}
-gapi.client.{{=resource}}.<method name>({ /* method parameters */ })
-    .then(response => { /* handling response */ });
-{{ } }}```
+```typescript{{ for(var resource in it.resources) { }}{{ for(var method in it.resources[resource].methods) { }} 
+    
+/* 
+{{=it.resources[resource].methods[method].description}}  
+*/
+await gapi.client.{{=resource}}.{{=method}}({ {{ for(var parameter in it.resources[resource].methods[method].parameters) { }}{{? it.resources[resource].methods[method].parameters[parameter].required }}{{=parameter }}: {{? it.resources[resource].methods[method].parameters[parameter].type === 'integer'}}1{{?}}{{? it.resources[resource].methods[method].parameters[parameter].type === 'string'}}"{{=parameter}}"{{?}}, {{?}}{{ } }} });{{ }}}{{ }}}
+```
