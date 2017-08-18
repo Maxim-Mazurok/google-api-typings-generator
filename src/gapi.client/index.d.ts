@@ -1,11 +1,17 @@
-declare module gapi {
+// Type definitions for Google API client
+// Project: https://developers.google.com
+// Definitions by: Bolisov Alexey <https://github.com/Bolisov>
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.3
+
+declare namespace gapi {
     /**
      * Pragmatically initialize gapi class member.
      */
-    function load(api: string, callback: () => void);
+    export function load(api: string, callback: () => void): void;
 }
 
-declare module gapi.client {
+declare namespace gapi.client {
 
     /**
        * Loads the client library interface to a particular API. The new API interface will be in the form gapi.client.api.collection.method.
@@ -172,7 +178,7 @@ declare module gapi.client {
 
 }
 
-declare module gapi.auth {
+declare namespace gapi.auth {
 
     /**
      * The OAuth 2.0 token object represents the OAuth 2.0 token and any associated data.
