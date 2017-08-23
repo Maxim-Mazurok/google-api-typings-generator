@@ -1,4 +1,4 @@
-# Typescript typings for {{=it.title}}
+# TypeScript typings for {{=it.title}}
 {{=it.description}}
 For detailed description please check [documentation]({{=it.documentationLink}}).
 
@@ -6,7 +6,7 @@ For detailed description please check [documentation]({{=it.documentationLink}})
 
 Install typings for {{=it.title}}:
 ```
-npm install @types/gapi.client.{{=it.name}}-{{=it.version}} --save-dev
+npm install @types/gapi.client.{{=it.name}}@{{=it.version}} --save-dev
 ```
 
 ## Usage

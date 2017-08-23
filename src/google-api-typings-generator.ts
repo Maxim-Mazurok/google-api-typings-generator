@@ -161,7 +161,7 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
 
     public comment(text: string = "") {
         var lines = text.split(/\r\n|\r|\n|\u000a\u000d|\u000a|\u000d|\u240a/g);
-        _.forEach(lines, line => this.writer.writeLine(`// ${line}`));
+        _.forEach(lines, line => this.writer.writeLine(`/** ${line} */`));
     }
 
     public method(name: string, parameters: [{ parameter: string, type: string | TypescriptWriterCallback }], returnType: string, singleLine = false) {
@@ -441,14 +441,14 @@ export class App {
     }
 
     private getTypingsUrl(api: string, version: string) {
-        return `https://guthub.com/bolisov/typings-gapi/typings/${this.getTypingsName(api, version)}`;
+        return `https://github.com/bolisov/typings-gapi/typings/${this.getTypingsName(api, version)}`;
     }
 
     private getTypingsName(api: string, version: string) {
         if (version == null)
             return `gapi.client.${api}`;
         else
-            return `gapi.client.${api}-${version}`;
+            return `gapi.client.${api}/v${version}`;
     }
 
     private getTypingsDirectory(api: string, version: string) {
