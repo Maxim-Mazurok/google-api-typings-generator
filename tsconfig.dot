@@ -8,9 +8,9 @@
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
-        "baseUrl": "../",
+        "baseUrl": {{? it.actualVersion }}"../"{{?}}{{? !it.actualVersion }} "../../" {{?}},
         "typeRoots": [
-            "../"
+            {{? it.actualVersion }}"../"{{?}}{{? !it.actualVersion }}"../../"{{?}}
         ],
         "types": [],
         "noEmit": true,
@@ -18,6 +18,6 @@
     },
     "files": [
         "index.d.ts",
-        "gapi.client.{{=it.name}}-{{=it.version}}-tests.ts"
+        "gapi.client.{{=it.name}}-tests.ts"
     ]
 }

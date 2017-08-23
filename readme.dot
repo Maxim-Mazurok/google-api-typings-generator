@@ -1,4 +1,4 @@
-# TypeScript typings for {{=it.title}}
+# TypeScript typings for {{=it.title}} {{=it.version}}
 {{=it.description}}
 For detailed description please check [documentation]({{=it.documentationLink}}).
 

@@ -6,7 +6,9 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/distr/google-api-typings-generator.js",
 			"stopOnEntry": false,
-			"args": [],
+			"args": [
+				"--out", "D:\\Projects\\GitHub\\DefinitelyTyped\\types"
+			],
 			"cwd": "${workspaceRoot}",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
