@@ -448,7 +448,7 @@ export class App {
         if (version == null)
             return `gapi.client.${api}`;
         else
-            return `gapi.client.${api}/v${version}`;
+            return `gapi.client.${api}/${version}`;
     }
 
     private getTypingsDirectory(api: string, version: string) {
