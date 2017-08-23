@@ -104,7 +104,6 @@ class TypescriptTextWriter {
         this.writer.writeLine(`/// <reference types="${type}" />`);
     }
     namespace(name, context) {
-        this.writer.writeLine();
         this.braces(`namespace ${name}`, context);
     }
     module(name, context) {
@@ -139,8 +138,18 @@ class TypescriptTextWriter {
         }
     }
     comment(text = "") {
-        var lines = text.split(/\r\n|\r|\n|\u000a\u000d|\u000a|\u000d|\u240a/g).map(x => x.replace(/\*/g, "&#42;"));
-        _.forEach(lines, line => this.writer.writeLine(`/** ${line} */`));
+        if (!text || text === "") {
+            return;
+        }
+        const lines = text.trim().split(/\r\n|\r|\n|\u000a\u000d|\u000a|\u000d|\u240a/g).map(x => x.replace(/\*/g, "&#42;"));
+        if (lines.length == 1) {
+            this.writer.writeLine(`/** ${lines[0]} */`);
+        }
+        else if (lines.length > 1) {
+            this.writer.writeLine(`/**`);
+            _.forEach(lines, line => this.writer.writeLine(` * ${line}`));
+            this.writer.writeLine(` */`);
+        }
     }
     method(name, parameters, returnType, singleLine = false) {
         this.writer.startIndentedLine(`${name}(`);
@@ -198,14 +207,6 @@ function getName(path) {
     else
         return null;
 }
-function formatParameters(method, out) {
-    out("{");
-    _.forEach(method.parameters, (data, key) => {
-        out("\t" + key + ": " + (typesMap[data.type] || data.type) + ",");
-    });
-    out("}");
-    //return "{ \r\n\t\t" + _.map(method.parameters, (data, key) => key + ": " + (typesMap[data.type] || data.type)).join(", \r\n\t\t") + "\r\n\t\t }";
-}
 const simpleTypes = ["string", "number"];
 function firstLetterUp(text) {
     return text[0].toUpperCase() + text.substring(1);
@@ -233,7 +234,7 @@ function getType(type, schemas) {
     else if (type.type === "object" && type.properties) {
         return (writer) => {
             writer.anonymysType(() => {
-                _.forEach(type.properties, (property, propertyName) => {
+                forEachOrdered(type.properties, (property, propertyName) => {
                     writer.comment(formatComment(property.description));
                     writer.property(propertyName, getType(property, schemas), property.required || false);
                 });
@@ -270,17 +271,18 @@ function formatComment(comment) {
     return comment;
 }
 function getMethodReturn(method, schemas) {
+    const name = schemas["Request"] ? "client.Request" : "Request";
     if (method.response) {
         const schema = schemas[method.response.$ref];
         if (schema && !_.isEmpty(schema.properties)) {
-            return "gapi.client.Request<" + method.response.$ref + ">";
+            return `${name}<${method.response.$ref}>`;
         }
         else {
-            return "gapi.client.Request<{}>";
+            return `${name}<{}>`;
         }
     }
     else {
-        return "gapi.client.Request<void>";
+        return `${name}<void>`;
     }
 }
 function loadTemplate(name) {
@@ -303,6 +305,17 @@ const tslintTpl = loadTemplate("tslint.dot");
 const testsTpl = loadTemplate("tests.dot");
 function isEmptySchema(schema) {
     return _.isEmpty(schema.properties) && !schema.additionalProperties;
+}
+function forEachOrdered(record, iterator) {
+    const keys = _.keys(record).sort((a, b) => a > b ? 1 : -1);
+    for (const key of keys) {
+        iterator(record[key], key);
+    }
+}
+function sortKeys(record) {
+    return _.map(record, (resource, resourceKey) => ({ resource, resourceKey }))
+        .sort(({ resourceKey: a }, { resourceKey: b }) => a > b ? 1 : -1)
+        .reduce((curr, { resource, resourceKey }) => (Object.assign({}, curr, { [resourceKey]: resource })), {});
 }
 class App {
     constructor(base = __dirname + "/../out/") {
@@ -333,18 +346,18 @@ class App {
     }
     // writes specified resource definition
     writeResources(out, resources, parameters = {}, schemas) {
-        _.forEach(resources, (resource, resourceName) => {
+        forEachOrdered(resources, (resource, resourceName) => {
             var resourceInterfaceName = this.getResourceTypeName(resourceName);
             this.writeResources(out, resource.resources, parameters, schemas);
             out.interface(resourceInterfaceName, () => {
-                _.forEach(resource.methods, (method, name) => {
+                forEachOrdered(resource.methods, (method, name) => {
                     out.comment(formatComment(method.description));
                     out.method(getName(method.id), [{
                             parameter: "request",
                             type: (writer) => {
                                 writer.anonymysType(() => {
                                     const requestParameters = Object.assign({}, parameters, method.parameters);
-                                    _.forEach(requestParameters, (data, key) => {
+                                    forEachOrdered(requestParameters, (data, key) => {
                                         writer.comment(formatComment(data.description));
                                         writer.property(key, getType(data, schemas), data.required || false);
                                     });
@@ -353,7 +366,7 @@ class App {
                         }], getMethodReturn(method, schemas));
                     out.writeLine();
                 });
-                _.forEach(resource.resources, (childResource, childResourceName) => {
+                forEachOrdered(resource.resources, (childResource, childResourceName) => {
                     var childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + "Resource";
                     out.property(childResourceName, childResourceInterfaceName);
                 });
@@ -388,29 +401,13 @@ class App {
         writer.writeLine(`// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped`);
         writer.writeLine(`// TypeScript Version: 2.3`);
         writer.writeLine();
-        writer.comment(`IMPORTANT. 
-This file was generated by https://github.com/Bolisov/google-api-typings-generator. Please do not edit it manually.
-In case of any problems please post issue to https://github.com/Bolisov/google-api-typings-generator`);
-        writer.comment(`Generated from: ${url}`);
+        writer.writeLine(`// IMPORTANT`);
+        writer.writeLine(`// This file was generated by https://github.com/Bolisov/google-api-typings-generator. Please do not edit it manually.`);
+        writer.writeLine(`// In case of any problems please post issue to https://github.com/Bolisov/google-api-typings-generator`);
+        writer.writeLine(`// Generated from: ${url}`);
         writer.writeLine();
         writer.referenceTypes("gapi.client");
         // write main namespace
-        writer.declareNamespace(rootNamespace, () => {
-            _.forEach(api.schemas, (schema, key) => {
-                if (!isEmptySchema(schema)) {
-                    writer.interface(schema.id, () => {
-                        _.forEach(schema.properties, (data, key) => {
-                            writer.comment(formatComment(data.description));
-                            writer.property(key, getType(data, api.schemas), data.required || false);
-                        });
-                        if (schema.additionalProperties) {
-                            writer.property("[key: string]", getType(schema.additionalProperties, api.schemas));
-                        }
-                    });
-                }
-            });
-            this.writeResources(writer, api.resources, api.parameters, api.schemas);
-        });
         writer.declareNamespace(`gapi.client`, () => {
             writer.comment(formatComment(`Load ${api.title} ${api.version}`));
             writer.method(`function load`, [
@@ -424,11 +421,27 @@ In case of any problems please post issue to https://github.com/Bolisov/google-a
             ], "void", true);
             // expose root resources to gapi.client namespace
             writer.writeLine();
-            _.forEach(api.resources, (resource, resourceName) => {
+            forEachOrdered(api.resources, (resource, resourceName) => {
                 if (resourceName !== "debugger") {
-                    writer.writeLine(`const ${resourceName}: ${rootNamespace}.${this.getResourceTypeName(resourceName)}; `);
+                    writer.writeLine(`const ${resourceName}: ${api.name}.${this.getResourceTypeName(resourceName)}; `);
                     writer.writeLine();
                 }
+            });
+            writer.namespace(api.name, () => {
+                forEachOrdered(api.schemas, (schema, key) => {
+                    if (!isEmptySchema(schema)) {
+                        writer.interface(schema.id, () => {
+                            forEachOrdered(schema.properties, (data, key) => {
+                                writer.comment(formatComment(data.description));
+                                writer.property(key, getType(data, api.schemas), data.required || false);
+                            });
+                            if (schema.additionalProperties) {
+                                writer.property("[key: string]", getType(schema.additionalProperties, api.schemas));
+                            }
+                        });
+                    }
+                });
+                this.writeResources(writer, api.resources, api.parameters, api.schemas);
             });
         });
         writer.end();
@@ -470,6 +483,13 @@ In case of any problems please post issue to https://github.com/Bolisov/google-a
             const api = yield this.request(url);
             api.name = api.name.toLocaleLowerCase();
             api.version = api.version.toLocaleLowerCase();
+            api.resources = sortKeys(api.resources);
+            if (api.auth && api.auth.oauth2 && api.auth.oauth2.scopes) {
+                api.auth.oauth2.scopes = sortKeys(api.auth.oauth2.scopes);
+            }
+            _.forEach(api.resources, (resource) => {
+                resource.methods = sortKeys(resource.methods);
+            });
             var destinationDirectory = this.getTypingsDirectory(api.name, actualVersion ? null : api.version);
             ensureDirectoryExists(destinationDirectory);
             yield this.processApi(destinationDirectory, api, actualVersion, url);

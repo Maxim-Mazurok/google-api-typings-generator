@@ -5,6 +5,8 @@
         "no-padding": [false],
         "max-line-length": [],
         "interface-name": [false],
-        "ban-types": [false]
+        "ban-types": [false],
+        "await-promise": [false],
+        "no-irregular-whitespace": [false]
     }
 }
