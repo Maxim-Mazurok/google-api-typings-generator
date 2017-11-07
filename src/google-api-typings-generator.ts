@@ -597,12 +597,7 @@ export class App {
 
             writer.endLine();
 
-            forEachOrdered(api.resources, (resource, resourceName) => {
-                if (resourceName !== "debugger") {
-                    writer.writeLine(`const ${resourceName}: ${api.name}.${this.getResourceTypeName(resourceName)};`);
-                    writer.endLine();
-                }
-            });
+
 
             writer.namespace(api.name, () => {
 
@@ -621,9 +616,15 @@ export class App {
                         });
                     }
                 });
-
+                
                 this.writeResources(writer, api.resources, api.parameters, api.schemas);
 
+                forEachOrdered(api.resources, (resource, resourceName) => {
+                    if (resourceName !== "debugger") {
+                        writer.endLine();                        
+                        writer.writeLine(`const ${resourceName}: ${api.name}.${this.getResourceTypeName(resourceName)};`);                        
+                    }
+                });
             });
 
         });
@@ -689,8 +690,6 @@ export class App {
         var destinationDirectory = this.getTypingsDirectory(api.name, actualVersion ? null : api.version);
 
         ensureDirectoryExists(destinationDirectory);
-
-
 
         await this.processApi(destinationDirectory, api, actualVersion, url);
 
@@ -765,7 +764,7 @@ export class App {
                 for (const resourceName in api.resources) {
                     for (const methodName in api.resources[resourceName].methods) {
                         scope.comment(api.resources[resourceName].methods[methodName].description);
-                        scope.newLine(`await gapi.client.${resourceName}.${methodName}(`);
+                        scope.newLine(`await gapi.client.${api.name}.${resourceName}.${methodName}(`);
                         scope.scope(() => {
                             forEachOrdered(api.resources[resourceName].methods[methodName].parameters, (parameter, name, index) => {
                                 scope.newLine(`${formatPropertyName(name)}: `);
