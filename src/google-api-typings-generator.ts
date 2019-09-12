@@ -609,6 +609,9 @@ export class App {
 
                 forEachOrdered(api.schemas, (schema, key) => {
 
+                    if (isEmptySchema(schema)) {
+                        writer.writeLine(`// tslint:disable-next-line:no-empty-interface`);
+                    }
                     writer.interface(schema.id, () => {
                         forEachOrdered(schema.properties, (data, key) => {
                             writer.comment(formatComment(data.description));
