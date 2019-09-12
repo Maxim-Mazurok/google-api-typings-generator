@@ -376,7 +376,8 @@ function getType(type: gapi.client.discovery.JsonSchema, schemas: Record<string,
         }
     }
     else if (type.type) {
-        return typesMap[type.type] || type.type;
+        const tsType = typesMap[type.type] || type.type;
+        return type.repeated ? `tsType | Array<${tsType}>` : tsType;
     }
     else if (type.$ref) {
         const referencedType = schemas[type.$ref];
