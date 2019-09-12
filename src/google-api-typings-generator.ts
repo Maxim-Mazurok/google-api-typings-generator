@@ -516,6 +516,11 @@ export class App {
                                     writer.comment(formatComment(data.description));
                                     writer.property(key, getType(data, schemas), data.required || false);
                                 });
+
+                                if (method.hasOwnProperty('request') && method.request.hasOwnProperty('$ref')) {
+                                    writer.comment("Request body");
+                                    writer.property('resource', method.request['$ref'], false);
+                                }
                             });
                         }
 
