@@ -1,9 +1,9 @@
 import * as program from 'commander';
 import * as request from 'request';
 import * as fs from 'fs';
-import * as _ from "lodash";
+import * as _ from 'lodash';
 import * as doT from 'dot';
-import * as path from "path";
+import * as path from 'path';
 
 var typesMap = {
     "integer": "number",
@@ -377,7 +377,7 @@ function getType(type: gapi.client.discovery.JsonSchema, schemas: Record<string,
     }
     else if (type.type) {
         const tsType = typesMap[type.type] || type.type;
-        return type.repeated ? `tsType | Array<${tsType}>` : tsType;
+        return type.repeated ? `${tsType} | ${tsType}[]` : tsType;
     }
     else if (type.$ref) {
         const referencedType = schemas[type.$ref];
@@ -617,13 +617,13 @@ export class App {
                         });
                     }
                 });
-                
+
                 this.writeResources(writer, api.resources, api.parameters, api.schemas);
 
                 forEachOrdered(api.resources, (resource, resourceName) => {
                     if (resourceName !== "debugger") {
-                        writer.endLine();                        
-                        writer.writeLine(`const ${resourceName}: ${api.name}.${this.getResourceTypeName(resourceName)};`);                        
+                        writer.endLine();
+                        writer.writeLine(`const ${resourceName}: ${this.getResourceTypeName(resourceName)};`);
                     }
                 });
             });
