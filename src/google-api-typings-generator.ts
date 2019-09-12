@@ -609,18 +609,16 @@ export class App {
 
                 forEachOrdered(api.schemas, (schema, key) => {
 
-                    if (!isEmptySchema(schema)) {
-                        writer.interface(schema.id, () => {
-                            forEachOrdered(schema.properties, (data, key) => {
-                                writer.comment(formatComment(data.description));
-                                writer.property(key, getType(data, api.schemas), data.required || false);
-                            });
-
-                            if (schema.additionalProperties) {
-                                writer.property("[key: string]", getType(schema.additionalProperties, api.schemas));
-                            }
+                    writer.interface(schema.id, () => {
+                        forEachOrdered(schema.properties, (data, key) => {
+                            writer.comment(formatComment(data.description));
+                            writer.property(key, getType(data, api.schemas), data.required || false);
                         });
-                    }
+
+                        if (schema.additionalProperties) {
+                            writer.property("[key: string]", getType(schema.additionalProperties, api.schemas));
+                        }
+                    });
                 });
 
                 this.writeResources(writer, api.resources, api.parameters, api.schemas);
