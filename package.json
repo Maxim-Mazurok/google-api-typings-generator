@@ -3,7 +3,7 @@
   "description": "Google API Typescript typings definitions generator",
   "main": "generator.ts",
   "scripts": {
-    "start": "ts-node src/google-api-typings-generator.ts --out D:\\Projects\\GitHub\\DefinitelyTyped\\types",
+    "start": "ts-node src/google-api-typings-generator.ts --out ./types",
     "tsc": "tsc -p .",
     "test": "mocha tests/tests.ts --require ts-node/register"
   },
