@@ -1,6 +1,6 @@
 // Type definitions for Google API client
 // Project: https://developers.google.com
-// Definitions by: Bolisov Alexey <https://github.com/Bolisov>
+// Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 

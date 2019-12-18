@@ -1,6 +1,4 @@
-/node_modules
-/typings
-/out
-/generator.js
-/generator.js.map
-/distr
+node_modules
+types
+out
+dist

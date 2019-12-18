@@ -1,28 +1,26 @@
 {
-    "compilerOptions": {
-        "target": "es2015",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "inlineSourceMap": false,
-        "inlineSources": false,
-        "noImplicitAny": false,
-        "suppressExcessPropertyErrors": true,
-        "diagnostics": false,
-        "listFiles": false,
-        "outDir": "distr",
-        "noEmitOnError": false
-    },
-    "include": [
-        "src/**/*.ts",
-        "test/**/*.ts",
-        "node_modules/@types"
-    ],
-    "exclude": [
-        "/Local/**",
-        "bin",
-        "app",
-        "out",
-        "distr"
-    ]
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "noImplicitAny": false,
+    "suppressExcessPropertyErrors": true,
+    "diagnostics": false,
+    "listFiles": false,
+    "outDir": "dist",
+    "noEmitOnError": false
+  },
+  "files": [
+    "src/gapi.client/index.d.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/@types",
+    "out"
+  ]
 }
