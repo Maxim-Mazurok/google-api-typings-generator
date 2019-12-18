@@ -5,12 +5,12 @@ import * as _ from 'lodash';
 import * as doT from 'dot';
 import * as path from 'path';
 
-var typesMap = {
-    "integer": "number",
-    "object": "any",
-    "any": "any",
-    "string": "string"
-}
+const typesMap = {
+    'integer': 'number',
+    'object': 'any',
+    'any': 'any',
+    'string': 'string',
+};
 
 interface ITextWriter {
     write(chunk?);
@@ -51,7 +51,7 @@ class StreamWriter implements ITextWriter {
 
 const excludedApi = ["replicapool", "replicapoolupdater"];
 
-const irregylarSpaces = [
+const irregularSpaces = [
     /\u000B/g,// Line Tabulation (\v) - <VT>
     /\u000C/g,// Form Feed (\f) - <FF>
     /\u00A0/g,// No-Break Space - <NBSP>
@@ -116,7 +116,7 @@ function formatPropertyName(name: string) {
 }
 
 function convertVersion(version: string) {
-    var m = version.match(/v(\d+)?\.?(\d+)?/);
+    const m = version.match(/v(\d+)?\.?(\d+)?/);
 
     if (m) {
         const [full, major, minor] = m;
@@ -243,7 +243,7 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
 
         lines = lines.map(x => x.replace(/\*/g, "&#42;").trim());
 
-        for (var irregularSpace of irregylarSpaces) {
+        for (let irregularSpace of irregularSpaces) {
             lines = lines.map(line => line.replace(irregularSpace, " "));
         }
 
@@ -299,19 +299,19 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
 }
 
 function processResource(resource: gapi.client.discovery.RestDescription): any[] {
-    var childs = _.flatten(_.map(resource.resources || {}, value => processResource(value)));
+    const childs = _.flatten(_.map(resource.resources || {}, value => processResource(value)));
     const methodsArray = _.map(resource.methods || {}, value => value);
 
     return [...methodsArray, ...childs];
 }
 
 function getNamespace(path: string) {
-    var parts = path.split('.');
+    const parts = path.split('.');
 
     if (parts.length > 0) {
         parts.splice(parts.length - 1)
 
-        var n: string = _.camelCase(parts.join('.'));
+        const n: string = _.camelCase(parts.join('.'));
         return parts.join('.');
     }
     else
@@ -319,7 +319,7 @@ function getNamespace(path: string) {
 }
 
 function getName(path: string) {
-    var parts = path.split('.');
+    const parts = path.split('.');
 
     if (parts.length > 0)
         return _.last(parts);
@@ -416,7 +416,7 @@ function getMethodReturn(method: gapi.client.discovery.RestMethod, schemas: Reco
 }
 
 function loadTemplate(name: string) {
-    var filename = '';
+    let filename = '';
 
     if (fs.existsSync(name)) {
         filename = name;
@@ -477,8 +477,8 @@ export class App {
     }
 
     static parseVersion(version: string) {
-        var major, minor, patch;
-        var match = version.match(/v(\d+)?(?:\.(\d+))?(.*)?/);
+        let major, minor, patch;
+        const match = version.match(/v(\d+)?(?:\.(\d+))?(.*)?/);
 
         if (match) {
             major = match[1] || 0;
@@ -498,7 +498,7 @@ export class App {
 
         forEachOrdered(resources, (resource, resourceName) => {
 
-            var resourceInterfaceName = this.getResourceTypeName(resourceName);
+            const resourceInterfaceName = this.getResourceTypeName(resourceName);
 
             this.writeResources(out, resource.resources, parameters, schemas);
 
@@ -528,7 +528,7 @@ export class App {
                 });
 
                 forEachOrdered(resource.resources, (childResource, childResourceName) => {
-                    var childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + "Resource";
+                    const childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + 'Resource';
                     out.property(childResourceName, childResourceInterfaceName);
                 });
 
@@ -643,7 +643,7 @@ export class App {
         return new Promise((resolve, reject) => {
             request(url, (error, response, body) => {
                 if (!error && response.statusCode == 200) {
-                    var api = JSON.parse(body);
+                    const api = JSON.parse(body);
                     resolve(api);
                 }
                 else {
@@ -655,8 +655,8 @@ export class App {
     }
 
     public writeTemplate(filepath: string, template: (data: any) => string, api: gapi.client.discovery.RestDescription) {
-        var stream = fs.createWriteStream(filepath),
-            writer = new StreamWriter(stream);
+        const stream = fs.createWriteStream(filepath),
+          writer = new StreamWriter(stream);
 
         try {
             writer.write(template({ ...api, formatPropertyName }));
@@ -667,9 +667,9 @@ export class App {
     }
 
     public writeReadme(api: gapi.client.discovery.RestDescription) {
-        var destinationDirectory = this.getTypingsDirectory(api.name, api.version),
-            stream = fs.createWriteStream(destinationDirectory + "/readme.md"),
-            writer = new StreamWriter(stream);
+        const destinationDirectory = this.getTypingsDirectory(api.name, api.version),
+          stream = fs.createWriteStream(destinationDirectory + '/readme.md'),
+          writer = new StreamWriter(stream);
 
         try {
             writer.write(readmeTpl(api));
@@ -694,7 +694,7 @@ export class App {
             resource.methods = sortKeys(resource.methods);
         });
 
-        var destinationDirectory = this.getTypingsDirectory(api.name, actualVersion ? null : api.version);
+        const destinationDirectory = this.getTypingsDirectory(api.name, actualVersion ? null : api.version);
 
         ensureDirectoryExists(destinationDirectory);
 
@@ -735,7 +735,7 @@ export class App {
                     writer3.writeLine(`const client_id = '<<PUT YOUR CLIENT ID HERE>>';`);
                     writer3.newLine(`const scope = `);
                     writer3.scope((scope) => {
-                        for (var a in api.auth.oauth2.scopes) {
+                        for (let a in api.auth.oauth2.scopes) {
                             writer3.comment(api.auth.oauth2.scopes[a].description);
                             writer3.writeLine(`'${a}',`);
                         }
