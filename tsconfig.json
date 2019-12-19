@@ -11,7 +11,8 @@
     "diagnostics": false,
     "listFiles": false,
     "outDir": "dist",
-    "noEmitOnError": false
+    "noEmitOnError": false,
+    "strict": true
   },
   "include": [
     "src/**/*.ts",

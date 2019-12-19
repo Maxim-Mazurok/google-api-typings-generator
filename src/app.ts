@@ -198,7 +198,7 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
 
     const maxLine = 150;
 
-    let lines = [];
+    let lines: string[] = [];
 
     for (const line of text.trim().split(/\r\n|\r|\n|\u000a\u000d|\u000a|\u000d|\u240a/g)) {
       if (line.length > maxLine) {
@@ -298,25 +298,35 @@ function getNamespace(path: string) {
     const n: string = _.camelCase(parts.join('.'));
     return parts.join('.');
   } else
-    return null;
+    return undefined;
 }
 
-function getName(path: string): string | null {
+function getName(path: string | undefined): string | undefined {
+  if (path == null) {
+    return undefined;
+  }
   const parts = path.split('.');
 
   if (parts.length > 0)
     return _.last(parts);
   else
-    return null;
+    return undefined;
 }
 
 function firstLetterUp(text: string) {
   return text[0].toUpperCase() + text.substring(1);
 }
 
+function checkExists<T>(t: T): NonNullable<T> {
+  if (t == null) {
+    throw new Error('Expected non-null reference, but got null');
+  }
+  return t as NonNullable<T>;
+}
+
 function getType(type: gapi.client.discovery.JsonSchema, schemas: Record<string, gapi.client.discovery.JsonSchema>): string | TypescriptWriterCallback {
   if (type.type === 'array') {
-    const child = getType(type.items, schemas);
+    const child = getType(checkExists(type.items), schemas);
 
     if (typeof child === 'string') {
       return `${child}[]`;
@@ -333,7 +343,9 @@ function getType(type: gapi.client.discovery.JsonSchema, schemas: Record<string,
     return (writer: TypescriptTextWriter) => {
       writer.anonymousType(() => {
         forEachOrdered(type.properties, (property, propertyName) => {
-          writer.comment(formatComment(property.description));
+          if (property.description) {
+            writer.comment(formatComment(property.description));
+          }
           writer.property(propertyName, getType(property, schemas), property.required || false);
         });
 
@@ -344,7 +356,7 @@ function getType(type: gapi.client.discovery.JsonSchema, schemas: Record<string,
     };
   } else if (type.type === 'object' && type.additionalProperties) {
     return (writer: TypescriptTextWriter) => {
-      const child = getType(type.additionalProperties, schemas);
+      const child = getType(checkExists(type.additionalProperties), schemas);
       writer.write('Record<string, ');
       writer.write(child);
       writer.write('>');
@@ -374,7 +386,7 @@ function getMethodReturn(method: gapi.client.discovery.RestMethod, schemas: Reco
   const name = schemas['Request'] ? 'client.Request' : 'Request';
 
   if (method.response) {
-    const schema = schemas[method.response.$ref];
+    const schema = schemas[checkExists(method.response.$ref)];
 
     if (schema && !_.isEmpty(schema.properties)) {
       return `${name}<${method.response.$ref}>`;
@@ -410,7 +422,10 @@ function isEmptySchema(schema: gapi.client.discovery.JsonSchema) {
   return _.isEmpty(schema.properties) && !schema.additionalProperties;
 }
 
-function forEachOrdered<T>(record: Record<string, T>, iterator: (value: T, key: string, index: number) => void) {
+function forEachOrdered<T>(record: Record<string, T> | undefined, iterator: (value: T, key: string, index: number) => void) {
+  if (record == null) {
+    return;
+  }
   const keys = _.keys(record).sort((a, b) => a > b ? 1 : -1);
   let index = 0;
   for (const key of keys) {
@@ -476,24 +491,29 @@ export class App {
 
       const resourceInterfaceName = App.getResourceTypeName(resourceName);
 
-      this.writeResources(out, resource.resources, parameters, schemas);
+      if (resource.resources) {
+        this.writeResources(out, resource.resources, parameters, schemas);
+      }
 
       out.interface(resourceInterfaceName, () => {
-
         forEachOrdered(resource.methods, method => {
-          out.comment(formatComment(method.description));
-          out.method(getName(method.id), [{
+          if (method.description) {
+            out.comment(formatComment(method.description));
+          }
+          out.method(checkExists(getName(method.id)), [{
             parameter: 'request',
             type: (writer: TypescriptTextWriter) => {
               writer.anonymousType(() => {
-                const requestParameters = { ...parameters, ...method.parameters };
+                const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
 
                 forEachOrdered(requestParameters, (data, key) => {
-                  writer.comment(formatComment(data.description));
+                  if (data.description) {
+                    writer.comment(formatComment(data.description));
+                  }
                   writer.property(key, getType(data, schemas), data.required || false);
                 });
 
-                if (method.hasOwnProperty('request') && method.request.hasOwnProperty('$ref')) {
+                if (method.request && method.request['$ref']) {
                   writer.comment('Request body');
                   writer.property('resource', method.request['$ref'], true);
                 }
@@ -501,15 +521,17 @@ export class App {
             },
 
           }], getMethodReturn(method, schemas));
-          if (method.hasOwnProperty('request') && method.request.hasOwnProperty('$ref')) {
-            out.method(getName(method.id), [{
+          if (method.request && method.request['$ref']) {
+            out.method(checkExists(getName(method.id)), [{
               parameter: 'request',
               type: (writer: TypescriptTextWriter) => {
                 writer.anonymousType(() => {
-                  const requestParameters = { ...parameters, ...method.parameters };
+                  const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
 
                   forEachOrdered(requestParameters, (data, key) => {
-                    writer.comment(formatComment(data.description));
+                    if (data.description) {
+                      writer.comment(formatComment(data.description));
+                    }
                     writer.property(key, getType(data, schemas), data.required || false);
                   });
                 });
@@ -521,11 +543,12 @@ export class App {
           }
         });
 
-        forEachOrdered(resource.resources, (childResource, childResourceName) => {
-          const childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + 'Resource';
-          out.property(childResourceName, childResourceInterfaceName);
-        });
-
+        if (resource.resources) {
+          forEachOrdered(resource.resources, (_, childResourceName) => {
+            const childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + 'Resource';
+            out.property(childResourceName, childResourceInterfaceName);
+          });
+        }
       });
 
     });
@@ -558,7 +581,7 @@ export class App {
       stream = fs.createWriteStream(path.join(destinationDirectory, filename)),
       writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream)));
 
-    writer.writeLine(`// Type definitions for non-npm package ${api.title} ${api.version} ${convertVersion(api.version)}`);
+    writer.writeLine(`// Type definitions for non-npm package ${api.title} ${api.version} ${convertVersion(checkExists(api.version))}`);
     writer.writeLine(`// Project: ${api.documentationLink}`);
     writer.writeLine(`// Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>`);
     writer.writeLine(`// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped`);
@@ -592,35 +615,40 @@ export class App {
       writer.endLine();
 
 
-      writer.namespace(api.name, () => {
+      writer.namespace(checkExists(api.name), () => {
+        const schemas = checkExists(api.schemas);
 
-        forEachOrdered(api.schemas, (schema) => {
-
+        forEachOrdered(schemas, (schema) => {
           if (isEmptySchema(schema)) {
             writer.writeLine(`// tslint:disable-next-line:no-empty-interface`);
           }
-          writer.interface(schema.id, () => {
-            forEachOrdered(schema.properties, (data, key) => {
-              writer.comment(formatComment(data.description));
-              writer.property(key, getType(data, api.schemas), data.required || false);
-            });
+          writer.interface(checkExists(schema.id), () => {
+            if (schema.properties) {
+              forEachOrdered(schema.properties, (data, key) => {
+                if (data.description) {
+                  writer.comment(formatComment(data.description));
+                }
+                writer.property(key, getType(data, schemas), data.required || false);
+              });
+            }
 
             if (schema.additionalProperties) {
-              writer.property('[key: string]', getType(schema.additionalProperties, api.schemas));
+              writer.property('[key: string]', getType(schema.additionalProperties, schemas));
             }
           });
         });
 
-        this.writeResources(writer, api.resources, api.parameters, api.schemas);
+        if (api.resources) {
+          this.writeResources(writer, api.resources, api.parameters, schemas);
 
-        forEachOrdered(api.resources, (resource, resourceName) => {
-          if (resourceName !== 'debugger') {
-            writer.endLine();
-            writer.writeLine(`const ${resourceName}: ${App.getResourceTypeName(resourceName)};`);
-          }
-        });
+          forEachOrdered(api.resources, (_, resourceName) => {
+            if (resourceName !== 'debugger') {
+              writer.endLine();
+              writer.writeLine(`const ${resourceName}: ${App.getResourceTypeName(resourceName)};`);
+            }
+          });
+        }
       });
-
     });
 
     writer.end();
@@ -701,7 +729,7 @@ export class App {
         scope.write(`"Test string"`);
         break;
       case "array":
-        this.writeArray(scope, api, property.items);
+        this.writeArray(scope, api, checkExists(property.items));
         break;
       case "object":
         this.writeObject(scope, api, property);
@@ -767,7 +795,7 @@ export class App {
       return;
     }
 
-    const schema = api.schemas[schemaName];
+    const schema = checkExists(api.schemas)[schemaName];
     if (!schema) {
       throw new Error(`Attempted to generate stub for unknown schema '${schemaName}'`);
     }
@@ -840,8 +868,9 @@ export class App {
           writer3.writeLine(`const client_id = '<<PUT YOUR CLIENT ID HERE>>';`);
           writer3.newLine(`const scope = `);
           writer3.scope(() => {
-            for (let a in api.auth.oauth2.scopes) {
-              writer3.comment(api.auth.oauth2.scopes[a].description);
+            const oauth2 = checkExists(api?.auth?.oauth2);
+            for (let a in oauth2.scopes) {
+              writer3.comment(oauth2.scopes[a].description);
               writer3.writeLine(`'${a}',`);
             }
           }, '[', ']');
@@ -883,13 +912,13 @@ export class App {
     writer.endLine(');');
   }
 
-  public async discover(service: string = null, allVersions: boolean = false) {
+  public async discover(service: string | undefined, allVersions: boolean = false) {
     console.log('Discovering Google services...');
 
     const list: gapi.client.discovery.DirectoryList = await this.request('https://www.googleapis.com/discovery/v1/apis');
 
     const apis = _.filter(list.items, api => service == null || api.name === service)
-      .filter(api => excludedApi.indexOf(api.name) < 0);
+      .filter(api => excludedApi.indexOf(checkExists(api.name)) < 0);
 
 
     if (apis.length === 0) {
@@ -904,10 +933,10 @@ export class App {
       const associatedApis = apisLookup[apiKey];
 
       const preferredApi = associatedApis.find(x => x.preferred)
-        || associatedApis.sort((a, b) => a.version > b.version ? 1 : -1)[0];
+        || associatedApis.sort((a, b) => checkExists(a.version) > checkExists(b.version) ? 1 : -1)[0];
 
       if (preferredApi) {
-        await this.processService(preferredApi.discoveryRestUrl, preferredApi.preferred);
+        await this.processService(checkExists(preferredApi.discoveryRestUrl), checkExists(preferredApi.preferred));
       } else {
         console.warn(`Can't find preferred API for ${apiKey}`);
       }
@@ -915,7 +944,7 @@ export class App {
       if (allVersions) {
         for (const api of associatedApis.filter(x => x != preferredApi)) {
           try {
-            await this.processService(api.discoveryRestUrl, api.preferred);
+            await this.processService(checkExists(api.discoveryRestUrl), checkExists(api.preferred));
           } catch (e) {
             console.error(e);
           }
