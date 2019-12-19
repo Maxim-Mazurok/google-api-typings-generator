@@ -1,8 +1,8 @@
-import * as request from 'request';
+import * as doT from 'dot';
 import * as fs from 'fs';
 import * as _ from 'lodash';
-import * as doT from 'dot';
 import * as path from 'path';
+import * as request from 'request';
 
 const typesMap = {
   'integer': 'number',
@@ -425,8 +425,8 @@ function sortKeys<T>(record: Record<string, T>): Record<string, T> {
 }
 
 export class App {
-
   private readonly typingsDirectory: string;
+  private seenSchemaRefs: Set<string> = new Set();
 
   constructor(private base = __dirname + '/../out/') {
     this.typingsDirectory = base;
@@ -626,11 +626,11 @@ export class App {
     writer.end();
   }
 
-  private request(url: string): any {
+  private request(url: string): Promise<gapi.client.discovery.DirectoryList> {
     return new Promise((resolve, reject) => {
       request(url, (error, response, body) => {
         if (!error && response.statusCode == 200) {
-          const api = JSON.parse(body);
+          const api = JSON.parse(body) as gapi.client.discovery.DirectoryList;
           resolve(api);
         } else {
           console.error('Got an error: ', error, ', status code: ', response.statusCode, `, while fetching ${url}`);
@@ -686,6 +686,133 @@ export class App {
     this.writeTemplate(path.join(destinationDirectory, `tslint.json`), tslintTpl, templateData);
 
     this.writeTests(destinationDirectory, api);
+  }
+
+  private writePropertyValue(scope: TypescriptTextWriter, api: gapi.client.discovery.RestDescription, property: gapi.client.discovery.JsonSchema) {
+    switch (property.type) {
+      case "number":
+      case "integer":
+        scope.write(`42`);
+        break;
+      case "boolean":
+        scope.write(`true`);
+        break;
+      case "string":
+        scope.write(`"Test string"`);
+        break;
+      case "array":
+        this.writeArray(scope, api, property.items);
+        break;
+      case "object":
+        this.writeObject(scope, api, property);
+        break;
+      case "any":
+        scope.write(`42`);
+        break;
+      default:
+        throw new Error(`Unknown scalar type ${property.type}`);
+    }
+  }
+
+  private writeArray(scope: TypescriptTextWriter, api: gapi.client.discovery.RestDescription, items: gapi.client.discovery.JsonSchema) {
+    const schemaName = items.$ref;
+    if (schemaName && this.seenSchemaRefs.has(schemaName)) {
+      // Break out of recursive reference by writing undefined
+      scope.write(`undefined`);
+      return;
+    }
+
+    scope.scope(() => {
+      scope.newLine('');
+      if (schemaName) {
+        this.writeSchemaRef(scope, api, schemaName);
+      } else {
+        this.writePropertyValue(scope, api, items);
+      }
+    }, `[`, `]`);
+  }
+
+  private writeObject(scope: TypescriptTextWriter, api: gapi.client.discovery.RestDescription, object: gapi.client.discovery.JsonSchema) {
+    const schemaName = object.additionalProperties?.$ref;
+    if (schemaName && this.seenSchemaRefs.has(schemaName)) {
+      scope.write(`undefined`);
+      return;
+    }
+    if (object.properties) {
+      // If the object has properties, only write that structure
+      scope.scope(() => {
+        this.writeProperties(scope, api, object.properties!);
+      });
+      return;
+    } else if (object.additionalProperties) {
+      // Otherwise, we have a Record<K, V> and we should write a placeholder key
+      scope.scope(() => {
+        scope.newLine(`A: `);
+        if (schemaName) {
+          this.writeSchemaRef(scope, api, schemaName);
+        } else {
+          this.writePropertyValue(scope, api, object.additionalProperties!);
+        }
+      });
+    } else {
+      this.writePropertyValue(scope, api, object);
+    }
+  }
+
+  // Performs a lookup of the specified interface/schema type and recursively generates stubbed values
+  private writeSchemaRef(scope: TypescriptTextWriter, api: gapi.client.discovery.RestDescription, schemaName: string) {
+    if (this.seenSchemaRefs.has(schemaName)) {
+      // Break out of recursive reference by writing undefined
+      scope.write(`undefined`);
+      return;
+    }
+
+    const schema = api.schemas[schemaName];
+    if (!schema) {
+      throw new Error(`Attempted to generate stub for unknown schema '${schemaName}'`);
+    }
+
+    this.seenSchemaRefs.add(schemaName);
+    this.writeObject(scope, api, schema);
+    this.seenSchemaRefs.delete(schemaName);
+  }
+
+  private writeProperties(scope: TypescriptTextWriter, api: gapi.client.discovery.RestDescription, record: Record<string, gapi.client.discovery.JsonSchema>) {
+    forEachOrdered(record, (parameter, name) => {
+      scope.newLine(`${formatPropertyName(name)}: `);
+      if (parameter.type === 'object') {
+        this.writeObject(scope, api, parameter);
+      } else if (parameter.$ref) {
+        this.writeSchemaRef(scope, api, parameter.$ref);
+      } else {
+        this.writePropertyValue(scope, api, parameter);
+      }
+      scope.endLine(`,`);
+    });
+  }
+
+  private writeResourceTests(scope: TypescriptTextWriter, api: gapi.client.discovery.RestDescription, ancestors: string, resourceName: string, resource: gapi.client.discovery.RestResource) {
+    for (const methodName in resource.methods) {
+      scope.comment(resource.methods[methodName].description);
+      scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`);
+      const params = resource.methods![methodName].parameters;
+      if (params) {
+        scope.scope(() => {
+          this.writeProperties(scope, api, params);
+        });
+      }
+      const ref = resource.methods[methodName].request?.$ref;
+      if (ref != null) {
+        scope.write(`, `);
+        this.writeSchemaRef(scope, api, ref);
+      }
+
+      scope.endLine(`);`);
+
+      for (const subResource in resource.resources) {
+        this.writeResourceTests(scope, api, `${ancestors}.${resourceName}`, subResource, resource.resources[subResource]);
+      }
+    }
   }
 
   private writeTests(destinationDirectory: string, api: gapi.client.discovery.RestDescription) {
@@ -747,36 +874,7 @@ export class App {
       writer3.newLine(`async function run() `);
       writer.scope((scope) => {
         for (const resourceName in api.resources) {
-          for (const methodName in api.resources[resourceName].methods) {
-            scope.comment(api.resources[resourceName].methods[methodName].description);
-            scope.newLine(`await gapi.client.${api.name}.${resourceName}.${methodName}(`);
-            scope.scope(() => {
-              forEachOrdered(api.resources[resourceName].methods[methodName].parameters, (parameter, name, index) => {
-                scope.newLine(`${formatPropertyName(name)}: `);
-
-                switch (parameter.type) {
-                  case 'number':
-                  case 'integer': {
-                    scope.write((index + 1).toString(10));
-                    break;
-                  }
-                  case 'boolean': {
-                    scope.write('true');
-                    break;
-                  }
-                  default: {
-                    scope.write(`"${name}"`);
-                  }
-                }
-                scope.endLine(`,`);
-              });
-              if (api.resources[resourceName].methods[methodName].hasOwnProperty('request')) {
-                scope.newLine(`resource: {}`);
-                scope.endLine(`,`);
-              }
-            });
-            scope.endLine(`);`);
-          }
+          this.writeResourceTests(scope, api, `gapi.client.${api.name}`, resourceName, api.resources[resourceName]);
         }
       });
 

@@ -13,11 +13,9 @@
     "outDir": "dist",
     "noEmitOnError": false
   },
-  "files": [
-    "src/gapi.client/index.d.ts"
-  ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "types/**/*.ts",
   ],
   "exclude": [
     "node_modules/@types",
