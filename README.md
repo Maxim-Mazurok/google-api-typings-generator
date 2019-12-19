@@ -1,6 +1,12 @@
 # google-api-typings-generator
-Use this project to generate Typescript typings definition for all Google APIs.
-This project using [Google API discovery](https://developers.google.com/discovery/) service.
+Generate TypeScript typings definition for all Google APIs,
+using [Google API discovery](https://developers.google.com/discovery/) service.
+
+##### My fork DIFF:
+- Supports both `request` and `body` approaches; [details](#resource-vs-body)
+- Includes empty interfaces; [details](#empty-interfaces)
+- Works for arrays, aka `"repeated": true`; [details](#arrays--repeated-values)
+- Other minor fixes and updates
 
 ## Usage
 
@@ -39,3 +45,41 @@ They mostly just make dummy API calls and are not reliable to test anything.
 The proper way to implement tests would be to test types
 and don't run actual API calls at all.
 [dtslint](https://github.com/Microsoft/dtslint) might be helpful.
+
+## Details
+
+### Resource VS Body
+First approach (Resource): 
+```javascript
+gapi.client.sheets.spreadsheets
+  .batchUpdate({
+    spreadsheetId: 'someId',
+    resource: {
+      // Request Body goes here, as part of `request`
+    },
+  })
+```
+second approach (Body):
+```javascript
+gapi.client.sheets.spreadsheets
+  .batchUpdate({
+    spreadsheetId: 'someId',
+  }, {
+    // Request Body goes here, as a second argument
+  })
+```
+Both approaches are valid (tested for Google Sheets API), but first one seems to be default for JS Client Library.
+
+More info here: [google/google-api-javascript-client#432 (comment)](https://github.com/google/google-api-javascript-client/issues/432#issuecomment-530860301), 
+and here: [declanvong@`bec4f89`#r35992626](https://github.com/declanvong/google-api-typings-generator/commit/bec4f89b998db670e4a9d41810ceb39a1ba9b798#r35992626)
+
+### Empty interfaces
+This fork keeps interfaces even if they are empty to make typings more accurate.
+
+More info here: [Maxim-Mazurok/google-api-typings-generator#4](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/4)
+
+### Arrays / repeated values
+This fork understands `"repeated": true`
+
+More info here: [Maxim-Mazurok/google-api-typings-generator#1](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/1)
+and here: [declanvong@`bec4f89`#r35992626](https://github.com/declanvong/google-api-typings-generator/commit/bec4f89b998db670e4a9d41810ceb39a1ba9b798#r35992626)
