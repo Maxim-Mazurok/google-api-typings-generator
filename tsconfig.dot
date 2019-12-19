@@ -19,7 +19,6 @@
     },
     "files": [
         "index.d.ts",
-        "../../src/gapi.client/index.d.ts",
         "gapi.client.{{=it.name}}-tests.ts"
     ]
 }
