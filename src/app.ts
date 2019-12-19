@@ -62,7 +62,7 @@ const irregularSpaces = [
 ];
 
 class IndentedTextWriter {
-  constructor(private writer: ITextWriter, public newLine = '\r\n', public tabString = '    ') {
+  constructor(private writer: ITextWriter, public newLine = '\n', public tabString = '    ') {
 
   }
 
@@ -76,8 +76,16 @@ class IndentedTextWriter {
     this.write(Array(this.indent + 1).join(this.tabString) + chunk);
   }
 
+  public endIndentedLine(chunk = '') {
+    this.write(chunk + Array(this.indent + 1).join(this.tabString));
+  }
+
   public writeLine(chunk = '') {
     this.startIndentedLine(chunk + this.newLine);
+  }
+
+  public writeNewLine(chunk = '') {
+    this.endIndentedLine(chunk + this.newLine);
   }
 
   public end() {
@@ -238,7 +246,7 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
         if (singleLine) {
           this.write(' ');
         } else {
-          this.writeLine();
+          this.writeNewLine();
         }
       }
     });
@@ -251,6 +259,10 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
 
   public writeLine(chunk = '') {
     this.writer.writeLine(chunk);
+  }
+
+  public writeNewLine(chunk = '') {
+    this.writer.writeNewLine(chunk);
   }
 
   public write(chunk: string | TypescriptWriterCallback = '') {
@@ -464,7 +476,7 @@ export class App {
 
       out.interface(resourceInterfaceName, () => {
 
-        forEachOrdered(resource.methods, (method) => {
+        forEachOrdered(resource.methods, method => {
           out.comment(formatComment(method.description));
           out.method(getName(method.id), [{
             parameter: 'request',
@@ -479,12 +491,30 @@ export class App {
 
                 if (method.hasOwnProperty('request') && method.request.hasOwnProperty('$ref')) {
                   writer.comment('Request body');
-                  writer.property('resource', method.request['$ref'], false);
+                  writer.property('resource', method.request['$ref'], true);
                 }
               });
             },
 
           }], getMethodReturn(method, schemas));
+          if (method.hasOwnProperty('request') && method.request.hasOwnProperty('$ref')) {
+            out.method(getName(method.id), [{
+              parameter: 'request',
+              type: (writer: TypescriptTextWriter) => {
+                writer.anonymousType(() => {
+                  const requestParameters = { ...parameters, ...method.parameters };
+
+                  forEachOrdered(requestParameters, (data, key) => {
+                    writer.comment(formatComment(data.description));
+                    writer.property(key, getType(data, schemas), data.required || false);
+                  });
+                });
+              },
+            }, {
+              parameter: 'body',
+              type: method.request['$ref'],
+            }], getMethodReturn(method, schemas));
+          }
         });
 
         forEachOrdered(resource.resources, (childResource, childResourceName) => {
