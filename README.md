@@ -42,9 +42,12 @@ node dist/cli.js --out ./types -s sheets
 
 You will find `gapi.client.${api.name}-tests.ts` files in types directories.
 They mostly just make dummy API calls and are not reliable to test anything.
-The proper way to implement tests would be to test types
-and don't run actual API calls at all.
-[dtslint](https://github.com/Microsoft/dtslint) might be helpful.
+
+The actual testing happens when generated typings are copied into the
+[DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
+repository, using [dtslint](https://github.com/Microsoft/dtslint).
+
+There are also some tests for the generator itself, run `npm test`.
 
 ## Details
 
