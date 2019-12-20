@@ -240,6 +240,10 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
   public method(name: string, parameters: { parameter: string, type: string | TypescriptWriterCallback }[], returnType: string, singleLine = false) {
     this.writer.startIndentedLine(`${name}(`);
 
+    if (!singleLine) {
+      this.writer.indent++;
+      this.writeNewLine();
+    }
     _.forEach(parameters, (parameter, index) => {
       this.write(parameter.parameter + ': ');
       this.write(parameter.type);
@@ -254,6 +258,11 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
         }
       }
     });
+    if (!singleLine) {
+      this.write(',');
+      this.writer.indent--;
+      this.writeNewLine();
+    }
 
     this.writer.write(`): ${returnType};`);
 
@@ -382,14 +391,14 @@ function formatComment(comment: string) {
 }
 
 function getMethodReturn(method: gapi.client.discovery.RestMethod, schemas: Record<string, gapi.client.discovery.JsonSchema>) {
-
   const name = schemas['Request'] ? 'client.Request' : 'Request';
 
   if (method.response) {
-    const schema = schemas[checkExists(method.response.$ref)];
+    const schemaName = method.response.$ref;
+    const schema = schemaName && schemas[schemaName];
 
-    if (schema && !_.isEmpty(schema.properties)) {
-      return `${name}<${method.response.$ref}>`;
+    if (schema && !isEmptySchema(schema)) {
+      return `${name}<${schemaName}>`;
     } else {
       return `${name}<{}>`;
     }
@@ -486,73 +495,73 @@ export class App {
 
   // writes specified resource definition
   private writeResources(out: TypescriptTextWriter, resources: Record<string, gapi.client.discovery.RestResource>, parameters: Record<string, gapi.client.discovery.JsonSchema> = {}, schemas: Record<string, gapi.client.discovery.JsonSchema>) {
+    const requestTypeWriters: (() => void)[] = [];
 
+    // Write all resource interfaces, then all request types.
     forEachOrdered(resources, (resource, resourceName) => {
-
       const resourceInterfaceName = App.getResourceTypeName(resourceName);
 
       if (resource.resources) {
         this.writeResources(out, resource.resources, parameters, schemas);
       }
 
+
       out.interface(resourceInterfaceName, () => {
-        forEachOrdered(resource.methods, method => {
-          if (method.description) {
-            out.comment(formatComment(method.description));
-          }
-          out.method(checkExists(getName(method.id)), [{
-            parameter: 'request',
-            type: (writer: TypescriptTextWriter) => {
-              writer.anonymousType(() => {
-                const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
-
-                forEachOrdered(requestParameters, (data, key) => {
-                  if (data.description) {
-                    writer.comment(formatComment(data.description));
-                  }
-                  writer.property(key, getType(data, schemas), data.required || false);
-                });
-
-                if (method.request && method.request['$ref']) {
-                  writer.comment('Request body');
-                  writer.property('resource', method.request['$ref'], true);
-                }
-              });
-            },
-
-          }], getMethodReturn(method, schemas));
-          if (method.request && method.request['$ref']) {
-            out.method(checkExists(getName(method.id)), [{
-              parameter: 'request',
-              type: (writer: TypescriptTextWriter) => {
-                writer.anonymousType(() => {
-                  const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
-
-                  forEachOrdered(requestParameters, (data, key) => {
-                    if (data.description) {
-                      writer.comment(formatComment(data.description));
-                    }
-                    writer.property(key, getType(data, schemas), data.required || false);
-                  });
-                });
-              },
-            }, {
-              parameter: 'body',
-              type: method.request['$ref'],
-            }], getMethodReturn(method, schemas));
-          }
-        });
-
         if (resource.resources) {
           forEachOrdered(resource.resources, (_, childResourceName) => {
             const childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + 'Resource';
             out.property(childResourceName, childResourceInterfaceName);
           });
         }
-      });
 
+        forEachOrdered(resource.methods, method => {
+          if (method.description) {
+            out.comment(formatComment(method.description));
+          }
+
+          const methodName = checkExists(getName(method.id));
+          // get() on InvitationsResource -> GetInvitationsResourceRequest
+          const requestTypeName = methodName.slice(0, 1).toUpperCase() + methodName.slice(1) + resourceInterfaceName + 'Request';
+
+          requestTypeWriters.push(() => {
+            out.interface(requestTypeName, (writer: TypescriptTextWriter) => {
+              const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
+
+              forEachOrdered(requestParameters, (data, key) => {
+                if (data.description) {
+                  writer.comment(formatComment(data.description));
+                }
+                writer.property(key, getType(data, schemas), data.required || false);
+              });
+
+              if (method.request && method.request['$ref']) {
+                writer.comment('Request body');
+                writer.property('resource', method.request['$ref'], true);
+              }
+            });
+          });
+
+          out.method(methodName, [{
+            parameter: 'request',
+            type: requestTypeName,
+          }], getMethodReturn(method, schemas), true);
+
+          if (method.request && method.request['$ref']) {
+            out.method(methodName, [{
+              parameter: 'request',
+              type: `Omit<${requestTypeName}, 'resource'>`,
+            }, {
+              parameter: 'resource',
+              type: `${requestTypeName}['resource']`,
+            }], getMethodReturn(method, schemas));
+          }
+        });
+      });
     });
+
+    requestTypeWriters.forEach(write => write());
   }
+
 
   private static getTypingsName(api: string, version: string) {
     if (version == null)
