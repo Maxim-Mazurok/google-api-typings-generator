@@ -2,12 +2,11 @@
   "name": "google-api-typings-generator",
   "description": "Google API Typescript typings definitions generator",
   "scripts": {
-    "start": "ts-node -T src/app.ts --out ./types",
+    "start": "ts-node -T src/cli.ts --out ./types",
     "tsc": "tsc -p .",
     "test": "mocha tests/tests.ts --require ts-node/register"
   },
   "engines": {
-    "node": "12.14.0",
     "npm": "6.13.4"
   },
   "devDependencies": {

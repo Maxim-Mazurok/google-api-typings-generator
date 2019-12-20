@@ -11,13 +11,12 @@
     "diagnostics": false,
     "listFiles": false,
     "outDir": "dist",
-    "noEmitOnError": false
+    "noEmitOnError": false,
+    "strict": true
   },
-  "files": [
-    "src/gapi.client/index.d.ts"
-  ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "types/**/*.ts",
   ],
   "exclude": [
     "node_modules/@types",
