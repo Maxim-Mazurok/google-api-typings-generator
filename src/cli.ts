@@ -16,7 +16,7 @@ const app = new App(params.out);
 
 if (params.url) {
   app
-    .processService(params.url, params.all || false)
+    .processService(params.url, true)
     .then(() => console.log('Done'), error => console.error(error));
 } else {
   app
