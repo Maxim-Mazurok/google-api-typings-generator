@@ -15,11 +15,9 @@
     "strict": true
   },
   "include": [
-    "src/**/*.ts",
-    "types/**/*.ts",
+    "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules/@types",
-    "out"
+    "node_modules"
   ]
 }
