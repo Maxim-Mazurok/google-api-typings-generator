@@ -443,7 +443,7 @@ export class App {
   private readonly typingsDirectory: string;
   private seenSchemaRefs: Set<string> = new Set();
 
-  constructor(private base = __dirname + '/../out/') {
+  constructor(private base = __dirname + '/../types/') {
     this.typingsDirectory = base;
 
     if (!fs.existsSync(this.base)) {
