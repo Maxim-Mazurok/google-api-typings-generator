@@ -823,7 +823,7 @@ export class App {
     for (const methodName in resource.methods) {
       scope.comment(resource.methods[methodName].description);
       scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`);
-      const params = resource.methods![methodName].parameters;
+      const params: Record<string, gapi.client.discovery.JsonSchema> = { ...resource['parameters'], ...resource.methods![methodName].parameters };
       if (params) {
         scope.scope(() => {
           this.writeProperties(scope, api, params);
