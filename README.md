@@ -24,14 +24,14 @@ so you might see some errors in the output, that's probably fine.
 If you only want to generate types for **one** service (i.e., Google Sheets)
 use the following command:
 ```sh
-ts-node -T src/cli.ts --out ./types --service sheets
+npx ts-node -T src/cli.ts --out ./types --service sheets
 ```
 where "sheets" is the name of the service. You can find all names 
 [here](https://www.googleapis.com/discovery/v1/apis)
 
 Alternatively, you can compile the project first:
 ```sh
-tsc -p .
+npx tsc
 ```
 and then run it using node:
 ```sh
