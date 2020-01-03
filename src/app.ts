@@ -481,6 +481,7 @@ export class App {
   }
 
   private static getResourceTypeName(resourceName: string) {
+    resourceName = resourceName.split('-').map(x => `${x[0].toUpperCase()}${x.substring(1)}`).join('');
     return resourceName[0].toUpperCase() + resourceName.substring(1) + 'Resource';
   }
 
@@ -503,7 +504,7 @@ export class App {
           const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
           const hasRequestRef = method.request && method.request['$ref'];
           if (!(requestParameters.hasOwnProperty('resource') && hasRequestRef)) { // no resource param and no body at the same time -> generate x(request)
-            out.method(checkExists(getName(method.id)), [{
+            out.method(formatPropertyName(checkExists(getName(method.id))), [{
               parameter: 'request',
               type: (writer: TypescriptTextWriter) => {
                 writer.anonymousType(() => {
@@ -524,7 +525,7 @@ export class App {
             }], getMethodReturn(method, schemas));
           }
           if (method.request && method.request['$ref']) { // has body -> generate x(request, body)
-            out.method(checkExists(getName(method.id)), [{
+            out.method(formatPropertyName(checkExists(getName(method.id))), [{
               parameter: 'request',
               type: (writer: TypescriptTextWriter) => {
                 writer.anonymousType(() => {
@@ -545,7 +546,7 @@ export class App {
 
         if (resource.resources) {
           forEachOrdered(resource.resources, (_, childResourceName) => {
-            const childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + 'Resource';
+            const childResourceInterfaceName = App.getResourceTypeName(childResourceName);
             out.property(childResourceName, childResourceInterfaceName);
           });
         }
