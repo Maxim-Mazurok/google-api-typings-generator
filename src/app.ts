@@ -500,34 +500,34 @@ export class App {
           if (method.description) {
             out.comment(formatComment(method.description));
           }
-          out.method(checkExists(getName(method.id)), [{
-            parameter: 'request',
-            type: (writer: TypescriptTextWriter) => {
-              writer.anonymousType(() => {
-                const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
-
-                forEachOrdered(requestParameters, (data, key) => {
-                  if (data.description) {
-                    writer.comment(formatComment(data.description));
-                  }
-                  writer.property(key, getType(data, schemas), data.required || false);
-                });
-
-                if (method.request && method.request['$ref']) {
-                  writer.comment('Request body');
-                  writer.property('resource', method.request['$ref'], true);
-                }
-              });
-            },
-
-          }], getMethodReturn(method, schemas));
-          if (method.request && method.request['$ref']) {
+          const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
+          const hasRequestRef = method.request && method.request['$ref'];
+          if (!(requestParameters.hasOwnProperty('resource') && hasRequestRef)) { // no resource param and no body at the same time -> generate x(request)
             out.method(checkExists(getName(method.id)), [{
               parameter: 'request',
               type: (writer: TypescriptTextWriter) => {
                 writer.anonymousType(() => {
-                  const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
+                  forEachOrdered(requestParameters, (data, key) => {
+                    if (data.description) {
+                      writer.comment(formatComment(data.description));
+                    }
+                    writer.property(key, getType(data, schemas), data.required || false);
+                  });
 
+                  if (method.request && method.request['$ref']) {
+                    writer.comment('Request body');
+                    writer.property('resource', method.request['$ref'], true);
+                  }
+                });
+              },
+
+            }], getMethodReturn(method, schemas));
+          }
+          if (method.request && method.request['$ref']) { // has body -> generate x(request, body)
+            out.method(checkExists(getName(method.id)), [{
+              parameter: 'request',
+              type: (writer: TypescriptTextWriter) => {
+                writer.anonymousType(() => {
                   forEachOrdered(requestParameters, (data, key) => {
                     if (data.description) {
                       writer.comment(formatComment(data.description));
