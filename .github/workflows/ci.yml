@@ -44,3 +44,4 @@ jobs:
         npm run lint
       env:
         CI: true
+        GAPI_MAX_PARALLEL: 5
