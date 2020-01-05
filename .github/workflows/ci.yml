@@ -30,7 +30,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        max-parallel: [2, 3, 4, 5, 6, 7, 8]
 
     steps:
     - uses: actions/checkout@v1
@@ -38,11 +37,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and lint (${{ matrix.max-parallel }} parallel)
+    - name: npm install, build, and lint
       run: |
         npm ci
         npm start
         npm run lint
       env:
         CI: true
-        GAPI_MAX_PARALLEL: ${{ matrix.max-parallel }}
+        GAPI_MAX_PARALLEL: 3
