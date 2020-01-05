@@ -24,14 +24,14 @@ so you might see some errors in the output, that's probably fine.
 If you only want to generate types for **one** service (i.e., Google Sheets)
 use the following command:
 ```sh
-ts-node -T src/cli.ts --out ./types --service sheets
+npx ts-node -T src/cli.ts --out ./types --service sheets
 ```
 where "sheets" is the name of the service. You can find all names 
 [here](https://www.googleapis.com/discovery/v1/apis)
 
 Alternatively, you can compile the project first:
 ```sh
-tsc -p .
+npx tsc
 ```
 and then run it using node:
 ```sh
@@ -75,6 +75,8 @@ Both approaches are valid (tested for Google Sheets API), but first one seems to
 
 More info here: [google/google-api-javascript-client#432 (comment)](https://github.com/google/google-api-javascript-client/issues/432#issuecomment-530860301), 
 and here: [declanvong@`bec4f89`#r35992626](https://github.com/declanvong/google-api-typings-generator/commit/bec4f89b998db670e4a9d41810ceb39a1ba9b798#r35992626)
+
+**NOTE:** Some APIs have methods that accept `resource` parameter that is not request body. In that case, we only generate second approach ([details](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/14/commits/776e36ef25886fdb2d38a002ed12ba1dacde85c5))
 
 ### Empty interfaces
 This fork keeps interfaces even if they are empty to make typings more accurate.

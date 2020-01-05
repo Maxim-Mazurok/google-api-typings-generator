@@ -443,7 +443,7 @@ export class App {
   private readonly typingsDirectory: string;
   private seenSchemaRefs: Set<string> = new Set();
 
-  constructor(private base = __dirname + '/../out/') {
+  constructor(private base = __dirname + '/../types/') {
     this.typingsDirectory = base;
 
     if (!fs.existsSync(this.base)) {
@@ -481,6 +481,7 @@ export class App {
   }
 
   private static getResourceTypeName(resourceName: string) {
+    resourceName = resourceName.split('-').map(x => `${x[0].toUpperCase()}${x.substring(1)}`).join('');
     return resourceName[0].toUpperCase() + resourceName.substring(1) + 'Resource';
   }
 
@@ -500,34 +501,34 @@ export class App {
           if (method.description) {
             out.comment(formatComment(method.description));
           }
-          out.method(checkExists(getName(method.id)), [{
-            parameter: 'request',
-            type: (writer: TypescriptTextWriter) => {
-              writer.anonymousType(() => {
-                const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
-
-                forEachOrdered(requestParameters, (data, key) => {
-                  if (data.description) {
-                    writer.comment(formatComment(data.description));
-                  }
-                  writer.property(key, getType(data, schemas), data.required || false);
-                });
-
-                if (method.request && method.request['$ref']) {
-                  writer.comment('Request body');
-                  writer.property('resource', method.request['$ref'], true);
-                }
-              });
-            },
-
-          }], getMethodReturn(method, schemas));
-          if (method.request && method.request['$ref']) {
-            out.method(checkExists(getName(method.id)), [{
+          const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
+          const hasRequestRef = method.request && method.request['$ref'];
+          if (!(requestParameters.hasOwnProperty('resource') && hasRequestRef)) { // no resource param and no body at the same time -> generate x(request)
+            out.method(formatPropertyName(checkExists(getName(method.id))), [{
               parameter: 'request',
               type: (writer: TypescriptTextWriter) => {
                 writer.anonymousType(() => {
-                  const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
+                  forEachOrdered(requestParameters, (data, key) => {
+                    if (data.description) {
+                      writer.comment(formatComment(data.description));
+                    }
+                    writer.property(key, getType(data, schemas), data.required || false);
+                  });
 
+                  if (method.request && method.request['$ref']) {
+                    writer.comment('Request body');
+                    writer.property('resource', method.request['$ref'], true);
+                  }
+                });
+              },
+
+            }], getMethodReturn(method, schemas));
+          }
+          if (method.request && method.request['$ref']) { // has body -> generate x(request, body)
+            out.method(formatPropertyName(checkExists(getName(method.id))), [{
+              parameter: 'request',
+              type: (writer: TypescriptTextWriter) => {
+                writer.anonymousType(() => {
                   forEachOrdered(requestParameters, (data, key) => {
                     if (data.description) {
                       writer.comment(formatComment(data.description));
@@ -545,7 +546,7 @@ export class App {
 
         if (resource.resources) {
           forEachOrdered(resource.resources, (_, childResourceName) => {
-            const childResourceInterfaceName = childResourceName[0].toUpperCase() + childResourceName.substring(1) + 'Resource';
+            const childResourceInterfaceName = App.getResourceTypeName(childResourceName);
             out.property(childResourceName, childResourceInterfaceName);
           });
         }
@@ -823,7 +824,7 @@ export class App {
     for (const methodName in resource.methods) {
       scope.comment(resource.methods[methodName].description);
       scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`);
-      const params = resource.methods![methodName].parameters;
+      const params: Record<string, gapi.client.discovery.JsonSchema> = { ...resource['parameters'], ...resource.methods![methodName].parameters };
       if (params) {
         scope.scope(() => {
           this.writeProperties(scope, api, params);
