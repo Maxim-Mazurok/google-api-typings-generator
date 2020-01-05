@@ -1,11 +1,6 @@
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
-const MAX_PARALLEL = 20;
-
-process.stdout.setMaxListeners(MAX_PARALLEL);
-process.stderr.setMaxListeners(MAX_PARALLEL);
-
 const path = process.argv[2];
 const runAll = require('npm-run-all');
 
@@ -16,11 +11,14 @@ const scripts = readdirSync(path, { withFileTypes: true })
   .map(dir => `dtslint ${join(path, dir.name)}`);
 
 const options = {
-  maxParallel: MAX_PARALLEL,
+  maxParallel: scripts.length,
   parallel: true,
   stdout: process.stdout,
   stderr: process.stderr
 };
+
+process.stdout.setMaxListeners(scripts.length);
+process.stderr.setMaxListeners(scripts.length);
 
 runAll([scripts.shift()], options) // run first synchronously to install TypeScript
   .then(() => runAll(scripts, options))
