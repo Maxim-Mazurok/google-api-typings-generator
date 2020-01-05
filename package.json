@@ -2,9 +2,10 @@
   "name": "google-api-typings-generator",
   "description": "Google API Typescript typings definitions generator",
   "scripts": {
-    "lint": "for project in types/gapi.*; do echo \"Linting $project...\" && dtslint \"$project\"; done;",
+    "dtslint": "dtslint",
+    "lint": "ts-node bin/lint.ts ./types",
     "start": "ts-node -T src/cli.ts --out ./types",
-    "test": "mocha tests/tests.ts --require ts-node/register"
+    "test": "tsc --noEmit && mocha tests/tests.ts --require ts-node/register"
   },
   "engines": {
     "npm": "6.13.4"
@@ -18,7 +19,8 @@
     "@types/request": "2.48.4",
     "dtslint": "^2.0.3",
     "jasmine": "^3.5.0",
-    "mocha": "^6.2.2"
+    "mocha": "^6.2.2",
+    "npm-run-all": "^4.1.5"
   },
   "dependencies": {
     "commander": "^4.0.1",
