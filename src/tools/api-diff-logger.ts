@@ -40,7 +40,7 @@ import * as sortObject from 'deep-sort-object';
       if (e.code !== 'ENOENT') console.warn(e);
     }
 
-    if (oldApiString !== '' && oldApiString !== newApiString && parseInt(newApiObject.revision) > parseInt(JSON.parse(oldApiString).revision)) {
+    if (oldApiString !== '' && oldApiString !== newApiString && parseInt(newApiObject.revision) >= parseInt(JSON.parse(oldApiString).revision)) {
       fs.appendFileSync(path.join(__dirname, 'log', 'changes.txt'), `[${new Date().toISOString()}] ${newApiObject.id} changed\n`);
 
       const patch = diff.createPatch(apiFileName, oldApiString, newApiString, undefined, undefined, {
