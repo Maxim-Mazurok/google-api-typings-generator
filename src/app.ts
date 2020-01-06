@@ -32,7 +32,7 @@ class StreamWriter implements ITextWriter {
   }
 }
 
-const excludedApi = ['replicapool', 'replicapoolupdater'];
+export const excludedApi = ['replicapool', 'replicapoolupdater'];
 
 const irregularSpaces = [
   /\u000B/g,// Line Tabulation (\v) - <VT>
@@ -317,12 +317,12 @@ function firstLetterUp(text: string) {
   return text[0].toUpperCase() + text.substring(1);
 }
 
-function checkExists<T>(t: T): NonNullable<T> {
+export const checkExists = <T>(t: T): NonNullable<T> => {
   if (t == null) {
     throw new Error('Expected non-null reference, but got null');
   }
   return t as NonNullable<T>;
-}
+};
 
 function getType(type: gapi.client.discovery.JsonSchema, schemas: Record<string, gapi.client.discovery.JsonSchema>): string | TypescriptWriterCallback {
   if (type.type === 'array') {
@@ -593,7 +593,7 @@ export class App {
     writer.writeLine(`// In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator`);
     writer.writeLine(`// Generated from: ${url}`);
     writer.writeLine();
-    writer.referenceTypes("gapi.client");
+    writer.referenceTypes('gapi.client');
 
     // write main namespace
     writer.declareNamespace(`gapi.client`, () => {
@@ -655,7 +655,7 @@ export class App {
     writer.end();
   }
 
-  private request(url: string): Promise<gapi.client.discovery.DirectoryList> {
+  public static request(url: string): Promise<gapi.client.discovery.DirectoryList> {
     return new Promise((resolve, reject) => {
       request(url, (error, response, body) => {
         if (!error && response.statusCode == 200) {
@@ -684,7 +684,7 @@ export class App {
     let api;
 
     try {
-      api = await this.request(url) as gapi.client.discovery.RestDescription;
+      api = await App.request(url) as gapi.client.discovery.RestDescription;
     } catch (e) {
       console.warn(e);
       return;
@@ -719,23 +719,23 @@ export class App {
 
   private writePropertyValue(scope: TypescriptTextWriter, api: gapi.client.discovery.RestDescription, property: gapi.client.discovery.JsonSchema) {
     switch (property.type) {
-      case "number":
-      case "integer":
+      case 'number':
+      case 'integer':
         scope.write(`42`);
         break;
-      case "boolean":
+      case 'boolean':
         scope.write(`true`);
         break;
-      case "string":
+      case 'string':
         scope.write(`"Test string"`);
         break;
-      case "array":
+      case 'array':
         this.writeArray(scope, api, checkExists(property.items));
         break;
-      case "object":
+      case 'object':
         this.writeObject(scope, api, property);
         break;
-      case "any":
+      case 'any':
         scope.write(`42`);
         break;
       default:
@@ -916,7 +916,7 @@ export class App {
   public async discover(service: string | undefined, allVersions: boolean = false) {
     console.log('Discovering Google services...');
 
-    const list: gapi.client.discovery.DirectoryList = await this.request('https://www.googleapis.com/discovery/v1/apis');
+    const list: gapi.client.discovery.DirectoryList = await App.request('https://www.googleapis.com/discovery/v1/apis');
 
     const apis = _.filter(list.items, api => service == null || api.name === service)
       .filter(api => excludedApi.indexOf(checkExists(api.name)) < 0);

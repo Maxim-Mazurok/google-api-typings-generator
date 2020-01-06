@@ -1,3 +1,5 @@
 node_modules
 types
 dist
+src/tools/apis/*.json
+src/tools/log/*.txt
