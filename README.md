@@ -12,6 +12,13 @@ using [Google API discovery](https://developers.google.com/discovery/) service.
 
 ### Generating types
 
+First of all, you may run `nvm i` (if [installed](https://github.com/nvm-sh/nvm#install--update-script))
+
+Install dependecies:
+```sh
+npm install
+```
+
 Run program:
 ```sh
 npm start
