@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/google-api-typings-generator-maxim.iml" filepath="$PROJECT_DIR$/google-api-typings-generator-maxim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/google-api-typings-generator.iml" filepath="$PROJECT_DIR$/.idea/google-api-typings-generator.iml" />
     </modules>
   </component>
 </project>
