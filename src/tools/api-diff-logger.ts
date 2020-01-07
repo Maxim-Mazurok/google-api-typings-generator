@@ -38,6 +38,7 @@ import * as sortObject from 'deep-sort-object';
       oldApiString = fs.readFileSync(path.join(__dirname, 'apis', apiFileName), { encoding: 'UTF-8' });
     } catch (e) {
       if (e.code !== 'ENOENT') console.warn(e);
+      fs.writeFileSync(path.join(__dirname, 'apis', apiFileName), newApiString);
     }
 
     if (oldApiString !== '' && oldApiString !== newApiString && parseInt(newApiObject.revision) >= parseInt(JSON.parse(oldApiString).revision)) {
@@ -49,10 +50,8 @@ import * as sortObject from 'deep-sort-object';
       });
 
       fs.appendFileSync(path.join(__dirname, 'log', 'diffs.txt'), `[${new Date().toISOString()}] ${newApiObject.id} changed:\n` + patch + '\n');
+
+      fs.writeFileSync(path.join(__dirname, 'apis', apiFileName), newApiString);
     }
-
-    fs.writeFileSync(path.join(__dirname, 'apis', apiFileName), newApiString);
-
-    // process.exit();
   }
 })();
