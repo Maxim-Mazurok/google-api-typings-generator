@@ -6,7 +6,7 @@ Meant to be used with [Google APIs JavaScript Browser Client](https://github.com
 Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/google-api-nodejs-client) which is already in TS; [details](#javascript-vs-nodejs-clients)
 
 ##### My fork DIFF:
-- Supports both `request` and `body` approaches; [details](#resource-vs-body)
+- Supports both `resource` and second-argument approaches; [details](#resource-vs-body)
 - Includes empty interfaces; [details](#empty-interfaces)
 - Works for arrays, aka `"repeated": true`; [details](#arrays--repeated-values)
 - Other minor fixes and updates
