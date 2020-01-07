@@ -1,6 +1,11 @@
 {
   "name": "google-api-typings-generator",
   "description": "Google API Typescript typings definitions generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "license": "MIT",
   "scripts": {
     "dtslint": "dtslint",
     "lint": "ts-node bin/lint.ts ./types",
