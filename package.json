@@ -1,9 +1,16 @@
 {
   "name": "google-api-typings-generator",
   "description": "Google API Typescript typings definitions generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "license": "MIT",
   "scripts": {
+    "dtslint": "dtslint",
+    "lint": "ts-node bin/lint.ts ./types",
     "start": "ts-node -T src/cli.ts --out ./types",
-    "test": "mocha tests/tests.ts --require ts-node/register"
+    "test": "tsc --noEmit && mocha tests/tests.ts --require ts-node/register"
   },
   "engines": {
     "npm": "6.13.4"
@@ -15,13 +22,14 @@
     "@types/jasmine": "^3.5.0",
     "@types/lodash": "^4.14.149",
     "@types/request": "2.48.4",
+    "dtslint": "^2.0.5",
     "jasmine": "^3.5.0",
-    "mocha": "^7.0.0"
+    "mocha": "^7.0.0",
+    "npm-run-all": "^4.1.5"
   },
   "dependencies": {
     "commander": "^4.1.0",
     "dot": "^1.1.3",
-    "dtslint": "^2.0.5",
     "lodash": "^4.17.15",
     "request": "^2.88.0",
     "ts-node": "^8.5.4",
