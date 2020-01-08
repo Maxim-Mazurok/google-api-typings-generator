@@ -1,5 +1,6 @@
 import { readdirSync } from 'fs';
 import { join } from 'path';
+import * as runAll from 'npm-run-all';
 
 const MAX_PARALLEL = Number(process.env.GAPI_MAX_PARALLEL) || 1;
 
@@ -7,7 +8,6 @@ process.stdout.setMaxListeners(MAX_PARALLEL);
 process.stderr.setMaxListeners(1 + MAX_PARALLEL);
 
 const path = process.argv[2];
-const runAll = require('npm-run-all');
 
 console.log(`Reading project directories in ${path}...`);
 
