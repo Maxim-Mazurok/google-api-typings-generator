@@ -86,6 +86,46 @@ gapi.load('client', () => {
             query: "Test string",
         });
         /**
+         * Find the tenancy unit for a managed service and service consumer.
+         * This method shouldn't be used in a service producer's runtime path, for
+         * example to find the tenant project number when creating VMs. Service
+         * producers must persist the tenant project's information after the project
+         * is created.
+         */
+        await gapi.client.serviceconsumermanagement.services.tenancyUnits.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a tenancy unit with no tenant resources.
+         * If tenancy unit already exists, it will be returned,
+         * however, in this case, returned TenancyUnit does not have tenant_resources
+         * field set and ListTenancyUnit has to be used to get a complete
+         * TenancyUnit with all fields populated.
+         */
+        await gapi.client.serviceconsumermanagement.services.tenancyUnits.create({
+            parent: "Test string",
+        }, {
+            tenancyUnitId: "Test string",
+        });
+        /**
+         * Removes the specified project resource identified by a tenant resource tag.
+         * The method removes the project lien with 'TenantManager' origin if that
+         * was added. It then attempts to delete the project. If that operation
+         * fails, this method also fails.
+         * Calls to remove already removed or non-existent tenant project succeed.
+         * After the project has been deleted, or if was already in a DELETED state,
+         * resource metadata is permanently removed from the tenancy unit.
+         * Operation<response: Empty>.
+         */
+        await gapi.client.serviceconsumermanagement.services.tenancyUnits.removeProject({
+            name: "Test string",
+        }, {
+            tag: "Test string",
+        });
+        /**
          * Attach an existing project to the tenancy unit as a new tenant
          * resource. The project could either be the tenant project reserved by
          * calling `AddTenantProject` under a tenancy unit of a service producer's
@@ -226,46 +266,6 @@ gapi.load('client', () => {
          */
         await gapi.client.serviceconsumermanagement.services.tenancyUnits.delete({
             name: "Test string",
-        });
-        /**
-         * Find the tenancy unit for a managed service and service consumer.
-         * This method shouldn't be used in a service producer's runtime path, for
-         * example to find the tenant project number when creating VMs. Service
-         * producers must persist the tenant project's information after the project
-         * is created.
-         */
-        await gapi.client.serviceconsumermanagement.services.tenancyUnits.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a tenancy unit with no tenant resources.
-         * If tenancy unit already exists, it will be returned,
-         * however, in this case, returned TenancyUnit does not have tenant_resources
-         * field set and ListTenancyUnit has to be used to get a complete
-         * TenancyUnit with all fields populated.
-         */
-        await gapi.client.serviceconsumermanagement.services.tenancyUnits.create({
-            parent: "Test string",
-        }, {
-            tenancyUnitId: "Test string",
-        });
-        /**
-         * Removes the specified project resource identified by a tenant resource tag.
-         * The method removes the project lien with 'TenantManager' origin if that
-         * was added. It then attempts to delete the project. If that operation
-         * fails, this method also fails.
-         * Calls to remove already removed or non-existent tenant project succeed.
-         * After the project has been deleted, or if was already in a DELETED state,
-         * resource metadata is permanently removed from the tenancy unit.
-         * Operation<response: Empty>.
-         */
-        await gapi.client.serviceconsumermanagement.services.tenancyUnits.removeProject({
-            name: "Test string",
-        }, {
-            tag: "Test string",
         });
     }
 });

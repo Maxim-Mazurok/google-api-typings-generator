@@ -14,6 +14,14 @@ gapi.load('client', () => {
         const scope = [
             /** Read, compose, send, and permanently delete all your email from Gmail */
             'https://mail.google.com/',
+            /** Manage drafts and send emails when you interact with the add-on */
+            'https://www.googleapis.com/auth/gmail.addons.current.action.compose',
+            /** View your email messages when you interact with the add-on */
+            'https://www.googleapis.com/auth/gmail.addons.current.message.action',
+            /** View your email message metadata when the add-on is running */
+            'https://www.googleapis.com/auth/gmail.addons.current.message.metadata',
+            /** View your email messages when the add-on is running */
+            'https://www.googleapis.com/auth/gmail.addons.current.message.readonly',
             /** Manage drafts and send emails */
             'https://www.googleapis.com/auth/gmail.compose',
             /** Insert mail into your mailbox */
@@ -479,7 +487,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -960,7 +968,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -1441,7 +1449,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -1922,7 +1930,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -2403,7 +2411,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -2892,7 +2900,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -3378,7 +3386,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -3867,7 +3875,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -4351,7 +4359,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -4841,7 +4849,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -5789,7 +5797,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -6270,7 +6278,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -6751,7 +6759,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -7232,7 +7240,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -7713,7 +7721,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -8202,7 +8210,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -8688,7 +8696,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -9177,7 +9185,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -9661,7 +9669,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -10151,7 +10159,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -11104,7 +11112,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -11585,7 +11593,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -12066,7 +12074,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -12547,7 +12555,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -13028,7 +13036,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -13517,7 +13525,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -14003,7 +14011,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -14492,7 +14500,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -14976,7 +14984,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.
@@ -15466,7 +15474,7 @@ gapi.load('client', () => {
          * Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of
          * the same G Suite organization as the delegator user.
          *
-         * Gmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
+         * Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your
          * organization, but in general each user can have up to 25 delegates and up to 10 delegators.
          *
          * Note that a delegate user must be referred to by their primary email address, and not an email alias.

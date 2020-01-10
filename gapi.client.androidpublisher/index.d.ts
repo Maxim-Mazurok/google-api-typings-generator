@@ -122,6 +122,11 @@ declare namespace gapi.client {
             /** Screen width in pixels */
             screenWidthPx?: number;
         }
+        interface DeviceSpec {
+            screenDensity?: number;
+            supportedAbis?: string[];
+            supportedLocales?: string[];
+        }
         interface ExpansionFile {
             /**
              * If set this field indicates that this APK has an Expansion File uploaded to it: this APK does not reference another APK's Expansion File. The field's
@@ -347,6 +352,8 @@ declare namespace gapi.client {
              * - Rewarded (i.e. from watching a video ad instead of paying)
              */
             purchaseType?: number;
+            /** The quantity associated with the purchase of the inapp product. */
+            quantity?: number;
         }
         interface ProductPurchasesAcknowledgeRequest {
             /** Payload to attach to the purchase. */
@@ -543,6 +550,12 @@ declare namespace gapi.client {
             /** The new expiry time for the subscription in milliseconds since the Epoch. */
             newExpiryTimeMillis?: string;
         }
+        interface SystemApkVariantsCreateRequest {
+            deviceSpec?: DeviceSpec;
+        }
+        interface SystemApkVariantsListResponse {
+            variants?: Variant[];
+        }
         interface Testers {
             /** A list of all Google Groups, as email addresses, that define testers for this track. */
             googleGroups?: string[];
@@ -618,6 +631,10 @@ declare namespace gapi.client {
             thumbsDownCount?: number;
             /** Number of users who have given this review a thumbs up */
             thumbsUpCount?: number;
+        }
+        interface Variant {
+            deviceSpec?: DeviceSpec;
+            variantId?: number;
         }
         interface VoidedPurchase {
             /** This kind represents a voided purchase object in the androidpublisher service. */
@@ -2484,6 +2501,121 @@ declare namespace gapi.client {
             },
             body: ReviewsReplyRequest): Request<ReviewsReplyResponse>;
         }
+        interface VariantsResource {
+            /** Creates a new variant of APK which is suitable for inclusion in a system image. */
+            create(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Unique identifier for the Android app; for example, "com.spiffygame". */
+                packageName: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** The version code of the App Bundle. */
+                versionCode: string;
+                /** Request body */
+                resource: SystemApkVariantsCreateRequest;
+            }): Request<Variant>;
+            create(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Unique identifier for the Android app; for example, "com.spiffygame". */
+                packageName: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** The version code of the App Bundle. */
+                versionCode: string;
+            },
+            body: SystemApkVariantsCreateRequest): Request<Variant>;
+            /** Download a previously created APK which is suitable for inclusion in a system image. */
+            download(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Unique identifier for the Android app; for example, "com.spiffygame". */
+                packageName: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                variantId: number;
+                /** The version code of the App Bundle. */
+                versionCode: string;
+            }): Request<void>;
+            /** Returns a previously created system APK variant. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Unique identifier for the Android app; for example, "com.spiffygame". */
+                packageName: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Unique identifier for this variant. */
+                variantId: number;
+                /** The version code of the App Bundle. */
+                versionCode: string;
+            }): Request<Variant>;
+            /** Returns the list of previously created system APK variants. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Unique identifier for the Android app; for example, "com.spiffygame". */
+                packageName: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** The version code of the App Bundle. */
+                versionCode: string;
+            }): Request<SystemApkVariantsListResponse>;
+        }
+        interface SystemapksResource {
+            variants: VariantsResource;
+        }
 
         const edits: EditsResource;
 
@@ -2496,5 +2628,7 @@ declare namespace gapi.client {
         const purchases: PurchasesResource;
 
         const reviews: ReviewsResource;
+
+        const systemapks: SystemapksResource;
     }
 }

@@ -58,12 +58,12 @@ After that you can use Cloud SQL Admin API resources:
 /* 
 Deletes the backup taken by a backup run.  
 */
-await gapi.client.backupRuns.delete({ project: "project", id: "id", instance: "instance",  }); 
+await gapi.client.backupRuns.delete({ instance: "instance", project: "project", id: "id",  }); 
     
 /* 
 Retrieves a resource containing information about a backup run.  
 */
-await gapi.client.backupRuns.get({ instance: "instance", project: "project", id: "id",  }); 
+await gapi.client.backupRuns.get({ project: "project", id: "id", instance: "instance",  }); 
     
 /* 
 Creates a new backup run on demand. This method is applicable only to
@@ -75,18 +75,18 @@ await gapi.client.backupRuns.insert({ instance: "instance", project: "project", 
 Lists all backup runs associated with a given instance and configuration in
 the reverse chronological order of the backup initiation time.  
 */
-await gapi.client.backupRuns.list({ instance: "instance", project: "project",  }); 
+await gapi.client.backupRuns.list({ project: "project", instance: "instance",  }); 
     
 /* 
 Deletes a database from a Cloud SQL instance.  
 */
-await gapi.client.databases.delete({ project: "project", database: "database", instance: "instance",  }); 
+await gapi.client.databases.delete({ instance: "instance", project: "project", database: "database",  }); 
     
 /* 
 Retrieves a resource containing information about a database inside a Cloud
 SQL instance.  
 */
-await gapi.client.databases.get({ instance: "instance", project: "project", database: "database",  }); 
+await gapi.client.databases.get({ project: "project", database: "database", instance: "instance",  }); 
     
 /* 
 Inserts a resource containing information about a database inside a Cloud
@@ -97,19 +97,19 @@ await gapi.client.databases.insert({ instance: "instance", project: "project",  
 /* 
 Lists databases in the specified Cloud SQL instance.  
 */
-await gapi.client.databases.list({ instance: "instance", project: "project",  }); 
+await gapi.client.databases.list({ project: "project", instance: "instance",  }); 
     
 /* 
 Partially updates a resource containing information about a database inside
 a Cloud SQL instance. This method supports patch semantics.  
 */
-await gapi.client.databases.patch({ database: "database", instance: "instance", project: "project",  }); 
+await gapi.client.databases.patch({ project: "project", database: "database", instance: "instance",  }); 
     
 /* 
 Updates a resource containing information about a database inside a Cloud
 SQL instance.  
 */
-await gapi.client.databases.update({ instance: "instance", project: "project", database: "database",  }); 
+await gapi.client.databases.update({ project: "project", database: "database", instance: "instance",  }); 
     
 /* 
 List all available database flags for Cloud SQL instances.  
@@ -128,7 +128,7 @@ await gapi.client.instances.addServerCa({ instance: "instance", project: "projec
 /* 
 Creates a Cloud SQL instance as a clone of the source instance.  
 */
-await gapi.client.instances.clone({ project: "project", instance: "instance",  }); 
+await gapi.client.instances.clone({ instance: "instance", project: "project",  }); 
     
 /* 
 Deletes a Cloud SQL instance.  
@@ -180,13 +180,13 @@ the certificate that is currently in use, a CA that has been added but not
 yet used to sign a certificate, and a CA used to sign a certificate that
 has previously rotated out.  
 */
-await gapi.client.instances.listServerCas({ instance: "instance", project: "project",  }); 
+await gapi.client.instances.listServerCas({ project: "project", instance: "instance",  }); 
     
 /* 
 Updates settings of a Cloud SQL instance.
 This method supports patch semantics.  
 */
-await gapi.client.instances.patch({ instance: "instance", project: "project",  }); 
+await gapi.client.instances.patch({ project: "project", instance: "instance",  }); 
     
 /* 
 Promotes the read replica instance to be a stand-alone Cloud SQL instance.  
@@ -197,7 +197,7 @@ await gapi.client.instances.promoteReplica({ instance: "instance", project: "pro
 Deletes all client certificates and generates a new server SSL certificate
 for the instance.  
 */
-await gapi.client.instances.resetSslConfig({ instance: "instance", project: "project",  }); 
+await gapi.client.instances.resetSslConfig({ project: "project", instance: "instance",  }); 
     
 /* 
 Restarts a Cloud SQL instance.  
@@ -207,7 +207,7 @@ await gapi.client.instances.restart({ project: "project", instance: "instance", 
 /* 
 Restores a backup of a Cloud SQL instance.  
 */
-await gapi.client.instances.restoreBackup({ project: "project", instance: "instance",  }); 
+await gapi.client.instances.restoreBackup({ instance: "instance", project: "project",  }); 
     
 /* 
 Rotates the server certificate to one signed by the Certificate Authority
@@ -218,12 +218,12 @@ await gapi.client.instances.rotateServerCa({ instance: "instance", project: "pro
 /* 
 Starts the replication in the read replica instance.  
 */
-await gapi.client.instances.startReplica({ project: "project", instance: "instance",  }); 
+await gapi.client.instances.startReplica({ instance: "instance", project: "project",  }); 
     
 /* 
 Stops the replication in the read replica instance.  
 */
-await gapi.client.instances.stopReplica({ instance: "instance", project: "project",  }); 
+await gapi.client.instances.stopReplica({ project: "project", instance: "instance",  }); 
     
 /* 
 Truncate MySQL general and slow query log tables  
@@ -237,12 +237,12 @@ you must include values for all the settings that you want to retain. For
 partial updates, use <a
 href="/sql/docs/db_path/admin-api/rest/v1beta4/instances/patch">patch</a>.</aside>  
 */
-await gapi.client.instances.update({ project: "project", instance: "instance",  }); 
+await gapi.client.instances.update({ instance: "instance", project: "project",  }); 
     
 /* 
 Retrieves an instance operation that has been performed on an instance.  
 */
-await gapi.client.operations.get({ operation: "operation", project: "project",  }); 
+await gapi.client.operations.get({ project: "project", operation: "operation",  }); 
     
 /* 
 Lists all instance operations that have been performed on the given Cloud
@@ -262,7 +262,7 @@ await gapi.client.sslCerts.createEphemeral({ instance: "instance", project: "pro
 Deletes the SSL certificate. For First Generation instances, the
 certificate remains valid until the instance is restarted.  
 */
-await gapi.client.sslCerts.delete({ project: "project", sha1Fingerprint: "sha1Fingerprint", instance: "instance",  }); 
+await gapi.client.sslCerts.delete({ instance: "instance", project: "project", sha1Fingerprint: "sha1Fingerprint",  }); 
     
 /* 
 Retrieves a particular SSL certificate.  Does not include the private key
@@ -293,7 +293,7 @@ await gapi.client.tiers.list({ project: "project",  });
 /* 
 Deletes a user from a Cloud SQL instance.  
 */
-await gapi.client.users.delete({ project: "project", instance: "instance",  }); 
+await gapi.client.users.delete({ instance: "instance", project: "project",  }); 
     
 /* 
 Creates a new user in a Cloud SQL instance.  
@@ -308,5 +308,5 @@ await gapi.client.users.list({ instance: "instance", project: "project",  });
 /* 
 Updates an existing user in a Cloud SQL instance.  
 */
-await gapi.client.users.update({ project: "project", instance: "instance",  });
+await gapi.client.users.update({ instance: "instance", project: "project",  });
 ```

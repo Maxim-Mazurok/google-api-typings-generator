@@ -37,12 +37,6 @@ gapi.load('client', () => {
         await gapi.client.firebasehosting.sites.getConfig({
             name: "Test string",
         });
-        /** Lists the releases that have been created on the specified site. */
-        await gapi.client.firebasehosting.sites.releases.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /**
          * Creates a new release which makes the content of the specified version
          * actively display on the site.
@@ -117,6 +111,12 @@ gapi.load('client', () => {
                 status: "Test string",
                 versionBytes: "Test string",
             },
+        });
+        /** Lists the releases that have been created on the specified site. */
+        await gapi.client.firebasehosting.sites.releases.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Adds content files to a version. */
         await gapi.client.firebasehosting.sites.versions.populateFiles({
@@ -394,12 +394,6 @@ gapi.load('client', () => {
         }, {
             maxVersions: "Test string",
         });
-        /** Lists the releases that have been created on the specified site. */
-        await gapi.client.firebasehosting.sites.releases.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /**
          * Creates a new release which makes the content of the specified version
          * actively display on the site.
@@ -474,6 +468,12 @@ gapi.load('client', () => {
                 status: "Test string",
                 versionBytes: "Test string",
             },
+        });
+        /** Lists the releases that have been created on the specified site. */
+        await gapi.client.firebasehosting.sites.releases.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Adds content files to a version. */
         await gapi.client.firebasehosting.sites.versions.populateFiles({

@@ -147,7 +147,7 @@ await gapi.client.models.get({ projectId: "projectId", datasetId: "datasetId", m
 Lists all models in the specified dataset. Requires the READER dataset
 role.  
 */
-await gapi.client.models.list({ projectId: "projectId", datasetId: "datasetId",  }); 
+await gapi.client.models.list({ datasetId: "datasetId", projectId: "projectId",  }); 
     
 /* 
 Patch specific fields in the specified model.  
@@ -194,27 +194,27 @@ await gapi.client.routines.update({ projectId: "projectId", datasetId: "datasetI
 /* 
 Streams data into BigQuery one record at a time without needing to run a load job. Requires the WRITER dataset role.  
 */
-await gapi.client.tabledata.insertAll({ datasetId: "datasetId", tableId: "tableId", projectId: "projectId",  }); 
+await gapi.client.tabledata.insertAll({ projectId: "projectId", datasetId: "datasetId", tableId: "tableId",  }); 
     
 /* 
 Retrieves table data from a specified set of rows. Requires the READER dataset role.  
 */
-await gapi.client.tabledata.list({ projectId: "projectId", tableId: "tableId", datasetId: "datasetId",  }); 
+await gapi.client.tabledata.list({ datasetId: "datasetId", projectId: "projectId", tableId: "tableId",  }); 
     
 /* 
 Deletes the table specified by tableId from the dataset. If the table contains data, all the data will be deleted.  
 */
-await gapi.client.tables.delete({ projectId: "projectId", datasetId: "datasetId", tableId: "tableId",  }); 
+await gapi.client.tables.delete({ datasetId: "datasetId", tableId: "tableId", projectId: "projectId",  }); 
     
 /* 
 Gets the specified table resource by table ID. This method does not return the data in the table, it only returns the table resource, which describes the structure of this table.  
 */
-await gapi.client.tables.get({ tableId: "tableId", projectId: "projectId", datasetId: "datasetId",  }); 
+await gapi.client.tables.get({ datasetId: "datasetId", tableId: "tableId", projectId: "projectId",  }); 
     
 /* 
 Creates a new, empty table in the dataset.  
 */
-await gapi.client.tables.insert({ projectId: "projectId", datasetId: "datasetId",  }); 
+await gapi.client.tables.insert({ datasetId: "datasetId", projectId: "projectId",  }); 
     
 /* 
 Lists all tables in the specified dataset. Requires the READER dataset role.  

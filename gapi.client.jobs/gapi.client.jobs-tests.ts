@@ -44,6 +44,268 @@ gapi.load('client', () => {
             type: "Test string",
         });
         /**
+         * Deletes specified company.
+         * Prerequisite: The company has no jobs associated with it.
+         */
+        await gapi.client.jobs.projects.companies.delete({
+            name: "Test string",
+        });
+        /** Retrieves specified company. */
+        await gapi.client.jobs.projects.companies.get({
+            name: "Test string",
+        });
+        /**
+         * Updates specified company. Company names can't be updated. To update a
+         * company name, delete the company and all jobs associated with it, and only
+         * then re-create them.
+         */
+        await gapi.client.jobs.projects.companies.patch({
+            name: "Test string",
+        }, {
+            company: {
+                careerSiteUri: "Test string",
+                derivedInfo: {
+                    headquartersLocation: {
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        locationType: "Test string",
+                        postalAddress: {
+                            addressLines: [
+                                "Test string"                            ],
+                            administrativeArea: "Test string",
+                            languageCode: "Test string",
+                            locality: "Test string",
+                            organization: "Test string",
+                            postalCode: "Test string",
+                            recipients: [
+                                "Test string"                            ],
+                            regionCode: "Test string",
+                            revision: 42,
+                            sortingCode: "Test string",
+                            sublocality: "Test string",
+                        },
+                        radiusInMiles: 42,
+                    },
+                },
+                displayName: "Test string",
+                eeoText: "Test string",
+                externalId: "Test string",
+                headquartersAddress: "Test string",
+                hiringAgency: true,
+                imageUri: "Test string",
+                keywordSearchableJobCustomAttributes: [
+                    "Test string"                ],
+                name: "Test string",
+                size: "Test string",
+                suspended: true,
+                websiteUri: "Test string",
+            },
+            updateMask: "Test string",
+        });
+        /** Lists all companies associated with the service account. */
+        await gapi.client.jobs.projects.companies.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            requireOpenJobs: true,
+        });
+        /** Creates a new company entity. */
+        await gapi.client.jobs.projects.companies.create({
+            parent: "Test string",
+        }, {
+            company: {
+                careerSiteUri: "Test string",
+                derivedInfo: {
+                    headquartersLocation: {
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        locationType: "Test string",
+                        postalAddress: {
+                            addressLines: [
+                                "Test string"                            ],
+                            administrativeArea: "Test string",
+                            languageCode: "Test string",
+                            locality: "Test string",
+                            organization: "Test string",
+                            postalCode: "Test string",
+                            recipients: [
+                                "Test string"                            ],
+                            regionCode: "Test string",
+                            revision: 42,
+                            sortingCode: "Test string",
+                            sublocality: "Test string",
+                        },
+                        radiusInMiles: 42,
+                    },
+                },
+                displayName: "Test string",
+                eeoText: "Test string",
+                externalId: "Test string",
+                headquartersAddress: "Test string",
+                hiringAgency: true,
+                imageUri: "Test string",
+                keywordSearchableJobCustomAttributes: [
+                    "Test string"                ],
+                name: "Test string",
+                size: "Test string",
+                suspended: true,
+                websiteUri: "Test string",
+            },
+        });
+        /**
+         * Report events issued when end user interacts with customer's application
+         * that uses Cloud Talent Solution. You may inspect the created events in
+         * [self service
+         * tools](https://console.cloud.google.com/talent-solution/overview).
+         * [Learn
+         * more](https://cloud.google.com/talent-solution/docs/management-tools)
+         * about self service tools.
+         */
+        await gapi.client.jobs.projects.clientEvents.create({
+            parent: "Test string",
+        }, {
+            clientEvent: {
+                createTime: "Test string",
+                eventId: "Test string",
+                extraInfo: {
+                    A: "Test string"                },
+                jobEvent: {
+                    jobs: [
+                        "Test string"                    ],
+                    type: "Test string",
+                },
+                parentEventId: "Test string",
+                requestId: "Test string",
+            },
+        });
+        /**
+         * Searches for jobs using the provided SearchJobsRequest.
+         *
+         * This API call is intended for the use case of targeting passive job
+         * seekers (for example, job seekers who have signed up to receive email
+         * alerts about potential job opportunities), and has different algorithmic
+         * adjustments that are targeted to passive job seekers.
+         *
+         * This call constrains the visibility of jobs
+         * present in the database, and only returns jobs the caller has
+         * permission to search against.
+         */
+        await gapi.client.jobs.projects.jobs.searchForAlert({
+            parent: "Test string",
+        }, {
+            disableKeywordMatch: true,
+            diversificationLevel: "Test string",
+            enableBroadening: true,
+            histogramFacets: {
+                compensationHistogramFacets: [
+                    {
+                        bucketingOption: {
+                            bucketBounds: [
+                                42                            ],
+                            requiresMinMax: true,
+                        },
+                        type: "Test string",
+                    }                ],
+                customAttributeHistogramFacets: [
+                    {
+                        key: "Test string",
+                        longValueHistogramBucketingOption: {
+                            bucketBounds: [
+                                42                            ],
+                            requiresMinMax: true,
+                        },
+                        stringValueHistogram: true,
+                    }                ],
+                simpleHistogramFacets: [
+                    "Test string"                ],
+            },
+            jobQuery: {
+                commuteFilter: {
+                    allowImpreciseAddresses: true,
+                    commuteMethod: "Test string",
+                    departureTime: {
+                        hours: 42,
+                        minutes: 42,
+                        nanos: 42,
+                        seconds: 42,
+                    },
+                    roadTraffic: "Test string",
+                    startCoordinates: {
+                        latitude: 42,
+                        longitude: 42,
+                    },
+                    travelDuration: "Test string",
+                },
+                companyDisplayNames: [
+                    "Test string"                ],
+                companyNames: [
+                    "Test string"                ],
+                compensationFilter: {
+                    includeJobsWithUnspecifiedCompensationRange: true,
+                    range: {
+                        maxCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                        minCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                    },
+                    type: "Test string",
+                    units: [
+                        "Test string"                    ],
+                },
+                customAttributeFilter: "Test string",
+                disableSpellCheck: true,
+                employmentTypes: [
+                    "Test string"                ],
+                jobCategories: [
+                    "Test string"                ],
+                languageCodes: [
+                    "Test string"                ],
+                locationFilters: [
+                    {
+                        address: "Test string",
+                        distanceInMiles: 42,
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        regionCode: "Test string",
+                        telecommutePreference: "Test string",
+                    }                ],
+                publishTimeRange: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                },
+                query: "Test string",
+                queryLanguageCode: "Test string",
+            },
+            jobView: "Test string",
+            offset: 42,
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            requestMetadata: {
+                deviceInfo: {
+                    deviceType: "Test string",
+                    id: "Test string",
+                },
+                domain: "Test string",
+                sessionId: "Test string",
+                userId: "Test string",
+            },
+            requirePreciseResultSize: true,
+            searchMode: "Test string",
+        });
+        /**
          * Deletes the specified job.
          *
          * Typically, the job becomes unsearchable within 10 seconds, but it may take
@@ -59,6 +321,12 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Deletes a list of Jobs by filter. */
+        await gapi.client.jobs.projects.jobs.batchDelete({
+            parent: "Test string",
+        }, {
+            filter: "Test string",
         });
         /**
          * Creates a new job.
@@ -198,12 +466,6 @@ gapi.load('client', () => {
                 visibility: "Test string",
             },
         });
-        /** Deletes a list of Jobs by filter. */
-        await gapi.client.jobs.projects.jobs.batchDelete({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-        });
         /**
          * Searches for jobs using the provided SearchJobsRequest.
          *
@@ -321,13 +583,6 @@ gapi.load('client', () => {
             },
             requirePreciseResultSize: true,
             searchMode: "Test string",
-        });
-        /**
-         * Retrieves the specified job, whose status is OPEN or recently EXPIRED
-         * within the last 90 days.
-         */
-        await gapi.client.jobs.projects.jobs.get({
-            name: "Test string",
         });
         /**
          * Updates specified job.
@@ -469,266 +724,11 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Searches for jobs using the provided SearchJobsRequest.
-         *
-         * This API call is intended for the use case of targeting passive job
-         * seekers (for example, job seekers who have signed up to receive email
-         * alerts about potential job opportunities), and has different algorithmic
-         * adjustments that are targeted to passive job seekers.
-         *
-         * This call constrains the visibility of jobs
-         * present in the database, and only returns jobs the caller has
-         * permission to search against.
+         * Retrieves the specified job, whose status is OPEN or recently EXPIRED
+         * within the last 90 days.
          */
-        await gapi.client.jobs.projects.jobs.searchForAlert({
-            parent: "Test string",
-        }, {
-            disableKeywordMatch: true,
-            diversificationLevel: "Test string",
-            enableBroadening: true,
-            histogramFacets: {
-                compensationHistogramFacets: [
-                    {
-                        bucketingOption: {
-                            bucketBounds: [
-                                42                            ],
-                            requiresMinMax: true,
-                        },
-                        type: "Test string",
-                    }                ],
-                customAttributeHistogramFacets: [
-                    {
-                        key: "Test string",
-                        longValueHistogramBucketingOption: {
-                            bucketBounds: [
-                                42                            ],
-                            requiresMinMax: true,
-                        },
-                        stringValueHistogram: true,
-                    }                ],
-                simpleHistogramFacets: [
-                    "Test string"                ],
-            },
-            jobQuery: {
-                commuteFilter: {
-                    allowImpreciseAddresses: true,
-                    commuteMethod: "Test string",
-                    departureTime: {
-                        hours: 42,
-                        minutes: 42,
-                        nanos: 42,
-                        seconds: 42,
-                    },
-                    roadTraffic: "Test string",
-                    startCoordinates: {
-                        latitude: 42,
-                        longitude: 42,
-                    },
-                    travelDuration: "Test string",
-                },
-                companyDisplayNames: [
-                    "Test string"                ],
-                companyNames: [
-                    "Test string"                ],
-                compensationFilter: {
-                    includeJobsWithUnspecifiedCompensationRange: true,
-                    range: {
-                        maxCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                        minCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                    },
-                    type: "Test string",
-                    units: [
-                        "Test string"                    ],
-                },
-                customAttributeFilter: "Test string",
-                disableSpellCheck: true,
-                employmentTypes: [
-                    "Test string"                ],
-                jobCategories: [
-                    "Test string"                ],
-                languageCodes: [
-                    "Test string"                ],
-                locationFilters: [
-                    {
-                        address: "Test string",
-                        distanceInMiles: 42,
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        regionCode: "Test string",
-                        telecommutePreference: "Test string",
-                    }                ],
-                publishTimeRange: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                },
-                query: "Test string",
-                queryLanguageCode: "Test string",
-            },
-            jobView: "Test string",
-            offset: 42,
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            requestMetadata: {
-                deviceInfo: {
-                    deviceType: "Test string",
-                    id: "Test string",
-                },
-                domain: "Test string",
-                sessionId: "Test string",
-                userId: "Test string",
-            },
-            requirePreciseResultSize: true,
-            searchMode: "Test string",
-        });
-        /** Creates a new company entity. */
-        await gapi.client.jobs.projects.companies.create({
-            parent: "Test string",
-        }, {
-            company: {
-                careerSiteUri: "Test string",
-                derivedInfo: {
-                    headquartersLocation: {
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        locationType: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                        radiusInMiles: 42,
-                    },
-                },
-                displayName: "Test string",
-                eeoText: "Test string",
-                externalId: "Test string",
-                headquartersAddress: "Test string",
-                hiringAgency: true,
-                imageUri: "Test string",
-                keywordSearchableJobCustomAttributes: [
-                    "Test string"                ],
-                name: "Test string",
-                size: "Test string",
-                suspended: true,
-                websiteUri: "Test string",
-            },
-        });
-        /**
-         * Deletes specified company.
-         * Prerequisite: The company has no jobs associated with it.
-         */
-        await gapi.client.jobs.projects.companies.delete({
+        await gapi.client.jobs.projects.jobs.get({
             name: "Test string",
-        });
-        /** Retrieves specified company. */
-        await gapi.client.jobs.projects.companies.get({
-            name: "Test string",
-        });
-        /**
-         * Updates specified company. Company names can't be updated. To update a
-         * company name, delete the company and all jobs associated with it, and only
-         * then re-create them.
-         */
-        await gapi.client.jobs.projects.companies.patch({
-            name: "Test string",
-        }, {
-            company: {
-                careerSiteUri: "Test string",
-                derivedInfo: {
-                    headquartersLocation: {
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        locationType: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                        radiusInMiles: 42,
-                    },
-                },
-                displayName: "Test string",
-                eeoText: "Test string",
-                externalId: "Test string",
-                headquartersAddress: "Test string",
-                hiringAgency: true,
-                imageUri: "Test string",
-                keywordSearchableJobCustomAttributes: [
-                    "Test string"                ],
-                name: "Test string",
-                size: "Test string",
-                suspended: true,
-                websiteUri: "Test string",
-            },
-            updateMask: "Test string",
-        });
-        /** Lists all companies associated with the service account. */
-        await gapi.client.jobs.projects.companies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            requireOpenJobs: true,
-        });
-        /**
-         * Report events issued when end user interacts with customer's application
-         * that uses Cloud Talent Solution. You may inspect the created events in
-         * [self service
-         * tools](https://console.cloud.google.com/talent-solution/overview).
-         * [Learn
-         * more](https://cloud.google.com/talent-solution/docs/management-tools)
-         * about self service tools.
-         */
-        await gapi.client.jobs.projects.clientEvents.create({
-            parent: "Test string",
-        }, {
-            clientEvent: {
-                createTime: "Test string",
-                eventId: "Test string",
-                extraInfo: {
-                    A: "Test string"                },
-                jobEvent: {
-                    jobs: [
-                        "Test string"                    ],
-                    type: "Test string",
-                },
-                parentEventId: "Test string",
-                requestId: "Test string",
-            },
         });
     }
 });

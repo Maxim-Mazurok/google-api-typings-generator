@@ -676,12 +676,67 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Gets information about a model, including its name, the description (if
-         * set), and the default version (if at least one version of the model has
-         * been deployed).
+         * Updates a specific model resource.
+         *
+         * Currently the only supported fields to update are `description` and
+         * `default_version.name`.
          */
-        await gapi.client.ml.projects.models.get({
+        await gapi.client.ml.projects.models.patch({
             name: "Test string",
+            updateMask: "Test string",
+        }, {
+            defaultVersion: {
+                acceleratorConfig: {
+                    count: "Test string",
+                    type: "Test string",
+                },
+                autoScaling: {
+                    minNodes: 42,
+                },
+                createTime: "Test string",
+                deploymentUri: "Test string",
+                description: "Test string",
+                errorMessage: "Test string",
+                etag: "Test string",
+                explanationConfig: {
+                    integratedGradientsAttribution: {
+                        numIntegralSteps: 42,
+                    },
+                    sampledShapleyAttribution: {
+                        numPaths: 42,
+                    },
+                },
+                framework: "Test string",
+                isDefault: true,
+                labels: {
+                    A: "Test string"                },
+                lastUseTime: "Test string",
+                machineType: "Test string",
+                manualScaling: {
+                    nodes: 42,
+                },
+                name: "Test string",
+                packageUris: [
+                    "Test string"                ],
+                predictionClass: "Test string",
+                pythonVersion: "Test string",
+                requestLoggingConfig: {
+                    bigqueryTableName: "Test string",
+                    samplingPercentage: 42,
+                },
+                runtimeVersion: "Test string",
+                serviceAccount: "Test string",
+                state: "Test string",
+            },
+            description: "Test string",
+            etag: "Test string",
+            labels: {
+                A: "Test string"            },
+            name: "Test string",
+            onlinePredictionConsoleLogging: true,
+            onlinePredictionLogging: true,
+            regions: [
+                "Test string"            ],
         });
         /**
          * Updates the specified Version resource.
@@ -844,67 +899,12 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Updates a specific model resource.
-         *
-         * Currently the only supported fields to update are `description` and
-         * `default_version.name`.
+         * Gets information about a model, including its name, the description (if
+         * set), and the default version (if at least one version of the model has
+         * been deployed).
          */
-        await gapi.client.ml.projects.models.patch({
+        await gapi.client.ml.projects.models.get({
             name: "Test string",
-            updateMask: "Test string",
-        }, {
-            defaultVersion: {
-                acceleratorConfig: {
-                    count: "Test string",
-                    type: "Test string",
-                },
-                autoScaling: {
-                    minNodes: 42,
-                },
-                createTime: "Test string",
-                deploymentUri: "Test string",
-                description: "Test string",
-                errorMessage: "Test string",
-                etag: "Test string",
-                explanationConfig: {
-                    integratedGradientsAttribution: {
-                        numIntegralSteps: 42,
-                    },
-                    sampledShapleyAttribution: {
-                        numPaths: 42,
-                    },
-                },
-                framework: "Test string",
-                isDefault: true,
-                labels: {
-                    A: "Test string"                },
-                lastUseTime: "Test string",
-                machineType: "Test string",
-                manualScaling: {
-                    nodes: 42,
-                },
-                name: "Test string",
-                packageUris: [
-                    "Test string"                ],
-                predictionClass: "Test string",
-                pythonVersion: "Test string",
-                requestLoggingConfig: {
-                    bigqueryTableName: "Test string",
-                    samplingPercentage: 42,
-                },
-                runtimeVersion: "Test string",
-                serviceAccount: "Test string",
-                state: "Test string",
-            },
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            onlinePredictionConsoleLogging: true,
-            onlinePredictionLogging: true,
-            regions: [
-                "Test string"            ],
         });
         /**
          * Updates the specified Version resource.
@@ -1600,6 +1600,210 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
+         * Lists the jobs in the project.
+         *
+         * If there are no jobs that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.jobs.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a training or a batch prediction job. */
+        await gapi.client.ml.projects.jobs.create({
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            endTime: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            jobId: "Test string",
+            labels: {
+                A: "Test string"            },
+            predictionInput: {
+                batchSize: "Test string",
+                dataFormat: "Test string",
+                inputPaths: [
+                    "Test string"                ],
+                maxWorkerCount: "Test string",
+                modelName: "Test string",
+                outputDataFormat: "Test string",
+                outputPath: "Test string",
+                region: "Test string",
+                runtimeVersion: "Test string",
+                signatureName: "Test string",
+                uri: "Test string",
+                versionName: "Test string",
+            },
+            predictionOutput: {
+                errorCount: "Test string",
+                nodeHours: 42,
+                outputPath: "Test string",
+                predictionCount: "Test string",
+            },
+            startTime: "Test string",
+            state: "Test string",
+            trainingInput: {
+                args: [
+                    "Test string"                ],
+                hyperparameters: {
+                    algorithm: "Test string",
+                    enableTrialEarlyStopping: true,
+                    goal: "Test string",
+                    hyperparameterMetricTag: "Test string",
+                    maxFailedTrials: 42,
+                    maxParallelTrials: 42,
+                    maxTrials: 42,
+                    params: [
+                        {
+                            categoricalValues: [
+                                "Test string"                            ],
+                            discreteValues: [
+                                42                            ],
+                            maxValue: 42,
+                            minValue: 42,
+                            parameterName: "Test string",
+                            scaleType: "Test string",
+                            type: "Test string",
+                        }                    ],
+                    resumePreviousJobId: "Test string",
+                },
+                jobDir: "Test string",
+                masterConfig: {
+                    acceleratorConfig: {
+                        count: "Test string",
+                        type: "Test string",
+                    },
+                    imageUri: "Test string",
+                    tpuTfVersion: "Test string",
+                },
+                masterType: "Test string",
+                packageUris: [
+                    "Test string"                ],
+                parameterServerConfig: {
+                    acceleratorConfig: {
+                        count: "Test string",
+                        type: "Test string",
+                    },
+                    imageUri: "Test string",
+                    tpuTfVersion: "Test string",
+                },
+                parameterServerCount: "Test string",
+                parameterServerType: "Test string",
+                pythonModule: "Test string",
+                pythonVersion: "Test string",
+                region: "Test string",
+                runtimeVersion: "Test string",
+                scaleTier: "Test string",
+                useChiefInTfConfig: true,
+                workerConfig: {
+                    acceleratorConfig: {
+                        count: "Test string",
+                        type: "Test string",
+                    },
+                    imageUri: "Test string",
+                    tpuTfVersion: "Test string",
+                },
+                workerCount: "Test string",
+                workerType: "Test string",
+            },
+            trainingOutput: {
+                builtInAlgorithmOutput: {
+                    framework: "Test string",
+                    modelPath: "Test string",
+                    pythonVersion: "Test string",
+                    runtimeVersion: "Test string",
+                },
+                completedTrialCount: "Test string",
+                consumedMLUnits: 42,
+                hyperparameterMetricTag: "Test string",
+                isBuiltInAlgorithmJob: true,
+                isHyperparameterTuningJob: true,
+                trials: [
+                    {
+                        allMetrics: [
+                            {
+                                objectiveValue: 42,
+                                trainingStep: "Test string",
+                            }                        ],
+                        builtInAlgorithmOutput: {
+                            framework: "Test string",
+                            modelPath: "Test string",
+                            pythonVersion: "Test string",
+                            runtimeVersion: "Test string",
+                        },
+                        endTime: "Test string",
+                        finalMetric: {
+                            objectiveValue: 42,
+                            trainingStep: "Test string",
+                        },
+                        hyperparameters: {
+                            A: "Test string"                        },
+                        isTrialStoppedEarly: true,
+                        startTime: "Test string",
+                        state: "Test string",
+                        trialId: "Test string",
+                    }                ],
+            },
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.ml.projects.jobs.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /** Cancels a running job. */
+        await gapi.client.ml.projects.jobs.cancel({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.ml.projects.jobs.getIamPolicy({
+            "options.requestedPolicyVersion": 42,
+            resource: "Test string",
+        });
+        /** Describes a job. */
+        await gapi.client.ml.projects.jobs.get({
+            name: "Test string",
+        });
+        /**
          * Updates a specific job resource.
          *
          * Currently the only supported fields to update are `labels`.
@@ -1741,10 +1945,6 @@ gapi.load('client', () => {
                     }                ],
             },
         });
-        /** Describes a job. */
-        await gapi.client.ml.projects.jobs.get({
-            name: "Test string",
-        });
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
@@ -1759,206 +1959,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Lists the jobs in the project.
-         *
-         * If there are no jobs that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.jobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.ml.projects.jobs.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /** Creates a training or a batch prediction job. */
-        await gapi.client.ml.projects.jobs.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            endTime: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            jobId: "Test string",
-            labels: {
-                A: "Test string"            },
-            predictionInput: {
-                batchSize: "Test string",
-                dataFormat: "Test string",
-                inputPaths: [
-                    "Test string"                ],
-                maxWorkerCount: "Test string",
-                modelName: "Test string",
-                outputDataFormat: "Test string",
-                outputPath: "Test string",
-                region: "Test string",
-                runtimeVersion: "Test string",
-                signatureName: "Test string",
-                uri: "Test string",
-                versionName: "Test string",
-            },
-            predictionOutput: {
-                errorCount: "Test string",
-                nodeHours: 42,
-                outputPath: "Test string",
-                predictionCount: "Test string",
-            },
-            startTime: "Test string",
-            state: "Test string",
-            trainingInput: {
-                args: [
-                    "Test string"                ],
-                hyperparameters: {
-                    algorithm: "Test string",
-                    enableTrialEarlyStopping: true,
-                    goal: "Test string",
-                    hyperparameterMetricTag: "Test string",
-                    maxFailedTrials: 42,
-                    maxParallelTrials: 42,
-                    maxTrials: 42,
-                    params: [
-                        {
-                            categoricalValues: [
-                                "Test string"                            ],
-                            discreteValues: [
-                                42                            ],
-                            maxValue: 42,
-                            minValue: 42,
-                            parameterName: "Test string",
-                            scaleType: "Test string",
-                            type: "Test string",
-                        }                    ],
-                    resumePreviousJobId: "Test string",
-                },
-                jobDir: "Test string",
-                masterConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                masterType: "Test string",
-                packageUris: [
-                    "Test string"                ],
-                parameterServerConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                parameterServerCount: "Test string",
-                parameterServerType: "Test string",
-                pythonModule: "Test string",
-                pythonVersion: "Test string",
-                region: "Test string",
-                runtimeVersion: "Test string",
-                scaleTier: "Test string",
-                useChiefInTfConfig: true,
-                workerConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                workerCount: "Test string",
-                workerType: "Test string",
-            },
-            trainingOutput: {
-                builtInAlgorithmOutput: {
-                    framework: "Test string",
-                    modelPath: "Test string",
-                    pythonVersion: "Test string",
-                    runtimeVersion: "Test string",
-                },
-                completedTrialCount: "Test string",
-                consumedMLUnits: 42,
-                hyperparameterMetricTag: "Test string",
-                isBuiltInAlgorithmJob: true,
-                isHyperparameterTuningJob: true,
-                trials: [
-                    {
-                        allMetrics: [
-                            {
-                                objectiveValue: 42,
-                                trainingStep: "Test string",
-                            }                        ],
-                        builtInAlgorithmOutput: {
-                            framework: "Test string",
-                            modelPath: "Test string",
-                            pythonVersion: "Test string",
-                            runtimeVersion: "Test string",
-                        },
-                        endTime: "Test string",
-                        finalMetric: {
-                            objectiveValue: 42,
-                            trainingStep: "Test string",
-                        },
-                        hyperparameters: {
-                            A: "Test string"                        },
-                        isTrialStoppedEarly: true,
-                        startTime: "Test string",
-                        state: "Test string",
-                        trialId: "Test string",
-                    }                ],
-            },
-        });
-        /** Cancels a running job. */
-        await gapi.client.ml.projects.jobs.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.ml.projects.jobs.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
         });
         /**
          * Get the service account information associated with your project. You need
@@ -2600,12 +2600,67 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Gets information about a model, including its name, the description (if
-         * set), and the default version (if at least one version of the model has
-         * been deployed).
+         * Updates a specific model resource.
+         *
+         * Currently the only supported fields to update are `description` and
+         * `default_version.name`.
          */
-        await gapi.client.ml.projects.models.get({
+        await gapi.client.ml.projects.models.patch({
             name: "Test string",
+            updateMask: "Test string",
+        }, {
+            defaultVersion: {
+                acceleratorConfig: {
+                    count: "Test string",
+                    type: "Test string",
+                },
+                autoScaling: {
+                    minNodes: 42,
+                },
+                createTime: "Test string",
+                deploymentUri: "Test string",
+                description: "Test string",
+                errorMessage: "Test string",
+                etag: "Test string",
+                explanationConfig: {
+                    integratedGradientsAttribution: {
+                        numIntegralSteps: 42,
+                    },
+                    sampledShapleyAttribution: {
+                        numPaths: 42,
+                    },
+                },
+                framework: "Test string",
+                isDefault: true,
+                labels: {
+                    A: "Test string"                },
+                lastUseTime: "Test string",
+                machineType: "Test string",
+                manualScaling: {
+                    nodes: 42,
+                },
+                name: "Test string",
+                packageUris: [
+                    "Test string"                ],
+                predictionClass: "Test string",
+                pythonVersion: "Test string",
+                requestLoggingConfig: {
+                    bigqueryTableName: "Test string",
+                    samplingPercentage: 42,
+                },
+                runtimeVersion: "Test string",
+                serviceAccount: "Test string",
+                state: "Test string",
+            },
+            description: "Test string",
+            etag: "Test string",
+            labels: {
+                A: "Test string"            },
+            name: "Test string",
+            onlinePredictionConsoleLogging: true,
+            onlinePredictionLogging: true,
+            regions: [
+                "Test string"            ],
         });
         /**
          * Updates the specified Version resource.
@@ -2768,67 +2823,12 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Updates a specific model resource.
-         *
-         * Currently the only supported fields to update are `description` and
-         * `default_version.name`.
+         * Gets information about a model, including its name, the description (if
+         * set), and the default version (if at least one version of the model has
+         * been deployed).
          */
-        await gapi.client.ml.projects.models.patch({
+        await gapi.client.ml.projects.models.get({
             name: "Test string",
-            updateMask: "Test string",
-        }, {
-            defaultVersion: {
-                acceleratorConfig: {
-                    count: "Test string",
-                    type: "Test string",
-                },
-                autoScaling: {
-                    minNodes: 42,
-                },
-                createTime: "Test string",
-                deploymentUri: "Test string",
-                description: "Test string",
-                errorMessage: "Test string",
-                etag: "Test string",
-                explanationConfig: {
-                    integratedGradientsAttribution: {
-                        numIntegralSteps: 42,
-                    },
-                    sampledShapleyAttribution: {
-                        numPaths: 42,
-                    },
-                },
-                framework: "Test string",
-                isDefault: true,
-                labels: {
-                    A: "Test string"                },
-                lastUseTime: "Test string",
-                machineType: "Test string",
-                manualScaling: {
-                    nodes: 42,
-                },
-                name: "Test string",
-                packageUris: [
-                    "Test string"                ],
-                predictionClass: "Test string",
-                pythonVersion: "Test string",
-                requestLoggingConfig: {
-                    bigqueryTableName: "Test string",
-                    samplingPercentage: 42,
-                },
-                runtimeVersion: "Test string",
-                serviceAccount: "Test string",
-                state: "Test string",
-            },
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            onlinePredictionConsoleLogging: true,
-            onlinePredictionLogging: true,
-            regions: [
-                "Test string"            ],
         });
         /**
          * Updates the specified Version resource.
@@ -3524,6 +3524,210 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
+         * Lists the jobs in the project.
+         *
+         * If there are no jobs that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.jobs.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a training or a batch prediction job. */
+        await gapi.client.ml.projects.jobs.create({
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            endTime: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            jobId: "Test string",
+            labels: {
+                A: "Test string"            },
+            predictionInput: {
+                batchSize: "Test string",
+                dataFormat: "Test string",
+                inputPaths: [
+                    "Test string"                ],
+                maxWorkerCount: "Test string",
+                modelName: "Test string",
+                outputDataFormat: "Test string",
+                outputPath: "Test string",
+                region: "Test string",
+                runtimeVersion: "Test string",
+                signatureName: "Test string",
+                uri: "Test string",
+                versionName: "Test string",
+            },
+            predictionOutput: {
+                errorCount: "Test string",
+                nodeHours: 42,
+                outputPath: "Test string",
+                predictionCount: "Test string",
+            },
+            startTime: "Test string",
+            state: "Test string",
+            trainingInput: {
+                args: [
+                    "Test string"                ],
+                hyperparameters: {
+                    algorithm: "Test string",
+                    enableTrialEarlyStopping: true,
+                    goal: "Test string",
+                    hyperparameterMetricTag: "Test string",
+                    maxFailedTrials: 42,
+                    maxParallelTrials: 42,
+                    maxTrials: 42,
+                    params: [
+                        {
+                            categoricalValues: [
+                                "Test string"                            ],
+                            discreteValues: [
+                                42                            ],
+                            maxValue: 42,
+                            minValue: 42,
+                            parameterName: "Test string",
+                            scaleType: "Test string",
+                            type: "Test string",
+                        }                    ],
+                    resumePreviousJobId: "Test string",
+                },
+                jobDir: "Test string",
+                masterConfig: {
+                    acceleratorConfig: {
+                        count: "Test string",
+                        type: "Test string",
+                    },
+                    imageUri: "Test string",
+                    tpuTfVersion: "Test string",
+                },
+                masterType: "Test string",
+                packageUris: [
+                    "Test string"                ],
+                parameterServerConfig: {
+                    acceleratorConfig: {
+                        count: "Test string",
+                        type: "Test string",
+                    },
+                    imageUri: "Test string",
+                    tpuTfVersion: "Test string",
+                },
+                parameterServerCount: "Test string",
+                parameterServerType: "Test string",
+                pythonModule: "Test string",
+                pythonVersion: "Test string",
+                region: "Test string",
+                runtimeVersion: "Test string",
+                scaleTier: "Test string",
+                useChiefInTfConfig: true,
+                workerConfig: {
+                    acceleratorConfig: {
+                        count: "Test string",
+                        type: "Test string",
+                    },
+                    imageUri: "Test string",
+                    tpuTfVersion: "Test string",
+                },
+                workerCount: "Test string",
+                workerType: "Test string",
+            },
+            trainingOutput: {
+                builtInAlgorithmOutput: {
+                    framework: "Test string",
+                    modelPath: "Test string",
+                    pythonVersion: "Test string",
+                    runtimeVersion: "Test string",
+                },
+                completedTrialCount: "Test string",
+                consumedMLUnits: 42,
+                hyperparameterMetricTag: "Test string",
+                isBuiltInAlgorithmJob: true,
+                isHyperparameterTuningJob: true,
+                trials: [
+                    {
+                        allMetrics: [
+                            {
+                                objectiveValue: 42,
+                                trainingStep: "Test string",
+                            }                        ],
+                        builtInAlgorithmOutput: {
+                            framework: "Test string",
+                            modelPath: "Test string",
+                            pythonVersion: "Test string",
+                            runtimeVersion: "Test string",
+                        },
+                        endTime: "Test string",
+                        finalMetric: {
+                            objectiveValue: 42,
+                            trainingStep: "Test string",
+                        },
+                        hyperparameters: {
+                            A: "Test string"                        },
+                        isTrialStoppedEarly: true,
+                        startTime: "Test string",
+                        state: "Test string",
+                        trialId: "Test string",
+                    }                ],
+            },
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.ml.projects.jobs.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /** Cancels a running job. */
+        await gapi.client.ml.projects.jobs.cancel({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.ml.projects.jobs.getIamPolicy({
+            "options.requestedPolicyVersion": 42,
+            resource: "Test string",
+        });
+        /** Describes a job. */
+        await gapi.client.ml.projects.jobs.get({
+            name: "Test string",
+        });
+        /**
          * Updates a specific job resource.
          *
          * Currently the only supported fields to update are `labels`.
@@ -3665,10 +3869,6 @@ gapi.load('client', () => {
                     }                ],
             },
         });
-        /** Describes a job. */
-        await gapi.client.ml.projects.jobs.get({
-            name: "Test string",
-        });
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
@@ -3683,206 +3883,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Lists the jobs in the project.
-         *
-         * If there are no jobs that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.jobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.ml.projects.jobs.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /** Creates a training or a batch prediction job. */
-        await gapi.client.ml.projects.jobs.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            endTime: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            jobId: "Test string",
-            labels: {
-                A: "Test string"            },
-            predictionInput: {
-                batchSize: "Test string",
-                dataFormat: "Test string",
-                inputPaths: [
-                    "Test string"                ],
-                maxWorkerCount: "Test string",
-                modelName: "Test string",
-                outputDataFormat: "Test string",
-                outputPath: "Test string",
-                region: "Test string",
-                runtimeVersion: "Test string",
-                signatureName: "Test string",
-                uri: "Test string",
-                versionName: "Test string",
-            },
-            predictionOutput: {
-                errorCount: "Test string",
-                nodeHours: 42,
-                outputPath: "Test string",
-                predictionCount: "Test string",
-            },
-            startTime: "Test string",
-            state: "Test string",
-            trainingInput: {
-                args: [
-                    "Test string"                ],
-                hyperparameters: {
-                    algorithm: "Test string",
-                    enableTrialEarlyStopping: true,
-                    goal: "Test string",
-                    hyperparameterMetricTag: "Test string",
-                    maxFailedTrials: 42,
-                    maxParallelTrials: 42,
-                    maxTrials: 42,
-                    params: [
-                        {
-                            categoricalValues: [
-                                "Test string"                            ],
-                            discreteValues: [
-                                42                            ],
-                            maxValue: 42,
-                            minValue: 42,
-                            parameterName: "Test string",
-                            scaleType: "Test string",
-                            type: "Test string",
-                        }                    ],
-                    resumePreviousJobId: "Test string",
-                },
-                jobDir: "Test string",
-                masterConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                masterType: "Test string",
-                packageUris: [
-                    "Test string"                ],
-                parameterServerConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                parameterServerCount: "Test string",
-                parameterServerType: "Test string",
-                pythonModule: "Test string",
-                pythonVersion: "Test string",
-                region: "Test string",
-                runtimeVersion: "Test string",
-                scaleTier: "Test string",
-                useChiefInTfConfig: true,
-                workerConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                workerCount: "Test string",
-                workerType: "Test string",
-            },
-            trainingOutput: {
-                builtInAlgorithmOutput: {
-                    framework: "Test string",
-                    modelPath: "Test string",
-                    pythonVersion: "Test string",
-                    runtimeVersion: "Test string",
-                },
-                completedTrialCount: "Test string",
-                consumedMLUnits: 42,
-                hyperparameterMetricTag: "Test string",
-                isBuiltInAlgorithmJob: true,
-                isHyperparameterTuningJob: true,
-                trials: [
-                    {
-                        allMetrics: [
-                            {
-                                objectiveValue: 42,
-                                trainingStep: "Test string",
-                            }                        ],
-                        builtInAlgorithmOutput: {
-                            framework: "Test string",
-                            modelPath: "Test string",
-                            pythonVersion: "Test string",
-                            runtimeVersion: "Test string",
-                        },
-                        endTime: "Test string",
-                        finalMetric: {
-                            objectiveValue: 42,
-                            trainingStep: "Test string",
-                        },
-                        hyperparameters: {
-                            A: "Test string"                        },
-                        isTrialStoppedEarly: true,
-                        startTime: "Test string",
-                        state: "Test string",
-                        trialId: "Test string",
-                    }                ],
-            },
-        });
-        /** Cancels a running job. */
-        await gapi.client.ml.projects.jobs.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.ml.projects.jobs.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
         });
         /**
          * Performs online prediction on the data in the request.
@@ -4531,12 +4531,67 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Gets information about a model, including its name, the description (if
-         * set), and the default version (if at least one version of the model has
-         * been deployed).
+         * Updates a specific model resource.
+         *
+         * Currently the only supported fields to update are `description` and
+         * `default_version.name`.
          */
-        await gapi.client.ml.projects.models.get({
+        await gapi.client.ml.projects.models.patch({
             name: "Test string",
+            updateMask: "Test string",
+        }, {
+            defaultVersion: {
+                acceleratorConfig: {
+                    count: "Test string",
+                    type: "Test string",
+                },
+                autoScaling: {
+                    minNodes: 42,
+                },
+                createTime: "Test string",
+                deploymentUri: "Test string",
+                description: "Test string",
+                errorMessage: "Test string",
+                etag: "Test string",
+                explanationConfig: {
+                    integratedGradientsAttribution: {
+                        numIntegralSteps: 42,
+                    },
+                    sampledShapleyAttribution: {
+                        numPaths: 42,
+                    },
+                },
+                framework: "Test string",
+                isDefault: true,
+                labels: {
+                    A: "Test string"                },
+                lastUseTime: "Test string",
+                machineType: "Test string",
+                manualScaling: {
+                    nodes: 42,
+                },
+                name: "Test string",
+                packageUris: [
+                    "Test string"                ],
+                predictionClass: "Test string",
+                pythonVersion: "Test string",
+                requestLoggingConfig: {
+                    bigqueryTableName: "Test string",
+                    samplingPercentage: 42,
+                },
+                runtimeVersion: "Test string",
+                serviceAccount: "Test string",
+                state: "Test string",
+            },
+            description: "Test string",
+            etag: "Test string",
+            labels: {
+                A: "Test string"            },
+            name: "Test string",
+            onlinePredictionConsoleLogging: true,
+            onlinePredictionLogging: true,
+            regions: [
+                "Test string"            ],
         });
         /**
          * Updates the specified Version resource.
@@ -4699,67 +4754,12 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Updates a specific model resource.
-         *
-         * Currently the only supported fields to update are `description` and
-         * `default_version.name`.
+         * Gets information about a model, including its name, the description (if
+         * set), and the default version (if at least one version of the model has
+         * been deployed).
          */
-        await gapi.client.ml.projects.models.patch({
+        await gapi.client.ml.projects.models.get({
             name: "Test string",
-            updateMask: "Test string",
-        }, {
-            defaultVersion: {
-                acceleratorConfig: {
-                    count: "Test string",
-                    type: "Test string",
-                },
-                autoScaling: {
-                    minNodes: 42,
-                },
-                createTime: "Test string",
-                deploymentUri: "Test string",
-                description: "Test string",
-                errorMessage: "Test string",
-                etag: "Test string",
-                explanationConfig: {
-                    integratedGradientsAttribution: {
-                        numIntegralSteps: 42,
-                    },
-                    sampledShapleyAttribution: {
-                        numPaths: 42,
-                    },
-                },
-                framework: "Test string",
-                isDefault: true,
-                labels: {
-                    A: "Test string"                },
-                lastUseTime: "Test string",
-                machineType: "Test string",
-                manualScaling: {
-                    nodes: 42,
-                },
-                name: "Test string",
-                packageUris: [
-                    "Test string"                ],
-                predictionClass: "Test string",
-                pythonVersion: "Test string",
-                requestLoggingConfig: {
-                    bigqueryTableName: "Test string",
-                    samplingPercentage: 42,
-                },
-                runtimeVersion: "Test string",
-                serviceAccount: "Test string",
-                state: "Test string",
-            },
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            onlinePredictionConsoleLogging: true,
-            onlinePredictionLogging: true,
-            regions: [
-                "Test string"            ],
         });
         /**
          * Updates the specified Version resource.
@@ -5455,6 +5455,210 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
+         * Lists the jobs in the project.
+         *
+         * If there are no jobs that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.jobs.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a training or a batch prediction job. */
+        await gapi.client.ml.projects.jobs.create({
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            endTime: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            jobId: "Test string",
+            labels: {
+                A: "Test string"            },
+            predictionInput: {
+                batchSize: "Test string",
+                dataFormat: "Test string",
+                inputPaths: [
+                    "Test string"                ],
+                maxWorkerCount: "Test string",
+                modelName: "Test string",
+                outputDataFormat: "Test string",
+                outputPath: "Test string",
+                region: "Test string",
+                runtimeVersion: "Test string",
+                signatureName: "Test string",
+                uri: "Test string",
+                versionName: "Test string",
+            },
+            predictionOutput: {
+                errorCount: "Test string",
+                nodeHours: 42,
+                outputPath: "Test string",
+                predictionCount: "Test string",
+            },
+            startTime: "Test string",
+            state: "Test string",
+            trainingInput: {
+                args: [
+                    "Test string"                ],
+                hyperparameters: {
+                    algorithm: "Test string",
+                    enableTrialEarlyStopping: true,
+                    goal: "Test string",
+                    hyperparameterMetricTag: "Test string",
+                    maxFailedTrials: 42,
+                    maxParallelTrials: 42,
+                    maxTrials: 42,
+                    params: [
+                        {
+                            categoricalValues: [
+                                "Test string"                            ],
+                            discreteValues: [
+                                42                            ],
+                            maxValue: 42,
+                            minValue: 42,
+                            parameterName: "Test string",
+                            scaleType: "Test string",
+                            type: "Test string",
+                        }                    ],
+                    resumePreviousJobId: "Test string",
+                },
+                jobDir: "Test string",
+                masterConfig: {
+                    acceleratorConfig: {
+                        count: "Test string",
+                        type: "Test string",
+                    },
+                    imageUri: "Test string",
+                    tpuTfVersion: "Test string",
+                },
+                masterType: "Test string",
+                packageUris: [
+                    "Test string"                ],
+                parameterServerConfig: {
+                    acceleratorConfig: {
+                        count: "Test string",
+                        type: "Test string",
+                    },
+                    imageUri: "Test string",
+                    tpuTfVersion: "Test string",
+                },
+                parameterServerCount: "Test string",
+                parameterServerType: "Test string",
+                pythonModule: "Test string",
+                pythonVersion: "Test string",
+                region: "Test string",
+                runtimeVersion: "Test string",
+                scaleTier: "Test string",
+                useChiefInTfConfig: true,
+                workerConfig: {
+                    acceleratorConfig: {
+                        count: "Test string",
+                        type: "Test string",
+                    },
+                    imageUri: "Test string",
+                    tpuTfVersion: "Test string",
+                },
+                workerCount: "Test string",
+                workerType: "Test string",
+            },
+            trainingOutput: {
+                builtInAlgorithmOutput: {
+                    framework: "Test string",
+                    modelPath: "Test string",
+                    pythonVersion: "Test string",
+                    runtimeVersion: "Test string",
+                },
+                completedTrialCount: "Test string",
+                consumedMLUnits: 42,
+                hyperparameterMetricTag: "Test string",
+                isBuiltInAlgorithmJob: true,
+                isHyperparameterTuningJob: true,
+                trials: [
+                    {
+                        allMetrics: [
+                            {
+                                objectiveValue: 42,
+                                trainingStep: "Test string",
+                            }                        ],
+                        builtInAlgorithmOutput: {
+                            framework: "Test string",
+                            modelPath: "Test string",
+                            pythonVersion: "Test string",
+                            runtimeVersion: "Test string",
+                        },
+                        endTime: "Test string",
+                        finalMetric: {
+                            objectiveValue: 42,
+                            trainingStep: "Test string",
+                        },
+                        hyperparameters: {
+                            A: "Test string"                        },
+                        isTrialStoppedEarly: true,
+                        startTime: "Test string",
+                        state: "Test string",
+                        trialId: "Test string",
+                    }                ],
+            },
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.ml.projects.jobs.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /** Cancels a running job. */
+        await gapi.client.ml.projects.jobs.cancel({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.ml.projects.jobs.getIamPolicy({
+            "options.requestedPolicyVersion": 42,
+            resource: "Test string",
+        });
+        /** Describes a job. */
+        await gapi.client.ml.projects.jobs.get({
+            name: "Test string",
+        });
+        /**
          * Updates a specific job resource.
          *
          * Currently the only supported fields to update are `labels`.
@@ -5596,10 +5800,6 @@ gapi.load('client', () => {
                     }                ],
             },
         });
-        /** Describes a job. */
-        await gapi.client.ml.projects.jobs.get({
-            name: "Test string",
-        });
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
@@ -5614,206 +5814,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Lists the jobs in the project.
-         *
-         * If there are no jobs that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.jobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.ml.projects.jobs.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /** Creates a training or a batch prediction job. */
-        await gapi.client.ml.projects.jobs.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            endTime: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            jobId: "Test string",
-            labels: {
-                A: "Test string"            },
-            predictionInput: {
-                batchSize: "Test string",
-                dataFormat: "Test string",
-                inputPaths: [
-                    "Test string"                ],
-                maxWorkerCount: "Test string",
-                modelName: "Test string",
-                outputDataFormat: "Test string",
-                outputPath: "Test string",
-                region: "Test string",
-                runtimeVersion: "Test string",
-                signatureName: "Test string",
-                uri: "Test string",
-                versionName: "Test string",
-            },
-            predictionOutput: {
-                errorCount: "Test string",
-                nodeHours: 42,
-                outputPath: "Test string",
-                predictionCount: "Test string",
-            },
-            startTime: "Test string",
-            state: "Test string",
-            trainingInput: {
-                args: [
-                    "Test string"                ],
-                hyperparameters: {
-                    algorithm: "Test string",
-                    enableTrialEarlyStopping: true,
-                    goal: "Test string",
-                    hyperparameterMetricTag: "Test string",
-                    maxFailedTrials: 42,
-                    maxParallelTrials: 42,
-                    maxTrials: 42,
-                    params: [
-                        {
-                            categoricalValues: [
-                                "Test string"                            ],
-                            discreteValues: [
-                                42                            ],
-                            maxValue: 42,
-                            minValue: 42,
-                            parameterName: "Test string",
-                            scaleType: "Test string",
-                            type: "Test string",
-                        }                    ],
-                    resumePreviousJobId: "Test string",
-                },
-                jobDir: "Test string",
-                masterConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                masterType: "Test string",
-                packageUris: [
-                    "Test string"                ],
-                parameterServerConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                parameterServerCount: "Test string",
-                parameterServerType: "Test string",
-                pythonModule: "Test string",
-                pythonVersion: "Test string",
-                region: "Test string",
-                runtimeVersion: "Test string",
-                scaleTier: "Test string",
-                useChiefInTfConfig: true,
-                workerConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                workerCount: "Test string",
-                workerType: "Test string",
-            },
-            trainingOutput: {
-                builtInAlgorithmOutput: {
-                    framework: "Test string",
-                    modelPath: "Test string",
-                    pythonVersion: "Test string",
-                    runtimeVersion: "Test string",
-                },
-                completedTrialCount: "Test string",
-                consumedMLUnits: 42,
-                hyperparameterMetricTag: "Test string",
-                isBuiltInAlgorithmJob: true,
-                isHyperparameterTuningJob: true,
-                trials: [
-                    {
-                        allMetrics: [
-                            {
-                                objectiveValue: 42,
-                                trainingStep: "Test string",
-                            }                        ],
-                        builtInAlgorithmOutput: {
-                            framework: "Test string",
-                            modelPath: "Test string",
-                            pythonVersion: "Test string",
-                            runtimeVersion: "Test string",
-                        },
-                        endTime: "Test string",
-                        finalMetric: {
-                            objectiveValue: 42,
-                            trainingStep: "Test string",
-                        },
-                        hyperparameters: {
-                            A: "Test string"                        },
-                        isTrialStoppedEarly: true,
-                        startTime: "Test string",
-                        state: "Test string",
-                        trialId: "Test string",
-                    }                ],
-            },
-        });
-        /** Cancels a running job. */
-        await gapi.client.ml.projects.jobs.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.ml.projects.jobs.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
         });
     }
 });

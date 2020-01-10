@@ -40,15 +40,6 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /**
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
@@ -90,13 +81,13 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Lists attestors.
-         * Returns INVALID_ARGUMENT if the project does not exist.
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.binaryauthorization.projects.attestors.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
+        await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
+            "options.requestedPolicyVersion": 42,
+            resource: "Test string",
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -214,6 +205,15 @@ gapi.load('client', () => {
          */
         await gapi.client.binaryauthorization.projects.attestors.delete({
             name: "Test string",
+        });
+        /**
+         * Lists attestors.
+         * Returns INVALID_ARGUMENT if the project does not exist.
+         */
+        await gapi.client.binaryauthorization.projects.attestors.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /**
          * Creates or updates a project's policy, and returns a copy of the
@@ -248,15 +248,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /**
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
@@ -298,13 +289,13 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Lists attestors.
-         * Returns INVALID_ARGUMENT if the project does not exist.
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.binaryauthorization.projects.attestors.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
+        await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
+            "options.requestedPolicyVersion": 42,
+            resource: "Test string",
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -422,6 +413,15 @@ gapi.load('client', () => {
          */
         await gapi.client.binaryauthorization.projects.attestors.delete({
             name: "Test string",
+        });
+        /**
+         * Lists attestors.
+         * Returns INVALID_ARGUMENT if the project does not exist.
+         */
+        await gapi.client.binaryauthorization.projects.attestors.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
     }
 });
