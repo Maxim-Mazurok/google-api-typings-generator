@@ -30,6 +30,9 @@ import * as sortObject from 'deep-sort-object';
       console.warn(e);
       continue;
     }
+
+    if (newApiObject.hasOwnProperty('etag')) newApiObject['etag'] = 'etag-ignored';
+
     const newApiString = JSON.stringify(sortObject(newApiObject), null, 2);
     const apiFileName = apiItem.id.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
 
