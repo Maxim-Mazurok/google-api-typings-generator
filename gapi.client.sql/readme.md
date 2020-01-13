@@ -63,7 +63,7 @@ await gapi.client.backupRuns.delete({ instance: "instance", project: "project", 
 /* 
 Retrieves a resource containing information about a backup run.  
 */
-await gapi.client.backupRuns.get({ project: "project", id: "id", instance: "instance",  }); 
+await gapi.client.backupRuns.get({ instance: "instance", project: "project", id: "id",  }); 
     
 /* 
 Creates a new backup run on demand. This method is applicable only to
@@ -92,24 +92,24 @@ await gapi.client.databases.get({ project: "project", database: "database", inst
 Inserts a resource containing information about a database inside a Cloud
 SQL instance.  
 */
-await gapi.client.databases.insert({ instance: "instance", project: "project",  }); 
+await gapi.client.databases.insert({ project: "project", instance: "instance",  }); 
     
 /* 
 Lists databases in the specified Cloud SQL instance.  
 */
-await gapi.client.databases.list({ project: "project", instance: "instance",  }); 
+await gapi.client.databases.list({ instance: "instance", project: "project",  }); 
     
 /* 
 Partially updates a resource containing information about a database inside
 a Cloud SQL instance. This method supports patch semantics.  
 */
-await gapi.client.databases.patch({ project: "project", database: "database", instance: "instance",  }); 
+await gapi.client.databases.patch({ instance: "instance", project: "project", database: "database",  }); 
     
 /* 
 Updates a resource containing information about a database inside a Cloud
 SQL instance.  
 */
-await gapi.client.databases.update({ project: "project", database: "database", instance: "instance",  }); 
+await gapi.client.databases.update({ instance: "instance", project: "project", database: "database",  }); 
     
 /* 
 List all available database flags for Cloud SQL instances.  
@@ -133,7 +133,7 @@ await gapi.client.instances.clone({ instance: "instance", project: "project",  }
 /* 
 Deletes a Cloud SQL instance.  
 */
-await gapi.client.instances.delete({ project: "project", instance: "instance",  }); 
+await gapi.client.instances.delete({ instance: "instance", project: "project",  }); 
     
 /* 
 Demotes the stand-alone instance to be a Cloud SQL read replica for an
@@ -145,7 +145,7 @@ await gapi.client.instances.demoteMaster({ instance: "instance", project: "proje
 Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL
 dump or CSV file.  
 */
-await gapi.client.instances.export({ project: "project", instance: "instance",  }); 
+await gapi.client.instances.export({ instance: "instance", project: "project",  }); 
     
 /* 
 Failover the instance to its failover replica instance.  
@@ -161,7 +161,7 @@ await gapi.client.instances.get({ instance: "instance", project: "project",  });
 Imports data into a Cloud SQL instance from a SQL dump  or CSV file in
 Cloud Storage.  
 */
-await gapi.client.instances.import({ instance: "instance", project: "project",  }); 
+await gapi.client.instances.import({ project: "project", instance: "instance",  }); 
     
 /* 
 Creates a new Cloud SQL instance.  
@@ -186,7 +186,7 @@ await gapi.client.instances.listServerCas({ project: "project", instance: "insta
 Updates settings of a Cloud SQL instance.
 This method supports patch semantics.  
 */
-await gapi.client.instances.patch({ project: "project", instance: "instance",  }); 
+await gapi.client.instances.patch({ instance: "instance", project: "project",  }); 
     
 /* 
 Promotes the read replica instance to be a stand-alone Cloud SQL instance.  
@@ -202,7 +202,7 @@ await gapi.client.instances.resetSslConfig({ project: "project", instance: "inst
 /* 
 Restarts a Cloud SQL instance.  
 */
-await gapi.client.instances.restart({ project: "project", instance: "instance",  }); 
+await gapi.client.instances.restart({ instance: "instance", project: "project",  }); 
     
 /* 
 Restores a backup of a Cloud SQL instance.  
@@ -228,7 +228,7 @@ await gapi.client.instances.stopReplica({ project: "project", instance: "instanc
 /* 
 Truncate MySQL general and slow query log tables  
 */
-await gapi.client.instances.truncateLog({ instance: "instance", project: "project",  }); 
+await gapi.client.instances.truncateLog({ project: "project", instance: "instance",  }); 
     
 /* 
 Updates settings of a Cloud SQL instance. <aside
@@ -256,13 +256,13 @@ and signed by a private key specific to the target instance. Users may use
 the certificate to authenticate as themselves when connecting to the
 database.  
 */
-await gapi.client.sslCerts.createEphemeral({ instance: "instance", project: "project",  }); 
+await gapi.client.sslCerts.createEphemeral({ project: "project", instance: "instance",  }); 
     
 /* 
 Deletes the SSL certificate. For First Generation instances, the
 certificate remains valid until the instance is restarted.  
 */
-await gapi.client.sslCerts.delete({ instance: "instance", project: "project", sha1Fingerprint: "sha1Fingerprint",  }); 
+await gapi.client.sslCerts.delete({ project: "project", sha1Fingerprint: "sha1Fingerprint", instance: "instance",  }); 
     
 /* 
 Retrieves a particular SSL certificate.  Does not include the private key
@@ -276,12 +276,12 @@ Creates an SSL certificate and returns it along with the private key and
 server certificate authority.  The new certificate will not be usable until
 the instance is restarted.  
 */
-await gapi.client.sslCerts.insert({ instance: "instance", project: "project",  }); 
+await gapi.client.sslCerts.insert({ project: "project", instance: "instance",  }); 
     
 /* 
 Lists all of the current SSL certificates for the instance.  
 */
-await gapi.client.sslCerts.list({ instance: "instance", project: "project",  }); 
+await gapi.client.sslCerts.list({ project: "project", instance: "instance",  }); 
     
 /* 
 Lists all available machine types (tiers) for Cloud SQL, for example,
@@ -303,7 +303,7 @@ await gapi.client.users.insert({ instance: "instance", project: "project",  });
 /* 
 Lists users in the specified Cloud SQL instance.  
 */
-await gapi.client.users.list({ instance: "instance", project: "project",  }); 
+await gapi.client.users.list({ project: "project", instance: "instance",  }); 
     
 /* 
 Updates an existing user in a Cloud SQL instance.  

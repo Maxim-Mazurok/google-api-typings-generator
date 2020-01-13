@@ -1040,8 +1040,9 @@ declare namespace gapi.client {
              * "configure-sh"
              * "containerd-configure-sh"
              * "enable-os-login"
-             * "gci-update-strategy"
              * "gci-ensure-gke-docker"
+             * "gci-metrics-enabled"
+             * "gci-update-strategy"
              * "instance-template"
              * "kube-env"
              * "startup-script"
@@ -1094,6 +1095,13 @@ declare namespace gapi.client {
              * information about preemptible VM instances.
              */
             preemptible?: boolean;
+            /**
+             * The optional reservation affinity. Setting this field will apply
+             * the specified [Zonal Compute
+             * Reservation](/compute/docs/instances/reserving-zonal-resources)
+             * to this node pool.
+             */
+            reservationAffinity?: ReservationAffinity;
             /**
              * The Google Cloud Platform Service Account to be used by the node VMs. If
              * no Service Account is specified, the "default" service account is used.
@@ -1301,6 +1309,14 @@ declare namespace gapi.client {
             recurrence?: string;
             /** The window of the first recurrence. */
             window?: TimeWindow;
+        }
+        interface ReservationAffinity {
+            /** Corresponds to the type of reservation consumption. */
+            consumeReservationType?: string;
+            /** Corresponds to the label key of reservation resource. */
+            key?: string;
+            /** Corresponds to the label value(s) of reservation resource(s). */
+            values?: string[];
         }
         interface ResourceLimit {
             /** Maximum amount of the resource in the cluster. */

@@ -43,31 +43,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            perimeterType: "Test string",
-            status: {
-                accessLevels: [
-                    "Test string"                ],
-                resources: [
-                    "Test string"                ],
-                restrictedServices: [
-                    "Test string"                ],
-            },
-            title: "Test string",
-            updateTime: "Test string",
-        });
-        /**
          * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
@@ -102,6 +77,31 @@ gapi.load('client', () => {
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
             updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            perimeterType: "Test string",
+            status: {
+                accessLevels: [
+                    "Test string"                ],
+                resources: [
+                    "Test string"                ],
+                restrictedServices: [
+                    "Test string"                ],
+            },
+            title: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Create an Service Perimeter. The
+         * longrunning operation from this RPC will have a successful status once the
+         * Service Perimeter has
+         * propagated to long-lasting storage. Service Perimeters containing
+         * errors will result in an error response for the first error encountered.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
+            parent: "Test string",
         }, {
             createTime: "Test string",
             description: "Test string",
@@ -248,31 +248,6 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            perimeterType: "Test string",
-            status: {
-                accessLevels: [
-                    "Test string"                ],
-                resources: [
-                    "Test string"                ],
-                restrictedServices: [
-                    "Test string"                ],
-            },
-            title: "Test string",
-            updateTime: "Test string",
-        });
-        /**
          * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
@@ -307,6 +282,31 @@ gapi.load('client', () => {
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
             updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            perimeterType: "Test string",
+            status: {
+                accessLevels: [
+                    "Test string"                ],
+                resources: [
+                    "Test string"                ],
+                restrictedServices: [
+                    "Test string"                ],
+            },
+            title: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Create an Service Perimeter. The
+         * longrunning operation from this RPC will have a successful status once the
+         * Service Perimeter has
+         * propagated to long-lasting storage. Service Perimeters containing
+         * errors will result in an error response for the first error encountered.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
+            parent: "Test string",
         }, {
             createTime: "Test string",
             description: "Test string",
@@ -448,31 +448,6 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            perimeterType: "Test string",
-            status: {
-                accessLevels: [
-                    "Test string"                ],
-                resources: [
-                    "Test string"                ],
-                restrictedServices: [
-                    "Test string"                ],
-            },
-            title: "Test string",
-            updateTime: "Test string",
-        });
-        /**
          * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
@@ -507,6 +482,31 @@ gapi.load('client', () => {
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
             updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            perimeterType: "Test string",
+            status: {
+                accessLevels: [
+                    "Test string"                ],
+                resources: [
+                    "Test string"                ],
+                restrictedServices: [
+                    "Test string"                ],
+            },
+            title: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Create an Service Perimeter. The
+         * longrunning operation from this RPC will have a successful status once the
+         * Service Perimeter has
+         * propagated to long-lasting storage. Service Perimeters containing
+         * errors will result in an error response for the first error encountered.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
+            parent: "Test string",
         }, {
             createTime: "Test string",
             description: "Test string",
@@ -653,31 +653,6 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            perimeterType: "Test string",
-            status: {
-                accessLevels: [
-                    "Test string"                ],
-                resources: [
-                    "Test string"                ],
-                restrictedServices: [
-                    "Test string"                ],
-            },
-            title: "Test string",
-            updateTime: "Test string",
-        });
-        /**
          * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
@@ -712,6 +687,31 @@ gapi.load('client', () => {
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
             updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            perimeterType: "Test string",
+            status: {
+                accessLevels: [
+                    "Test string"                ],
+                resources: [
+                    "Test string"                ],
+                restrictedServices: [
+                    "Test string"                ],
+            },
+            title: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Create an Service Perimeter. The
+         * longrunning operation from this RPC will have a successful status once the
+         * Service Perimeter has
+         * propagated to long-lasting storage. Service Perimeters containing
+         * errors will result in an error response for the first error encountered.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
+            parent: "Test string",
         }, {
             createTime: "Test string",
             description: "Test string",
@@ -866,31 +866,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            perimeterType: "Test string",
-            status: {
-                accessLevels: [
-                    "Test string"                ],
-                resources: [
-                    "Test string"                ],
-                restrictedServices: [
-                    "Test string"                ],
-            },
-            title: "Test string",
-            updateTime: "Test string",
-        });
-        /**
          * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
@@ -925,6 +900,31 @@ gapi.load('client', () => {
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
             updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            perimeterType: "Test string",
+            status: {
+                accessLevels: [
+                    "Test string"                ],
+                resources: [
+                    "Test string"                ],
+                restrictedServices: [
+                    "Test string"                ],
+            },
+            title: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Create an Service Perimeter. The
+         * longrunning operation from this RPC will have a successful status once the
+         * Service Perimeter has
+         * propagated to long-lasting storage. Service Perimeters containing
+         * errors will result in an error response for the first error encountered.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
+            parent: "Test string",
         }, {
             createTime: "Test string",
             description: "Test string",

@@ -1219,6 +1219,18 @@ declare namespace gapi.client {
             /** Third party identity as the real authority. */
             thirdPartyPrincipal?: ThirdPartyPrincipal;
         }
+        interface SpanContext {
+            /**
+             * The resource name of the span in the following format:
+             *
+             * projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier for a trace within a project;
+             * it is a 32-character hexadecimal encoding of a 16-byte array.
+             *
+             * [SPAN_ID] is a unique identifier for a span within a trace; it
+             * is a 16-character hexadecimal encoding of an 8-byte array.
+             */
+            spanName?: string;
+        }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
             code?: number;

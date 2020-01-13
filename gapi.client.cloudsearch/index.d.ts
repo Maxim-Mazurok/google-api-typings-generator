@@ -106,6 +106,7 @@ declare namespace gapi.client {
              * specific item, as users need to have ACL permissions on the contained
              * items. This ensures a high level access on the entire datasource, and
              * that the individual items are not shared outside this visibility.
+             * This should not be set if anonymous search is enabled for the data source.
              */
             itemsVisibility?: GSuitePrincipal[];
             /**
@@ -1325,6 +1326,11 @@ declare namespace gapi.client {
              * the less-than operator.
              */
             lessThanOperatorName?: string;
+            /**
+             * Name of the object corresponding to the operator. This field is only filled
+             * for schema-specific operators, and is unset for common operators.
+             */
+            objectType?: string;
             /** The name of the operator. */
             operatorName?: string;
             /** Type of the operator. */

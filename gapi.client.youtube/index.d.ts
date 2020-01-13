@@ -543,8 +543,10 @@ declare namespace gapi.client {
             isLinked?: boolean;
             /** The long uploads status of this channel. See */
             longUploadsStatus?: string;
+            madeForKids?: boolean;
             /** Privacy status of the channel. */
             privacyStatus?: string;
+            selfDeclaredMadeForKids?: boolean;
         }
         interface ChannelTopicDetails {
             /** A list of Wikipedia URLs that describe the channel's content. */
@@ -2560,6 +2562,7 @@ declare namespace gapi.client {
             failureReason?: string;
             /** The video's license. */
             license?: string;
+            madeForKids?: boolean;
             /** The video's privacy status. */
             privacyStatus?: string;
             /**
@@ -2577,6 +2580,11 @@ declare namespace gapi.client {
              * rejected.
              */
             rejectionReason?: string;
+            /**
+             * Allows clients to set the Crosswalk self_declared state for a Video. This maps to VAPI.Video.creator_flags.is_crosswalk_self_declared() and
+             * VAPI.Video.creator_flags.is_not_crosswalk_self_declared().
+             */
+            selfDeclaredMadeForKids?: boolean;
             /** The status of the uploaded video. */
             uploadStatus?: string;
         }

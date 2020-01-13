@@ -92,6 +92,23 @@ gapi.load('client', () => {
                     }                ],
             },
         });
+        /** Get a `Ruleset` by name including the full `Source` contents. */
+        await gapi.client.firebaserules.projects.rulesets.get({
+            name: "Test string",
+        });
+        /**
+         * List `Ruleset` metadata only and optionally filter the results by `Ruleset`
+         * name.
+         *
+         * The full `Source` contents of a `Ruleset` may be retrieved with
+         * GetRuleset.
+         */
+        await gapi.client.firebaserules.projects.rulesets.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /**
          * Create a `Ruleset` from `Source`.
          *
@@ -126,23 +143,6 @@ gapi.load('client', () => {
         await gapi.client.firebaserules.projects.rulesets.delete({
             name: "Test string",
         });
-        /** Get a `Ruleset` by name including the full `Source` contents. */
-        await gapi.client.firebaserules.projects.rulesets.get({
-            name: "Test string",
-        });
-        /**
-         * List `Ruleset` metadata only and optionally filter the results by `Ruleset`
-         * name.
-         *
-         * The full `Source` contents of a `Ruleset` may be retrieved with
-         * GetRuleset.
-         */
-        await gapi.client.firebaserules.projects.rulesets.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /**
          * Update a `Release` via PATCH.
          *
@@ -165,13 +165,13 @@ gapi.load('client', () => {
         await gapi.client.firebaserules.projects.releases.get({
             name: "Test string",
         });
-        /** Delete a `Release` by resource name. */
-        await gapi.client.firebaserules.projects.releases.delete({
-            name: "Test string",
-        });
         /** Get the `Release` executable to use when enforcing rules. */
         await gapi.client.firebaserules.projects.releases.getExecutable({
             executableVersion: "Test string",
+            name: "Test string",
+        });
+        /** Delete a `Release` by resource name. */
+        await gapi.client.firebaserules.projects.releases.delete({
             name: "Test string",
         });
         /**

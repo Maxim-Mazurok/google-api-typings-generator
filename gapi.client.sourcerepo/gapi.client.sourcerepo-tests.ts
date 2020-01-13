@@ -38,6 +38,41 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.sourcerepo.projects.repos.getIamPolicy({
+            "options.requestedPolicyVersion": 42,
+            resource: "Test string",
+        });
+        /** Returns information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.get({
+            name: "Test string",
+        });
+        /** Updates information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.patch({
+            name: "Test string",
+        }, {
+            repo: {
+                mirrorConfig: {
+                    deployKeyId: "Test string",
+                    url: "Test string",
+                    webhookId: "Test string",
+                },
+                name: "Test string",
+                pubsubConfigs: {
+                    A: {
+                        messageFormat: "Test string",
+                        serviceAccountEmail: "Test string",
+                        topic: "Test string",
+                    }                },
+                size: "Test string",
+                url: "Test string",
+            },
+            updateMask: "Test string",
+        });
+        /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
          * permissions, not a NOT_FOUND error.
@@ -69,6 +104,30 @@ gapi.load('client', () => {
         await gapi.client.sourcerepo.projects.repos.sync({
             name: "Test string",
         }, {
+        });
+        /**
+         * Creates a repo in the given project with the given name.
+         *
+         * If the named repository already exists, `CreateRepo` returns
+         * `ALREADY_EXISTS`.
+         */
+        await gapi.client.sourcerepo.projects.repos.create({
+            parent: "Test string",
+        }, {
+            mirrorConfig: {
+                deployKeyId: "Test string",
+                url: "Test string",
+                webhookId: "Test string",
+            },
+            name: "Test string",
+            pubsubConfigs: {
+                A: {
+                    messageFormat: "Test string",
+                    serviceAccountEmail: "Test string",
+                    topic: "Test string",
+                }            },
+            size: "Test string",
+            url: "Test string",
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -104,65 +163,6 @@ gapi.load('client', () => {
                 version: 42,
             },
             updateMask: "Test string",
-        });
-        /**
-         * Creates a repo in the given project with the given name.
-         *
-         * If the named repository already exists, `CreateRepo` returns
-         * `ALREADY_EXISTS`.
-         */
-        await gapi.client.sourcerepo.projects.repos.create({
-            parent: "Test string",
-        }, {
-            mirrorConfig: {
-                deployKeyId: "Test string",
-                url: "Test string",
-                webhookId: "Test string",
-            },
-            name: "Test string",
-            pubsubConfigs: {
-                A: {
-                    messageFormat: "Test string",
-                    serviceAccountEmail: "Test string",
-                    topic: "Test string",
-                }            },
-            size: "Test string",
-            url: "Test string",
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.sourcerepo.projects.repos.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Updates information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.patch({
-            name: "Test string",
-        }, {
-            repo: {
-                mirrorConfig: {
-                    deployKeyId: "Test string",
-                    url: "Test string",
-                    webhookId: "Test string",
-                },
-                name: "Test string",
-                pubsubConfigs: {
-                    A: {
-                        messageFormat: "Test string",
-                        serviceAccountEmail: "Test string",
-                        topic: "Test string",
-                    }                },
-                size: "Test string",
-                url: "Test string",
-            },
-            updateMask: "Test string",
-        });
-        /** Returns information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.get({
-            name: "Test string",
         });
         /** Updates the Cloud Source Repositories configuration of the project. */
         await gapi.client.sourcerepo.projects.updateConfig({
@@ -181,6 +181,41 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.sourcerepo.projects.repos.getIamPolicy({
+            "options.requestedPolicyVersion": 42,
+            resource: "Test string",
+        });
+        /** Returns information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.get({
+            name: "Test string",
+        });
+        /** Updates information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.patch({
+            name: "Test string",
+        }, {
+            repo: {
+                mirrorConfig: {
+                    deployKeyId: "Test string",
+                    url: "Test string",
+                    webhookId: "Test string",
+                },
+                name: "Test string",
+                pubsubConfigs: {
+                    A: {
+                        messageFormat: "Test string",
+                        serviceAccountEmail: "Test string",
+                        topic: "Test string",
+                    }                },
+                size: "Test string",
+                url: "Test string",
+            },
+            updateMask: "Test string",
+        });
+        /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
          * permissions, not a NOT_FOUND error.
@@ -212,6 +247,30 @@ gapi.load('client', () => {
         await gapi.client.sourcerepo.projects.repos.sync({
             name: "Test string",
         }, {
+        });
+        /**
+         * Creates a repo in the given project with the given name.
+         *
+         * If the named repository already exists, `CreateRepo` returns
+         * `ALREADY_EXISTS`.
+         */
+        await gapi.client.sourcerepo.projects.repos.create({
+            parent: "Test string",
+        }, {
+            mirrorConfig: {
+                deployKeyId: "Test string",
+                url: "Test string",
+                webhookId: "Test string",
+            },
+            name: "Test string",
+            pubsubConfigs: {
+                A: {
+                    messageFormat: "Test string",
+                    serviceAccountEmail: "Test string",
+                    topic: "Test string",
+                }            },
+            size: "Test string",
+            url: "Test string",
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -247,65 +306,6 @@ gapi.load('client', () => {
                 version: 42,
             },
             updateMask: "Test string",
-        });
-        /**
-         * Creates a repo in the given project with the given name.
-         *
-         * If the named repository already exists, `CreateRepo` returns
-         * `ALREADY_EXISTS`.
-         */
-        await gapi.client.sourcerepo.projects.repos.create({
-            parent: "Test string",
-        }, {
-            mirrorConfig: {
-                deployKeyId: "Test string",
-                url: "Test string",
-                webhookId: "Test string",
-            },
-            name: "Test string",
-            pubsubConfigs: {
-                A: {
-                    messageFormat: "Test string",
-                    serviceAccountEmail: "Test string",
-                    topic: "Test string",
-                }            },
-            size: "Test string",
-            url: "Test string",
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.sourcerepo.projects.repos.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Updates information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.patch({
-            name: "Test string",
-        }, {
-            repo: {
-                mirrorConfig: {
-                    deployKeyId: "Test string",
-                    url: "Test string",
-                    webhookId: "Test string",
-                },
-                name: "Test string",
-                pubsubConfigs: {
-                    A: {
-                        messageFormat: "Test string",
-                        serviceAccountEmail: "Test string",
-                        topic: "Test string",
-                    }                },
-                size: "Test string",
-                url: "Test string",
-            },
-            updateMask: "Test string",
-        });
-        /** Returns information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.get({
-            name: "Test string",
         });
     }
 });

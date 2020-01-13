@@ -95,6 +95,154 @@ gapi.load('client', () => {
             regionCode: "Test string",
             timeZone: "Test string",
         });
+        /** Gets the AndroidApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.androidApps.get({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists each AndroidApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.androidApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Updates the attributes of the AndroidApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.androidApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
         /**
          * Returns a list of valid Google Cloud Platform (GCP) resource locations for
          * the specified Project (including a FirebaseProject).
@@ -269,154 +417,6 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
-        });
-        /** Gets the AndroidApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.androidApps.get({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Lists each AndroidApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.androidApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Updates the attributes of the AndroidApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.androidApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Requests that a new AndroidApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.androidApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
         });
         /**
          * Links a FirebaseProject with an existing
@@ -479,6 +479,154 @@ gapi.load('client', () => {
             analyticsAccountId: "Test string",
             analyticsPropertyId: "Test string",
         });
+        /** Gets the AndroidApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.androidApps.get({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists each AndroidApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.androidApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Updates the attributes of the AndroidApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.androidApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
         /**
          * Returns a list of valid Google Cloud Platform (GCP) resource locations for
          * the specified Project (including a FirebaseProject).
@@ -653,159 +801,159 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
-        });
-        /** Gets the AndroidApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.androidApps.get({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Lists each AndroidApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.androidApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Updates the attributes of the AndroidApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.androidApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Requests that a new AndroidApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.androidApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
         });
         /** Gets the FirebaseProject identified by the specified resource name. */
         await gapi.client.firebase.projects.get({
             name: "Test string",
         });
+        /** Gets the AndroidApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.androidApps.get({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists each AndroidApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.androidApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Updates the attributes of the AndroidApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.androidApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
         /**
          * Returns a list of valid Google Cloud Platform (GCP) resource locations for
          * the specified Project (including a FirebaseProject).
@@ -980,154 +1128,6 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
-        });
-        /** Gets the AndroidApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.androidApps.get({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Lists each AndroidApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.androidApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Updates the attributes of the AndroidApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.androidApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Requests that a new AndroidApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.androidApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
         });
         /**
          * Gets the configuration artifact used by servers to simplify initialization.
@@ -1139,6 +1139,154 @@ gapi.load('client', () => {
         await gapi.client.firebase.projects.getAdminSdkConfig({
             name: "Test string",
         });
+        /** Gets the AndroidApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.androidApps.get({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists each AndroidApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.androidApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Updates the attributes of the AndroidApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.androidApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
         /**
          * Returns a list of valid Google Cloud Platform (GCP) resource locations for
          * the specified Project (including a FirebaseProject).
@@ -1313,154 +1461,6 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
-        });
-        /** Gets the AndroidApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.androidApps.get({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Lists each AndroidApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.androidApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Updates the attributes of the AndroidApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.androidApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Requests that a new AndroidApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.androidApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
         });
         /**
          * Gets the Google Analytics details currently associated with a
@@ -1472,6 +1472,154 @@ gapi.load('client', () => {
         await gapi.client.firebase.projects.getAnalyticsDetails({
             name: "Test string",
         });
+        /** Gets the AndroidApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.androidApps.get({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists each AndroidApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.androidApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Updates the attributes of the AndroidApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.androidApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
         /**
          * Returns a list of valid Google Cloud Platform (GCP) resource locations for
          * the specified Project (including a FirebaseProject).
@@ -1646,154 +1794,6 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
-        });
-        /** Gets the AndroidApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.androidApps.get({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Lists each AndroidApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.androidApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Updates the attributes of the AndroidApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.androidApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Requests that a new AndroidApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.androidApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
         });
         /**
          * Lists each FirebaseProject accessible to the caller.
@@ -1815,6 +1815,154 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /** Gets the AndroidApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.androidApps.get({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists each AndroidApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.androidApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Updates the attributes of the AndroidApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.androidApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
         /**
          * Returns a list of valid Google Cloud Platform (GCP) resource locations for
          * the specified Project (including a FirebaseProject).
@@ -1989,154 +2137,6 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
-        });
-        /** Gets the AndroidApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.androidApps.get({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Lists each AndroidApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.androidApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Updates the attributes of the AndroidApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.androidApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Requests that a new AndroidApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.androidApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
         });
         /**
          * Updates the attributes of the FirebaseProject identified by the
@@ -2159,6 +2159,154 @@ gapi.load('client', () => {
                 storageBucket: "Test string",
             },
         });
+        /** Gets the AndroidApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.androidApps.get({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists each AndroidApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.androidApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Updates the attributes of the AndroidApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.androidApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
         /**
          * Returns a list of valid Google Cloud Platform (GCP) resource locations for
          * the specified Project (including a FirebaseProject).
@@ -2333,154 +2481,6 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
-        });
-        /** Gets the AndroidApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.androidApps.get({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Lists each AndroidApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.androidApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Updates the attributes of the AndroidApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.androidApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Requests that a new AndroidApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.androidApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
         });
         /**
          * Unlinks the specified `FirebaseProject` from its Google Analytics account.
@@ -2506,6 +2506,154 @@ gapi.load('client', () => {
         }, {
             analyticsPropertyId: "Test string",
         });
+        /** Gets the AndroidApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.androidApps.get({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists each AndroidApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.androidApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Updates the attributes of the AndroidApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.androidApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
         /**
          * Returns a list of valid Google Cloud Platform (GCP) resource locations for
          * the specified Project (including a FirebaseProject).
@@ -2680,154 +2828,6 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
-        });
-        /** Gets the AndroidApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.androidApps.get({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Lists each AndroidApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.androidApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Updates the attributes of the AndroidApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.androidApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Requests that a new AndroidApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.androidApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
         });
         /**
          * A convenience method that lists all available Apps for the specified
@@ -2842,6 +2842,154 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
+        /** Gets the AndroidApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.androidApps.get({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists each AndroidApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.androidApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Updates the attributes of the AndroidApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.androidApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
         /**
          * Returns a list of valid Google Cloud Platform (GCP) resource locations for
          * the specified Project (including a FirebaseProject).
@@ -3016,154 +3164,6 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
-        });
-        /** Gets the AndroidApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.androidApps.get({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Lists each AndroidApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.androidApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Updates the attributes of the AndroidApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.androidApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Requests that a new AndroidApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.androidApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            packageName: "Test string",
-            projectId: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
         });
     }
 });

@@ -629,7 +629,9 @@ gapi.load('client', () => {
             status: {
                 isLinked: true,
                 longUploadsStatus: "Test string",
+                madeForKids: true,
                 privacyStatus: "Test string",
+                selfDeclaredMadeForKids: true,
             },
             topicDetails: {
                 topicCategories: [
@@ -2084,10 +2086,12 @@ gapi.load('client', () => {
                 embeddable: true,
                 failureReason: "Test string",
                 license: "Test string",
+                madeForKids: true,
                 privacyStatus: "Test string",
                 publicStatsViewable: true,
                 publishAt: "Test string",
                 rejectionReason: "Test string",
+                selfDeclaredMadeForKids: true,
                 uploadStatus: "Test string",
             },
             suggestions: {
@@ -2388,10 +2392,12 @@ gapi.load('client', () => {
                 embeddable: true,
                 failureReason: "Test string",
                 license: "Test string",
+                madeForKids: true,
                 privacyStatus: "Test string",
                 publicStatsViewable: true,
                 publishAt: "Test string",
                 rejectionReason: "Test string",
+                selfDeclaredMadeForKids: true,
                 uploadStatus: "Test string",
             },
             suggestions: {

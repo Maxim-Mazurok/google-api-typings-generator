@@ -267,11 +267,6 @@ declare namespace gapi.client {
             interactionType?: string;
             /** The audio type that most closely describes the audio being recognized. */
             microphoneDistance?: string;
-            /**
-             * Obfuscated (privacy-protected) ID of the user, to identify number of
-             * unique users using the service.
-             */
-            obfuscatedId?: string;
             /** The original media the speech was recorded on. */
             originalMediaType?: string;
             /**
@@ -406,7 +401,7 @@ declare namespace gapi.client {
              */
             endTime?: string;
             /**
-             * A distinct integer value is assigned for every speaker within
+             * Output only. A distinct integer value is assigned for every speaker within
              * the audio. This field specifies which one of those speakers was detected to
              * have spoken this word. Value ranges from '1' to diarization_speaker_count.
              * speaker_tag is set if enable_speaker_diarization = 'true' and only in the

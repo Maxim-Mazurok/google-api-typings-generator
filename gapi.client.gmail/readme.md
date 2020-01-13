@@ -36,18 +36,6 @@ var client_id = '',
         // Read, compose, send, and permanently delete all your email from Gmail
         'https://mail.google.com/',
     
-        // Manage drafts and send emails when you interact with the add-on
-        'https://www.googleapis.com/auth/gmail.addons.current.action.compose',
-    
-        // View your email messages when you interact with the add-on
-        'https://www.googleapis.com/auth/gmail.addons.current.message.action',
-    
-        // View your email message metadata when the add-on is running
-        'https://www.googleapis.com/auth/gmail.addons.current.message.metadata',
-    
-        // View your email messages when the add-on is running
-        'https://www.googleapis.com/auth/gmail.addons.current.message.readonly',
-    
         // Manage drafts and send emails
         'https://www.googleapis.com/auth/gmail.compose',
     

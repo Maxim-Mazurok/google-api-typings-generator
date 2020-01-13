@@ -43,7 +43,7 @@ declare namespace gapi.client {
             recommendations?: GoogleCloudRecommenderV1beta1Recommendation[];
         }
         interface GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest {
-            /** Fingerprint of the Recommendation. Provides optimistic locking. */
+            /** Required. Fingerprint of the Recommendation. Provides optimistic locking. */
             etag?: string;
             /**
              * State properties to include with this state. Overwrites any existing
@@ -54,7 +54,7 @@ declare namespace gapi.client {
             stateMetadata?: Record<string, string>;
         }
         interface GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest {
-            /** Fingerprint of the Recommendation. Provides optimistic locking. */
+            /** Required. Fingerprint of the Recommendation. Provides optimistic locking. */
             etag?: string;
             /**
              * State properties to include with this state. Overwrites any existing
@@ -65,7 +65,7 @@ declare namespace gapi.client {
             stateMetadata?: Record<string, string>;
         }
         interface GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest {
-            /** Fingerprint of the Recommendation. Provides optimistic locking. */
+            /** Required. Fingerprint of the Recommendation. Provides optimistic locking. */
             etag?: string;
             /**
              * State properties to include with this state. Overwrites any existing
@@ -185,12 +185,7 @@ declare namespace gapi.client {
              * in the first place.
              */
             lastRefreshTime?: string;
-            /**
-             * Name of recommendation.
-             *
-             * A project recommendation is represented as
-             * projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/recommendations/[RECOMMENDATION_ID]
-             */
+            /** Name of recommendation. */
             name?: string;
             /**
              * The primary impact that this recommendation can have while trying to
@@ -270,7 +265,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Name of the recommendation. */
+                /** Required. Name of the recommendation. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -309,16 +304,16 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request.
-                 * Non-positive values are ignored. If not specified, the server will
-                 * determine the number of results to return.
+                 * Optional. The maximum number of results to return from this request.  Non-positive
+                 * values are ignored. If not specified, the server will determine the number
+                 * of results to return.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, retrieves the next batch of results from the
-                 * preceding call to this method. `page_token` must be the value of
-                 * `next_page_token` from the previous response. The values of other method
-                 * parameters must be identical to those in the previous call.
+                 * Optional. If present, retrieves the next batch of results from the preceding call to
+                 * this method. `page_token` must be the value of `next_page_token` from the
+                 * previous response. The values of other method parameters must be identical
+                 * to those in the previous call.
                  */
                 pageToken?: string;
                 /**
@@ -366,7 +361,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Name of the recommendation. */
+                /** Required. Name of the recommendation. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -394,7 +389,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Name of the recommendation. */
+                /** Required. Name of the recommendation. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -434,7 +429,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Name of the recommendation. */
+                /** Required. Name of the recommendation. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -462,7 +457,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Name of the recommendation. */
+                /** Required. Name of the recommendation. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -502,7 +497,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Name of the recommendation. */
+                /** Required. Name of the recommendation. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -530,7 +525,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Name of the recommendation. */
+                /** Required. Name of the recommendation. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

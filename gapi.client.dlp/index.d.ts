@@ -19,7 +19,7 @@ declare namespace gapi.client {
     namespace dlp {
         interface GooglePrivacyDlpV2Action {
             /**
-             * Enable email notification to project owners and editors on job's
+             * Enable email notification for project owners and editors on job's
              * completion/failure.
              */
             jobNotificationEmails?: any;
@@ -38,11 +38,17 @@ declare namespace gapi.client {
         interface GooglePrivacyDlpV2ActivateJobTriggerRequest {
         }
         interface GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails {
+            /** Categorical stats result */
             categoricalStatsResult?: GooglePrivacyDlpV2CategoricalStatsResult;
+            /** Delta-presence result */
             deltaPresenceEstimationResult?: GooglePrivacyDlpV2DeltaPresenceEstimationResult;
+            /** K-anonymity result */
             kAnonymityResult?: GooglePrivacyDlpV2KAnonymityResult;
+            /** K-map result */
             kMapEstimationResult?: GooglePrivacyDlpV2KMapEstimationResult;
+            /** L-divesity result */
             lDiversityResult?: GooglePrivacyDlpV2LDiversityResult;
+            /** Numerical stats result */
             numericalStatsResult?: GooglePrivacyDlpV2NumericalStatsResult;
             /** Privacy metric to compute. */
             requestedPrivacyMetric?: GooglePrivacyDlpV2PrivacyMetric;
@@ -50,15 +56,14 @@ declare namespace gapi.client {
             requestedSourceTable?: GooglePrivacyDlpV2BigQueryTable;
         }
         interface GooglePrivacyDlpV2AuxiliaryTable {
-            /** Quasi-identifier columns. [required] */
+            /** Required. Quasi-identifier columns. */
             quasiIds?: GooglePrivacyDlpV2QuasiIdField[];
             /**
-             * The relative frequency column must contain a floating-point number
+             * Required. The relative frequency column must contain a floating-point number
              * between 0 and 1 (inclusive). Null values are assumed to be zero.
-             * [required]
              */
             relativeFrequency?: GooglePrivacyDlpV2FieldId;
-            /** Auxiliary table location. [required] */
+            /** Required. Auxiliary table location. */
             table?: GooglePrivacyDlpV2BigQueryTable;
         }
         interface GooglePrivacyDlpV2BigQueryField {
@@ -212,7 +217,12 @@ declare namespace gapi.client {
             reverseOrder?: boolean;
         }
         interface GooglePrivacyDlpV2CharsToIgnore {
+            /** Characters to not transform when masking. */
             charactersToSkip?: string;
+            /**
+             * Common characters to not transform when masking. Useful to avoid removing
+             * punctuation.
+             */
             commonCharactersToIgnore?: string;
         }
         interface GooglePrivacyDlpV2CloudStorageFileSet {
@@ -295,14 +305,15 @@ declare namespace gapi.client {
             red?: number;
         }
         interface GooglePrivacyDlpV2Condition {
-            /** Field within the record this condition is evaluated against. [required] */
+            /** Required. Field within the record this condition is evaluated against. */
             field?: GooglePrivacyDlpV2FieldId;
-            /** Operator used to compare the field or infoType to the value. [required] */
+            /** Required. Operator used to compare the field or infoType to the value. */
             operator?: string;
-            /** Value to compare against. [Required, except for `EXISTS` tests.] */
+            /** Value to compare against. [Mandatory, except for `EXISTS` tests.] */
             value?: GooglePrivacyDlpV2Value;
         }
         interface GooglePrivacyDlpV2Conditions {
+            /** A collection of conditions. */
             conditions?: GooglePrivacyDlpV2Condition[];
         }
         interface GooglePrivacyDlpV2ContentItem {
@@ -323,9 +334,9 @@ declare namespace gapi.client {
              * The top level name is the source file name or table name. Names of some
              * common storage containers are formatted as follows:
              *
-             * &#42; BigQuery tables:  `<project_id>:<dataset_id>.<table_id>`
-             * &#42; Cloud Storage files: `gs://<bucket>/<path>`
-             * &#42; Datastore namespace: <namespace>
+             * &#42; BigQuery tables:  `{project_id}:{dataset_id}.{table_id}`
+             * &#42; Cloud Storage files: `gs://{bucket}/{path}`
+             * &#42; Datastore namespace: {namespace}
              *
              * Nested names could be absent if the embedded object has no string
              * identifier (for an example an image contained within a document).
@@ -351,7 +362,7 @@ declare namespace gapi.client {
             recordLocation?: GooglePrivacyDlpV2RecordLocation;
         }
         interface GooglePrivacyDlpV2CreateDeidentifyTemplateRequest {
-            /** The DeidentifyTemplate to create. */
+            /** Required. The DeidentifyTemplate to create. */
             deidentifyTemplate?: GooglePrivacyDlpV2DeidentifyTemplate;
             /**
              * The geographic location to store the deidentification template. Reserved
@@ -367,6 +378,7 @@ declare namespace gapi.client {
             templateId?: string;
         }
         interface GooglePrivacyDlpV2CreateDlpJobRequest {
+            /** Set to control what and how to inspect. */
             inspectJob?: GooglePrivacyDlpV2InspectJobConfig;
             /**
              * The job id can contain uppercase and lowercase letters,
@@ -380,10 +392,11 @@ declare namespace gapi.client {
              * future extensions.
              */
             locationId?: string;
+            /** Set to choose what metric to calculate. */
             riskJob?: GooglePrivacyDlpV2RiskAnalysisJobConfig;
         }
         interface GooglePrivacyDlpV2CreateInspectTemplateRequest {
-            /** The InspectTemplate to create. */
+            /** Required. The InspectTemplate to create. */
             inspectTemplate?: GooglePrivacyDlpV2InspectTemplate;
             /**
              * The geographic location to store the inspection template. Reserved for
@@ -399,7 +412,7 @@ declare namespace gapi.client {
             templateId?: string;
         }
         interface GooglePrivacyDlpV2CreateJobTriggerRequest {
-            /** The JobTrigger to create. */
+            /** Required. The JobTrigger to create. */
             jobTrigger?: GooglePrivacyDlpV2JobTrigger;
             /**
              * The geographic location to store the job trigger. Reserved for
@@ -415,7 +428,7 @@ declare namespace gapi.client {
             triggerId?: string;
         }
         interface GooglePrivacyDlpV2CreateStoredInfoTypeRequest {
-            /** Configuration of the storedInfoType to create. */
+            /** Required. Configuration of the storedInfoType to create. */
             config?: GooglePrivacyDlpV2StoredInfoTypeConfig;
             /**
              * The geographic location to store the stored infoType. Reserved for
@@ -432,7 +445,7 @@ declare namespace gapi.client {
         }
         interface GooglePrivacyDlpV2CryptoDeterministicConfig {
             /**
-             * Optional. A context may be used for higher security and maintaining
+             * A context may be used for higher security and maintaining
              * referential integrity such that the same identifier in two different
              * contexts will be given a distinct surrogate. The context is appended to
              * plaintext value being encrypted. On decryption the provided context is
@@ -459,7 +472,7 @@ declare namespace gapi.client {
              * This annotation will be applied to the surrogate by prefixing it with
              * the name of the custom info type followed by the number of
              * characters comprising the surrogate. The following scheme defines the
-             * format: <info type name>(<surrogate character count>):<surrogate>
+             * format: {info type name}({surrogate character count}):{surrogate}
              *
              * For example, if the name of custom info type is 'MY_TOKEN_INFO_TYPE' and
              * the surrogate is 'abc', the full replacement value
@@ -470,7 +483,7 @@ declare namespace gapi.client {
              * surrogate when it occurs in free text.
              *
              * Note: For record transformations where the entire cell in a table is being
-             * transformed, surrogates are optional to use. Surrogates are used to denote
+             * transformed, surrogates are not mandatory. Surrogates are used to denote
              * the location of the token and are necessary for re-identification in free
              * form text.
              *
@@ -495,11 +508,15 @@ declare namespace gapi.client {
             cryptoKey?: GooglePrivacyDlpV2CryptoKey;
         }
         interface GooglePrivacyDlpV2CryptoKey {
+            /** Kms wrapped key */
             kmsWrapped?: GooglePrivacyDlpV2KmsWrappedCryptoKey;
+            /** Transient crypto key */
             transient?: GooglePrivacyDlpV2TransientCryptoKey;
+            /** Unwrapped crypto key */
             unwrapped?: GooglePrivacyDlpV2UnwrappedCryptoKey;
         }
         interface GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig {
+            /** Common alphabets. */
             commonAlphabet?: string;
             /**
              * The 'tweak', a context may be used for higher security since the same
@@ -524,7 +541,7 @@ declare namespace gapi.client {
              * - a string is encoded in UTF-8 format followed by a single byte of value 2
              */
             context?: GooglePrivacyDlpV2FieldId;
-            /** The key used by the encryption algorithm. [required] */
+            /** Required. The key used by the encryption algorithm. */
             cryptoKey?: GooglePrivacyDlpV2CryptoKey;
             /**
              * This is supported by mapping these to the alphanumeric characters
@@ -635,29 +652,28 @@ declare namespace gapi.client {
              * set, must also set context. Can only be applied to table items.
              */
             cryptoKey?: GooglePrivacyDlpV2CryptoKey;
-            /**
-             * For example, -5 means shift date to at most 5 days back in the past.
-             * [Required]
-             */
+            /** Required. For example, -5 means shift date to at most 5 days back in the past. */
             lowerBoundDays?: number;
             /**
-             * Range of shift in days. Actual shift will be selected at random within this
+             * Required. Range of shift in days. Actual shift will be selected at random within this
              * range (inclusive ends). Negative means shift to earlier in time. Must not
              * be more than 365250 days (1000 years) each direction.
              *
              * For example, 3 means shift date to at most 3 days into the future.
-             * [Required]
              */
             upperBoundDays?: number;
         }
         interface GooglePrivacyDlpV2DateTime {
             /**
-             * One or more of the following must be set. All fields are optional, but
-             * when set must be valid date or time values.
+             * One or more of the following must be set.
+             * Must be a valid date or time value.
              */
             date?: GoogleTypeDate;
+            /** Day of week */
             dayOfWeek?: string;
+            /** Time of day */
             time?: GoogleTypeTimeOfDay;
+            /** Time zone */
             timeZone?: GooglePrivacyDlpV2TimeZone;
         }
         interface GooglePrivacyDlpV2DeidentifyConfig {
@@ -686,7 +702,7 @@ declare namespace gapi.client {
              */
             deidentifyConfig?: GooglePrivacyDlpV2DeidentifyConfig;
             /**
-             * Optional template to use. Any configuration directly specified in
+             * Template to use. Any configuration directly specified in
              * deidentify_config will override those set in the template. Singular fields
              * that are set in this request will replace their corresponding fields in the
              * template. Repeated fields are appended. Singular sub-messages and groups
@@ -700,7 +716,7 @@ declare namespace gapi.client {
              */
             inspectConfig?: GooglePrivacyDlpV2InspectConfig;
             /**
-             * Optional template to use. Any configuration directly specified in
+             * Template to use. Any configuration directly specified in
              * inspect_config will override those set in the template. Singular fields
              * that are set in this request will replace their corresponding fields in the
              * template. Repeated fields are appended. Singular sub-messages and groups
@@ -722,7 +738,7 @@ declare namespace gapi.client {
             overview?: GooglePrivacyDlpV2TransformationOverview;
         }
         interface GooglePrivacyDlpV2DeidentifyTemplate {
-            /** The creation timestamp of an inspectTemplate, output only field. */
+            /** Output only. The creation timestamp of an inspectTemplate. */
             createTime?: string;
             /** ///////////// // The core content of the template  // /////////////// */
             deidentifyConfig?: GooglePrivacyDlpV2DeidentifyConfig;
@@ -731,14 +747,14 @@ declare namespace gapi.client {
             /** Display name (max 256 chars). */
             displayName?: string;
             /**
-             * The template name. Output only.
+             * Output only. The template name.
              *
              * The template will have one of the following formats:
              * `projects/PROJECT_ID/deidentifyTemplates/TEMPLATE_ID` OR
              * `organizations/ORGANIZATION_ID/deidentifyTemplates/TEMPLATE_ID`
              */
             name?: string;
-            /** The last update timestamp of an inspectTemplate, output only field. */
+            /** Output only. The last update timestamp of an inspectTemplate. */
             updateTime?: string;
         }
         interface GooglePrivacyDlpV2DeltaPresenceEstimationConfig {
@@ -749,13 +765,13 @@ declare namespace gapi.client {
              */
             auxiliaryTables?: GooglePrivacyDlpV2StatisticalTable[];
             /**
-             * Fields considered to be quasi-identifiers. No two fields can have the
-             * same tag. [required]
+             * Required. Fields considered to be quasi-identifiers. No two fields can have the
+             * same tag.
              */
             quasiIds?: GooglePrivacyDlpV2QuasiId[];
             /**
              * ISO 3166-1 alpha-2 region code to use in the statistical modeling.
-             * Required if no column is tagged with a region-specific InfoType (like
+             * Set if no column is tagged with a region-specific InfoType (like
              * US_ZIP_5) or a region code.
              */
             regionCode?: string;
@@ -853,6 +869,7 @@ declare namespace gapi.client {
             field?: GooglePrivacyDlpV2FieldId;
         }
         interface GooglePrivacyDlpV2Error {
+            /** Detailed error codes and messages. */
             details?: GoogleRpcStatus;
             /** The times the error occurred. */
             timestamps?: string[];
@@ -881,6 +898,7 @@ declare namespace gapi.client {
             regex?: GooglePrivacyDlpV2Regex;
         }
         interface GooglePrivacyDlpV2Expressions {
+            /** Conditions to apply to the expression. */
             conditions?: GooglePrivacyDlpV2Conditions;
             /**
              * The operator to apply to the result of conditions. Default and currently
@@ -896,7 +914,7 @@ declare namespace gapi.client {
             /**
              * Only apply the transformation if the condition evaluates to true for the
              * given `RecordCondition`. The conditions are allowed to reference fields
-             * that are not used in the actual transformation. [optional]
+             * that are not used in the actual transformation.
              *
              * Example Use Cases:
              *
@@ -905,7 +923,7 @@ declare namespace gapi.client {
              * - Redact a field if the date of birth field is greater than 85.
              */
             condition?: GooglePrivacyDlpV2RecordCondition;
-            /** Input field(s) to apply the transformation to. [required] */
+            /** Required. Input field(s) to apply the transformation to. */
             fields?: GooglePrivacyDlpV2FieldId[];
             /**
              * Treat the contents of the field as free text, and selectively
@@ -981,23 +999,22 @@ declare namespace gapi.client {
         }
         interface GooglePrivacyDlpV2FixedSizeBucketingConfig {
             /**
-             * Size of each bucket (except for minimum and maximum buckets). So if
+             * Required. Size of each bucket (except for minimum and maximum buckets). So if
              * `lower_bound` = 10, `upper_bound` = 89, and `bucket_size` = 10, then the
              * following buckets would be used: -10, 10-20, 20-30, 30-40, 40-50, 50-60,
-             * 60-70, 70-80, 80-89, 89+. Precision up to 2 decimals works. [Required].
+             * 60-70, 70-80, 80-89, 89+. Precision up to 2 decimals works.
              */
             bucketSize?: number;
             /**
-             * Lower bound value of buckets. All values less than `lower_bound` are
+             * Required. Lower bound value of buckets. All values less than `lower_bound` are
              * grouped together into a single bucket; for example if `lower_bound` = 10,
-             * then all values less than 10 are replaced with the value “-10”. [Required].
+             * then all values less than 10 are replaced with the value “-10”.
              */
             lowerBound?: GooglePrivacyDlpV2Value;
             /**
-             * Upper bound value of buckets. All values greater than upper_bound are
+             * Required. Upper bound value of buckets. All values greater than upper_bound are
              * grouped together into a single bucket; for example if `upper_bound` = 89,
              * then all values greater than 89 are replaced with the value “89+”.
-             * [Required].
              */
             upperBound?: GooglePrivacyDlpV2Value;
         }
@@ -1088,13 +1105,13 @@ declare namespace gapi.client {
              * infoTypes that were requested in `InspectConfig`.
              */
             infoTypes?: GooglePrivacyDlpV2InfoType[];
-            /** Primitive transformation to apply to the infoType. [required] */
+            /** Required. Primitive transformation to apply to the infoType. */
             primitiveTransformation?: GooglePrivacyDlpV2PrimitiveTransformation;
         }
         interface GooglePrivacyDlpV2InfoTypeTransformations {
             /**
-             * Transformation for each infoType. Cannot specify more than one
-             * for a given infoType. [required]
+             * Required. Transformation for each infoType. Cannot specify more than one
+             * for a given infoType.
              */
             transformations?: GooglePrivacyDlpV2InfoTypeTransformation[];
         }
@@ -1130,6 +1147,7 @@ declare namespace gapi.client {
              * otherwise a default list will be used, which may change over time.
              */
             infoTypes?: GooglePrivacyDlpV2InfoType[];
+            /** Configuration to control the number of findings returned. */
             limits?: GooglePrivacyDlpV2FindingLimits;
             /**
              * Only returns findings equal or above this threshold. The default is
@@ -1151,7 +1169,7 @@ declare namespace gapi.client {
              */
             inspectConfig?: GooglePrivacyDlpV2InspectConfig;
             /**
-             * Optional template to use. Any configuration directly specified in
+             * Template to use. Any configuration directly specified in
              * inspect_config will override those set in the template. Singular fields
              * that are set in this request will replace their corresponding fields in the
              * template. Repeated fields are appended. Singular sub-messages and groups
@@ -1204,7 +1222,7 @@ declare namespace gapi.client {
             findingsTruncated?: boolean;
         }
         interface GooglePrivacyDlpV2InspectTemplate {
-            /** The creation timestamp of an inspectTemplate, output only field. */
+            /** Output only. The creation timestamp of an inspectTemplate. */
             createTime?: string;
             /** Short description (max 256 chars). */
             description?: string;
@@ -1213,14 +1231,14 @@ declare namespace gapi.client {
             /** The core content of the template. Configuration of the scanning process. */
             inspectConfig?: GooglePrivacyDlpV2InspectConfig;
             /**
-             * The template name. Output only.
+             * Output only. The template name.
              *
              * The template will have one of the following formats:
              * `projects/PROJECT_ID/inspectTemplates/TEMPLATE_ID` OR
-             * `organizations/ORGANIZATION_ID/inspectTemplates/TEMPLATE_ID`
+             * `organizations/ORGANIZATION_ID/inspectTemplates/TEMPLATE_ID`;
              */
             name?: string;
-            /** The last update timestamp of an inspectTemplate, output only field. */
+            /** Output only. The last update timestamp of an inspectTemplate. */
             updateTime?: string;
         }
         interface GooglePrivacyDlpV2InspectionRule {
@@ -1239,21 +1257,22 @@ declare namespace gapi.client {
         interface GooglePrivacyDlpV2JobNotificationEmails {
         }
         interface GooglePrivacyDlpV2JobTrigger {
-            /** The creation timestamp of a triggeredJob, output only field. */
+            /** Output only. The creation timestamp of a triggeredJob. */
             createTime?: string;
             /** User provided description (max 256 chars) */
             description?: string;
             /** Display name (max 100 chars) */
             displayName?: string;
             /**
-             * A stream of errors encountered when the trigger was activated. Repeated
+             * Output only. A stream of errors encountered when the trigger was activated. Repeated
              * errors may result in the JobTrigger automatically being paused.
              * Will return the last 100 errors. Whenever the JobTrigger is modified
-             * this list will be cleared. Output only field.
+             * this list will be cleared.
              */
             errors?: GooglePrivacyDlpV2Error[];
+            /** For inspect jobs, a snapshot of the configuration. */
             inspectJob?: GooglePrivacyDlpV2InspectJobConfig;
-            /** The timestamp of the last time this trigger executed, output only field. */
+            /** Output only. The timestamp of the last time this trigger executed. */
             lastRunTime?: string;
             /**
              * Unique resource name for the triggeredJob, assigned by the service when the
@@ -1261,7 +1280,7 @@ declare namespace gapi.client {
              * `projects/dlp-test-project/jobTriggers/53234423`.
              */
             name?: string;
-            /** A status for this trigger. [required] */
+            /** Required. A status for this trigger. */
             status?: string;
             /**
              * A list of triggers which will be OR'ed together. Only one in the list
@@ -1269,12 +1288,12 @@ declare namespace gapi.client {
              * a single Schedule trigger and must have at least one object.
              */
             triggers?: GooglePrivacyDlpV2Trigger[];
-            /** The last update timestamp of a triggeredJob, output only field. */
+            /** Output only. The last update timestamp of a triggeredJob. */
             updateTime?: string;
         }
         interface GooglePrivacyDlpV2KAnonymityConfig {
             /**
-             * Optional message indicating that multiple rows might be associated to a
+             * Message indicating that multiple rows might be associated to a
              * single individual. If the same entity_id is associated to multiple
              * quasi-identifier tuples over distinct rows, we consider the entire
              * collection of tuples as the composite quasi-identifier. This collection
@@ -1335,13 +1354,13 @@ declare namespace gapi.client {
              */
             auxiliaryTables?: GooglePrivacyDlpV2AuxiliaryTable[];
             /**
-             * Fields considered to be quasi-identifiers. No two columns can have the
-             * same tag. [required]
+             * Required. Fields considered to be quasi-identifiers. No two columns can have the
+             * same tag.
              */
             quasiIds?: GooglePrivacyDlpV2TaggedField[];
             /**
              * ISO 3166-1 alpha-2 region code to use in the statistical modeling.
-             * Required if no column is tagged with a region-specific InfoType (like
+             * Set if no column is tagged with a region-specific InfoType (like
              * US_ZIP_5) or a region code.
              */
             regionCode?: string;
@@ -1405,9 +1424,9 @@ declare namespace gapi.client {
             name?: string;
         }
         interface GooglePrivacyDlpV2KmsWrappedCryptoKey {
-            /** The resource name of the KMS CryptoKey to use for unwrapping. [required] */
+            /** Required. The resource name of the KMS CryptoKey to use for unwrapping. */
             cryptoKeyName?: string;
-            /** The wrapped data crypto key. [required] */
+            /** Required. The wrapped data crypto key. */
             wrappedKey?: string;
         }
         interface GooglePrivacyDlpV2LDiversityConfig {
@@ -1641,24 +1660,41 @@ declare namespace gapi.client {
             name?: string;
         }
         interface GooglePrivacyDlpV2PrimitiveTransformation {
+            /** Bucketing */
             bucketingConfig?: GooglePrivacyDlpV2BucketingConfig;
+            /** Mask */
             characterMaskConfig?: GooglePrivacyDlpV2CharacterMaskConfig;
+            /** Deterministic Crypto */
             cryptoDeterministicConfig?: GooglePrivacyDlpV2CryptoDeterministicConfig;
+            /** Crypto */
             cryptoHashConfig?: GooglePrivacyDlpV2CryptoHashConfig;
+            /** Ffx-Fpe */
             cryptoReplaceFfxFpeConfig?: GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig;
+            /** Date Shift */
             dateShiftConfig?: GooglePrivacyDlpV2DateShiftConfig;
+            /** Fixed size bucketing */
             fixedSizeBucketingConfig?: GooglePrivacyDlpV2FixedSizeBucketingConfig;
+            /** Redact */
             redactConfig?: any;
+            /** Replace */
             replaceConfig?: GooglePrivacyDlpV2ReplaceValueConfig;
+            /** Replace with infotype */
             replaceWithInfoTypeConfig?: any;
+            /** Time extraction */
             timePartConfig?: GooglePrivacyDlpV2TimePartConfig;
         }
         interface GooglePrivacyDlpV2PrivacyMetric {
+            /** Categorical stats */
             categoricalStatsConfig?: GooglePrivacyDlpV2CategoricalStatsConfig;
+            /** delta-presence */
             deltaPresenceEstimationConfig?: GooglePrivacyDlpV2DeltaPresenceEstimationConfig;
+            /** K-anonymity */
             kAnonymityConfig?: GooglePrivacyDlpV2KAnonymityConfig;
+            /** k-map */
             kMapEstimationConfig?: GooglePrivacyDlpV2KMapEstimationConfig;
+            /** l-diversity */
             lDiversityConfig?: GooglePrivacyDlpV2LDiversityConfig;
+            /** Numerical stats */
             numericalStatsConfig?: GooglePrivacyDlpV2NumericalStatsConfig;
         }
         interface GooglePrivacyDlpV2Proximity {
@@ -1692,7 +1728,7 @@ declare namespace gapi.client {
              * the possible values of this column (below).
              */
             customTag?: string;
-            /** Identifies the column. [required] */
+            /** Required. Identifies the column. */
             field?: GooglePrivacyDlpV2FieldId;
             /**
              * If no semantic tag is indicated, we infer the statistical model from
@@ -1709,11 +1745,19 @@ declare namespace gapi.client {
             infoType?: GooglePrivacyDlpV2InfoType;
         }
         interface GooglePrivacyDlpV2QuasiIdField {
+            /** A auxiliary field. */
             customTag?: string;
+            /** Identifies the column. */
             field?: GooglePrivacyDlpV2FieldId;
         }
         interface GooglePrivacyDlpV2QuasiIdentifierField {
+            /**
+             * A column can be tagged with a custom tag. In this case, the user must
+             * indicate an auxiliary table that contains statistical information on
+             * the possible values of this column (below).
+             */
             customTag?: string;
+            /** Identifies the column. */
             field?: GooglePrivacyDlpV2FieldId;
         }
         interface GooglePrivacyDlpV2QuoteInfo {
@@ -1759,7 +1803,7 @@ declare namespace gapi.client {
             fieldTransformations?: GooglePrivacyDlpV2FieldTransformation[];
             /**
              * Configuration defining which records get suppressed entirely. Records that
-             * match any suppression rule are omitted from the output [optional].
+             * match any suppression rule are omitted from the output.
              */
             recordSuppressions?: GooglePrivacyDlpV2RecordSuppression[];
         }
@@ -1813,7 +1857,7 @@ declare namespace gapi.client {
             /** Configuration for the inspector. */
             inspectConfig?: GooglePrivacyDlpV2InspectConfig;
             /**
-             * Optional template to use. Any configuration directly specified in
+             * Template to use. Any configuration directly specified in
              * `inspect_config` will override those set in the template. Singular fields
              * that are set in this request will replace their corresponding fields in the
              * template. Repeated fields are appended. Singular sub-messages and groups
@@ -1841,7 +1885,7 @@ declare namespace gapi.client {
              */
             reidentifyConfig?: GooglePrivacyDlpV2DeidentifyConfig;
             /**
-             * Optional template to use. References an instance of `DeidentifyTemplate`.
+             * Template to use. References an instance of `DeidentifyTemplate`.
              * Any configuration directly specified in `reidentify_config` or
              * `inspect_config` will override those set in the template. Singular fields
              * that are set in this request will replace their corresponding fields in the
@@ -1864,6 +1908,7 @@ declare namespace gapi.client {
         interface GooglePrivacyDlpV2ReplaceWithInfoTypeConfig {
         }
         interface GooglePrivacyDlpV2RequestedOptions {
+            /** Inspect config. */
             jobConfig?: GooglePrivacyDlpV2InspectJobConfig;
             /**
              * If run with an InspectTemplate, a snapshot of its state at the time of
@@ -1894,9 +1939,11 @@ declare namespace gapi.client {
             sourceTable?: GooglePrivacyDlpV2BigQueryTable;
         }
         interface GooglePrivacyDlpV2Row {
+            /** Individual cells. */
             values?: GooglePrivacyDlpV2Value[];
         }
         interface GooglePrivacyDlpV2SaveFindings {
+            /** Location to store findings outside of DLP. */
             outputConfig?: GooglePrivacyDlpV2OutputStorageConfig;
         }
         interface GooglePrivacyDlpV2Schedule {
@@ -1913,15 +1960,14 @@ declare namespace gapi.client {
             recurrencePeriodDuration?: string;
         }
         interface GooglePrivacyDlpV2StatisticalTable {
-            /** Quasi-identifier columns. [required] */
+            /** Required. Quasi-identifier columns. */
             quasiIds?: GooglePrivacyDlpV2QuasiIdentifierField[];
             /**
-             * The relative frequency column must contain a floating-point number
+             * Required. The relative frequency column must contain a floating-point number
              * between 0 and 1 (inclusive). Null values are assumed to be zero.
-             * [required]
              */
             relativeFrequency?: GooglePrivacyDlpV2FieldId;
-            /** Auxiliary table location. [required] */
+            /** Required. Auxiliary table location. */
             table?: GooglePrivacyDlpV2BigQueryTable;
         }
         interface GooglePrivacyDlpV2StorageConfig {
@@ -1969,10 +2015,12 @@ declare namespace gapi.client {
              * anomalies detected in the storedInfoType data that render it unusable. Only
              * the five most recent errors will be displayed, with the most recent error
              * appearing first.
-             * <p>For example, some of the data for stored custom dictionaries is put in
+             *
+             * For example, some of the data for stored custom dictionaries is put in
              * the user's Google Cloud Storage bucket, and if this data is modified or
              * deleted by the user or another system, the dictionary becomes invalid.
-             * <p>If any errors occur, fix the problem indicated by the error message and
+             *
+             * If any errors occur, fix the problem indicated by the error message and
              * use the UpdateStoredInfoType API method to create another version of the
              * storedInfoType to continue using it, reusing the same `config` if it was
              * not the source of the error.
@@ -2000,7 +2048,9 @@ declare namespace gapi.client {
             name?: string;
         }
         interface GooglePrivacyDlpV2SummaryResult {
+            /** Outcome of the transformation. */
             code?: string;
+            /** Number of transformations counted by this result. */
             count?: string;
             /**
              * A place for warnings or errors to show up if a transformation didn't
@@ -2012,7 +2062,9 @@ declare namespace gapi.client {
         interface GooglePrivacyDlpV2SurrogateType {
         }
         interface GooglePrivacyDlpV2Table {
+            /** Headers of the table. */
             headers?: GooglePrivacyDlpV2FieldId[];
+            /** Rows of the table. */
             rows?: GooglePrivacyDlpV2Row[];
         }
         interface GooglePrivacyDlpV2TableLocation {
@@ -2026,7 +2078,7 @@ declare namespace gapi.client {
              * the possible values of this column (below).
              */
             customTag?: string;
-            /** Identifies the column. [required] */
+            /** Required. Identifies the column. */
             field?: GooglePrivacyDlpV2FieldId;
             /**
              * If no semantic tag is indicated, we infer the statistical model from
@@ -2046,6 +2098,7 @@ declare namespace gapi.client {
         interface GooglePrivacyDlpV2ThrowError {
         }
         interface GooglePrivacyDlpV2TimePartConfig {
+            /** The part of the time to keep. */
             partToExtract?: string;
         }
         interface GooglePrivacyDlpV2TimeZone {
@@ -2089,7 +2142,9 @@ declare namespace gapi.client {
             timestampField?: GooglePrivacyDlpV2FieldId;
         }
         interface GooglePrivacyDlpV2TransformationErrorHandling {
+            /** Ignore errors */
             leaveUntransformed?: any;
+            /** Throw an error */
             throwError?: any;
         }
         interface GooglePrivacyDlpV2TransformationOverview {
@@ -2111,6 +2166,7 @@ declare namespace gapi.client {
             infoType?: GooglePrivacyDlpV2InfoType;
             /** The specific suppression option these stats apply to. */
             recordSuppress?: GooglePrivacyDlpV2RecordSuppression;
+            /** Collection of all transformations that took place or had an error. */
             results?: GooglePrivacyDlpV2SummaryResult[];
             /** The specific transformation these stats apply to. */
             transformation?: GooglePrivacyDlpV2PrimitiveTransformation;
@@ -2119,7 +2175,7 @@ declare namespace gapi.client {
         }
         interface GooglePrivacyDlpV2TransientCryptoKey {
             /**
-             * Name of the key. [required]
+             * Required. Name of the key.
              * This is an arbitrary string used to differentiate different keys.
              * A unique key is generated per name: two separate `TransientCryptoKey`
              * protos share the same generated key if their names are the same.
@@ -2133,7 +2189,7 @@ declare namespace gapi.client {
             schedule?: GooglePrivacyDlpV2Schedule;
         }
         interface GooglePrivacyDlpV2UnwrappedCryptoKey {
-            /** A 128/192/256 bit key. [required] */
+            /** Required. A 128/192/256 bit key. */
             key?: string;
         }
         interface GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest {
@@ -2165,13 +2221,21 @@ declare namespace gapi.client {
             updateMask?: string;
         }
         interface GooglePrivacyDlpV2Value {
+            /** boolean */
             booleanValue?: boolean;
+            /** date */
             dateValue?: GoogleTypeDate;
+            /** day of week */
             dayOfWeekValue?: string;
+            /** float */
             floatValue?: number;
+            /** integer */
             integerValue?: string;
+            /** string */
             stringValue?: string;
+            /** time of day */
             timeValue?: GoogleTypeTimeOfDay;
+            /** timestamp */
             timestampValue?: string;
         }
         interface GooglePrivacyDlpV2ValueFrequency {
@@ -2258,14 +2322,14 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional filter to only return infoTypes supported by certain parts of the
+                 * filter to only return infoTypes supported by certain parts of the
                  * API. Defaults to supported_by=INSPECT.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Optional BCP-47 language code for localized infoType friendly
+                 * BCP-47 language code for localized infoType friendly
                  * names. If omitted, or if localized strings are not available,
                  * en-US strings will be returned.
                  */
@@ -2305,14 +2369,14 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional filter to only return infoTypes supported by certain parts of the
+                 * filter to only return infoTypes supported by certain parts of the
                  * API. Defaults to supported_by=INSPECT.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Optional BCP-47 language code for localized infoType friendly
+                 * BCP-47 language code for localized infoType friendly
                  * names. If omitted, or if localized strings are not available,
                  * en-US strings will be returned.
                  */
@@ -2501,7 +2565,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -2517,12 +2581,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListDeidentifyTemplates`.
                  */
                 pageToken?: string;
@@ -2769,7 +2833,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -2785,12 +2849,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListInspectTemplates`.
                  */
                 pageToken?: string;
@@ -3050,7 +3114,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -3066,12 +3130,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListDeidentifyTemplates`.
                  */
                 pageToken?: string;
@@ -3328,7 +3392,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -3344,12 +3408,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListInspectTemplates`.
                  */
                 pageToken?: string;
@@ -3608,7 +3672,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -3625,12 +3689,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListStoredInfoTypes`.
                  */
                 pageToken?: string;
@@ -3886,7 +3950,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -3903,12 +3967,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListStoredInfoTypes`.
                  */
                 pageToken?: string;
@@ -4360,7 +4424,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -4376,12 +4440,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListDeidentifyTemplates`.
                  */
                 pageToken?: string;
@@ -4676,14 +4740,14 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. Allows filtering.
+                 * Allows filtering.
                  *
                  * Supported syntax:
                  *
                  * &#42; Filter expressions are made up of one or more restrictions.
                  * &#42; Restrictions can be combined by `AND` or `OR` logical operators. A
                  * sequence of restrictions implicitly uses `AND`.
-                 * &#42; A restriction has the form of `<field> <operator> <value>`.
+                 * &#42; A restriction has the form of `{field} {operator} {value}`.
                  * &#42; Supported fields/values for inspect jobs:
                  * - `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED
                  * - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
@@ -4716,7 +4780,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -4976,7 +5040,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -4992,12 +5056,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListInspectTemplates`.
                  */
                 pageToken?: string;
@@ -5291,14 +5355,14 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. Allows filtering.
+                 * Allows filtering.
                  *
                  * Supported syntax:
                  *
                  * &#42; Filter expressions are made up of one or more restrictions.
                  * &#42; Restrictions can be combined by `AND` or `OR` logical operators. A
                  * sequence of restrictions implicitly uses `AND`.
-                 * &#42; A restriction has the form of `<field> <operator> <value>`.
+                 * &#42; A restriction has the form of `{field} {operator} {value}`.
                  * &#42; Supported fields/values for inspect jobs:
                  * - `status` - HEALTHY|PAUSED|CANCELLED
                  * - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
@@ -5327,7 +5391,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of triggeredJob fields to order by,
+                 * Comma separated list of triggeredJob fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -5344,10 +5408,10 @@ declare namespace gapi.client {
                  * - `status`: corresponds to JobTrigger's status.
                  */
                 orderBy?: string;
-                /** Optional size of the page, can be limited by a server. */
+                /** Size of the page, can be limited by a server. */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to ListJobTriggers. `order_by` field must not
                  * change for subsequent calls.
                  */
@@ -5827,7 +5891,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -5843,12 +5907,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListDeidentifyTemplates`.
                  */
                 pageToken?: string;
@@ -6153,14 +6217,14 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. Allows filtering.
+                 * Allows filtering.
                  *
                  * Supported syntax:
                  *
                  * &#42; Filter expressions are made up of one or more restrictions.
                  * &#42; Restrictions can be combined by `AND` or `OR` logical operators. A
                  * sequence of restrictions implicitly uses `AND`.
-                 * &#42; A restriction has the form of `<field> <operator> <value>`.
+                 * &#42; A restriction has the form of `{field} {operator} {value}`.
                  * &#42; Supported fields/values for inspect jobs:
                  * - `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED
                  * - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
@@ -6193,7 +6257,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -6473,7 +6537,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -6489,12 +6553,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListInspectTemplates`.
                  */
                 pageToken?: string;
@@ -6798,14 +6862,14 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. Allows filtering.
+                 * Allows filtering.
                  *
                  * Supported syntax:
                  *
                  * &#42; Filter expressions are made up of one or more restrictions.
                  * &#42; Restrictions can be combined by `AND` or `OR` logical operators. A
                  * sequence of restrictions implicitly uses `AND`.
-                 * &#42; A restriction has the form of `<field> <operator> <value>`.
+                 * &#42; A restriction has the form of `{field} {operator} {value}`.
                  * &#42; Supported fields/values for inspect jobs:
                  * - `status` - HEALTHY|PAUSED|CANCELLED
                  * - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
@@ -6834,7 +6898,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of triggeredJob fields to order by,
+                 * Comma separated list of triggeredJob fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -6851,10 +6915,10 @@ declare namespace gapi.client {
                  * - `status`: corresponds to JobTrigger's status.
                  */
                 orderBy?: string;
-                /** Optional size of the page, can be limited by a server. */
+                /** Size of the page, can be limited by a server. */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to ListJobTriggers. `order_by` field must not
                  * change for subsequent calls.
                  */
@@ -7109,7 +7173,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -7126,12 +7190,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListStoredInfoTypes`.
                  */
                 pageToken?: string;
@@ -7391,7 +7455,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional comma separated list of fields to order by,
+                 * Comma separated list of fields to order by,
                  * followed by `asc` or `desc` postfix. This list is case-insensitive,
                  * default sorting order is ascending, redundant space characters are
                  * insignificant.
@@ -7408,12 +7472,12 @@ declare namespace gapi.client {
                  */
                 orderBy?: string;
                 /**
-                 * Optional size of the page, can be limited by server. If zero server returns
+                 * Size of the page, can be limited by server. If zero server returns
                  * a page of max size 100.
                  */
                 pageSize?: number;
                 /**
-                 * Optional page token to continue retrieval. Comes from previous call
+                 * Page token to continue retrieval. Comes from previous call
                  * to `ListStoredInfoTypes`.
                  */
                 pageToken?: string;

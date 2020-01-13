@@ -88,6 +88,13 @@ declare namespace gapi.client {
              */
             rolloutMetadata?: Record<string, GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata>;
             /**
+             * Link to the SLM instance template. Only populated when updating SLM
+             * instances via SSA's Actuation service adaptor.
+             * Service producers with custom control plane (e.g. Cloud SQL) doesn't
+             * need to populate this field. Instead they should use software_versions.
+             */
+            slmInstanceTemplate?: string;
+            /**
              * Output only. SLO metadata for instance classification in the
              * Standardized dataplane SLO platform.
              * See go/cloud-ssa-standard-slo for feature description.
@@ -186,6 +193,16 @@ declare namespace gapi.client {
             /** The last rollout that has been applied to the instance. */
             rolloutName?: string;
         }
+        interface GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility {
+            /** Whether an instance is eligible or ineligible. */
+            eligible?: boolean;
+            /**
+             * User-defined reason for the current value of instance eligibility. Usually,
+             * this can be directly mapped to the internal state. An empty reason is
+             * allowed.
+             */
+            reason?: string;
+        }
         interface GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion {
             /**
              * Exclusion duration. No restrictions on the possible values.
@@ -197,9 +214,7 @@ declare namespace gapi.client {
              * original exclusion expiration - otherwise it is possible that there will
              * be "gaps" in the exclusion application in the exported timeseries.
              */
-            exclusionDuration?: string;
-            /** Start time of the exclusion. No alignment (e.g. to a full minute) needed. */
-            exclusionStartTime?: string;
+            duration?: string;
             /**
              * Human-readable reason for the exclusion.
              * This should be a static string (e.g. "Disruptive update in progress")
@@ -213,8 +228,12 @@ declare namespace gapi.client {
              * in the service SLO configuration.
              */
             sliName?: string;
+            /** Start time of the exclusion. No alignment (e.g. to a full minute) needed. */
+            startTime?: string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata {
+            /** Optional: user-defined instance eligibility. */
+            eligibility?: GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
             /**
              * List of SLO exclusion windows. When multiple entries in the list match
              * (matching the exclusion time-window against current time point)
@@ -227,8 +246,8 @@ declare namespace gapi.client {
              *
              * This field can be used to mark the instance as temporary ineligible
              * for the purpose of SLO calculation. For permanent instance SLO exclusion,
-             * a dedicated tier name can be used that does not have targets specified
-             * in the service SLO configuration.
+             * use of custom instance eligibility is recommended. See 'eligibility' field
+             * below.
              */
             exclusions?: GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion[];
             /**
@@ -647,9 +666,10 @@ declare namespace gapi.client {
                  * Mask of fields to update.  At least one path must be supplied in this
                  * field.  The elements of the repeated paths field may only include these
                  * fields:
-                 * "description"
-                 * "file_shares"
-                 * "labels"
+                 *
+                 * &#42; "description"
+                 * &#42; "file_shares"
+                 * &#42; "labels"
                  */
                 updateMask?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -687,9 +707,10 @@ declare namespace gapi.client {
                  * Mask of fields to update.  At least one path must be supplied in this
                  * field.  The elements of the repeated paths field may only include these
                  * fields:
-                 * "description"
-                 * "file_shares"
-                 * "labels"
+                 *
+                 * &#42; "description"
+                 * &#42; "file_shares"
+                 * &#42; "labels"
                  */
                 updateMask?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -917,6 +938,11 @@ declare namespace gapi.client {
                 fields?: string;
                 /** The standard list filter. */
                 filter?: string;
+                /**
+                 * If true, the returned list will include locations which are not yet
+                 * revealed.
+                 */
+                includeUnrevealedLocations?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** The resource that owns the locations collection, if applicable. */

@@ -59,7 +59,11 @@ declare namespace gapi.client {
             etag?: string;
             /** The bucket's IAM configuration. */
             iamConfiguration?: {
-                /** The bucket's Bucket Policy Only configuration. */
+                /**
+                 * The bucket's uniform bucket-level access configuration. The feature was formerly known as Bucket Policy Only. For backward compatibility, this field
+                 * will be populated with identical information as the uniformBucketLevelAccess field. We recommend using the uniformBucketLevelAccess field to enable and
+                 * disable the feature.
+                 */
                 bucketPolicyOnly?: {
                     /** If set, access is controlled only by bucket-level or above IAM policies. */
                     enabled?: boolean;
@@ -116,7 +120,7 @@ declare namespace gapi.client {
                         matchesPattern?: string;
                         /**
                          * Objects having any of the storage classes specified by this condition will be matched. Values include MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE,
-                         * STANDARD, and DURABLE_REDUCED_AVAILABILITY.
+                         * ARCHIVE, STANDARD, and DURABLE_REDUCED_AVAILABILITY.
                          */
                         matchesStorageClass?: string[];
                         /**
@@ -175,7 +179,7 @@ declare namespace gapi.client {
             selfLink?: string;
             /**
              * The bucket's default storage class, used whenever no storageClass is specified for a newly-created object. This defines how objects in the bucket are
-             * stored and determines the SLA and the cost of storage. Values include MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, and
+             * stored and determines the SLA and the cost of storage. Values include MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, ARCHIVE, and
              * DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket is created, it will default to STANDARD. For more information, see storage
              * classes.
              */

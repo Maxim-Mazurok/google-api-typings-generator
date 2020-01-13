@@ -1,5 +1,5 @@
 // Type definitions for non-npm package Tag Manager API v2 2.0
-// Project: https://developers.google.com/tag-manager/api/v2/
+// Project: https://developers.google.com/tag-manager
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
@@ -20,23 +20,38 @@ declare namespace gapi.client {
         interface Account {
             /** The Account ID uniquely identifies the GTM Account. */
             accountId?: string;
-            /** The fingerprint of the GTM Account as computed at storage time. This value is recomputed whenever the account is modified. */
+            /**
+             * The fingerprint of the GTM Account as computed at storage time.
+             * This value is recomputed whenever the account is modified.
+             */
             fingerprint?: string;
-            /** Account display name. */
+            /**
+             * Account display name.
+             * @mutable tagmanager.accounts.create
+             * @mutable tagmanager.accounts.update
+             */
             name?: string;
             /** GTM Account's API relative path. */
             path?: string;
             /**
-             * Whether the account shares data anonymously with Google and others. This flag enables benchmarking by sharing your data in an anonymous form. Google
-             * will remove all identifiable information about your website, combine the data with hundreds of other anonymous sites and report aggregate trends in the
-             * benchmarking service.
+             * Whether the account shares data anonymously with Google and others.
+             * This flag enables benchmarking by sharing your data in an anonymous form.
+             * Google will remove all identifiable information about your website, combine
+             * the data with hundreds of other anonymous sites and report aggregate trends
+             * in the benchmarking service.
+             * @mutable tagmanager.accounts.create
+             * @mutable tagmanager.accounts.update
              */
             shareData?: boolean;
             /** Auto generated link to the tag manager UI */
             tagManagerUrl?: string;
         }
         interface AccountAccess {
-            /** Whether the user has no access, user access, or admin access to an account. */
+            /**
+             * Whether the user has no access, user access, or admin access to an account.
+             * @mutable tagmanager.accounts.permissions.create
+             * @mutable tagmanager.accounts.permissions.update
+             */
             permission?: string;
         }
         interface BuiltInVariable {
@@ -48,22 +63,84 @@ declare namespace gapi.client {
             name?: string;
             /** GTM BuiltInVariable's API relative path. */
             path?: string;
-            /** Type of built-in variable. */
+            /**
+             * Type of built-in variable.
+             * @required.tagmanager.accounts.containers.workspaces.built_in_variable.update
+             * @mutable tagmanager.accounts.containers.workspaces.built_in_variable.update
+             */
+            type?: string;
+            /** GTM Workspace ID. */
+            workspaceId?: string;
+        }
+        interface Client {
+            /** GTM Account ID. */
+            accountId?: string;
+            /** The Client ID uniquely identifies the GTM client. */
+            clientId?: string;
+            /** GTM Container ID. */
+            containerId?: string;
+            /**
+             * The fingerprint of the GTM Client as computed at storage time.
+             * This value is recomputed whenever the client is modified.
+             */
+            fingerprint?: string;
+            /**
+             * Client display name.
+             * @mutable tagmanager.accounts.containers.workspaces.clients.create
+             * @mutable tagmanager.accounts.containers.workspaces.clients.update
+             */
+            name?: string;
+            /**
+             * The client's parameters.
+             * @mutable tagmanager.accounts.containers.workspaces.clients.create
+             * @mutable tagmanager.accounts.containers.workspaces.clients.update
+             */
+            parameter?: Parameter[];
+            /** GTM client's API relative path. */
+            path?: string;
+            /**
+             * Priority determines relative firing order.
+             * @mutable tagmanager.accounts.containers.workspaces.clients.create
+             * @mutable tagmanager.accounts.containers.workspaces.clients.update
+             */
+            priority?: number;
+            /** Auto generated link to the tag manager UI */
+            tagManagerUrl?: string;
+            /**
+             * Client type.
+             * @mutable tagmanager.accounts.containers.workspaces.clients.create
+             * @mutable tagmanager.accounts.containers.workspaces.clients.update
+             */
             type?: string;
             /** GTM Workspace ID. */
             workspaceId?: string;
         }
         interface Condition {
             /**
-             * A list of named parameters (key/value), depending on the condition's type. Notes:
-             * - For binary operators, include parameters named arg0 and arg1 for specifying the left and right operands, respectively.
-             * - At this time, the left operand (arg0) must be a reference to a variable.
-             * - For case-insensitive Regex matching, include a boolean parameter named ignore_case that is set to true. If not specified or set to any other value,
-             * the matching will be case sensitive.
-             * - To negate an operator, include a boolean parameter named negate boolean parameter that is set to true.
+             * A list of named parameters (key/value), depending on the condition's type.
+             * Notes:<ul>
+             * <li>For binary operators, include parameters named <code>arg0</code> and
+             * <code>arg1</code> for specifying the left and right operands,
+             * respectively.</li>
+             * <li>At this time, the left operand (<code>arg0</code>) must be a reference
+             * to a variable.</li>
+             * <li>For case-insensitive Regex matching, include a boolean parameter named
+             * <code>ignore_case</code> that is set to <code>true</code>.
+             * If not specified or set to any other value, the matching will be case
+             * sensitive.</li>
+             * <li>To negate an operator, include a boolean parameter named
+             * <code>negate</code> boolean parameter that is set to <code>true</code>.
+             * </li>
+             * </ul>
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             parameter?: Parameter[];
-            /** The type of operator for this condition. */
+            /**
+             * The type of operator for this condition.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             type?: string;
         }
         interface Container {
@@ -71,13 +148,28 @@ declare namespace gapi.client {
             accountId?: string;
             /** The Container ID uniquely identifies the GTM Container. */
             containerId?: string;
-            /** List of domain names associated with the Container. */
+            /**
+             * List of domain names associated with the Container.
+             * @mutable tagmanager.accounts.containers.create
+             * @mutable tagmanager.accounts.containers.update
+             */
             domainName?: string[];
-            /** The fingerprint of the GTM Container as computed at storage time. This value is recomputed whenever the account is modified. */
+            /**
+             * The fingerprint of the GTM Container as computed at storage time.  This
+             * value is recomputed whenever the account is modified.
+             */
             fingerprint?: string;
-            /** Container display name. */
+            /**
+             * Container display name.
+             * @mutable tagmanager.accounts.containers.create
+             * @mutable tagmanager.accounts.containers.update
+             */
             name?: string;
-            /** Container Notes. */
+            /**
+             * Container Notes.
+             * @mutable tagmanager.accounts.containers.create
+             * @mutable tagmanager.accounts.containers.update
+             */
             notes?: string;
             /** GTM Container's API relative path. */
             path?: string;
@@ -85,13 +177,26 @@ declare namespace gapi.client {
             publicId?: string;
             /** Auto generated link to the tag manager UI */
             tagManagerUrl?: string;
-            /** List of Usage Contexts for the Container. Valid values include: web, android, or ios. */
+            /**
+             * List of Usage Contexts for the Container. Valid values include: <code>web,
+             * android, or ios</code>.
+             * @mutable tagmanager.accounts.containers.create
+             * @mutable tagmanager.accounts.containers.update
+             */
             usageContext?: string[];
         }
         interface ContainerAccess {
-            /** GTM Container ID. */
+            /**
+             * GTM Container ID.
+             * @mutable tagmanager.accounts.permissions.create
+             * @mutable tagmanager.accounts.permissions.update
+             */
             containerId?: string;
-            /** List of Container permissions. */
+            /**
+             * List of Container permissions.
+             * @mutable tagmanager.accounts.permissions.create
+             * @mutable tagmanager.accounts.permissions.update
+             */
             permission?: string;
         }
         interface ContainerVersion {
@@ -99,6 +204,8 @@ declare namespace gapi.client {
             accountId?: string;
             /** The built-in variables in the container that this version was taken from. */
             builtInVariable?: BuiltInVariable[];
+            /** The clients in the container that this version was taken from. */
+            client?: Client[];
             /** The container that this version was taken from. */
             container?: Container;
             /** GTM Container ID. */
@@ -109,13 +216,23 @@ declare namespace gapi.client {
             customTemplate?: CustomTemplate[];
             /** A value of true indicates this container version has been deleted. */
             deleted?: boolean;
-            /** Container version description. */
+            /**
+             * Container version description.
+             * @mutable tagmanager.accounts.containers.versions.update
+             */
             description?: string;
-            /** The fingerprint of the GTM Container Version as computed at storage time. This value is recomputed whenever the container version is modified. */
+            /**
+             * The fingerprint of the GTM Container Version as computed at
+             * storage time. This value is recomputed whenever the container version is
+             * modified.
+             */
             fingerprint?: string;
             /** The folders in the container that this version was taken from. */
             folder?: Folder[];
-            /** Container version display name. */
+            /**
+             * Container version display name.
+             * @mutable tagmanager.accounts.containers.versions.update
+             */
             name?: string;
             /** GTM ContainerVersions's API relative path. */
             path?: string;
@@ -174,11 +291,15 @@ declare namespace gapi.client {
             /** The container version created. */
             containerVersion?: ContainerVersion;
             /**
-             * Auto generated workspace path created as a result of version creation. This field should only be populated if the created version was not a quick
+             * Auto generated workspace path created as a result of version creation. This
+             * field should only be populated if the created version was not a quick
              * preview.
              */
             newWorkspacePath?: string;
-            /** Whether version creation failed when syncing the workspace to the latest container version. */
+            /**
+             * Whether version creation failed when syncing the workspace to the latest
+             * container version.
+             */
             syncStatus?: SyncStatus;
         }
         interface CustomTemplate {
@@ -186,8 +307,13 @@ declare namespace gapi.client {
             accountId?: string;
             /** GTM Container ID. */
             containerId?: string;
-            /** The fingerprint of the GTM Custom Template as computed at storage time. This value is recomputed whenever the template is modified. */
+            /**
+             * The fingerprint of the GTM Custom Template as computed at storage time.
+             * This value is recomputed whenever the template is modified.
+             */
             fingerprint?: string;
+            /** A reference to the Community Template Gallery entry. */
+            galleryReference?: GalleryReference;
             /** Custom Template display name. */
             name?: string;
             /** GTM Custom Template's API relative path. */
@@ -219,20 +345,37 @@ declare namespace gapi.client {
             /** The environment authorization code. */
             authorizationCode?: string;
             /** The last update time-stamp for the authorization code. */
-            authorizationTimestamp?: Timestamp;
+            authorizationTimestamp?: string;
             /** GTM Container ID. */
             containerId?: string;
             /** Represents a link to a container version. */
             containerVersionId?: string;
-            /** The environment description. Can be set or changed only on USER type environments. */
+            /**
+             * The environment description. Can be set or changed only on USER type
+             * environments.
+             * @mutable tagmanager.accounts.containers.environments.create
+             * @mutable tagmanager.accounts.containers.environments.update
+             */
             description?: string;
-            /** Whether or not to enable debug by default for the environment. */
+            /**
+             * Whether or not to enable debug by default for the environment.
+             * @mutable tagmanager.accounts.containers.environments.create
+             * @mutable tagmanager.accounts.containers.environments.update
+             */
             enableDebug?: boolean;
             /** GTM Environment ID uniquely identifies the GTM Environment. */
             environmentId?: string;
-            /** The fingerprint of the GTM environment as computed at storage time. This value is recomputed whenever the environment is modified. */
+            /**
+             * The fingerprint of the GTM environment as computed at storage time.
+             * This value is recomputed whenever the environment is modified.
+             */
             fingerprint?: string;
-            /** The environment display name. Can be set or changed only on USER type environments. */
+            /**
+             * The environment display name. Can be set or changed only on USER type
+             * environments.
+             * @mutable tagmanager.accounts.containers.environments.create
+             * @mutable tagmanager.accounts.containers.environments.update
+             */
             name?: string;
             /** GTM Environment's API relative path. */
             path?: string;
@@ -240,7 +383,11 @@ declare namespace gapi.client {
             tagManagerUrl?: string;
             /** The type of this environment. */
             type?: string;
-            /** Default preview page url for the environment. */
+            /**
+             * Default preview page url for the environment.
+             * @mutable tagmanager.accounts.containers.environments.create
+             * @mutable tagmanager.accounts.containers.environments.update
+             */
             url?: string;
             /** Represents a link to a quick preview of a workspace. */
             workspaceId?: string;
@@ -250,13 +397,24 @@ declare namespace gapi.client {
             accountId?: string;
             /** GTM Container ID. */
             containerId?: string;
-            /** The fingerprint of the GTM Folder as computed at storage time. This value is recomputed whenever the folder is modified. */
+            /**
+             * The fingerprint of the GTM Folder as computed at storage time.
+             * This value is recomputed whenever the folder is modified.
+             */
             fingerprint?: string;
             /** The Folder ID uniquely identifies the GTM Folder. */
             folderId?: string;
-            /** Folder display name. */
+            /**
+             * Folder display name.
+             * @mutable tagmanager.accounts.containers.workspaces.folders.create
+             * @mutable tagmanager.accounts.containers.workspaces.folders.update
+             */
             name?: string;
-            /** User notes on how to apply this folder in the container. */
+            /**
+             * User notes on how to apply this folder in the container.
+             * @mutable tagmanager.accounts.containers.workspaces.folders.create
+             * @mutable tagmanager.accounts.containers.workspaces.folders.update
+             */
             notes?: string;
             /** GTM Folder's API relative path. */
             path?: string;
@@ -274,6 +432,23 @@ declare namespace gapi.client {
             trigger?: Trigger[];
             /** The list of variables inside the folder. */
             variable?: Variable[];
+        }
+        interface GalleryReference {
+            /** The name of the host for the community gallery template. */
+            host?: string;
+            /** If a user has manually edited the community  gallery template. */
+            isModified?: boolean;
+            /** The name of the owner for the community gallery template. */
+            owner?: string;
+            /** The name of the repository for the community gallery template. */
+            repository?: string;
+            /**
+             * The signature of the community gallery template as computed at import time.
+             * This value is recomputed whenever the template is updated from the gallery.
+             */
+            signature?: string;
+            /** The version of the community gallery template. */
+            version?: string;
         }
         interface GetWorkspaceStatusResponse {
             /** The merge conflict after sync. */
@@ -361,34 +536,85 @@ declare namespace gapi.client {
         }
         interface MergeConflict {
             /**
-             * The base version entity (since the latest sync operation) that has conflicting changes compared to the workspace. If this field is missing, it means
-             * the workspace entity is deleted from the base version.
+             * The base version entity (since the latest sync operation) that has
+             * conflicting changes compared to the workspace. If this field is missing,
+             * it means the workspace entity is deleted from the base version.
              */
             entityInBaseVersion?: Entity;
             /**
-             * The workspace entity that has conflicting changes compared to the base version. If an entity is deleted in a workspace, it will still appear with a
-             * deleted change status.
+             * The workspace entity that has conflicting changes compared to the
+             * base version. If an entity is deleted in a workspace, it will still
+             * appear with a deleted change status.
              */
             entityInWorkspace?: Entity;
         }
         interface Parameter {
-            /** The named key that uniquely identifies a parameter. Required for top-level parameters, as well as map values. Ignored for list values. */
+            /**
+             * The named key that uniquely identifies a parameter.  Required for top-level
+             * parameters, as well as map values.  Ignored for list values.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             key?: string;
-            /** This list parameter's parameters (keys will be ignored). */
+            /**
+             * This list parameter's parameters (keys will be ignored).
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             list?: Parameter[];
-            /** This map parameter's parameters (must have keys; keys must be unique). */
+            /**
+             * This map parameter's parameters (must have keys; keys must be unique).
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             map?: Parameter[];
             /**
-             * The parameter type. Valid values are:
-             * - boolean: The value represents a boolean, represented as 'true' or 'false'
-             * - integer: The value represents a 64-bit signed integer value, in base 10
-             * - list: A list of parameters should be specified
-             * - map: A map of parameters should be specified
-             * - template: The value represents any text; this can include variable references (even variable references that might return non-string types)
-             * - trigger_reference: The value represents a trigger, represented as the trigger id
+             * The parameter type.  Valid values are:<ul>
+             * <li><code>boolean</code>: The value represents a boolean, represented as
+             * 'true' or 'false'</li>
+             * <li><code>integer</code>: The value represents a 64-bit signed integer
+             * value, in base 10</li>
+             * <li><code>list</code>: A list of parameters should be specified</li>
+             * <li><code>map</code>: A map of parameters should be specified</li>
+             * <li><code>template</code>: The value represents any text; this can include
+             * variable references (even variable references that might return
+             * non-string types)</li>
+             * <li><code>trigger_reference</code>: The value represents a trigger,
+             * represented as the trigger id</li>
+             * <li><code>tag_reference</code>: The value represents a tag, represented as
+             * the tag name</li>
+             * </ul>
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
              */
             type?: string;
-            /** A parameter's value (may contain variable references such as "{{myVariable}}") as appropriate to the specified type. */
+            /**
+             * A parameter's value (may contain variable references such as
+             * "{{myVariable}}")
+             * as appropriate to the specified type.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             value?: string;
         }
         interface PublishContainerVersionResponse {
@@ -402,7 +628,10 @@ declare namespace gapi.client {
             compilerError?: boolean;
             /** The quick previewed container version. */
             containerVersion?: ContainerVersion;
-            /** Whether quick previewing failed when syncing the workspace to the latest container version. */
+            /**
+             * Whether quick previewing failed when syncing the workspace to the latest
+             * container version.
+             */
             syncStatus?: SyncStatus;
         }
         interface RevertBuiltInVariableResponse {
@@ -411,48 +640,58 @@ declare namespace gapi.client {
         }
         interface RevertFolderResponse {
             /**
-             * Folder as it appears in the latest container version since the last workspace synchronization operation. If no folder is present, that means the folder
-             * was deleted in the latest container version.
+             * Folder as it appears in the latest container version since the last
+             * workspace synchronization operation. If no folder is present, that means
+             * the folder was deleted in the latest container version.
              */
             folder?: Folder;
         }
         interface RevertTagResponse {
             /**
-             * Tag as it appears in the latest container version since the last workspace synchronization operation. If no tag is present, that means the tag was
-             * deleted in the latest container version.
+             * Tag as it appears in the latest container version since the last
+             * workspace synchronization operation. If no tag is present, that means
+             * the tag was deleted in the latest container version.
              */
             tag?: Tag;
         }
         interface RevertTemplateResponse {
             /**
-             * Template as it appears in the latest container version since the last workspace synchronization operation. If no template is present, that means the
-             * template was deleted in the latest container version.
+             * Template as it appears in the latest container version since the last
+             * workspace synchronization operation. If no template is present, that means
+             * the template was deleted in the latest container version.
              */
             template?: CustomTemplate;
         }
         interface RevertTriggerResponse {
             /**
-             * Trigger as it appears in the latest container version since the last workspace synchronization operation. If no trigger is present, that means the
-             * trigger was deleted in the latest container version.
+             * Trigger as it appears in the latest container version since the last
+             * workspace synchronization operation. If no trigger is present, that means
+             * the trigger was deleted in the latest container version.
              */
             trigger?: Trigger;
         }
         interface RevertVariableResponse {
             /**
-             * Variable as it appears in the latest container version since the last workspace synchronization operation. If no variable is present, that means the
-             * variable was deleted in the latest container version.
+             * Variable as it appears in the latest container version since the last
+             * workspace synchronization operation. If no variable is present, that means
+             * the variable was deleted in the latest container version.
              */
             variable?: Variable;
         }
         interface RevertZoneResponse {
             /**
-             * Zone as it appears in the latest container version since the last workspace synchronization operation. If no zone is present, that means the zone was
-             * deleted in the latest container version.
+             * Zone as it appears in the latest container version since the last
+             * workspace synchronization operation. If no zone is present, that means
+             * the zone was deleted in the latest container version.
              */
             zone?: Zone;
         }
         interface SetupTag {
-            /** If true, fire the main tag if and only if the setup tag fires successfully. If false, fire the main tag regardless of setup tag firing status. */
+            /**
+             * If true, fire the main tag if and only if the setup tag fires
+             * successfully.
+             * If false, fire the main tag regardless of setup tag firing status.
+             */
             stopOnSetupFailure?: boolean;
             /** The name of the setup tag. */
             tagName?: string;
@@ -465,8 +704,9 @@ declare namespace gapi.client {
         }
         interface SyncWorkspaceResponse {
             /**
-             * The merge conflict after sync. If this field is not empty, the sync is still treated as successful. But a version cannot be created until all conflicts
-             * are resolved.
+             * The merge conflict after sync.
+             * If this field is not empty, the sync is still treated as successful.
+             * But a version cannot be created until all conflicts are resolved.
              */
             mergeConflict?: MergeConflict[];
             /** Indicates whether synchronization caused a merge conflict or sync error. */
@@ -475,40 +715,115 @@ declare namespace gapi.client {
         interface Tag {
             /** GTM Account ID. */
             accountId?: string;
-            /** Blocking rule IDs. If any of the listed rules evaluate to true, the tag will not fire. */
+            /**
+             * Blocking rule IDs. If any of the listed rules evaluate to true, the tag
+             * will not fire.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             blockingRuleId?: string[];
-            /** Blocking trigger IDs. If any of the listed triggers evaluate to true, the tag will not fire. */
+            /**
+             * Blocking trigger IDs. If any of the listed triggers evaluate to true, the
+             * tag will not fire.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             blockingTriggerId?: string[];
             /** GTM Container ID. */
             containerId?: string;
-            /** The fingerprint of the GTM Tag as computed at storage time. This value is recomputed whenever the tag is modified. */
+            /**
+             * The fingerprint of the GTM Tag as computed at storage time.
+             * This value is recomputed whenever the tag is modified.
+             */
             fingerprint?: string;
-            /** Firing rule IDs. A tag will fire when any of the listed rules are true and all of its blockingRuleIds (if any specified) are false. */
+            /**
+             * Firing rule IDs. A tag will fire when any of the listed rules are true and
+             * all of its <code>blockingRuleIds</code> (if any specified) are false.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             firingRuleId?: string[];
-            /** Firing trigger IDs. A tag will fire when any of the listed triggers are true and all of its blockingTriggerIds (if any specified) are false. */
+            /**
+             * Firing trigger IDs. A tag will fire when any of the listed triggers are
+             * true and all of its <code>blockingTriggerIds</code> (if any specified) are
+             * false.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             firingTriggerId?: string[];
-            /** If set to true, this tag will only fire in the live environment (e.g. not in preview or debug mode). */
+            /**
+             * If set to true, this tag will only fire in the live environment (e.g. not
+             * in preview or debug mode).
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             liveOnly?: boolean;
-            /** Tag display name. */
+            /**
+             * A map of key-value pairs of tag metadata to be included in the event data
+             * for tag monitoring.
+             * Notes:<ul>
+             * <li>This parameter must be type <code>MAP</code>.</li>
+             * <li>Each parameter in the map are type <code>TEMPLATE</code>, however
+             * cannot contain variable references.</li>
+             * </ul>
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
+            monitoringMetadata?: Parameter;
+            /**
+             * If non-empty, then the tag display name will be included in the monitoring
+             * metadata map using the key specified.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
+            monitoringMetadataTagNameKey?: string;
+            /**
+             * Tag display name.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             name?: string;
-            /** User notes on how to apply this tag in the container. */
+            /**
+             * User notes on how to apply this tag in the container.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             notes?: string;
-            /** The tag's parameters. */
+            /**
+             * The tag's parameters.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             parameter?: Parameter[];
             /** Parent folder id. */
             parentFolderId?: string;
             /** GTM Tag's API relative path. */
             path?: string;
-            /** Indicates whether the tag is paused, which prevents the tag from firing. */
+            /**
+             * Indicates whether the tag is paused, which prevents the tag from firing.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             paused?: boolean;
             /**
-             * User defined numeric priority of the tag. Tags are fired asynchronously in order of priority. Tags with higher numeric value fire first. A tag's
+             * User defined numeric priority of the tag. Tags are fired asynchronously in
+             * order of priority. Tags with higher numeric value fire first. A tag's
              * priority can be a positive or negative value. The default value is 0.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
              */
             priority?: Parameter;
-            /** The end timestamp in milliseconds to schedule a tag. */
+            /**
+             * The end timestamp in milliseconds to schedule a tag.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             scheduleEndMs?: string;
-            /** The start timestamp in milliseconds to schedule a tag. */
+            /**
+             * The start timestamp in milliseconds to schedule a tag.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             scheduleStartMs?: string;
             /** The list of setup tags. Currently we only allow one. */
             setupTag?: SetupTag[];
@@ -520,122 +835,237 @@ declare namespace gapi.client {
             tagManagerUrl?: string;
             /** The list of teardown tags. Currently we only allow one. */
             teardownTag?: TeardownTag[];
-            /** GTM Tag Type. */
+            /**
+             * GTM Tag Type.
+             * @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             */
             type?: string;
             /** GTM Workspace ID. */
             workspaceId?: string;
         }
         interface TeardownTag {
-            /** If true, fire the teardown tag if and only if the main tag fires successfully. If false, fire the teardown tag regardless of main tag firing status. */
+            /**
+             * If true, fire the teardown tag if and only if the main tag fires
+             * successfully.
+             * If false, fire the teardown tag regardless of main tag firing status.
+             */
             stopTeardownOnFailure?: boolean;
             /** The name of the teardown tag. */
             tagName?: string;
         }
-        interface Timestamp {
-            /**
-             * Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count
-             * forward in time. Must be from 0 to 999,999,999 inclusive.
-             */
-            nanos?: number;
-            /** Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive. */
-            seconds?: string;
-        }
         interface Trigger {
             /** GTM Account ID. */
             accountId?: string;
-            /** Used in the case of auto event tracking. */
+            /**
+             * Used in the case of auto event tracking.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             autoEventFilter?: Condition[];
             /**
-             * Whether or not we should only fire tags if the form submit or link click event is not cancelled by some other event handler (e.g. because of
+             * Whether or not we should only fire tags if the form submit or link click
+             * event is not cancelled by some other event handler (e.g. because of
              * validation). Only valid for Form Submission and Link Click triggers.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             checkValidation?: Parameter;
             /** GTM Container ID. */
             containerId?: string;
-            /** A visibility trigger minimum continuous visible time (in milliseconds). Only valid for AMP Visibility trigger. */
+            /**
+             * A visibility trigger minimum continuous visible time (in milliseconds).
+             * Only valid for AMP Visibility trigger.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             continuousTimeMinMilliseconds?: Parameter;
-            /** Used in the case of custom event, which is fired iff all Conditions are true. */
+            /**
+             * Used in the case of custom event, which is fired iff all Conditions are
+             * true.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             customEventFilter?: Condition[];
-            /** Name of the GTM event that is fired. Only valid for Timer triggers. */
+            /**
+             * Name of the GTM event that is fired. Only valid for Timer triggers.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             eventName?: Parameter;
-            /** The trigger will only fire iff all Conditions are true. */
+            /**
+             * The trigger will only fire iff all Conditions are true.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             filter?: Condition[];
-            /** The fingerprint of the GTM Trigger as computed at storage time. This value is recomputed whenever the trigger is modified. */
+            /**
+             * The fingerprint of the GTM Trigger as computed at storage time.
+             * This value is recomputed whenever the trigger is modified.
+             */
             fingerprint?: string;
             /**
-             * List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled horizontally.
-             * Only valid for AMP scroll triggers.
+             * List of integer percentage values for scroll triggers. The trigger will
+             * fire when each percentage is reached when the view is scrolled
+             * horizontally. Only valid for AMP scroll triggers.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             horizontalScrollPercentageList?: Parameter;
-            /** Time between triggering recurring Timer Events (in milliseconds). Only valid for Timer triggers. */
+            /**
+             * Time between triggering recurring Timer Events (in milliseconds). Only
+             * valid for Timer triggers.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             interval?: Parameter;
-            /** Time between Timer Events to fire (in seconds). Only valid for AMP Timer trigger. */
+            /**
+             * Time between Timer Events to fire (in seconds). Only valid for AMP Timer
+             * trigger.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             intervalSeconds?: Parameter;
             /**
-             * Limit of the number of GTM events this Timer Trigger will fire. If no limit is set, we will continue to fire GTM events until the user leaves the page.
+             * Limit of the number of GTM events this Timer Trigger will fire. If no limit
+             * is set, we will continue to fire GTM events until the user leaves the page.
              * Only valid for Timer triggers.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             limit?: Parameter;
-            /** Max time to fire Timer Events (in seconds). Only valid for AMP Timer trigger. */
+            /**
+             * Max time to fire Timer Events (in seconds). Only valid for AMP Timer
+             * trigger.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             maxTimerLengthSeconds?: Parameter;
-            /** Trigger display name. */
+            /**
+             * Trigger display name.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             name?: string;
-            /** User notes on how to apply this trigger in the container. */
+            /**
+             * User notes on how to apply this trigger in the container.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             notes?: string;
-            /** Additional parameters. */
+            /**
+             * Additional parameters.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             parameter?: Parameter[];
             /** Parent folder id. */
             parentFolderId?: string;
             /** GTM Trigger's API relative path. */
             path?: string;
-            /** A click trigger CSS selector (i.e. "a", "button" etc.). Only valid for AMP Click trigger. */
+            /**
+             * A click trigger CSS selector (i.e. "a", "button" etc.). Only valid for AMP
+             * Click trigger.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             selector?: Parameter;
             /** Auto generated link to the tag manager UI */
             tagManagerUrl?: string;
-            /** A visibility trigger minimum total visible time (in milliseconds). Only valid for AMP Visibility trigger. */
+            /**
+             * A visibility trigger minimum total visible time (in milliseconds).
+             * Only valid for AMP Visibility trigger.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             totalTimeMinMilliseconds?: Parameter;
             /** The Trigger ID uniquely identifies the GTM Trigger. */
             triggerId?: string;
-            /** Defines the data layer event that causes this trigger. */
+            /**
+             * Defines the data layer event that causes this trigger.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             type?: string;
             /**
-             * Globally unique id of the trigger that auto-generates this (a Form Submit, Link Click or Timer listener) if any. Used to make incompatible auto-events
-             * work together with trigger filtering based on trigger ids. This value is populated during output generation since the tags implied by triggers don't
-             * exist until then. Only valid for Form Submit, Link Click and Timer triggers.
+             * Globally unique id of the trigger that auto-generates this (a Form Submit,
+             * Link Click or Timer listener) if any. Used to make incompatible auto-events
+             * work together with trigger filtering based on trigger ids. This value is
+             * populated during output generation since the tags implied by triggers don't
+             * exist until then. Only valid for Form Submit, Link Click and Timer
+             * triggers.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             uniqueTriggerId?: Parameter;
             /**
-             * List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled vertically. Only
-             * valid for AMP scroll triggers.
+             * List of integer percentage values for scroll triggers. The trigger will
+             * fire when each percentage is reached when the view is scrolled vertically.
+             * Only valid for AMP scroll triggers.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             verticalScrollPercentageList?: Parameter;
-            /** A visibility trigger CSS selector (i.e. "#id"). Only valid for AMP Visibility trigger. */
+            /**
+             * A visibility trigger CSS selector (i.e. "#id"). Only valid for AMP
+             * Visibility trigger.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             visibilitySelector?: Parameter;
-            /** A visibility trigger maximum percent visibility. Only valid for AMP Visibility trigger. */
+            /**
+             * A visibility trigger maximum percent visibility. Only valid for AMP
+             * Visibility trigger.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             visiblePercentageMax?: Parameter;
-            /** A visibility trigger minimum percent visibility. Only valid for AMP Visibility trigger. */
+            /**
+             * A visibility trigger minimum percent visibility. Only valid for AMP
+             * Visibility trigger.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             */
             visiblePercentageMin?: Parameter;
             /**
-             * Whether or not we should delay the form submissions or link opening until all of the tags have fired (by preventing the default action and later
-             * simulating the default action). Only valid for Form Submission and Link Click triggers.
+             * Whether or not we should delay the form submissions or link opening
+             * until all of the tags have fired (by preventing the default
+             * action and later simulating the default action). Only valid for
+             * Form Submission and Link Click triggers.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             waitForTags?: Parameter;
             /**
-             * How long to wait (in milliseconds) for tags to fire when 'waits_for_tags' above evaluates to true. Only valid for Form Submission and Link Click
-             * triggers.
+             * How long to wait (in milliseconds) for tags to fire when 'waits_for_tags'
+             * above evaluates to <code>true</code>.  Only valid for Form Submission and
+             * Link Click triggers.
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             waitForTagsTimeout?: Parameter;
             /** GTM Workspace ID. */
             workspaceId?: string;
         }
         interface UserPermission {
-            /** GTM Account access permissions. */
+            /**
+             * GTM Account access permissions.
+             * @mutable tagmanager.accounts.permissions.create
+             * @mutable tagmanager.accounts.permissions.update
+             */
             accountAccess?: AccountAccess;
             /** The Account ID uniquely identifies the GTM Account. */
             accountId?: string;
-            /** GTM Container access permissions. */
+            /**
+             * GTM Container access permissions.
+             * @mutable tagmanager.accounts.permissions.create
+             * @mutable tagmanager.accounts.permissions.update
+             */
             containerAccess?: ContainerAccess[];
-            /** User's email address. */
+            /**
+             * User's email address.
+             * @mutable tagmanager.accounts.permissions.create
+             */
             emailAddress?: string;
             /** GTM UserPermission's API relative path. */
             path?: string;
@@ -646,36 +1076,69 @@ declare namespace gapi.client {
             /** GTM Container ID. */
             containerId?: string;
             /**
-             * For mobile containers only: A list of trigger IDs for disabling conditional variables; the variable is enabled if one of the enabling trigger is true
+             * For mobile containers only: A list of trigger IDs for disabling conditional
+             * variables; the variable is enabled if one of the enabling trigger is true
              * while all the disabling trigger are false. Treated as an unordered set.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
              */
             disablingTriggerId?: string[];
             /**
-             * For mobile containers only: A list of trigger IDs for enabling conditional variables; the variable is enabled if one of the enabling triggers is true
+             * For mobile containers only: A list of trigger IDs for enabling conditional
+             * variables; the variable is enabled if one of the enabling triggers is true
              * while all the disabling triggers are false. Treated as an unordered set.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
              */
             enablingTriggerId?: string[];
-            /** The fingerprint of the GTM Variable as computed at storage time. This value is recomputed whenever the variable is modified. */
+            /**
+             * The fingerprint of the GTM Variable as computed at storage time.
+             * This value is recomputed whenever the variable is modified.
+             */
             fingerprint?: string;
             /** Option to convert a variable value to other value. */
             formatValue?: VariableFormatValue;
-            /** Variable display name. */
+            /**
+             * Variable display name.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             */
             name?: string;
-            /** User notes on how to apply this variable in the container. */
+            /**
+             * User notes on how to apply this variable in the container.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             */
             notes?: string;
-            /** The variable's parameters. */
+            /**
+             * The variable's parameters.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             */
             parameter?: Parameter[];
             /** Parent folder id. */
             parentFolderId?: string;
             /** GTM Variable's API relative path. */
             path?: string;
-            /** The end timestamp in milliseconds to schedule a variable. */
+            /**
+             * The end timestamp in milliseconds to schedule a variable.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             */
             scheduleEndMs?: string;
-            /** The start timestamp in milliseconds to schedule a variable. */
+            /**
+             * The start timestamp in milliseconds to schedule a variable.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             */
             scheduleStartMs?: string;
             /** Auto generated link to the tag manager UI */
             tagManagerUrl?: string;
-            /** GTM Variable Type. */
+            /**
+             * GTM Variable Type.
+             * @mutable tagmanager.accounts.containers.workspaces.variables.create
+             * @mutable tagmanager.accounts.containers.workspaces.variables.update
+             */
             type?: string;
             /** The Variable ID uniquely identifies the GTM Variable. */
             variableId?: string;
@@ -683,7 +1146,10 @@ declare namespace gapi.client {
             workspaceId?: string;
         }
         interface VariableFormatValue {
-            /** The option to convert a string-type variable value to either lowercase or uppercase. */
+            /**
+             * The option to convert a string-type variable value to either lowercase or
+             * uppercase.
+             */
             caseConversionType?: string;
             /** The value to convert if a variable value is false. */
             convertFalseToValue?: Parameter;
@@ -699,11 +1165,22 @@ declare namespace gapi.client {
             accountId?: string;
             /** GTM Container ID. */
             containerId?: string;
-            /** Workspace description. */
+            /**
+             * Workspace description.
+             * @mutable tagmanager.accounts.containers.workspaces.create
+             * @mutable tagmanager.accounts.containers.workspaces.update
+             */
             description?: string;
-            /** The fingerprint of the GTM Workspace as computed at storage time. This value is recomputed whenever the workspace is modified. */
+            /**
+             * The fingerprint of the GTM Workspace as computed at storage time. This
+             * value is recomputed whenever the workspace is modified.
+             */
             fingerprint?: string;
-            /** Workspace display name. */
+            /**
+             * Workspace display name.
+             * @mutable tagmanager.accounts.containers.workspaces.create
+             * @mutable tagmanager.accounts.containers.workspaces.update
+             */
             name?: string;
             /** GTM Workspace's API relative path. */
             path?: string;
@@ -721,7 +1198,10 @@ declare namespace gapi.client {
             childContainer?: ZoneChildContainer[];
             /** GTM Container ID. */
             containerId?: string;
-            /** The fingerprint of the GTM Zone as computed at storage time. This value is recomputed whenever the zone is modified. */
+            /**
+             * The fingerprint of the GTM Zone as computed at storage time.
+             * This value is recomputed whenever the zone is modified.
+             */
             fingerprint?: string;
             /** Zone display name. */
             name?: string;
@@ -741,7 +1221,10 @@ declare namespace gapi.client {
         interface ZoneBoundary {
             /** The conditions that, when conjoined, make up the boundary. */
             condition?: Condition[];
-            /** Custom evaluation trigger IDs. A zone will evaluate its boundary conditions when any of the listed triggers are true. */
+            /**
+             * Custom evaluation trigger IDs. A zone will evaluate its boundary
+             * conditions when any of the listed triggers are true.
+             */
             customEvaluationTriggerId?: string[];
         }
         interface ZoneChildContainer {
@@ -759,86 +1242,138 @@ declare namespace gapi.client {
         interface EnvironmentsResource {
             /** Creates a GTM Environment. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Environment;
             }): Request<Environment>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Environment): Request<Environment>;
             /** Deletes a GTM Environment. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Environment's API relative path. Example: accounts/{account_id}/containers/{container_id}/environments/{environment_id} */
+                /**
+                 * GTM Environment's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a GTM Environment. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Environment's API relative path. Example: accounts/{account_id}/containers/{container_id}/environments/{environment_id} */
+                /**
+                 * GTM Environment's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<Environment>;
             /** Lists all GTM Environments of a GTM Container. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -847,124 +1382,200 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListEnvironmentsResponse>;
             /** Re-generates the authorization code for a GTM Environment. */
             reauthorize(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Environment's API relative path. Example: accounts/{account_id}/containers/{container_id}/environments/{environment_id} */
+                /**
+                 * GTM Environment's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Environment;
             }): Request<Environment>;
             reauthorize(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Environment's API relative path. Example: accounts/{account_id}/containers/{container_id}/environments/{environment_id} */
+                /**
+                 * GTM Environment's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Environment): Request<Environment>;
             /** Updates a GTM Environment. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the environment in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * environment in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Environment's API relative path. Example: accounts/{account_id}/containers/{container_id}/environments/{environment_id} */
+                /**
+                 * GTM Environment's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Environment;
             }): Request<Environment>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the environment in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * environment in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Environment's API relative path. Example: accounts/{account_id}/containers/{container_id}/environments/{environment_id} */
+                /**
+                 * GTM Environment's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/environments/{environment_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Environment): Request<Environment>;
         }
         interface Version_headersResource {
             /** Gets the latest container version header */
             latest(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ContainerVersionHeader>;
             /** Lists all Container Versions of a GTM Container. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** Also retrieve deleted (archived) versions when true. */
@@ -975,41 +1586,67 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListContainerVersionsResponse>;
         }
         interface VersionsResource {
             /** Deletes a Container Version. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM ContainerVersion's API relative path. Example: accounts/{account_id}/containers/{container_id}/versions/{version_id} */
+                /**
+                 * GTM ContainerVersion's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/versions/{version_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a Container Version. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
-                /** The GTM ContainerVersion ID. Specify published to retrieve the currently published version. */
+                /** JSONP */
+                callback?: string;
+                /**
+                 * The GTM ContainerVersion ID. Specify <code>published</code> to retrieve
+                 * the currently published version.
+                 */
                 containerVersionId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1017,185 +1654,304 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM ContainerVersion's API relative path. Example: accounts/{account_id}/containers/{container_id}/versions/{version_id} */
+                /**
+                 * GTM ContainerVersion's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/versions/{version_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ContainerVersion>;
             /** Gets the live (i.e. published) container version */
             live(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ContainerVersion>;
             /** Publishes a Container Version. */
             publish(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the container version in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * container version in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM ContainerVersion's API relative path. Example: accounts/{account_id}/containers/{container_id}/versions/{version_id} */
+                /**
+                 * GTM ContainerVersion's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/versions/{version_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<PublishContainerVersionResponse>;
-            /** Sets the latest version used for synchronization of workspaces when detecting conflicts and errors. */
+            /**
+             * Sets the latest version used for synchronization of workspaces when
+             * detecting conflicts and errors.
+             */
             set_latest(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM ContainerVersion's API relative path. Example: accounts/{account_id}/containers/{container_id}/versions/{version_id} */
+                /**
+                 * GTM ContainerVersion's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/versions/{version_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ContainerVersion>;
             /** Undeletes a Container Version. */
             undelete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM ContainerVersion's API relative path. Example: accounts/{account_id}/containers/{container_id}/versions/{version_id} */
+                /**
+                 * GTM ContainerVersion's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/versions/{version_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ContainerVersion>;
             /** Updates a Container Version. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the container version in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * container version in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM ContainerVersion's API relative path. Example: accounts/{account_id}/containers/{container_id}/versions/{version_id} */
+                /**
+                 * GTM ContainerVersion's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/versions/{version_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: ContainerVersion;
             }): Request<ContainerVersion>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the container version in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * container version in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM ContainerVersion's API relative path. Example: accounts/{account_id}/containers/{container_id}/versions/{version_id} */
+                /**
+                 * GTM ContainerVersion's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/versions/{version_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: ContainerVersion): Request<ContainerVersion>;
         }
         interface Built_in_variablesResource {
             /** Creates one or more GTM Built-In Variables. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /** The types of built-in variables to enable. */
                 type?: string | string[];
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<CreateBuiltInVariableResponse>;
             /** Deletes one or more GTM Built-In Variables. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM BuiltInVariable's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables */
+                /**
+                 * GTM BuiltInVariable's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /** The types of built-in variables to delete. */
                 type?: string | string[];
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Lists all the enabled Built-In Variables of a GTM Container. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1204,101 +1960,161 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListEnabledBuiltInVariablesResponse>;
             /** Reverts changes to a GTM Built-In Variables in a GTM Workspace. */
             revert(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM BuiltInVariable's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables */
+                /**
+                 * GTM BuiltInVariable's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /** The type of built-in variable to revert. */
                 type?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<RevertBuiltInVariableResponse>;
         }
         interface FoldersResource {
             /** Creates a GTM Folder. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Folder;
             }): Request<Folder>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Folder): Request<Folder>;
             /** Deletes a GTM Folder. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Folder's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id} */
+                /**
+                 * GTM Folder's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** List all entities in a GTM Folder. */
             entities(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1307,38 +2123,62 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Folder's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id} */
+                /**
+                 * GTM Folder's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<FolderEntities>;
             /** Gets a GTM Folder. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Folder's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id} */
+                /**
+                 * GTM Folder's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<Folder>;
             /** Lists all GTM Folders of a Container. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1347,216 +2187,345 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListFoldersResponse>;
             /** Moves entities to a GTM Folder. */
             move_entities_to_folder(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Folder's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id} */
+                /**
+                 * GTM Folder's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /** The tags to be moved to the folder. */
                 tagId?: string | string[];
                 /** The triggers to be moved to the folder. */
                 triggerId?: string | string[];
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** The variables to be moved to the folder. */
                 variableId?: string | string[];
                 /** Request body */
                 resource: Folder;
             }): Request<void>;
             move_entities_to_folder(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Folder's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id} */
+                /**
+                 * GTM Folder's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /** The tags to be moved to the folder. */
                 tagId?: string | string[];
                 /** The triggers to be moved to the folder. */
                 triggerId?: string | string[];
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** The variables to be moved to the folder. */
                 variableId?: string | string[];
             },
             body: Folder): Request<void>;
             /** Reverts changes to a GTM Folder in a GTM Workspace. */
             revert(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the tag in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the tag
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Folder's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id} */
+                /**
+                 * GTM Folder's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<RevertFolderResponse>;
             /** Updates a GTM Folder. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the folder in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the folder in
+                 * storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Folder's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id} */
+                /**
+                 * GTM Folder's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Folder;
             }): Request<Folder>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the folder in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the folder in
+                 * storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Folder's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id} */
+                /**
+                 * GTM Folder's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Folder): Request<Folder>;
         }
         interface TagsResource {
             /** Creates a GTM Tag. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Tag;
             }): Request<Tag>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Tag): Request<Tag>;
             /** Deletes a GTM Tag. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Tag's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id} */
+                /**
+                 * GTM Tag's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a GTM Tag. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Tag's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id} */
+                /**
+                 * GTM Tag's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<Tag>;
             /** Lists all GTM Tags of a Container. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1565,164 +2534,269 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListTagsResponse>;
             /** Reverts changes to a GTM Tag in a GTM Workspace. */
             revert(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of thetag in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of thetag
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Tag's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id} */
+                /**
+                 * GTM Tag's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<RevertTagResponse>;
             /** Updates a GTM Tag. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the tag in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the tag in
+                 * storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Tag's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id} */
+                /**
+                 * GTM Tag's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Tag;
             }): Request<Tag>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the tag in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the tag in
+                 * storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Tag's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id} */
+                /**
+                 * GTM Tag's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Tag): Request<Tag>;
         }
         interface TemplatesResource {
             /** Creates a GTM Custom Template. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: CustomTemplate;
             }): Request<CustomTemplate>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: CustomTemplate): Request<CustomTemplate>;
             /** Deletes a GTM Template. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Custom Template's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id} */
+                /**
+                 * GTM Custom Template's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a GTM Template. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Custom Template's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id} */
+                /**
+                 * GTM Custom Template's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<CustomTemplate>;
             /** Lists all GTM Templates of a GTM container workspace. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1731,164 +2805,269 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListTemplatesResponse>;
             /** Reverts changes to a GTM Template in a GTM Workspace. */
             revert(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the template in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the template
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Custom Template's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id} */
+                /**
+                 * GTM Custom Template's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<RevertTemplateResponse>;
             /** Updates a GTM Template. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the templates in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the templates
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Custom Template's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id} */
+                /**
+                 * GTM Custom Template's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: CustomTemplate;
             }): Request<CustomTemplate>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the templates in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the templates
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Custom Template's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id} */
+                /**
+                 * GTM Custom Template's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: CustomTemplate): Request<CustomTemplate>;
         }
         interface TriggersResource {
             /** Creates a GTM Trigger. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspaces's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspaces's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Trigger;
             }): Request<Trigger>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspaces's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspaces's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Trigger): Request<Trigger>;
             /** Deletes a GTM Trigger. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Trigger's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id} */
+                /**
+                 * GTM Trigger's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a GTM Trigger. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Trigger's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id} */
+                /**
+                 * GTM Trigger's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<Trigger>;
             /** Lists all GTM Triggers of a Container. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1897,164 +3076,269 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Workspaces's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspaces's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListTriggersResponse>;
             /** Reverts changes to a GTM Trigger in a GTM Workspace. */
             revert(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the trigger in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the trigger
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Trigger's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id} */
+                /**
+                 * GTM Trigger's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<RevertTriggerResponse>;
             /** Updates a GTM Trigger. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the trigger in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the trigger
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Trigger's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id} */
+                /**
+                 * GTM Trigger's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Trigger;
             }): Request<Trigger>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the trigger in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the trigger
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Trigger's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id} */
+                /**
+                 * GTM Trigger's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Trigger): Request<Trigger>;
         }
         interface VariablesResource {
             /** Creates a GTM Variable. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Variable;
             }): Request<Variable>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Variable): Request<Variable>;
             /** Deletes a GTM Variable. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Variable's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id} */
+                /**
+                 * GTM Variable's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a GTM Variable. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Variable's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id} */
+                /**
+                 * GTM Variable's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<Variable>;
             /** Lists all GTM Variables of a Container. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2063,164 +3347,269 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListVariablesResponse>;
             /** Reverts changes to a GTM Variable in a GTM Workspace. */
             revert(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the variable in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the variable
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Variable's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id} */
+                /**
+                 * GTM Variable's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<RevertVariableResponse>;
             /** Updates a GTM Variable. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the variable in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the variable
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Variable's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id} */
+                /**
+                 * GTM Variable's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Variable;
             }): Request<Variable>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the variable in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the variable
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Variable's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id} */
+                /**
+                 * GTM Variable's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Variable): Request<Variable>;
         }
         interface ZonesResource {
             /** Creates a GTM Zone. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Zone;
             }): Request<Zone>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Zone): Request<Zone>;
             /** Deletes a GTM Zone. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Zone's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id} */
+                /**
+                 * GTM Zone's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a GTM Zone. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Zone's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id} */
+                /**
+                 * GTM Zone's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<Zone>;
             /** Lists all GTM Zones of a GTM container workspace. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2229,226 +3618,366 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListZonesResponse>;
             /** Reverts changes to a GTM Zone in a GTM Workspace. */
             revert(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the zone in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the zone in
+                 * storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Zone's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id} */
+                /**
+                 * GTM Zone's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<RevertZoneResponse>;
             /** Updates a GTM Zone. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the zone in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the zone in
+                 * storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Zone's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id} */
+                /**
+                 * GTM Zone's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Zone;
             }): Request<Zone>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the zone in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the zone in
+                 * storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Zone's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id} */
+                /**
+                 * GTM Zone's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Zone): Request<Zone>;
         }
         interface WorkspacesResource {
             /** Creates a Workspace. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM parent Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM parent Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Workspace;
             }): Request<Workspace>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM parent Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM parent Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Workspace): Request<Workspace>;
             /**
-             * Creates a Container Version from the entities present in the workspace, deletes the workspace, and sets the base container version to the newly created
-             * version.
+             * Creates a Container Version from the entities present in the workspace,
+             * deletes the workspace, and sets the base container version to the newly
+             * created version.
              */
             create_version(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: CreateContainerVersionRequestVersionOptions;
             }): Request<CreateContainerVersionResponse>;
             create_version(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: CreateContainerVersionRequestVersionOptions): Request<CreateContainerVersionResponse>;
             /** Deletes a Workspace. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a Workspace. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<Workspace>;
             /** Finds conflicting and modified entities in the workspace. */
             getStatus(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<GetWorkspaceStatusResponse>;
             /** Lists all Workspaces that belong to a GTM Container. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2457,139 +3986,238 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM parent Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM parent Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListWorkspacesResponse>;
-            /** Quick previews a workspace by creating a fake container version from all entities in the provided workspace. */
+            /**
+             * Quick previews a workspace by creating a fake container version from all
+             * entities in the provided workspace.
+             */
             quick_preview(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<QuickPreviewResponse>;
-            /** Resolves a merge conflict for a workspace entity by updating it to the resolved entity passed in the request. */
+            /**
+             * Resolves a merge conflict for a workspace entity by updating it to the
+             * resolved entity passed in the request.
+             */
             resolve_conflict(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the entity_in_workspace in the merge conflict. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * entity_in_workspace in the merge conflict.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Entity;
             }): Request<void>;
             resolve_conflict(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the entity_in_workspace in the merge conflict. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * entity_in_workspace in the merge conflict.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Entity): Request<void>;
-            /** Syncs a workspace to the latest container version by updating all unmodified workspace entities and displaying conflicts for modified entities. */
+            /**
+             * Syncs a workspace to the latest container version by updating all
+             * unmodified workspace entities and displaying conflicts for modified
+             * entities.
+             */
             sync(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<SyncWorkspaceResponse>;
             /** Updates a Workspace. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the workspace in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * workspace in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Workspace;
             }): Request<Workspace>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the workspace in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * workspace in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Workspace's API relative path. Example: accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id} */
+                /**
+                 * GTM Workspace's API relative path.
+                 * Example:
+                 * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Workspace): Request<Workspace>;
             built_in_variables: Built_in_variablesResource;
@@ -2603,86 +4231,136 @@ declare namespace gapi.client {
         interface ContainersResource {
             /** Creates a Container. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Account's API relative path. Example: accounts/{account_id}. */
+                /**
+                 * GTM Account's API relative path.
+                 * Example: accounts/{account_id}.
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Container;
             }): Request<Container>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Account's API relative path. Example: accounts/{account_id}. */
+                /**
+                 * GTM Account's API relative path.
+                 * Example: accounts/{account_id}.
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Container): Request<Container>;
             /** Deletes a Container. */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a Container. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<Container>;
             /** Lists all Containers that belongs to a GTM Account. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2691,57 +4369,90 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Accounts's API relative path. Example: accounts/{account_id}. */
+                /**
+                 * GTM Accounts's API relative path.
+                 * Example: accounts/{account_id}.
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListContainersResponse>;
             /** Updates a Container. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the container in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * container in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Container;
             }): Request<Container>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the container in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the
+                 * container in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Container's API relative path. Example: accounts/{account_id}/containers/{container_id} */
+                /**
+                 * GTM Container's API relative path.
+                 * Example: accounts/{account_id}/containers/{container_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Container): Request<Container>;
             environments: EnvironmentsResource;
@@ -2752,86 +4463,142 @@ declare namespace gapi.client {
         interface User_permissionsResource {
             /** Creates a user's Account & Container access. */
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Account's API relative path. Example: accounts/{account_id} */
+                /**
+                 * GTM Account's API relative path.
+                 * Example: accounts/{account_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: UserPermission;
             }): Request<UserPermission>;
             create(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Account's API relative path. Example: accounts/{account_id} */
+                /**
+                 * GTM Account's API relative path.
+                 * Example: accounts/{account_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: UserPermission): Request<UserPermission>;
-            /** Removes a user from the account, revoking access to it and all of its containers. */
+            /**
+             * Removes a user from the account, revoking access to it and all of its
+             * containers.
+             */
             delete(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM UserPermission's API relative path. Example: accounts/{account_id}/user_permissions/{user_permission_id} */
+                /**
+                 * GTM UserPermission's API relative path.
+                 * Example: accounts/{account_id}/user_permissions/{user_permission_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<void>;
             /** Gets a user's Account & Container access. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM UserPermission's API relative path. Example: accounts/{account_id}/user_permissions/{user_permission_id} */
+                /**
+                 * GTM UserPermission's API relative path.
+                 * Example: accounts/{account_id}/user_permissions/{user_permission_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<UserPermission>;
-            /** List all users that have access to the account along with Account and Container user access granted to each of them. */
+            /**
+             * List all users that have access to the account along with Account and
+             * Container user access granted to each of them.
+             */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2840,80 +4607,124 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Continuation token for fetching the next page of results. */
                 pageToken?: string;
-                /** GTM Accounts's API relative path. Example: accounts/{account_id} */
+                /**
+                 * GTM Accounts's API relative path.
+                 * Example: accounts/{account_id}
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListUserPermissionsResponse>;
             /** Updates a user's Account & Container access. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM UserPermission's API relative path. Example: accounts/{account_id}/user_permissions/{user_permission_id} */
+                /**
+                 * GTM UserPermission's API relative path.
+                 * Example: accounts/{account_id}/user_permissions/{user_permission_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: UserPermission;
             }): Request<UserPermission>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM UserPermission's API relative path. Example: accounts/{account_id}/user_permissions/{user_permission_id} */
+                /**
+                 * GTM UserPermission's API relative path.
+                 * Example: accounts/{account_id}/user_permissions/{user_permission_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: UserPermission): Request<UserPermission>;
         }
         interface AccountsResource {
             /** Gets a GTM Account. */
             get(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Accounts's API relative path. Example: accounts/{account_id} */
+                /**
+                 * GTM Accounts's API relative path.
+                 * Example: accounts/{account_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<Account>;
             /** Lists all GTM Accounts that a user has access to. */
             list(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2924,53 +4735,83 @@ declare namespace gapi.client {
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             }): Request<ListAccountsResponse>;
             /** Updates a GTM Account. */
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the account in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the account
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Accounts's API relative path. Example: accounts/{account_id} */
+                /**
+                 * GTM Accounts's API relative path.
+                 * Example: accounts/{account_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
                 /** Request body */
                 resource: Account;
             }): Request<Account>;
             update(request: {
-                /** Data format for the response. */
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
                 alt?: string;
+                /** JSONP */
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /** When provided, this fingerprint must match the fingerprint of the account in storage. */
+                /**
+                 * When provided, this fingerprint must match the fingerprint of the account
+                 * in storage.
+                 */
                 fingerprint?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** GTM Accounts's API relative path. Example: accounts/{account_id} */
+                /**
+                 * GTM Accounts's API relative path.
+                 * Example: accounts/{account_id}
+                 */
                 path: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
             },
             body: Account): Request<Account>;
             containers: ContainersResource;

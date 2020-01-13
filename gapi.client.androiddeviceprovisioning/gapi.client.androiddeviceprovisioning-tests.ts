@@ -18,72 +18,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Applies a Configuration to the device to register the device for zero-touch
-         * enrollment. After applying a configuration to a device, the device
-         * automatically provisions itself on first boot, or next factory reset.
-         */
-        await gapi.client.androiddeviceprovisioning.customers.devices.applyConfiguration({
-            parent: "Test string",
-        }, {
-            configuration: "Test string",
-            device: {
-                deviceId: "Test string",
-                deviceIdentifier: {
-                    imei: "Test string",
-                    manufacturer: "Test string",
-                    meid: "Test string",
-                    model: "Test string",
-                    serialNumber: "Test string",
-                },
-            },
-        });
-        /** Lists a customer's devices. */
-        await gapi.client.androiddeviceprovisioning.customers.devices.list({
-            pageSize: "Test string",
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the details of a device. */
-        await gapi.client.androiddeviceprovisioning.customers.devices.get({
-            name: "Test string",
-        });
-        /**
-         * Unclaims a device from a customer and removes it from zero-touch
-         * enrollment.
-         *
-         * After removing a device, a customer must contact their reseller to register
-         * the device into zero-touch enrollment again.
-         */
-        await gapi.client.androiddeviceprovisioning.customers.devices.unclaim({
-            parent: "Test string",
-        }, {
-            device: {
-                deviceId: "Test string",
-                deviceIdentifier: {
-                    imei: "Test string",
-                    manufacturer: "Test string",
-                    meid: "Test string",
-                    model: "Test string",
-                    serialNumber: "Test string",
-                },
-            },
-        });
-        /** Removes a configuration from device. */
-        await gapi.client.androiddeviceprovisioning.customers.devices.removeConfiguration({
-            parent: "Test string",
-        }, {
-            device: {
-                deviceId: "Test string",
-                deviceIdentifier: {
-                    imei: "Test string",
-                    manufacturer: "Test string",
-                    meid: "Test string",
-                    model: "Test string",
-                    serialNumber: "Test string",
-                },
-            },
-        });
-        /**
          * Deletes an unused configuration. The API call fails if the customer has
          * devices with the configuration applied.
          */
@@ -138,6 +72,72 @@ gapi.load('client', () => {
          */
         await gapi.client.androiddeviceprovisioning.customers.dpcs.list({
             parent: "Test string",
+        });
+        /** Lists a customer's devices. */
+        await gapi.client.androiddeviceprovisioning.customers.devices.list({
+            pageSize: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the details of a device. */
+        await gapi.client.androiddeviceprovisioning.customers.devices.get({
+            name: "Test string",
+        });
+        /**
+         * Unclaims a device from a customer and removes it from zero-touch
+         * enrollment.
+         *
+         * After removing a device, a customer must contact their reseller to register
+         * the device into zero-touch enrollment again.
+         */
+        await gapi.client.androiddeviceprovisioning.customers.devices.unclaim({
+            parent: "Test string",
+        }, {
+            device: {
+                deviceId: "Test string",
+                deviceIdentifier: {
+                    imei: "Test string",
+                    manufacturer: "Test string",
+                    meid: "Test string",
+                    model: "Test string",
+                    serialNumber: "Test string",
+                },
+            },
+        });
+        /** Removes a configuration from device. */
+        await gapi.client.androiddeviceprovisioning.customers.devices.removeConfiguration({
+            parent: "Test string",
+        }, {
+            device: {
+                deviceId: "Test string",
+                deviceIdentifier: {
+                    imei: "Test string",
+                    manufacturer: "Test string",
+                    meid: "Test string",
+                    model: "Test string",
+                    serialNumber: "Test string",
+                },
+            },
+        });
+        /**
+         * Applies a Configuration to the device to register the device for zero-touch
+         * enrollment. After applying a configuration to a device, the device
+         * automatically provisions itself on first boot, or next factory reset.
+         */
+        await gapi.client.androiddeviceprovisioning.customers.devices.applyConfiguration({
+            parent: "Test string",
+        }, {
+            configuration: "Test string",
+            device: {
+                deviceId: "Test string",
+                deviceIdentifier: {
+                    imei: "Test string",
+                    manufacturer: "Test string",
+                    meid: "Test string",
+                    model: "Test string",
+                    serialNumber: "Test string",
+                },
+            },
         });
         /**
          * Gets the latest state of a long-running operation.  Clients can use this
