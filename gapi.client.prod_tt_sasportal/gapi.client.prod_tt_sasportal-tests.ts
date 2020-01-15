@@ -31,6 +31,10 @@ gapi.load('client', () => {
         await gapi.client.prod_tt_sasportal.customers.get({
             name: "Test string",
         });
+        /** Deletes a device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.delete({
+            name: "Test string",
+        });
         /**
          * Creates a signed device under a
          * node or customer.
@@ -41,23 +45,12 @@ gapi.load('client', () => {
             encodedDevice: "Test string",
             installerId: "Test string",
         });
-        /** Deletes a device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.delete({
-            name: "Test string",
-        });
         /** Lists devices under a node or customer. */
         await gapi.client.prod_tt_sasportal.customers.devices.list({
             filter: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Updates a signed device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.updateSigned({
-            name: "Test string",
-        }, {
-            encodedDevice: "Test string",
-            installerId: "Test string",
         });
         /** Creates a device under a node or customer. */
         await gapi.client.prod_tt_sasportal.customers.devices.create({
@@ -160,15 +153,18 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
+        /** Updates a signed device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.updateSigned({
+            name: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.customers.devices.bulk({
             parent: "Test string",
         }, {
             csv: "Test string",
-        });
-        /** Gets details about a device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.get({
-            name: "Test string",
         });
         /** Updates a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.patch({
@@ -271,6 +267,10 @@ gapi.load('client', () => {
             },
             serialNumber: "Test string",
             state: "Test string",
+        });
+        /** Gets details about a device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.get({
+            name: "Test string",
         });
         /** Signs a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.signDevice({
@@ -425,6 +425,10 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /** Deletes a device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.delete({
+            name: "Test string",
+        });
         /**
          * Creates a signed device under a
          * node or customer.
@@ -435,23 +439,12 @@ gapi.load('client', () => {
             encodedDevice: "Test string",
             installerId: "Test string",
         });
-        /** Deletes a device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.delete({
-            name: "Test string",
-        });
         /** Lists devices under a node or customer. */
         await gapi.client.prod_tt_sasportal.customers.devices.list({
             filter: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Updates a signed device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.updateSigned({
-            name: "Test string",
-        }, {
-            encodedDevice: "Test string",
-            installerId: "Test string",
         });
         /** Creates a device under a node or customer. */
         await gapi.client.prod_tt_sasportal.customers.devices.create({
@@ -554,15 +547,18 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
+        /** Updates a signed device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.updateSigned({
+            name: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.customers.devices.bulk({
             parent: "Test string",
         }, {
             csv: "Test string",
-        });
-        /** Gets details about a device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.get({
-            name: "Test string",
         });
         /** Updates a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.patch({
@@ -665,6 +661,10 @@ gapi.load('client', () => {
             },
             serialNumber: "Test string",
             state: "Test string",
+        });
+        /** Gets details about a device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.get({
+            name: "Test string",
         });
         /** Signs a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.signDevice({
@@ -824,6 +824,10 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
+        /** Deletes a device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.delete({
+            name: "Test string",
+        });
         /**
          * Creates a signed device under a
          * node or customer.
@@ -834,23 +838,12 @@ gapi.load('client', () => {
             encodedDevice: "Test string",
             installerId: "Test string",
         });
-        /** Deletes a device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.delete({
-            name: "Test string",
-        });
         /** Lists devices under a node or customer. */
         await gapi.client.prod_tt_sasportal.customers.devices.list({
             filter: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Updates a signed device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.updateSigned({
-            name: "Test string",
-        }, {
-            encodedDevice: "Test string",
-            installerId: "Test string",
         });
         /** Creates a device under a node or customer. */
         await gapi.client.prod_tt_sasportal.customers.devices.create({
@@ -953,15 +946,18 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
+        /** Updates a signed device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.updateSigned({
+            name: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.customers.devices.bulk({
             parent: "Test string",
         }, {
             csv: "Test string",
-        });
-        /** Gets details about a device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.get({
-            name: "Test string",
         });
         /** Updates a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.patch({
@@ -1064,6 +1060,10 @@ gapi.load('client', () => {
             },
             serialNumber: "Test string",
             state: "Test string",
+        });
+        /** Gets details about a device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.get({
+            name: "Test string",
         });
         /** Signs a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.signDevice({

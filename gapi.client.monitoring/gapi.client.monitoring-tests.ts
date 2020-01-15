@@ -58,6 +58,98 @@ gapi.load('client', () => {
                 resourceName: "Test string",
             },
         });
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+            parent: "Test string",
+            serviceLevelObjectiveId: "Test string",
+        }, {
+            calendarPeriod: "Test string",
+            displayName: "Test string",
+            goal: 42,
+            name: "Test string",
+            rollingPeriod: "Test string",
+            serviceLevelIndicator: {
+                basicSli: {
+                    availability: {
+                    },
+                    latency: {
+                        threshold: "Test string",
+                    },
+                    location: [
+                        "Test string"                    ],
+                    method: [
+                        "Test string"                    ],
+                    version: [
+                        "Test string"                    ],
+                },
+                requestBased: {
+                    distributionCut: {
+                        distributionFilter: "Test string",
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                    },
+                    goodTotalRatio: {
+                        badServiceFilter: "Test string",
+                        goodServiceFilter: "Test string",
+                        totalServiceFilter: "Test string",
+                    },
+                },
+                windowsBased: {
+                    goodBadMetricFilter: "Test string",
+                    goodTotalRatioThreshold: {
+                        basicSliPerformance: {
+                            availability: {
+                            },
+                            latency: {
+                                threshold: "Test string",
+                            },
+                            location: [
+                                "Test string"                            ],
+                            method: [
+                                "Test string"                            ],
+                            version: [
+                                "Test string"                            ],
+                        },
+                        performance: {
+                            distributionCut: {
+                                distributionFilter: "Test string",
+                                range: {
+                                    max: 42,
+                                    min: 42,
+                                },
+                            },
+                            goodTotalRatio: {
+                                badServiceFilter: "Test string",
+                                goodServiceFilter: "Test string",
+                                totalServiceFilter: "Test string",
+                            },
+                        },
+                        threshold: 42,
+                    },
+                    metricMeanInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    metricSumInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    windowPeriod: "Test string",
+                },
+            },
+        });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -158,103 +250,103 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
-            parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
-        }, {
-            calendarPeriod: "Test string",
-            displayName: "Test string",
-            goal: 42,
-            name: "Test string",
-            rollingPeriod: "Test string",
-            serviceLevelIndicator: {
-                basicSli: {
-                    availability: {
-                    },
-                    latency: {
-                        threshold: "Test string",
-                    },
-                    location: [
-                        "Test string"                    ],
-                    method: [
-                        "Test string"                    ],
-                    version: [
-                        "Test string"                    ],
-                },
-                requestBased: {
-                    distributionCut: {
-                        distributionFilter: "Test string",
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                    },
-                    goodTotalRatio: {
-                        badServiceFilter: "Test string",
-                        goodServiceFilter: "Test string",
-                        totalServiceFilter: "Test string",
-                    },
-                },
-                windowsBased: {
-                    goodBadMetricFilter: "Test string",
-                    goodTotalRatioThreshold: {
-                        basicSliPerformance: {
-                            availability: {
-                            },
-                            latency: {
-                                threshold: "Test string",
-                            },
-                            location: [
-                                "Test string"                            ],
-                            method: [
-                                "Test string"                            ],
-                            version: [
-                                "Test string"                            ],
-                        },
-                        performance: {
-                            distributionCut: {
-                                distributionFilter: "Test string",
-                                range: {
-                                    max: 42,
-                                    min: 42,
-                                },
-                            },
-                            goodTotalRatio: {
-                                badServiceFilter: "Test string",
-                                goodServiceFilter: "Test string",
-                                totalServiceFilter: "Test string",
-                            },
-                        },
-                        threshold: 42,
-                    },
-                    metricMeanInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    metricSumInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    windowPeriod: "Test string",
-                },
-            },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** Soft delete this Service. */
         await gapi.client.monitoring.services.delete({
             name: "Test string",
         });
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+            parent: "Test string",
+            serviceLevelObjectiveId: "Test string",
+        }, {
+            calendarPeriod: "Test string",
+            displayName: "Test string",
+            goal: 42,
+            name: "Test string",
+            rollingPeriod: "Test string",
+            serviceLevelIndicator: {
+                basicSli: {
+                    availability: {
+                    },
+                    latency: {
+                        threshold: "Test string",
+                    },
+                    location: [
+                        "Test string"                    ],
+                    method: [
+                        "Test string"                    ],
+                    version: [
+                        "Test string"                    ],
+                },
+                requestBased: {
+                    distributionCut: {
+                        distributionFilter: "Test string",
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                    },
+                    goodTotalRatio: {
+                        badServiceFilter: "Test string",
+                        goodServiceFilter: "Test string",
+                        totalServiceFilter: "Test string",
+                    },
+                },
+                windowsBased: {
+                    goodBadMetricFilter: "Test string",
+                    goodTotalRatioThreshold: {
+                        basicSliPerformance: {
+                            availability: {
+                            },
+                            latency: {
+                                threshold: "Test string",
+                            },
+                            location: [
+                                "Test string"                            ],
+                            method: [
+                                "Test string"                            ],
+                            version: [
+                                "Test string"                            ],
+                        },
+                        performance: {
+                            distributionCut: {
+                                distributionFilter: "Test string",
+                                range: {
+                                    max: 42,
+                                    min: 42,
+                                },
+                            },
+                            goodTotalRatio: {
+                                badServiceFilter: "Test string",
+                                goodServiceFilter: "Test string",
+                                totalServiceFilter: "Test string",
+                            },
+                        },
+                        threshold: 42,
+                    },
+                    metricMeanInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    metricSumInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    windowPeriod: "Test string",
+                },
+            },
+        });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -355,103 +447,103 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
-            parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
-        }, {
-            calendarPeriod: "Test string",
-            displayName: "Test string",
-            goal: 42,
-            name: "Test string",
-            rollingPeriod: "Test string",
-            serviceLevelIndicator: {
-                basicSli: {
-                    availability: {
-                    },
-                    latency: {
-                        threshold: "Test string",
-                    },
-                    location: [
-                        "Test string"                    ],
-                    method: [
-                        "Test string"                    ],
-                    version: [
-                        "Test string"                    ],
-                },
-                requestBased: {
-                    distributionCut: {
-                        distributionFilter: "Test string",
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                    },
-                    goodTotalRatio: {
-                        badServiceFilter: "Test string",
-                        goodServiceFilter: "Test string",
-                        totalServiceFilter: "Test string",
-                    },
-                },
-                windowsBased: {
-                    goodBadMetricFilter: "Test string",
-                    goodTotalRatioThreshold: {
-                        basicSliPerformance: {
-                            availability: {
-                            },
-                            latency: {
-                                threshold: "Test string",
-                            },
-                            location: [
-                                "Test string"                            ],
-                            method: [
-                                "Test string"                            ],
-                            version: [
-                                "Test string"                            ],
-                        },
-                        performance: {
-                            distributionCut: {
-                                distributionFilter: "Test string",
-                                range: {
-                                    max: 42,
-                                    min: 42,
-                                },
-                            },
-                            goodTotalRatio: {
-                                badServiceFilter: "Test string",
-                                goodServiceFilter: "Test string",
-                                totalServiceFilter: "Test string",
-                            },
-                        },
-                        threshold: 42,
-                    },
-                    metricMeanInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    metricSumInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    windowPeriod: "Test string",
-                },
-            },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** Get the named Service. */
         await gapi.client.monitoring.services.get({
             name: "Test string",
         });
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+            parent: "Test string",
+            serviceLevelObjectiveId: "Test string",
+        }, {
+            calendarPeriod: "Test string",
+            displayName: "Test string",
+            goal: 42,
+            name: "Test string",
+            rollingPeriod: "Test string",
+            serviceLevelIndicator: {
+                basicSli: {
+                    availability: {
+                    },
+                    latency: {
+                        threshold: "Test string",
+                    },
+                    location: [
+                        "Test string"                    ],
+                    method: [
+                        "Test string"                    ],
+                    version: [
+                        "Test string"                    ],
+                },
+                requestBased: {
+                    distributionCut: {
+                        distributionFilter: "Test string",
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                    },
+                    goodTotalRatio: {
+                        badServiceFilter: "Test string",
+                        goodServiceFilter: "Test string",
+                        totalServiceFilter: "Test string",
+                    },
+                },
+                windowsBased: {
+                    goodBadMetricFilter: "Test string",
+                    goodTotalRatioThreshold: {
+                        basicSliPerformance: {
+                            availability: {
+                            },
+                            latency: {
+                                threshold: "Test string",
+                            },
+                            location: [
+                                "Test string"                            ],
+                            method: [
+                                "Test string"                            ],
+                            version: [
+                                "Test string"                            ],
+                        },
+                        performance: {
+                            distributionCut: {
+                                distributionFilter: "Test string",
+                                range: {
+                                    max: 42,
+                                    min: 42,
+                                },
+                            },
+                            goodTotalRatio: {
+                                badServiceFilter: "Test string",
+                                goodServiceFilter: "Test string",
+                                totalServiceFilter: "Test string",
+                            },
+                        },
+                        threshold: 42,
+                    },
+                    metricMeanInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    metricSumInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    windowPeriod: "Test string",
+                },
+            },
+        });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -552,98 +644,6 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
-            parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
-        }, {
-            calendarPeriod: "Test string",
-            displayName: "Test string",
-            goal: 42,
-            name: "Test string",
-            rollingPeriod: "Test string",
-            serviceLevelIndicator: {
-                basicSli: {
-                    availability: {
-                    },
-                    latency: {
-                        threshold: "Test string",
-                    },
-                    location: [
-                        "Test string"                    ],
-                    method: [
-                        "Test string"                    ],
-                    version: [
-                        "Test string"                    ],
-                },
-                requestBased: {
-                    distributionCut: {
-                        distributionFilter: "Test string",
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                    },
-                    goodTotalRatio: {
-                        badServiceFilter: "Test string",
-                        goodServiceFilter: "Test string",
-                        totalServiceFilter: "Test string",
-                    },
-                },
-                windowsBased: {
-                    goodBadMetricFilter: "Test string",
-                    goodTotalRatioThreshold: {
-                        basicSliPerformance: {
-                            availability: {
-                            },
-                            latency: {
-                                threshold: "Test string",
-                            },
-                            location: [
-                                "Test string"                            ],
-                            method: [
-                                "Test string"                            ],
-                            version: [
-                                "Test string"                            ],
-                        },
-                        performance: {
-                            distributionCut: {
-                                distributionFilter: "Test string",
-                                range: {
-                                    max: 42,
-                                    min: 42,
-                                },
-                            },
-                            goodTotalRatio: {
-                                badServiceFilter: "Test string",
-                                goodServiceFilter: "Test string",
-                                totalServiceFilter: "Test string",
-                            },
-                        },
-                        threshold: 42,
-                    },
-                    metricMeanInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    metricSumInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    windowPeriod: "Test string",
-                },
-            },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** List Services for this workspace. */
         await gapi.client.monitoring.services.list({
@@ -652,6 +652,98 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+            parent: "Test string",
+            serviceLevelObjectiveId: "Test string",
+        }, {
+            calendarPeriod: "Test string",
+            displayName: "Test string",
+            goal: 42,
+            name: "Test string",
+            rollingPeriod: "Test string",
+            serviceLevelIndicator: {
+                basicSli: {
+                    availability: {
+                    },
+                    latency: {
+                        threshold: "Test string",
+                    },
+                    location: [
+                        "Test string"                    ],
+                    method: [
+                        "Test string"                    ],
+                    version: [
+                        "Test string"                    ],
+                },
+                requestBased: {
+                    distributionCut: {
+                        distributionFilter: "Test string",
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                    },
+                    goodTotalRatio: {
+                        badServiceFilter: "Test string",
+                        goodServiceFilter: "Test string",
+                        totalServiceFilter: "Test string",
+                    },
+                },
+                windowsBased: {
+                    goodBadMetricFilter: "Test string",
+                    goodTotalRatioThreshold: {
+                        basicSliPerformance: {
+                            availability: {
+                            },
+                            latency: {
+                                threshold: "Test string",
+                            },
+                            location: [
+                                "Test string"                            ],
+                            method: [
+                                "Test string"                            ],
+                            version: [
+                                "Test string"                            ],
+                        },
+                        performance: {
+                            distributionCut: {
+                                distributionFilter: "Test string",
+                                range: {
+                                    max: 42,
+                                    min: 42,
+                                },
+                            },
+                            goodTotalRatio: {
+                                badServiceFilter: "Test string",
+                                goodServiceFilter: "Test string",
+                                totalServiceFilter: "Test string",
+                            },
+                        },
+                        threshold: 42,
+                    },
+                    metricMeanInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    metricSumInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    windowPeriod: "Test string",
+                },
+            },
+        });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -752,98 +844,6 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
-            parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
-        }, {
-            calendarPeriod: "Test string",
-            displayName: "Test string",
-            goal: 42,
-            name: "Test string",
-            rollingPeriod: "Test string",
-            serviceLevelIndicator: {
-                basicSli: {
-                    availability: {
-                    },
-                    latency: {
-                        threshold: "Test string",
-                    },
-                    location: [
-                        "Test string"                    ],
-                    method: [
-                        "Test string"                    ],
-                    version: [
-                        "Test string"                    ],
-                },
-                requestBased: {
-                    distributionCut: {
-                        distributionFilter: "Test string",
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                    },
-                    goodTotalRatio: {
-                        badServiceFilter: "Test string",
-                        goodServiceFilter: "Test string",
-                        totalServiceFilter: "Test string",
-                    },
-                },
-                windowsBased: {
-                    goodBadMetricFilter: "Test string",
-                    goodTotalRatioThreshold: {
-                        basicSliPerformance: {
-                            availability: {
-                            },
-                            latency: {
-                                threshold: "Test string",
-                            },
-                            location: [
-                                "Test string"                            ],
-                            method: [
-                                "Test string"                            ],
-                            version: [
-                                "Test string"                            ],
-                        },
-                        performance: {
-                            distributionCut: {
-                                distributionFilter: "Test string",
-                                range: {
-                                    max: 42,
-                                    min: 42,
-                                },
-                            },
-                            goodTotalRatio: {
-                                badServiceFilter: "Test string",
-                                goodServiceFilter: "Test string",
-                                totalServiceFilter: "Test string",
-                            },
-                        },
-                        threshold: 42,
-                    },
-                    metricMeanInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    metricSumInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    windowPeriod: "Test string",
-                },
-            },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** Update this Service. */
         await gapi.client.monitoring.services.patch({
@@ -870,6 +870,98 @@ gapi.load('client', () => {
                 resourceName: "Test string",
             },
         });
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+            parent: "Test string",
+            serviceLevelObjectiveId: "Test string",
+        }, {
+            calendarPeriod: "Test string",
+            displayName: "Test string",
+            goal: 42,
+            name: "Test string",
+            rollingPeriod: "Test string",
+            serviceLevelIndicator: {
+                basicSli: {
+                    availability: {
+                    },
+                    latency: {
+                        threshold: "Test string",
+                    },
+                    location: [
+                        "Test string"                    ],
+                    method: [
+                        "Test string"                    ],
+                    version: [
+                        "Test string"                    ],
+                },
+                requestBased: {
+                    distributionCut: {
+                        distributionFilter: "Test string",
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                    },
+                    goodTotalRatio: {
+                        badServiceFilter: "Test string",
+                        goodServiceFilter: "Test string",
+                        totalServiceFilter: "Test string",
+                    },
+                },
+                windowsBased: {
+                    goodBadMetricFilter: "Test string",
+                    goodTotalRatioThreshold: {
+                        basicSliPerformance: {
+                            availability: {
+                            },
+                            latency: {
+                                threshold: "Test string",
+                            },
+                            location: [
+                                "Test string"                            ],
+                            method: [
+                                "Test string"                            ],
+                            version: [
+                                "Test string"                            ],
+                        },
+                        performance: {
+                            distributionCut: {
+                                distributionFilter: "Test string",
+                                range: {
+                                    max: 42,
+                                    min: 42,
+                                },
+                            },
+                            goodTotalRatio: {
+                                badServiceFilter: "Test string",
+                                goodServiceFilter: "Test string",
+                                totalServiceFilter: "Test string",
+                            },
+                        },
+                        threshold: 42,
+                    },
+                    metricMeanInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    metricSumInRange: {
+                        range: {
+                            max: 42,
+                            min: 42,
+                        },
+                        timeSeries: "Test string",
+                    },
+                    windowPeriod: "Test string",
+                },
+            },
+        });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -970,98 +1062,6 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
-            parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
-        }, {
-            calendarPeriod: "Test string",
-            displayName: "Test string",
-            goal: 42,
-            name: "Test string",
-            rollingPeriod: "Test string",
-            serviceLevelIndicator: {
-                basicSli: {
-                    availability: {
-                    },
-                    latency: {
-                        threshold: "Test string",
-                    },
-                    location: [
-                        "Test string"                    ],
-                    method: [
-                        "Test string"                    ],
-                    version: [
-                        "Test string"                    ],
-                },
-                requestBased: {
-                    distributionCut: {
-                        distributionFilter: "Test string",
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                    },
-                    goodTotalRatio: {
-                        badServiceFilter: "Test string",
-                        goodServiceFilter: "Test string",
-                        totalServiceFilter: "Test string",
-                    },
-                },
-                windowsBased: {
-                    goodBadMetricFilter: "Test string",
-                    goodTotalRatioThreshold: {
-                        basicSliPerformance: {
-                            availability: {
-                            },
-                            latency: {
-                                threshold: "Test string",
-                            },
-                            location: [
-                                "Test string"                            ],
-                            method: [
-                                "Test string"                            ],
-                            version: [
-                                "Test string"                            ],
-                        },
-                        performance: {
-                            distributionCut: {
-                                distributionFilter: "Test string",
-                                range: {
-                                    max: 42,
-                                    min: 42,
-                                },
-                            },
-                            goodTotalRatio: {
-                                badServiceFilter: "Test string",
-                                goodServiceFilter: "Test string",
-                                totalServiceFilter: "Test string",
-                            },
-                        },
-                        threshold: 42,
-                    },
-                    metricMeanInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    metricSumInRange: {
-                        range: {
-                            max: 42,
-                            min: 42,
-                        },
-                        timeSeries: "Test string",
-                    },
-                    windowPeriod: "Test string",
-                },
-            },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** Returns the list of IP addresses that checkers run from */
         await gapi.client.monitoring.uptimeCheckIps.list({

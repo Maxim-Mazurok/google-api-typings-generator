@@ -108,7 +108,10 @@ declare namespace gapi.client {
             writes?: Write[];
         }
         interface CommitResponse {
-            /** The time at which the commit occurred. */
+            /**
+             * The time at which the commit occurred. Any read with an equal or greater
+             * `read_time` is guaranteed to see the effects of the commit.
+             */
             commitTime?: string;
             /**
              * The result of applying the writes.
@@ -1129,7 +1132,10 @@ declare namespace gapi.client {
             writes?: Write[];
         }
         interface WriteResponse {
-            /** The time at which the commit occurred. */
+            /**
+             * The time at which the commit occurred. Any read with an equal or greater
+             * `read_time` is guaranteed to see the effects of the write.
+             */
             commitTime?: string;
             /**
              * The ID of the stream.

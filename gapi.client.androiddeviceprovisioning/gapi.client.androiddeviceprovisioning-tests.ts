@@ -18,70 +18,11 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Deletes an unused configuration. The API call fails if the customer has
-         * devices with the configuration applied.
-         */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.delete({
-            name: "Test string",
-        });
-        /** Gets the details of a configuration. */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.get({
-            name: "Test string",
-        });
-        /** Updates a configuration's field values. */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            companyName: "Test string",
-            configurationId: "Test string",
-            configurationName: "Test string",
-            contactEmail: "Test string",
-            contactPhone: "Test string",
-            customMessage: "Test string",
-            dpcExtras: "Test string",
-            dpcResourcePath: "Test string",
-            isDefault: true,
-            name: "Test string",
-        });
-        /** Lists a customer's configurations. */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.list({
-            parent: "Test string",
-        });
-        /**
-         * Creates a new configuration. Once created, a customer can apply the
-         * configuration to devices.
-         */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.create({
-            parent: "Test string",
-        }, {
-            companyName: "Test string",
-            configurationId: "Test string",
-            configurationName: "Test string",
-            contactEmail: "Test string",
-            contactPhone: "Test string",
-            customMessage: "Test string",
-            dpcExtras: "Test string",
-            dpcResourcePath: "Test string",
-            isDefault: true,
-            name: "Test string",
-        });
-        /**
          * Lists the DPCs (device policy controllers) that support zero-touch
          * enrollment.
          */
         await gapi.client.androiddeviceprovisioning.customers.dpcs.list({
             parent: "Test string",
-        });
-        /** Lists a customer's devices. */
-        await gapi.client.androiddeviceprovisioning.customers.devices.list({
-            pageSize: "Test string",
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the details of a device. */
-        await gapi.client.androiddeviceprovisioning.customers.devices.get({
-            name: "Test string",
         });
         /**
          * Unclaims a device from a customer and removes it from zero-touch
@@ -138,6 +79,65 @@ gapi.load('client', () => {
                     serialNumber: "Test string",
                 },
             },
+        });
+        /** Lists a customer's devices. */
+        await gapi.client.androiddeviceprovisioning.customers.devices.list({
+            pageSize: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the details of a device. */
+        await gapi.client.androiddeviceprovisioning.customers.devices.get({
+            name: "Test string",
+        });
+        /**
+         * Deletes an unused configuration. The API call fails if the customer has
+         * devices with the configuration applied.
+         */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.delete({
+            name: "Test string",
+        });
+        /** Gets the details of a configuration. */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.get({
+            name: "Test string",
+        });
+        /** Updates a configuration's field values. */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            companyName: "Test string",
+            configurationId: "Test string",
+            configurationName: "Test string",
+            contactEmail: "Test string",
+            contactPhone: "Test string",
+            customMessage: "Test string",
+            dpcExtras: "Test string",
+            dpcResourcePath: "Test string",
+            isDefault: true,
+            name: "Test string",
+        });
+        /** Lists a customer's configurations. */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.list({
+            parent: "Test string",
+        });
+        /**
+         * Creates a new configuration. Once created, a customer can apply the
+         * configuration to devices.
+         */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.create({
+            parent: "Test string",
+        }, {
+            companyName: "Test string",
+            configurationId: "Test string",
+            configurationName: "Test string",
+            contactEmail: "Test string",
+            contactPhone: "Test string",
+            customMessage: "Test string",
+            dpcExtras: "Test string",
+            dpcResourcePath: "Test string",
+            isDefault: true,
+            name: "Test string",
         });
         /**
          * Gets the latest state of a long-running operation.  Clients can use this

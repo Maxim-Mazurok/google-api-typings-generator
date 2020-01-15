@@ -4107,43 +4107,13 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Appends values to a spreadsheet. The input range is used to search for
-         * existing data and find a "table" within that range. Values will be
-         * appended to the next row of the table, starting with the first column of
-         * the table. See the
-         * [guide](/sheets/api/guides/values#appending_values)
-         * and
-         * [sample code](/sheets/api/samples/writing#append_values)
-         * for specific details of how tables are detected and data is appended.
-         *
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.  The `valueInputOption` only
-         * controls how the input data will be added to the sheet (column-wise or
-         * row-wise), it does not influence what cell the data starts being written
-         * to.
+         * Returns all developer metadata matching the specified DataFilter.
+         * If the provided DataFilter represents a DeveloperMetadataLookup object,
+         * this will return all DeveloperMetadata entries selected by it. If the
+         * DataFilter represents a location in a spreadsheet, this will return all
+         * developer metadata associated with locations intersecting that region.
          */
-        await gapi.client.sheets.spreadsheets.values.append({
-            includeValuesInResponse: true,
-            insertDataOption: "Test string",
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
-        });
-        /**
-         * Returns one or more ranges of values that match the specified data filters.
-         * The caller must specify the spreadsheet ID and one or more
-         * DataFilters.  Ranges that match any of the data filters in
-         * the request will be returned.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGetByDataFilter({
+        await gapi.client.sheets.spreadsheets.developerMetadata.search({
             spreadsheetId: "Test string",
         }, {
             dataFilters: [
@@ -4176,21 +4146,15 @@ gapi.load('client', () => {
                         startRowIndex: 42,
                     },
                 }            ],
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            valueRenderOption: "Test string",
         });
         /**
-         * Clears one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
+         * Returns the developer metadata with the specified ID.
+         * The caller must specify the spreadsheet ID and the developer metadata's
+         * unique metadataId.
          */
-        await gapi.client.sheets.spreadsheets.values.batchClear({
+        await gapi.client.sheets.spreadsheets.developerMetadata.get({
+            metadataId: 42,
             spreadsheetId: "Test string",
-        }, {
-            ranges: [
-                "Test string"            ],
         });
         /**
          * Returns a range of values from a spreadsheet.
@@ -4295,17 +4259,6 @@ gapi.load('client', () => {
             valueInputOption: "Test string",
         });
         /**
-         * Returns one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGet({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            ranges: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
          * Clears values from a spreadsheet.
          * The caller must specify the spreadsheet ID and range.
          * Only values are cleared -- all other properties of the cell (such as
@@ -4315,6 +4268,17 @@ gapi.load('client', () => {
             range: "Test string",
             spreadsheetId: "Test string",
         }, {
+        });
+        /**
+         * Returns one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchGet({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            ranges: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -4358,23 +4322,43 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Copies a single sheet from a spreadsheet to another spreadsheet.
-         * Returns the properties of the newly created sheet.
+         * Appends values to a spreadsheet. The input range is used to search for
+         * existing data and find a "table" within that range. Values will be
+         * appended to the next row of the table, starting with the first column of
+         * the table. See the
+         * [guide](/sheets/api/guides/values#appending_values)
+         * and
+         * [sample code](/sheets/api/samples/writing#append_values)
+         * for specific details of how tables are detected and data is appended.
+         *
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.  The `valueInputOption` only
+         * controls how the input data will be added to the sheet (column-wise or
+         * row-wise), it does not influence what cell the data starts being written
+         * to.
          */
-        await gapi.client.sheets.spreadsheets.sheets.copyTo({
-            sheetId: 42,
+        await gapi.client.sheets.spreadsheets.values.append({
+            includeValuesInResponse: true,
+            insertDataOption: "Test string",
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
             spreadsheetId: "Test string",
+            valueInputOption: "Test string",
         }, {
-            destinationSpreadsheetId: "Test string",
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
         });
         /**
-         * Returns all developer metadata matching the specified DataFilter.
-         * If the provided DataFilter represents a DeveloperMetadataLookup object,
-         * this will return all DeveloperMetadata entries selected by it. If the
-         * DataFilter represents a location in a spreadsheet, this will return all
-         * developer metadata associated with locations intersecting that region.
+         * Returns one or more ranges of values that match the specified data filters.
+         * The caller must specify the spreadsheet ID and one or more
+         * DataFilters.  Ranges that match any of the data filters in
+         * the request will be returned.
          */
-        await gapi.client.sheets.spreadsheets.developerMetadata.search({
+        await gapi.client.sheets.spreadsheets.values.batchGetByDataFilter({
             spreadsheetId: "Test string",
         }, {
             dataFilters: [
@@ -4407,15 +4391,31 @@ gapi.load('client', () => {
                         startRowIndex: 42,
                     },
                 }            ],
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
-         * Returns the developer metadata with the specified ID.
-         * The caller must specify the spreadsheet ID and the developer metadata's
-         * unique metadataId.
+         * Clears one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
          */
-        await gapi.client.sheets.spreadsheets.developerMetadata.get({
-            metadataId: 42,
+        await gapi.client.sheets.spreadsheets.values.batchClear({
             spreadsheetId: "Test string",
+        }, {
+            ranges: [
+                "Test string"            ],
+        });
+        /**
+         * Copies a single sheet from a spreadsheet to another spreadsheet.
+         * Returns the properties of the newly created sheet.
+         */
+        await gapi.client.sheets.spreadsheets.sheets.copyTo({
+            sheetId: 42,
+            spreadsheetId: "Test string",
+        }, {
+            destinationSpreadsheetId: "Test string",
         });
         /** Creates a spreadsheet, returning the newly created spreadsheet. */
         await gapi.client.sheets.spreadsheets.create({
@@ -6169,43 +6169,13 @@ gapi.load('client', () => {
             spreadsheetUrl: "Test string",
         });
         /**
-         * Appends values to a spreadsheet. The input range is used to search for
-         * existing data and find a "table" within that range. Values will be
-         * appended to the next row of the table, starting with the first column of
-         * the table. See the
-         * [guide](/sheets/api/guides/values#appending_values)
-         * and
-         * [sample code](/sheets/api/samples/writing#append_values)
-         * for specific details of how tables are detected and data is appended.
-         *
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.  The `valueInputOption` only
-         * controls how the input data will be added to the sheet (column-wise or
-         * row-wise), it does not influence what cell the data starts being written
-         * to.
+         * Returns all developer metadata matching the specified DataFilter.
+         * If the provided DataFilter represents a DeveloperMetadataLookup object,
+         * this will return all DeveloperMetadata entries selected by it. If the
+         * DataFilter represents a location in a spreadsheet, this will return all
+         * developer metadata associated with locations intersecting that region.
          */
-        await gapi.client.sheets.spreadsheets.values.append({
-            includeValuesInResponse: true,
-            insertDataOption: "Test string",
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
-        });
-        /**
-         * Returns one or more ranges of values that match the specified data filters.
-         * The caller must specify the spreadsheet ID and one or more
-         * DataFilters.  Ranges that match any of the data filters in
-         * the request will be returned.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGetByDataFilter({
+        await gapi.client.sheets.spreadsheets.developerMetadata.search({
             spreadsheetId: "Test string",
         }, {
             dataFilters: [
@@ -6238,21 +6208,15 @@ gapi.load('client', () => {
                         startRowIndex: 42,
                     },
                 }            ],
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            valueRenderOption: "Test string",
         });
         /**
-         * Clears one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
+         * Returns the developer metadata with the specified ID.
+         * The caller must specify the spreadsheet ID and the developer metadata's
+         * unique metadataId.
          */
-        await gapi.client.sheets.spreadsheets.values.batchClear({
+        await gapi.client.sheets.spreadsheets.developerMetadata.get({
+            metadataId: 42,
             spreadsheetId: "Test string",
-        }, {
-            ranges: [
-                "Test string"            ],
         });
         /**
          * Returns a range of values from a spreadsheet.
@@ -6357,17 +6321,6 @@ gapi.load('client', () => {
             valueInputOption: "Test string",
         });
         /**
-         * Returns one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGet({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            ranges: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
          * Clears values from a spreadsheet.
          * The caller must specify the spreadsheet ID and range.
          * Only values are cleared -- all other properties of the cell (such as
@@ -6377,6 +6330,17 @@ gapi.load('client', () => {
             range: "Test string",
             spreadsheetId: "Test string",
         }, {
+        });
+        /**
+         * Returns one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchGet({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            ranges: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -6420,23 +6384,43 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Copies a single sheet from a spreadsheet to another spreadsheet.
-         * Returns the properties of the newly created sheet.
+         * Appends values to a spreadsheet. The input range is used to search for
+         * existing data and find a "table" within that range. Values will be
+         * appended to the next row of the table, starting with the first column of
+         * the table. See the
+         * [guide](/sheets/api/guides/values#appending_values)
+         * and
+         * [sample code](/sheets/api/samples/writing#append_values)
+         * for specific details of how tables are detected and data is appended.
+         *
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.  The `valueInputOption` only
+         * controls how the input data will be added to the sheet (column-wise or
+         * row-wise), it does not influence what cell the data starts being written
+         * to.
          */
-        await gapi.client.sheets.spreadsheets.sheets.copyTo({
-            sheetId: 42,
+        await gapi.client.sheets.spreadsheets.values.append({
+            includeValuesInResponse: true,
+            insertDataOption: "Test string",
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
             spreadsheetId: "Test string",
+            valueInputOption: "Test string",
         }, {
-            destinationSpreadsheetId: "Test string",
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
         });
         /**
-         * Returns all developer metadata matching the specified DataFilter.
-         * If the provided DataFilter represents a DeveloperMetadataLookup object,
-         * this will return all DeveloperMetadata entries selected by it. If the
-         * DataFilter represents a location in a spreadsheet, this will return all
-         * developer metadata associated with locations intersecting that region.
+         * Returns one or more ranges of values that match the specified data filters.
+         * The caller must specify the spreadsheet ID and one or more
+         * DataFilters.  Ranges that match any of the data filters in
+         * the request will be returned.
          */
-        await gapi.client.sheets.spreadsheets.developerMetadata.search({
+        await gapi.client.sheets.spreadsheets.values.batchGetByDataFilter({
             spreadsheetId: "Test string",
         }, {
             dataFilters: [
@@ -6469,15 +6453,31 @@ gapi.load('client', () => {
                         startRowIndex: 42,
                     },
                 }            ],
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
-         * Returns the developer metadata with the specified ID.
-         * The caller must specify the spreadsheet ID and the developer metadata's
-         * unique metadataId.
+         * Clears one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
          */
-        await gapi.client.sheets.spreadsheets.developerMetadata.get({
-            metadataId: 42,
+        await gapi.client.sheets.spreadsheets.values.batchClear({
             spreadsheetId: "Test string",
+        }, {
+            ranges: [
+                "Test string"            ],
+        });
+        /**
+         * Copies a single sheet from a spreadsheet to another spreadsheet.
+         * Returns the properties of the newly created sheet.
+         */
+        await gapi.client.sheets.spreadsheets.sheets.copyTo({
+            sheetId: 42,
+            spreadsheetId: "Test string",
+        }, {
+            destinationSpreadsheetId: "Test string",
         });
         /**
          * Returns the spreadsheet at the given ID.
@@ -6508,43 +6508,13 @@ gapi.load('client', () => {
             spreadsheetId: "Test string",
         });
         /**
-         * Appends values to a spreadsheet. The input range is used to search for
-         * existing data and find a "table" within that range. Values will be
-         * appended to the next row of the table, starting with the first column of
-         * the table. See the
-         * [guide](/sheets/api/guides/values#appending_values)
-         * and
-         * [sample code](/sheets/api/samples/writing#append_values)
-         * for specific details of how tables are detected and data is appended.
-         *
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.  The `valueInputOption` only
-         * controls how the input data will be added to the sheet (column-wise or
-         * row-wise), it does not influence what cell the data starts being written
-         * to.
+         * Returns all developer metadata matching the specified DataFilter.
+         * If the provided DataFilter represents a DeveloperMetadataLookup object,
+         * this will return all DeveloperMetadata entries selected by it. If the
+         * DataFilter represents a location in a spreadsheet, this will return all
+         * developer metadata associated with locations intersecting that region.
          */
-        await gapi.client.sheets.spreadsheets.values.append({
-            includeValuesInResponse: true,
-            insertDataOption: "Test string",
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
-        });
-        /**
-         * Returns one or more ranges of values that match the specified data filters.
-         * The caller must specify the spreadsheet ID and one or more
-         * DataFilters.  Ranges that match any of the data filters in
-         * the request will be returned.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGetByDataFilter({
+        await gapi.client.sheets.spreadsheets.developerMetadata.search({
             spreadsheetId: "Test string",
         }, {
             dataFilters: [
@@ -6577,21 +6547,15 @@ gapi.load('client', () => {
                         startRowIndex: 42,
                     },
                 }            ],
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            valueRenderOption: "Test string",
         });
         /**
-         * Clears one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
+         * Returns the developer metadata with the specified ID.
+         * The caller must specify the spreadsheet ID and the developer metadata's
+         * unique metadataId.
          */
-        await gapi.client.sheets.spreadsheets.values.batchClear({
+        await gapi.client.sheets.spreadsheets.developerMetadata.get({
+            metadataId: 42,
             spreadsheetId: "Test string",
-        }, {
-            ranges: [
-                "Test string"            ],
         });
         /**
          * Returns a range of values from a spreadsheet.
@@ -6696,17 +6660,6 @@ gapi.load('client', () => {
             valueInputOption: "Test string",
         });
         /**
-         * Returns one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGet({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            ranges: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
          * Clears values from a spreadsheet.
          * The caller must specify the spreadsheet ID and range.
          * Only values are cleared -- all other properties of the cell (such as
@@ -6716,6 +6669,17 @@ gapi.load('client', () => {
             range: "Test string",
             spreadsheetId: "Test string",
         }, {
+        });
+        /**
+         * Returns one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchGet({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            ranges: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -6759,23 +6723,43 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Copies a single sheet from a spreadsheet to another spreadsheet.
-         * Returns the properties of the newly created sheet.
+         * Appends values to a spreadsheet. The input range is used to search for
+         * existing data and find a "table" within that range. Values will be
+         * appended to the next row of the table, starting with the first column of
+         * the table. See the
+         * [guide](/sheets/api/guides/values#appending_values)
+         * and
+         * [sample code](/sheets/api/samples/writing#append_values)
+         * for specific details of how tables are detected and data is appended.
+         *
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.  The `valueInputOption` only
+         * controls how the input data will be added to the sheet (column-wise or
+         * row-wise), it does not influence what cell the data starts being written
+         * to.
          */
-        await gapi.client.sheets.spreadsheets.sheets.copyTo({
-            sheetId: 42,
+        await gapi.client.sheets.spreadsheets.values.append({
+            includeValuesInResponse: true,
+            insertDataOption: "Test string",
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
             spreadsheetId: "Test string",
+            valueInputOption: "Test string",
         }, {
-            destinationSpreadsheetId: "Test string",
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
         });
         /**
-         * Returns all developer metadata matching the specified DataFilter.
-         * If the provided DataFilter represents a DeveloperMetadataLookup object,
-         * this will return all DeveloperMetadata entries selected by it. If the
-         * DataFilter represents a location in a spreadsheet, this will return all
-         * developer metadata associated with locations intersecting that region.
+         * Returns one or more ranges of values that match the specified data filters.
+         * The caller must specify the spreadsheet ID and one or more
+         * DataFilters.  Ranges that match any of the data filters in
+         * the request will be returned.
          */
-        await gapi.client.sheets.spreadsheets.developerMetadata.search({
+        await gapi.client.sheets.spreadsheets.values.batchGetByDataFilter({
             spreadsheetId: "Test string",
         }, {
             dataFilters: [
@@ -6808,15 +6792,31 @@ gapi.load('client', () => {
                         startRowIndex: 42,
                     },
                 }            ],
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
-         * Returns the developer metadata with the specified ID.
-         * The caller must specify the spreadsheet ID and the developer metadata's
-         * unique metadataId.
+         * Clears one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
          */
-        await gapi.client.sheets.spreadsheets.developerMetadata.get({
-            metadataId: 42,
+        await gapi.client.sheets.spreadsheets.values.batchClear({
             spreadsheetId: "Test string",
+        }, {
+            ranges: [
+                "Test string"            ],
+        });
+        /**
+         * Copies a single sheet from a spreadsheet to another spreadsheet.
+         * Returns the properties of the newly created sheet.
+         */
+        await gapi.client.sheets.spreadsheets.sheets.copyTo({
+            sheetId: 42,
+            spreadsheetId: "Test string",
+        }, {
+            destinationSpreadsheetId: "Test string",
         });
         /**
          * Returns the spreadsheet at the given ID.
@@ -6878,43 +6878,13 @@ gapi.load('client', () => {
             includeGridData: true,
         });
         /**
-         * Appends values to a spreadsheet. The input range is used to search for
-         * existing data and find a "table" within that range. Values will be
-         * appended to the next row of the table, starting with the first column of
-         * the table. See the
-         * [guide](/sheets/api/guides/values#appending_values)
-         * and
-         * [sample code](/sheets/api/samples/writing#append_values)
-         * for specific details of how tables are detected and data is appended.
-         *
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.  The `valueInputOption` only
-         * controls how the input data will be added to the sheet (column-wise or
-         * row-wise), it does not influence what cell the data starts being written
-         * to.
+         * Returns all developer metadata matching the specified DataFilter.
+         * If the provided DataFilter represents a DeveloperMetadataLookup object,
+         * this will return all DeveloperMetadata entries selected by it. If the
+         * DataFilter represents a location in a spreadsheet, this will return all
+         * developer metadata associated with locations intersecting that region.
          */
-        await gapi.client.sheets.spreadsheets.values.append({
-            includeValuesInResponse: true,
-            insertDataOption: "Test string",
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
-        });
-        /**
-         * Returns one or more ranges of values that match the specified data filters.
-         * The caller must specify the spreadsheet ID and one or more
-         * DataFilters.  Ranges that match any of the data filters in
-         * the request will be returned.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGetByDataFilter({
+        await gapi.client.sheets.spreadsheets.developerMetadata.search({
             spreadsheetId: "Test string",
         }, {
             dataFilters: [
@@ -6947,21 +6917,15 @@ gapi.load('client', () => {
                         startRowIndex: 42,
                     },
                 }            ],
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            valueRenderOption: "Test string",
         });
         /**
-         * Clears one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
+         * Returns the developer metadata with the specified ID.
+         * The caller must specify the spreadsheet ID and the developer metadata's
+         * unique metadataId.
          */
-        await gapi.client.sheets.spreadsheets.values.batchClear({
+        await gapi.client.sheets.spreadsheets.developerMetadata.get({
+            metadataId: 42,
             spreadsheetId: "Test string",
-        }, {
-            ranges: [
-                "Test string"            ],
         });
         /**
          * Returns a range of values from a spreadsheet.
@@ -7066,17 +7030,6 @@ gapi.load('client', () => {
             valueInputOption: "Test string",
         });
         /**
-         * Returns one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGet({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            ranges: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
          * Clears values from a spreadsheet.
          * The caller must specify the spreadsheet ID and range.
          * Only values are cleared -- all other properties of the cell (such as
@@ -7086,6 +7039,17 @@ gapi.load('client', () => {
             range: "Test string",
             spreadsheetId: "Test string",
         }, {
+        });
+        /**
+         * Returns one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchGet({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            ranges: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -7129,23 +7093,43 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Copies a single sheet from a spreadsheet to another spreadsheet.
-         * Returns the properties of the newly created sheet.
+         * Appends values to a spreadsheet. The input range is used to search for
+         * existing data and find a "table" within that range. Values will be
+         * appended to the next row of the table, starting with the first column of
+         * the table. See the
+         * [guide](/sheets/api/guides/values#appending_values)
+         * and
+         * [sample code](/sheets/api/samples/writing#append_values)
+         * for specific details of how tables are detected and data is appended.
+         *
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.  The `valueInputOption` only
+         * controls how the input data will be added to the sheet (column-wise or
+         * row-wise), it does not influence what cell the data starts being written
+         * to.
          */
-        await gapi.client.sheets.spreadsheets.sheets.copyTo({
-            sheetId: 42,
+        await gapi.client.sheets.spreadsheets.values.append({
+            includeValuesInResponse: true,
+            insertDataOption: "Test string",
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
             spreadsheetId: "Test string",
+            valueInputOption: "Test string",
         }, {
-            destinationSpreadsheetId: "Test string",
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
         });
         /**
-         * Returns all developer metadata matching the specified DataFilter.
-         * If the provided DataFilter represents a DeveloperMetadataLookup object,
-         * this will return all DeveloperMetadata entries selected by it. If the
-         * DataFilter represents a location in a spreadsheet, this will return all
-         * developer metadata associated with locations intersecting that region.
+         * Returns one or more ranges of values that match the specified data filters.
+         * The caller must specify the spreadsheet ID and one or more
+         * DataFilters.  Ranges that match any of the data filters in
+         * the request will be returned.
          */
-        await gapi.client.sheets.spreadsheets.developerMetadata.search({
+        await gapi.client.sheets.spreadsheets.values.batchGetByDataFilter({
             spreadsheetId: "Test string",
         }, {
             dataFilters: [
@@ -7178,15 +7162,31 @@ gapi.load('client', () => {
                         startRowIndex: 42,
                     },
                 }            ],
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
-         * Returns the developer metadata with the specified ID.
-         * The caller must specify the spreadsheet ID and the developer metadata's
-         * unique metadataId.
+         * Clears one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
          */
-        await gapi.client.sheets.spreadsheets.developerMetadata.get({
-            metadataId: 42,
+        await gapi.client.sheets.spreadsheets.values.batchClear({
             spreadsheetId: "Test string",
+        }, {
+            ranges: [
+                "Test string"            ],
+        });
+        /**
+         * Copies a single sheet from a spreadsheet to another spreadsheet.
+         * Returns the properties of the newly created sheet.
+         */
+        await gapi.client.sheets.spreadsheets.sheets.copyTo({
+            sheetId: 42,
+            spreadsheetId: "Test string",
+        }, {
+            destinationSpreadsheetId: "Test string",
         });
     }
 });

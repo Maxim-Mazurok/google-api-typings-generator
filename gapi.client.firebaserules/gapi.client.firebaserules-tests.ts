@@ -92,6 +92,14 @@ gapi.load('client', () => {
                     }                ],
             },
         });
+        /**
+         * Delete a `Ruleset` by resource name.
+         *
+         * If the `Ruleset` is referenced by a `Release` the operation will fail.
+         */
+        await gapi.client.firebaserules.projects.rulesets.delete({
+            name: "Test string",
+        });
         /** Get a `Ruleset` by name including the full `Source` contents. */
         await gapi.client.firebaserules.projects.rulesets.get({
             name: "Test string",
@@ -135,12 +143,8 @@ gapi.load('client', () => {
                     }                ],
             },
         });
-        /**
-         * Delete a `Ruleset` by resource name.
-         *
-         * If the `Ruleset` is referenced by a `Release` the operation will fail.
-         */
-        await gapi.client.firebaserules.projects.rulesets.delete({
+        /** Get a `Release` by name. */
+        await gapi.client.firebaserules.projects.releases.get({
             name: "Test string",
         });
         /**
@@ -160,10 +164,6 @@ gapi.load('client', () => {
                 updateTime: "Test string",
             },
             updateMask: "Test string",
-        });
-        /** Get a `Release` by name. */
-        await gapi.client.firebaserules.projects.releases.get({
-            name: "Test string",
         });
         /** Get the `Release` executable to use when enforcing rules. */
         await gapi.client.firebaserules.projects.releases.getExecutable({

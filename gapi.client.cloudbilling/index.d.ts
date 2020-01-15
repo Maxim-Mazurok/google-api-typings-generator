@@ -1051,7 +1051,7 @@ declare namespace gapi.client {
                  */
                 pageToken?: string;
                 /**
-                 * The name of the service.
+                 * Required. The name of the service.
                  * Example: "services/DA34-426B-A397"
                  */
                 parent: string;

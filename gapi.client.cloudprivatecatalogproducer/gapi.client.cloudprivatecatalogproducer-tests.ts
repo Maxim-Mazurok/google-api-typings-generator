@@ -37,10 +37,6 @@ gapi.load('client', () => {
             parent: "Test string",
             updateTime: "Test string",
         });
-        /** Deletes the given Association. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
-            name: "Test string",
-        });
         /** Returns the requested Association resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.get({
             name: "Test string",
@@ -61,6 +57,10 @@ gapi.load('client', () => {
                 resource: "Test string",
             },
         });
+        /** Deletes the given Association. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
+            name: "Test string",
+        });
         /** Copies a Product under another Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
             name: "Test string",
@@ -80,6 +80,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -119,10 +123,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
@@ -141,6 +141,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -180,10 +184,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
@@ -211,6 +211,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -250,10 +254,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Hard deletes a Product. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
@@ -272,6 +272,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -311,10 +315,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Product resources that the producer has access to, within the
@@ -339,6 +339,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -378,10 +382,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Creates a Product instance under a given Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
@@ -408,6 +408,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -447,10 +451,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Soft deletes an existing Catalog and all resources under it.
@@ -463,10 +463,6 @@ gapi.load('client', () => {
             force: true,
             name: "Test string",
         });
-        /** Deletes the given Association. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
-            name: "Test string",
-        });
         /** Returns the requested Association resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.get({
             name: "Test string",
@@ -487,6 +483,10 @@ gapi.load('client', () => {
                 resource: "Test string",
             },
         });
+        /** Deletes the given Association. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
+            name: "Test string",
+        });
         /** Copies a Product under another Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
             name: "Test string",
@@ -506,6 +506,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -545,10 +549,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
@@ -567,6 +567,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -606,10 +610,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
@@ -637,6 +637,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -676,10 +680,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Hard deletes a Product. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
@@ -698,6 +698,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -737,10 +741,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Product resources that the producer has access to, within the
@@ -765,6 +765,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -804,10 +808,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Creates a Product instance under a given Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
@@ -834,6 +834,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -873,19 +877,11 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Catalog resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.get({
             name: "Test string",
         });
-        /** Deletes the given Association. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
-            name: "Test string",
-        });
         /** Returns the requested Association resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.get({
             name: "Test string",
@@ -906,6 +902,10 @@ gapi.load('client', () => {
                 resource: "Test string",
             },
         });
+        /** Deletes the given Association. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
+            name: "Test string",
+        });
         /** Copies a Product under another Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
             name: "Test string",
@@ -925,6 +925,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -964,10 +968,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
@@ -986,6 +986,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1025,10 +1029,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
@@ -1056,6 +1056,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1095,10 +1099,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Hard deletes a Product. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
@@ -1117,6 +1117,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1156,10 +1160,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Product resources that the producer has access to, within the
@@ -1184,6 +1184,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1223,10 +1227,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Creates a Product instance under a given Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
@@ -1253,6 +1253,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1292,20 +1296,12 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Gets IAM policy for the specified Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.getIamPolicy({
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
-        /** Deletes the given Association. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
-            name: "Test string",
-        });
         /** Returns the requested Association resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.get({
             name: "Test string",
@@ -1326,6 +1322,10 @@ gapi.load('client', () => {
                 resource: "Test string",
             },
         });
+        /** Deletes the given Association. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
+            name: "Test string",
+        });
         /** Copies a Product under another Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
             name: "Test string",
@@ -1345,6 +1345,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1384,10 +1388,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
@@ -1406,6 +1406,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1445,10 +1449,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
@@ -1476,6 +1476,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1515,10 +1519,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Hard deletes a Product. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
@@ -1537,6 +1537,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1576,10 +1580,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Product resources that the producer has access to, within the
@@ -1604,6 +1604,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1643,10 +1647,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Creates a Product instance under a given Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
@@ -1673,6 +1673,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1712,10 +1716,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Catalog resources that the producer has access to, within the
@@ -1726,10 +1726,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Deletes the given Association. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
-            name: "Test string",
-        });
         /** Returns the requested Association resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.get({
             name: "Test string",
@@ -1750,6 +1746,10 @@ gapi.load('client', () => {
                 resource: "Test string",
             },
         });
+        /** Deletes the given Association. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
+            name: "Test string",
+        });
         /** Copies a Product under another Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
             name: "Test string",
@@ -1769,6 +1769,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1808,10 +1812,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
@@ -1830,6 +1830,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1869,10 +1873,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
@@ -1900,6 +1900,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -1939,10 +1943,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Hard deletes a Product. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
@@ -1961,6 +1961,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2000,10 +2004,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Product resources that the producer has access to, within the
@@ -2028,6 +2028,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2067,10 +2071,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Creates a Product instance under a given Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
@@ -2097,6 +2097,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2136,10 +2140,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Catalog resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.patch({
@@ -2153,10 +2153,6 @@ gapi.load('client', () => {
             parent: "Test string",
             updateTime: "Test string",
         });
-        /** Deletes the given Association. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
-            name: "Test string",
-        });
         /** Returns the requested Association resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.get({
             name: "Test string",
@@ -2177,6 +2173,10 @@ gapi.load('client', () => {
                 resource: "Test string",
             },
         });
+        /** Deletes the given Association. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
+            name: "Test string",
+        });
         /** Copies a Product under another Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
             name: "Test string",
@@ -2196,6 +2196,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2235,10 +2239,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
@@ -2257,6 +2257,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2296,10 +2300,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
@@ -2327,6 +2327,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2366,10 +2370,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Hard deletes a Product. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
@@ -2388,6 +2388,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2427,10 +2431,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Product resources that the producer has access to, within the
@@ -2455,6 +2455,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2494,10 +2498,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Creates a Product instance under a given Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
@@ -2524,6 +2524,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2563,10 +2567,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Sets the IAM policy for the specified Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.setIamPolicy({
@@ -2600,10 +2600,6 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
-        /** Deletes the given Association. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
-            name: "Test string",
-        });
         /** Returns the requested Association resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.get({
             name: "Test string",
@@ -2624,6 +2620,10 @@ gapi.load('client', () => {
                 resource: "Test string",
             },
         });
+        /** Deletes the given Association. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
+            name: "Test string",
+        });
         /** Copies a Product under another Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
             name: "Test string",
@@ -2643,6 +2643,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2682,10 +2686,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
@@ -2704,6 +2704,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2743,10 +2747,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
@@ -2774,6 +2774,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2813,10 +2817,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Hard deletes a Product. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
@@ -2835,6 +2835,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2874,10 +2878,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Product resources that the producer has access to, within the
@@ -2902,6 +2902,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -2941,10 +2945,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Creates a Product instance under a given Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
@@ -2971,6 +2971,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3010,10 +3014,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Tests the IAM permissions for the specified Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.testIamPermissions({
@@ -3022,10 +3022,6 @@ gapi.load('client', () => {
             permissions: [
                 "Test string"            ],
         });
-        /** Deletes the given Association. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
-            name: "Test string",
-        });
         /** Returns the requested Association resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.get({
             name: "Test string",
@@ -3046,6 +3042,10 @@ gapi.load('client', () => {
                 resource: "Test string",
             },
         });
+        /** Deletes the given Association. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
+            name: "Test string",
+        });
         /** Copies a Product under another Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
             name: "Test string",
@@ -3065,6 +3065,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3104,10 +3108,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
@@ -3126,6 +3126,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3165,10 +3169,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
@@ -3196,6 +3196,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3235,10 +3239,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Hard deletes a Product. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
@@ -3257,6 +3257,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3296,10 +3300,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Product resources that the producer has access to, within the
@@ -3324,6 +3324,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3363,10 +3367,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Creates a Product instance under a given Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
@@ -3393,6 +3393,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3432,20 +3436,12 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Undeletes a deleted Catalog and all resources under it. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.undelete({
             name: "Test string",
         }, {
         });
-        /** Deletes the given Association. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
-            name: "Test string",
-        });
         /** Returns the requested Association resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.get({
             name: "Test string",
@@ -3466,6 +3462,10 @@ gapi.load('client', () => {
                 resource: "Test string",
             },
         });
+        /** Deletes the given Association. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
+            name: "Test string",
+        });
         /** Copies a Product under another Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
             name: "Test string",
@@ -3485,6 +3485,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3524,10 +3528,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Returns the requested Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
@@ -3546,6 +3546,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3585,10 +3589,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Updates a specific Product resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
@@ -3616,6 +3616,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3655,10 +3659,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Hard deletes a Product. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
@@ -3677,6 +3677,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3716,10 +3720,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Lists Product resources that the producer has access to, within the
@@ -3744,6 +3744,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3783,10 +3787,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /** Creates a Product instance under a given Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
@@ -3813,6 +3813,10 @@ gapi.load('client', () => {
         }, {
             icon: "Test string",
         });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
         /**
          * Lists Version resources that the producer has access to, within the
          * scope of the parent Product.
@@ -3852,10 +3856,6 @@ gapi.load('client', () => {
             originalAsset: {
                 A: 42            },
             updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
         });
         /**
          * Starts asynchronous cancellation on a long-running operation.  The server

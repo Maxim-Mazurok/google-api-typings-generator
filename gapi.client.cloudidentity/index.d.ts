@@ -348,7 +348,7 @@ declare namespace gapi.client {
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
             }): Request<Membership>;
-            /** List Memberships within a Group. */
+            /** Lists Memberships within a Group. */
             list(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -557,7 +557,7 @@ declare namespace gapi.client {
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
             }): Request<Group>;
-            /** List groups within a customer or a domain. */
+            /** Lists groups within a customer or a domain. */
             list(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

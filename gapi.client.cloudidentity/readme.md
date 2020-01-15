@@ -74,7 +74,7 @@ Retrieves a Group.
 await gapi.client.groups.get({ name: "name",  }); 
     
 /* 
-List groups within a customer or a domain.  
+Lists groups within a customer or a domain.  
 */
 await gapi.client.groups.list({  }); 
     

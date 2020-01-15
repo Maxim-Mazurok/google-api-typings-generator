@@ -301,10 +301,9 @@ declare namespace gapi.client {
         }
         interface IdentityAwareProxyClientsResource {
             /**
-             * Creates an Identity Aware Proxy (IAP) OAuth client, the client is owned
-             * by IAP.
-             * Requires that the brand for the project exists and that it is set for
-             * internal only use.
+             * Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned
+             * by IAP. Requires that the brand for the project exists and that it is
+             * set for internal-only use.
              */
             create(request: {
                 /** V1 error format. */
@@ -372,9 +371,9 @@ declare namespace gapi.client {
             },
             body: IdentityAwareProxyClient): Request<IdentityAwareProxyClient>;
             /**
-             * Deletes an Identity Aware Proxy (IAP) OAuth client. Useful if the secret
-             * was compromised.
-             * Requires that the client is owned by IAP.
+             * Deletes an Identity Aware Proxy (IAP) OAuth client. Useful for removing
+             * obsolete clients, managing the number of clients in a given project, and
+             * cleaning up after tests. Requires that the client is owned by IAP.
              */
             delete(request: {
                 /** V1 error format. */
@@ -487,10 +486,8 @@ declare namespace gapi.client {
                 upload_protocol?: string;
             }): Request<ListIdentityAwareProxyClientsResponse>;
             /**
-             * Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful for
-             * removing obsolete clients, managing the number of clients in a given
-             * project, and cleaning up after tests.
-             * Requires that the client is owned by IAP.
+             * Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful if the
+             * secret was compromised. Requires that the client is owned by IAP.
              */
             resetSecret(request: {
                 /** V1 error format. */
@@ -558,12 +555,13 @@ declare namespace gapi.client {
         }
         interface BrandsResource {
             /**
-             * Constructs a new OAuth brand for the project if one does not exists.
-             * The created brand is 'internal only', meaning that OAuth clients created
-             * under it only accept requests from users who belong to the same GSuites
-             * account as the project. The brand is created in un-reviewed status.
-             * NOTE: the 'internal_only' can be manually changed in Pantheon UI.
-             * Requires that brand does not already exists for the project.
+             * Constructs a new OAuth brand for the project if one does not exist.
+             * The created brand is "internal only", meaning that OAuth clients created
+             * under it only accept requests from users who belong to the same G Suite
+             * organization as the project. The brand is created in an un-reviewed status.
+             * NOTE: The "internal only" status can be manually changed in the Google
+             * Cloud console. Requires that a brand does not already exist for the
+             * project, and that the specified support email is owned by the caller.
              */
             create(request: {
                 /** V1 error format. */
