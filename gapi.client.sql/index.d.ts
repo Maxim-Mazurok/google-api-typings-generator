@@ -481,6 +481,11 @@ declare namespace gapi.client {
         }
         interface Flag {
             /**
+             * Use this field if only certain integers are accepted. Can be combined
+             * with min_value and max_value to add additional values.
+             */
+            allowedIntValues?: string[];
+            /**
              * For <code>STRING</code> flags, a list of strings that the value can be set
              * to.
              */
@@ -609,7 +614,7 @@ declare namespace gapi.client {
              * this value in a subsequent request to return the next page of results.
              */
             nextPageToken?: string;
-            /** List of warnings that ocurred while handling the request. */
+            /** List of warnings that occurred while handling the request. */
             warnings?: ApiWarning[];
         }
         interface InstancesListServerCasResponse {
@@ -1025,6 +1030,12 @@ declare namespace gapi.client {
             /** The recovery model of a SQL Server database */
             recoveryModel?: string;
         }
+        interface SqlServerUserDetails {
+            /** If the user has been disabled */
+            disabled?: boolean;
+            /** The server roles for this user */
+            serverRoles?: string[];
+        }
         interface SslCert {
             /** PEM representation. */
             cert?: string;
@@ -1161,6 +1172,7 @@ declare namespace gapi.client {
              * <code>update</code> since it is already specified on the URL.
              */
             project?: string;
+            sqlserverUserDetails?: SqlServerUserDetails;
         }
         interface UsersListResponse {
             /** List of user resources in the instance. */
@@ -1559,6 +1571,11 @@ declare namespace gapi.client {
             /**
              * Partially updates a resource containing information about a database inside
              * a Cloud SQL instance. This method supports patch semantics.
+             * <aside
+             * class="caution"><strong>Caution:</strong> This is not a partial update, so
+             * you must include values for all the settings that you want to retain. For
+             * partial updates, use <a
+             * href="/sql/docs/db_path/admin-api/rest/v1beta4/instances/update">update</a>.</aside>
              */
             patch(request: {
                 /** V1 error format. */
@@ -2308,8 +2325,15 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * An expression for filtering the results of the request, such as by name or
-                 * label.
+                 * A filter expression that filters resources listed in the response.
+                 * The expression is in the form of field:value. For example,
+                 * 'instanceType:CLOUD_SQL_INSTANCE'. Fields can be nested as needed as per
+                 * their JSON representation, such as 'settings.userLabels.auto_start:true'.
+                 *
+                 * Multiple filter queries are space-separated. For example.
+                 * 'state:RUNNABLE instanceType:CLOUD_SQL_INSTANCE'. By default, each
+                 * expression is an AND expression. However, you can include AND and OR
+                 * expressions explicitly.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2323,6 +2347,11 @@ declare namespace gapi.client {
                  * results to view.
                  */
                 pageToken?: string;
+                /**
+                 * The parent, which owns this collection of database instances.
+                 * Format: projects/{project}/locations/{location}
+                 */
+                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project for which to list Cloud SQL instances. */
@@ -2837,13 +2866,7 @@ declare namespace gapi.client {
                 upload_protocol?: string;
             },
             body: InstancesTruncateLogRequest): Request<Operation>;
-            /**
-             * Updates settings of a Cloud SQL instance. <aside
-             * class="caution"><strong>Caution:</strong> This is not a partial update, so
-             * you must include values for all the settings that you want to retain. For
-             * partial updates, use <a
-             * href="/sql/docs/db_path/admin-api/rest/v1beta4/instances/patch">patch</a>.</aside>
-             */
+            /** Updates settings of a Cloud SQL instance. */
             update(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

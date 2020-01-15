@@ -753,11 +753,6 @@ declare namespace gapi.client {
              */
             additionalBindings?: HttpRule[];
             /**
-             * When this flag is set to true, HTTP requests will be allowed to invoke a
-             * half-duplex streaming method.
-             */
-            allowHalfDuplex?: boolean;
-            /**
              * The name of the request field whose value is mapped to the HTTP request
              * body, or `&#42;` for mapping all request fields not captured by the path
              * pattern to the HTTP body, or omitted for not having any HTTP request body.

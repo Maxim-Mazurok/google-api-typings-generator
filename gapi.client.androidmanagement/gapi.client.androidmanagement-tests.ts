@@ -76,6 +76,15 @@ gapi.load('client', () => {
             wipeReasonMessage: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -100,15 +109,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Gets a device. */
@@ -116,6 +116,15 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -140,15 +149,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Lists devices for a given enterprise. */
@@ -158,6 +158,15 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -182,15 +191,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Updates a device. */
@@ -370,6 +370,15 @@ gapi.load('client', () => {
             userName: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -394,15 +403,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /**
@@ -422,6 +422,15 @@ gapi.load('client', () => {
             userName: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -446,15 +455,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Creates a web token to access an embeddable managed Google Play web UI for a given enterprise. */
@@ -790,6 +790,10 @@ gapi.load('client', () => {
             title: "Test string",
             versionCode: "Test string",
         });
+        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
+            name: "Test string",
+        });
         /** Creates an enrollment token for a given enterprise. */
         await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
             parent: "Test string",
@@ -805,10 +809,6 @@ gapi.load('client', () => {
                 accountIdentifier: "Test string",
             },
             value: "Test string",
-        });
-        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
-            name: "Test string",
         });
         /** Gets an enterprise. */
         await gapi.client.androidmanagement.enterprises.get({
@@ -826,6 +826,15 @@ gapi.load('client', () => {
             wipeReasonMessage: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -850,15 +859,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Gets a device. */
@@ -866,6 +866,15 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -890,15 +899,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Lists devices for a given enterprise. */
@@ -908,6 +908,15 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -932,15 +941,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Updates a device. */
@@ -1120,6 +1120,15 @@ gapi.load('client', () => {
             userName: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -1144,15 +1153,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /**
@@ -1172,6 +1172,15 @@ gapi.load('client', () => {
             userName: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -1196,15 +1205,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Creates a web token to access an embeddable managed Google Play web UI for a given enterprise. */
@@ -1540,6 +1540,10 @@ gapi.load('client', () => {
             title: "Test string",
             versionCode: "Test string",
         });
+        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
+            name: "Test string",
+        });
         /** Creates an enrollment token for a given enterprise. */
         await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
             parent: "Test string",
@@ -1555,10 +1559,6 @@ gapi.load('client', () => {
                 accountIdentifier: "Test string",
             },
             value: "Test string",
-        });
-        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
-            name: "Test string",
         });
         /** Updates an enterprise. */
         await gapi.client.androidmanagement.enterprises.patch({
@@ -1608,6 +1608,15 @@ gapi.load('client', () => {
             wipeReasonMessage: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -1632,15 +1641,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Gets a device. */
@@ -1648,6 +1648,15 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -1672,15 +1681,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Lists devices for a given enterprise. */
@@ -1690,6 +1690,15 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -1714,15 +1723,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Updates a device. */
@@ -1902,6 +1902,15 @@ gapi.load('client', () => {
             userName: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -1926,15 +1935,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /**
@@ -1954,6 +1954,15 @@ gapi.load('client', () => {
             userName: "Test string",
         });
         /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
          * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
          * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
          */
@@ -1978,15 +1987,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
             name: "Test string",
         });
         /** Creates a web token to access an embeddable managed Google Play web UI for a given enterprise. */
@@ -2322,6 +2322,10 @@ gapi.load('client', () => {
             title: "Test string",
             versionCode: "Test string",
         });
+        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
+            name: "Test string",
+        });
         /** Creates an enrollment token for a given enterprise. */
         await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
             parent: "Test string",
@@ -2337,10 +2341,6 @@ gapi.load('client', () => {
                 accountIdentifier: "Test string",
             },
             value: "Test string",
-        });
-        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
-            name: "Test string",
         });
         /** Creates an enterprise signup URL. */
         await gapi.client.androidmanagement.signupUrls.create({

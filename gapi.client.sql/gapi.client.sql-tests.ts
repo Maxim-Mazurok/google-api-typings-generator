@@ -137,6 +137,11 @@ gapi.load('client', () => {
         /**
          * Partially updates a resource containing information about a database inside
          * a Cloud SQL instance. This method supports patch semantics.
+         * <aside
+         * class="caution"><strong>Caution:</strong> This is not a partial update, so
+         * you must include values for all the settings that you want to retain. For
+         * partial updates, use <a
+         * href="/sql/docs/db_path/admin-api/rest/v1beta4/instances/update">update</a>.</aside>
          */
         await gapi.client.sql.databases.patch({
             database: "Test string",
@@ -465,6 +470,7 @@ gapi.load('client', () => {
             filter: "Test string",
             maxResults: 42,
             pageToken: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /**
@@ -695,13 +701,7 @@ gapi.load('client', () => {
                 logType: "Test string",
             },
         });
-        /**
-         * Updates settings of a Cloud SQL instance. <aside
-         * class="caution"><strong>Caution:</strong> This is not a partial update, so
-         * you must include values for all the settings that you want to retain. For
-         * partial updates, use <a
-         * href="/sql/docs/db_path/admin-api/rest/v1beta4/instances/patch">patch</a>.</aside>
-         */
+        /** Updates settings of a Cloud SQL instance. */
         await gapi.client.sql.instances.update({
             instance: "Test string",
             project: "Test string",
@@ -941,6 +941,11 @@ gapi.load('client', () => {
             name: "Test string",
             password: "Test string",
             project: "Test string",
+            sqlserverUserDetails: {
+                disabled: true,
+                serverRoles: [
+                    "Test string"                ],
+            },
         });
         /** Lists users in the specified Cloud SQL instance. */
         await gapi.client.sql.users.list({
@@ -963,6 +968,11 @@ gapi.load('client', () => {
             name: "Test string",
             password: "Test string",
             project: "Test string",
+            sqlserverUserDetails: {
+                disabled: true,
+                serverRoles: [
+                    "Test string"                ],
+            },
         });
     }
 });

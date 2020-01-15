@@ -4259,17 +4259,6 @@ gapi.load('client', () => {
             valueInputOption: "Test string",
         });
         /**
-         * Clears values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and range.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
-         */
-        await gapi.client.sheets.spreadsheets.values.clear({
-            range: "Test string",
-            spreadsheetId: "Test string",
-        }, {
-        });
-        /**
          * Returns one or more ranges of values from a spreadsheet.
          * The caller must specify the spreadsheet ID and one or more ranges.
          */
@@ -4279,6 +4268,17 @@ gapi.load('client', () => {
             ranges: "Test string",
             spreadsheetId: "Test string",
             valueRenderOption: "Test string",
+        });
+        /**
+         * Clears values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and range.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
+         */
+        await gapi.client.sheets.spreadsheets.values.clear({
+            range: "Test string",
+            spreadsheetId: "Test string",
+        }, {
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -6321,17 +6321,6 @@ gapi.load('client', () => {
             valueInputOption: "Test string",
         });
         /**
-         * Clears values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and range.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
-         */
-        await gapi.client.sheets.spreadsheets.values.clear({
-            range: "Test string",
-            spreadsheetId: "Test string",
-        }, {
-        });
-        /**
          * Returns one or more ranges of values from a spreadsheet.
          * The caller must specify the spreadsheet ID and one or more ranges.
          */
@@ -6341,6 +6330,17 @@ gapi.load('client', () => {
             ranges: "Test string",
             spreadsheetId: "Test string",
             valueRenderOption: "Test string",
+        });
+        /**
+         * Clears values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and range.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
+         */
+        await gapi.client.sheets.spreadsheets.values.clear({
+            range: "Test string",
+            spreadsheetId: "Test string",
+        }, {
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -6660,17 +6660,6 @@ gapi.load('client', () => {
             valueInputOption: "Test string",
         });
         /**
-         * Clears values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and range.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
-         */
-        await gapi.client.sheets.spreadsheets.values.clear({
-            range: "Test string",
-            spreadsheetId: "Test string",
-        }, {
-        });
-        /**
          * Returns one or more ranges of values from a spreadsheet.
          * The caller must specify the spreadsheet ID and one or more ranges.
          */
@@ -6680,6 +6669,17 @@ gapi.load('client', () => {
             ranges: "Test string",
             spreadsheetId: "Test string",
             valueRenderOption: "Test string",
+        });
+        /**
+         * Clears values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and range.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
+         */
+        await gapi.client.sheets.spreadsheets.values.clear({
+            range: "Test string",
+            spreadsheetId: "Test string",
+        }, {
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -7030,17 +7030,6 @@ gapi.load('client', () => {
             valueInputOption: "Test string",
         });
         /**
-         * Clears values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and range.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
-         */
-        await gapi.client.sheets.spreadsheets.values.clear({
-            range: "Test string",
-            spreadsheetId: "Test string",
-        }, {
-        });
-        /**
          * Returns one or more ranges of values from a spreadsheet.
          * The caller must specify the spreadsheet ID and one or more ranges.
          */
@@ -7050,6 +7039,17 @@ gapi.load('client', () => {
             ranges: "Test string",
             spreadsheetId: "Test string",
             valueRenderOption: "Test string",
+        });
+        /**
+         * Clears values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and range.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
+         */
+        await gapi.client.sheets.spreadsheets.values.clear({
+            range: "Test string",
+            spreadsheetId: "Test string",
+        }, {
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.

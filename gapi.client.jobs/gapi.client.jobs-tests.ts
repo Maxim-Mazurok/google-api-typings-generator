@@ -43,6 +43,119 @@ gapi.load('client', () => {
             scope: "Test string",
             type: "Test string",
         });
+        /** Retrieves specified company. */
+        await gapi.client.jobs.projects.companies.get({
+            name: "Test string",
+        });
+        /**
+         * Updates specified company. Company names can't be updated. To update a
+         * company name, delete the company and all jobs associated with it, and only
+         * then re-create them.
+         */
+        await gapi.client.jobs.projects.companies.patch({
+            name: "Test string",
+        }, {
+            company: {
+                careerSiteUri: "Test string",
+                derivedInfo: {
+                    headquartersLocation: {
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        locationType: "Test string",
+                        postalAddress: {
+                            addressLines: [
+                                "Test string"                            ],
+                            administrativeArea: "Test string",
+                            languageCode: "Test string",
+                            locality: "Test string",
+                            organization: "Test string",
+                            postalCode: "Test string",
+                            recipients: [
+                                "Test string"                            ],
+                            regionCode: "Test string",
+                            revision: 42,
+                            sortingCode: "Test string",
+                            sublocality: "Test string",
+                        },
+                        radiusInMiles: 42,
+                    },
+                },
+                displayName: "Test string",
+                eeoText: "Test string",
+                externalId: "Test string",
+                headquartersAddress: "Test string",
+                hiringAgency: true,
+                imageUri: "Test string",
+                keywordSearchableJobCustomAttributes: [
+                    "Test string"                ],
+                name: "Test string",
+                size: "Test string",
+                suspended: true,
+                websiteUri: "Test string",
+            },
+            updateMask: "Test string",
+        });
+        /** Lists all companies associated with the service account. */
+        await gapi.client.jobs.projects.companies.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            requireOpenJobs: true,
+        });
+        /** Creates a new company entity. */
+        await gapi.client.jobs.projects.companies.create({
+            parent: "Test string",
+        }, {
+            company: {
+                careerSiteUri: "Test string",
+                derivedInfo: {
+                    headquartersLocation: {
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        locationType: "Test string",
+                        postalAddress: {
+                            addressLines: [
+                                "Test string"                            ],
+                            administrativeArea: "Test string",
+                            languageCode: "Test string",
+                            locality: "Test string",
+                            organization: "Test string",
+                            postalCode: "Test string",
+                            recipients: [
+                                "Test string"                            ],
+                            regionCode: "Test string",
+                            revision: 42,
+                            sortingCode: "Test string",
+                            sublocality: "Test string",
+                        },
+                        radiusInMiles: 42,
+                    },
+                },
+                displayName: "Test string",
+                eeoText: "Test string",
+                externalId: "Test string",
+                headquartersAddress: "Test string",
+                hiringAgency: true,
+                imageUri: "Test string",
+                keywordSearchableJobCustomAttributes: [
+                    "Test string"                ],
+                name: "Test string",
+                size: "Test string",
+                suspended: true,
+                websiteUri: "Test string",
+            },
+        });
+        /**
+         * Deletes specified company.
+         * Prerequisite: The company has no jobs associated with it.
+         */
+        await gapi.client.jobs.projects.companies.delete({
+            name: "Test string",
+        });
         /**
          * Report events issued when end user interacts with customer's application
          * that uses Cloud Talent Solution. You may inspect the created events in
@@ -67,158 +180,6 @@ gapi.load('client', () => {
                 },
                 parentEventId: "Test string",
                 requestId: "Test string",
-            },
-        });
-        /** Lists jobs by filter. */
-        await gapi.client.jobs.projects.jobs.list({
-            filter: "Test string",
-            jobView: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Deletes a list of Jobs by filter. */
-        await gapi.client.jobs.projects.jobs.batchDelete({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-        });
-        /**
-         * Creates a new job.
-         *
-         * Typically, the job becomes searchable within 10 seconds, but it may take
-         * up to 5 minutes.
-         */
-        await gapi.client.jobs.projects.jobs.create({
-            parent: "Test string",
-        }, {
-            job: {
-                addresses: [
-                    "Test string"                ],
-                applicationInfo: {
-                    emails: [
-                        "Test string"                    ],
-                    instruction: "Test string",
-                    uris: [
-                        "Test string"                    ],
-                },
-                companyDisplayName: "Test string",
-                companyName: "Test string",
-                compensationInfo: {
-                    annualizedBaseCompensationRange: {
-                        maxCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                        minCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                    },
-                    annualizedTotalCompensationRange: {
-                        maxCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                        minCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                    },
-                    entries: [
-                        {
-                            amount: {
-                                currencyCode: "Test string",
-                                nanos: 42,
-                                units: "Test string",
-                            },
-                            description: "Test string",
-                            expectedUnitsPerYear: 42,
-                            range: {
-                                maxCompensation: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                                minCompensation: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                            },
-                            type: "Test string",
-                            unit: "Test string",
-                        }                    ],
-                },
-                customAttributes: {
-                    A: {
-                        filterable: true,
-                        longValues: [
-                            "Test string"                        ],
-                        stringValues: [
-                            "Test string"                        ],
-                    }                },
-                degreeTypes: [
-                    "Test string"                ],
-                department: "Test string",
-                derivedInfo: {
-                    jobCategories: [
-                        "Test string"                    ],
-                    locations: [
-                        {
-                            latLng: {
-                                latitude: 42,
-                                longitude: 42,
-                            },
-                            locationType: "Test string",
-                            postalAddress: {
-                                addressLines: [
-                                    "Test string"                                ],
-                                administrativeArea: "Test string",
-                                languageCode: "Test string",
-                                locality: "Test string",
-                                organization: "Test string",
-                                postalCode: "Test string",
-                                recipients: [
-                                    "Test string"                                ],
-                                regionCode: "Test string",
-                                revision: 42,
-                                sortingCode: "Test string",
-                                sublocality: "Test string",
-                            },
-                            radiusInMiles: 42,
-                        }                    ],
-                },
-                description: "Test string",
-                employmentTypes: [
-                    "Test string"                ],
-                incentives: "Test string",
-                jobBenefits: [
-                    "Test string"                ],
-                jobEndTime: "Test string",
-                jobLevel: "Test string",
-                jobStartTime: "Test string",
-                languageCode: "Test string",
-                name: "Test string",
-                postingCreateTime: "Test string",
-                postingExpireTime: "Test string",
-                postingPublishTime: "Test string",
-                postingRegion: "Test string",
-                postingUpdateTime: "Test string",
-                processingOptions: {
-                    disableStreetAddressResolution: true,
-                    htmlSanitization: "Test string",
-                },
-                promotionValue: 42,
-                qualifications: "Test string",
-                requisitionId: "Test string",
-                responsibilities: "Test string",
-                title: "Test string",
-                visibility: "Test string",
             },
         });
         /**
@@ -617,117 +578,156 @@ gapi.load('client', () => {
         await gapi.client.jobs.projects.jobs.delete({
             name: "Test string",
         });
-        /**
-         * Deletes specified company.
-         * Prerequisite: The company has no jobs associated with it.
-         */
-        await gapi.client.jobs.projects.companies.delete({
-            name: "Test string",
-        });
-        /** Retrieves specified company. */
-        await gapi.client.jobs.projects.companies.get({
-            name: "Test string",
-        });
-        /**
-         * Updates specified company. Company names can't be updated. To update a
-         * company name, delete the company and all jobs associated with it, and only
-         * then re-create them.
-         */
-        await gapi.client.jobs.projects.companies.patch({
-            name: "Test string",
-        }, {
-            company: {
-                careerSiteUri: "Test string",
-                derivedInfo: {
-                    headquartersLocation: {
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        locationType: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                        radiusInMiles: 42,
-                    },
-                },
-                displayName: "Test string",
-                eeoText: "Test string",
-                externalId: "Test string",
-                headquartersAddress: "Test string",
-                hiringAgency: true,
-                imageUri: "Test string",
-                keywordSearchableJobCustomAttributes: [
-                    "Test string"                ],
-                name: "Test string",
-                size: "Test string",
-                suspended: true,
-                websiteUri: "Test string",
-            },
-            updateMask: "Test string",
-        });
-        /** Lists all companies associated with the service account. */
-        await gapi.client.jobs.projects.companies.list({
+        /** Lists jobs by filter. */
+        await gapi.client.jobs.projects.jobs.list({
+            filter: "Test string",
+            jobView: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-            requireOpenJobs: true,
         });
-        /** Creates a new company entity. */
-        await gapi.client.jobs.projects.companies.create({
+        /** Deletes a list of Jobs by filter. */
+        await gapi.client.jobs.projects.jobs.batchDelete({
             parent: "Test string",
         }, {
-            company: {
-                careerSiteUri: "Test string",
-                derivedInfo: {
-                    headquartersLocation: {
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        locationType: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                        radiusInMiles: 42,
-                    },
-                },
-                displayName: "Test string",
-                eeoText: "Test string",
-                externalId: "Test string",
-                headquartersAddress: "Test string",
-                hiringAgency: true,
-                imageUri: "Test string",
-                keywordSearchableJobCustomAttributes: [
+            filter: "Test string",
+        });
+        /**
+         * Creates a new job.
+         *
+         * Typically, the job becomes searchable within 10 seconds, but it may take
+         * up to 5 minutes.
+         */
+        await gapi.client.jobs.projects.jobs.create({
+            parent: "Test string",
+        }, {
+            job: {
+                addresses: [
                     "Test string"                ],
+                applicationInfo: {
+                    emails: [
+                        "Test string"                    ],
+                    instruction: "Test string",
+                    uris: [
+                        "Test string"                    ],
+                },
+                companyDisplayName: "Test string",
+                companyName: "Test string",
+                compensationInfo: {
+                    annualizedBaseCompensationRange: {
+                        maxCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                        minCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                    },
+                    annualizedTotalCompensationRange: {
+                        maxCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                        minCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                    },
+                    entries: [
+                        {
+                            amount: {
+                                currencyCode: "Test string",
+                                nanos: 42,
+                                units: "Test string",
+                            },
+                            description: "Test string",
+                            expectedUnitsPerYear: 42,
+                            range: {
+                                maxCompensation: {
+                                    currencyCode: "Test string",
+                                    nanos: 42,
+                                    units: "Test string",
+                                },
+                                minCompensation: {
+                                    currencyCode: "Test string",
+                                    nanos: 42,
+                                    units: "Test string",
+                                },
+                            },
+                            type: "Test string",
+                            unit: "Test string",
+                        }                    ],
+                },
+                customAttributes: {
+                    A: {
+                        filterable: true,
+                        longValues: [
+                            "Test string"                        ],
+                        stringValues: [
+                            "Test string"                        ],
+                    }                },
+                degreeTypes: [
+                    "Test string"                ],
+                department: "Test string",
+                derivedInfo: {
+                    jobCategories: [
+                        "Test string"                    ],
+                    locations: [
+                        {
+                            latLng: {
+                                latitude: 42,
+                                longitude: 42,
+                            },
+                            locationType: "Test string",
+                            postalAddress: {
+                                addressLines: [
+                                    "Test string"                                ],
+                                administrativeArea: "Test string",
+                                languageCode: "Test string",
+                                locality: "Test string",
+                                organization: "Test string",
+                                postalCode: "Test string",
+                                recipients: [
+                                    "Test string"                                ],
+                                regionCode: "Test string",
+                                revision: 42,
+                                sortingCode: "Test string",
+                                sublocality: "Test string",
+                            },
+                            radiusInMiles: 42,
+                        }                    ],
+                },
+                description: "Test string",
+                employmentTypes: [
+                    "Test string"                ],
+                incentives: "Test string",
+                jobBenefits: [
+                    "Test string"                ],
+                jobEndTime: "Test string",
+                jobLevel: "Test string",
+                jobStartTime: "Test string",
+                languageCode: "Test string",
                 name: "Test string",
-                size: "Test string",
-                suspended: true,
-                websiteUri: "Test string",
+                postingCreateTime: "Test string",
+                postingExpireTime: "Test string",
+                postingPublishTime: "Test string",
+                postingRegion: "Test string",
+                postingUpdateTime: "Test string",
+                processingOptions: {
+                    disableStreetAddressResolution: true,
+                    htmlSanitization: "Test string",
+                },
+                promotionValue: 42,
+                qualifications: "Test string",
+                requisitionId: "Test string",
+                responsibilities: "Test string",
+                title: "Test string",
+                visibility: "Test string",
             },
         });
     }

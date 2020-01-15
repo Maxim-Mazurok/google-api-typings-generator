@@ -143,10 +143,6 @@ gapi.load('client', () => {
                     }                ],
             },
         });
-        /** Get a `Release` by name. */
-        await gapi.client.firebaserules.projects.releases.get({
-            name: "Test string",
-        });
         /**
          * Update a `Release` via PATCH.
          *
@@ -164,6 +160,10 @@ gapi.load('client', () => {
                 updateTime: "Test string",
             },
             updateMask: "Test string",
+        });
+        /** Get a `Release` by name. */
+        await gapi.client.firebaserules.projects.releases.get({
+            name: "Test string",
         });
         /** Get the `Release` executable to use when enforcing rules. */
         await gapi.client.firebaserules.projects.releases.getExecutable({

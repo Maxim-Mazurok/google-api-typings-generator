@@ -56,6 +56,30 @@ gapi.load('client', () => {
         }, {
         });
         /**
+         * Creates a repo in the given project with the given name.
+         *
+         * If the named repository already exists, `CreateRepo` returns
+         * `ALREADY_EXISTS`.
+         */
+        await gapi.client.sourcerepo.projects.repos.create({
+            parent: "Test string",
+        }, {
+            mirrorConfig: {
+                deployKeyId: "Test string",
+                url: "Test string",
+                webhookId: "Test string",
+            },
+            name: "Test string",
+            pubsubConfigs: {
+                A: {
+                    messageFormat: "Test string",
+                    serviceAccountEmail: "Test string",
+                    topic: "Test string",
+                }            },
+            size: "Test string",
+            url: "Test string",
+        });
+        /**
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          */
@@ -89,30 +113,6 @@ gapi.load('client', () => {
                 version: 42,
             },
             updateMask: "Test string",
-        });
-        /**
-         * Creates a repo in the given project with the given name.
-         *
-         * If the named repository already exists, `CreateRepo` returns
-         * `ALREADY_EXISTS`.
-         */
-        await gapi.client.sourcerepo.projects.repos.create({
-            parent: "Test string",
-        }, {
-            mirrorConfig: {
-                deployKeyId: "Test string",
-                url: "Test string",
-                webhookId: "Test string",
-            },
-            name: "Test string",
-            pubsubConfigs: {
-                A: {
-                    messageFormat: "Test string",
-                    serviceAccountEmail: "Test string",
-                    topic: "Test string",
-                }            },
-            size: "Test string",
-            url: "Test string",
         });
         /**
          * Gets the access control policy for a resource.
@@ -199,6 +199,30 @@ gapi.load('client', () => {
         }, {
         });
         /**
+         * Creates a repo in the given project with the given name.
+         *
+         * If the named repository already exists, `CreateRepo` returns
+         * `ALREADY_EXISTS`.
+         */
+        await gapi.client.sourcerepo.projects.repos.create({
+            parent: "Test string",
+        }, {
+            mirrorConfig: {
+                deployKeyId: "Test string",
+                url: "Test string",
+                webhookId: "Test string",
+            },
+            name: "Test string",
+            pubsubConfigs: {
+                A: {
+                    messageFormat: "Test string",
+                    serviceAccountEmail: "Test string",
+                    topic: "Test string",
+                }            },
+            size: "Test string",
+            url: "Test string",
+        });
+        /**
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          */
@@ -232,30 +256,6 @@ gapi.load('client', () => {
                 version: 42,
             },
             updateMask: "Test string",
-        });
-        /**
-         * Creates a repo in the given project with the given name.
-         *
-         * If the named repository already exists, `CreateRepo` returns
-         * `ALREADY_EXISTS`.
-         */
-        await gapi.client.sourcerepo.projects.repos.create({
-            parent: "Test string",
-        }, {
-            mirrorConfig: {
-                deployKeyId: "Test string",
-                url: "Test string",
-                webhookId: "Test string",
-            },
-            name: "Test string",
-            pubsubConfigs: {
-                A: {
-                    messageFormat: "Test string",
-                    serviceAccountEmail: "Test string",
-                    topic: "Test string",
-                }            },
-            size: "Test string",
-            url: "Test string",
         });
         /**
          * Gets the access control policy for a resource.

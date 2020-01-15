@@ -81,6 +81,22 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Deletes the specified attachment for the given beacon. Each attachment has
+         * a unique attachment name (`attachmentName`) which is returned when you
+         * fetch the attachment data via this API. You specify this with the delete
+         * request to control which attachment is removed. This operation cannot be
+         * undone.
+         *
+         * Authenticate using an [OAuth access
+         * token](https://developers.google.com/identity/protocols/OAuth2) from a
+         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
+         * Developers Console project.
+         */
+        await gapi.client.proximitybeacon.beacons.attachments.delete({
+            attachmentName: "Test string",
+            projectId: "Test string",
+        });
+        /**
          * Returns the attachments for the specified beacon that match the specified
          * namespaced-type pattern.
          *
@@ -145,22 +161,6 @@ gapi.load('client', () => {
         await gapi.client.proximitybeacon.beacons.attachments.batchDelete({
             beaconName: "Test string",
             namespacedType: "Test string",
-            projectId: "Test string",
-        });
-        /**
-         * Deletes the specified attachment for the given beacon. Each attachment has
-         * a unique attachment name (`attachmentName`) which is returned when you
-         * fetch the attachment data via this API. You specify this with the delete
-         * request to control which attachment is removed. This operation cannot be
-         * undone.
-         *
-         * Authenticate using an [OAuth access
-         * token](https://developers.google.com/identity/protocols/OAuth2) from a
-         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
-         * Developers Console project.
-         */
-        await gapi.client.proximitybeacon.beacons.attachments.delete({
-            attachmentName: "Test string",
             projectId: "Test string",
         });
         /**
@@ -196,6 +196,22 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Deletes the specified attachment for the given beacon. Each attachment has
+         * a unique attachment name (`attachmentName`) which is returned when you
+         * fetch the attachment data via this API. You specify this with the delete
+         * request to control which attachment is removed. This operation cannot be
+         * undone.
+         *
+         * Authenticate using an [OAuth access
+         * token](https://developers.google.com/identity/protocols/OAuth2) from a
+         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
+         * Developers Console project.
+         */
+        await gapi.client.proximitybeacon.beacons.attachments.delete({
+            attachmentName: "Test string",
+            projectId: "Test string",
+        });
+        /**
          * Returns the attachments for the specified beacon that match the specified
          * namespaced-type pattern.
          *
@@ -260,22 +276,6 @@ gapi.load('client', () => {
         await gapi.client.proximitybeacon.beacons.attachments.batchDelete({
             beaconName: "Test string",
             namespacedType: "Test string",
-            projectId: "Test string",
-        });
-        /**
-         * Deletes the specified attachment for the given beacon. Each attachment has
-         * a unique attachment name (`attachmentName`) which is returned when you
-         * fetch the attachment data via this API. You specify this with the delete
-         * request to control which attachment is removed. This operation cannot be
-         * undone.
-         *
-         * Authenticate using an [OAuth access
-         * token](https://developers.google.com/identity/protocols/OAuth2) from a
-         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
-         * Developers Console project.
-         */
-        await gapi.client.proximitybeacon.beacons.attachments.delete({
-            attachmentName: "Test string",
             projectId: "Test string",
         });
         /**
@@ -311,6 +311,22 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Deletes the specified attachment for the given beacon. Each attachment has
+         * a unique attachment name (`attachmentName`) which is returned when you
+         * fetch the attachment data via this API. You specify this with the delete
+         * request to control which attachment is removed. This operation cannot be
+         * undone.
+         *
+         * Authenticate using an [OAuth access
+         * token](https://developers.google.com/identity/protocols/OAuth2) from a
+         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
+         * Developers Console project.
+         */
+        await gapi.client.proximitybeacon.beacons.attachments.delete({
+            attachmentName: "Test string",
+            projectId: "Test string",
+        });
+        /**
          * Returns the attachments for the specified beacon that match the specified
          * namespaced-type pattern.
          *
@@ -375,22 +391,6 @@ gapi.load('client', () => {
         await gapi.client.proximitybeacon.beacons.attachments.batchDelete({
             beaconName: "Test string",
             namespacedType: "Test string",
-            projectId: "Test string",
-        });
-        /**
-         * Deletes the specified attachment for the given beacon. Each attachment has
-         * a unique attachment name (`attachmentName`) which is returned when you
-         * fetch the attachment data via this API. You specify this with the delete
-         * request to control which attachment is removed. This operation cannot be
-         * undone.
-         *
-         * Authenticate using an [OAuth access
-         * token](https://developers.google.com/identity/protocols/OAuth2) from a
-         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
-         * Developers Console project.
-         */
-        await gapi.client.proximitybeacon.beacons.attachments.delete({
-            attachmentName: "Test string",
             projectId: "Test string",
         });
         /**
@@ -425,6 +425,22 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Deletes the specified attachment for the given beacon. Each attachment has
+         * a unique attachment name (`attachmentName`) which is returned when you
+         * fetch the attachment data via this API. You specify this with the delete
+         * request to control which attachment is removed. This operation cannot be
+         * undone.
+         *
+         * Authenticate using an [OAuth access
+         * token](https://developers.google.com/identity/protocols/OAuth2) from a
+         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
+         * Developers Console project.
+         */
+        await gapi.client.proximitybeacon.beacons.attachments.delete({
+            attachmentName: "Test string",
+            projectId: "Test string",
+        });
+        /**
          * Returns the attachments for the specified beacon that match the specified
          * namespaced-type pattern.
          *
@@ -489,22 +505,6 @@ gapi.load('client', () => {
         await gapi.client.proximitybeacon.beacons.attachments.batchDelete({
             beaconName: "Test string",
             namespacedType: "Test string",
-            projectId: "Test string",
-        });
-        /**
-         * Deletes the specified attachment for the given beacon. Each attachment has
-         * a unique attachment name (`attachmentName`) which is returned when you
-         * fetch the attachment data via this API. You specify this with the delete
-         * request to control which attachment is removed. This operation cannot be
-         * undone.
-         *
-         * Authenticate using an [OAuth access
-         * token](https://developers.google.com/identity/protocols/OAuth2) from a
-         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
-         * Developers Console project.
-         */
-        await gapi.client.proximitybeacon.beacons.attachments.delete({
-            attachmentName: "Test string",
             projectId: "Test string",
         });
         /**
@@ -543,6 +543,22 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Deletes the specified attachment for the given beacon. Each attachment has
+         * a unique attachment name (`attachmentName`) which is returned when you
+         * fetch the attachment data via this API. You specify this with the delete
+         * request to control which attachment is removed. This operation cannot be
+         * undone.
+         *
+         * Authenticate using an [OAuth access
+         * token](https://developers.google.com/identity/protocols/OAuth2) from a
+         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
+         * Developers Console project.
+         */
+        await gapi.client.proximitybeacon.beacons.attachments.delete({
+            attachmentName: "Test string",
+            projectId: "Test string",
+        });
+        /**
          * Returns the attachments for the specified beacon that match the specified
          * namespaced-type pattern.
          *
@@ -607,22 +623,6 @@ gapi.load('client', () => {
         await gapi.client.proximitybeacon.beacons.attachments.batchDelete({
             beaconName: "Test string",
             namespacedType: "Test string",
-            projectId: "Test string",
-        });
-        /**
-         * Deletes the specified attachment for the given beacon. Each attachment has
-         * a unique attachment name (`attachmentName`) which is returned when you
-         * fetch the attachment data via this API. You specify this with the delete
-         * request to control which attachment is removed. This operation cannot be
-         * undone.
-         *
-         * Authenticate using an [OAuth access
-         * token](https://developers.google.com/identity/protocols/OAuth2) from a
-         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
-         * Developers Console project.
-         */
-        await gapi.client.proximitybeacon.beacons.attachments.delete({
-            attachmentName: "Test string",
             projectId: "Test string",
         });
         /**
@@ -659,6 +659,22 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Deletes the specified attachment for the given beacon. Each attachment has
+         * a unique attachment name (`attachmentName`) which is returned when you
+         * fetch the attachment data via this API. You specify this with the delete
+         * request to control which attachment is removed. This operation cannot be
+         * undone.
+         *
+         * Authenticate using an [OAuth access
+         * token](https://developers.google.com/identity/protocols/OAuth2) from a
+         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
+         * Developers Console project.
+         */
+        await gapi.client.proximitybeacon.beacons.attachments.delete({
+            attachmentName: "Test string",
+            projectId: "Test string",
+        });
+        /**
          * Returns the attachments for the specified beacon that match the specified
          * namespaced-type pattern.
          *
@@ -723,22 +739,6 @@ gapi.load('client', () => {
         await gapi.client.proximitybeacon.beacons.attachments.batchDelete({
             beaconName: "Test string",
             namespacedType: "Test string",
-            projectId: "Test string",
-        });
-        /**
-         * Deletes the specified attachment for the given beacon. Each attachment has
-         * a unique attachment name (`attachmentName`) which is returned when you
-         * fetch the attachment data via this API. You specify this with the delete
-         * request to control which attachment is removed. This operation cannot be
-         * undone.
-         *
-         * Authenticate using an [OAuth access
-         * token](https://developers.google.com/identity/protocols/OAuth2) from a
-         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
-         * Developers Console project.
-         */
-        await gapi.client.proximitybeacon.beacons.attachments.delete({
-            attachmentName: "Test string",
             projectId: "Test string",
         });
         /**
@@ -799,6 +799,22 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Deletes the specified attachment for the given beacon. Each attachment has
+         * a unique attachment name (`attachmentName`) which is returned when you
+         * fetch the attachment data via this API. You specify this with the delete
+         * request to control which attachment is removed. This operation cannot be
+         * undone.
+         *
+         * Authenticate using an [OAuth access
+         * token](https://developers.google.com/identity/protocols/OAuth2) from a
+         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
+         * Developers Console project.
+         */
+        await gapi.client.proximitybeacon.beacons.attachments.delete({
+            attachmentName: "Test string",
+            projectId: "Test string",
+        });
+        /**
          * Returns the attachments for the specified beacon that match the specified
          * namespaced-type pattern.
          *
@@ -863,22 +879,6 @@ gapi.load('client', () => {
         await gapi.client.proximitybeacon.beacons.attachments.batchDelete({
             beaconName: "Test string",
             namespacedType: "Test string",
-            projectId: "Test string",
-        });
-        /**
-         * Deletes the specified attachment for the given beacon. Each attachment has
-         * a unique attachment name (`attachmentName`) which is returned when you
-         * fetch the attachment data via this API. You specify this with the delete
-         * request to control which attachment is removed. This operation cannot be
-         * undone.
-         *
-         * Authenticate using an [OAuth access
-         * token](https://developers.google.com/identity/protocols/OAuth2) from a
-         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
-         * Developers Console project.
-         */
-        await gapi.client.proximitybeacon.beacons.attachments.delete({
-            attachmentName: "Test string",
             projectId: "Test string",
         });
         /**
@@ -945,6 +945,22 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Deletes the specified attachment for the given beacon. Each attachment has
+         * a unique attachment name (`attachmentName`) which is returned when you
+         * fetch the attachment data via this API. You specify this with the delete
+         * request to control which attachment is removed. This operation cannot be
+         * undone.
+         *
+         * Authenticate using an [OAuth access
+         * token](https://developers.google.com/identity/protocols/OAuth2) from a
+         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
+         * Developers Console project.
+         */
+        await gapi.client.proximitybeacon.beacons.attachments.delete({
+            attachmentName: "Test string",
+            projectId: "Test string",
+        });
+        /**
          * Returns the attachments for the specified beacon that match the specified
          * namespaced-type pattern.
          *
@@ -1009,22 +1025,6 @@ gapi.load('client', () => {
         await gapi.client.proximitybeacon.beacons.attachments.batchDelete({
             beaconName: "Test string",
             namespacedType: "Test string",
-            projectId: "Test string",
-        });
-        /**
-         * Deletes the specified attachment for the given beacon. Each attachment has
-         * a unique attachment name (`attachmentName`) which is returned when you
-         * fetch the attachment data via this API. You specify this with the delete
-         * request to control which attachment is removed. This operation cannot be
-         * undone.
-         *
-         * Authenticate using an [OAuth access
-         * token](https://developers.google.com/identity/protocols/OAuth2) from a
-         * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
-         * Developers Console project.
-         */
-        await gapi.client.proximitybeacon.beacons.attachments.delete({
-            attachmentName: "Test string",
             projectId: "Test string",
         });
         /**

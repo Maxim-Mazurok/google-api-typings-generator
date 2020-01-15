@@ -118,6 +118,99 @@ gapi.load('client', () => {
                 versionBytes: "Test string",
             },
         });
+        /**
+         * Updates the specified metadata for a version. Note that this method will
+         * fail with `FAILED_PRECONDITION` in the event of an invalid state
+         * transition. The only valid transition for a version is currently from a
+         * `CREATED` status to a `FINALIZED` status.
+         * Use [`DeleteVersion`](../sites.versions/delete) to set the status of a
+         * version to `DELETED`.
+         */
+        await gapi.client.firebasehosting.sites.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            config: {
+                appAssociation: "Test string",
+                cleanUrls: true,
+                headers: [
+                    {
+                        glob: "Test string",
+                        headers: {
+                            A: "Test string"                        },
+                        regex: "Test string",
+                    }                ],
+                redirects: [
+                    {
+                        glob: "Test string",
+                        location: "Test string",
+                        regex: "Test string",
+                        statusCode: 42,
+                    }                ],
+                rewrites: [
+                    {
+                        dynamicLinks: true,
+                        function: "Test string",
+                        glob: "Test string",
+                        path: "Test string",
+                        regex: "Test string",
+                        run: {
+                            region: "Test string",
+                            serviceId: "Test string",
+                        },
+                    }                ],
+                trailingSlashBehavior: "Test string",
+            },
+            createTime: "Test string",
+            createUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            deleteTime: "Test string",
+            deleteUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            fileCount: "Test string",
+            finalizeTime: "Test string",
+            finalizeUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            labels: {
+                A: "Test string"            },
+            name: "Test string",
+            preview: {
+                active: true,
+                expireTime: "Test string",
+            },
+            status: "Test string",
+            versionBytes: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
+        /**
+         * Lists the versions that have been created on the specified site.
+         * Will include filtering in the future.
+         */
+        await gapi.client.firebasehosting.sites.versions.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
         /** Creates a new version for a site. */
         await gapi.client.firebasehosting.sites.versions.create({
             parent: "Test string",
@@ -213,102 +306,26 @@ gapi.load('client', () => {
             parent: "Test string",
             status: "Test string",
         });
-        /**
-         * Updates the specified metadata for a version. Note that this method will
-         * fail with `FAILED_PRECONDITION` in the event of an invalid state
-         * transition. The only valid transition for a version is currently from a
-         * `CREATED` status to a `FINALIZED` status.
-         * Use [`DeleteVersion`](../sites.versions/delete) to set the status of a
-         * version to `DELETED`.
-         */
-        await gapi.client.firebasehosting.sites.versions.patch({
+        /** Deletes the existing domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.delete({
             name: "Test string",
-            updateMask: "Test string",
-        }, {
-            config: {
-                appAssociation: "Test string",
-                cleanUrls: true,
-                headers: [
-                    {
-                        glob: "Test string",
-                        headers: {
-                            A: "Test string"                        },
-                        regex: "Test string",
-                    }                ],
-                redirects: [
-                    {
-                        glob: "Test string",
-                        location: "Test string",
-                        regex: "Test string",
-                        statusCode: 42,
-                    }                ],
-                rewrites: [
-                    {
-                        dynamicLinks: true,
-                        function: "Test string",
-                        glob: "Test string",
-                        path: "Test string",
-                        regex: "Test string",
-                        run: {
-                            region: "Test string",
-                            serviceId: "Test string",
-                        },
-                    }                ],
-                trailingSlashBehavior: "Test string",
-            },
-            createTime: "Test string",
-            createUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            deleteTime: "Test string",
-            deleteUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            fileCount: "Test string",
-            finalizeTime: "Test string",
-            finalizeUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            preview: {
-                active: true,
-                expireTime: "Test string",
-            },
-            status: "Test string",
-            versionBytes: "Test string",
         });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
+        /** Lists the domains for the specified site. */
+        await gapi.client.firebasehosting.sites.domains.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-            status: "Test string",
+        });
+        /** Gets a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.get({
+            name: "Test string",
         });
         /**
-         * Lists the versions that have been created on the specified site.
-         * Will include filtering in the future.
+         * Updates the specified domain mapping, creating the mapping as if it does
+         * not exist.
          */
-        await gapi.client.firebasehosting.sites.versions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            status: "Test string",
-        });
-        /** Creates a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.create({
-            parent: "Test string",
+        await gapi.client.firebasehosting.sites.domains.update({
+            name: "Test string",
         }, {
             domainName: "Test string",
             domainRedirect: {
@@ -338,26 +355,9 @@ gapi.load('client', () => {
             status: "Test string",
             updateTime: "Test string",
         });
-        /** Deletes the existing domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.delete({
-            name: "Test string",
-        });
-        /** Lists the domains for the specified site. */
-        await gapi.client.firebasehosting.sites.domains.list({
-            pageSize: 42,
-            pageToken: "Test string",
+        /** Creates a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.create({
             parent: "Test string",
-        });
-        /** Gets a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.get({
-            name: "Test string",
-        });
-        /**
-         * Updates the specified domain mapping, creating the mapping as if it does
-         * not exist.
-         */
-        await gapi.client.firebasehosting.sites.domains.update({
-            name: "Test string",
         }, {
             domainName: "Test string",
             domainRedirect: {
@@ -475,6 +475,99 @@ gapi.load('client', () => {
                 versionBytes: "Test string",
             },
         });
+        /**
+         * Updates the specified metadata for a version. Note that this method will
+         * fail with `FAILED_PRECONDITION` in the event of an invalid state
+         * transition. The only valid transition for a version is currently from a
+         * `CREATED` status to a `FINALIZED` status.
+         * Use [`DeleteVersion`](../sites.versions/delete) to set the status of a
+         * version to `DELETED`.
+         */
+        await gapi.client.firebasehosting.sites.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            config: {
+                appAssociation: "Test string",
+                cleanUrls: true,
+                headers: [
+                    {
+                        glob: "Test string",
+                        headers: {
+                            A: "Test string"                        },
+                        regex: "Test string",
+                    }                ],
+                redirects: [
+                    {
+                        glob: "Test string",
+                        location: "Test string",
+                        regex: "Test string",
+                        statusCode: 42,
+                    }                ],
+                rewrites: [
+                    {
+                        dynamicLinks: true,
+                        function: "Test string",
+                        glob: "Test string",
+                        path: "Test string",
+                        regex: "Test string",
+                        run: {
+                            region: "Test string",
+                            serviceId: "Test string",
+                        },
+                    }                ],
+                trailingSlashBehavior: "Test string",
+            },
+            createTime: "Test string",
+            createUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            deleteTime: "Test string",
+            deleteUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            fileCount: "Test string",
+            finalizeTime: "Test string",
+            finalizeUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            labels: {
+                A: "Test string"            },
+            name: "Test string",
+            preview: {
+                active: true,
+                expireTime: "Test string",
+            },
+            status: "Test string",
+            versionBytes: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
+        /**
+         * Lists the versions that have been created on the specified site.
+         * Will include filtering in the future.
+         */
+        await gapi.client.firebasehosting.sites.versions.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
         /** Creates a new version for a site. */
         await gapi.client.firebasehosting.sites.versions.create({
             parent: "Test string",
@@ -570,102 +663,26 @@ gapi.load('client', () => {
             parent: "Test string",
             status: "Test string",
         });
-        /**
-         * Updates the specified metadata for a version. Note that this method will
-         * fail with `FAILED_PRECONDITION` in the event of an invalid state
-         * transition. The only valid transition for a version is currently from a
-         * `CREATED` status to a `FINALIZED` status.
-         * Use [`DeleteVersion`](../sites.versions/delete) to set the status of a
-         * version to `DELETED`.
-         */
-        await gapi.client.firebasehosting.sites.versions.patch({
+        /** Deletes the existing domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.delete({
             name: "Test string",
-            updateMask: "Test string",
-        }, {
-            config: {
-                appAssociation: "Test string",
-                cleanUrls: true,
-                headers: [
-                    {
-                        glob: "Test string",
-                        headers: {
-                            A: "Test string"                        },
-                        regex: "Test string",
-                    }                ],
-                redirects: [
-                    {
-                        glob: "Test string",
-                        location: "Test string",
-                        regex: "Test string",
-                        statusCode: 42,
-                    }                ],
-                rewrites: [
-                    {
-                        dynamicLinks: true,
-                        function: "Test string",
-                        glob: "Test string",
-                        path: "Test string",
-                        regex: "Test string",
-                        run: {
-                            region: "Test string",
-                            serviceId: "Test string",
-                        },
-                    }                ],
-                trailingSlashBehavior: "Test string",
-            },
-            createTime: "Test string",
-            createUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            deleteTime: "Test string",
-            deleteUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            fileCount: "Test string",
-            finalizeTime: "Test string",
-            finalizeUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            preview: {
-                active: true,
-                expireTime: "Test string",
-            },
-            status: "Test string",
-            versionBytes: "Test string",
         });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
+        /** Lists the domains for the specified site. */
+        await gapi.client.firebasehosting.sites.domains.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-            status: "Test string",
+        });
+        /** Gets a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.get({
+            name: "Test string",
         });
         /**
-         * Lists the versions that have been created on the specified site.
-         * Will include filtering in the future.
+         * Updates the specified domain mapping, creating the mapping as if it does
+         * not exist.
          */
-        await gapi.client.firebasehosting.sites.versions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            status: "Test string",
-        });
-        /** Creates a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.create({
-            parent: "Test string",
+        await gapi.client.firebasehosting.sites.domains.update({
+            name: "Test string",
         }, {
             domainName: "Test string",
             domainRedirect: {
@@ -695,26 +712,9 @@ gapi.load('client', () => {
             status: "Test string",
             updateTime: "Test string",
         });
-        /** Deletes the existing domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.delete({
-            name: "Test string",
-        });
-        /** Lists the domains for the specified site. */
-        await gapi.client.firebasehosting.sites.domains.list({
-            pageSize: 42,
-            pageToken: "Test string",
+        /** Creates a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.create({
             parent: "Test string",
-        });
-        /** Gets a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.get({
-            name: "Test string",
-        });
-        /**
-         * Updates the specified domain mapping, creating the mapping as if it does
-         * not exist.
-         */
-        await gapi.client.firebasehosting.sites.domains.update({
-            name: "Test string",
         }, {
             domainName: "Test string",
             domainRedirect: {

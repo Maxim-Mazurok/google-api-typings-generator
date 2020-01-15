@@ -38,6 +38,10 @@ gapi.load('client', () => {
             projectId: "Test string",
             systemId: "Test string",
         });
+        /** Deletes an SSH public key. */
+        await gapi.client.oslogin.users.sshPublicKeys.delete({
+            name: "Test string",
+        });
         /** Retrieves an SSH public key. */
         await gapi.client.oslogin.users.sshPublicKeys.get({
             name: "Test string",
@@ -53,10 +57,6 @@ gapi.load('client', () => {
             expirationTimeUsec: "Test string",
             fingerprint: "Test string",
             key: "Test string",
-            name: "Test string",
-        });
-        /** Deletes an SSH public key. */
-        await gapi.client.oslogin.users.sshPublicKeys.delete({
             name: "Test string",
         });
         /** Deletes a POSIX account. */
@@ -77,6 +77,10 @@ gapi.load('client', () => {
             key: "Test string",
             name: "Test string",
         });
+        /** Deletes an SSH public key. */
+        await gapi.client.oslogin.users.sshPublicKeys.delete({
+            name: "Test string",
+        });
         /** Retrieves an SSH public key. */
         await gapi.client.oslogin.users.sshPublicKeys.get({
             name: "Test string",
@@ -92,10 +96,6 @@ gapi.load('client', () => {
             expirationTimeUsec: "Test string",
             fingerprint: "Test string",
             key: "Test string",
-            name: "Test string",
-        });
-        /** Deletes an SSH public key. */
-        await gapi.client.oslogin.users.sshPublicKeys.delete({
             name: "Test string",
         });
         /** Deletes a POSIX account. */

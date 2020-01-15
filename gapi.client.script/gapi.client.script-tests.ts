@@ -103,11 +103,6 @@ gapi.load('client', () => {
             parentId: "Test string",
             title: "Test string",
         });
-        /** Deletes a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.delete({
-            deploymentId: "Test string",
-            scriptId: "Test string",
-        });
         /** Gets a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.get({
             deploymentId: "Test string",
@@ -139,6 +134,11 @@ gapi.load('client', () => {
             manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
+        });
+        /** Deletes a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.delete({
+            deploymentId: "Test string",
+            scriptId: "Test string",
         });
         /** Gets a version of a script project. */
         await gapi.client.script.projects.versions.get({
@@ -167,11 +167,6 @@ gapi.load('client', () => {
         await gapi.client.script.projects.get({
             scriptId: "Test string",
         });
-        /** Deletes a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.delete({
-            deploymentId: "Test string",
-            scriptId: "Test string",
-        });
         /** Gets a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.get({
             deploymentId: "Test string",
@@ -203,6 +198,11 @@ gapi.load('client', () => {
             manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
+        });
+        /** Deletes a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.delete({
+            deploymentId: "Test string",
+            scriptId: "Test string",
         });
         /** Gets a version of a script project. */
         await gapi.client.script.projects.versions.get({
@@ -235,11 +235,6 @@ gapi.load('client', () => {
             scriptId: "Test string",
             versionNumber: 42,
         });
-        /** Deletes a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.delete({
-            deploymentId: "Test string",
-            scriptId: "Test string",
-        });
         /** Gets a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.get({
             deploymentId: "Test string",
@@ -271,6 +266,11 @@ gapi.load('client', () => {
             manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
+        });
+        /** Deletes a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.delete({
+            deploymentId: "Test string",
+            scriptId: "Test string",
         });
         /** Gets a version of a script project. */
         await gapi.client.script.projects.versions.get({
@@ -304,11 +304,6 @@ gapi.load('client', () => {
             metricsGranularity: "Test string",
             scriptId: "Test string",
         });
-        /** Deletes a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.delete({
-            deploymentId: "Test string",
-            scriptId: "Test string",
-        });
         /** Gets a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.get({
             deploymentId: "Test string",
@@ -340,6 +335,11 @@ gapi.load('client', () => {
             manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
+        });
+        /** Deletes a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.delete({
+            deploymentId: "Test string",
+            scriptId: "Test string",
         });
         /** Gets a version of a script project. */
         await gapi.client.script.projects.versions.get({
@@ -396,11 +396,6 @@ gapi.load('client', () => {
                 }            ],
             scriptId: "Test string",
         });
-        /** Deletes a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.delete({
-            deploymentId: "Test string",
-            scriptId: "Test string",
-        });
         /** Gets a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.get({
             deploymentId: "Test string",
@@ -432,6 +427,11 @@ gapi.load('client', () => {
             manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
+        });
+        /** Deletes a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.delete({
+            deploymentId: "Test string",
+            scriptId: "Test string",
         });
         /** Gets a version of a script project. */
         await gapi.client.script.projects.versions.get({
