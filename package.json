@@ -10,7 +10,7 @@
     "dtslint": "dtslint",
     "lint": "ts-node bin/lint.ts ./types",
     "start": "ts-node -T src/cli.ts --out ./types",
-    "test": "tsc --noEmit && mocha tests/tests.ts --require ts-node/register"
+    "test": "tsc --noEmit && mocha"
   },
   "engines": {
     "npm": "6.13.4"

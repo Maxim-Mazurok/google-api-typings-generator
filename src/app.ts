@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as _ from 'lodash';
 import * as path from 'path';
 import * as request from 'request';
+import { sortKeys, sortResource } from './utils';
 
 const typesMap = {
   'integer': 'number',
@@ -437,12 +438,6 @@ function forEachOrdered<T>(record: Record<string, T> | undefined, iterator: (val
   }
 }
 
-function sortKeys<T>(record: Record<string, T>): Record<string, T> {
-  return _.map(record, (resource, resourceKey) => ({ resource, resourceKey }))
-    .sort(({ resourceKey: a }, { resourceKey: b }) => a > b ? 1 : -1)
-    .reduce((curr, { resource, resourceKey }) => ({ ...curr, [resourceKey]: resource }), {}) as Record<string, T>;
-}
-
 export class App {
   private readonly typingsDirectory: string;
   private seenSchemaRefs: Set<string> = new Set();
@@ -701,15 +696,11 @@ export class App {
 
     api.name = api.name.toLocaleLowerCase();
     api.version = api.version.toLocaleLowerCase();
-    api.resources = sortKeys(api.resources);
+    sortResource(api);
 
     if (api.auth && api.auth.oauth2 && api.auth.oauth2.scopes) {
       api.auth.oauth2.scopes = sortKeys(api.auth.oauth2.scopes);
     }
-
-    _.forEach(api.resources, (resource) => {
-      resource.methods = sortKeys(resource.methods);
-    });
 
     const destinationDirectory = this.getTypingsDirectory(api.name, actualVersion ? null : api.version);
 
@@ -927,19 +918,17 @@ export class App {
 
     const list: gapi.client.discovery.DirectoryList = await this.request('https://www.googleapis.com/discovery/v1/apis');
 
-    const apis = _.filter(list.items, api => service == null || api.name === service)
+    const apis = list.items!
+      .filter(api => service == null || api.name === service)
       .filter(api => excludedApi.indexOf(checkExists(api.name)) < 0);
 
-
     if (apis.length === 0) {
-      console.error('Can\'t find services');
-      throw Error('Can\'t find services');
+      throw Error("Can't find services");
     }
 
     const apisLookup = _.groupBy(apis, item => item.name);
 
     for (const apiKey in apisLookup) {
-
       const associatedApis = apisLookup[apiKey];
 
       const preferredApi = associatedApis.find(x => x.preferred)
