@@ -10,7 +10,14 @@
     "dtslint": "dtslint",
     "lint": "ts-node bin/lint.ts ./types",
     "start": "ts-node -T src/cli.ts --out ./types",
-    "test": "tsc --noEmit && mocha tests/tests.ts --require ts-node/register"
+    "test": "tsc --noEmit && mocha tests/tests.ts --require ts-node/register",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check"
   },
   "engines": {
     "npm": "6.13.4"
@@ -21,8 +28,10 @@
     "@types/gapi.client.discovery": "^1.0.1",
     "@types/jasmine": "^3.5.0",
     "@types/lodash": "^4.14.149",
+    "@types/node": "^12.12.6",
     "@types/request": "2.48.4",
     "dtslint": "^2.0.5",
+    "gts": "^1.1.2",
     "jasmine": "^3.5.0",
     "mocha": "^7.0.0",
     "npm-run-all": "^4.1.5"
@@ -33,6 +42,6 @@
     "lodash": "^4.17.15",
     "request": "^2.88.0",
     "ts-node": "^8.6.2",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.5"
   }
 }
