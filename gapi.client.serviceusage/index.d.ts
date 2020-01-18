@@ -624,6 +624,25 @@ declare namespace gapi.client {
             /** Configuration controlling usage of this service. */
             usage?: Usage;
         }
+        interface GoogleApiServiceIdentity {
+            /**
+             * Optional. A user-specified opaque description of the service account.
+             * Must be less than or equal to 256 UTF-8 bytes.
+             */
+            description?: string;
+            /**
+             * Optional. A user-specified name for the service account.
+             * Must be less than or equal to 100 UTF-8 bytes.
+             */
+            displayName?: string;
+            /**
+             * A service account project that hosts the service accounts.
+             *
+             * An example name would be:
+             * `projects/123456789`
+             */
+            serviceAccountParent?: string;
+        }
         interface GoogleApiServiceusageV1OperationMetadata {
             /**
              * The full name of the resources that this operation is directly
@@ -734,6 +753,11 @@ declare namespace gapi.client {
              * the nesting may only be one level deep).
              */
             additionalBindings?: HttpRule[];
+            /**
+             * When this flag is set to true, HTTP requests will be allowed to invoke a
+             * half-duplex streaming method.
+             */
+            allowHalfDuplex?: boolean;
             /**
              * The name of the request field whose value is mapped to the HTTP request
              * body, or `&#42;` for mapping all request fields not captured by the path
@@ -1524,6 +1548,8 @@ declare namespace gapi.client {
              * &#42;&#42;NOTE:&#42;&#42; All service configuration rules follow "last one wins" order.
              */
             rules?: UsageRule[];
+            /** The configuration of a per-product per-project service identity. */
+            serviceIdentity?: GoogleApiServiceIdentity;
         }
         interface UsageRule {
             /**

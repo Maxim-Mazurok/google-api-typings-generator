@@ -93,6 +93,8 @@ gapi.load('client', () => {
                         action: "Test string",
                         linkType: "Test string",
                         linkedAccountId: "Test string",
+                        services: [
+                            "Test string"                        ],
                     },
                     merchantId: "Test string",
                     method: "Test string",
@@ -166,6 +168,8 @@ gapi.load('client', () => {
             action: "Test string",
             linkType: "Test string",
             linkedAccountId: "Test string",
+            services: [
+                "Test string"            ],
         });
         /** Lists the sub-accounts in your Merchant Center account. */
         await gapi.client.content.accounts.list({
@@ -1818,6 +1822,10 @@ gapi.load('client', () => {
                                     value: "Test string",
                                 },
                                 name: "Test string",
+                                pickupService: {
+                                    carrierName: "Test string",
+                                    serviceName: "Test string",
+                                },
                                 rateGroups: [
                                     {
                                         applicableShippingLabels: [
@@ -1965,6 +1973,7 @@ gapi.load('client', () => {
                                                     }                                                ],
                                             }                                        ],
                                     }                                ],
+                                shipmentType: "Test string",
                             }                        ],
                     },
                 }            ],
@@ -1980,6 +1989,10 @@ gapi.load('client', () => {
         });
         /** Retrieves supported holidays for an account. */
         await gapi.client.content.shippingsettings.getsupportedholidays({
+            merchantId: "Test string",
+        });
+        /** Retrieves supported pickup services for an account. */
+        await gapi.client.content.shippingsettings.getsupportedpickupservices({
             merchantId: "Test string",
         });
         /** Lists the shipping settings of the sub-accounts in your Merchant Center account. */
@@ -2056,6 +2069,10 @@ gapi.load('client', () => {
                         value: "Test string",
                     },
                     name: "Test string",
+                    pickupService: {
+                        carrierName: "Test string",
+                        serviceName: "Test string",
+                    },
                     rateGroups: [
                         {
                             applicableShippingLabels: [
@@ -2203,6 +2220,7 @@ gapi.load('client', () => {
                                         }                                    ],
                                 }                            ],
                         }                    ],
+                    shipmentType: "Test string",
                 }            ],
         });
     }

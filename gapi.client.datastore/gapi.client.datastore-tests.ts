@@ -51,35 +51,6 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Creates the specified index.
-         * A newly created index's initial state is `CREATING`. On completion of the
-         * returned google.longrunning.Operation, the state will be `READY`.
-         * If the index already exists, the call will return an `ALREADY_EXISTS`
-         * status.
-         *
-         * During index creation, the process could result in an error, in which
-         * case the index will move to the `ERROR` state. The process can be recovered
-         * by fixing the data that caused the error, removing the index with
-         * delete, then
-         * re-creating the index with create.
-         *
-         * Indexes with a single property cannot be created.
-         */
-        await gapi.client.datastore.projects.indexes.create({
-            projectId: "Test string",
-        }, {
-            ancestor: "Test string",
-            indexId: "Test string",
-            kind: "Test string",
-            projectId: "Test string",
-            properties: [
-                {
-                    direction: "Test string",
-                    name: "Test string",
-                }            ],
-            state: "Test string",
-        });
-        /**
          * Deletes an existing index.
          * An index can only be deleted if it is in a `READY` or `ERROR` state. On
          * successful execution of the request, the index will be in a `DELETING`
@@ -112,28 +83,33 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Creates the specified index.
+         * A newly created index's initial state is `CREATING`. On completion of the
+         * returned google.longrunning.Operation, the state will be `READY`.
+         * If the index already exists, the call will return an `ALREADY_EXISTS`
+         * status.
+         *
+         * During index creation, the process could result in an error, in which
+         * case the index will move to the `ERROR` state. The process can be recovered
+         * by fixing the data that caused the error, removing the index with
+         * delete, then
+         * re-creating the index with create.
+         *
+         * Indexes with a single property cannot be created.
          */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
+        await gapi.client.datastore.projects.indexes.create({
+            projectId: "Test string",
+        }, {
+            ancestor: "Test string",
+            indexId: "Test string",
+            kind: "Test string",
+            projectId: "Test string",
+            properties: [
+                {
+                    direction: "Test string",
+                    name: "Test string",
+                }            ],
+            state: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -159,6 +135,30 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Begins a new transaction. */
@@ -174,35 +174,6 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates the specified index.
-         * A newly created index's initial state is `CREATING`. On completion of the
-         * returned google.longrunning.Operation, the state will be `READY`.
-         * If the index already exists, the call will return an `ALREADY_EXISTS`
-         * status.
-         *
-         * During index creation, the process could result in an error, in which
-         * case the index will move to the `ERROR` state. The process can be recovered
-         * by fixing the data that caused the error, removing the index with
-         * delete, then
-         * re-creating the index with create.
-         *
-         * Indexes with a single property cannot be created.
-         */
-        await gapi.client.datastore.projects.indexes.create({
-            projectId: "Test string",
-        }, {
-            ancestor: "Test string",
-            indexId: "Test string",
-            kind: "Test string",
-            projectId: "Test string",
-            properties: [
-                {
-                    direction: "Test string",
-                    name: "Test string",
-                }            ],
-            state: "Test string",
-        });
-        /**
          * Deletes an existing index.
          * An index can only be deleted if it is in a `READY` or `ERROR` state. On
          * successful execution of the request, the index will be in a `DELETING`
@@ -235,28 +206,33 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Creates the specified index.
+         * A newly created index's initial state is `CREATING`. On completion of the
+         * returned google.longrunning.Operation, the state will be `READY`.
+         * If the index already exists, the call will return an `ALREADY_EXISTS`
+         * status.
+         *
+         * During index creation, the process could result in an error, in which
+         * case the index will move to the `ERROR` state. The process can be recovered
+         * by fixing the data that caused the error, removing the index with
+         * delete, then
+         * re-creating the index with create.
+         *
+         * Indexes with a single property cannot be created.
          */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
+        await gapi.client.datastore.projects.indexes.create({
+            projectId: "Test string",
+        }, {
+            ancestor: "Test string",
+            indexId: "Test string",
+            kind: "Test string",
+            projectId: "Test string",
+            properties: [
+                {
+                    direction: "Test string",
+                    name: "Test string",
+                }            ],
+            state: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -282,6 +258,30 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -449,35 +449,6 @@ gapi.load('client', () => {
             transaction: "Test string",
         });
         /**
-         * Creates the specified index.
-         * A newly created index's initial state is `CREATING`. On completion of the
-         * returned google.longrunning.Operation, the state will be `READY`.
-         * If the index already exists, the call will return an `ALREADY_EXISTS`
-         * status.
-         *
-         * During index creation, the process could result in an error, in which
-         * case the index will move to the `ERROR` state. The process can be recovered
-         * by fixing the data that caused the error, removing the index with
-         * delete, then
-         * re-creating the index with create.
-         *
-         * Indexes with a single property cannot be created.
-         */
-        await gapi.client.datastore.projects.indexes.create({
-            projectId: "Test string",
-        }, {
-            ancestor: "Test string",
-            indexId: "Test string",
-            kind: "Test string",
-            projectId: "Test string",
-            properties: [
-                {
-                    direction: "Test string",
-                    name: "Test string",
-                }            ],
-            state: "Test string",
-        });
-        /**
          * Deletes an existing index.
          * An index can only be deleted if it is in a `READY` or `ERROR` state. On
          * successful execution of the request, the index will be in a `DELETING`
@@ -510,28 +481,33 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Creates the specified index.
+         * A newly created index's initial state is `CREATING`. On completion of the
+         * returned google.longrunning.Operation, the state will be `READY`.
+         * If the index already exists, the call will return an `ALREADY_EXISTS`
+         * status.
+         *
+         * During index creation, the process could result in an error, in which
+         * case the index will move to the `ERROR` state. The process can be recovered
+         * by fixing the data that caused the error, removing the index with
+         * delete, then
+         * re-creating the index with create.
+         *
+         * Indexes with a single property cannot be created.
          */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
+        await gapi.client.datastore.projects.indexes.create({
+            projectId: "Test string",
+        }, {
+            ancestor: "Test string",
+            indexId: "Test string",
+            kind: "Test string",
+            projectId: "Test string",
+            properties: [
+                {
+                    direction: "Test string",
+                    name: "Test string",
+                }            ],
+            state: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -557,6 +533,30 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -583,35 +583,6 @@ gapi.load('client', () => {
             outputUrlPrefix: "Test string",
         });
         /**
-         * Creates the specified index.
-         * A newly created index's initial state is `CREATING`. On completion of the
-         * returned google.longrunning.Operation, the state will be `READY`.
-         * If the index already exists, the call will return an `ALREADY_EXISTS`
-         * status.
-         *
-         * During index creation, the process could result in an error, in which
-         * case the index will move to the `ERROR` state. The process can be recovered
-         * by fixing the data that caused the error, removing the index with
-         * delete, then
-         * re-creating the index with create.
-         *
-         * Indexes with a single property cannot be created.
-         */
-        await gapi.client.datastore.projects.indexes.create({
-            projectId: "Test string",
-        }, {
-            ancestor: "Test string",
-            indexId: "Test string",
-            kind: "Test string",
-            projectId: "Test string",
-            properties: [
-                {
-                    direction: "Test string",
-                    name: "Test string",
-                }            ],
-            state: "Test string",
-        });
-        /**
          * Deletes an existing index.
          * An index can only be deleted if it is in a `READY` or `ERROR` state. On
          * successful execution of the request, the index will be in a `DELETING`
@@ -644,28 +615,33 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Creates the specified index.
+         * A newly created index's initial state is `CREATING`. On completion of the
+         * returned google.longrunning.Operation, the state will be `READY`.
+         * If the index already exists, the call will return an `ALREADY_EXISTS`
+         * status.
+         *
+         * During index creation, the process could result in an error, in which
+         * case the index will move to the `ERROR` state. The process can be recovered
+         * by fixing the data that caused the error, removing the index with
+         * delete, then
+         * re-creating the index with create.
+         *
+         * Indexes with a single property cannot be created.
          */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
+        await gapi.client.datastore.projects.indexes.create({
+            projectId: "Test string",
+        }, {
+            ancestor: "Test string",
+            indexId: "Test string",
+            kind: "Test string",
+            projectId: "Test string",
+            properties: [
+                {
+                    direction: "Test string",
+                    name: "Test string",
+                }            ],
+            state: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -691,6 +667,30 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -714,35 +714,6 @@ gapi.load('client', () => {
                 A: "Test string"            },
         });
         /**
-         * Creates the specified index.
-         * A newly created index's initial state is `CREATING`. On completion of the
-         * returned google.longrunning.Operation, the state will be `READY`.
-         * If the index already exists, the call will return an `ALREADY_EXISTS`
-         * status.
-         *
-         * During index creation, the process could result in an error, in which
-         * case the index will move to the `ERROR` state. The process can be recovered
-         * by fixing the data that caused the error, removing the index with
-         * delete, then
-         * re-creating the index with create.
-         *
-         * Indexes with a single property cannot be created.
-         */
-        await gapi.client.datastore.projects.indexes.create({
-            projectId: "Test string",
-        }, {
-            ancestor: "Test string",
-            indexId: "Test string",
-            kind: "Test string",
-            projectId: "Test string",
-            properties: [
-                {
-                    direction: "Test string",
-                    name: "Test string",
-                }            ],
-            state: "Test string",
-        });
-        /**
          * Deletes an existing index.
          * An index can only be deleted if it is in a `READY` or `ERROR` state. On
          * successful execution of the request, the index will be in a `DELETING`
@@ -775,28 +746,33 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Creates the specified index.
+         * A newly created index's initial state is `CREATING`. On completion of the
+         * returned google.longrunning.Operation, the state will be `READY`.
+         * If the index already exists, the call will return an `ALREADY_EXISTS`
+         * status.
+         *
+         * During index creation, the process could result in an error, in which
+         * case the index will move to the `ERROR` state. The process can be recovered
+         * by fixing the data that caused the error, removing the index with
+         * delete, then
+         * re-creating the index with create.
+         *
+         * Indexes with a single property cannot be created.
          */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
+        await gapi.client.datastore.projects.indexes.create({
+            projectId: "Test string",
+        }, {
+            ancestor: "Test string",
+            indexId: "Test string",
+            kind: "Test string",
+            projectId: "Test string",
+            properties: [
+                {
+                    direction: "Test string",
+                    name: "Test string",
+                }            ],
+            state: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -822,6 +798,30 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Looks up entities by key. */
@@ -847,35 +847,6 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates the specified index.
-         * A newly created index's initial state is `CREATING`. On completion of the
-         * returned google.longrunning.Operation, the state will be `READY`.
-         * If the index already exists, the call will return an `ALREADY_EXISTS`
-         * status.
-         *
-         * During index creation, the process could result in an error, in which
-         * case the index will move to the `ERROR` state. The process can be recovered
-         * by fixing the data that caused the error, removing the index with
-         * delete, then
-         * re-creating the index with create.
-         *
-         * Indexes with a single property cannot be created.
-         */
-        await gapi.client.datastore.projects.indexes.create({
-            projectId: "Test string",
-        }, {
-            ancestor: "Test string",
-            indexId: "Test string",
-            kind: "Test string",
-            projectId: "Test string",
-            properties: [
-                {
-                    direction: "Test string",
-                    name: "Test string",
-                }            ],
-            state: "Test string",
-        });
-        /**
          * Deletes an existing index.
          * An index can only be deleted if it is in a `READY` or `ERROR` state. On
          * successful execution of the request, the index will be in a `DELETING`
@@ -908,28 +879,33 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Creates the specified index.
+         * A newly created index's initial state is `CREATING`. On completion of the
+         * returned google.longrunning.Operation, the state will be `READY`.
+         * If the index already exists, the call will return an `ALREADY_EXISTS`
+         * status.
+         *
+         * During index creation, the process could result in an error, in which
+         * case the index will move to the `ERROR` state. The process can be recovered
+         * by fixing the data that caused the error, removing the index with
+         * delete, then
+         * re-creating the index with create.
+         *
+         * Indexes with a single property cannot be created.
          */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
+        await gapi.client.datastore.projects.indexes.create({
+            projectId: "Test string",
+        }, {
+            ancestor: "Test string",
+            indexId: "Test string",
+            kind: "Test string",
+            projectId: "Test string",
+            properties: [
+                {
+                    direction: "Test string",
+                    name: "Test string",
+                }            ],
+            state: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -955,6 +931,30 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -980,35 +980,6 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Creates the specified index.
-         * A newly created index's initial state is `CREATING`. On completion of the
-         * returned google.longrunning.Operation, the state will be `READY`.
-         * If the index already exists, the call will return an `ALREADY_EXISTS`
-         * status.
-         *
-         * During index creation, the process could result in an error, in which
-         * case the index will move to the `ERROR` state. The process can be recovered
-         * by fixing the data that caused the error, removing the index with
-         * delete, then
-         * re-creating the index with create.
-         *
-         * Indexes with a single property cannot be created.
-         */
-        await gapi.client.datastore.projects.indexes.create({
-            projectId: "Test string",
-        }, {
-            ancestor: "Test string",
-            indexId: "Test string",
-            kind: "Test string",
-            projectId: "Test string",
-            properties: [
-                {
-                    direction: "Test string",
-                    name: "Test string",
-                }            ],
-            state: "Test string",
-        });
-        /**
          * Deletes an existing index.
          * An index can only be deleted if it is in a `READY` or `ERROR` state. On
          * successful execution of the request, the index will be in a `DELETING`
@@ -1041,28 +1012,33 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Creates the specified index.
+         * A newly created index's initial state is `CREATING`. On completion of the
+         * returned google.longrunning.Operation, the state will be `READY`.
+         * If the index already exists, the call will return an `ALREADY_EXISTS`
+         * status.
+         *
+         * During index creation, the process could result in an error, in which
+         * case the index will move to the `ERROR` state. The process can be recovered
+         * by fixing the data that caused the error, removing the index with
+         * delete, then
+         * re-creating the index with create.
+         *
+         * Indexes with a single property cannot be created.
          */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
+        await gapi.client.datastore.projects.indexes.create({
+            projectId: "Test string",
+        }, {
+            ancestor: "Test string",
+            indexId: "Test string",
+            kind: "Test string",
+            projectId: "Test string",
+            properties: [
+                {
+                    direction: "Test string",
+                    name: "Test string",
+                }            ],
+            state: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -1088,6 +1064,30 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Rolls back a transaction. */
@@ -1097,35 +1097,6 @@ gapi.load('client', () => {
             transaction: "Test string",
         });
         /**
-         * Creates the specified index.
-         * A newly created index's initial state is `CREATING`. On completion of the
-         * returned google.longrunning.Operation, the state will be `READY`.
-         * If the index already exists, the call will return an `ALREADY_EXISTS`
-         * status.
-         *
-         * During index creation, the process could result in an error, in which
-         * case the index will move to the `ERROR` state. The process can be recovered
-         * by fixing the data that caused the error, removing the index with
-         * delete, then
-         * re-creating the index with create.
-         *
-         * Indexes with a single property cannot be created.
-         */
-        await gapi.client.datastore.projects.indexes.create({
-            projectId: "Test string",
-        }, {
-            ancestor: "Test string",
-            indexId: "Test string",
-            kind: "Test string",
-            projectId: "Test string",
-            properties: [
-                {
-                    direction: "Test string",
-                    name: "Test string",
-                }            ],
-            state: "Test string",
-        });
-        /**
          * Deletes an existing index.
          * An index can only be deleted if it is in a `READY` or `ERROR` state. On
          * successful execution of the request, the index will be in a `DELETING`
@@ -1158,28 +1129,33 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Creates the specified index.
+         * A newly created index's initial state is `CREATING`. On completion of the
+         * returned google.longrunning.Operation, the state will be `READY`.
+         * If the index already exists, the call will return an `ALREADY_EXISTS`
+         * status.
+         *
+         * During index creation, the process could result in an error, in which
+         * case the index will move to the `ERROR` state. The process can be recovered
+         * by fixing the data that caused the error, removing the index with
+         * delete, then
+         * re-creating the index with create.
+         *
+         * Indexes with a single property cannot be created.
          */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
+        await gapi.client.datastore.projects.indexes.create({
+            projectId: "Test string",
+        }, {
+            ancestor: "Test string",
+            indexId: "Test string",
+            kind: "Test string",
+            projectId: "Test string",
+            properties: [
+                {
+                    direction: "Test string",
+                    name: "Test string",
+                }            ],
+            state: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -1205,6 +1181,30 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Queries for entities. */
@@ -1407,35 +1407,6 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates the specified index.
-         * A newly created index's initial state is `CREATING`. On completion of the
-         * returned google.longrunning.Operation, the state will be `READY`.
-         * If the index already exists, the call will return an `ALREADY_EXISTS`
-         * status.
-         *
-         * During index creation, the process could result in an error, in which
-         * case the index will move to the `ERROR` state. The process can be recovered
-         * by fixing the data that caused the error, removing the index with
-         * delete, then
-         * re-creating the index with create.
-         *
-         * Indexes with a single property cannot be created.
-         */
-        await gapi.client.datastore.projects.indexes.create({
-            projectId: "Test string",
-        }, {
-            ancestor: "Test string",
-            indexId: "Test string",
-            kind: "Test string",
-            projectId: "Test string",
-            properties: [
-                {
-                    direction: "Test string",
-                    name: "Test string",
-                }            ],
-            state: "Test string",
-        });
-        /**
          * Deletes an existing index.
          * An index can only be deleted if it is in a `READY` or `ERROR` state. On
          * successful execution of the request, the index will be in a `DELETING`
@@ -1468,28 +1439,33 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Creates the specified index.
+         * A newly created index's initial state is `CREATING`. On completion of the
+         * returned google.longrunning.Operation, the state will be `READY`.
+         * If the index already exists, the call will return an `ALREADY_EXISTS`
+         * status.
+         *
+         * During index creation, the process could result in an error, in which
+         * case the index will move to the `ERROR` state. The process can be recovered
+         * by fixing the data that caused the error, removing the index with
+         * delete, then
+         * re-creating the index with create.
+         *
+         * Indexes with a single property cannot be created.
          */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
+        await gapi.client.datastore.projects.indexes.create({
+            projectId: "Test string",
+        }, {
+            ancestor: "Test string",
+            indexId: "Test string",
+            kind: "Test string",
+            projectId: "Test string",
+            properties: [
+                {
+                    direction: "Test string",
+                    name: "Test string",
+                }            ],
+            state: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -1515,6 +1491,30 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
     }

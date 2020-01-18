@@ -390,6 +390,8 @@ declare namespace gapi.client {
             maliciousEntity?: MaliciousEntity;
             /** The list of messages contained by this alert. */
             messages?: GmailMessageInfo[];
+            /** System actions on the messages. */
+            systemActionType?: string;
         }
         interface MaliciousEntity {
             /** The header from display name. */

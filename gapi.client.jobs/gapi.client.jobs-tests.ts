@@ -185,270 +185,6 @@ gapi.load('client', () => {
         /**
          * Searches for jobs using the provided SearchJobsRequest.
          *
-         * This call constrains the visibility of jobs
-         * present in the database, and only returns jobs that the caller has
-         * permission to search against.
-         */
-        await gapi.client.jobs.projects.jobs.search({
-            parent: "Test string",
-        }, {
-            disableKeywordMatch: true,
-            diversificationLevel: "Test string",
-            enableBroadening: true,
-            histogramFacets: {
-                compensationHistogramFacets: [
-                    {
-                        bucketingOption: {
-                            bucketBounds: [
-                                42                            ],
-                            requiresMinMax: true,
-                        },
-                        type: "Test string",
-                    }                ],
-                customAttributeHistogramFacets: [
-                    {
-                        key: "Test string",
-                        longValueHistogramBucketingOption: {
-                            bucketBounds: [
-                                42                            ],
-                            requiresMinMax: true,
-                        },
-                        stringValueHistogram: true,
-                    }                ],
-                simpleHistogramFacets: [
-                    "Test string"                ],
-            },
-            jobQuery: {
-                commuteFilter: {
-                    allowImpreciseAddresses: true,
-                    commuteMethod: "Test string",
-                    departureTime: {
-                        hours: 42,
-                        minutes: 42,
-                        nanos: 42,
-                        seconds: 42,
-                    },
-                    roadTraffic: "Test string",
-                    startCoordinates: {
-                        latitude: 42,
-                        longitude: 42,
-                    },
-                    travelDuration: "Test string",
-                },
-                companyDisplayNames: [
-                    "Test string"                ],
-                companyNames: [
-                    "Test string"                ],
-                compensationFilter: {
-                    includeJobsWithUnspecifiedCompensationRange: true,
-                    range: {
-                        maxCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                        minCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                    },
-                    type: "Test string",
-                    units: [
-                        "Test string"                    ],
-                },
-                customAttributeFilter: "Test string",
-                disableSpellCheck: true,
-                employmentTypes: [
-                    "Test string"                ],
-                jobCategories: [
-                    "Test string"                ],
-                languageCodes: [
-                    "Test string"                ],
-                locationFilters: [
-                    {
-                        address: "Test string",
-                        distanceInMiles: 42,
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        regionCode: "Test string",
-                        telecommutePreference: "Test string",
-                    }                ],
-                publishTimeRange: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                },
-                query: "Test string",
-                queryLanguageCode: "Test string",
-            },
-            jobView: "Test string",
-            offset: 42,
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            requestMetadata: {
-                deviceInfo: {
-                    deviceType: "Test string",
-                    id: "Test string",
-                },
-                domain: "Test string",
-                sessionId: "Test string",
-                userId: "Test string",
-            },
-            requirePreciseResultSize: true,
-            searchMode: "Test string",
-        });
-        /**
-         * Updates specified job.
-         *
-         * Typically, updated contents become visible in search results within 10
-         * seconds, but it may take up to 5 minutes.
-         */
-        await gapi.client.jobs.projects.jobs.patch({
-            name: "Test string",
-        }, {
-            job: {
-                addresses: [
-                    "Test string"                ],
-                applicationInfo: {
-                    emails: [
-                        "Test string"                    ],
-                    instruction: "Test string",
-                    uris: [
-                        "Test string"                    ],
-                },
-                companyDisplayName: "Test string",
-                companyName: "Test string",
-                compensationInfo: {
-                    annualizedBaseCompensationRange: {
-                        maxCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                        minCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                    },
-                    annualizedTotalCompensationRange: {
-                        maxCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                        minCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                    },
-                    entries: [
-                        {
-                            amount: {
-                                currencyCode: "Test string",
-                                nanos: 42,
-                                units: "Test string",
-                            },
-                            description: "Test string",
-                            expectedUnitsPerYear: 42,
-                            range: {
-                                maxCompensation: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                                minCompensation: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                            },
-                            type: "Test string",
-                            unit: "Test string",
-                        }                    ],
-                },
-                customAttributes: {
-                    A: {
-                        filterable: true,
-                        longValues: [
-                            "Test string"                        ],
-                        stringValues: [
-                            "Test string"                        ],
-                    }                },
-                degreeTypes: [
-                    "Test string"                ],
-                department: "Test string",
-                derivedInfo: {
-                    jobCategories: [
-                        "Test string"                    ],
-                    locations: [
-                        {
-                            latLng: {
-                                latitude: 42,
-                                longitude: 42,
-                            },
-                            locationType: "Test string",
-                            postalAddress: {
-                                addressLines: [
-                                    "Test string"                                ],
-                                administrativeArea: "Test string",
-                                languageCode: "Test string",
-                                locality: "Test string",
-                                organization: "Test string",
-                                postalCode: "Test string",
-                                recipients: [
-                                    "Test string"                                ],
-                                regionCode: "Test string",
-                                revision: 42,
-                                sortingCode: "Test string",
-                                sublocality: "Test string",
-                            },
-                            radiusInMiles: 42,
-                        }                    ],
-                },
-                description: "Test string",
-                employmentTypes: [
-                    "Test string"                ],
-                incentives: "Test string",
-                jobBenefits: [
-                    "Test string"                ],
-                jobEndTime: "Test string",
-                jobLevel: "Test string",
-                jobStartTime: "Test string",
-                languageCode: "Test string",
-                name: "Test string",
-                postingCreateTime: "Test string",
-                postingExpireTime: "Test string",
-                postingPublishTime: "Test string",
-                postingRegion: "Test string",
-                postingUpdateTime: "Test string",
-                processingOptions: {
-                    disableStreetAddressResolution: true,
-                    htmlSanitization: "Test string",
-                },
-                promotionValue: 42,
-                qualifications: "Test string",
-                requisitionId: "Test string",
-                responsibilities: "Test string",
-                title: "Test string",
-                visibility: "Test string",
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Retrieves the specified job, whose status is OPEN or recently EXPIRED
-         * within the last 90 days.
-         */
-        await gapi.client.jobs.projects.jobs.get({
-            name: "Test string",
-        });
-        /**
-         * Searches for jobs using the provided SearchJobsRequest.
-         *
          * This API call is intended for the use case of targeting passive job
          * seekers (for example, job seekers who have signed up to receive email
          * alerts about potential job opportunities), and has different algorithmic
@@ -729,6 +465,270 @@ gapi.load('client', () => {
                 title: "Test string",
                 visibility: "Test string",
             },
+        });
+        /**
+         * Searches for jobs using the provided SearchJobsRequest.
+         *
+         * This call constrains the visibility of jobs
+         * present in the database, and only returns jobs that the caller has
+         * permission to search against.
+         */
+        await gapi.client.jobs.projects.jobs.search({
+            parent: "Test string",
+        }, {
+            disableKeywordMatch: true,
+            diversificationLevel: "Test string",
+            enableBroadening: true,
+            histogramFacets: {
+                compensationHistogramFacets: [
+                    {
+                        bucketingOption: {
+                            bucketBounds: [
+                                42                            ],
+                            requiresMinMax: true,
+                        },
+                        type: "Test string",
+                    }                ],
+                customAttributeHistogramFacets: [
+                    {
+                        key: "Test string",
+                        longValueHistogramBucketingOption: {
+                            bucketBounds: [
+                                42                            ],
+                            requiresMinMax: true,
+                        },
+                        stringValueHistogram: true,
+                    }                ],
+                simpleHistogramFacets: [
+                    "Test string"                ],
+            },
+            jobQuery: {
+                commuteFilter: {
+                    allowImpreciseAddresses: true,
+                    commuteMethod: "Test string",
+                    departureTime: {
+                        hours: 42,
+                        minutes: 42,
+                        nanos: 42,
+                        seconds: 42,
+                    },
+                    roadTraffic: "Test string",
+                    startCoordinates: {
+                        latitude: 42,
+                        longitude: 42,
+                    },
+                    travelDuration: "Test string",
+                },
+                companyDisplayNames: [
+                    "Test string"                ],
+                companyNames: [
+                    "Test string"                ],
+                compensationFilter: {
+                    includeJobsWithUnspecifiedCompensationRange: true,
+                    range: {
+                        maxCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                        minCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                    },
+                    type: "Test string",
+                    units: [
+                        "Test string"                    ],
+                },
+                customAttributeFilter: "Test string",
+                disableSpellCheck: true,
+                employmentTypes: [
+                    "Test string"                ],
+                jobCategories: [
+                    "Test string"                ],
+                languageCodes: [
+                    "Test string"                ],
+                locationFilters: [
+                    {
+                        address: "Test string",
+                        distanceInMiles: 42,
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        regionCode: "Test string",
+                        telecommutePreference: "Test string",
+                    }                ],
+                publishTimeRange: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                },
+                query: "Test string",
+                queryLanguageCode: "Test string",
+            },
+            jobView: "Test string",
+            offset: 42,
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            requestMetadata: {
+                deviceInfo: {
+                    deviceType: "Test string",
+                    id: "Test string",
+                },
+                domain: "Test string",
+                sessionId: "Test string",
+                userId: "Test string",
+            },
+            requirePreciseResultSize: true,
+            searchMode: "Test string",
+        });
+        /**
+         * Updates specified job.
+         *
+         * Typically, updated contents become visible in search results within 10
+         * seconds, but it may take up to 5 minutes.
+         */
+        await gapi.client.jobs.projects.jobs.patch({
+            name: "Test string",
+        }, {
+            job: {
+                addresses: [
+                    "Test string"                ],
+                applicationInfo: {
+                    emails: [
+                        "Test string"                    ],
+                    instruction: "Test string",
+                    uris: [
+                        "Test string"                    ],
+                },
+                companyDisplayName: "Test string",
+                companyName: "Test string",
+                compensationInfo: {
+                    annualizedBaseCompensationRange: {
+                        maxCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                        minCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                    },
+                    annualizedTotalCompensationRange: {
+                        maxCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                        minCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                    },
+                    entries: [
+                        {
+                            amount: {
+                                currencyCode: "Test string",
+                                nanos: 42,
+                                units: "Test string",
+                            },
+                            description: "Test string",
+                            expectedUnitsPerYear: 42,
+                            range: {
+                                maxCompensation: {
+                                    currencyCode: "Test string",
+                                    nanos: 42,
+                                    units: "Test string",
+                                },
+                                minCompensation: {
+                                    currencyCode: "Test string",
+                                    nanos: 42,
+                                    units: "Test string",
+                                },
+                            },
+                            type: "Test string",
+                            unit: "Test string",
+                        }                    ],
+                },
+                customAttributes: {
+                    A: {
+                        filterable: true,
+                        longValues: [
+                            "Test string"                        ],
+                        stringValues: [
+                            "Test string"                        ],
+                    }                },
+                degreeTypes: [
+                    "Test string"                ],
+                department: "Test string",
+                derivedInfo: {
+                    jobCategories: [
+                        "Test string"                    ],
+                    locations: [
+                        {
+                            latLng: {
+                                latitude: 42,
+                                longitude: 42,
+                            },
+                            locationType: "Test string",
+                            postalAddress: {
+                                addressLines: [
+                                    "Test string"                                ],
+                                administrativeArea: "Test string",
+                                languageCode: "Test string",
+                                locality: "Test string",
+                                organization: "Test string",
+                                postalCode: "Test string",
+                                recipients: [
+                                    "Test string"                                ],
+                                regionCode: "Test string",
+                                revision: 42,
+                                sortingCode: "Test string",
+                                sublocality: "Test string",
+                            },
+                            radiusInMiles: 42,
+                        }                    ],
+                },
+                description: "Test string",
+                employmentTypes: [
+                    "Test string"                ],
+                incentives: "Test string",
+                jobBenefits: [
+                    "Test string"                ],
+                jobEndTime: "Test string",
+                jobLevel: "Test string",
+                jobStartTime: "Test string",
+                languageCode: "Test string",
+                name: "Test string",
+                postingCreateTime: "Test string",
+                postingExpireTime: "Test string",
+                postingPublishTime: "Test string",
+                postingRegion: "Test string",
+                postingUpdateTime: "Test string",
+                processingOptions: {
+                    disableStreetAddressResolution: true,
+                    htmlSanitization: "Test string",
+                },
+                promotionValue: 42,
+                qualifications: "Test string",
+                requisitionId: "Test string",
+                responsibilities: "Test string",
+                title: "Test string",
+                visibility: "Test string",
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Retrieves the specified job, whose status is OPEN or recently EXPIRED
+         * within the last 90 days.
+         */
+        await gapi.client.jobs.projects.jobs.get({
+            name: "Test string",
         });
     }
 });

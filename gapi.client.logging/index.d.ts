@@ -33,6 +33,26 @@ declare namespace gapi.client {
             /** The linear bucket. */
             linearBuckets?: Linear;
         }
+        interface CmekSettings {
+            /**
+             * The resource name for the configured Cloud KMS key.KMS key name format:  "projects/PROJECT_ID/locations/LOCATION/keyRings/KEYRING/cryptoKeys/KEY"For
+             * example:  "projects/my-project-id/locations/my-region/keyRings/key-ring-name/cryptoKeys/key-name"To enable CMEK for the Logs Router, set this field to
+             * a valid kms_key_name for which the associated service account has the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key.The
+             * Cloud KMS key used by the Log Router can be updated by changing the kms_key_name to a new valid key name. Encryption operations that are in progress
+             * will be completed with the key that was in use when they started. Decryption operations will be completed using the key that was used at the time of
+             * encryption unless access to that key has been revoked.To disable CMEK for the Logs Router, set this field to an empty string.See Enabling CMEK for Logs
+             * Router for more information.
+             */
+            kmsKeyName?: string;
+            /** Output Only. The resource name of the CMEK settings. */
+            name?: string;
+            /**
+             * Output Only. The service account that will be used by the Logs Router to access your Cloud KMS key.Before enabling CMEK for Logs Router, you must first
+             * assign the role roles/cloudkms.cryptoKeyEncrypterDecrypter to the service account that the Logs Router will use to access your Cloud KMS key. Use
+             * GetCmekSettings to obtain the service account ID.See Enabling CMEK for Logs Router for more information.
+             */
+            serviceAccountId?: string;
+        }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
@@ -489,6 +509,36 @@ declare namespace gapi.client {
              */
             type?: string;
             /**
+             * The units in which the metric value is reported. It is only applicable if the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
+             * representation of the stored metric values.Different systems may scale the values to be more easily displayed (so a value of 0.02KBy might be displayed
+             * as 20By, and a value of 3523KBy might be displayed as 3.5MBy). However, if the unit is KBy, then the value of the metric is always in thousands of
+             * bytes, no matter how it may be displayed..If you want a custom metric to record the exact number of CPU-seconds used by a job, you can create an INT64
+             * CUMULATIVE metric whose unit is s{CPU} (or equivalently 1s{CPU} or just s). If the job uses 12,005 CPU-seconds, then the value is written as
+             * 12005.Alternatively, if you want a custom metric to record data in a more granular way, you can create a DOUBLE CUMULATIVE metric whose unit is
+             * ks{CPU}, and then write the value 12.005 (which is 12005/1000), or use Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a subset
+             * of The Unified Code for Units of Measure (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT)
+             * bit bit
+             * By byte
+             * s second
+             * min minute
+             * h hour
+             * d dayPrefixes (PREFIX)
+             * k kilo (10^3)
+             * M mega (10^6)
+             * G giga (10^9)
+             * T tera (10^12)
+             * P peta (10^15)
+             * E exa (10^18)
+             * Z zetta (10^21)
+             * Y yotta (10^24)
+             * m milli (10^-3)
+             * u micro (10^-6)
+             * n nano (10^-9)
+             * p pico (10^-12)
+             * f femto (10^-15)
+             * a atto (10^-18)
+             * z zepto (10^-21)
+             * y yocto (10^-24)
              * Ki kibi (2^10)
              * Mi mebi (2^20)
              * Gi gibi (2^30)
@@ -3546,6 +3596,131 @@ declare namespace gapi.client {
             body: LogSink): Request<LogSink>;
         }
         interface OrganizationsResource {
+            /**
+             * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once
+             * configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router for more information.
+             */
+            getCmekSettings(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource for which to retrieve CMEK settings.
+                 * "projects/[PROJECT_ID]/cmekSettings"
+                 * "organizations/[ORGANIZATION_ID]/cmekSettings"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+                 * "folders/[FOLDER_ID]/cmekSettings"
+                 * Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it
+                 * applies to all projects and folders in the GCP organization.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+            }): Request<CmekSettings>;
+            /**
+             * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations.
+             * Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the
+             * associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is
+             * disabled.See Enabling CMEK for Logs Router for more information.
+             */
+            updateCmekSettings(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource name for the CMEK settings to update.
+                 * "projects/[PROJECT_ID]/cmekSettings"
+                 * "organizations/[ORGANIZATION_ID]/cmekSettings"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+                 * "folders/[FOLDER_ID]/cmekSettings"
+                 * Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it
+                 * applies to all projects and folders in the GCP organization.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update
+                 * mask. Output only fields cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
+                 */
+                updateMask?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Request body */
+                resource: CmekSettings;
+            }): Request<CmekSettings>;
+            updateCmekSettings(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource name for the CMEK settings to update.
+                 * "projects/[PROJECT_ID]/cmekSettings"
+                 * "organizations/[ORGANIZATION_ID]/cmekSettings"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+                 * "folders/[FOLDER_ID]/cmekSettings"
+                 * Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it
+                 * applies to all projects and folders in the GCP organization.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update
+                 * mask. Output only fields cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
+                 */
+                updateMask?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+            },
+            body: CmekSettings): Request<CmekSettings>;
             exclusions: ExclusionsResource;
             logs: LogsResource;
             sinks: SinksResource;
@@ -4858,6 +5033,133 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
         }
+        interface V2Resource {
+            /**
+             * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once
+             * configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router for more information.
+             */
+            getCmekSettings(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource for which to retrieve CMEK settings.
+                 * "projects/[PROJECT_ID]/cmekSettings"
+                 * "organizations/[ORGANIZATION_ID]/cmekSettings"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+                 * "folders/[FOLDER_ID]/cmekSettings"
+                 * Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it
+                 * applies to all projects and folders in the GCP organization.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+            }): Request<CmekSettings>;
+            /**
+             * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations.
+             * Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the
+             * associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is
+             * disabled.See Enabling CMEK for Logs Router for more information.
+             */
+            updateCmekSettings(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource name for the CMEK settings to update.
+                 * "projects/[PROJECT_ID]/cmekSettings"
+                 * "organizations/[ORGANIZATION_ID]/cmekSettings"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+                 * "folders/[FOLDER_ID]/cmekSettings"
+                 * Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it
+                 * applies to all projects and folders in the GCP organization.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update
+                 * mask. Output only fields cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
+                 */
+                updateMask?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Request body */
+                resource: CmekSettings;
+            }): Request<CmekSettings>;
+            updateCmekSettings(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource name for the CMEK settings to update.
+                 * "projects/[PROJECT_ID]/cmekSettings"
+                 * "organizations/[ORGANIZATION_ID]/cmekSettings"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+                 * "folders/[FOLDER_ID]/cmekSettings"
+                 * Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it
+                 * applies to all projects and folders in the GCP organization.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update
+                 * mask. Output only fields cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
+                 */
+                updateMask?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+            },
+            body: CmekSettings): Request<CmekSettings>;
+        }
 
         const billingAccounts: BillingAccountsResource;
 
@@ -4876,5 +5178,7 @@ declare namespace gapi.client {
         const projects: ProjectsResource;
 
         const sinks: SinksResource;
+
+        const v2: V2Resource;
     }
 }

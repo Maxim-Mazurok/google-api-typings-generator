@@ -86,6 +86,13 @@ declare namespace gapi.client {
             /** Retrieved reports. */
             reports?: Report[];
         }
+        interface Options {
+            /**
+             * Set to true and filter your report by `FILTER_INSERTION_ORDER` or `FILTER_LINE_ITEM` to include data for audience lists specifically targeted by those
+             * items.
+             */
+            includeOnlyTargetedUserLists?: boolean;
+        }
         interface Parameters {
             /** Filters used to match traffic data in your report. */
             filters?: FilterPair[];
@@ -95,6 +102,8 @@ declare namespace gapi.client {
             includeInviteData?: boolean;
             /** Metrics to include as columns in your report. */
             metrics?: string[];
+            /** Additional query options. */
+            options?: Options;
             /** Report type. */
             type?: string;
         }

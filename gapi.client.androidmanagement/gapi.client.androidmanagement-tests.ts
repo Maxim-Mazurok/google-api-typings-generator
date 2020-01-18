@@ -64,6 +64,69 @@ gapi.load('client', () => {
                     },
                 }            ],
         });
+        /** Gets a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.get({
+            name: "Test string",
+        });
+        /** Lists web apps for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
+            name: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
+        });
+        /** Creates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.create({
+            parent: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
+            name: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
+        });
+        /** Deletes a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.delete({
+            name: "Test string",
+        });
+        /** Creates an enrollment token for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
+            parent: "Test string",
+        }, {
+            additionalData: "Test string",
+            duration: "Test string",
+            expirationTimestamp: "Test string",
+            name: "Test string",
+            oneTimeOnly: true,
+            policyName: "Test string",
+            qrCode: "Test string",
+            user: {
+                accountIdentifier: "Test string",
+            },
+            value: "Test string",
+        });
+        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
+            name: "Test string",
+        });
         /** Gets info about an application. */
         await gapi.client.androidmanagement.enterprises.applications.get({
             languageCode: "Test string",
@@ -469,10 +532,6 @@ gapi.load('client', () => {
                 "Test string"            ],
             value: "Test string",
         });
-        /** Deletes a policy. This operation is only permitted if no devices are currently referencing the policy. */
-        await gapi.client.androidmanagement.enterprises.policies.delete({
-            name: "Test string",
-        });
         /** Gets a policy. */
         await gapi.client.androidmanagement.enterprises.policies.get({
             name: "Test string",
@@ -747,73 +806,77 @@ gapi.load('client', () => {
             wifiConfigDisabled: true,
             wifiConfigsLockdownEnabled: true,
         });
-        /** Deletes a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.delete({
+        /** Deletes a policy. This operation is only permitted if no devices are currently referencing the policy. */
+        await gapi.client.androidmanagement.enterprises.policies.delete({
             name: "Test string",
-        });
-        /** Gets a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.get({
-            name: "Test string",
-        });
-        /** Lists web apps for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Creates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.create({
-            parent: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
-            name: "Test string",
-        });
-        /** Creates an enrollment token for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
-            parent: "Test string",
-        }, {
-            additionalData: "Test string",
-            duration: "Test string",
-            expirationTimestamp: "Test string",
-            name: "Test string",
-            oneTimeOnly: true,
-            policyName: "Test string",
-            qrCode: "Test string",
-            user: {
-                accountIdentifier: "Test string",
-            },
-            value: "Test string",
         });
         /** Gets an enterprise. */
         await gapi.client.androidmanagement.enterprises.get({
             name: "Test string",
         });
+        /** Gets a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.get({
+            name: "Test string",
+        });
+        /** Lists web apps for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
+            name: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
+        });
+        /** Creates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.create({
+            parent: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
+            name: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
+        });
+        /** Deletes a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.delete({
+            name: "Test string",
+        });
+        /** Creates an enrollment token for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
+            parent: "Test string",
+        }, {
+            additionalData: "Test string",
+            duration: "Test string",
+            expirationTimestamp: "Test string",
+            name: "Test string",
+            oneTimeOnly: true,
+            policyName: "Test string",
+            qrCode: "Test string",
+            user: {
+                accountIdentifier: "Test string",
+            },
+            value: "Test string",
+        });
+        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
+            name: "Test string",
+        });
         /** Gets info about an application. */
         await gapi.client.androidmanagement.enterprises.applications.get({
             languageCode: "Test string",
@@ -1219,10 +1282,6 @@ gapi.load('client', () => {
                 "Test string"            ],
             value: "Test string",
         });
-        /** Deletes a policy. This operation is only permitted if no devices are currently referencing the policy. */
-        await gapi.client.androidmanagement.enterprises.policies.delete({
-            name: "Test string",
-        });
         /** Gets a policy. */
         await gapi.client.androidmanagement.enterprises.policies.get({
             name: "Test string",
@@ -1497,68 +1556,9 @@ gapi.load('client', () => {
             wifiConfigDisabled: true,
             wifiConfigsLockdownEnabled: true,
         });
-        /** Deletes a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.delete({
+        /** Deletes a policy. This operation is only permitted if no devices are currently referencing the policy. */
+        await gapi.client.androidmanagement.enterprises.policies.delete({
             name: "Test string",
-        });
-        /** Gets a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.get({
-            name: "Test string",
-        });
-        /** Lists web apps for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Creates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.create({
-            parent: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
-            name: "Test string",
-        });
-        /** Creates an enrollment token for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
-            parent: "Test string",
-        }, {
-            additionalData: "Test string",
-            duration: "Test string",
-            expirationTimestamp: "Test string",
-            name: "Test string",
-            oneTimeOnly: true,
-            policyName: "Test string",
-            qrCode: "Test string",
-            user: {
-                accountIdentifier: "Test string",
-            },
-            value: "Test string",
         });
         /** Updates an enterprise. */
         await gapi.client.androidmanagement.enterprises.patch({
@@ -1596,6 +1596,69 @@ gapi.load('client', () => {
                     },
                 }            ],
         });
+        /** Gets a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.get({
+            name: "Test string",
+        });
+        /** Lists web apps for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
+            name: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
+        });
+        /** Creates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.create({
+            parent: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
+            name: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
+        });
+        /** Deletes a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.delete({
+            name: "Test string",
+        });
+        /** Creates an enrollment token for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
+            parent: "Test string",
+        }, {
+            additionalData: "Test string",
+            duration: "Test string",
+            expirationTimestamp: "Test string",
+            name: "Test string",
+            oneTimeOnly: true,
+            policyName: "Test string",
+            qrCode: "Test string",
+            user: {
+                accountIdentifier: "Test string",
+            },
+            value: "Test string",
+        });
+        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
+            name: "Test string",
+        });
         /** Gets info about an application. */
         await gapi.client.androidmanagement.enterprises.applications.get({
             languageCode: "Test string",
@@ -2001,10 +2064,6 @@ gapi.load('client', () => {
                 "Test string"            ],
             value: "Test string",
         });
-        /** Deletes a policy. This operation is only permitted if no devices are currently referencing the policy. */
-        await gapi.client.androidmanagement.enterprises.policies.delete({
-            name: "Test string",
-        });
         /** Gets a policy. */
         await gapi.client.androidmanagement.enterprises.policies.get({
             name: "Test string",
@@ -2279,68 +2338,9 @@ gapi.load('client', () => {
             wifiConfigDisabled: true,
             wifiConfigsLockdownEnabled: true,
         });
-        /** Deletes a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.delete({
+        /** Deletes a policy. This operation is only permitted if no devices are currently referencing the policy. */
+        await gapi.client.androidmanagement.enterprises.policies.delete({
             name: "Test string",
-        });
-        /** Gets a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.get({
-            name: "Test string",
-        });
-        /** Lists web apps for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Creates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.create({
-            parent: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
-            name: "Test string",
-        });
-        /** Creates an enrollment token for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
-            parent: "Test string",
-        }, {
-            additionalData: "Test string",
-            duration: "Test string",
-            expirationTimestamp: "Test string",
-            name: "Test string",
-            oneTimeOnly: true,
-            policyName: "Test string",
-            qrCode: "Test string",
-            user: {
-                accountIdentifier: "Test string",
-            },
-            value: "Test string",
         });
         /** Creates an enterprise signup URL. */
         await gapi.client.androidmanagement.signupUrls.create({

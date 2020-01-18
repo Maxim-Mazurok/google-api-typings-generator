@@ -81,7 +81,7 @@ await gapi.client.datasets.delete({ projectId: "projectId", datasetId: "datasetI
 /* 
 Returns the dataset specified by datasetID.  
 */
-await gapi.client.datasets.get({ datasetId: "datasetId", projectId: "projectId",  }); 
+await gapi.client.datasets.get({ projectId: "projectId", datasetId: "datasetId",  }); 
     
 /* 
 Creates a new empty dataset.  
@@ -101,7 +101,7 @@ await gapi.client.datasets.patch({ projectId: "projectId", datasetId: "datasetId
 /* 
 Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource.  
 */
-await gapi.client.datasets.update({ projectId: "projectId", datasetId: "datasetId",  }); 
+await gapi.client.datasets.update({ datasetId: "datasetId", projectId: "projectId",  }); 
     
 /* 
 Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully. Cancelled jobs may still incur costs.  
@@ -116,7 +116,7 @@ await gapi.client.jobs.get({ jobId: "jobId", projectId: "projectId",  });
 /* 
 Retrieves the results of a query job.  
 */
-await gapi.client.jobs.getQueryResults({ projectId: "projectId", jobId: "jobId",  }); 
+await gapi.client.jobs.getQueryResults({ jobId: "jobId", projectId: "projectId",  }); 
     
 /* 
 Starts a new asynchronous job. Requires the Can View project role.  
@@ -136,18 +136,18 @@ await gapi.client.jobs.query({ projectId: "projectId",  });
 /* 
 Deletes the model specified by modelId from the dataset.  
 */
-await gapi.client.models.delete({ projectId: "projectId", datasetId: "datasetId", modelId: "modelId",  }); 
+await gapi.client.models.delete({ datasetId: "datasetId", modelId: "modelId", projectId: "projectId",  }); 
     
 /* 
 Gets the specified model resource by model ID.  
 */
-await gapi.client.models.get({ datasetId: "datasetId", modelId: "modelId", projectId: "projectId",  }); 
+await gapi.client.models.get({ projectId: "projectId", datasetId: "datasetId", modelId: "modelId",  }); 
     
 /* 
 Lists all models in the specified dataset. Requires the READER dataset
 role.  
 */
-await gapi.client.models.list({ datasetId: "datasetId", projectId: "projectId",  }); 
+await gapi.client.models.list({ projectId: "projectId", datasetId: "datasetId",  }); 
     
 /* 
 Patch specific fields in the specified model.  
@@ -189,27 +189,27 @@ await gapi.client.routines.list({ datasetId: "datasetId", projectId: "projectId"
 Updates information in an existing routine. The update method replaces the
 entire Routine resource.  
 */
-await gapi.client.routines.update({ projectId: "projectId", datasetId: "datasetId", routineId: "routineId",  }); 
+await gapi.client.routines.update({ datasetId: "datasetId", routineId: "routineId", projectId: "projectId",  }); 
     
 /* 
 Streams data into BigQuery one record at a time without needing to run a load job. Requires the WRITER dataset role.  
 */
-await gapi.client.tabledata.insertAll({ projectId: "projectId", datasetId: "datasetId", tableId: "tableId",  }); 
+await gapi.client.tabledata.insertAll({ tableId: "tableId", projectId: "projectId", datasetId: "datasetId",  }); 
     
 /* 
 Retrieves table data from a specified set of rows. Requires the READER dataset role.  
 */
-await gapi.client.tabledata.list({ projectId: "projectId", tableId: "tableId", datasetId: "datasetId",  }); 
+await gapi.client.tabledata.list({ tableId: "tableId", datasetId: "datasetId", projectId: "projectId",  }); 
     
 /* 
 Deletes the table specified by tableId from the dataset. If the table contains data, all the data will be deleted.  
 */
-await gapi.client.tables.delete({ tableId: "tableId", projectId: "projectId", datasetId: "datasetId",  }); 
+await gapi.client.tables.delete({ projectId: "projectId", datasetId: "datasetId", tableId: "tableId",  }); 
     
 /* 
 Gets the specified table resource by table ID. This method does not return the data in the table, it only returns the table resource, which describes the structure of this table.  
 */
-await gapi.client.tables.get({ tableId: "tableId", projectId: "projectId", datasetId: "datasetId",  }); 
+await gapi.client.tables.get({ projectId: "projectId", datasetId: "datasetId", tableId: "tableId",  }); 
     
 /* 
 Creates a new, empty table in the dataset.  
@@ -219,15 +219,15 @@ await gapi.client.tables.insert({ projectId: "projectId", datasetId: "datasetId"
 /* 
 Lists all tables in the specified dataset. Requires the READER dataset role.  
 */
-await gapi.client.tables.list({ projectId: "projectId", datasetId: "datasetId",  }); 
+await gapi.client.tables.list({ datasetId: "datasetId", projectId: "projectId",  }); 
     
 /* 
 Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. This method supports patch semantics.  
 */
-await gapi.client.tables.patch({ datasetId: "datasetId", tableId: "tableId", projectId: "projectId",  }); 
+await gapi.client.tables.patch({ tableId: "tableId", projectId: "projectId", datasetId: "datasetId",  }); 
     
 /* 
 Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource.  
 */
-await gapi.client.tables.update({ datasetId: "datasetId", tableId: "tableId", projectId: "projectId",  });
+await gapi.client.tables.update({ tableId: "tableId", projectId: "projectId", datasetId: "datasetId",  });
 ```

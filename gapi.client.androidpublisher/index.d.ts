@@ -214,8 +214,6 @@ declare namespace gapi.client {
             prices?: Record<string, Price>;
             /** Purchase type enum value. Unmodifiable after creation. */
             purchaseType?: string;
-            /** Definition of a season for a seasonal subscription. Can be defined only for yearly subscriptions. */
-            season?: Season;
             /** The stock-keeping-unit (SKU) of the product, unique within an app. */
             sku?: string;
             status?: string;
@@ -295,12 +293,6 @@ declare namespace gapi.client {
             end?: string;
             start?: string;
         }
-        interface MonthDay {
-            /** Day of a month, value in [1, 31] range. Valid range depends on the specified month. */
-            day?: number;
-            /** Month of a year. e.g. 1 = JAN, 2 = FEB etc. */
-            month?: number;
-        }
         interface PageInfo {
             resultPerPage?: number;
             startIndex?: number;
@@ -359,15 +351,6 @@ declare namespace gapi.client {
             /** Payload to attach to the purchase. */
             developerPayload?: string;
         }
-        interface Prorate {
-            /**
-             * Default price cannot be zero and must be less than the full subscription price. Default price is always in the developer's Checkout merchant currency.
-             * Targeted countries have their prices set automatically based on the default_price.
-             */
-            defaultPrice?: Price;
-            /** Defines the first day on which the price takes effect. */
-            start?: MonthDay;
-        }
         interface Review {
             /** The name of the user who wrote the review. */
             authorName?: string;
@@ -398,17 +381,6 @@ declare namespace gapi.client {
             modRanges?: ModRange[];
             modulus?: string;
             salt?: number;
-        }
-        interface Season {
-            /** Inclusive end date of the recurrence period. */
-            end?: MonthDay;
-            /**
-             * Optionally present list of prorations for the season. Each proration is a one-off discounted entry into a subscription. Each proration contains the
-             * first date on which the discount is available and the new pricing information.
-             */
-            prorations?: Prorate[];
-            /** Inclusive start date of the recurrence period. */
-            start?: MonthDay;
         }
         interface SubscriptionCancelSurveyResult {
             /**

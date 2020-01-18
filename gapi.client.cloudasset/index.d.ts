@@ -1,5 +1,5 @@
 // Type definitions for non-npm package Cloud Asset API v1 1.0
-// Project: https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/quickstart-cloud-asset-inventory
+// Project: https://cloud.google.com/asset-inventory/docs/quickstart
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
@@ -247,10 +247,11 @@ declare namespace gapi.client {
              * A list of types of the assets to receive updates. You must specify either
              * or both of asset_names and asset_types. Only asset updates matching
              * specified asset_names and asset_types are exported to the feed.
-             * For example:
-             * "compute.googleapis.com/Disk" See [Introduction to Cloud Asset
-             * Inventory](https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/overview)
-             * for all supported asset types.
+             * For example: `"compute.googleapis.com/Disk"`
+             *
+             * See [this
+             * topic](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+             * for a list of all supported asset types.
              */
             assetTypes?: string[];
             /**
@@ -523,6 +524,8 @@ declare namespace gapi.client {
             basic?: GoogleIdentityAccesscontextmanagerV1BasicLevel;
             /** Output only. Time the `AccessLevel` was created in UTC. */
             createTime?: string;
+            /** A `CustomLevel` written in the Common Expression Language. */
+            custom?: GoogleIdentityAccesscontextmanagerV1CustomLevel;
             /** Description of the `AccessLevel` and its use. Does not affect behavior. */
             description?: string;
             /**
@@ -612,6 +615,10 @@ declare namespace gapi.client {
              * "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
              */
             requiredAccessLevels?: string[];
+        }
+        interface GoogleIdentityAccesscontextmanagerV1CustomLevel {
+            /** Required. A Cloud CEL expression evaluating to a boolean. */
+            expr?: Expr;
         }
         interface GoogleIdentityAccesscontextmanagerV1DevicePolicy {
             /**

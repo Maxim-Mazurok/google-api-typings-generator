@@ -115,6 +115,16 @@ Lists the descriptors for monitored resource types used by Logging.
 await gapi.client.monitoredResourceDescriptors.list({  }); 
     
 /* 
+Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router for more information.  
+*/
+await gapi.client.organizations.getCmekSettings({ name: "name",  }); 
+    
+/* 
+Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router for more information.  
+*/
+await gapi.client.organizations.updateCmekSettings({ name: "name",  }); 
+    
+/* 
 Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.  
 */
 await gapi.client.sinks.create({ parent: "parent",  }); 
@@ -137,5 +147,15 @@ await gapi.client.sinks.list({ parent: "parent",  });
 /* 
 Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new writer_identity; see the unique_writer_identity field.  
 */
-await gapi.client.sinks.update({ sinkName: "sinkName",  });
+await gapi.client.sinks.update({ sinkName: "sinkName",  }); 
+    
+/* 
+Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router for more information.  
+*/
+await gapi.client.v2.getCmekSettings({ name: "name",  }); 
+    
+/* 
+Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router for more information.  
+*/
+await gapi.client.v2.updateCmekSettings({ name: "name",  });
 ```

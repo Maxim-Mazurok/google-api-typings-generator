@@ -1695,27 +1695,6 @@ gapi.load('client', () => {
                     priceMicros: "Test string",
                 }            },
             purchaseType: "Test string",
-            season: {
-                end: {
-                    day: 42,
-                    month: 42,
-                },
-                prorations: [
-                    {
-                        defaultPrice: {
-                            currency: "Test string",
-                            priceMicros: "Test string",
-                        },
-                        start: {
-                            day: 42,
-                            month: 42,
-                        },
-                    }                ],
-                start: {
-                    day: 42,
-                    month: 42,
-                },
-            },
             sku: "Test string",
             status: "Test string",
             subscriptionPeriod: "Test string",
@@ -1752,27 +1731,6 @@ gapi.load('client', () => {
                     priceMicros: "Test string",
                 }            },
             purchaseType: "Test string",
-            season: {
-                end: {
-                    day: 42,
-                    month: 42,
-                },
-                prorations: [
-                    {
-                        defaultPrice: {
-                            currency: "Test string",
-                            priceMicros: "Test string",
-                        },
-                        start: {
-                            day: 42,
-                            month: 42,
-                        },
-                    }                ],
-                start: {
-                    day: 42,
-                    month: 42,
-                },
-            },
             sku: "Test string",
             status: "Test string",
             subscriptionPeriod: "Test string",
@@ -1802,27 +1760,6 @@ gapi.load('client', () => {
                     priceMicros: "Test string",
                 }            },
             purchaseType: "Test string",
-            season: {
-                end: {
-                    day: 42,
-                    month: 42,
-                },
-                prorations: [
-                    {
-                        defaultPrice: {
-                            currency: "Test string",
-                            priceMicros: "Test string",
-                        },
-                        start: {
-                            day: 42,
-                            month: 42,
-                        },
-                    }                ],
-                start: {
-                    day: 42,
-                    month: 42,
-                },
-            },
             sku: "Test string",
             status: "Test string",
             subscriptionPeriod: "Test string",

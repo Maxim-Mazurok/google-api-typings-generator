@@ -78,6 +78,11 @@ gapi.load('client', () => {
             appsId: "Test string",
             locationsId: "Test string",
         });
+        /** Deletes the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.delete({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+        });
         /** Lists all SSL certificates the user is authorized to administer. */
         await gapi.client.appengine.apps.authorizedCertificates.list({
             appsId: "Test string",
@@ -140,11 +145,6 @@ gapi.load('client', () => {
             visibleDomainMappings: [
                 "Test string"            ],
         });
-        /** Deletes the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.delete({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-        });
         /** Deletes the specified service and all enclosed versions. */
         await gapi.client.appengine.apps.services.delete({
             appsId: "Test string",
@@ -157,19 +157,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -199,6 +186,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -209,19 +209,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -251,6 +238,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -260,19 +260,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -302,6 +289,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -529,19 +529,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -571,6 +558,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -766,19 +766,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -808,6 +795,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists all the services in the application. */
         await gapi.client.appengine.apps.services.list({
@@ -822,19 +822,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -864,6 +851,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -874,19 +874,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -916,6 +903,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -925,19 +925,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -967,6 +954,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -1194,19 +1194,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -1236,6 +1223,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -1431,19 +1431,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -1473,6 +1460,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the current configuration of the specified service. */
         await gapi.client.appengine.apps.services.get({
@@ -1486,19 +1486,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -1528,6 +1515,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -1538,19 +1538,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -1580,6 +1567,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -1589,19 +1589,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -1631,6 +1618,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -1858,19 +1858,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -1900,6 +1887,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -2095,19 +2095,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -2137,6 +2124,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Updates the configuration of the specified service. */
         await gapi.client.appengine.apps.services.patch({
@@ -2160,19 +2160,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -2202,6 +2189,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -2212,19 +2212,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -2254,6 +2241,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -2263,19 +2263,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -2305,6 +2292,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -2532,19 +2532,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -2574,6 +2561,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -2769,19 +2769,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -2811,6 +2798,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists all domains the user is authorized to administer. */
         await gapi.client.appengine.apps.authorizedDomains.list({
@@ -2916,6 +2916,11 @@ gapi.load('client', () => {
             appsId: "Test string",
             locationsId: "Test string",
         });
+        /** Deletes the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.delete({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+        });
         /** Lists all SSL certificates the user is authorized to administer. */
         await gapi.client.appengine.apps.authorizedCertificates.list({
             appsId: "Test string",
@@ -2978,11 +2983,6 @@ gapi.load('client', () => {
             visibleDomainMappings: [
                 "Test string"            ],
         });
-        /** Deletes the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.delete({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-        });
         /** Deletes the specified service and all enclosed versions. */
         await gapi.client.appengine.apps.services.delete({
             appsId: "Test string",
@@ -2995,19 +2995,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -3037,6 +3024,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -3047,19 +3047,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -3089,6 +3076,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -3098,19 +3098,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -3140,6 +3127,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -3367,19 +3367,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -3409,6 +3396,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -3604,19 +3604,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -3646,6 +3633,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists all the services in the application. */
         await gapi.client.appengine.apps.services.list({
@@ -3660,19 +3660,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -3702,6 +3689,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -3712,19 +3712,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -3754,6 +3741,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -3763,19 +3763,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -3805,6 +3792,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -4032,19 +4032,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -4074,6 +4061,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -4269,19 +4269,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -4311,6 +4298,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the current configuration of the specified service. */
         await gapi.client.appengine.apps.services.get({
@@ -4324,19 +4324,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -4366,6 +4353,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -4376,19 +4376,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -4418,6 +4405,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -4427,19 +4427,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -4469,6 +4456,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -4696,19 +4696,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -4738,6 +4725,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -4933,19 +4933,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -4975,6 +4962,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Updates the configuration of the specified service. */
         await gapi.client.appengine.apps.services.patch({
@@ -4998,19 +4998,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -5040,6 +5027,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -5050,19 +5050,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -5092,6 +5079,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -5101,19 +5101,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -5143,6 +5130,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -5370,19 +5370,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -5412,6 +5399,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -5607,19 +5607,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -5649,6 +5636,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists all domains the user is authorized to administer. */
         await gapi.client.appengine.apps.authorizedDomains.list({
@@ -5786,6 +5786,11 @@ gapi.load('client', () => {
             appsId: "Test string",
             locationsId: "Test string",
         });
+        /** Deletes the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.delete({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+        });
         /** Lists all SSL certificates the user is authorized to administer. */
         await gapi.client.appengine.apps.authorizedCertificates.list({
             appsId: "Test string",
@@ -5848,11 +5853,6 @@ gapi.load('client', () => {
             visibleDomainMappings: [
                 "Test string"            ],
         });
-        /** Deletes the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.delete({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-        });
         /** Deletes the specified service and all enclosed versions. */
         await gapi.client.appengine.apps.services.delete({
             appsId: "Test string",
@@ -5865,19 +5865,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -5907,6 +5894,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -5917,19 +5917,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -5959,6 +5946,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -5968,19 +5968,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -6010,6 +5997,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -6237,19 +6237,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -6279,6 +6266,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -6474,19 +6474,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -6516,6 +6503,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists all the services in the application. */
         await gapi.client.appengine.apps.services.list({
@@ -6530,19 +6530,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -6572,6 +6559,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -6582,19 +6582,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -6624,6 +6611,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -6633,19 +6633,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -6675,6 +6662,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -6902,19 +6902,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -6944,6 +6931,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -7139,19 +7139,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -7181,6 +7168,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the current configuration of the specified service. */
         await gapi.client.appengine.apps.services.get({
@@ -7194,19 +7194,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -7236,6 +7223,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -7246,19 +7246,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -7288,6 +7275,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -7297,19 +7297,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -7339,6 +7326,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -7566,19 +7566,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -7608,6 +7595,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -7803,19 +7803,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -7845,6 +7832,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Updates the configuration of the specified service. */
         await gapi.client.appengine.apps.services.patch({
@@ -7868,19 +7868,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -7910,6 +7897,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -7920,19 +7920,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -7962,6 +7949,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -7971,19 +7971,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -8013,6 +8000,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -8240,19 +8240,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -8282,6 +8269,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -8477,19 +8477,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -8519,6 +8506,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists all domains the user is authorized to administer. */
         await gapi.client.appengine.apps.authorizedDomains.list({
@@ -8631,6 +8631,11 @@ gapi.load('client', () => {
             appsId: "Test string",
             locationsId: "Test string",
         });
+        /** Deletes the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.delete({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+        });
         /** Lists all SSL certificates the user is authorized to administer. */
         await gapi.client.appengine.apps.authorizedCertificates.list({
             appsId: "Test string",
@@ -8693,11 +8698,6 @@ gapi.load('client', () => {
             visibleDomainMappings: [
                 "Test string"            ],
         });
-        /** Deletes the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.delete({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-        });
         /** Deletes the specified service and all enclosed versions. */
         await gapi.client.appengine.apps.services.delete({
             appsId: "Test string",
@@ -8710,19 +8710,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -8752,6 +8739,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -8762,19 +8762,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -8804,6 +8791,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -8813,19 +8813,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -8855,6 +8842,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -9082,19 +9082,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -9124,6 +9111,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -9319,19 +9319,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -9361,6 +9348,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists all the services in the application. */
         await gapi.client.appengine.apps.services.list({
@@ -9375,19 +9375,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -9417,6 +9404,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -9427,19 +9427,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -9469,6 +9456,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -9478,19 +9478,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -9520,6 +9507,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -9747,19 +9747,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -9789,6 +9776,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -9984,19 +9984,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -10026,6 +10013,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the current configuration of the specified service. */
         await gapi.client.appengine.apps.services.get({
@@ -10039,19 +10039,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -10081,6 +10068,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -10091,19 +10091,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -10133,6 +10120,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -10142,19 +10142,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -10184,6 +10171,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -10411,19 +10411,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -10453,6 +10440,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -10648,19 +10648,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -10690,6 +10677,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Updates the configuration of the specified service. */
         await gapi.client.appengine.apps.services.patch({
@@ -10713,19 +10713,6 @@ gapi.load('client', () => {
             versionsId: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -10755,6 +10742,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists the versions of a service. */
         await gapi.client.appengine.apps.services.versions.list({
@@ -10765,19 +10765,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -10807,6 +10794,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
         await gapi.client.appengine.apps.services.versions.get({
@@ -10816,19 +10816,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -10858,6 +10845,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /**
          * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
@@ -11085,19 +11085,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -11127,6 +11114,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -11322,19 +11322,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
          * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
          * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
          * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
@@ -11364,6 +11351,19 @@ gapi.load('client', () => {
             instancesId: "Test string",
             servicesId: "Test string",
             versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Lists all domains the user is authorized to administer. */
         await gapi.client.appengine.apps.authorizedDomains.list({

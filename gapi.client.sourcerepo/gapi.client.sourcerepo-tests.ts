@@ -37,6 +37,10 @@ gapi.load('client', () => {
         await gapi.client.sourcerepo.projects.getConfig({
             name: "Test string",
         });
+        /** Deletes a repo. */
+        await gapi.client.sourcerepo.projects.repos.delete({
+            name: "Test string",
+        });
         /**
          * Returns all repos belonging to a project. The sizes of the repos are
          * not set by ListRepos.  To get the size of a repo, use GetRepo.
@@ -123,6 +127,10 @@ gapi.load('client', () => {
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
+        /** Returns information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.get({
+            name: "Test string",
+        });
         /** Updates information about a repo. */
         await gapi.client.sourcerepo.projects.repos.patch({
             name: "Test string",
@@ -145,10 +153,6 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
-        /** Returns information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.get({
-            name: "Test string",
-        });
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
@@ -159,10 +163,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /** Deletes a repo. */
-        await gapi.client.sourcerepo.projects.repos.delete({
-            name: "Test string",
         });
         /** Updates the Cloud Source Repositories configuration of the project. */
         await gapi.client.sourcerepo.projects.updateConfig({
@@ -180,6 +180,10 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
+        /** Deletes a repo. */
+        await gapi.client.sourcerepo.projects.repos.delete({
+            name: "Test string",
+        });
         /**
          * Returns all repos belonging to a project. The sizes of the repos are
          * not set by ListRepos.  To get the size of a repo, use GetRepo.
@@ -266,6 +270,10 @@ gapi.load('client', () => {
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
+        /** Returns information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.get({
+            name: "Test string",
+        });
         /** Updates information about a repo. */
         await gapi.client.sourcerepo.projects.repos.patch({
             name: "Test string",
@@ -288,10 +296,6 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
-        /** Returns information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.get({
-            name: "Test string",
-        });
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
@@ -302,10 +306,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /** Deletes a repo. */
-        await gapi.client.sourcerepo.projects.repos.delete({
-            name: "Test string",
         });
     }
 });

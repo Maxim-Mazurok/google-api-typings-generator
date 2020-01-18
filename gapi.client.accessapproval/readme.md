@@ -1,4 +1,4 @@
-# TypeScript typings for Access Approval API v1beta1
+# TypeScript typings for Access Approval API v1
 An API for controlling access to data by Google personnel.
 For detailed description please check [documentation](https://cloud.google.com/access-approval/docs).
 
@@ -6,7 +6,7 @@ For detailed description please check [documentation](https://cloud.google.com/a
 
 Install typings for Access Approval API:
 ```
-npm install @types/gapi.client.accessapproval@v1beta1 --save-dev
+npm install @types/gapi.client.accessapproval@v1 --save-dev
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ gapi.load("client", () => {
 
 Then load api client wrapper:
 ```typescript
-gapi.client.load('accessapproval', 'v1beta1', () => {
+gapi.client.load('accessapproval', 'v1', () => {
     // now we can use gapi.client.accessapproval
     // ... 
 });

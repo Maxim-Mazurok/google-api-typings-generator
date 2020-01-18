@@ -4107,6 +4107,16 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
+         * Copies a single sheet from a spreadsheet to another spreadsheet.
+         * Returns the properties of the newly created sheet.
+         */
+        await gapi.client.sheets.spreadsheets.sheets.copyTo({
+            sheetId: 42,
+            spreadsheetId: "Test string",
+        }, {
+            destinationSpreadsheetId: "Test string",
+        });
+        /**
          * Returns all developer metadata matching the specified DataFilter.
          * If the provided DataFilter represents a DeveloperMetadataLookup object,
          * this will return all DeveloperMetadata entries selected by it. If the
@@ -4406,16 +4416,6 @@ gapi.load('client', () => {
         }, {
             ranges: [
                 "Test string"            ],
-        });
-        /**
-         * Copies a single sheet from a spreadsheet to another spreadsheet.
-         * Returns the properties of the newly created sheet.
-         */
-        await gapi.client.sheets.spreadsheets.sheets.copyTo({
-            sheetId: 42,
-            spreadsheetId: "Test string",
-        }, {
-            destinationSpreadsheetId: "Test string",
         });
         /** Creates a spreadsheet, returning the newly created spreadsheet. */
         await gapi.client.sheets.spreadsheets.create({
@@ -6169,6 +6169,16 @@ gapi.load('client', () => {
             spreadsheetUrl: "Test string",
         });
         /**
+         * Copies a single sheet from a spreadsheet to another spreadsheet.
+         * Returns the properties of the newly created sheet.
+         */
+        await gapi.client.sheets.spreadsheets.sheets.copyTo({
+            sheetId: 42,
+            spreadsheetId: "Test string",
+        }, {
+            destinationSpreadsheetId: "Test string",
+        });
+        /**
          * Returns all developer metadata matching the specified DataFilter.
          * If the provided DataFilter represents a DeveloperMetadataLookup object,
          * this will return all DeveloperMetadata entries selected by it. If the
@@ -6468,16 +6478,6 @@ gapi.load('client', () => {
         }, {
             ranges: [
                 "Test string"            ],
-        });
-        /**
-         * Copies a single sheet from a spreadsheet to another spreadsheet.
-         * Returns the properties of the newly created sheet.
-         */
-        await gapi.client.sheets.spreadsheets.sheets.copyTo({
-            sheetId: 42,
-            spreadsheetId: "Test string",
-        }, {
-            destinationSpreadsheetId: "Test string",
         });
         /**
          * Returns the spreadsheet at the given ID.
@@ -6508,6 +6508,16 @@ gapi.load('client', () => {
             spreadsheetId: "Test string",
         });
         /**
+         * Copies a single sheet from a spreadsheet to another spreadsheet.
+         * Returns the properties of the newly created sheet.
+         */
+        await gapi.client.sheets.spreadsheets.sheets.copyTo({
+            sheetId: 42,
+            spreadsheetId: "Test string",
+        }, {
+            destinationSpreadsheetId: "Test string",
+        });
+        /**
          * Returns all developer metadata matching the specified DataFilter.
          * If the provided DataFilter represents a DeveloperMetadataLookup object,
          * this will return all DeveloperMetadata entries selected by it. If the
@@ -6807,16 +6817,6 @@ gapi.load('client', () => {
         }, {
             ranges: [
                 "Test string"            ],
-        });
-        /**
-         * Copies a single sheet from a spreadsheet to another spreadsheet.
-         * Returns the properties of the newly created sheet.
-         */
-        await gapi.client.sheets.spreadsheets.sheets.copyTo({
-            sheetId: 42,
-            spreadsheetId: "Test string",
-        }, {
-            destinationSpreadsheetId: "Test string",
         });
         /**
          * Returns the spreadsheet at the given ID.
@@ -6878,6 +6878,16 @@ gapi.load('client', () => {
             includeGridData: true,
         });
         /**
+         * Copies a single sheet from a spreadsheet to another spreadsheet.
+         * Returns the properties of the newly created sheet.
+         */
+        await gapi.client.sheets.spreadsheets.sheets.copyTo({
+            sheetId: 42,
+            spreadsheetId: "Test string",
+        }, {
+            destinationSpreadsheetId: "Test string",
+        });
+        /**
          * Returns all developer metadata matching the specified DataFilter.
          * If the provided DataFilter represents a DeveloperMetadataLookup object,
          * this will return all DeveloperMetadata entries selected by it. If the
@@ -7177,16 +7187,6 @@ gapi.load('client', () => {
         }, {
             ranges: [
                 "Test string"            ],
-        });
-        /**
-         * Copies a single sheet from a spreadsheet to another spreadsheet.
-         * Returns the properties of the newly created sheet.
-         */
-        await gapi.client.sheets.spreadsheets.sheets.copyTo({
-            sheetId: 42,
-            spreadsheetId: "Test string",
-        }, {
-            destinationSpreadsheetId: "Test string",
         });
     }
 });

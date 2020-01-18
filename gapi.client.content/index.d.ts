@@ -260,6 +260,8 @@ declare namespace gapi.client {
             linkType?: string;
             /** The ID of the linked account. */
             linkedAccountId?: string;
+            /** List of provided services. */
+            services?: string[];
         }
         interface AccountsCustomBatchResponse {
             /** The result of the execution of the batch requests. */
@@ -284,6 +286,8 @@ declare namespace gapi.client {
             linkType?: string;
             /** The ID of the linked account. */
             linkedAccountId?: string;
+            /** List of provided services. */
+            services?: string[];
         }
         interface AccountsLinkResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "content#accountsLinkResponse". */
@@ -1345,6 +1349,7 @@ declare namespace gapi.client {
              * - "boxtal" (Boxtal)
              * - "geodis" (GEODIS)
              * - "tnt" (TNT)
+             * - "db schenker" (DB Schenker)
              */
             carrier?: string;
             /** Date on which the shipment has been created, in ISO 8601 format. */
@@ -1729,6 +1734,20 @@ declare namespace gapi.client {
             executionStatus?: string;
             /** Identifies what kind of resource this is. Value: the fixed string "content#ordersUpdateShipmentResponse". */
             kind?: string;
+        }
+        interface PickupCarrierService {
+            /** The name of the pickup carrier (e.g., "UPS"). Required. */
+            carrierName?: string;
+            /** The name of the pickup service (e.g., "Access point"). Required. */
+            serviceName?: string;
+        }
+        interface PickupServicesPickupService {
+            /** The name of the carrier (e.g., "UPS"). Always present. */
+            carrierName?: string;
+            /** The CLDR country code of the carrier (e.g., "US"). Always present. */
+            country?: string;
+            /** The name of the pickup service (e.g., "Access point"). Always present. */
+            serviceName?: string;
         }
         interface PosCustomBatchRequest {
             /** The request entries to be processed in the batch. */
@@ -2566,10 +2585,17 @@ declare namespace gapi.client {
             /** Free-form name of the service. Must be unique within target account. Required. */
             name?: string;
             /**
+             * The carrier-service pair delivering items to collection points. The list of supported pickup services can be retrieved via the
+             * getSupportedPickupServices method. Required if and only if the service delivery type is pickup.
+             */
+            pickupService?: PickupCarrierService;
+            /**
              * Shipping rate group definitions. Only the last one is allowed to have an empty applicableShippingLabels, which means "everything else". The other
              * applicableShippingLabels must not overlap.
              */
             rateGroups?: RateGroup[];
+            /** Type of locations this service ships orders to. */
+            shipmentType?: string;
         }
         interface ShipmentInvoice {
             /** [required] Invoice summary. */
@@ -2649,6 +2675,12 @@ declare namespace gapi.client {
             holidays?: HolidaysHoliday[];
             /** Identifies what kind of resource this is. Value: the fixed string "content#shippingsettingsGetSupportedHolidaysResponse". */
             kind?: string;
+        }
+        interface ShippingsettingsGetSupportedPickupServicesResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#shippingsettingsGetSupportedPickupServicesResponse". */
+            kind?: string;
+            /** A list of supported pickup services. May be empty. */
+            pickupServices?: PickupServicesPickupService[];
         }
         interface ShippingsettingsListResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "content#shippingsettingsListResponse". */
@@ -5810,6 +5842,25 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<ShippingsettingsGetSupportedHolidaysResponse>;
+            /** Retrieves supported pickup services for an account. */
+            getsupportedpickupservices(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The ID of the account for which to retrieve the supported pickup services. */
+                merchantId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<ShippingsettingsGetSupportedPickupServicesResponse>;
             /** Lists the shipping settings of the sub-accounts in your Merchant Center account. */
             list(request: {
                 /** Data format for the response. */

@@ -72,6 +72,9 @@ gapi.load('client', () => {
                 includeInviteData: true,
                 metrics: [
                     "Test string"                ],
+                options: {
+                    includeOnlyTargetedUserLists: true,
+                },
                 type: "Test string",
             },
             queryId: "Test string",

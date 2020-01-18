@@ -189,6 +189,14 @@ declare namespace gapi.client {
             /** Position within the inner source. */
             position?: Position;
         }
+        interface ContainerSpec {
+            /** Name of the docker container image. E.g., gcr.io/project/some-image */
+            image?: string;
+            /** Metadata describing a template including description and validation rules. */
+            metadata?: TemplateMetadata;
+            /** Required. SDK info of the Flex Template. */
+            sdkInfo?: SDKInfo;
+        }
         interface CounterMetadata {
             /** Human-readable description of the counter semantics. */
             description?: string;
@@ -929,6 +937,35 @@ declare namespace gapi.client {
             end?: string;
             /** The start (inclusive) of the key range. */
             start?: string;
+        }
+        interface LaunchFlexTemplateParameter {
+            /** Spec about the container image to launch. */
+            containerSpec?: ContainerSpec;
+            /** Gcs path to a file with json serialized ContainerSpec as content. */
+            containerSpecGcsPath?: string;
+            /** Required. The job name to use for the created job. */
+            jobName?: string;
+            /**
+             * The parameters for FlexTemplate.
+             * Ex. {"num_workers":"5"}
+             */
+            parameters?: Record<string, string>;
+        }
+        interface LaunchFlexTemplateRequest {
+            /** Required. Parameter to launch a job form Flex Template. */
+            launchParameter?: LaunchFlexTemplateParameter;
+            /**
+             * If true, the request is validated but not actually executed.
+             * Defaults to false.
+             */
+            validateOnly?: boolean;
+        }
+        interface LaunchFlexTemplateResponse {
+            /**
+             * The job that was launched, if the request was not a dry run and
+             * the job was successfully launched.
+             */
+            job?: Job;
         }
         interface LaunchTemplateParameters {
             /** The runtime environment for the job. */
@@ -3113,6 +3150,76 @@ declare namespace gapi.client {
             messages: MessagesResource;
             workItems: WorkItemsResource;
         }
+        interface FlexTemplatesResource {
+            /** Launch a job with a FlexTemplate. */
+            launch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The [regional endpoint]
+                 * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+                 * which to direct the request. E.g., us-central1, us-west1.
+                 */
+                location: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Required. The ID of the Cloud Platform project that the job belongs to. */
+                projectId: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Request body */
+                resource: LaunchFlexTemplateRequest;
+            }): Request<LaunchFlexTemplateResponse>;
+            launch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The [regional endpoint]
+                 * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+                 * which to direct the request. E.g., us-central1, us-west1.
+                 */
+                location: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Required. The ID of the Cloud Platform project that the job belongs to. */
+                projectId: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+            },
+            body: LaunchFlexTemplateRequest): Request<LaunchFlexTemplateResponse>;
+        }
         interface DebugResource {
             /** Get encoded debug configuration for component. Not cacheable. */
             getConfig(request: {
@@ -4125,6 +4232,7 @@ declare namespace gapi.client {
                 upload_protocol?: string;
             },
             body: SendWorkerMessagesRequest): Request<SendWorkerMessagesResponse>;
+            flexTemplates: FlexTemplatesResource;
             jobs: JobsResource;
             sql: SqlResource;
             templates: TemplatesResource;

@@ -63,6 +63,33 @@ declare namespace gapi.client {
             /** ID of the actual config used to process the request. */
             serviceConfigId?: string;
         }
+        interface AttributeValue {
+            /** A Boolean value represented by `true` or `false`. */
+            boolValue?: boolean;
+            /** A 64-bit signed integer. */
+            intValue?: string;
+            /** A string up to 256 bytes long. */
+            stringValue?: TruncatableString;
+        }
+        interface Attributes {
+            /**
+             * The set of attributes. Each attribute's key can be up to 128 bytes
+             * long. The value can be a string up to 256 bytes, a signed 64-bit integer,
+             * or the Boolean values `true` and `false`. For example:
+             *
+             * "/instance_id": "my-instance"
+             * "/http/user_agent": ""
+             * "/http/request_bytes": 300
+             * "abc.com/myattribute": true
+             */
+            attributeMap?: Record<string, AttributeValue>;
+            /**
+             * The number of attributes that were discarded. Attributes can be discarded
+             * because their keys are too long or because there are too many attributes.
+             * If this value is 0 then all attributes are valid.
+             */
+            droppedAttributesCount?: number;
+        }
         interface AuditLog {
             /** Authentication information. */
             authenticationInfo?: AuthenticationInfo;
@@ -823,6 +850,12 @@ declare namespace gapi.client {
             /** Required. Start time of the operation. */
             startTime?: string;
             /**
+             * Unimplemented. A list of Cloud Trace spans. The span names shall contain
+             * the id of the destination project which can be either the produce or the
+             * consumer project.
+             */
+            traceSpans?: TraceSpan[];
+            /**
              * User defined labels for the resource that this operation is associated
              * with. Only a combination of 1000 user labels per consumer project are
              * allowed.
@@ -1249,6 +1282,89 @@ declare namespace gapi.client {
         interface ThirdPartyPrincipal {
             /** Metadata about third party identity. */
             thirdPartyClaims?: Record<string, any>;
+        }
+        interface TraceSpan {
+            /**
+             * A set of attributes on the span. You can have up to 32 attributes per
+             * span.
+             */
+            attributes?: Attributes;
+            /**
+             * An optional number of child spans that were generated while this span
+             * was active. If set, allows implementation to detect missing child spans.
+             */
+            childSpanCount?: number;
+            /**
+             * A description of the span's operation (up to 128 bytes).
+             * Stackdriver Trace displays the description in the
+             * Google Cloud Platform Console.
+             * For example, the display name can be a qualified method name or a file name
+             * and a line number where the operation is called. A best practice is to use
+             * the same display name within an application and at the same call point.
+             * This makes it easier to correlate spans in different traces.
+             */
+            displayName?: TruncatableString;
+            /**
+             * The end time of the span. On the client side, this is the time kept by
+             * the local machine where the span execution ends. On the server side, this
+             * is the time when the server application handler stops running.
+             */
+            endTime?: string;
+            /**
+             * The resource name of the span in the following format:
+             *
+             * projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier for a trace within a project;
+             * it is a 32-character hexadecimal encoding of a 16-byte array.
+             *
+             * [SPAN_ID] is a unique identifier for a span within a trace; it
+             * is a 16-character hexadecimal encoding of an 8-byte array.
+             */
+            name?: string;
+            /**
+             * The [SPAN_ID] of this span's parent span. If this is a root span,
+             * then this field must be empty.
+             */
+            parentSpanId?: string;
+            /**
+             * (Optional) Set this parameter to indicate whether this span is in
+             * the same process as its parent. If you do not set this parameter,
+             * Stackdriver Trace is unable to take advantage of this helpful
+             * information.
+             */
+            sameProcessAsParentSpan?: boolean;
+            /** The [SPAN_ID] portion of the span's resource name. */
+            spanId?: string;
+            /**
+             * Distinguishes between spans generated in a particular context. For example,
+             * two spans with the same name may be distinguished using `CLIENT` (caller)
+             * and `SERVER` (callee) to identify an RPC call.
+             */
+            spanKind?: string;
+            /**
+             * The start time of the span. On the client side, this is the time kept by
+             * the local machine where the span execution starts. On the server side, this
+             * is the time when the server's application handler starts running.
+             */
+            startTime?: string;
+            /** An optional final status for this span. */
+            status?: Status;
+        }
+        interface TruncatableString {
+            /**
+             * The number of bytes removed from the original string. If this
+             * value is 0, then the string was not shortened.
+             */
+            truncatedByteCount?: number;
+            /**
+             * The shortened string. For example, if the original string is 500
+             * bytes long and the limit of the string is 128 bytes, then
+             * `value` contains the first 128 bytes of the 500-byte string.
+             *
+             * Truncation always happens on a UTF8 character boundary. If there
+             * are multi-byte characters in the string, then the length of the
+             * shortened string might be less than the size limit.
+             */
+            value?: string;
         }
         interface ServicesResource {
             /**

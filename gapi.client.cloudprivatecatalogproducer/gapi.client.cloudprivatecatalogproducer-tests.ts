@@ -37,6 +37,397 @@ gapi.load('client', () => {
             parent: "Test string",
             updateTime: "Test string",
         });
+        /** Hard deletes a Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists Product resources that the producer has access to, within the
+         * scope of the parent catalog.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Product instance under a given Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
+            parent: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Updates a specific Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Copies a Product under another Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
+            name: "Test string",
+        }, {
+            destinationProductName: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Returns the requested Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
         /** Deletes the given Association. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
             name: "Test string",
@@ -60,397 +451,6 @@ gapi.load('client', () => {
                 name: "Test string",
                 resource: "Test string",
             },
-        });
-        /**
-         * Lists Product resources that the producer has access to, within the
-         * scope of the parent catalog.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Creates a Product instance under a given Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
-            parent: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Updates a specific Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Copies a Product under another Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
-            name: "Test string",
-        }, {
-            destinationProductName: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Returns the requested Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Hard deletes a Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
         });
         /**
          * Soft deletes an existing Catalog and all resources under it.
@@ -463,6 +463,397 @@ gapi.load('client', () => {
             force: true,
             name: "Test string",
         });
+        /** Hard deletes a Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists Product resources that the producer has access to, within the
+         * scope of the parent catalog.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Product instance under a given Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
+            parent: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Updates a specific Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Copies a Product under another Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
+            name: "Test string",
+        }, {
+            destinationProductName: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Returns the requested Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
         /** Deletes the given Association. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
             name: "Test string",
@@ -486,402 +877,402 @@ gapi.load('client', () => {
                 name: "Test string",
                 resource: "Test string",
             },
-        });
-        /**
-         * Lists Product resources that the producer has access to, within the
-         * scope of the parent catalog.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Creates a Product instance under a given Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
-            parent: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Updates a specific Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Copies a Product under another Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
-            name: "Test string",
-        }, {
-            destinationProductName: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Returns the requested Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Hard deletes a Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
         });
         /** Returns the requested Catalog resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.get({
             name: "Test string",
         });
+        /** Hard deletes a Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists Product resources that the producer has access to, within the
+         * scope of the parent catalog.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Product instance under a given Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
+            parent: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Updates a specific Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Copies a Product under another Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
+            name: "Test string",
+        }, {
+            destinationProductName: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Returns the requested Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
         /** Deletes the given Association. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
             name: "Test string",
@@ -905,403 +1296,403 @@ gapi.load('client', () => {
                 name: "Test string",
                 resource: "Test string",
             },
-        });
-        /**
-         * Lists Product resources that the producer has access to, within the
-         * scope of the parent catalog.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Creates a Product instance under a given Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
-            parent: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Updates a specific Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Copies a Product under another Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
-            name: "Test string",
-        }, {
-            destinationProductName: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Returns the requested Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Hard deletes a Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
         });
         /** Gets IAM policy for the specified Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.getIamPolicy({
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
+        /** Hard deletes a Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists Product resources that the producer has access to, within the
+         * scope of the parent catalog.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Product instance under a given Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
+            parent: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Updates a specific Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Copies a Product under another Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
+            name: "Test string",
+        }, {
+            destinationProductName: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Returns the requested Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
         /** Deletes the given Association. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
             name: "Test string",
@@ -1325,397 +1716,6 @@ gapi.load('client', () => {
                 name: "Test string",
                 resource: "Test string",
             },
-        });
-        /**
-         * Lists Product resources that the producer has access to, within the
-         * scope of the parent catalog.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Creates a Product instance under a given Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
-            parent: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Updates a specific Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Copies a Product under another Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
-            name: "Test string",
-        }, {
-            destinationProductName: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Returns the requested Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Hard deletes a Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
         });
         /**
          * Lists Catalog resources that the producer has access to, within the
@@ -1726,6 +1726,397 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
+        /** Hard deletes a Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists Product resources that the producer has access to, within the
+         * scope of the parent catalog.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Product instance under a given Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
+            parent: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Updates a specific Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Copies a Product under another Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
+            name: "Test string",
+        }, {
+            destinationProductName: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Returns the requested Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
         /** Deletes the given Association. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
             name: "Test string",
@@ -1749,397 +2140,6 @@ gapi.load('client', () => {
                 name: "Test string",
                 resource: "Test string",
             },
-        });
-        /**
-         * Lists Product resources that the producer has access to, within the
-         * scope of the parent catalog.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Creates a Product instance under a given Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
-            parent: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Updates a specific Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Copies a Product under another Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
-            name: "Test string",
-        }, {
-            destinationProductName: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Returns the requested Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Hard deletes a Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
         });
         /** Updates a specific Catalog resource. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.patch({
@@ -2153,6 +2153,397 @@ gapi.load('client', () => {
             parent: "Test string",
             updateTime: "Test string",
         });
+        /** Hard deletes a Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists Product resources that the producer has access to, within the
+         * scope of the parent catalog.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Product instance under a given Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
+            parent: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Updates a specific Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Copies a Product under another Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
+            name: "Test string",
+        }, {
+            destinationProductName: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Returns the requested Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
         /** Deletes the given Association. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
             name: "Test string",
@@ -2176,397 +2567,6 @@ gapi.load('client', () => {
                 name: "Test string",
                 resource: "Test string",
             },
-        });
-        /**
-         * Lists Product resources that the producer has access to, within the
-         * scope of the parent catalog.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Creates a Product instance under a given Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
-            parent: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Updates a specific Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Copies a Product under another Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
-            name: "Test string",
-        }, {
-            destinationProductName: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Returns the requested Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Hard deletes a Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
         });
         /** Sets the IAM policy for the specified Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.setIamPolicy({
@@ -2600,6 +2600,397 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
+        /** Hard deletes a Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists Product resources that the producer has access to, within the
+         * scope of the parent catalog.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Product instance under a given Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
+            parent: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Updates a specific Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Copies a Product under another Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
+            name: "Test string",
+        }, {
+            destinationProductName: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Returns the requested Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
         /** Deletes the given Association. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
             name: "Test string",
@@ -2623,397 +3014,6 @@ gapi.load('client', () => {
                 name: "Test string",
                 resource: "Test string",
             },
-        });
-        /**
-         * Lists Product resources that the producer has access to, within the
-         * scope of the parent catalog.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Creates a Product instance under a given Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
-            parent: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Updates a specific Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Copies a Product under another Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
-            name: "Test string",
-        }, {
-            destinationProductName: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Returns the requested Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Hard deletes a Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
         });
         /** Tests the IAM permissions for the specified Catalog. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.testIamPermissions({
@@ -3022,6 +3022,397 @@ gapi.load('client', () => {
             permissions: [
                 "Test string"            ],
         });
+        /** Hard deletes a Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists Product resources that the producer has access to, within the
+         * scope of the parent catalog.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Product instance under a given Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
+            parent: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Updates a specific Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Copies a Product under another Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
+            name: "Test string",
+        }, {
+            destinationProductName: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Returns the requested Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
         /** Deletes the given Association. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
             name: "Test string",
@@ -3045,403 +3436,403 @@ gapi.load('client', () => {
                 name: "Test string",
                 resource: "Test string",
             },
-        });
-        /**
-         * Lists Product resources that the producer has access to, within the
-         * scope of the parent catalog.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Creates a Product instance under a given Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
-            parent: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Updates a specific Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Copies a Product under another Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
-            name: "Test string",
-        }, {
-            destinationProductName: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Returns the requested Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Hard deletes a Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
         });
         /** Undeletes a deleted Catalog and all resources under it. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.undelete({
             name: "Test string",
         }, {
         });
+        /** Hard deletes a Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists Product resources that the producer has access to, within the
+         * scope of the parent catalog.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Product instance under a given Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
+            parent: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Updates a specific Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetType: "Test string",
+            createTime: "Test string",
+            displayMetadata: {
+                A: 42            },
+            iconUri: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Copies a Product under another Catalog. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
+            name: "Test string",
+        }, {
+            destinationProductName: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Returns the requested Product resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
+            name: "Test string",
+        });
+        /**
+         * Creates an Icon instance under a given Product.
+         * If Product only has a default icon, a new Icon
+         * instance is created and associated with the given Product.
+         * If Product already has a non-default icon, the action creates
+         * a new Icon instance, associates the newly created
+         * Icon with the given Product and deletes the old icon.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
+            product: "Test string",
+        }, {
+            icon: "Test string",
+        });
+        /** Hard deletes a Version. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists Version resources that the producer has access to, within the
+         * scope of the parent Product.
+         */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns the requested Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
+            name: "Test string",
+        });
+        /** Updates a specific Version resource. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
+        /** Creates a Version instance under a given Product. */
+        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
+            parent: "Test string",
+        }, {
+            asset: {
+                A: 42            },
+            createTime: "Test string",
+            description: "Test string",
+            name: "Test string",
+            originalAsset: {
+                A: 42            },
+            updateTime: "Test string",
+        });
         /** Deletes the given Association. */
         await gapi.client.cloudprivatecatalogproducer.catalogs.associations.delete({
             name: "Test string",
@@ -3465,397 +3856,6 @@ gapi.load('client', () => {
                 name: "Test string",
                 resource: "Test string",
             },
-        });
-        /**
-         * Lists Product resources that the producer has access to, within the
-         * scope of the parent catalog.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Creates a Product instance under a given Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.create({
-            parent: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Updates a specific Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetType: "Test string",
-            createTime: "Test string",
-            displayMetadata: {
-                A: 42            },
-            iconUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Copies a Product under another Catalog. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.copy({
-            name: "Test string",
-        }, {
-            destinationProductName: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Returns the requested Product resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.get({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
-        });
-        /** Hard deletes a Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.delete({
-            name: "Test string",
-        });
-        /** Hard deletes a Version. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists Version resources that the producer has access to, within the
-         * scope of the parent Product.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns the requested Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.get({
-            name: "Test string",
-        });
-        /** Updates a specific Version resource. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /** Creates a Version instance under a given Product. */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.versions.create({
-            parent: "Test string",
-        }, {
-            asset: {
-                A: 42            },
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            originalAsset: {
-                A: 42            },
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an Icon instance under a given Product.
-         * If Product only has a default icon, a new Icon
-         * instance is created and associated with the given Product.
-         * If Product already has a non-default icon, the action creates
-         * a new Icon instance, associates the newly created
-         * Icon with the given Product and deletes the old icon.
-         */
-        await gapi.client.cloudprivatecatalogproducer.catalogs.products.icons.upload({
-            product: "Test string",
-        }, {
-            icon: "Test string",
         });
         /**
          * Starts asynchronous cancellation on a long-running operation.  The server

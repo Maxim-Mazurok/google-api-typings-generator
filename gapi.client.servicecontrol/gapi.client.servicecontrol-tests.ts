@@ -239,6 +239,40 @@ gapi.load('client', () => {
                         resourceName: "Test string",
                     }                ],
                 startTime: "Test string",
+                traceSpans: [
+                    {
+                        attributes: {
+                            attributeMap: {
+                                A: {
+                                    boolValue: true,
+                                    intValue: "Test string",
+                                    stringValue: {
+                                        truncatedByteCount: 42,
+                                        value: "Test string",
+                                    },
+                                }                            },
+                            droppedAttributesCount: 42,
+                        },
+                        childSpanCount: 42,
+                        displayName: {
+                            truncatedByteCount: 42,
+                            value: "Test string",
+                        },
+                        endTime: "Test string",
+                        name: "Test string",
+                        parentSpanId: "Test string",
+                        sameProcessAsParentSpan: true,
+                        spanId: "Test string",
+                        spanKind: "Test string",
+                        startTime: "Test string",
+                        status: {
+                            code: 42,
+                            details: [
+                                {
+                                    A: 42                                }                            ],
+                            message: "Test string",
+                        },
+                    }                ],
                 userLabels: {
                     A: "Test string"                },
             },
@@ -379,6 +413,40 @@ gapi.load('client', () => {
                             resourceName: "Test string",
                         }                    ],
                     startTime: "Test string",
+                    traceSpans: [
+                        {
+                            attributes: {
+                                attributeMap: {
+                                    A: {
+                                        boolValue: true,
+                                        intValue: "Test string",
+                                        stringValue: {
+                                            truncatedByteCount: 42,
+                                            value: "Test string",
+                                        },
+                                    }                                },
+                                droppedAttributesCount: 42,
+                            },
+                            childSpanCount: 42,
+                            displayName: {
+                                truncatedByteCount: 42,
+                                value: "Test string",
+                            },
+                            endTime: "Test string",
+                            name: "Test string",
+                            parentSpanId: "Test string",
+                            sameProcessAsParentSpan: true,
+                            spanId: "Test string",
+                            spanKind: "Test string",
+                            startTime: "Test string",
+                            status: {
+                                code: 42,
+                                details: [
+                                    {
+                                        A: 42                                    }                                ],
+                                message: "Test string",
+                            },
+                        }                    ],
                     userLabels: {
                         A: "Test string"                    },
                 }            ],

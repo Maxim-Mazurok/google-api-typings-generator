@@ -118,6 +118,17 @@ gapi.load('client', () => {
                 versionBytes: "Test string",
             },
         });
+        /** Deletes the specified version. */
+        await gapi.client.firebasehosting.sites.versions.delete({
+            name: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
         /**
          * Updates the specified metadata for a version. Note that this method will
          * fail with `FAILED_PRECONDITION` in the event of an invalid state
@@ -295,37 +306,9 @@ gapi.load('client', () => {
             parent: "Test string",
             status: "Test string",
         });
-        /** Deletes the specified version. */
-        await gapi.client.firebasehosting.sites.versions.delete({
-            name: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
+        /** Creates a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.create({
             parent: "Test string",
-            status: "Test string",
-        });
-        /** Deletes the existing domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.delete({
-            name: "Test string",
-        });
-        /** Lists the domains for the specified site. */
-        await gapi.client.firebasehosting.sites.domains.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.get({
-            name: "Test string",
-        });
-        /**
-         * Updates the specified domain mapping, creating the mapping as if it does
-         * not exist.
-         */
-        await gapi.client.firebasehosting.sites.domains.update({
-            name: "Test string",
         }, {
             domainName: "Test string",
             domainRedirect: {
@@ -355,9 +338,26 @@ gapi.load('client', () => {
             status: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.create({
+        /** Deletes the existing domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.delete({
+            name: "Test string",
+        });
+        /** Lists the domains for the specified site. */
+        await gapi.client.firebasehosting.sites.domains.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Gets a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.get({
+            name: "Test string",
+        });
+        /**
+         * Updates the specified domain mapping, creating the mapping as if it does
+         * not exist.
+         */
+        await gapi.client.firebasehosting.sites.domains.update({
+            name: "Test string",
         }, {
             domainName: "Test string",
             domainRedirect: {
@@ -475,6 +475,17 @@ gapi.load('client', () => {
                 versionBytes: "Test string",
             },
         });
+        /** Deletes the specified version. */
+        await gapi.client.firebasehosting.sites.versions.delete({
+            name: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
         /**
          * Updates the specified metadata for a version. Note that this method will
          * fail with `FAILED_PRECONDITION` in the event of an invalid state
@@ -652,37 +663,9 @@ gapi.load('client', () => {
             parent: "Test string",
             status: "Test string",
         });
-        /** Deletes the specified version. */
-        await gapi.client.firebasehosting.sites.versions.delete({
-            name: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
+        /** Creates a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.create({
             parent: "Test string",
-            status: "Test string",
-        });
-        /** Deletes the existing domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.delete({
-            name: "Test string",
-        });
-        /** Lists the domains for the specified site. */
-        await gapi.client.firebasehosting.sites.domains.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.get({
-            name: "Test string",
-        });
-        /**
-         * Updates the specified domain mapping, creating the mapping as if it does
-         * not exist.
-         */
-        await gapi.client.firebasehosting.sites.domains.update({
-            name: "Test string",
         }, {
             domainName: "Test string",
             domainRedirect: {
@@ -712,9 +695,26 @@ gapi.load('client', () => {
             status: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.create({
+        /** Deletes the existing domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.delete({
+            name: "Test string",
+        });
+        /** Lists the domains for the specified site. */
+        await gapi.client.firebasehosting.sites.domains.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Gets a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.get({
+            name: "Test string",
+        });
+        /**
+         * Updates the specified domain mapping, creating the mapping as if it does
+         * not exist.
+         */
+        await gapi.client.firebasehosting.sites.domains.update({
+            name: "Test string",
         }, {
             domainName: "Test string",
             domainRedirect: {

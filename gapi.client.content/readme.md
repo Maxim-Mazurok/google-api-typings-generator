@@ -514,6 +514,11 @@ Retrieves supported holidays for an account.
 await gapi.client.shippingsettings.getsupportedholidays({ merchantId: "merchantId",  }); 
     
 /* 
+Retrieves supported pickup services for an account.  
+*/
+await gapi.client.shippingsettings.getsupportedpickupservices({ merchantId: "merchantId",  }); 
+    
+/* 
 Lists the shipping settings of the sub-accounts in your Merchant Center account.  
 */
 await gapi.client.shippingsettings.list({ merchantId: "merchantId",  }); 

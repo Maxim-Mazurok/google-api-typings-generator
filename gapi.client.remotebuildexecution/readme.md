@@ -86,7 +86,7 @@ Errors:
 * `RESOURCE_EXHAUSTED`: There is insufficient storage space to add the
   entry to the cache.  
 */
-await gapi.client.actionResults.update({ hash: "hash", sizeBytes: "sizeBytes", instanceName: "instanceName",  }); 
+await gapi.client.actionResults.update({ sizeBytes: "sizeBytes", instanceName: "instanceName", hash: "hash",  }); 
     
 /* 
 Execute an action remotely.
