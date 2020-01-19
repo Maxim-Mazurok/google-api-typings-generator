@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as _ from 'lodash';
 import * as path from 'path';
 import * as request from 'request';
-import { sortKeys, sortResource } from './utils';
+import * as sortObject from 'deep-sort-object';
 
 const typesMap = {
   'integer': 'number',
@@ -347,7 +347,7 @@ function getType(type: gapi.client.discovery.JsonSchema, schemas: Record<string,
   } else if (type.type === 'object' && type.properties) {
     return (writer: TypescriptTextWriter) => {
       writer.anonymousType(() => {
-        forEachOrdered(type.properties, (property, propertyName) => {
+        _.forEach(type.properties, (property, propertyName) => {
           if (property.description) {
             writer.comment(formatComment(property.description));
           }
@@ -427,17 +427,6 @@ function isEmptySchema(schema: gapi.client.discovery.JsonSchema) {
   return _.isEmpty(schema.properties) && !schema.additionalProperties;
 }
 
-function forEachOrdered<T>(record: Record<string, T> | undefined, iterator: (value: T, key: string, index: number) => void) {
-  if (record == null) {
-    return;
-  }
-  const keys = _.keys(record).sort((a, b) => a > b ? 1 : -1);
-  let index = 0;
-  for (const key of keys) {
-    iterator(record[key], key, index++);
-  }
-}
-
 export class App {
   private readonly typingsDirectory: string;
   private seenSchemaRefs: Set<string> = new Set();
@@ -487,7 +476,7 @@ export class App {
   // writes specified resource definition
   private writeResources(out: TypescriptTextWriter, resources: Record<string, gapi.client.discovery.RestResource>, parameters: Record<string, gapi.client.discovery.JsonSchema> = {}, schemas: Record<string, gapi.client.discovery.JsonSchema>) {
 
-    forEachOrdered(resources, (resource, resourceName) => {
+    _.forEach(resources, (resource, resourceName) => {
 
       const resourceInterfaceName = App.getResourceTypeName(resourceName);
 
@@ -496,18 +485,18 @@ export class App {
       }
 
       out.interface(resourceInterfaceName, () => {
-        forEachOrdered(resource.methods, method => {
+        _.forEach(resource.methods, method => {
           if (method.description) {
             out.comment(formatComment(method.description));
           }
-          const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = { ...parameters, ...method.parameters };
+          const requestParameters: Record<string, gapi.client.discovery.JsonSchema> = sortObject({ ...parameters, ...method.parameters });
           const hasRequestRef = method.request && method.request['$ref'];
           if (!(requestParameters.hasOwnProperty('resource') && hasRequestRef)) { // no resource param and no body at the same time -> generate x(request)
             out.method(formatPropertyName(checkExists(getName(method.id))), [{
               parameter: 'request',
               type: (writer: TypescriptTextWriter) => {
                 writer.anonymousType(() => {
-                  forEachOrdered(requestParameters, (data, key) => {
+                  _.forEach(requestParameters, (data, key) => {
                     if (data.description) {
                       writer.comment(formatComment(data.description));
                     }
@@ -528,7 +517,7 @@ export class App {
               parameter: 'request',
               type: (writer: TypescriptTextWriter) => {
                 writer.anonymousType(() => {
-                  forEachOrdered(requestParameters, (data, key) => {
+                  _.forEach(requestParameters, (data, key) => {
                     if (data.description) {
                       writer.comment(formatComment(data.description));
                     }
@@ -544,7 +533,7 @@ export class App {
         });
 
         if (resource.resources) {
-          forEachOrdered(resource.resources, (_, childResourceName) => {
+          _.forEach(resource.resources, (_, childResourceName) => {
             const childResourceInterfaceName = App.getResourceTypeName(childResourceName);
             out.property(childResourceName, childResourceInterfaceName);
           });
@@ -618,13 +607,13 @@ export class App {
       writer.namespace(checkExists(api.name), () => {
         const schemas = checkExists(api.schemas);
 
-        forEachOrdered(schemas, (schema) => {
+        _.forEach(schemas, (schema) => {
           if (isEmptySchema(schema)) {
             writer.writeLine(`// tslint:disable-next-line:no-empty-interface`);
           }
           writer.interface(checkExists(schema.id), () => {
             if (schema.properties) {
-              forEachOrdered(schema.properties, (data, key) => {
+              _.forEach(schema.properties, (data, key) => {
                 if (data.description) {
                   writer.comment(formatComment(data.description));
                 }
@@ -641,7 +630,7 @@ export class App {
         if (api.resources) {
           this.writeResources(writer, api.resources, api.parameters, schemas);
 
-          forEachOrdered(api.resources, (_, resourceName) => {
+          _.forEach(api.resources, (_, resourceName) => {
             if (resourceName !== 'debugger') {
               writer.endLine();
               writer.writeLine(`const ${resourceName}: ${App.getResourceTypeName(resourceName)};`);
@@ -694,13 +683,9 @@ export class App {
       return;
     }
 
+    api = sortObject(api);
     api.name = api.name.toLocaleLowerCase();
     api.version = api.version.toLocaleLowerCase();
-    sortResource(api);
-
-    if (api.auth && api.auth.oauth2 && api.auth.oauth2.scopes) {
-      api.auth.oauth2.scopes = sortKeys(api.auth.oauth2.scopes);
-    }
 
     const destinationDirectory = this.getTypingsDirectory(api.name, actualVersion ? null : api.version);
 
@@ -807,7 +792,7 @@ export class App {
   }
 
   private writeProperties(scope: TypescriptTextWriter, api: gapi.client.discovery.RestDescription, record: Record<string, gapi.client.discovery.JsonSchema>) {
-    forEachOrdered(record, (parameter, name) => {
+    _.forEach(record, (parameter, name) => {
       scope.newLine(`${formatPropertyName(name)}: `);
       if (parameter.type === 'object') {
         this.writeObject(scope, api, parameter);
