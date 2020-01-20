@@ -60,145 +60,6 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -604,6 +465,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -618,145 +618,6 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -1162,6 +1023,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -1177,145 +1177,6 @@ gapi.load('client', () => {
             consumerId: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -1721,6 +1582,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -1737,145 +1737,6 @@ gapi.load('client', () => {
             consumerId: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -2281,6 +2142,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -2304,145 +2304,6 @@ gapi.load('client', () => {
                 A: 42            },
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -2848,6 +2709,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -2858,145 +2858,6 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -3402,6 +3263,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -3411,145 +3411,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -3955,6 +3816,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -3970,145 +3970,6 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -4514,6 +4375,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -4534,145 +4534,6 @@ gapi.load('client', () => {
             producerProjectId: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -5078,6 +4939,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -5118,145 +5118,6 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -5662,6 +5523,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -5680,145 +5680,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -6224,6 +6085,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
         /**
@@ -6238,145 +6238,6 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the history of the service configuration rollouts for a managed
-         * service, from the newest to the oldest.
-         */
-        await gapi.client.servicemanagement.services.rollouts.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            serviceName: "Test string",
-        });
-        /** Gets a service configuration rollout. */
-        await gapi.client.servicemanagement.services.rollouts.get({
-            rolloutId: "Test string",
-            serviceName: "Test string",
-        });
-        /**
-         * Creates a new service configuration rollout. Based on rollout, the
-         * Google Service Management will roll out the service configurations to
-         * different backend services. For example, the logging configuration will be
-         * pushed to Google Cloud Logging.
-         *
-         * Please note that any previous pending and running Rollouts and associated
-         * Operations will be automatically cancelled so that the latest Rollout will
-         * not be blocked by previous Rollouts.
-         *
-         * Only the 100 most recent (in any state) and the last 10 successful (if not
-         * already part of the set of 100 most recent) rollouts are kept for each
-         * service. The rest will be deleted eventually.
-         *
-         * Operation<response: Rollout>
-         */
-        await gapi.client.servicemanagement.services.rollouts.create({
-            serviceName: "Test string",
-        }, {
-            createTime: "Test string",
-            createdBy: "Test string",
-            deleteServiceStrategy: {
-            },
-            rolloutId: "Test string",
-            serviceName: "Test string",
-            status: "Test string",
-            trafficPercentStrategy: {
-                percentages: {
-                    A: 42                },
-            },
-        });
-        /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
-         */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
-        }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
-            },
-            validateOnly: true,
-        });
-        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -6782,6 +6643,145 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+            },
+        });
+        /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.servicemanagement.services.consumers.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.servicemanagement.services.consumers.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /**
+         * Lists the history of the service configuration rollouts for a managed
+         * service, from the newest to the oldest.
+         */
+        await gapi.client.servicemanagement.services.rollouts.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            serviceName: "Test string",
+        });
+        /** Gets a service configuration rollout. */
+        await gapi.client.servicemanagement.services.rollouts.get({
+            rolloutId: "Test string",
+            serviceName: "Test string",
+        });
+        /**
+         * Creates a new service configuration rollout. Based on rollout, the
+         * Google Service Management will roll out the service configurations to
+         * different backend services. For example, the logging configuration will be
+         * pushed to Google Cloud Logging.
+         *
+         * Please note that any previous pending and running Rollouts and associated
+         * Operations will be automatically cancelled so that the latest Rollout will
+         * not be blocked by previous Rollouts.
+         *
+         * Only the 100 most recent (in any state) and the last 10 successful (if not
+         * already part of the set of 100 most recent) rollouts are kept for each
+         * service. The rest will be deleted eventually.
+         *
+         * Operation<response: Rollout>
+         */
+        await gapi.client.servicemanagement.services.rollouts.create({
+            serviceName: "Test string",
+        }, {
+            createTime: "Test string",
+            createdBy: "Test string",
+            deleteServiceStrategy: {
+            },
+            rolloutId: "Test string",
+            serviceName: "Test string",
+            status: "Test string",
+            trafficPercentStrategy: {
+                percentages: {
+                    A: 42                },
             },
         });
     }

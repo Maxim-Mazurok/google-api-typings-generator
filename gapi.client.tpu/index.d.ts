@@ -108,7 +108,6 @@ declare namespace gapi.client {
              * conflicts with any subnetworks in the user's provided network, or the
              * provided network is peered with another network that is using that CIDR
              * block.
-             * Required.
              */
             cidrBlock?: string;
             /** Output only. The time when the node was created. */

@@ -31,44 +31,19 @@ gapi.load('client', () => {
         await gapi.client.sasportal.customers.get({
             name: "Test string",
         });
-        /** Deletes a node. */
-        await gapi.client.sasportal.customers.nodes.delete({
+        /** Deletes a device. */
+        await gapi.client.sasportal.customers.devices.delete({
             name: "Test string",
         });
-        /** Lists nodes. */
-        await gapi.client.sasportal.customers.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new node. */
-        await gapi.client.sasportal.customers.nodes.create({
+        /**
+         * Creates a signed device under a
+         * node or customer.
+         */
+        await gapi.client.sasportal.customers.devices.createSigned({
             parent: "Test string",
         }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Updates an existing node. */
-        await gapi.client.sasportal.customers.nodes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Returns a requested node. */
-        await gapi.client.sasportal.customers.nodes.get({
-            name: "Test string",
-        });
-        /** Moves a node under another node or customer. */
-        await gapi.client.sasportal.customers.nodes.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
+            encodedDevice: "Test string",
+            installerId: "Test string",
         });
         /** Lists devices under a node or customer. */
         await gapi.client.sasportal.customers.devices.list({
@@ -406,63 +381,63 @@ gapi.load('client', () => {
         }, {
             destination: "Test string",
         });
-        /** Deletes a device. */
-        await gapi.client.sasportal.customers.devices.delete({
+        /** Deletes a node. */
+        await gapi.client.sasportal.customers.nodes.delete({
             name: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
-        await gapi.client.sasportal.customers.devices.createSigned({
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.create({
             parent: "Test string",
         }, {
-            encodedDevice: "Test string",
-            installerId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Updates an existing node. */
+        await gapi.client.sasportal.customers.nodes.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Returns a requested node. */
+        await gapi.client.sasportal.customers.nodes.get({
+            name: "Test string",
+        });
+        /** Moves a node under another node or customer. */
+        await gapi.client.sasportal.customers.nodes.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
         });
         /** Returns a list of requested customers. */
         await gapi.client.sasportal.customers.list({
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Deletes a node. */
-        await gapi.client.sasportal.customers.nodes.delete({
+        /** Deletes a device. */
+        await gapi.client.sasportal.customers.devices.delete({
             name: "Test string",
         });
-        /** Lists nodes. */
-        await gapi.client.sasportal.customers.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new node. */
-        await gapi.client.sasportal.customers.nodes.create({
+        /**
+         * Creates a signed device under a
+         * node or customer.
+         */
+        await gapi.client.sasportal.customers.devices.createSigned({
             parent: "Test string",
         }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Updates an existing node. */
-        await gapi.client.sasportal.customers.nodes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Returns a requested node. */
-        await gapi.client.sasportal.customers.nodes.get({
-            name: "Test string",
-        });
-        /** Moves a node under another node or customer. */
-        await gapi.client.sasportal.customers.nodes.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
+            encodedDevice: "Test string",
+            installerId: "Test string",
         });
         /** Lists devices under a node or customer. */
         await gapi.client.sasportal.customers.devices.list({
@@ -800,19 +775,44 @@ gapi.load('client', () => {
         }, {
             destination: "Test string",
         });
-        /** Deletes a device. */
-        await gapi.client.sasportal.customers.devices.delete({
+        /** Deletes a node. */
+        await gapi.client.sasportal.customers.nodes.delete({
             name: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
-        await gapi.client.sasportal.customers.devices.createSigned({
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.create({
             parent: "Test string",
         }, {
-            encodedDevice: "Test string",
-            installerId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Updates an existing node. */
+        await gapi.client.sasportal.customers.nodes.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Returns a requested node. */
+        await gapi.client.sasportal.customers.nodes.get({
+            name: "Test string",
+        });
+        /** Moves a node under another node or customer. */
+        await gapi.client.sasportal.customers.nodes.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
         });
         /** Updates an existing customer. */
         await gapi.client.sasportal.customers.patch({
@@ -824,44 +824,19 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Deletes a node. */
-        await gapi.client.sasportal.customers.nodes.delete({
+        /** Deletes a device. */
+        await gapi.client.sasportal.customers.devices.delete({
             name: "Test string",
         });
-        /** Lists nodes. */
-        await gapi.client.sasportal.customers.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new node. */
-        await gapi.client.sasportal.customers.nodes.create({
+        /**
+         * Creates a signed device under a
+         * node or customer.
+         */
+        await gapi.client.sasportal.customers.devices.createSigned({
             parent: "Test string",
         }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Updates an existing node. */
-        await gapi.client.sasportal.customers.nodes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Returns a requested node. */
-        await gapi.client.sasportal.customers.nodes.get({
-            name: "Test string",
-        });
-        /** Moves a node under another node or customer. */
-        await gapi.client.sasportal.customers.nodes.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
+            encodedDevice: "Test string",
+            installerId: "Test string",
         });
         /** Lists devices under a node or customer. */
         await gapi.client.sasportal.customers.devices.list({
@@ -1199,19 +1174,44 @@ gapi.load('client', () => {
         }, {
             destination: "Test string",
         });
-        /** Deletes a device. */
-        await gapi.client.sasportal.customers.devices.delete({
+        /** Deletes a node. */
+        await gapi.client.sasportal.customers.nodes.delete({
             name: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
-        await gapi.client.sasportal.customers.devices.createSigned({
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.create({
             parent: "Test string",
         }, {
-            encodedDevice: "Test string",
-            installerId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Updates an existing node. */
+        await gapi.client.sasportal.customers.nodes.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Returns a requested node. */
+        await gapi.client.sasportal.customers.nodes.get({
+            name: "Test string",
+        });
+        /** Moves a node under another node or customer. */
+        await gapi.client.sasportal.customers.nodes.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
         });
         /** Generates a secret to be used with the ValidateInstaller method */
         await gapi.client.sasportal.installer.generateSecret({

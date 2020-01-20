@@ -77,6 +77,35 @@ gapi.load('client', () => {
                     },
                 }            ],
         });
+        /** Creates a Cloud Dataflow job from a template. */
+        await gapi.client.dataflow.projects.templates.create({
+            projectId: "Test string",
+        }, {
+            environment: {
+                additionalExperiments: [
+                    "Test string"                ],
+                additionalUserLabels: {
+                    A: "Test string"                },
+                bypassTempDirValidation: true,
+                ipConfiguration: "Test string",
+                kmsKeyName: "Test string",
+                machineType: "Test string",
+                maxWorkers: 42,
+                network: "Test string",
+                numWorkers: 42,
+                serviceAccountEmail: "Test string",
+                subnetwork: "Test string",
+                tempLocation: "Test string",
+                workerRegion: "Test string",
+                workerZone: "Test string",
+                zone: "Test string",
+            },
+            gcsPath: "Test string",
+            jobName: "Test string",
+            location: "Test string",
+            parameters: {
+                A: "Test string"            },
+        });
         /** Launch a template. */
         await gapi.client.dataflow.projects.templates.launch({
             "dynamicTemplate.gcsPath": "Test string",
@@ -118,35 +147,6 @@ gapi.load('client', () => {
             location: "Test string",
             projectId: "Test string",
             view: "Test string",
-        });
-        /** Creates a Cloud Dataflow job from a template. */
-        await gapi.client.dataflow.projects.templates.create({
-            projectId: "Test string",
-        }, {
-            environment: {
-                additionalExperiments: [
-                    "Test string"                ],
-                additionalUserLabels: {
-                    A: "Test string"                },
-                bypassTempDirValidation: true,
-                ipConfiguration: "Test string",
-                kmsKeyName: "Test string",
-                machineType: "Test string",
-                maxWorkers: 42,
-                network: "Test string",
-                numWorkers: 42,
-                serviceAccountEmail: "Test string",
-                subnetwork: "Test string",
-                tempLocation: "Test string",
-                workerRegion: "Test string",
-                workerZone: "Test string",
-                zone: "Test string",
-            },
-            gcsPath: "Test string",
-            jobName: "Test string",
-            location: "Test string",
-            parameters: {
-                A: "Test string"            },
         });
         /** Send a worker_message to the service. */
         await gapi.client.dataflow.projects.locations.workerMessages({
@@ -238,36 +238,6 @@ gapi.load('client', () => {
             projectId: "Test string",
             query: "Test string",
         });
-        /** Creates a Cloud Dataflow job from a template. */
-        await gapi.client.dataflow.projects.locations.templates.create({
-            location: "Test string",
-            projectId: "Test string",
-        }, {
-            environment: {
-                additionalExperiments: [
-                    "Test string"                ],
-                additionalUserLabels: {
-                    A: "Test string"                },
-                bypassTempDirValidation: true,
-                ipConfiguration: "Test string",
-                kmsKeyName: "Test string",
-                machineType: "Test string",
-                maxWorkers: 42,
-                network: "Test string",
-                numWorkers: 42,
-                serviceAccountEmail: "Test string",
-                subnetwork: "Test string",
-                tempLocation: "Test string",
-                workerRegion: "Test string",
-                workerZone: "Test string",
-                zone: "Test string",
-            },
-            gcsPath: "Test string",
-            jobName: "Test string",
-            location: "Test string",
-            parameters: {
-                A: "Test string"            },
-        });
         /** Launch a template. */
         await gapi.client.dataflow.projects.locations.templates.launch({
             "dynamicTemplate.gcsPath": "Test string",
@@ -310,6 +280,36 @@ gapi.load('client', () => {
             projectId: "Test string",
             view: "Test string",
         });
+        /** Creates a Cloud Dataflow job from a template. */
+        await gapi.client.dataflow.projects.locations.templates.create({
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            environment: {
+                additionalExperiments: [
+                    "Test string"                ],
+                additionalUserLabels: {
+                    A: "Test string"                },
+                bypassTempDirValidation: true,
+                ipConfiguration: "Test string",
+                kmsKeyName: "Test string",
+                machineType: "Test string",
+                maxWorkers: 42,
+                network: "Test string",
+                numWorkers: 42,
+                serviceAccountEmail: "Test string",
+                subnetwork: "Test string",
+                tempLocation: "Test string",
+                workerRegion: "Test string",
+                workerZone: "Test string",
+                zone: "Test string",
+            },
+            gcsPath: "Test string",
+            jobName: "Test string",
+            location: "Test string",
+            parameters: {
+                A: "Test string"            },
+        });
         /**
          * Gets the state of the specified Cloud Dataflow job.
          *
@@ -344,6 +344,23 @@ gapi.load('client', () => {
             componentId: "Test string",
             data: "Test string",
             location: "Test string",
+            workerId: "Test string",
+        });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
             workerId: "Test string",
         });
         /** Reports the status of dataflow WorkItems leased by a worker. */
@@ -700,23 +717,6 @@ gapi.load('client', () => {
                     totalThrottlerWaitTimeSeconds: 42,
                     workItemId: "Test string",
                 }            ],
-            workerId: "Test string",
-        });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
-            jobId: "Test string",
-            location: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
             workerId: "Test string",
         });
         /**
@@ -777,6 +777,23 @@ gapi.load('client', () => {
             location: "Test string",
             workerId: "Test string",
         });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+        });
         /** Reports the status of dataflow WorkItems leased by a worker. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.reportStatus({
             jobId: "Test string",
@@ -1131,23 +1148,6 @@ gapi.load('client', () => {
                     totalThrottlerWaitTimeSeconds: 42,
                     workItemId: "Test string",
                 }            ],
-            workerId: "Test string",
-        });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
-            jobId: "Test string",
-            location: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
             workerId: "Test string",
         });
         /**
@@ -1446,6 +1446,23 @@ gapi.load('client', () => {
             location: "Test string",
             workerId: "Test string",
         });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+        });
         /** Reports the status of dataflow WorkItems leased by a worker. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.reportStatus({
             jobId: "Test string",
@@ -1800,23 +1817,6 @@ gapi.load('client', () => {
                     totalThrottlerWaitTimeSeconds: 42,
                     workItemId: "Test string",
                 }            ],
-            workerId: "Test string",
-        });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
-            jobId: "Test string",
-            location: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
             workerId: "Test string",
         });
         /**
@@ -2116,6 +2116,23 @@ gapi.load('client', () => {
             location: "Test string",
             workerId: "Test string",
         });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+        });
         /** Reports the status of dataflow WorkItems leased by a worker. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.reportStatus({
             jobId: "Test string",
@@ -2470,23 +2487,6 @@ gapi.load('client', () => {
                     totalThrottlerWaitTimeSeconds: 42,
                     workItemId: "Test string",
                 }            ],
-            workerId: "Test string",
-        });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
-            jobId: "Test string",
-            location: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
             workerId: "Test string",
         });
         /**
@@ -2544,6 +2544,23 @@ gapi.load('client', () => {
             location: "Test string",
             workerId: "Test string",
         });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+        });
         /** Reports the status of dataflow WorkItems leased by a worker. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.reportStatus({
             jobId: "Test string",
@@ -2900,23 +2917,6 @@ gapi.load('client', () => {
                 }            ],
             workerId: "Test string",
         });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
-            jobId: "Test string",
-            location: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
-            workerId: "Test string",
-        });
         /**
          * Request the job status.
          *
@@ -2927,851 +2927,6 @@ gapi.load('client', () => {
          * the status of jobs that are running in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
-            endTime: "Test string",
-            jobId: "Test string",
-            location: "Test string",
-            minimumImportance: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
-            startTime: "Test string",
-        });
-        /** List the jobs of a project across all regions. */
-        await gapi.client.dataflow.projects.jobs.aggregated({
-            filter: "Test string",
-            location: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
-            view: "Test string",
-        });
-        /** Get encoded debug configuration for component. Not cacheable. */
-        await gapi.client.dataflow.projects.jobs.debug.getConfig({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            componentId: "Test string",
-            location: "Test string",
-            workerId: "Test string",
-        });
-        /** Send encoded debug capture data for component. */
-        await gapi.client.dataflow.projects.jobs.debug.sendCapture({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            componentId: "Test string",
-            data: "Test string",
-            location: "Test string",
-            workerId: "Test string",
-        });
-        /** Reports the status of dataflow WorkItems leased by a worker. */
-        await gapi.client.dataflow.projects.jobs.workItems.reportStatus({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemStatuses: [
-                {
-                    completed: true,
-                    counterUpdates: [
-                        {
-                            boolean: true,
-                            cumulative: true,
-                            distribution: {
-                                count: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                histogram: {
-                                    bucketCounts: [
-                                        "Test string"                                    ],
-                                    firstBucketOffset: 42,
-                                },
-                                max: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                min: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                sum: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                sumOfSquares: 42,
-                            },
-                            floatingPoint: 42,
-                            floatingPointList: {
-                                elements: [
-                                    42                                ],
-                            },
-                            floatingPointMean: {
-                                count: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                sum: 42,
-                            },
-                            integer: {
-                                highBits: 42,
-                                lowBits: 42,
-                            },
-                            integerGauge: {
-                                timestamp: "Test string",
-                                value: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                            },
-                            integerList: {
-                                elements: [
-                                    {
-                                        highBits: 42,
-                                        lowBits: 42,
-                                    }                                ],
-                            },
-                            integerMean: {
-                                count: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                sum: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                            },
-                            internal: 42,
-                            nameAndKind: {
-                                kind: "Test string",
-                                name: "Test string",
-                            },
-                            shortId: "Test string",
-                            stringList: {
-                                elements: [
-                                    "Test string"                                ],
-                            },
-                            structuredNameAndMetadata: {
-                                metadata: {
-                                    description: "Test string",
-                                    kind: "Test string",
-                                    otherUnits: "Test string",
-                                    standardUnits: "Test string",
-                                },
-                                name: {
-                                    componentStepName: "Test string",
-                                    executionStepName: "Test string",
-                                    inputIndex: 42,
-                                    name: "Test string",
-                                    origin: "Test string",
-                                    originNamespace: "Test string",
-                                    originalRequestingStepName: "Test string",
-                                    originalStepName: "Test string",
-                                    portion: "Test string",
-                                    workerId: "Test string",
-                                },
-                            },
-                        }                    ],
-                    dynamicSourceSplit: {
-                        primary: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                        residual: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                    },
-                    errors: [
-                        {
-                            code: 42,
-                            details: [
-                                {
-                                    A: 42                                }                            ],
-                            message: "Test string",
-                        }                    ],
-                    metricUpdates: [
-                        {
-                            cumulative: true,
-                            distribution: 42,
-                            gauge: 42,
-                            internal: 42,
-                            kind: "Test string",
-                            meanCount: 42,
-                            meanSum: 42,
-                            name: {
-                                context: {
-                                    A: "Test string"                                },
-                                name: "Test string",
-                                origin: "Test string",
-                            },
-                            scalar: 42,
-                            set: 42,
-                            updateTime: "Test string",
-                        }                    ],
-                    progress: {
-                        percentComplete: 42,
-                        position: {
-                            byteOffset: "Test string",
-                            concatPosition: {
-                                index: 42,
-                                position: undefined,
-                            },
-                            end: true,
-                            key: "Test string",
-                            recordIndex: "Test string",
-                            shufflePosition: "Test string",
-                        },
-                        remainingTime: "Test string",
-                    },
-                    reportIndex: "Test string",
-                    reportedProgress: {
-                        consumedParallelism: {
-                            isInfinite: true,
-                            value: 42,
-                        },
-                        fractionConsumed: 42,
-                        position: {
-                            byteOffset: "Test string",
-                            concatPosition: {
-                                index: 42,
-                                position: undefined,
-                            },
-                            end: true,
-                            key: "Test string",
-                            recordIndex: "Test string",
-                            shufflePosition: "Test string",
-                        },
-                        remainingParallelism: {
-                            isInfinite: true,
-                            value: 42,
-                        },
-                    },
-                    requestedLeaseDuration: "Test string",
-                    sourceFork: {
-                        primary: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                        primarySource: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                        residual: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                        residualSource: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                    },
-                    sourceOperationResponse: {
-                        getMetadata: {
-                            metadata: {
-                                estimatedSizeBytes: "Test string",
-                                infinite: true,
-                                producesSortedKeys: true,
-                            },
-                        },
-                        split: {
-                            bundles: [
-                                {
-                                    derivationMode: "Test string",
-                                    source: {
-                                        baseSpecs: [
-                                            {
-                                                A: 42                                            }                                        ],
-                                        codec: {
-                                            A: 42                                        },
-                                        doesNotNeedSplitting: true,
-                                        metadata: {
-                                            estimatedSizeBytes: "Test string",
-                                            infinite: true,
-                                            producesSortedKeys: true,
-                                        },
-                                        spec: {
-                                            A: 42                                        },
-                                    },
-                                }                            ],
-                            outcome: "Test string",
-                            shards: [
-                                {
-                                    derivationMode: "Test string",
-                                    source: {
-                                        baseSpecs: [
-                                            {
-                                                A: 42                                            }                                        ],
-                                        codec: {
-                                            A: 42                                        },
-                                        doesNotNeedSplitting: true,
-                                        metadata: {
-                                            estimatedSizeBytes: "Test string",
-                                            infinite: true,
-                                            producesSortedKeys: true,
-                                        },
-                                        spec: {
-                                            A: 42                                        },
-                                    },
-                                }                            ],
-                        },
-                    },
-                    stopPosition: {
-                        byteOffset: "Test string",
-                        concatPosition: {
-                            index: 42,
-                            position: undefined,
-                        },
-                        end: true,
-                        key: "Test string",
-                        recordIndex: "Test string",
-                        shufflePosition: "Test string",
-                    },
-                    totalThrottlerWaitTimeSeconds: 42,
-                    workItemId: "Test string",
-                }            ],
-            workerId: "Test string",
-        });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.jobs.workItems.lease({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
-            workerId: "Test string",
-        });
-        /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
-         */
-        await gapi.client.dataflow.projects.jobs.messages.list({
-            endTime: "Test string",
-            jobId: "Test string",
-            location: "Test string",
-            minimumImportance: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
-            startTime: "Test string",
-        });
-        /**
-         * List the jobs of a project.
-         *
-         * To list the jobs of a project in a region, we recommend using
-         * `projects.locations.jobs.get` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
-         * list the all jobs across all regions, use `projects.jobs.aggregated`. Using
-         * `projects.jobs.list` is not recommended, as you can only get the list of
-         * jobs that are running in `us-central1`.
-         */
-        await gapi.client.dataflow.projects.jobs.list({
-            filter: "Test string",
-            location: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
-            view: "Test string",
-        });
-        /** Get encoded debug configuration for component. Not cacheable. */
-        await gapi.client.dataflow.projects.jobs.debug.getConfig({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            componentId: "Test string",
-            location: "Test string",
-            workerId: "Test string",
-        });
-        /** Send encoded debug capture data for component. */
-        await gapi.client.dataflow.projects.jobs.debug.sendCapture({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            componentId: "Test string",
-            data: "Test string",
-            location: "Test string",
-            workerId: "Test string",
-        });
-        /** Reports the status of dataflow WorkItems leased by a worker. */
-        await gapi.client.dataflow.projects.jobs.workItems.reportStatus({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemStatuses: [
-                {
-                    completed: true,
-                    counterUpdates: [
-                        {
-                            boolean: true,
-                            cumulative: true,
-                            distribution: {
-                                count: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                histogram: {
-                                    bucketCounts: [
-                                        "Test string"                                    ],
-                                    firstBucketOffset: 42,
-                                },
-                                max: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                min: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                sum: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                sumOfSquares: 42,
-                            },
-                            floatingPoint: 42,
-                            floatingPointList: {
-                                elements: [
-                                    42                                ],
-                            },
-                            floatingPointMean: {
-                                count: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                sum: 42,
-                            },
-                            integer: {
-                                highBits: 42,
-                                lowBits: 42,
-                            },
-                            integerGauge: {
-                                timestamp: "Test string",
-                                value: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                            },
-                            integerList: {
-                                elements: [
-                                    {
-                                        highBits: 42,
-                                        lowBits: 42,
-                                    }                                ],
-                            },
-                            integerMean: {
-                                count: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                                sum: {
-                                    highBits: 42,
-                                    lowBits: 42,
-                                },
-                            },
-                            internal: 42,
-                            nameAndKind: {
-                                kind: "Test string",
-                                name: "Test string",
-                            },
-                            shortId: "Test string",
-                            stringList: {
-                                elements: [
-                                    "Test string"                                ],
-                            },
-                            structuredNameAndMetadata: {
-                                metadata: {
-                                    description: "Test string",
-                                    kind: "Test string",
-                                    otherUnits: "Test string",
-                                    standardUnits: "Test string",
-                                },
-                                name: {
-                                    componentStepName: "Test string",
-                                    executionStepName: "Test string",
-                                    inputIndex: 42,
-                                    name: "Test string",
-                                    origin: "Test string",
-                                    originNamespace: "Test string",
-                                    originalRequestingStepName: "Test string",
-                                    originalStepName: "Test string",
-                                    portion: "Test string",
-                                    workerId: "Test string",
-                                },
-                            },
-                        }                    ],
-                    dynamicSourceSplit: {
-                        primary: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                        residual: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                    },
-                    errors: [
-                        {
-                            code: 42,
-                            details: [
-                                {
-                                    A: 42                                }                            ],
-                            message: "Test string",
-                        }                    ],
-                    metricUpdates: [
-                        {
-                            cumulative: true,
-                            distribution: 42,
-                            gauge: 42,
-                            internal: 42,
-                            kind: "Test string",
-                            meanCount: 42,
-                            meanSum: 42,
-                            name: {
-                                context: {
-                                    A: "Test string"                                },
-                                name: "Test string",
-                                origin: "Test string",
-                            },
-                            scalar: 42,
-                            set: 42,
-                            updateTime: "Test string",
-                        }                    ],
-                    progress: {
-                        percentComplete: 42,
-                        position: {
-                            byteOffset: "Test string",
-                            concatPosition: {
-                                index: 42,
-                                position: undefined,
-                            },
-                            end: true,
-                            key: "Test string",
-                            recordIndex: "Test string",
-                            shufflePosition: "Test string",
-                        },
-                        remainingTime: "Test string",
-                    },
-                    reportIndex: "Test string",
-                    reportedProgress: {
-                        consumedParallelism: {
-                            isInfinite: true,
-                            value: 42,
-                        },
-                        fractionConsumed: 42,
-                        position: {
-                            byteOffset: "Test string",
-                            concatPosition: {
-                                index: 42,
-                                position: undefined,
-                            },
-                            end: true,
-                            key: "Test string",
-                            recordIndex: "Test string",
-                            shufflePosition: "Test string",
-                        },
-                        remainingParallelism: {
-                            isInfinite: true,
-                            value: 42,
-                        },
-                    },
-                    requestedLeaseDuration: "Test string",
-                    sourceFork: {
-                        primary: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                        primarySource: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                        residual: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                        residualSource: {
-                            derivationMode: "Test string",
-                            source: {
-                                baseSpecs: [
-                                    {
-                                        A: 42                                    }                                ],
-                                codec: {
-                                    A: 42                                },
-                                doesNotNeedSplitting: true,
-                                metadata: {
-                                    estimatedSizeBytes: "Test string",
-                                    infinite: true,
-                                    producesSortedKeys: true,
-                                },
-                                spec: {
-                                    A: 42                                },
-                            },
-                        },
-                    },
-                    sourceOperationResponse: {
-                        getMetadata: {
-                            metadata: {
-                                estimatedSizeBytes: "Test string",
-                                infinite: true,
-                                producesSortedKeys: true,
-                            },
-                        },
-                        split: {
-                            bundles: [
-                                {
-                                    derivationMode: "Test string",
-                                    source: {
-                                        baseSpecs: [
-                                            {
-                                                A: 42                                            }                                        ],
-                                        codec: {
-                                            A: 42                                        },
-                                        doesNotNeedSplitting: true,
-                                        metadata: {
-                                            estimatedSizeBytes: "Test string",
-                                            infinite: true,
-                                            producesSortedKeys: true,
-                                        },
-                                        spec: {
-                                            A: 42                                        },
-                                    },
-                                }                            ],
-                            outcome: "Test string",
-                            shards: [
-                                {
-                                    derivationMode: "Test string",
-                                    source: {
-                                        baseSpecs: [
-                                            {
-                                                A: 42                                            }                                        ],
-                                        codec: {
-                                            A: 42                                        },
-                                        doesNotNeedSplitting: true,
-                                        metadata: {
-                                            estimatedSizeBytes: "Test string",
-                                            infinite: true,
-                                            producesSortedKeys: true,
-                                        },
-                                        spec: {
-                                            A: 42                                        },
-                                    },
-                                }                            ],
-                        },
-                    },
-                    stopPosition: {
-                        byteOffset: "Test string",
-                        concatPosition: {
-                            index: 42,
-                            position: undefined,
-                        },
-                        end: true,
-                        key: "Test string",
-                        recordIndex: "Test string",
-                        shufflePosition: "Test string",
-                    },
-                    totalThrottlerWaitTimeSeconds: 42,
-                    workItemId: "Test string",
-                }            ],
-            workerId: "Test string",
-        });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.jobs.workItems.lease({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
-            workerId: "Test string",
-        });
-        /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
-         */
-        await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
             jobId: "Test string",
             location: "Test string",
@@ -4057,6 +3212,22 @@ gapi.load('client', () => {
             location: "Test string",
             workerId: "Test string",
         });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.jobs.workItems.lease({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+        });
         /** Reports the status of dataflow WorkItems leased by a worker. */
         await gapi.client.dataflow.projects.jobs.workItems.reportStatus({
             jobId: "Test string",
@@ -4410,22 +3581,6 @@ gapi.load('client', () => {
                     totalThrottlerWaitTimeSeconds: 42,
                     workItemId: "Test string",
                 }            ],
-            workerId: "Test string",
-        });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.jobs.workItems.lease({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
             workerId: "Test string",
         });
         /**
@@ -4481,6 +3636,22 @@ gapi.load('client', () => {
             location: "Test string",
             workerId: "Test string",
         });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.jobs.workItems.lease({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+        });
         /** Reports the status of dataflow WorkItems leased by a worker. */
         await gapi.client.dataflow.projects.jobs.workItems.reportStatus({
             jobId: "Test string",
@@ -4834,22 +4005,6 @@ gapi.load('client', () => {
                     totalThrottlerWaitTimeSeconds: 42,
                     workItemId: "Test string",
                 }            ],
-            workerId: "Test string",
-        });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.jobs.workItems.lease({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
             workerId: "Test string",
         });
         /**
@@ -4905,6 +4060,22 @@ gapi.load('client', () => {
             location: "Test string",
             workerId: "Test string",
         });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.jobs.workItems.lease({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+        });
         /** Reports the status of dataflow WorkItems leased by a worker. */
         await gapi.client.dataflow.projects.jobs.workItems.reportStatus({
             jobId: "Test string",
@@ -5258,22 +4429,6 @@ gapi.load('client', () => {
                     totalThrottlerWaitTimeSeconds: 42,
                     workItemId: "Test string",
                 }            ],
-            workerId: "Test string",
-        });
-        /** Leases a dataflow WorkItem to run. */
-        await gapi.client.dataflow.projects.jobs.workItems.lease({
-            jobId: "Test string",
-            projectId: "Test string",
-        }, {
-            currentWorkerTime: "Test string",
-            location: "Test string",
-            requestedLeaseDuration: "Test string",
-            unifiedWorkerRequest: {
-                A: 42            },
-            workItemTypes: [
-                "Test string"            ],
-            workerCapabilities: [
-                "Test string"            ],
             workerId: "Test string",
         });
         /**
@@ -5570,6 +4725,22 @@ gapi.load('client', () => {
             location: "Test string",
             workerId: "Test string",
         });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.jobs.workItems.lease({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+        });
         /** Reports the status of dataflow WorkItems leased by a worker. */
         await gapi.client.dataflow.projects.jobs.workItems.reportStatus({
             jobId: "Test string",
@@ -5925,6 +5096,53 @@ gapi.load('client', () => {
                 }            ],
             workerId: "Test string",
         });
+        /**
+         * Request the job status.
+         *
+         * To request the status of a job, we recommend using
+         * `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+         * `projects.jobs.messages.list` is not recommended, as you can only request
+         * the status of jobs that are running in `us-central1`.
+         */
+        await gapi.client.dataflow.projects.jobs.messages.list({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            minimumImportance: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            startTime: "Test string",
+        });
+        /** List the jobs of a project across all regions. */
+        await gapi.client.dataflow.projects.jobs.aggregated({
+            filter: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            view: "Test string",
+        });
+        /** Get encoded debug configuration for component. Not cacheable. */
+        await gapi.client.dataflow.projects.jobs.debug.getConfig({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            componentId: "Test string",
+            location: "Test string",
+            workerId: "Test string",
+        });
+        /** Send encoded debug capture data for component. */
+        await gapi.client.dataflow.projects.jobs.debug.sendCapture({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            componentId: "Test string",
+            data: "Test string",
+            location: "Test string",
+            workerId: "Test string",
+        });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.jobs.workItems.lease({
             jobId: "Test string",
@@ -5939,6 +5157,788 @@ gapi.load('client', () => {
                 "Test string"            ],
             workerCapabilities: [
                 "Test string"            ],
+            workerId: "Test string",
+        });
+        /** Reports the status of dataflow WorkItems leased by a worker. */
+        await gapi.client.dataflow.projects.jobs.workItems.reportStatus({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemStatuses: [
+                {
+                    completed: true,
+                    counterUpdates: [
+                        {
+                            boolean: true,
+                            cumulative: true,
+                            distribution: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                histogram: {
+                                    bucketCounts: [
+                                        "Test string"                                    ],
+                                    firstBucketOffset: 42,
+                                },
+                                max: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                min: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sumOfSquares: 42,
+                            },
+                            floatingPoint: 42,
+                            floatingPointList: {
+                                elements: [
+                                    42                                ],
+                            },
+                            floatingPointMean: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: 42,
+                            },
+                            integer: {
+                                highBits: 42,
+                                lowBits: 42,
+                            },
+                            integerGauge: {
+                                timestamp: "Test string",
+                                value: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                            },
+                            integerList: {
+                                elements: [
+                                    {
+                                        highBits: 42,
+                                        lowBits: 42,
+                                    }                                ],
+                            },
+                            integerMean: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                            },
+                            internal: 42,
+                            nameAndKind: {
+                                kind: "Test string",
+                                name: "Test string",
+                            },
+                            shortId: "Test string",
+                            stringList: {
+                                elements: [
+                                    "Test string"                                ],
+                            },
+                            structuredNameAndMetadata: {
+                                metadata: {
+                                    description: "Test string",
+                                    kind: "Test string",
+                                    otherUnits: "Test string",
+                                    standardUnits: "Test string",
+                                },
+                                name: {
+                                    componentStepName: "Test string",
+                                    executionStepName: "Test string",
+                                    inputIndex: 42,
+                                    name: "Test string",
+                                    origin: "Test string",
+                                    originNamespace: "Test string",
+                                    originalRequestingStepName: "Test string",
+                                    originalStepName: "Test string",
+                                    portion: "Test string",
+                                    workerId: "Test string",
+                                },
+                            },
+                        }                    ],
+                    dynamicSourceSplit: {
+                        primary: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residual: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                    },
+                    errors: [
+                        {
+                            code: 42,
+                            details: [
+                                {
+                                    A: 42                                }                            ],
+                            message: "Test string",
+                        }                    ],
+                    metricUpdates: [
+                        {
+                            cumulative: true,
+                            distribution: 42,
+                            gauge: 42,
+                            internal: 42,
+                            kind: "Test string",
+                            meanCount: 42,
+                            meanSum: 42,
+                            name: {
+                                context: {
+                                    A: "Test string"                                },
+                                name: "Test string",
+                                origin: "Test string",
+                            },
+                            scalar: 42,
+                            set: 42,
+                            updateTime: "Test string",
+                        }                    ],
+                    progress: {
+                        percentComplete: 42,
+                        position: {
+                            byteOffset: "Test string",
+                            concatPosition: {
+                                index: 42,
+                                position: undefined,
+                            },
+                            end: true,
+                            key: "Test string",
+                            recordIndex: "Test string",
+                            shufflePosition: "Test string",
+                        },
+                        remainingTime: "Test string",
+                    },
+                    reportIndex: "Test string",
+                    reportedProgress: {
+                        consumedParallelism: {
+                            isInfinite: true,
+                            value: 42,
+                        },
+                        fractionConsumed: 42,
+                        position: {
+                            byteOffset: "Test string",
+                            concatPosition: {
+                                index: 42,
+                                position: undefined,
+                            },
+                            end: true,
+                            key: "Test string",
+                            recordIndex: "Test string",
+                            shufflePosition: "Test string",
+                        },
+                        remainingParallelism: {
+                            isInfinite: true,
+                            value: 42,
+                        },
+                    },
+                    requestedLeaseDuration: "Test string",
+                    sourceFork: {
+                        primary: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        primarySource: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residual: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residualSource: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                    },
+                    sourceOperationResponse: {
+                        getMetadata: {
+                            metadata: {
+                                estimatedSizeBytes: "Test string",
+                                infinite: true,
+                                producesSortedKeys: true,
+                            },
+                        },
+                        split: {
+                            bundles: [
+                                {
+                                    derivationMode: "Test string",
+                                    source: {
+                                        baseSpecs: [
+                                            {
+                                                A: 42                                            }                                        ],
+                                        codec: {
+                                            A: 42                                        },
+                                        doesNotNeedSplitting: true,
+                                        metadata: {
+                                            estimatedSizeBytes: "Test string",
+                                            infinite: true,
+                                            producesSortedKeys: true,
+                                        },
+                                        spec: {
+                                            A: 42                                        },
+                                    },
+                                }                            ],
+                            outcome: "Test string",
+                            shards: [
+                                {
+                                    derivationMode: "Test string",
+                                    source: {
+                                        baseSpecs: [
+                                            {
+                                                A: 42                                            }                                        ],
+                                        codec: {
+                                            A: 42                                        },
+                                        doesNotNeedSplitting: true,
+                                        metadata: {
+                                            estimatedSizeBytes: "Test string",
+                                            infinite: true,
+                                            producesSortedKeys: true,
+                                        },
+                                        spec: {
+                                            A: 42                                        },
+                                    },
+                                }                            ],
+                        },
+                    },
+                    stopPosition: {
+                        byteOffset: "Test string",
+                        concatPosition: {
+                            index: 42,
+                            position: undefined,
+                        },
+                        end: true,
+                        key: "Test string",
+                        recordIndex: "Test string",
+                        shufflePosition: "Test string",
+                    },
+                    totalThrottlerWaitTimeSeconds: 42,
+                    workItemId: "Test string",
+                }            ],
+            workerId: "Test string",
+        });
+        /**
+         * Request the job status.
+         *
+         * To request the status of a job, we recommend using
+         * `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+         * `projects.jobs.messages.list` is not recommended, as you can only request
+         * the status of jobs that are running in `us-central1`.
+         */
+        await gapi.client.dataflow.projects.jobs.messages.list({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            minimumImportance: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            startTime: "Test string",
+        });
+        /**
+         * List the jobs of a project.
+         *
+         * To list the jobs of a project in a region, we recommend using
+         * `projects.locations.jobs.get` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
+         * list the all jobs across all regions, use `projects.jobs.aggregated`. Using
+         * `projects.jobs.list` is not recommended, as you can only get the list of
+         * jobs that are running in `us-central1`.
+         */
+        await gapi.client.dataflow.projects.jobs.list({
+            filter: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            view: "Test string",
+        });
+        /** Get encoded debug configuration for component. Not cacheable. */
+        await gapi.client.dataflow.projects.jobs.debug.getConfig({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            componentId: "Test string",
+            location: "Test string",
+            workerId: "Test string",
+        });
+        /** Send encoded debug capture data for component. */
+        await gapi.client.dataflow.projects.jobs.debug.sendCapture({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            componentId: "Test string",
+            data: "Test string",
+            location: "Test string",
+            workerId: "Test string",
+        });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.jobs.workItems.lease({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemTypes: [
+                "Test string"            ],
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+        });
+        /** Reports the status of dataflow WorkItems leased by a worker. */
+        await gapi.client.dataflow.projects.jobs.workItems.reportStatus({
+            jobId: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workItemStatuses: [
+                {
+                    completed: true,
+                    counterUpdates: [
+                        {
+                            boolean: true,
+                            cumulative: true,
+                            distribution: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                histogram: {
+                                    bucketCounts: [
+                                        "Test string"                                    ],
+                                    firstBucketOffset: 42,
+                                },
+                                max: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                min: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sumOfSquares: 42,
+                            },
+                            floatingPoint: 42,
+                            floatingPointList: {
+                                elements: [
+                                    42                                ],
+                            },
+                            floatingPointMean: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: 42,
+                            },
+                            integer: {
+                                highBits: 42,
+                                lowBits: 42,
+                            },
+                            integerGauge: {
+                                timestamp: "Test string",
+                                value: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                            },
+                            integerList: {
+                                elements: [
+                                    {
+                                        highBits: 42,
+                                        lowBits: 42,
+                                    }                                ],
+                            },
+                            integerMean: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                            },
+                            internal: 42,
+                            nameAndKind: {
+                                kind: "Test string",
+                                name: "Test string",
+                            },
+                            shortId: "Test string",
+                            stringList: {
+                                elements: [
+                                    "Test string"                                ],
+                            },
+                            structuredNameAndMetadata: {
+                                metadata: {
+                                    description: "Test string",
+                                    kind: "Test string",
+                                    otherUnits: "Test string",
+                                    standardUnits: "Test string",
+                                },
+                                name: {
+                                    componentStepName: "Test string",
+                                    executionStepName: "Test string",
+                                    inputIndex: 42,
+                                    name: "Test string",
+                                    origin: "Test string",
+                                    originNamespace: "Test string",
+                                    originalRequestingStepName: "Test string",
+                                    originalStepName: "Test string",
+                                    portion: "Test string",
+                                    workerId: "Test string",
+                                },
+                            },
+                        }                    ],
+                    dynamicSourceSplit: {
+                        primary: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residual: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                    },
+                    errors: [
+                        {
+                            code: 42,
+                            details: [
+                                {
+                                    A: 42                                }                            ],
+                            message: "Test string",
+                        }                    ],
+                    metricUpdates: [
+                        {
+                            cumulative: true,
+                            distribution: 42,
+                            gauge: 42,
+                            internal: 42,
+                            kind: "Test string",
+                            meanCount: 42,
+                            meanSum: 42,
+                            name: {
+                                context: {
+                                    A: "Test string"                                },
+                                name: "Test string",
+                                origin: "Test string",
+                            },
+                            scalar: 42,
+                            set: 42,
+                            updateTime: "Test string",
+                        }                    ],
+                    progress: {
+                        percentComplete: 42,
+                        position: {
+                            byteOffset: "Test string",
+                            concatPosition: {
+                                index: 42,
+                                position: undefined,
+                            },
+                            end: true,
+                            key: "Test string",
+                            recordIndex: "Test string",
+                            shufflePosition: "Test string",
+                        },
+                        remainingTime: "Test string",
+                    },
+                    reportIndex: "Test string",
+                    reportedProgress: {
+                        consumedParallelism: {
+                            isInfinite: true,
+                            value: 42,
+                        },
+                        fractionConsumed: 42,
+                        position: {
+                            byteOffset: "Test string",
+                            concatPosition: {
+                                index: 42,
+                                position: undefined,
+                            },
+                            end: true,
+                            key: "Test string",
+                            recordIndex: "Test string",
+                            shufflePosition: "Test string",
+                        },
+                        remainingParallelism: {
+                            isInfinite: true,
+                            value: 42,
+                        },
+                    },
+                    requestedLeaseDuration: "Test string",
+                    sourceFork: {
+                        primary: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        primarySource: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residual: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residualSource: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                    },
+                    sourceOperationResponse: {
+                        getMetadata: {
+                            metadata: {
+                                estimatedSizeBytes: "Test string",
+                                infinite: true,
+                                producesSortedKeys: true,
+                            },
+                        },
+                        split: {
+                            bundles: [
+                                {
+                                    derivationMode: "Test string",
+                                    source: {
+                                        baseSpecs: [
+                                            {
+                                                A: 42                                            }                                        ],
+                                        codec: {
+                                            A: 42                                        },
+                                        doesNotNeedSplitting: true,
+                                        metadata: {
+                                            estimatedSizeBytes: "Test string",
+                                            infinite: true,
+                                            producesSortedKeys: true,
+                                        },
+                                        spec: {
+                                            A: 42                                        },
+                                    },
+                                }                            ],
+                            outcome: "Test string",
+                            shards: [
+                                {
+                                    derivationMode: "Test string",
+                                    source: {
+                                        baseSpecs: [
+                                            {
+                                                A: 42                                            }                                        ],
+                                        codec: {
+                                            A: 42                                        },
+                                        doesNotNeedSplitting: true,
+                                        metadata: {
+                                            estimatedSizeBytes: "Test string",
+                                            infinite: true,
+                                            producesSortedKeys: true,
+                                        },
+                                        spec: {
+                                            A: 42                                        },
+                                    },
+                                }                            ],
+                        },
+                    },
+                    stopPosition: {
+                        byteOffset: "Test string",
+                        concatPosition: {
+                            index: 42,
+                            position: undefined,
+                        },
+                        end: true,
+                        key: "Test string",
+                        recordIndex: "Test string",
+                        shufflePosition: "Test string",
+                    },
+                    totalThrottlerWaitTimeSeconds: 42,
+                    workItemId: "Test string",
+                }            ],
             workerId: "Test string",
         });
         /**

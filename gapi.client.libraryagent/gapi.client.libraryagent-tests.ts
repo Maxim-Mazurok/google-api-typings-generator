@@ -31,15 +31,6 @@ gapi.load('client', () => {
         await gapi.client.libraryagent.shelves.get({
             name: "Test string",
         });
-        /**
-         * Borrow a book from the library. Returns the book if it is borrowed
-         * successfully. Returns NOT_FOUND if the book does not exist in the library.
-         * Returns quota exceeded error if the amount of books borrowed exceeds
-         * allocation quota in any dimensions.
-         */
-        await gapi.client.libraryagent.shelves.books.borrow({
-            name: "Test string",
-        });
         /** Gets a book. Returns NOT_FOUND if the book does not exist. */
         await gapi.client.libraryagent.shelves.books.get({
             name: "Test string",
@@ -61,6 +52,15 @@ gapi.load('client', () => {
          * or the users didn't borrow before.
          */
         await gapi.client.libraryagent.shelves.books.return({
+            name: "Test string",
+        });
+        /**
+         * Borrow a book from the library. Returns the book if it is borrowed
+         * successfully. Returns NOT_FOUND if the book does not exist in the library.
+         * Returns quota exceeded error if the amount of books borrowed exceeds
+         * allocation quota in any dimensions.
+         */
+        await gapi.client.libraryagent.shelves.books.borrow({
             name: "Test string",
         });
         /**
@@ -71,15 +71,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Borrow a book from the library. Returns the book if it is borrowed
-         * successfully. Returns NOT_FOUND if the book does not exist in the library.
-         * Returns quota exceeded error if the amount of books borrowed exceeds
-         * allocation quota in any dimensions.
-         */
-        await gapi.client.libraryagent.shelves.books.borrow({
-            name: "Test string",
-        });
         /** Gets a book. Returns NOT_FOUND if the book does not exist. */
         await gapi.client.libraryagent.shelves.books.get({
             name: "Test string",
@@ -101,6 +92,15 @@ gapi.load('client', () => {
          * or the users didn't borrow before.
          */
         await gapi.client.libraryagent.shelves.books.return({
+            name: "Test string",
+        });
+        /**
+         * Borrow a book from the library. Returns the book if it is borrowed
+         * successfully. Returns NOT_FOUND if the book does not exist in the library.
+         * Returns quota exceeded error if the amount of books borrowed exceeds
+         * allocation quota in any dimensions.
+         */
+        await gapi.client.libraryagent.shelves.books.borrow({
             name: "Test string",
         });
     }

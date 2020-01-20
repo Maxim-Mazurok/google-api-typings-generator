@@ -143,28 +143,6 @@ gapi.load('client', () => {
                     }                ],
             },
         });
-        /** Get a `Release` by name. */
-        await gapi.client.firebaserules.projects.releases.get({
-            name: "Test string",
-        });
-        /**
-         * Update a `Release` via PATCH.
-         *
-         * Only updates to the `ruleset_name` and `test_suite_name` fields will be
-         * honored. `Release` rename is not supported. To create a `Release` use the
-         * CreateRelease method.
-         */
-        await gapi.client.firebaserules.projects.releases.patch({
-            name: "Test string",
-        }, {
-            release: {
-                createTime: "Test string",
-                name: "Test string",
-                rulesetName: "Test string",
-                updateTime: "Test string",
-            },
-            updateMask: "Test string",
-        });
         /** Get the `Release` executable to use when enforcing rules. */
         await gapi.client.firebaserules.projects.releases.getExecutable({
             executableVersion: "Test string",
@@ -216,6 +194,28 @@ gapi.load('client', () => {
             name: "Test string",
             rulesetName: "Test string",
             updateTime: "Test string",
+        });
+        /**
+         * Update a `Release` via PATCH.
+         *
+         * Only updates to the `ruleset_name` and `test_suite_name` fields will be
+         * honored. `Release` rename is not supported. To create a `Release` use the
+         * CreateRelease method.
+         */
+        await gapi.client.firebaserules.projects.releases.patch({
+            name: "Test string",
+        }, {
+            release: {
+                createTime: "Test string",
+                name: "Test string",
+                rulesetName: "Test string",
+                updateTime: "Test string",
+            },
+            updateMask: "Test string",
+        });
+        /** Get a `Release` by name. */
+        await gapi.client.firebaserules.projects.releases.get({
+            name: "Test string",
         });
     }
 });

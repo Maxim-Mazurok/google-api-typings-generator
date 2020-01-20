@@ -16,10 +16,18 @@ gapi.load('client', () => {
         await gapi.client.chat.spaces.get({
             name: "Test string",
         });
-        /** Creates a message. */
-        await gapi.client.chat.spaces.messages.create({
-            parent: "Test string",
-            threadKey: "Test string",
+        /** Deletes a message. */
+        await gapi.client.chat.spaces.messages.delete({
+            name: "Test string",
+        });
+        /** Returns a message. */
+        await gapi.client.chat.spaces.messages.get({
+            name: "Test string",
+        });
+        /** Updates a message. */
+        await gapi.client.chat.spaces.messages.update({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             actionResponse: {
                 type: "Test string",
@@ -207,18 +215,10 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
-        /** Deletes a message. */
-        await gapi.client.chat.spaces.messages.delete({
-            name: "Test string",
-        });
-        /** Returns a message. */
-        await gapi.client.chat.spaces.messages.get({
-            name: "Test string",
-        });
-        /** Updates a message. */
-        await gapi.client.chat.spaces.messages.update({
-            name: "Test string",
-            updateMask: "Test string",
+        /** Creates a message. */
+        await gapi.client.chat.spaces.messages.create({
+            parent: "Test string",
+            threadKey: "Test string",
         }, {
             actionResponse: {
                 type: "Test string",
@@ -421,10 +421,18 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Creates a message. */
-        await gapi.client.chat.spaces.messages.create({
-            parent: "Test string",
-            threadKey: "Test string",
+        /** Deletes a message. */
+        await gapi.client.chat.spaces.messages.delete({
+            name: "Test string",
+        });
+        /** Returns a message. */
+        await gapi.client.chat.spaces.messages.get({
+            name: "Test string",
+        });
+        /** Updates a message. */
+        await gapi.client.chat.spaces.messages.update({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             actionResponse: {
                 type: "Test string",
@@ -612,18 +620,10 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
-        /** Deletes a message. */
-        await gapi.client.chat.spaces.messages.delete({
-            name: "Test string",
-        });
-        /** Returns a message. */
-        await gapi.client.chat.spaces.messages.get({
-            name: "Test string",
-        });
-        /** Updates a message. */
-        await gapi.client.chat.spaces.messages.update({
-            name: "Test string",
-            updateMask: "Test string",
+        /** Creates a message. */
+        await gapi.client.chat.spaces.messages.create({
+            parent: "Test string",
+            threadKey: "Test string",
         }, {
             actionResponse: {
                 type: "Test string",

@@ -37,6 +37,87 @@ gapi.load('client', () => {
         await gapi.client.firebasehosting.sites.getConfig({
             name: "Test string",
         });
+        /** Deletes the existing domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.delete({
+            name: "Test string",
+        });
+        /** Lists the domains for the specified site. */
+        await gapi.client.firebasehosting.sites.domains.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.get({
+            name: "Test string",
+        });
+        /**
+         * Updates the specified domain mapping, creating the mapping as if it does
+         * not exist.
+         */
+        await gapi.client.firebasehosting.sites.domains.update({
+            name: "Test string",
+        }, {
+            domainName: "Test string",
+            domainRedirect: {
+                domainName: "Test string",
+                type: "Test string",
+            },
+            provisioning: {
+                certChallengeDiscoveredTxt: [
+                    "Test string"                ],
+                certChallengeDns: {
+                    domainName: "Test string",
+                    token: "Test string",
+                },
+                certChallengeHttp: {
+                    path: "Test string",
+                    token: "Test string",
+                },
+                certStatus: "Test string",
+                discoveredIps: [
+                    "Test string"                ],
+                dnsFetchTime: "Test string",
+                dnsStatus: "Test string",
+                expectedIps: [
+                    "Test string"                ],
+            },
+            site: "Test string",
+            status: "Test string",
+            updateTime: "Test string",
+        });
+        /** Creates a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.create({
+            parent: "Test string",
+        }, {
+            domainName: "Test string",
+            domainRedirect: {
+                domainName: "Test string",
+                type: "Test string",
+            },
+            provisioning: {
+                certChallengeDiscoveredTxt: [
+                    "Test string"                ],
+                certChallengeDns: {
+                    domainName: "Test string",
+                    token: "Test string",
+                },
+                certChallengeHttp: {
+                    path: "Test string",
+                    token: "Test string",
+                },
+                certStatus: "Test string",
+                discoveredIps: [
+                    "Test string"                ],
+                dnsFetchTime: "Test string",
+                dnsStatus: "Test string",
+                expectedIps: [
+                    "Test string"                ],
+            },
+            site: "Test string",
+            status: "Test string",
+            updateTime: "Test string",
+        });
         /** Lists the releases that have been created on the specified site. */
         await gapi.client.firebasehosting.sites.releases.list({
             pageSize: 42,
@@ -305,87 +386,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             status: "Test string",
-        });
-        /** Creates a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.create({
-            parent: "Test string",
-        }, {
-            domainName: "Test string",
-            domainRedirect: {
-                domainName: "Test string",
-                type: "Test string",
-            },
-            provisioning: {
-                certChallengeDiscoveredTxt: [
-                    "Test string"                ],
-                certChallengeDns: {
-                    domainName: "Test string",
-                    token: "Test string",
-                },
-                certChallengeHttp: {
-                    path: "Test string",
-                    token: "Test string",
-                },
-                certStatus: "Test string",
-                discoveredIps: [
-                    "Test string"                ],
-                dnsFetchTime: "Test string",
-                dnsStatus: "Test string",
-                expectedIps: [
-                    "Test string"                ],
-            },
-            site: "Test string",
-            status: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes the existing domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.delete({
-            name: "Test string",
-        });
-        /** Lists the domains for the specified site. */
-        await gapi.client.firebasehosting.sites.domains.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.get({
-            name: "Test string",
-        });
-        /**
-         * Updates the specified domain mapping, creating the mapping as if it does
-         * not exist.
-         */
-        await gapi.client.firebasehosting.sites.domains.update({
-            name: "Test string",
-        }, {
-            domainName: "Test string",
-            domainRedirect: {
-                domainName: "Test string",
-                type: "Test string",
-            },
-            provisioning: {
-                certChallengeDiscoveredTxt: [
-                    "Test string"                ],
-                certChallengeDns: {
-                    domainName: "Test string",
-                    token: "Test string",
-                },
-                certChallengeHttp: {
-                    path: "Test string",
-                    token: "Test string",
-                },
-                certStatus: "Test string",
-                discoveredIps: [
-                    "Test string"                ],
-                dnsFetchTime: "Test string",
-                dnsStatus: "Test string",
-                expectedIps: [
-                    "Test string"                ],
-            },
-            site: "Test string",
-            status: "Test string",
-            updateTime: "Test string",
         });
         /** Sets the Hosting metadata for a specific site. */
         await gapi.client.firebasehosting.sites.updateConfig({
@@ -394,6 +394,87 @@ gapi.load('client', () => {
         }, {
             maxVersions: "Test string",
         });
+        /** Deletes the existing domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.delete({
+            name: "Test string",
+        });
+        /** Lists the domains for the specified site. */
+        await gapi.client.firebasehosting.sites.domains.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.get({
+            name: "Test string",
+        });
+        /**
+         * Updates the specified domain mapping, creating the mapping as if it does
+         * not exist.
+         */
+        await gapi.client.firebasehosting.sites.domains.update({
+            name: "Test string",
+        }, {
+            domainName: "Test string",
+            domainRedirect: {
+                domainName: "Test string",
+                type: "Test string",
+            },
+            provisioning: {
+                certChallengeDiscoveredTxt: [
+                    "Test string"                ],
+                certChallengeDns: {
+                    domainName: "Test string",
+                    token: "Test string",
+                },
+                certChallengeHttp: {
+                    path: "Test string",
+                    token: "Test string",
+                },
+                certStatus: "Test string",
+                discoveredIps: [
+                    "Test string"                ],
+                dnsFetchTime: "Test string",
+                dnsStatus: "Test string",
+                expectedIps: [
+                    "Test string"                ],
+            },
+            site: "Test string",
+            status: "Test string",
+            updateTime: "Test string",
+        });
+        /** Creates a domain mapping on the specified site. */
+        await gapi.client.firebasehosting.sites.domains.create({
+            parent: "Test string",
+        }, {
+            domainName: "Test string",
+            domainRedirect: {
+                domainName: "Test string",
+                type: "Test string",
+            },
+            provisioning: {
+                certChallengeDiscoveredTxt: [
+                    "Test string"                ],
+                certChallengeDns: {
+                    domainName: "Test string",
+                    token: "Test string",
+                },
+                certChallengeHttp: {
+                    path: "Test string",
+                    token: "Test string",
+                },
+                certStatus: "Test string",
+                discoveredIps: [
+                    "Test string"                ],
+                dnsFetchTime: "Test string",
+                dnsStatus: "Test string",
+                expectedIps: [
+                    "Test string"                ],
+            },
+            site: "Test string",
+            status: "Test string",
+            updateTime: "Test string",
+        });
         /** Lists the releases that have been created on the specified site. */
         await gapi.client.firebasehosting.sites.releases.list({
             pageSize: 42,
@@ -662,87 +743,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             status: "Test string",
-        });
-        /** Creates a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.create({
-            parent: "Test string",
-        }, {
-            domainName: "Test string",
-            domainRedirect: {
-                domainName: "Test string",
-                type: "Test string",
-            },
-            provisioning: {
-                certChallengeDiscoveredTxt: [
-                    "Test string"                ],
-                certChallengeDns: {
-                    domainName: "Test string",
-                    token: "Test string",
-                },
-                certChallengeHttp: {
-                    path: "Test string",
-                    token: "Test string",
-                },
-                certStatus: "Test string",
-                discoveredIps: [
-                    "Test string"                ],
-                dnsFetchTime: "Test string",
-                dnsStatus: "Test string",
-                expectedIps: [
-                    "Test string"                ],
-            },
-            site: "Test string",
-            status: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes the existing domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.delete({
-            name: "Test string",
-        });
-        /** Lists the domains for the specified site. */
-        await gapi.client.firebasehosting.sites.domains.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a domain mapping on the specified site. */
-        await gapi.client.firebasehosting.sites.domains.get({
-            name: "Test string",
-        });
-        /**
-         * Updates the specified domain mapping, creating the mapping as if it does
-         * not exist.
-         */
-        await gapi.client.firebasehosting.sites.domains.update({
-            name: "Test string",
-        }, {
-            domainName: "Test string",
-            domainRedirect: {
-                domainName: "Test string",
-                type: "Test string",
-            },
-            provisioning: {
-                certChallengeDiscoveredTxt: [
-                    "Test string"                ],
-                certChallengeDns: {
-                    domainName: "Test string",
-                    token: "Test string",
-                },
-                certChallengeHttp: {
-                    path: "Test string",
-                    token: "Test string",
-                },
-                certStatus: "Test string",
-                discoveredIps: [
-                    "Test string"                ],
-                dnsFetchTime: "Test string",
-                dnsStatus: "Test string",
-                expectedIps: [
-                    "Test string"                ],
-            },
-            site: "Test string",
-            status: "Test string",
-            updateTime: "Test string",
         });
     }
 });
