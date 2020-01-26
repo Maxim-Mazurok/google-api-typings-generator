@@ -29,4 +29,4 @@ console.log(`Linting ${scripts.length} projects in ${MAX_PARALLEL} parallel proc
 
 runAll([scripts.shift()], options) // run first synchronously to install TypeScript
   .then(() => runAll(scripts, options))
-  .catch((err: ErrnoException) => process.exit(err.errno));
+  .catch((err: ErrnoException) => process.exit(Number(err.code)));
