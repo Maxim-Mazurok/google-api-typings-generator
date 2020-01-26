@@ -288,27 +288,6 @@ class TypescriptTextWriter implements TypescriptTextWriter {
   }
 }
 
-// tslint:disable-next-line:no-any
-function processResource(resource: gapi.client.discovery.RestDescription): any[] {
-  const children = _.flatten(_.map(resource.resources || {}, value => processResource(value)));
-  const methodsArray = _.map(resource.methods || {}, value => value);
-
-  return [...methodsArray, ...children];
-}
-
-function getNamespace(path: string) {
-  const parts = path.split('.');
-
-  if (parts.length > 0) {
-    parts.splice(parts.length - 1);
-
-    const n: string = _.camelCase(parts.join('.'));
-    return parts.join('.');
-  } else {
-    return undefined;
-  }
-}
-
 function getName(path: string | undefined): string | undefined {
   if (path == null) {
     return undefined;
@@ -321,10 +300,6 @@ function getName(path: string | undefined): string | undefined {
   else {
     return undefined;
   }
-}
-
-function firstLetterUp(text: string) {
-  return text[0].toUpperCase() + text.substring(1);
 }
 
 function checkExists<T>(t: T): NonNullable<T> {
@@ -585,17 +560,8 @@ export class App {
 
     console.log(`Generating ${api.id} definitions... ${api.labels && api.labels.join(', ') || ''}`);
 
-    const rawMethods = processResource(api);
-
-    // tslint:disable-next-line:no-any
-    const methods = rawMethods.map((x: any) => ({
-        namespace: getNamespace(x.id),
-        name: getName(x.id),
-        method: x,
-      })),
-      filename = 'index.d.ts',//"gapi.client." + api.name + (actualVersion ? "" : "-" + api.version) + ".d.ts",
-      stream = fs.createWriteStream(path.join(destinationDirectory, filename)),
-      writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream)));
+    const stream = fs.createWriteStream(path.join(destinationDirectory, 'index.d.ts'));
+    const writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream)));
 
     writer.writeLine(`// Type definitions for non-npm package ${api.title} ${api.version} ${convertVersion(checkExists(api.version))}`);
     writer.writeLine(`// Project: ${api.documentationLink}`);
@@ -689,8 +655,7 @@ export class App {
     });
   }
 
-  // tslint:disable-next-line:no-any
-  writeTemplate(filepath: string, template: (data: any) => string, api: gapi.client.discovery.RestDescription) {
+  writeTemplate(filepath: string, template: doT.RenderFunction, api: gapi.client.discovery.RestDescription) {
     const stream = fs.createWriteStream(filepath),
       writer = new StreamWriter(stream);
 
@@ -845,8 +810,7 @@ export class App {
     _.forEach(resource.methods, (method, methodName) => {
       scope.comment(method.description);
       scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`);
-      // tslint:disable-next-line:no-any
-      const params: Record<string, gapi.client.discovery.JsonSchema> = { ...(resource as any).parameters, ...resource.methods![methodName].parameters };
+      const params: Record<string, gapi.client.discovery.JsonSchema>|undefined = resource.methods![methodName].parameters;
       if (params) {
         scope.scope(() => {
           this.writeProperties(scope, api, params);

@@ -1,6 +1,9 @@
 import { readdirSync } from 'fs';
 import { join } from 'path';
+// tslint:disable-next-line:ban-ts-ignore
+// @ts-ignore
 import * as runAll from 'npm-run-all';
+import ErrnoException = NodeJS.ErrnoException;
 
 const MAX_PARALLEL = Number(process.env.GAPI_MAX_PARALLEL) || 1;
 
@@ -26,4 +29,4 @@ console.log(`Linting ${scripts.length} projects in ${MAX_PARALLEL} parallel proc
 
 runAll([scripts.shift()], options) // run first synchronously to install TypeScript
   .then(() => runAll(scripts, options))
-  .catch(err => process.exit(err.code));
+  .catch((err: ErrnoException) => process.exit(err.errno));
