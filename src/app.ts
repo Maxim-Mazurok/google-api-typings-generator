@@ -5,20 +5,20 @@ import * as path from 'path';
 import * as request from 'request';
 import * as sortObject from 'deep-sort-object';
 
-const typesMap = {
+const typesMap: {[key: string]: string} = {
   'integer': 'number',
   'object': 'any',
   'any': 'any',
   'string': 'string',
 };
 
-interface ITextWriter {
-  write(chunk?);
+interface TextWriter {
+  write(chunk?: string): void;
 
-  end();
+  end(): void;
 }
 
-class StreamWriter implements ITextWriter {
+class StreamWriter implements TextWriter {
 
   constructor(private stream: fs.WriteStream) {
 
@@ -67,39 +67,41 @@ const irregularSpaces = [
 ];
 
 class IndentedTextWriter {
-  constructor(private writer: ITextWriter, public newLine = '\n', public tabString = '    ') {
+  constructor(private writer: TextWriter, public newLine = '\n', public tabString = '    ') {
 
   }
 
-  public indent = 0;
+  indent = 0;
 
-  public write(chunk: string) {
+  write(chunk: string) {
     this.writer.write(chunk);
   }
 
-  public startIndentedLine(chunk = '') {
+  startIndentedLine(chunk = '') {
+    // tslint:disable-next-line:ban
     this.write(Array(this.indent + 1).join(this.tabString) + chunk);
   }
 
-  public endIndentedLine(chunk = '') {
+  endIndentedLine(chunk = '') {
+    // tslint:disable-next-line:ban
     this.write(chunk + Array(this.indent + 1).join(this.tabString));
   }
 
-  public writeLine(chunk = '') {
+  writeLine(chunk = '') {
     this.startIndentedLine(chunk + this.newLine);
   }
 
-  public writeNewLine(chunk = '') {
+  writeNewLine(chunk = '') {
     this.endIndentedLine(chunk + this.newLine);
   }
 
-  public end() {
+  end() {
     this.writer.end();
   }
 }
 
-interface ITypescriptTextWriter {
-  namespace(name: string, context: (writer: TypescriptTextWriter) => void);
+interface TypescriptTextWriter {
+  namespace(name: string, context: (writer: TypescriptTextWriter) => void): void;
 }
 
 type TypescriptWriterCallback = (writer: TypescriptTextWriter) => void;
@@ -129,7 +131,7 @@ function ensureDirectoryExists(directory: string) {
   }
 }
 
-class TypescriptTextWriter implements ITypescriptTextWriter {
+class TypescriptTextWriter implements TypescriptTextWriter {
   constructor(private writer: IndentedTextWriter) {
   }
 
@@ -141,25 +143,25 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
     this.writer.writeLine('}');
   }
 
-  public referenceTypes(type: string) {
+  referenceTypes(type: string) {
     this.writer.writeLine(`/// <reference types="${type}" />`);
   }
 
-  public namespace(name: string, context: TypescriptWriterCallback) {
+  namespace(name: string, context: TypescriptWriterCallback) {
     this.braces(`namespace ${name}`, context);
   }
 
-  public declareNamespace(name: string, context: TypescriptWriterCallback) {
+  declareNamespace(name: string, context: TypescriptWriterCallback) {
     this.writer.writeLine();
     this.braces(`declare namespace ${name}`, context);
   }
 
-  public interface(name: string, context: TypescriptWriterCallback) {
+  interface(name: string, context: TypescriptWriterCallback) {
     // this.writer.writeLine();
     this.braces(`interface ${name}`, context);
   }
 
-  public anonymousType(context: TypescriptWriterCallback) {
+  anonymousType(context: TypescriptWriterCallback) {
     this.endLine('{');
     this.writer.indent++;
     context(this);
@@ -167,16 +169,16 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
     this.writer.startIndentedLine('}');
   }
 
-  public newLine(chunk: string) {
+  newLine(chunk: string) {
     this.writer.startIndentedLine(chunk);
   }
 
-  public endLine(chunk = '') {
+  endLine(chunk = '') {
     this.writer.write(chunk);
     this.writer.write(this.writer.newLine);
   }
 
-  public scope(context: TypescriptWriterCallback, startTag = '{', endTag = '}') {
+  scope(context: TypescriptWriterCallback, startTag = '{', endTag = '}') {
     this.writer.write(startTag);
     this.writer.write(this.writer.newLine);
     this.writer.indent++;
@@ -185,7 +187,7 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
     this.writer.startIndentedLine(endTag);
   }
 
-  public property(name: string, type: string | TypescriptWriterCallback, required = true) {
+  property(name: string, type: string | TypescriptWriterCallback, required = true) {
     if (typeof type === 'function') {
       this.writer.startIndentedLine(`${formatPropertyName(name)}${required ? '' : '?'}: `);
       type(this);
@@ -196,7 +198,7 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
 
   }
 
-  public comment(text: string = '') {
+  comment(text = '') {
     if (!text || text === '') {
       return;
     }
@@ -229,11 +231,11 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
 
     lines = lines.map(x => x.replace(/\*/g, '&#42;').trim());
 
-    for (let irregularSpace of irregularSpaces) {
+    for (const irregularSpace of irregularSpaces) {
       lines = lines.map(line => line.replace(irregularSpace, ' '));
     }
 
-    if (lines.length == 1) {
+    if (lines.length === 1) {
       this.writer.writeLine(`/** ${lines[0]} */`);
     } else if (lines.length > 1) {
       this.writer.writeLine(`/**`);
@@ -242,7 +244,7 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
     }
   }
 
-  public method(name: string, parameters: { parameter: string, type: string | TypescriptWriterCallback }[], returnType: string, singleLine = false) {
+  method(name: string, parameters: Array<{ parameter: string, type: string | TypescriptWriterCallback }>, returnType: string, singleLine = false) {
     this.writer.startIndentedLine(`${name}(`);
 
     _.forEach(parameters, (parameter, index) => {
@@ -266,15 +268,15 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
     //this.writer.writeLine(`${name}(${parameters.map(p => p.parameter + ": " + p.type).join(", ")}): ${returnType};`);
   }
 
-  public writeLine(chunk = '') {
+  writeLine(chunk = '') {
     this.writer.writeLine(chunk);
   }
 
-  public writeNewLine(chunk = '') {
+  writeNewLine(chunk = '') {
     this.writer.writeNewLine(chunk);
   }
 
-  public write(chunk: string | TypescriptWriterCallback = '') {
+  write(chunk: string | TypescriptWriterCallback = '') {
     if (typeof chunk === 'string') {
       this.writer.write(chunk);
     } else if (typeof chunk === 'function') {
@@ -282,28 +284,9 @@ class TypescriptTextWriter implements ITypescriptTextWriter {
     }
   }
 
-  public end() {
+  end() {
     this.writer.end();
   }
-}
-
-function processResource(resource: gapi.client.discovery.RestDescription): any[] {
-  const children = _.flatten(_.map(resource.resources || {}, value => processResource(value)));
-  const methodsArray = _.map(resource.methods || {}, value => value);
-
-  return [...methodsArray, ...children];
-}
-
-function getNamespace(path: string) {
-  const parts = path.split('.');
-
-  if (parts.length > 0) {
-    parts.splice(parts.length - 1);
-
-    const n: string = _.camelCase(parts.join('.'));
-    return parts.join('.');
-  } else
-    return undefined;
 }
 
 function getName(path: string | undefined): string | undefined {
@@ -312,14 +295,12 @@ function getName(path: string | undefined): string | undefined {
   }
   const parts = path.split('.');
 
-  if (parts.length > 0)
+  if (parts.length > 0) {
     return _.last(parts);
-  else
+  }
+  else {
     return undefined;
-}
-
-function firstLetterUp(text: string) {
-  return text[0].toUpperCase() + text.substring(1);
+  }
 }
 
 function checkExists<T>(t: T): NonNullable<T> {
@@ -458,6 +439,8 @@ export class App {
 
       return `${major}${minor ? '.' + minor : ''}${patch ? '-' + patch : ''}`;
     }
+
+    throw new Error(`Unable to parse invalid version: ${version}`)
   }
 
   static parseOutPath(dir: string) {
@@ -543,14 +526,16 @@ export class App {
     });
   }
 
-  private static getTypingsName(api: string, version: string) {
-    if (version == null)
+  private static getTypingsName(api: string, version: string|null) {
+    if (version == null) {
       return `gapi.client.${api}`;
-    else
+    }
+    else {
       return path.join(`gapi.client.${api}`, version);
+    }
   }
 
-  private getTypingsDirectory(api: string, version: string) {
+  private getTypingsDirectory(api: string, version: string|null) {
     return path.join(this.typingsDirectory, App.getTypingsName(api, version));
   }
 
@@ -559,16 +544,8 @@ export class App {
 
     console.log(`Generating ${api.id} definitions... ${api.labels && api.labels.join(', ') || ''}`);
 
-    const rawMethods = processResource(api);
-
-    const methods = rawMethods.map((x: any) => ({
-        namespace: getNamespace(x.id),
-        name: getName(x.id),
-        method: x,
-      })),
-      filename = 'index.d.ts',//"gapi.client." + api.name + (actualVersion ? "" : "-" + api.version) + ".d.ts",
-      stream = fs.createWriteStream(path.join(destinationDirectory, filename)),
-      writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream)));
+    const stream = fs.createWriteStream(path.join(destinationDirectory, 'index.d.ts'));
+    const writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream)));
 
     writer.writeLine(`// Type definitions for non-npm package ${api.title} ${api.version} ${convertVersion(checkExists(api.version))}`);
     writer.writeLine(`// Project: ${api.documentationLink}`);
@@ -646,7 +623,7 @@ export class App {
   private request(url: string): Promise<gapi.client.discovery.DirectoryList> {
     return new Promise((resolve, reject) => {
       request(url, (error, response, body) => {
-        if (!error && response.statusCode == 200) {
+        if (!error && response.statusCode === 200) {
           try {
             const api = JSON.parse(body) as gapi.client.discovery.DirectoryList;
             resolve(api);
@@ -662,7 +639,7 @@ export class App {
     });
   }
 
-  public writeTemplate(filepath: string, template: (data: any) => string, api: gapi.client.discovery.RestDescription) {
+  writeTemplate(filepath: string, template: doT.RenderFunction, api: gapi.client.discovery.RestDescription) {
     const stream = fs.createWriteStream(filepath),
       writer = new StreamWriter(stream);
 
@@ -673,7 +650,7 @@ export class App {
     }
   }
 
-  public async processService(url: string, actualVersion: boolean) {
+  async processService(url: string, actualVersion: boolean) {
     let api;
 
     try {
@@ -684,8 +661,8 @@ export class App {
     }
 
     api = sortObject(api);
-    api.name = api.name.toLocaleLowerCase();
-    api.version = api.version.toLocaleLowerCase();
+    api.name = api.name!.toLocaleLowerCase();
+    api.version = api.version!.toLocaleLowerCase();
 
     const destinationDirectory = this.getTypingsDirectory(api.name, actualVersion ? null : api.version);
 
@@ -806,16 +783,16 @@ export class App {
   }
 
   private writeResourceTests(scope: TypescriptTextWriter, api: gapi.client.discovery.RestDescription, ancestors: string, resourceName: string, resource: gapi.client.discovery.RestResource) {
-    for (const methodName in resource.methods) {
-      scope.comment(resource.methods[methodName].description);
+    _.forEach(resource.methods, (method, methodName) => {
+      scope.comment(method.description);
       scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`);
-      const params: Record<string, gapi.client.discovery.JsonSchema> = { ...resource['parameters'], ...resource.methods![methodName].parameters };
+      const params: Record<string, gapi.client.discovery.JsonSchema>|undefined = resource.methods![methodName].parameters;
       if (params) {
         scope.scope(() => {
           this.writeProperties(scope, api, params);
         });
       }
-      const ref = resource.methods[methodName].request?.$ref;
+      const ref = method.request?.$ref;
       if (ref != null) {
         scope.write(`, `);
         this.writeSchemaRef(scope, api, ref);
@@ -823,10 +800,10 @@ export class App {
 
       scope.endLine(`);`);
 
-      for (const subResource in resource.resources) {
-        this.writeResourceTests(scope, api, `${ancestors}.${resourceName}`, subResource, resource.resources[subResource]);
-      }
-    }
+      _.forEach(resource.resources, (subResource, subResourceName) => {
+        this.writeResourceTests(scope, api, `${ancestors}.${resourceName}`, subResourceName, subResource);
+      });
+    });
   }
 
   private writeTests(destinationDirectory: string, api: gapi.client.discovery.RestDescription) {
@@ -855,10 +832,10 @@ export class App {
           writer3.newLine(`const scope = `);
           writer3.scope(() => {
             const oauth2 = checkExists(api?.auth?.oauth2);
-            for (let a in oauth2.scopes) {
-              writer3.comment(oauth2.scopes[a].description);
-              writer3.writeLine(`'${a}',`);
-            }
+            _.forEach(oauth2.scopes, (value, scope) => {
+              writer3.comment(value.description);
+              writer3.writeLine(`'${scope}',`);
+            });
           }, '[', ']');
 
           writer3.endLine(';');
@@ -888,9 +865,9 @@ export class App {
       writer3.endLine();
       writer3.newLine(`async function run() `);
       writer.scope((scope) => {
-        for (const resourceName in api.resources) {
-          this.writeResourceTests(scope, api, `gapi.client.${api.name}`, resourceName, api.resources[resourceName]);
-        }
+        _.forEach(api.resources, (resource, resourceName) => {
+          this.writeResourceTests(scope, api, `gapi.client.${api.name}`, resourceName, resource);
+        });
       });
 
       writer3.endLine();
@@ -898,7 +875,7 @@ export class App {
     writer.endLine(');');
   }
 
-  public async discover(service: string | undefined, allVersions: boolean = false) {
+  async discover(service: string | undefined, allVersions = false) {
     console.log('Discovering Google services...');
 
     const list: gapi.client.discovery.DirectoryList = await this.request('https://www.googleapis.com/discovery/v1/apis');
@@ -911,11 +888,7 @@ export class App {
       throw Error("Can't find services");
     }
 
-    const apisLookup = _.groupBy(apis, item => item.name);
-
-    for (const apiKey in apisLookup) {
-      const associatedApis = apisLookup[apiKey];
-
+    _.forEach(_.groupBy(apis, item => item.name), async (associatedApis, apiKey) => {
       const preferredApi = associatedApis.find(x => x.preferred)
         || associatedApis.sort((a, b) => checkExists(a.version) > checkExists(b.version) ? 1 : -1)[0];
 
@@ -926,7 +899,7 @@ export class App {
       }
 
       if (allVersions) {
-        for (const api of associatedApis.filter(x => x != preferredApi)) {
+        for (const api of associatedApis.filter(x => x !== preferredApi)) {
           try {
             await this.processService(checkExists(api.discoveryRestUrl), checkExists(api.preferred));
           } catch (e) {
@@ -934,6 +907,6 @@ export class App {
           }
         }
       }
-    }
+    });
   }
 }
