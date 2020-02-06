@@ -31,6 +31,39 @@ gapi.load('client', () => {
         await gapi.client.clouderrorreporting.projects.deleteEvents({
             projectName: "Test string",
         });
+        /** Get the specified group. */
+        await gapi.client.clouderrorreporting.projects.groups.get({
+            groupName: "Test string",
+        });
+        /**
+         * Replace the data for the specified group.
+         * Fails if the group does not exist.
+         */
+        await gapi.client.clouderrorreporting.projects.groups.update({
+            name: "Test string",
+        }, {
+            groupId: "Test string",
+            name: "Test string",
+            trackingIssues: [
+                {
+                    url: "Test string",
+                }            ],
+        });
+        /** Lists the specified groups. */
+        await gapi.client.clouderrorreporting.projects.groupStats.list({
+            alignment: "Test string",
+            alignmentTime: "Test string",
+            groupId: "Test string",
+            order: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectName: "Test string",
+            "serviceFilter.resourceType": "Test string",
+            "serviceFilter.service": "Test string",
+            "serviceFilter.version": "Test string",
+            "timeRange.period": "Test string",
+            timedCountDuration: "Test string",
+        });
         /** Lists the specified events. */
         await gapi.client.clouderrorreporting.projects.events.list({
             groupId: "Test string",
@@ -84,39 +117,6 @@ gapi.load('client', () => {
                 service: "Test string",
                 version: "Test string",
             },
-        });
-        /** Get the specified group. */
-        await gapi.client.clouderrorreporting.projects.groups.get({
-            groupName: "Test string",
-        });
-        /**
-         * Replace the data for the specified group.
-         * Fails if the group does not exist.
-         */
-        await gapi.client.clouderrorreporting.projects.groups.update({
-            name: "Test string",
-        }, {
-            groupId: "Test string",
-            name: "Test string",
-            trackingIssues: [
-                {
-                    url: "Test string",
-                }            ],
-        });
-        /** Lists the specified groups. */
-        await gapi.client.clouderrorreporting.projects.groupStats.list({
-            alignment: "Test string",
-            alignmentTime: "Test string",
-            groupId: "Test string",
-            order: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectName: "Test string",
-            "serviceFilter.resourceType": "Test string",
-            "serviceFilter.service": "Test string",
-            "serviceFilter.version": "Test string",
-            "timeRange.period": "Test string",
-            timedCountDuration: "Test string",
         });
     }
 });

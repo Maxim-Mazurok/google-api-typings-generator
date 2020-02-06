@@ -151,195 +151,10 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -573,10 +388,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -815,195 +815,10 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -1237,10 +1052,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -1489,195 +1489,10 @@ gapi.load('client', () => {
                 shardBy: "Test string",
             },
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -1911,10 +1726,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -2153,195 +2153,10 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -2575,10 +2390,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -2989,195 +2989,10 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -3411,10 +3226,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -3653,195 +3653,10 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -4075,10 +3890,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -4327,195 +4327,10 @@ gapi.load('client', () => {
                 shardBy: "Test string",
             },
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -4749,10 +4564,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -4991,195 +4991,10 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -5413,10 +5228,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -5859,195 +5859,10 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -6281,10 +6096,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -6523,195 +6523,10 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -6945,10 +6760,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -7197,195 +7197,10 @@ gapi.load('client', () => {
                 shardBy: "Test string",
             },
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -7619,10 +7434,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -7861,195 +7861,10 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -8283,10 +8098,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -8704,195 +8704,10 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -9126,10 +8941,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -9368,195 +9368,10 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -9790,10 +9605,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -10042,195 +10042,10 @@ gapi.load('client', () => {
                 shardBy: "Test string",
             },
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -10464,10 +10279,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -10706,195 +10706,10 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -11128,10 +10943,195 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",

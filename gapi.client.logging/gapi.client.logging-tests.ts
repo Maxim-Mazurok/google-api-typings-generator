@@ -294,6 +294,24 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
+        /**
+         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
+         * in a resource.
+         */
+        await gapi.client.logging.organizations.exclusions.create({
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes an exclusion. */
+        await gapi.client.logging.organizations.exclusions.delete({
+            name: "Test string",
+        });
         /** Lists all the exclusions in a parent resource. */
         await gapi.client.logging.organizations.exclusions.list({
             pageSize: 42,
@@ -315,24 +333,6 @@ gapi.load('client', () => {
             filter: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /**
-         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-         * in a resource.
-         */
-        await gapi.client.logging.organizations.exclusions.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disabled: true,
-            filter: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes an exclusion. */
-        await gapi.client.logging.organizations.exclusions.delete({
-            name: "Test string",
         });
         /**
          * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations.
@@ -452,6 +452,24 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
+        /**
+         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
+         * in a resource.
+         */
+        await gapi.client.logging.organizations.exclusions.create({
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes an exclusion. */
+        await gapi.client.logging.organizations.exclusions.delete({
+            name: "Test string",
+        });
         /** Lists all the exclusions in a parent resource. */
         await gapi.client.logging.organizations.exclusions.list({
             pageSize: 42,
@@ -473,24 +491,6 @@ gapi.load('client', () => {
             filter: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /**
-         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-         * in a resource.
-         */
-        await gapi.client.logging.organizations.exclusions.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disabled: true,
-            filter: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes an exclusion. */
-        await gapi.client.logging.organizations.exclusions.delete({
-            name: "Test string",
         });
         /**
          * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's

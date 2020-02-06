@@ -17,13 +17,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Deletes an unused configuration. The API call fails if the customer has
-         * devices with the configuration applied.
-         */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.delete({
-            name: "Test string",
-        });
         /** Gets the details of a configuration. */
         await gapi.client.androiddeviceprovisioning.customers.configurations.get({
             name: "Test string",
@@ -64,6 +57,13 @@ gapi.load('client', () => {
             dpcExtras: "Test string",
             dpcResourcePath: "Test string",
             isDefault: true,
+            name: "Test string",
+        });
+        /**
+         * Deletes an unused configuration. The API call fails if the customer has
+         * devices with the configuration applied.
+         */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.delete({
             name: "Test string",
         });
         /**

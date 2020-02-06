@@ -46,10 +46,6 @@ gapi.load('client', () => {
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
-        /** Returns information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.get({
-            name: "Test string",
-        });
         /** Updates information about a repo. */
         await gapi.client.sourcerepo.projects.repos.patch({
             name: "Test string",
@@ -71,6 +67,10 @@ gapi.load('client', () => {
                 url: "Test string",
             },
             updateMask: "Test string",
+        });
+        /** Returns information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.get({
+            name: "Test string",
         });
         /**
          * Returns permissions that a caller has on the specified resource.
@@ -106,6 +106,30 @@ gapi.load('client', () => {
         }, {
         });
         /**
+         * Creates a repo in the given project with the given name.
+         *
+         * If the named repository already exists, `CreateRepo` returns
+         * `ALREADY_EXISTS`.
+         */
+        await gapi.client.sourcerepo.projects.repos.create({
+            parent: "Test string",
+        }, {
+            mirrorConfig: {
+                deployKeyId: "Test string",
+                url: "Test string",
+                webhookId: "Test string",
+            },
+            name: "Test string",
+            pubsubConfigs: {
+                A: {
+                    messageFormat: "Test string",
+                    serviceAccountEmail: "Test string",
+                    topic: "Test string",
+                }            },
+            size: "Test string",
+            url: "Test string",
+        });
+        /**
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          */
@@ -139,30 +163,6 @@ gapi.load('client', () => {
                 version: 42,
             },
             updateMask: "Test string",
-        });
-        /**
-         * Creates a repo in the given project with the given name.
-         *
-         * If the named repository already exists, `CreateRepo` returns
-         * `ALREADY_EXISTS`.
-         */
-        await gapi.client.sourcerepo.projects.repos.create({
-            parent: "Test string",
-        }, {
-            mirrorConfig: {
-                deployKeyId: "Test string",
-                url: "Test string",
-                webhookId: "Test string",
-            },
-            name: "Test string",
-            pubsubConfigs: {
-                A: {
-                    messageFormat: "Test string",
-                    serviceAccountEmail: "Test string",
-                    topic: "Test string",
-                }            },
-            size: "Test string",
-            url: "Test string",
         });
         /** Updates the Cloud Source Repositories configuration of the project. */
         await gapi.client.sourcerepo.projects.updateConfig({
@@ -189,10 +189,6 @@ gapi.load('client', () => {
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
-        /** Returns information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.get({
-            name: "Test string",
-        });
         /** Updates information about a repo. */
         await gapi.client.sourcerepo.projects.repos.patch({
             name: "Test string",
@@ -214,6 +210,10 @@ gapi.load('client', () => {
                 url: "Test string",
             },
             updateMask: "Test string",
+        });
+        /** Returns information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.get({
+            name: "Test string",
         });
         /**
          * Returns permissions that a caller has on the specified resource.
@@ -249,6 +249,30 @@ gapi.load('client', () => {
         }, {
         });
         /**
+         * Creates a repo in the given project with the given name.
+         *
+         * If the named repository already exists, `CreateRepo` returns
+         * `ALREADY_EXISTS`.
+         */
+        await gapi.client.sourcerepo.projects.repos.create({
+            parent: "Test string",
+        }, {
+            mirrorConfig: {
+                deployKeyId: "Test string",
+                url: "Test string",
+                webhookId: "Test string",
+            },
+            name: "Test string",
+            pubsubConfigs: {
+                A: {
+                    messageFormat: "Test string",
+                    serviceAccountEmail: "Test string",
+                    topic: "Test string",
+                }            },
+            size: "Test string",
+            url: "Test string",
+        });
+        /**
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          */
@@ -282,30 +306,6 @@ gapi.load('client', () => {
                 version: 42,
             },
             updateMask: "Test string",
-        });
-        /**
-         * Creates a repo in the given project with the given name.
-         *
-         * If the named repository already exists, `CreateRepo` returns
-         * `ALREADY_EXISTS`.
-         */
-        await gapi.client.sourcerepo.projects.repos.create({
-            parent: "Test string",
-        }, {
-            mirrorConfig: {
-                deployKeyId: "Test string",
-                url: "Test string",
-                webhookId: "Test string",
-            },
-            name: "Test string",
-            pubsubConfigs: {
-                A: {
-                    messageFormat: "Test string",
-                    serviceAccountEmail: "Test string",
-                    topic: "Test string",
-                }            },
-            size: "Test string",
-            url: "Test string",
         });
     }
 });

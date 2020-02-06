@@ -43,15 +43,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Delete an Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
-         * removed from long-lasting storage.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
-            name: "Test string",
-        });
-        /**
          * List all Service Perimeters for an
          * access policy.
          */
@@ -119,12 +110,12 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Delete an Access Level by resource
+         * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
-         * from long-lasting storage.
+         * once the Service Perimeter has been
+         * removed from long-lasting storage.
          */
-        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
         /**
@@ -253,6 +244,15 @@ gapi.load('client', () => {
             name: "Test string",
             title: "Test string",
             updateTime: "Test string",
+        });
+        /**
+         * Delete an Access Level by resource
+         * name. The longrunning operation from this RPC will have a successful status
+         * once the Access Level has been removed
+         * from long-lasting storage.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+            name: "Test string",
         });
         /**
          * Delete an AccessPolicy by resource
@@ -264,15 +264,6 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Delete an Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
-         * removed from long-lasting storage.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
-            name: "Test string",
-        });
-        /**
          * List all Service Perimeters for an
          * access policy.
          */
@@ -340,12 +331,12 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Delete an Access Level by resource
+         * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
-         * from long-lasting storage.
+         * once the Service Perimeter has been
+         * removed from long-lasting storage.
          */
-        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
         /**
@@ -474,21 +465,21 @@ gapi.load('client', () => {
             name: "Test string",
             title: "Test string",
             updateTime: "Test string",
+        });
+        /**
+         * Delete an Access Level by resource
+         * name. The longrunning operation from this RPC will have a successful status
+         * once the Access Level has been removed
+         * from long-lasting storage.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+            name: "Test string",
         });
         /** Get an AccessPolicy by name. */
         await gapi.client.accesscontextmanager.accessPolicies.get({
             name: "Test string",
         });
         /**
-         * Delete an Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
-         * removed from long-lasting storage.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
-            name: "Test string",
-        });
-        /**
          * List all Service Perimeters for an
          * access policy.
          */
@@ -556,12 +547,12 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Delete an Access Level by resource
+         * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
-         * from long-lasting storage.
+         * once the Service Perimeter has been
+         * removed from long-lasting storage.
          */
-        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
         /**
@@ -690,6 +681,15 @@ gapi.load('client', () => {
             name: "Test string",
             title: "Test string",
             updateTime: "Test string",
+        });
+        /**
+         * Delete an Access Level by resource
+         * name. The longrunning operation from this RPC will have a successful status
+         * once the Access Level has been removed
+         * from long-lasting storage.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+            name: "Test string",
         });
         /**
          * List all AccessPolicies under a
@@ -701,15 +701,6 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Delete an Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
-         * removed from long-lasting storage.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
-            name: "Test string",
-        });
-        /**
          * List all Service Perimeters for an
          * access policy.
          */
@@ -777,12 +768,12 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Delete an Access Level by resource
+         * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
-         * from long-lasting storage.
+         * once the Service Perimeter has been
+         * removed from long-lasting storage.
          */
-        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
         /**
@@ -911,6 +902,15 @@ gapi.load('client', () => {
             name: "Test string",
             title: "Test string",
             updateTime: "Test string",
+        });
+        /**
+         * Delete an Access Level by resource
+         * name. The longrunning operation from this RPC will have a successful status
+         * once the Access Level has been removed
+         * from long-lasting storage.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+            name: "Test string",
         });
         /**
          * Update an AccessPolicy. The
@@ -930,15 +930,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Delete an Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
-         * removed from long-lasting storage.
-         */
-        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
-            name: "Test string",
-        });
-        /**
          * List all Service Perimeters for an
          * access policy.
          */
@@ -1006,12 +997,12 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Delete an Access Level by resource
+         * Delete an Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
-         * from long-lasting storage.
+         * once the Service Perimeter has been
+         * removed from long-lasting storage.
          */
-        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+        await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
         /**
@@ -1140,6 +1131,15 @@ gapi.load('client', () => {
             name: "Test string",
             title: "Test string",
             updateTime: "Test string",
+        });
+        /**
+         * Delete an Access Level by resource
+         * name. The longrunning operation from this RPC will have a successful status
+         * once the Access Level has been removed
+         * from long-lasting storage.
+         */
+        await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
+            name: "Test string",
         });
         /**
          * Starts asynchronous cancellation on a long-running operation.  The server

@@ -50,6 +50,22 @@ gapi.load('client', () => {
                         }                    ],
                 }            ],
         });
+        /** Gets an index. */
+        await gapi.client.datastore.projects.indexes.get({
+            indexId: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Lists the indexes that match the specified filters.  Datastore uses an
+         * eventually consistent query to fetch the list of indexes and may
+         * occasionally return stale results.
+         */
+        await gapi.client.datastore.projects.indexes.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+        });
         /**
          * Creates the specified index.
          * A newly created index's initial state is `CREATING`. On completion of the
@@ -95,21 +111,29 @@ gapi.load('client', () => {
             indexId: "Test string",
             projectId: "Test string",
         });
-        /** Gets an index. */
-        await gapi.client.datastore.projects.indexes.get({
-            indexId: "Test string",
-            projectId: "Test string",
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
         });
         /**
-         * Lists the indexes that match the specified filters.  Datastore uses an
-         * eventually consistent query to fetch the list of indexes and may
-         * occasionally return stale results.
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
          */
-        await gapi.client.datastore.projects.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
+        await gapi.client.datastore.projects.operations.delete({
+            name: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -135,30 +159,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Begins a new transaction. */
@@ -173,6 +173,22 @@ gapi.load('client', () => {
                 },
             },
         });
+        /** Gets an index. */
+        await gapi.client.datastore.projects.indexes.get({
+            indexId: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Lists the indexes that match the specified filters.  Datastore uses an
+         * eventually consistent query to fetch the list of indexes and may
+         * occasionally return stale results.
+         */
+        await gapi.client.datastore.projects.indexes.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+        });
         /**
          * Creates the specified index.
          * A newly created index's initial state is `CREATING`. On completion of the
@@ -218,21 +234,29 @@ gapi.load('client', () => {
             indexId: "Test string",
             projectId: "Test string",
         });
-        /** Gets an index. */
-        await gapi.client.datastore.projects.indexes.get({
-            indexId: "Test string",
-            projectId: "Test string",
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
         });
         /**
-         * Lists the indexes that match the specified filters.  Datastore uses an
-         * eventually consistent query to fetch the list of indexes and may
-         * occasionally return stale results.
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
          */
-        await gapi.client.datastore.projects.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
+        await gapi.client.datastore.projects.operations.delete({
+            name: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -258,30 +282,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -448,6 +448,22 @@ gapi.load('client', () => {
                 }            ],
             transaction: "Test string",
         });
+        /** Gets an index. */
+        await gapi.client.datastore.projects.indexes.get({
+            indexId: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Lists the indexes that match the specified filters.  Datastore uses an
+         * eventually consistent query to fetch the list of indexes and may
+         * occasionally return stale results.
+         */
+        await gapi.client.datastore.projects.indexes.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+        });
         /**
          * Creates the specified index.
          * A newly created index's initial state is `CREATING`. On completion of the
@@ -493,21 +509,29 @@ gapi.load('client', () => {
             indexId: "Test string",
             projectId: "Test string",
         });
-        /** Gets an index. */
-        await gapi.client.datastore.projects.indexes.get({
-            indexId: "Test string",
-            projectId: "Test string",
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
         });
         /**
-         * Lists the indexes that match the specified filters.  Datastore uses an
-         * eventually consistent query to fetch the list of indexes and may
-         * occasionally return stale results.
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
          */
-        await gapi.client.datastore.projects.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
+        await gapi.client.datastore.projects.operations.delete({
+            name: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -533,30 +557,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -582,6 +582,22 @@ gapi.load('client', () => {
                 A: "Test string"            },
             outputUrlPrefix: "Test string",
         });
+        /** Gets an index. */
+        await gapi.client.datastore.projects.indexes.get({
+            indexId: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Lists the indexes that match the specified filters.  Datastore uses an
+         * eventually consistent query to fetch the list of indexes and may
+         * occasionally return stale results.
+         */
+        await gapi.client.datastore.projects.indexes.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+        });
         /**
          * Creates the specified index.
          * A newly created index's initial state is `CREATING`. On completion of the
@@ -627,21 +643,29 @@ gapi.load('client', () => {
             indexId: "Test string",
             projectId: "Test string",
         });
-        /** Gets an index. */
-        await gapi.client.datastore.projects.indexes.get({
-            indexId: "Test string",
-            projectId: "Test string",
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
         });
         /**
-         * Lists the indexes that match the specified filters.  Datastore uses an
-         * eventually consistent query to fetch the list of indexes and may
-         * occasionally return stale results.
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
          */
-        await gapi.client.datastore.projects.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
+        await gapi.client.datastore.projects.operations.delete({
+            name: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -667,30 +691,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -713,6 +713,22 @@ gapi.load('client', () => {
             labels: {
                 A: "Test string"            },
         });
+        /** Gets an index. */
+        await gapi.client.datastore.projects.indexes.get({
+            indexId: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Lists the indexes that match the specified filters.  Datastore uses an
+         * eventually consistent query to fetch the list of indexes and may
+         * occasionally return stale results.
+         */
+        await gapi.client.datastore.projects.indexes.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+        });
         /**
          * Creates the specified index.
          * A newly created index's initial state is `CREATING`. On completion of the
@@ -758,21 +774,29 @@ gapi.load('client', () => {
             indexId: "Test string",
             projectId: "Test string",
         });
-        /** Gets an index. */
-        await gapi.client.datastore.projects.indexes.get({
-            indexId: "Test string",
-            projectId: "Test string",
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
         });
         /**
-         * Lists the indexes that match the specified filters.  Datastore uses an
-         * eventually consistent query to fetch the list of indexes and may
-         * occasionally return stale results.
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
          */
-        await gapi.client.datastore.projects.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
+        await gapi.client.datastore.projects.operations.delete({
+            name: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -798,30 +822,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Looks up entities by key. */
@@ -846,6 +846,22 @@ gapi.load('client', () => {
                 transaction: "Test string",
             },
         });
+        /** Gets an index. */
+        await gapi.client.datastore.projects.indexes.get({
+            indexId: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Lists the indexes that match the specified filters.  Datastore uses an
+         * eventually consistent query to fetch the list of indexes and may
+         * occasionally return stale results.
+         */
+        await gapi.client.datastore.projects.indexes.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+        });
         /**
          * Creates the specified index.
          * A newly created index's initial state is `CREATING`. On completion of the
@@ -891,21 +907,29 @@ gapi.load('client', () => {
             indexId: "Test string",
             projectId: "Test string",
         });
-        /** Gets an index. */
-        await gapi.client.datastore.projects.indexes.get({
-            indexId: "Test string",
-            projectId: "Test string",
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
         });
         /**
-         * Lists the indexes that match the specified filters.  Datastore uses an
-         * eventually consistent query to fetch the list of indexes and may
-         * occasionally return stale results.
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
          */
-        await gapi.client.datastore.projects.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
+        await gapi.client.datastore.projects.operations.delete({
+            name: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -931,30 +955,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -979,6 +979,22 @@ gapi.load('client', () => {
                         }                    ],
                 }            ],
         });
+        /** Gets an index. */
+        await gapi.client.datastore.projects.indexes.get({
+            indexId: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Lists the indexes that match the specified filters.  Datastore uses an
+         * eventually consistent query to fetch the list of indexes and may
+         * occasionally return stale results.
+         */
+        await gapi.client.datastore.projects.indexes.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+        });
         /**
          * Creates the specified index.
          * A newly created index's initial state is `CREATING`. On completion of the
@@ -1024,21 +1040,29 @@ gapi.load('client', () => {
             indexId: "Test string",
             projectId: "Test string",
         });
-        /** Gets an index. */
-        await gapi.client.datastore.projects.indexes.get({
-            indexId: "Test string",
-            projectId: "Test string",
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
         });
         /**
-         * Lists the indexes that match the specified filters.  Datastore uses an
-         * eventually consistent query to fetch the list of indexes and may
-         * occasionally return stale results.
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
          */
-        await gapi.client.datastore.projects.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
+        await gapi.client.datastore.projects.operations.delete({
+            name: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -1064,30 +1088,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Rolls back a transaction. */
@@ -1096,6 +1096,22 @@ gapi.load('client', () => {
         }, {
             transaction: "Test string",
         });
+        /** Gets an index. */
+        await gapi.client.datastore.projects.indexes.get({
+            indexId: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Lists the indexes that match the specified filters.  Datastore uses an
+         * eventually consistent query to fetch the list of indexes and may
+         * occasionally return stale results.
+         */
+        await gapi.client.datastore.projects.indexes.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+        });
         /**
          * Creates the specified index.
          * A newly created index's initial state is `CREATING`. On completion of the
@@ -1141,21 +1157,29 @@ gapi.load('client', () => {
             indexId: "Test string",
             projectId: "Test string",
         });
-        /** Gets an index. */
-        await gapi.client.datastore.projects.indexes.get({
-            indexId: "Test string",
-            projectId: "Test string",
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
         });
         /**
-         * Lists the indexes that match the specified filters.  Datastore uses an
-         * eventually consistent query to fetch the list of indexes and may
-         * occasionally return stale results.
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
          */
-        await gapi.client.datastore.projects.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
+        await gapi.client.datastore.projects.operations.delete({
+            name: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -1181,30 +1205,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Queries for entities. */
@@ -1406,6 +1406,22 @@ gapi.load('client', () => {
                 transaction: "Test string",
             },
         });
+        /** Gets an index. */
+        await gapi.client.datastore.projects.indexes.get({
+            indexId: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Lists the indexes that match the specified filters.  Datastore uses an
+         * eventually consistent query to fetch the list of indexes and may
+         * occasionally return stale results.
+         */
+        await gapi.client.datastore.projects.indexes.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+        });
         /**
          * Creates the specified index.
          * A newly created index's initial state is `CREATING`. On completion of the
@@ -1451,21 +1467,29 @@ gapi.load('client', () => {
             indexId: "Test string",
             projectId: "Test string",
         });
-        /** Gets an index. */
-        await gapi.client.datastore.projects.indexes.get({
-            indexId: "Test string",
-            projectId: "Test string",
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
         });
         /**
-         * Lists the indexes that match the specified filters.  Datastore uses an
-         * eventually consistent query to fetch the list of indexes and may
-         * occasionally return stale results.
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
          */
-        await gapi.client.datastore.projects.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
+        await gapi.client.datastore.projects.operations.delete({
+            name: "Test string",
         });
         /**
          * Lists operations that match the specified filter in the request. If the
@@ -1491,30 +1515,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.datastore.projects.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datastore.projects.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
     }

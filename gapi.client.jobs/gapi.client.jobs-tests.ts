@@ -86,12 +86,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Deletes a list of Jobs by filter. */
-        await gapi.client.jobs.projects.jobs.batchDelete({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-        });
         /**
          * Creates a new job.
          *
@@ -229,6 +223,12 @@ gapi.load('client', () => {
                 title: "Test string",
                 visibility: "Test string",
             },
+        });
+        /** Deletes a list of Jobs by filter. */
+        await gapi.client.jobs.projects.jobs.batchDelete({
+            parent: "Test string",
+        }, {
+            filter: "Test string",
         });
         /**
          * Searches for jobs using the provided SearchJobsRequest.
@@ -617,58 +617,6 @@ gapi.load('client', () => {
             requirePreciseResultSize: true,
             searchMode: "Test string",
         });
-        /** Creates a new company entity. */
-        await gapi.client.jobs.projects.companies.create({
-            parent: "Test string",
-        }, {
-            company: {
-                careerSiteUri: "Test string",
-                derivedInfo: {
-                    headquartersLocation: {
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        locationType: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                        radiusInMiles: 42,
-                    },
-                },
-                displayName: "Test string",
-                eeoText: "Test string",
-                externalId: "Test string",
-                headquartersAddress: "Test string",
-                hiringAgency: true,
-                imageUri: "Test string",
-                keywordSearchableJobCustomAttributes: [
-                    "Test string"                ],
-                name: "Test string",
-                size: "Test string",
-                suspended: true,
-                websiteUri: "Test string",
-            },
-        });
-        /**
-         * Deletes specified company.
-         * Prerequisite: The company has no jobs associated with it.
-         */
-        await gapi.client.jobs.projects.companies.delete({
-            name: "Test string",
-        });
         /** Retrieves specified company. */
         await gapi.client.jobs.projects.companies.get({
             name: "Test string",
@@ -729,6 +677,58 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             requireOpenJobs: true,
+        });
+        /** Creates a new company entity. */
+        await gapi.client.jobs.projects.companies.create({
+            parent: "Test string",
+        }, {
+            company: {
+                careerSiteUri: "Test string",
+                derivedInfo: {
+                    headquartersLocation: {
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        locationType: "Test string",
+                        postalAddress: {
+                            addressLines: [
+                                "Test string"                            ],
+                            administrativeArea: "Test string",
+                            languageCode: "Test string",
+                            locality: "Test string",
+                            organization: "Test string",
+                            postalCode: "Test string",
+                            recipients: [
+                                "Test string"                            ],
+                            regionCode: "Test string",
+                            revision: 42,
+                            sortingCode: "Test string",
+                            sublocality: "Test string",
+                        },
+                        radiusInMiles: 42,
+                    },
+                },
+                displayName: "Test string",
+                eeoText: "Test string",
+                externalId: "Test string",
+                headquartersAddress: "Test string",
+                hiringAgency: true,
+                imageUri: "Test string",
+                keywordSearchableJobCustomAttributes: [
+                    "Test string"                ],
+                name: "Test string",
+                size: "Test string",
+                suspended: true,
+                websiteUri: "Test string",
+            },
+        });
+        /**
+         * Deletes specified company.
+         * Prerequisite: The company has no jobs associated with it.
+         */
+        await gapi.client.jobs.projects.companies.delete({
+            name: "Test string",
         });
     }
 });

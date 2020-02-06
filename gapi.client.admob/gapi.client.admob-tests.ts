@@ -17,10 +17,10 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Generates an AdMob Network report based on the provided report
+         * Generates an AdMob Mediation report based on the provided report
          * specification.
          */
-        await gapi.client.admob.accounts.networkReport.generate({
+        await gapi.client.admob.accounts.mediationReport.generate({
             parent: "Test string",
         }, {
             reportSpec: {
@@ -63,10 +63,10 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Generates an AdMob Mediation report based on the provided report
+         * Generates an AdMob Network report based on the provided report
          * specification.
          */
-        await gapi.client.admob.accounts.mediationReport.generate({
+        await gapi.client.admob.accounts.networkReport.generate({
             parent: "Test string",
         }, {
             reportSpec: {
@@ -117,10 +117,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Generates an AdMob Network report based on the provided report
+         * Generates an AdMob Mediation report based on the provided report
          * specification.
          */
-        await gapi.client.admob.accounts.networkReport.generate({
+        await gapi.client.admob.accounts.mediationReport.generate({
             parent: "Test string",
         }, {
             reportSpec: {
@@ -163,10 +163,10 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Generates an AdMob Mediation report based on the provided report
+         * Generates an AdMob Network report based on the provided report
          * specification.
          */
-        await gapi.client.admob.accounts.mediationReport.generate({
+        await gapi.client.admob.accounts.networkReport.generate({
             parent: "Test string",
         }, {
             reportSpec: {

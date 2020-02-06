@@ -86,6 +86,19 @@ gapi.load('client', () => {
             query: "Test string",
         });
         /**
+         * Find the tenancy unit for a managed service and service consumer.
+         * This method shouldn't be used in a service producer's runtime path, for
+         * example to find the tenant project number when creating VMs. Service
+         * producers must persist the tenant project's information after the project
+         * is created.
+         */
+        await gapi.client.serviceconsumermanagement.services.tenancyUnits.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
          * Creates a tenancy unit with no tenant resources.
          * If tenancy unit already exists, it will be returned,
          * however, in this case, returned TenancyUnit does not have tenant_resources
@@ -130,20 +143,6 @@ gapi.load('client', () => {
         }, {
             externalResource: "Test string",
             reservedResource: "Test string",
-            tag: "Test string",
-        });
-        /**
-         * Attempts to undelete a previously deleted tenant project. The project must
-         * be in a DELETED state.
-         * There are no guarantees that an undeleted project will be in
-         * a fully restored and functional state. Call the `ApplyTenantProjectConfig`
-         * method to update its configuration and then validate all managed service
-         * resources.
-         * Operation<response: Empty>.
-         */
-        await gapi.client.serviceconsumermanagement.services.tenancyUnits.undeleteProject({
-            name: "Test string",
-        }, {
             tag: "Test string",
         });
         /**
@@ -194,6 +193,20 @@ gapi.load('client', () => {
             tag: "Test string",
         });
         /**
+         * Attempts to undelete a previously deleted tenant project. The project must
+         * be in a DELETED state.
+         * There are no guarantees that an undeleted project will be in
+         * a fully restored and functional state. Call the `ApplyTenantProjectConfig`
+         * method to update its configuration and then validate all managed service
+         * resources.
+         * Operation<response: Empty>.
+         */
+        await gapi.client.serviceconsumermanagement.services.tenancyUnits.undeleteProject({
+            name: "Test string",
+        }, {
+            tag: "Test string",
+        });
+        /**
          * Deletes the specified project resource identified by a tenant resource tag.
          * The mothod removes a project lien with a 'TenantManager' origin if that was
          * added. It will then attempt to delete the project. If that operation fails,
@@ -209,6 +222,14 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             tag: "Test string",
+        });
+        /**
+         * Delete a tenancy unit. Before you delete the tenancy unit, there should be
+         * no tenant resources in it that aren't in a DELETED state.
+         * Operation<response: Empty>.
+         */
+        await gapi.client.serviceconsumermanagement.services.tenancyUnits.delete({
+            name: "Test string",
         });
         /**
          * Add a new tenant project to the tenancy unit.
@@ -245,27 +266,6 @@ gapi.load('client', () => {
                 },
             },
             tag: "Test string",
-        });
-        /**
-         * Delete a tenancy unit. Before you delete the tenancy unit, there should be
-         * no tenant resources in it that aren't in a DELETED state.
-         * Operation<response: Empty>.
-         */
-        await gapi.client.serviceconsumermanagement.services.tenancyUnits.delete({
-            name: "Test string",
-        });
-        /**
-         * Find the tenancy unit for a managed service and service consumer.
-         * This method shouldn't be used in a service producer's runtime path, for
-         * example to find the tenant project number when creating VMs. Service
-         * producers must persist the tenant project's information after the project
-         * is created.
-         */
-        await gapi.client.serviceconsumermanagement.services.tenancyUnits.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
     }
 });

@@ -96,84 +96,6 @@ gapi.load('client', () => {
             timeZone: "Test string",
         });
         /**
-         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
-         * the specified Project (including a FirebaseProject).
-         * <br>
-         * <br>One of these locations can be selected as the Project's [_default_ GCP
-         * resource location](https://firebase.google.com/docs/projects/locations),
-         * which is the geographical location where project resources, such as Cloud
-         * Firestore, will be provisioned by default. However, if the default GCP
-         * resource location has already been set for the Project, then this setting
-         * cannot be changed.
-         * <br>
-         * <br>This call checks for any location restrictions for the specified
-         * Project and, thus, might return a subset of all possible GCP resource
-         * locations. To list all GCP resource locations (regardless of any
-         * restrictions), call the endpoint without specifying a `projectId` (that is,
-         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
-         * <br>To call `ListAvailableLocations` with a specified project, a member
-         * must be at minimum a Viewer of the project. Calls without a specified
-         * project do not require any specific project permissions.
-         */
-        await gapi.client.firebase.projects.availableLocations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Requests that a new WebApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.webApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified WebApp. */
-        await gapi.client.firebase.projects.webApps.getConfig({
-            name: "Test string",
-        });
-        /** Gets the WebApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.webApps.get({
-            name: "Test string",
-        });
-        /**
-         * Lists each WebApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates the attributes of the WebApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /**
          * Sets the default Google Cloud Platform (GCP) resource location for the
          * specified FirebaseProject.
          * <br>
@@ -217,10 +139,6 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             locationId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified IosApp. */
-        await gapi.client.firebase.projects.iosApps.getConfig({
-            name: "Test string",
         });
         /** Gets the IosApp identified by the specified resource name. */
         await gapi.client.firebase.projects.iosApps.get({
@@ -269,6 +187,71 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+        });
+        /** Gets the configuration artifact associated with the specified IosApp. */
+        await gapi.client.firebase.projects.iosApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
         });
         /** Gets the AndroidApp identified by the specified resource name. */
         await gapi.client.firebase.projects.androidApps.get({
@@ -358,65 +341,82 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Requests that a new AndroidApp be created.
+         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
+         * the specified Project (including a FirebaseProject).
+         * <br>
+         * <br>One of these locations can be selected as the Project's [_default_ GCP
+         * resource location](https://firebase.google.com/docs/projects/locations),
+         * which is the geographical location where project resources, such as Cloud
+         * Firestore, will be provisioned by default. However, if the default GCP
+         * resource location has already been set for the Project, then this setting
+         * cannot be changed.
+         * <br>
+         * <br>This call checks for any location restrictions for the specified
+         * Project and, thus, might return a subset of all possible GCP resource
+         * locations. To list all GCP resource locations (regardless of any
+         * restrictions), call the endpoint without specifying a `projectId` (that is,
+         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
+         * <br>
+         * <br>To call `ListAvailableLocations` with a specified project, a member
+         * must be at minimum a Viewer of the project. Calls without a specified
+         * project do not require any specific project permissions.
+         */
+        await gapi.client.firebase.projects.availableLocations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the WebApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.webApps.get({
+            name: "Test string",
+        });
+        /**
+         * Lists each WebApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the attributes of the WebApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            appUrls: [
+                "Test string"            ],
+            displayName: "Test string",
+            name: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Requests that a new WebApp be created.
          * <br>
          * <br>The result of this call is an `Operation` which can be used to track
          * the provisioning process. The `Operation` is automatically deleted after
          * completion, so there is no need to call `DeleteOperation`.
          */
-        await gapi.client.firebase.projects.androidApps.create({
+        await gapi.client.firebase.projects.webApps.create({
             parent: "Test string",
         }, {
             appId: "Test string",
+            appUrls: [
+                "Test string"            ],
             displayName: "Test string",
             name: "Test string",
-            packageName: "Test string",
             projectId: "Test string",
         });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
+        /** Gets the configuration artifact associated with the specified WebApp. */
+        await gapi.client.firebase.projects.webApps.getConfig({
             name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
         });
         /**
          * Links a FirebaseProject with an existing
@@ -480,84 +480,6 @@ gapi.load('client', () => {
             analyticsPropertyId: "Test string",
         });
         /**
-         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
-         * the specified Project (including a FirebaseProject).
-         * <br>
-         * <br>One of these locations can be selected as the Project's [_default_ GCP
-         * resource location](https://firebase.google.com/docs/projects/locations),
-         * which is the geographical location where project resources, such as Cloud
-         * Firestore, will be provisioned by default. However, if the default GCP
-         * resource location has already been set for the Project, then this setting
-         * cannot be changed.
-         * <br>
-         * <br>This call checks for any location restrictions for the specified
-         * Project and, thus, might return a subset of all possible GCP resource
-         * locations. To list all GCP resource locations (regardless of any
-         * restrictions), call the endpoint without specifying a `projectId` (that is,
-         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
-         * <br>To call `ListAvailableLocations` with a specified project, a member
-         * must be at minimum a Viewer of the project. Calls without a specified
-         * project do not require any specific project permissions.
-         */
-        await gapi.client.firebase.projects.availableLocations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Requests that a new WebApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.webApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified WebApp. */
-        await gapi.client.firebase.projects.webApps.getConfig({
-            name: "Test string",
-        });
-        /** Gets the WebApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.webApps.get({
-            name: "Test string",
-        });
-        /**
-         * Lists each WebApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates the attributes of the WebApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /**
          * Sets the default Google Cloud Platform (GCP) resource location for the
          * specified FirebaseProject.
          * <br>
@@ -601,10 +523,6 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             locationId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified IosApp. */
-        await gapi.client.firebase.projects.iosApps.getConfig({
-            name: "Test string",
         });
         /** Gets the IosApp identified by the specified resource name. */
         await gapi.client.firebase.projects.iosApps.get({
@@ -653,6 +571,71 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+        });
+        /** Gets the configuration artifact associated with the specified IosApp. */
+        await gapi.client.firebase.projects.iosApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
         });
         /** Gets the AndroidApp identified by the specified resource name. */
         await gapi.client.firebase.projects.androidApps.get({
@@ -742,149 +725,88 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Requests that a new AndroidApp be created.
+         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
+         * the specified Project (including a FirebaseProject).
+         * <br>
+         * <br>One of these locations can be selected as the Project's [_default_ GCP
+         * resource location](https://firebase.google.com/docs/projects/locations),
+         * which is the geographical location where project resources, such as Cloud
+         * Firestore, will be provisioned by default. However, if the default GCP
+         * resource location has already been set for the Project, then this setting
+         * cannot be changed.
+         * <br>
+         * <br>This call checks for any location restrictions for the specified
+         * Project and, thus, might return a subset of all possible GCP resource
+         * locations. To list all GCP resource locations (regardless of any
+         * restrictions), call the endpoint without specifying a `projectId` (that is,
+         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
+         * <br>
+         * <br>To call `ListAvailableLocations` with a specified project, a member
+         * must be at minimum a Viewer of the project. Calls without a specified
+         * project do not require any specific project permissions.
+         */
+        await gapi.client.firebase.projects.availableLocations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the WebApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.webApps.get({
+            name: "Test string",
+        });
+        /**
+         * Lists each WebApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the attributes of the WebApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            appUrls: [
+                "Test string"            ],
+            displayName: "Test string",
+            name: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Requests that a new WebApp be created.
          * <br>
          * <br>The result of this call is an `Operation` which can be used to track
          * the provisioning process. The `Operation` is automatically deleted after
          * completion, so there is no need to call `DeleteOperation`.
          */
-        await gapi.client.firebase.projects.androidApps.create({
+        await gapi.client.firebase.projects.webApps.create({
             parent: "Test string",
         }, {
             appId: "Test string",
+            appUrls: [
+                "Test string"            ],
             displayName: "Test string",
             name: "Test string",
-            packageName: "Test string",
             projectId: "Test string",
         });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
+        /** Gets the configuration artifact associated with the specified WebApp. */
+        await gapi.client.firebase.projects.webApps.getConfig({
             name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
         });
         /** Gets the FirebaseProject identified by the specified resource name. */
         await gapi.client.firebase.projects.get({
             name: "Test string",
         });
         /**
-         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
-         * the specified Project (including a FirebaseProject).
-         * <br>
-         * <br>One of these locations can be selected as the Project's [_default_ GCP
-         * resource location](https://firebase.google.com/docs/projects/locations),
-         * which is the geographical location where project resources, such as Cloud
-         * Firestore, will be provisioned by default. However, if the default GCP
-         * resource location has already been set for the Project, then this setting
-         * cannot be changed.
-         * <br>
-         * <br>This call checks for any location restrictions for the specified
-         * Project and, thus, might return a subset of all possible GCP resource
-         * locations. To list all GCP resource locations (regardless of any
-         * restrictions), call the endpoint without specifying a `projectId` (that is,
-         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
-         * <br>To call `ListAvailableLocations` with a specified project, a member
-         * must be at minimum a Viewer of the project. Calls without a specified
-         * project do not require any specific project permissions.
-         */
-        await gapi.client.firebase.projects.availableLocations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Requests that a new WebApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.webApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified WebApp. */
-        await gapi.client.firebase.projects.webApps.getConfig({
-            name: "Test string",
-        });
-        /** Gets the WebApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.webApps.get({
-            name: "Test string",
-        });
-        /**
-         * Lists each WebApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates the attributes of the WebApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /**
          * Sets the default Google Cloud Platform (GCP) resource location for the
          * specified FirebaseProject.
          * <br>
@@ -928,10 +850,6 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             locationId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified IosApp. */
-        await gapi.client.firebase.projects.iosApps.getConfig({
-            name: "Test string",
         });
         /** Gets the IosApp identified by the specified resource name. */
         await gapi.client.firebase.projects.iosApps.get({
@@ -980,6 +898,71 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+        });
+        /** Gets the configuration artifact associated with the specified IosApp. */
+        await gapi.client.firebase.projects.iosApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
         });
         /** Gets the AndroidApp identified by the specified resource name. */
         await gapi.client.firebase.projects.androidApps.get({
@@ -1069,65 +1052,82 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Requests that a new AndroidApp be created.
+         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
+         * the specified Project (including a FirebaseProject).
+         * <br>
+         * <br>One of these locations can be selected as the Project's [_default_ GCP
+         * resource location](https://firebase.google.com/docs/projects/locations),
+         * which is the geographical location where project resources, such as Cloud
+         * Firestore, will be provisioned by default. However, if the default GCP
+         * resource location has already been set for the Project, then this setting
+         * cannot be changed.
+         * <br>
+         * <br>This call checks for any location restrictions for the specified
+         * Project and, thus, might return a subset of all possible GCP resource
+         * locations. To list all GCP resource locations (regardless of any
+         * restrictions), call the endpoint without specifying a `projectId` (that is,
+         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
+         * <br>
+         * <br>To call `ListAvailableLocations` with a specified project, a member
+         * must be at minimum a Viewer of the project. Calls without a specified
+         * project do not require any specific project permissions.
+         */
+        await gapi.client.firebase.projects.availableLocations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the WebApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.webApps.get({
+            name: "Test string",
+        });
+        /**
+         * Lists each WebApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the attributes of the WebApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            appUrls: [
+                "Test string"            ],
+            displayName: "Test string",
+            name: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Requests that a new WebApp be created.
          * <br>
          * <br>The result of this call is an `Operation` which can be used to track
          * the provisioning process. The `Operation` is automatically deleted after
          * completion, so there is no need to call `DeleteOperation`.
          */
-        await gapi.client.firebase.projects.androidApps.create({
+        await gapi.client.firebase.projects.webApps.create({
             parent: "Test string",
         }, {
             appId: "Test string",
+            appUrls: [
+                "Test string"            ],
             displayName: "Test string",
             name: "Test string",
-            packageName: "Test string",
             projectId: "Test string",
         });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
+        /** Gets the configuration artifact associated with the specified WebApp. */
+        await gapi.client.firebase.projects.webApps.getConfig({
             name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
         });
         /**
          * Gets the configuration artifact used by servers to simplify initialization.
@@ -1140,84 +1140,6 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
-         * the specified Project (including a FirebaseProject).
-         * <br>
-         * <br>One of these locations can be selected as the Project's [_default_ GCP
-         * resource location](https://firebase.google.com/docs/projects/locations),
-         * which is the geographical location where project resources, such as Cloud
-         * Firestore, will be provisioned by default. However, if the default GCP
-         * resource location has already been set for the Project, then this setting
-         * cannot be changed.
-         * <br>
-         * <br>This call checks for any location restrictions for the specified
-         * Project and, thus, might return a subset of all possible GCP resource
-         * locations. To list all GCP resource locations (regardless of any
-         * restrictions), call the endpoint without specifying a `projectId` (that is,
-         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
-         * <br>To call `ListAvailableLocations` with a specified project, a member
-         * must be at minimum a Viewer of the project. Calls without a specified
-         * project do not require any specific project permissions.
-         */
-        await gapi.client.firebase.projects.availableLocations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Requests that a new WebApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.webApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified WebApp. */
-        await gapi.client.firebase.projects.webApps.getConfig({
-            name: "Test string",
-        });
-        /** Gets the WebApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.webApps.get({
-            name: "Test string",
-        });
-        /**
-         * Lists each WebApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates the attributes of the WebApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /**
          * Sets the default Google Cloud Platform (GCP) resource location for the
          * specified FirebaseProject.
          * <br>
@@ -1261,10 +1183,6 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             locationId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified IosApp. */
-        await gapi.client.firebase.projects.iosApps.getConfig({
-            name: "Test string",
         });
         /** Gets the IosApp identified by the specified resource name. */
         await gapi.client.firebase.projects.iosApps.get({
@@ -1313,6 +1231,71 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+        });
+        /** Gets the configuration artifact associated with the specified IosApp. */
+        await gapi.client.firebase.projects.iosApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
         });
         /** Gets the AndroidApp identified by the specified resource name. */
         await gapi.client.firebase.projects.androidApps.get({
@@ -1402,65 +1385,82 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Requests that a new AndroidApp be created.
+         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
+         * the specified Project (including a FirebaseProject).
+         * <br>
+         * <br>One of these locations can be selected as the Project's [_default_ GCP
+         * resource location](https://firebase.google.com/docs/projects/locations),
+         * which is the geographical location where project resources, such as Cloud
+         * Firestore, will be provisioned by default. However, if the default GCP
+         * resource location has already been set for the Project, then this setting
+         * cannot be changed.
+         * <br>
+         * <br>This call checks for any location restrictions for the specified
+         * Project and, thus, might return a subset of all possible GCP resource
+         * locations. To list all GCP resource locations (regardless of any
+         * restrictions), call the endpoint without specifying a `projectId` (that is,
+         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
+         * <br>
+         * <br>To call `ListAvailableLocations` with a specified project, a member
+         * must be at minimum a Viewer of the project. Calls without a specified
+         * project do not require any specific project permissions.
+         */
+        await gapi.client.firebase.projects.availableLocations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the WebApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.webApps.get({
+            name: "Test string",
+        });
+        /**
+         * Lists each WebApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the attributes of the WebApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            appUrls: [
+                "Test string"            ],
+            displayName: "Test string",
+            name: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Requests that a new WebApp be created.
          * <br>
          * <br>The result of this call is an `Operation` which can be used to track
          * the provisioning process. The `Operation` is automatically deleted after
          * completion, so there is no need to call `DeleteOperation`.
          */
-        await gapi.client.firebase.projects.androidApps.create({
+        await gapi.client.firebase.projects.webApps.create({
             parent: "Test string",
         }, {
             appId: "Test string",
+            appUrls: [
+                "Test string"            ],
             displayName: "Test string",
             name: "Test string",
-            packageName: "Test string",
             projectId: "Test string",
         });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
+        /** Gets the configuration artifact associated with the specified WebApp. */
+        await gapi.client.firebase.projects.webApps.getConfig({
             name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
         });
         /**
          * Gets the Google Analytics details currently associated with a
@@ -1473,84 +1473,6 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
-         * the specified Project (including a FirebaseProject).
-         * <br>
-         * <br>One of these locations can be selected as the Project's [_default_ GCP
-         * resource location](https://firebase.google.com/docs/projects/locations),
-         * which is the geographical location where project resources, such as Cloud
-         * Firestore, will be provisioned by default. However, if the default GCP
-         * resource location has already been set for the Project, then this setting
-         * cannot be changed.
-         * <br>
-         * <br>This call checks for any location restrictions for the specified
-         * Project and, thus, might return a subset of all possible GCP resource
-         * locations. To list all GCP resource locations (regardless of any
-         * restrictions), call the endpoint without specifying a `projectId` (that is,
-         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
-         * <br>To call `ListAvailableLocations` with a specified project, a member
-         * must be at minimum a Viewer of the project. Calls without a specified
-         * project do not require any specific project permissions.
-         */
-        await gapi.client.firebase.projects.availableLocations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Requests that a new WebApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.webApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified WebApp. */
-        await gapi.client.firebase.projects.webApps.getConfig({
-            name: "Test string",
-        });
-        /** Gets the WebApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.webApps.get({
-            name: "Test string",
-        });
-        /**
-         * Lists each WebApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates the attributes of the WebApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /**
          * Sets the default Google Cloud Platform (GCP) resource location for the
          * specified FirebaseProject.
          * <br>
@@ -1594,10 +1516,6 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             locationId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified IosApp. */
-        await gapi.client.firebase.projects.iosApps.getConfig({
-            name: "Test string",
         });
         /** Gets the IosApp identified by the specified resource name. */
         await gapi.client.firebase.projects.iosApps.get({
@@ -1646,6 +1564,71 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+        });
+        /** Gets the configuration artifact associated with the specified IosApp. */
+        await gapi.client.firebase.projects.iosApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
         });
         /** Gets the AndroidApp identified by the specified resource name. */
         await gapi.client.firebase.projects.androidApps.get({
@@ -1735,65 +1718,82 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Requests that a new AndroidApp be created.
+         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
+         * the specified Project (including a FirebaseProject).
+         * <br>
+         * <br>One of these locations can be selected as the Project's [_default_ GCP
+         * resource location](https://firebase.google.com/docs/projects/locations),
+         * which is the geographical location where project resources, such as Cloud
+         * Firestore, will be provisioned by default. However, if the default GCP
+         * resource location has already been set for the Project, then this setting
+         * cannot be changed.
+         * <br>
+         * <br>This call checks for any location restrictions for the specified
+         * Project and, thus, might return a subset of all possible GCP resource
+         * locations. To list all GCP resource locations (regardless of any
+         * restrictions), call the endpoint without specifying a `projectId` (that is,
+         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
+         * <br>
+         * <br>To call `ListAvailableLocations` with a specified project, a member
+         * must be at minimum a Viewer of the project. Calls without a specified
+         * project do not require any specific project permissions.
+         */
+        await gapi.client.firebase.projects.availableLocations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the WebApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.webApps.get({
+            name: "Test string",
+        });
+        /**
+         * Lists each WebApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the attributes of the WebApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            appUrls: [
+                "Test string"            ],
+            displayName: "Test string",
+            name: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Requests that a new WebApp be created.
          * <br>
          * <br>The result of this call is an `Operation` which can be used to track
          * the provisioning process. The `Operation` is automatically deleted after
          * completion, so there is no need to call `DeleteOperation`.
          */
-        await gapi.client.firebase.projects.androidApps.create({
+        await gapi.client.firebase.projects.webApps.create({
             parent: "Test string",
         }, {
             appId: "Test string",
+            appUrls: [
+                "Test string"            ],
             displayName: "Test string",
             name: "Test string",
-            packageName: "Test string",
             projectId: "Test string",
         });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
+        /** Gets the configuration artifact associated with the specified WebApp. */
+        await gapi.client.firebase.projects.webApps.getConfig({
             name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
         });
         /**
          * Lists each FirebaseProject accessible to the caller.
@@ -1816,84 +1816,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
-         * the specified Project (including a FirebaseProject).
-         * <br>
-         * <br>One of these locations can be selected as the Project's [_default_ GCP
-         * resource location](https://firebase.google.com/docs/projects/locations),
-         * which is the geographical location where project resources, such as Cloud
-         * Firestore, will be provisioned by default. However, if the default GCP
-         * resource location has already been set for the Project, then this setting
-         * cannot be changed.
-         * <br>
-         * <br>This call checks for any location restrictions for the specified
-         * Project and, thus, might return a subset of all possible GCP resource
-         * locations. To list all GCP resource locations (regardless of any
-         * restrictions), call the endpoint without specifying a `projectId` (that is,
-         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
-         * <br>To call `ListAvailableLocations` with a specified project, a member
-         * must be at minimum a Viewer of the project. Calls without a specified
-         * project do not require any specific project permissions.
-         */
-        await gapi.client.firebase.projects.availableLocations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Requests that a new WebApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.webApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified WebApp. */
-        await gapi.client.firebase.projects.webApps.getConfig({
-            name: "Test string",
-        });
-        /** Gets the WebApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.webApps.get({
-            name: "Test string",
-        });
-        /**
-         * Lists each WebApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates the attributes of the WebApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /**
          * Sets the default Google Cloud Platform (GCP) resource location for the
          * specified FirebaseProject.
          * <br>
@@ -1937,10 +1859,6 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             locationId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified IosApp. */
-        await gapi.client.firebase.projects.iosApps.getConfig({
-            name: "Test string",
         });
         /** Gets the IosApp identified by the specified resource name. */
         await gapi.client.firebase.projects.iosApps.get({
@@ -1989,6 +1907,71 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+        });
+        /** Gets the configuration artifact associated with the specified IosApp. */
+        await gapi.client.firebase.projects.iosApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
         });
         /** Gets the AndroidApp identified by the specified resource name. */
         await gapi.client.firebase.projects.androidApps.get({
@@ -2078,65 +2061,82 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Requests that a new AndroidApp be created.
+         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
+         * the specified Project (including a FirebaseProject).
+         * <br>
+         * <br>One of these locations can be selected as the Project's [_default_ GCP
+         * resource location](https://firebase.google.com/docs/projects/locations),
+         * which is the geographical location where project resources, such as Cloud
+         * Firestore, will be provisioned by default. However, if the default GCP
+         * resource location has already been set for the Project, then this setting
+         * cannot be changed.
+         * <br>
+         * <br>This call checks for any location restrictions for the specified
+         * Project and, thus, might return a subset of all possible GCP resource
+         * locations. To list all GCP resource locations (regardless of any
+         * restrictions), call the endpoint without specifying a `projectId` (that is,
+         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
+         * <br>
+         * <br>To call `ListAvailableLocations` with a specified project, a member
+         * must be at minimum a Viewer of the project. Calls without a specified
+         * project do not require any specific project permissions.
+         */
+        await gapi.client.firebase.projects.availableLocations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the WebApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.webApps.get({
+            name: "Test string",
+        });
+        /**
+         * Lists each WebApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the attributes of the WebApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            appUrls: [
+                "Test string"            ],
+            displayName: "Test string",
+            name: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Requests that a new WebApp be created.
          * <br>
          * <br>The result of this call is an `Operation` which can be used to track
          * the provisioning process. The `Operation` is automatically deleted after
          * completion, so there is no need to call `DeleteOperation`.
          */
-        await gapi.client.firebase.projects.androidApps.create({
+        await gapi.client.firebase.projects.webApps.create({
             parent: "Test string",
         }, {
             appId: "Test string",
+            appUrls: [
+                "Test string"            ],
             displayName: "Test string",
             name: "Test string",
-            packageName: "Test string",
             projectId: "Test string",
         });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
+        /** Gets the configuration artifact associated with the specified WebApp. */
+        await gapi.client.firebase.projects.webApps.getConfig({
             name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
         });
         /**
          * Updates the attributes of the FirebaseProject identified by the
@@ -2160,84 +2160,6 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
-         * the specified Project (including a FirebaseProject).
-         * <br>
-         * <br>One of these locations can be selected as the Project's [_default_ GCP
-         * resource location](https://firebase.google.com/docs/projects/locations),
-         * which is the geographical location where project resources, such as Cloud
-         * Firestore, will be provisioned by default. However, if the default GCP
-         * resource location has already been set for the Project, then this setting
-         * cannot be changed.
-         * <br>
-         * <br>This call checks for any location restrictions for the specified
-         * Project and, thus, might return a subset of all possible GCP resource
-         * locations. To list all GCP resource locations (regardless of any
-         * restrictions), call the endpoint without specifying a `projectId` (that is,
-         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
-         * <br>To call `ListAvailableLocations` with a specified project, a member
-         * must be at minimum a Viewer of the project. Calls without a specified
-         * project do not require any specific project permissions.
-         */
-        await gapi.client.firebase.projects.availableLocations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Requests that a new WebApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.webApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified WebApp. */
-        await gapi.client.firebase.projects.webApps.getConfig({
-            name: "Test string",
-        });
-        /** Gets the WebApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.webApps.get({
-            name: "Test string",
-        });
-        /**
-         * Lists each WebApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates the attributes of the WebApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /**
          * Sets the default Google Cloud Platform (GCP) resource location for the
          * specified FirebaseProject.
          * <br>
@@ -2281,10 +2203,6 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             locationId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified IosApp. */
-        await gapi.client.firebase.projects.iosApps.getConfig({
-            name: "Test string",
         });
         /** Gets the IosApp identified by the specified resource name. */
         await gapi.client.firebase.projects.iosApps.get({
@@ -2333,6 +2251,71 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+        });
+        /** Gets the configuration artifact associated with the specified IosApp. */
+        await gapi.client.firebase.projects.iosApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
         });
         /** Gets the AndroidApp identified by the specified resource name. */
         await gapi.client.firebase.projects.androidApps.get({
@@ -2422,65 +2405,82 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Requests that a new AndroidApp be created.
+         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
+         * the specified Project (including a FirebaseProject).
+         * <br>
+         * <br>One of these locations can be selected as the Project's [_default_ GCP
+         * resource location](https://firebase.google.com/docs/projects/locations),
+         * which is the geographical location where project resources, such as Cloud
+         * Firestore, will be provisioned by default. However, if the default GCP
+         * resource location has already been set for the Project, then this setting
+         * cannot be changed.
+         * <br>
+         * <br>This call checks for any location restrictions for the specified
+         * Project and, thus, might return a subset of all possible GCP resource
+         * locations. To list all GCP resource locations (regardless of any
+         * restrictions), call the endpoint without specifying a `projectId` (that is,
+         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
+         * <br>
+         * <br>To call `ListAvailableLocations` with a specified project, a member
+         * must be at minimum a Viewer of the project. Calls without a specified
+         * project do not require any specific project permissions.
+         */
+        await gapi.client.firebase.projects.availableLocations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the WebApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.webApps.get({
+            name: "Test string",
+        });
+        /**
+         * Lists each WebApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the attributes of the WebApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            appUrls: [
+                "Test string"            ],
+            displayName: "Test string",
+            name: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Requests that a new WebApp be created.
          * <br>
          * <br>The result of this call is an `Operation` which can be used to track
          * the provisioning process. The `Operation` is automatically deleted after
          * completion, so there is no need to call `DeleteOperation`.
          */
-        await gapi.client.firebase.projects.androidApps.create({
+        await gapi.client.firebase.projects.webApps.create({
             parent: "Test string",
         }, {
             appId: "Test string",
+            appUrls: [
+                "Test string"            ],
             displayName: "Test string",
             name: "Test string",
-            packageName: "Test string",
             projectId: "Test string",
         });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
+        /** Gets the configuration artifact associated with the specified WebApp. */
+        await gapi.client.firebase.projects.webApps.getConfig({
             name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
         });
         /**
          * Unlinks the specified `FirebaseProject` from its Google Analytics account.
@@ -2507,84 +2507,6 @@ gapi.load('client', () => {
             analyticsPropertyId: "Test string",
         });
         /**
-         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
-         * the specified Project (including a FirebaseProject).
-         * <br>
-         * <br>One of these locations can be selected as the Project's [_default_ GCP
-         * resource location](https://firebase.google.com/docs/projects/locations),
-         * which is the geographical location where project resources, such as Cloud
-         * Firestore, will be provisioned by default. However, if the default GCP
-         * resource location has already been set for the Project, then this setting
-         * cannot be changed.
-         * <br>
-         * <br>This call checks for any location restrictions for the specified
-         * Project and, thus, might return a subset of all possible GCP resource
-         * locations. To list all GCP resource locations (regardless of any
-         * restrictions), call the endpoint without specifying a `projectId` (that is,
-         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
-         * <br>To call `ListAvailableLocations` with a specified project, a member
-         * must be at minimum a Viewer of the project. Calls without a specified
-         * project do not require any specific project permissions.
-         */
-        await gapi.client.firebase.projects.availableLocations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Requests that a new WebApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.webApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified WebApp. */
-        await gapi.client.firebase.projects.webApps.getConfig({
-            name: "Test string",
-        });
-        /** Gets the WebApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.webApps.get({
-            name: "Test string",
-        });
-        /**
-         * Lists each WebApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates the attributes of the WebApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /**
          * Sets the default Google Cloud Platform (GCP) resource location for the
          * specified FirebaseProject.
          * <br>
@@ -2628,10 +2550,6 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             locationId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified IosApp. */
-        await gapi.client.firebase.projects.iosApps.getConfig({
-            name: "Test string",
         });
         /** Gets the IosApp identified by the specified resource name. */
         await gapi.client.firebase.projects.iosApps.get({
@@ -2680,6 +2598,71 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+        });
+        /** Gets the configuration artifact associated with the specified IosApp. */
+        await gapi.client.firebase.projects.iosApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
         });
         /** Gets the AndroidApp identified by the specified resource name. */
         await gapi.client.firebase.projects.androidApps.get({
@@ -2769,65 +2752,82 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Requests that a new AndroidApp be created.
+         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
+         * the specified Project (including a FirebaseProject).
+         * <br>
+         * <br>One of these locations can be selected as the Project's [_default_ GCP
+         * resource location](https://firebase.google.com/docs/projects/locations),
+         * which is the geographical location where project resources, such as Cloud
+         * Firestore, will be provisioned by default. However, if the default GCP
+         * resource location has already been set for the Project, then this setting
+         * cannot be changed.
+         * <br>
+         * <br>This call checks for any location restrictions for the specified
+         * Project and, thus, might return a subset of all possible GCP resource
+         * locations. To list all GCP resource locations (regardless of any
+         * restrictions), call the endpoint without specifying a `projectId` (that is,
+         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
+         * <br>
+         * <br>To call `ListAvailableLocations` with a specified project, a member
+         * must be at minimum a Viewer of the project. Calls without a specified
+         * project do not require any specific project permissions.
+         */
+        await gapi.client.firebase.projects.availableLocations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the WebApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.webApps.get({
+            name: "Test string",
+        });
+        /**
+         * Lists each WebApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the attributes of the WebApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            appUrls: [
+                "Test string"            ],
+            displayName: "Test string",
+            name: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Requests that a new WebApp be created.
          * <br>
          * <br>The result of this call is an `Operation` which can be used to track
          * the provisioning process. The `Operation` is automatically deleted after
          * completion, so there is no need to call `DeleteOperation`.
          */
-        await gapi.client.firebase.projects.androidApps.create({
+        await gapi.client.firebase.projects.webApps.create({
             parent: "Test string",
         }, {
             appId: "Test string",
+            appUrls: [
+                "Test string"            ],
             displayName: "Test string",
             name: "Test string",
-            packageName: "Test string",
             projectId: "Test string",
         });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
+        /** Gets the configuration artifact associated with the specified WebApp. */
+        await gapi.client.firebase.projects.webApps.getConfig({
             name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
         });
         /**
          * A convenience method that lists all available Apps for the specified
@@ -2843,84 +2843,6 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
-         * the specified Project (including a FirebaseProject).
-         * <br>
-         * <br>One of these locations can be selected as the Project's [_default_ GCP
-         * resource location](https://firebase.google.com/docs/projects/locations),
-         * which is the geographical location where project resources, such as Cloud
-         * Firestore, will be provisioned by default. However, if the default GCP
-         * resource location has already been set for the Project, then this setting
-         * cannot be changed.
-         * <br>
-         * <br>This call checks for any location restrictions for the specified
-         * Project and, thus, might return a subset of all possible GCP resource
-         * locations. To list all GCP resource locations (regardless of any
-         * restrictions), call the endpoint without specifying a `projectId` (that is,
-         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
-         * <br>To call `ListAvailableLocations` with a specified project, a member
-         * must be at minimum a Viewer of the project. Calls without a specified
-         * project do not require any specific project permissions.
-         */
-        await gapi.client.firebase.projects.availableLocations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Requests that a new WebApp be created.
-         * <br>
-         * <br>The result of this call is an `Operation` which can be used to track
-         * the provisioning process. The `Operation` is automatically deleted after
-         * completion, so there is no need to call `DeleteOperation`.
-         */
-        await gapi.client.firebase.projects.webApps.create({
-            parent: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified WebApp. */
-        await gapi.client.firebase.projects.webApps.getConfig({
-            name: "Test string",
-        });
-        /** Gets the WebApp identified by the specified resource name. */
-        await gapi.client.firebase.projects.webApps.get({
-            name: "Test string",
-        });
-        /**
-         * Lists each WebApp associated with the specified parent Project.
-         * <br>
-         * <br>The elements are returned in no particular order, but will be a
-         * consistent view of the Apps when additional requests are made with a
-         * `pageToken`.
-         */
-        await gapi.client.firebase.projects.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates the attributes of the WebApp identified by the specified
-         * resource name.
-         */
-        await gapi.client.firebase.projects.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            appId: "Test string",
-            appUrls: [
-                "Test string"            ],
-            displayName: "Test string",
-            name: "Test string",
-            projectId: "Test string",
-        });
-        /**
          * Sets the default Google Cloud Platform (GCP) resource location for the
          * specified FirebaseProject.
          * <br>
@@ -2964,10 +2886,6 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             locationId: "Test string",
-        });
-        /** Gets the configuration artifact associated with the specified IosApp. */
-        await gapi.client.firebase.projects.iosApps.getConfig({
-            name: "Test string",
         });
         /** Gets the IosApp identified by the specified resource name. */
         await gapi.client.firebase.projects.iosApps.get({
@@ -3016,6 +2934,71 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+        });
+        /** Gets the configuration artifact associated with the specified IosApp. */
+        await gapi.client.firebase.projects.iosApps.getConfig({
+            name: "Test string",
+        });
+        /**
+         * Requests that a new AndroidApp be created.
+         * <br>
+         * <br>The result of this call is an `Operation` which can be used to track
+         * the provisioning process. The `Operation` is automatically deleted after
+         * completion, so there is no need to call `DeleteOperation`.
+         */
+        await gapi.client.firebase.projects.androidApps.create({
+            parent: "Test string",
+        }, {
+            appId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            packageName: "Test string",
+            projectId: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
+        });
+        /**
+         * Gets the configuration artifact associated with the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.getConfig({
+            name: "Test string",
+        });
+        /** Adds a SHA certificate to the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.create({
+            parent: "Test string",
+        }, {
+            certType: "Test string",
+            name: "Test string",
+            shaHash: "Test string",
+        });
+        /** Removes a SHA certificate from the specified AndroidApp. */
+        await gapi.client.firebase.projects.androidApps.sha.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns the list of SHA-1 and SHA-256 certificates for the specified
+         * AndroidApp.
+         */
+        await gapi.client.firebase.projects.androidApps.sha.list({
+            parent: "Test string",
         });
         /** Gets the AndroidApp identified by the specified resource name. */
         await gapi.client.firebase.projects.androidApps.get({
@@ -3105,65 +3088,82 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Requests that a new AndroidApp be created.
+         * Returns a list of valid Google Cloud Platform (GCP) resource locations for
+         * the specified Project (including a FirebaseProject).
+         * <br>
+         * <br>One of these locations can be selected as the Project's [_default_ GCP
+         * resource location](https://firebase.google.com/docs/projects/locations),
+         * which is the geographical location where project resources, such as Cloud
+         * Firestore, will be provisioned by default. However, if the default GCP
+         * resource location has already been set for the Project, then this setting
+         * cannot be changed.
+         * <br>
+         * <br>This call checks for any location restrictions for the specified
+         * Project and, thus, might return a subset of all possible GCP resource
+         * locations. To list all GCP resource locations (regardless of any
+         * restrictions), call the endpoint without specifying a `projectId` (that is,
+         * `/v1beta1/{parent=projects/-}/listAvailableLocations`).
+         * <br>
+         * <br>To call `ListAvailableLocations` with a specified project, a member
+         * must be at minimum a Viewer of the project. Calls without a specified
+         * project do not require any specific project permissions.
+         */
+        await gapi.client.firebase.projects.availableLocations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the WebApp identified by the specified resource name. */
+        await gapi.client.firebase.projects.webApps.get({
+            name: "Test string",
+        });
+        /**
+         * Lists each WebApp associated with the specified parent Project.
+         * <br>
+         * <br>The elements are returned in no particular order, but will be a
+         * consistent view of the Apps when additional requests are made with a
+         * `pageToken`.
+         */
+        await gapi.client.firebase.projects.webApps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the attributes of the WebApp identified by the specified
+         * resource name.
+         */
+        await gapi.client.firebase.projects.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            appId: "Test string",
+            appUrls: [
+                "Test string"            ],
+            displayName: "Test string",
+            name: "Test string",
+            projectId: "Test string",
+        });
+        /**
+         * Requests that a new WebApp be created.
          * <br>
          * <br>The result of this call is an `Operation` which can be used to track
          * the provisioning process. The `Operation` is automatically deleted after
          * completion, so there is no need to call `DeleteOperation`.
          */
-        await gapi.client.firebase.projects.androidApps.create({
+        await gapi.client.firebase.projects.webApps.create({
             parent: "Test string",
         }, {
             appId: "Test string",
+            appUrls: [
+                "Test string"            ],
             displayName: "Test string",
             name: "Test string",
-            packageName: "Test string",
             projectId: "Test string",
         });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
+        /** Gets the configuration artifact associated with the specified WebApp. */
+        await gapi.client.firebase.projects.webApps.getConfig({
             name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
-        });
-        /**
-         * Gets the configuration artifact associated with the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.getConfig({
-            name: "Test string",
-        });
-        /** Adds a SHA certificate to the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.create({
-            parent: "Test string",
-        }, {
-            certType: "Test string",
-            name: "Test string",
-            shaHash: "Test string",
-        });
-        /** Removes a SHA certificate from the specified AndroidApp. */
-        await gapi.client.firebase.projects.androidApps.sha.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the list of SHA-1 and SHA-256 certificates for the specified
-         * AndroidApp.
-         */
-        await gapi.client.firebase.projects.androidApps.sha.list({
-            parent: "Test string",
         });
     }
 });
