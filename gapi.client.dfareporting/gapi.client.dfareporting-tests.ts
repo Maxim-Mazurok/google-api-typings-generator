@@ -8707,8 +8707,7 @@ gapi.load('client', () => {
             profileId: "Test string",
         });
         /** Retrieves list of user profiles for a user. */
-        await gapi.client.dfareporting.userProfiles.list({
-        });
+        await gapi.client.dfareporting.userProfiles.list();
         /** Gets one user role permission group by ID. */
         await gapi.client.dfareporting.userRolePermissionGroups.get({
             id: "Test string",

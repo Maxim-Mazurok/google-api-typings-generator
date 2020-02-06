@@ -58,6 +58,10 @@ gapi.load('client', () => {
                 resourceName: "Test string",
             },
         });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -246,15 +250,15 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** Soft delete this Service. */
         await gapi.client.monitoring.services.delete({
             name: "Test string",
         });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -443,15 +447,15 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** Get the named Service. */
         await gapi.client.monitoring.services.get({
             name: "Test string",
         });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -640,10 +644,6 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** List Services for this workspace. */
         await gapi.client.monitoring.services.list({
@@ -652,6 +652,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -840,10 +844,6 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** Update this Service. */
         await gapi.client.monitoring.services.patch({
@@ -870,6 +870,10 @@ gapi.load('client', () => {
                 resourceName: "Test string",
             },
         });
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
         /** Get a ServiceLevelObjective by name. */
         await gapi.client.monitoring.services.serviceLevelObjectives.get({
             name: "Test string",
@@ -1058,10 +1062,6 @@ gapi.load('client', () => {
                     windowPeriod: "Test string",
                 },
             },
-        });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
         });
         /** Returns the list of IP addresses that checkers run from */
         await gapi.client.monitoring.uptimeCheckIps.list({

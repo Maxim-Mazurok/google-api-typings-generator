@@ -32,8 +32,7 @@ gapi.load('client', () => {
             id: 42,
         });
         /** Retrieves the authenticated user's list of accounts. */
-        await gapi.client.adexchangebuyer.accounts.list({
-        });
+        await gapi.client.adexchangebuyer.accounts.list();
         /** Updates an existing account. This method supports patch semantics. */
         await gapi.client.adexchangebuyer.accounts.patch({
             confirmUnsafeAccountChange: true,
@@ -81,8 +80,7 @@ gapi.load('client', () => {
             accountId: 42,
         });
         /** Retrieves a list of billing information for all accounts of the authenticated user. */
-        await gapi.client.adexchangebuyer.billingInfo.list({
-        });
+        await gapi.client.adexchangebuyer.billingInfo.list();
         /** Returns the budget information for the adgroup specified by the accountId and billingId. */
         await gapi.client.adexchangebuyer.budget.get({
             accountId: "Test string",
@@ -127,8 +125,7 @@ gapi.load('client', () => {
             buyerCreativeId: "Test string",
         });
         /** Submit a new creative. */
-        await gapi.client.adexchangebuyer.creatives.insert({
-        }, {
+        await gapi.client.adexchangebuyer.creatives.insert(, {
             HTMLSnippet: "Test string",
             accountId: 42,
             adChoicesDestinationUrl: "Test string",
@@ -1082,8 +1079,7 @@ gapi.load('client', () => {
             proposalId: "Test string",
         });
         /** Create the given list of proposals */
-        await gapi.client.adexchangebuyer.proposals.insert({
-        }, {
+        await gapi.client.adexchangebuyer.proposals.insert(, {
             proposals: [
                 {
                     billedBuyer: {

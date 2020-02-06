@@ -32,6 +32,28 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Runs asset discovery. The discovery is tracked with a long-running
+         * operation.
+         *
+         * This API can only be called with limited frequency for an organization. If
+         * it is called too frequently the caller will receive a TOO_MANY_REQUESTS
+         * error.
+         */
+        await gapi.client.securitycenter.organizations.assets.runDiscovery({
+            parent: "Test string",
+        }, {
+        });
+        /** Updates security marks. */
+        await gapi.client.securitycenter.organizations.assets.updateSecurityMarks({
+            name: "Test string",
+            startTime: "Test string",
+            updateMask: "Test string",
+        }, {
+            marks: {
+                A: "Test string"            },
+            name: "Test string",
+        });
+        /**
          * Filters an organization's assets and  groups them by their specified
          * properties.
          */
@@ -55,368 +77,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             readTime: "Test string",
-        });
-        /**
-         * Runs asset discovery. The discovery is tracked with a long-running
-         * operation.
-         *
-         * This API can only be called with limited frequency for an organization. If
-         * it is called too frequently the caller will receive a TOO_MANY_REQUESTS
-         * error.
-         */
-        await gapi.client.securitycenter.organizations.assets.runDiscovery({
-            parent: "Test string",
-        }, {
-        });
-        /** Updates security marks. */
-        await gapi.client.securitycenter.organizations.assets.updateSecurityMarks({
-            name: "Test string",
-            startTime: "Test string",
-            updateMask: "Test string",
-        }, {
-            marks: {
-                A: "Test string"            },
-            name: "Test string",
-        });
-        /** Lists all sources belonging to an organization. */
-        await gapi.client.securitycenter.organizations.sources.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Filters an organization or source's findings and  groups them by their
-         * specified properties.
-         *
-         * To group across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.group({
-            parent: "Test string",
-        }, {
-            compareDuration: "Test string",
-            filter: "Test string",
-            groupBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates or updates a finding. The corresponding source must exist for a
-         * finding creation to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Updates security marks. */
-        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
-            name: "Test string",
-            startTime: "Test string",
-            updateMask: "Test string",
-        }, {
-            marks: {
-                A: "Test string"            },
-            name: "Test string",
-        });
-        /** Updates the state of a finding. */
-        await gapi.client.securitycenter.organizations.sources.findings.setState({
-            name: "Test string",
-        }, {
-            startTime: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Lists an organization or source's findings.
-         *
-         * To list across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.list({
-            compareDuration: "Test string",
-            fieldMask: "Test string",
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates a finding. The corresponding source must exist for finding creation
-         * to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.create({
-            findingId: "Test string",
-            parent: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Sets the access control policy on the specified Source. */
-        await gapi.client.securitycenter.organizations.sources.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Filters an organization or source's findings and  groups them by their
-         * specified properties.
-         *
-         * To group across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.group({
-            parent: "Test string",
-        }, {
-            compareDuration: "Test string",
-            filter: "Test string",
-            groupBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates or updates a finding. The corresponding source must exist for a
-         * finding creation to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Updates security marks. */
-        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
-            name: "Test string",
-            startTime: "Test string",
-            updateMask: "Test string",
-        }, {
-            marks: {
-                A: "Test string"            },
-            name: "Test string",
-        });
-        /** Updates the state of a finding. */
-        await gapi.client.securitycenter.organizations.sources.findings.setState({
-            name: "Test string",
-        }, {
-            startTime: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Lists an organization or source's findings.
-         *
-         * To list across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.list({
-            compareDuration: "Test string",
-            fieldMask: "Test string",
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates a finding. The corresponding source must exist for finding creation
-         * to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.create({
-            findingId: "Test string",
-            parent: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Creates a source. */
-        await gapi.client.securitycenter.organizations.sources.create({
-            parent: "Test string",
-        }, {
-            description: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-        });
-        /**
-         * Filters an organization or source's findings and  groups them by their
-         * specified properties.
-         *
-         * To group across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.group({
-            parent: "Test string",
-        }, {
-            compareDuration: "Test string",
-            filter: "Test string",
-            groupBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates or updates a finding. The corresponding source must exist for a
-         * finding creation to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Updates security marks. */
-        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
-            name: "Test string",
-            startTime: "Test string",
-            updateMask: "Test string",
-        }, {
-            marks: {
-                A: "Test string"            },
-            name: "Test string",
-        });
-        /** Updates the state of a finding. */
-        await gapi.client.securitycenter.organizations.sources.findings.setState({
-            name: "Test string",
-        }, {
-            startTime: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Lists an organization or source's findings.
-         *
-         * To list across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.list({
-            compareDuration: "Test string",
-            fieldMask: "Test string",
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates a finding. The corresponding source must exist for finding creation
-         * to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.create({
-            findingId: "Test string",
-            parent: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
         });
         /** Gets the access control policy on the specified Source. */
         await gapi.client.securitycenter.organizations.sources.getIamPolicy({
@@ -838,6 +498,361 @@ gapi.load('client', () => {
                 A: 42            },
             state: "Test string",
         });
+        /** Lists all sources belonging to an organization. */
+        await gapi.client.securitycenter.organizations.sources.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Filters an organization or source's findings and  groups them by their
+         * specified properties.
+         *
+         * To group across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.group({
+            parent: "Test string",
+        }, {
+            compareDuration: "Test string",
+            filter: "Test string",
+            groupBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates or updates a finding. The corresponding source must exist for a
+         * finding creation to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Updates security marks. */
+        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
+            name: "Test string",
+            startTime: "Test string",
+            updateMask: "Test string",
+        }, {
+            marks: {
+                A: "Test string"            },
+            name: "Test string",
+        });
+        /** Updates the state of a finding. */
+        await gapi.client.securitycenter.organizations.sources.findings.setState({
+            name: "Test string",
+        }, {
+            startTime: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Lists an organization or source's findings.
+         *
+         * To list across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.list({
+            compareDuration: "Test string",
+            fieldMask: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates a finding. The corresponding source must exist for finding creation
+         * to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.create({
+            findingId: "Test string",
+            parent: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Sets the access control policy on the specified Source. */
+        await gapi.client.securitycenter.organizations.sources.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Filters an organization or source's findings and  groups them by their
+         * specified properties.
+         *
+         * To group across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.group({
+            parent: "Test string",
+        }, {
+            compareDuration: "Test string",
+            filter: "Test string",
+            groupBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates or updates a finding. The corresponding source must exist for a
+         * finding creation to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Updates security marks. */
+        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
+            name: "Test string",
+            startTime: "Test string",
+            updateMask: "Test string",
+        }, {
+            marks: {
+                A: "Test string"            },
+            name: "Test string",
+        });
+        /** Updates the state of a finding. */
+        await gapi.client.securitycenter.organizations.sources.findings.setState({
+            name: "Test string",
+        }, {
+            startTime: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Lists an organization or source's findings.
+         *
+         * To list across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.list({
+            compareDuration: "Test string",
+            fieldMask: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates a finding. The corresponding source must exist for finding creation
+         * to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.create({
+            findingId: "Test string",
+            parent: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Creates a source. */
+        await gapi.client.securitycenter.organizations.sources.create({
+            parent: "Test string",
+        }, {
+            description: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Filters an organization or source's findings and  groups them by their
+         * specified properties.
+         *
+         * To group across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.group({
+            parent: "Test string",
+        }, {
+            compareDuration: "Test string",
+            filter: "Test string",
+            groupBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates or updates a finding. The corresponding source must exist for a
+         * finding creation to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Updates security marks. */
+        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
+            name: "Test string",
+            startTime: "Test string",
+            updateMask: "Test string",
+        }, {
+            marks: {
+                A: "Test string"            },
+            name: "Test string",
+        });
+        /** Updates the state of a finding. */
+        await gapi.client.securitycenter.organizations.sources.findings.setState({
+            name: "Test string",
+        }, {
+            startTime: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Lists an organization or source's findings.
+         *
+         * To list across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.list({
+            compareDuration: "Test string",
+            fieldMask: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates a finding. The corresponding source must exist for finding creation
+         * to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.create({
+            findingId: "Test string",
+            parent: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.securitycenter.organizations.operations.cancel({
+            name: "Test string",
+        });
         /**
          * Deletes a long-running operation. This method indicates that the client is
          * no longer interested in the operation result. It does not cancel the
@@ -871,21 +886,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.securitycenter.organizations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.securitycenter.organizations.operations.cancel({
             name: "Test string",
         });
         /** Updates an organization's settings. */
@@ -902,6 +902,28 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Runs asset discovery. The discovery is tracked with a long-running
+         * operation.
+         *
+         * This API can only be called with limited frequency for an organization. If
+         * it is called too frequently the caller will receive a TOO_MANY_REQUESTS
+         * error.
+         */
+        await gapi.client.securitycenter.organizations.assets.runDiscovery({
+            parent: "Test string",
+        }, {
+        });
+        /** Updates security marks. */
+        await gapi.client.securitycenter.organizations.assets.updateSecurityMarks({
+            name: "Test string",
+            startTime: "Test string",
+            updateMask: "Test string",
+        }, {
+            marks: {
+                A: "Test string"            },
+            name: "Test string",
+        });
+        /**
          * Filters an organization's assets and  groups them by their specified
          * properties.
          */
@@ -925,368 +947,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             readTime: "Test string",
-        });
-        /**
-         * Runs asset discovery. The discovery is tracked with a long-running
-         * operation.
-         *
-         * This API can only be called with limited frequency for an organization. If
-         * it is called too frequently the caller will receive a TOO_MANY_REQUESTS
-         * error.
-         */
-        await gapi.client.securitycenter.organizations.assets.runDiscovery({
-            parent: "Test string",
-        }, {
-        });
-        /** Updates security marks. */
-        await gapi.client.securitycenter.organizations.assets.updateSecurityMarks({
-            name: "Test string",
-            startTime: "Test string",
-            updateMask: "Test string",
-        }, {
-            marks: {
-                A: "Test string"            },
-            name: "Test string",
-        });
-        /** Lists all sources belonging to an organization. */
-        await gapi.client.securitycenter.organizations.sources.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Filters an organization or source's findings and  groups them by their
-         * specified properties.
-         *
-         * To group across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.group({
-            parent: "Test string",
-        }, {
-            compareDuration: "Test string",
-            filter: "Test string",
-            groupBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates or updates a finding. The corresponding source must exist for a
-         * finding creation to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Updates security marks. */
-        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
-            name: "Test string",
-            startTime: "Test string",
-            updateMask: "Test string",
-        }, {
-            marks: {
-                A: "Test string"            },
-            name: "Test string",
-        });
-        /** Updates the state of a finding. */
-        await gapi.client.securitycenter.organizations.sources.findings.setState({
-            name: "Test string",
-        }, {
-            startTime: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Lists an organization or source's findings.
-         *
-         * To list across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.list({
-            compareDuration: "Test string",
-            fieldMask: "Test string",
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates a finding. The corresponding source must exist for finding creation
-         * to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.create({
-            findingId: "Test string",
-            parent: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Sets the access control policy on the specified Source. */
-        await gapi.client.securitycenter.organizations.sources.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                logType: "Test string",
-                            }                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Filters an organization or source's findings and  groups them by their
-         * specified properties.
-         *
-         * To group across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.group({
-            parent: "Test string",
-        }, {
-            compareDuration: "Test string",
-            filter: "Test string",
-            groupBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates or updates a finding. The corresponding source must exist for a
-         * finding creation to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Updates security marks. */
-        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
-            name: "Test string",
-            startTime: "Test string",
-            updateMask: "Test string",
-        }, {
-            marks: {
-                A: "Test string"            },
-            name: "Test string",
-        });
-        /** Updates the state of a finding. */
-        await gapi.client.securitycenter.organizations.sources.findings.setState({
-            name: "Test string",
-        }, {
-            startTime: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Lists an organization or source's findings.
-         *
-         * To list across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.list({
-            compareDuration: "Test string",
-            fieldMask: "Test string",
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates a finding. The corresponding source must exist for finding creation
-         * to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.create({
-            findingId: "Test string",
-            parent: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Creates a source. */
-        await gapi.client.securitycenter.organizations.sources.create({
-            parent: "Test string",
-        }, {
-            description: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-        });
-        /**
-         * Filters an organization or source's findings and  groups them by their
-         * specified properties.
-         *
-         * To group across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.group({
-            parent: "Test string",
-        }, {
-            compareDuration: "Test string",
-            filter: "Test string",
-            groupBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates or updates a finding. The corresponding source must exist for a
-         * finding creation to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
-        });
-        /** Updates security marks. */
-        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
-            name: "Test string",
-            startTime: "Test string",
-            updateMask: "Test string",
-        }, {
-            marks: {
-                A: "Test string"            },
-            name: "Test string",
-        });
-        /** Updates the state of a finding. */
-        await gapi.client.securitycenter.organizations.sources.findings.setState({
-            name: "Test string",
-        }, {
-            startTime: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Lists an organization or source's findings.
-         *
-         * To list across all sources provide a `-` as the source id.
-         * Example: /v1/organizations/{organization_id}/sources/-/findings
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.list({
-            compareDuration: "Test string",
-            fieldMask: "Test string",
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readTime: "Test string",
-        });
-        /**
-         * Creates a finding. The corresponding source must exist for finding creation
-         * to succeed.
-         */
-        await gapi.client.securitycenter.organizations.sources.findings.create({
-            findingId: "Test string",
-            parent: "Test string",
-        }, {
-            category: "Test string",
-            createTime: "Test string",
-            eventTime: "Test string",
-            externalUri: "Test string",
-            name: "Test string",
-            parent: "Test string",
-            resourceName: "Test string",
-            securityMarks: {
-                marks: {
-                    A: "Test string"                },
-                name: "Test string",
-            },
-            sourceProperties: {
-                A: 42            },
-            state: "Test string",
         });
         /** Gets the access control policy on the specified Source. */
         await gapi.client.securitycenter.organizations.sources.getIamPolicy({
@@ -1708,6 +1368,361 @@ gapi.load('client', () => {
                 A: 42            },
             state: "Test string",
         });
+        /** Lists all sources belonging to an organization. */
+        await gapi.client.securitycenter.organizations.sources.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Filters an organization or source's findings and  groups them by their
+         * specified properties.
+         *
+         * To group across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.group({
+            parent: "Test string",
+        }, {
+            compareDuration: "Test string",
+            filter: "Test string",
+            groupBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates or updates a finding. The corresponding source must exist for a
+         * finding creation to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Updates security marks. */
+        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
+            name: "Test string",
+            startTime: "Test string",
+            updateMask: "Test string",
+        }, {
+            marks: {
+                A: "Test string"            },
+            name: "Test string",
+        });
+        /** Updates the state of a finding. */
+        await gapi.client.securitycenter.organizations.sources.findings.setState({
+            name: "Test string",
+        }, {
+            startTime: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Lists an organization or source's findings.
+         *
+         * To list across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.list({
+            compareDuration: "Test string",
+            fieldMask: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates a finding. The corresponding source must exist for finding creation
+         * to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.create({
+            findingId: "Test string",
+            parent: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Sets the access control policy on the specified Source. */
+        await gapi.client.securitycenter.organizations.sources.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Filters an organization or source's findings and  groups them by their
+         * specified properties.
+         *
+         * To group across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.group({
+            parent: "Test string",
+        }, {
+            compareDuration: "Test string",
+            filter: "Test string",
+            groupBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates or updates a finding. The corresponding source must exist for a
+         * finding creation to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Updates security marks. */
+        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
+            name: "Test string",
+            startTime: "Test string",
+            updateMask: "Test string",
+        }, {
+            marks: {
+                A: "Test string"            },
+            name: "Test string",
+        });
+        /** Updates the state of a finding. */
+        await gapi.client.securitycenter.organizations.sources.findings.setState({
+            name: "Test string",
+        }, {
+            startTime: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Lists an organization or source's findings.
+         *
+         * To list across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.list({
+            compareDuration: "Test string",
+            fieldMask: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates a finding. The corresponding source must exist for finding creation
+         * to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.create({
+            findingId: "Test string",
+            parent: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Creates a source. */
+        await gapi.client.securitycenter.organizations.sources.create({
+            parent: "Test string",
+        }, {
+            description: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Filters an organization or source's findings and  groups them by their
+         * specified properties.
+         *
+         * To group across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.group({
+            parent: "Test string",
+        }, {
+            compareDuration: "Test string",
+            filter: "Test string",
+            groupBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates or updates a finding. The corresponding source must exist for a
+         * finding creation to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /** Updates security marks. */
+        await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks({
+            name: "Test string",
+            startTime: "Test string",
+            updateMask: "Test string",
+        }, {
+            marks: {
+                A: "Test string"            },
+            name: "Test string",
+        });
+        /** Updates the state of a finding. */
+        await gapi.client.securitycenter.organizations.sources.findings.setState({
+            name: "Test string",
+        }, {
+            startTime: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Lists an organization or source's findings.
+         *
+         * To list across all sources provide a `-` as the source id.
+         * Example: /v1/organizations/{organization_id}/sources/-/findings
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.list({
+            compareDuration: "Test string",
+            fieldMask: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            readTime: "Test string",
+        });
+        /**
+         * Creates a finding. The corresponding source must exist for finding creation
+         * to succeed.
+         */
+        await gapi.client.securitycenter.organizations.sources.findings.create({
+            findingId: "Test string",
+            parent: "Test string",
+        }, {
+            category: "Test string",
+            createTime: "Test string",
+            eventTime: "Test string",
+            externalUri: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            resourceName: "Test string",
+            securityMarks: {
+                marks: {
+                    A: "Test string"                },
+                name: "Test string",
+            },
+            sourceProperties: {
+                A: 42            },
+            state: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.securitycenter.organizations.operations.cancel({
+            name: "Test string",
+        });
         /**
          * Deletes a long-running operation. This method indicates that the client is
          * no longer interested in the operation result. It does not cancel the
@@ -1741,21 +1756,6 @@ gapi.load('client', () => {
          * service.
          */
         await gapi.client.securitycenter.organizations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.securitycenter.organizations.operations.cancel({
             name: "Test string",
         });
     }

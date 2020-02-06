@@ -38,8 +38,7 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /** Get a verification token for placing on a website or domain. */
-        await gapi.client.siteverification.webResource.getToken({
-        }, {
+        await gapi.client.siteverification.webResource.getToken(, {
             site: {
                 identifier: "Test string",
                 type: "Test string",
@@ -59,8 +58,7 @@ gapi.load('client', () => {
             },
         });
         /** Get the list of your verified websites and domains. */
-        await gapi.client.siteverification.webResource.list({
-        });
+        await gapi.client.siteverification.webResource.list();
         /** Modify the list of owners for your website or domain. This method supports patch semantics. */
         await gapi.client.siteverification.webResource.patch({
             id: "Test string",

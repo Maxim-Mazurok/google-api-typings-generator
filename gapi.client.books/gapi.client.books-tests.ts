@@ -66,8 +66,7 @@ gapi.load('client', () => {
         await gapi.client.books.cloudloading.deleteBook({
             volumeId: "Test string",
         });
-        await gapi.client.books.cloudloading.updateBook({
-        }, {
+        await gapi.client.books.cloudloading.updateBook(, {
             author: "Test string",
             processingState: "Test string",
             title: "Test string",
@@ -219,8 +218,7 @@ gapi.load('client', () => {
             volumeId: "Test string",
         });
         /** Gets the current settings for the user. */
-        await gapi.client.books.myconfig.getUserSettings({
-        });
+        await gapi.client.books.myconfig.getUserSettings();
         /** Release downloaded content access restriction. */
         await gapi.client.books.myconfig.releaseDownloadAccess({
             cpksver: "Test string",
@@ -252,8 +250,7 @@ gapi.load('client', () => {
          * Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects
          * will retain the existing value.
          */
-        await gapi.client.books.myconfig.updateUserSettings({
-        }, {
+        await gapi.client.books.myconfig.updateUserSettings(, {
             kind: "Test string",
             notesExport: {
                 folderName: "Test string",

@@ -43,6 +43,51 @@ gapi.load('client', () => {
             scope: "Test string",
             type: "Test string",
         });
+        /** Creates a new company entity. */
+        await gapi.client.jobs.projects.companies.create({
+            parent: "Test string",
+        }, {
+            company: {
+                careerSiteUri: "Test string",
+                derivedInfo: {
+                    headquartersLocation: {
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        locationType: "Test string",
+                        postalAddress: {
+                            addressLines: [
+                                "Test string"                            ],
+                            administrativeArea: "Test string",
+                            languageCode: "Test string",
+                            locality: "Test string",
+                            organization: "Test string",
+                            postalCode: "Test string",
+                            recipients: [
+                                "Test string"                            ],
+                            regionCode: "Test string",
+                            revision: 42,
+                            sortingCode: "Test string",
+                            sublocality: "Test string",
+                        },
+                        radiusInMiles: 42,
+                    },
+                },
+                displayName: "Test string",
+                eeoText: "Test string",
+                externalId: "Test string",
+                headquartersAddress: "Test string",
+                hiringAgency: true,
+                imageUri: "Test string",
+                keywordSearchableJobCustomAttributes: [
+                    "Test string"                ],
+                name: "Test string",
+                size: "Test string",
+                suspended: true,
+                websiteUri: "Test string",
+            },
+        });
         /**
          * Deletes specified company.
          * Prerequisite: The company has no jobs associated with it.
@@ -111,51 +156,6 @@ gapi.load('client', () => {
             parent: "Test string",
             requireOpenJobs: true,
         });
-        /** Creates a new company entity. */
-        await gapi.client.jobs.projects.companies.create({
-            parent: "Test string",
-        }, {
-            company: {
-                careerSiteUri: "Test string",
-                derivedInfo: {
-                    headquartersLocation: {
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        locationType: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                        radiusInMiles: 42,
-                    },
-                },
-                displayName: "Test string",
-                eeoText: "Test string",
-                externalId: "Test string",
-                headquartersAddress: "Test string",
-                hiringAgency: true,
-                imageUri: "Test string",
-                keywordSearchableJobCustomAttributes: [
-                    "Test string"                ],
-                name: "Test string",
-                size: "Test string",
-                suspended: true,
-                websiteUri: "Test string",
-            },
-        });
         /**
          * Report events issued when end user interacts with customer's application
          * that uses Cloud Talent Solution. You may inspect the created events in
@@ -181,6 +181,15 @@ gapi.load('client', () => {
                 parentEventId: "Test string",
                 requestId: "Test string",
             },
+        });
+        /**
+         * Deletes the specified job.
+         *
+         * Typically, the job becomes unsearchable within 10 seconds, but it may take
+         * up to 5 minutes.
+         */
+        await gapi.client.jobs.projects.jobs.delete({
+            name: "Test string",
         });
         /** Lists jobs by filter. */
         await gapi.client.jobs.projects.jobs.list({
@@ -720,15 +729,6 @@ gapi.load('client', () => {
             },
             requirePreciseResultSize: true,
             searchMode: "Test string",
-        });
-        /**
-         * Deletes the specified job.
-         *
-         * Typically, the job becomes unsearchable within 10 seconds, but it may take
-         * up to 5 minutes.
-         */
-        await gapi.client.jobs.projects.jobs.delete({
-            name: "Test string",
         });
     }
 });

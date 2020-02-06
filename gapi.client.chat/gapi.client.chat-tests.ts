@@ -26,6 +26,10 @@ gapi.load('client', () => {
         await gapi.client.chat.spaces.members.get({
             name: "Test string",
         });
+        /** Deletes a message. */
+        await gapi.client.chat.spaces.messages.delete({
+            name: "Test string",
+        });
         /** Returns a message. */
         await gapi.client.chat.spaces.messages.get({
             name: "Test string",
@@ -411,10 +415,6 @@ gapi.load('client', () => {
             thread: {
                 name: "Test string",
             },
-        });
-        /** Deletes a message. */
-        await gapi.client.chat.spaces.messages.delete({
-            name: "Test string",
         });
         /** Lists spaces the caller is a member of. */
         await gapi.client.chat.spaces.list({
@@ -431,6 +431,10 @@ gapi.load('client', () => {
         await gapi.client.chat.spaces.members.get({
             name: "Test string",
         });
+        /** Deletes a message. */
+        await gapi.client.chat.spaces.messages.delete({
+            name: "Test string",
+        });
         /** Returns a message. */
         await gapi.client.chat.spaces.messages.get({
             name: "Test string",
@@ -816,10 +820,6 @@ gapi.load('client', () => {
             thread: {
                 name: "Test string",
             },
-        });
-        /** Deletes a message. */
-        await gapi.client.chat.spaces.messages.delete({
-            name: "Test string",
         });
     }
 });

@@ -240,7 +240,7 @@ portion present and omit the rest.
 
 * `NOT_FOUND`: The requested tree root is not present in the CAS.  
 */
-await gapi.client.blobs.getTree({ sizeBytes: "sizeBytes", instanceName: "instanceName", hash: "hash",  }); 
+await gapi.client.blobs.getTree({ hash: "hash", sizeBytes: "sizeBytes", instanceName: "instanceName",  }); 
     
 /* 
 Wait for an execution operation to complete. When the client initially

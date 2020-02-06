@@ -91,7 +91,6 @@ gapi.load('client', () => {
             siteUrl: "Test string",
         });
         /** Lists the user's Search Console sites. */
-        await gapi.client.webmasters.sites.list({
-        });
+        await gapi.client.webmasters.sites.list();
     }
 });

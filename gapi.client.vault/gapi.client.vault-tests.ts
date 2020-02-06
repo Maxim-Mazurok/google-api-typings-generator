@@ -40,24 +40,8 @@ gapi.load('client', () => {
             },
             sendEmails: true,
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -85,6 +69,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -101,15 +258,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -133,6 +281,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -141,15 +298,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -173,6 +321,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -220,54 +377,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -293,122 +402,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -499,22 +510,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -576,6 +571,11 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /** Closes the specified matter. Returns matter with updated state. */
@@ -583,24 +583,8 @@ gapi.load('client', () => {
             matterId: "Test string",
         }, {
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -628,6 +612,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -644,15 +801,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -676,6 +824,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -684,15 +841,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -716,6 +864,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -763,54 +920,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -836,122 +945,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -1042,22 +1053,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -1119,6 +1114,11 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /**
@@ -1138,24 +1138,8 @@ gapi.load('client', () => {
             name: "Test string",
             state: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -1183,6 +1167,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -1199,15 +1356,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -1231,6 +1379,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -1239,15 +1396,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -1271,6 +1419,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -1318,54 +1475,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -1391,122 +1500,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -1597,22 +1608,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -1674,30 +1669,19 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /** Deletes the specified matter. Returns matter with updated state. */
         await gapi.client.vault.matters.delete({
             matterId: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -1725,6 +1709,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -1741,15 +1898,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -1773,6 +1921,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -1781,15 +1938,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -1813,6 +1961,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -1860,54 +2017,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -1933,122 +2042,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -2139,22 +2150,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -2216,6 +2211,11 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /** Gets the specified matter. */
@@ -2223,24 +2223,8 @@ gapi.load('client', () => {
             matterId: "Test string",
             view: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -2268,6 +2252,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -2284,15 +2441,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -2316,6 +2464,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -2324,15 +2481,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -2356,6 +2504,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -2403,54 +2560,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -2476,122 +2585,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -2682,22 +2693,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -2759,6 +2754,11 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /** Lists matters the user has access to. */
@@ -2768,24 +2768,8 @@ gapi.load('client', () => {
             state: "Test string",
             view: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -2813,6 +2797,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -2829,15 +2986,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -2861,6 +3009,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -2869,15 +3026,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -2901,6 +3049,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -2948,54 +3105,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -3021,122 +3130,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -3227,22 +3238,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -3304,6 +3299,11 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /** Removes an account as a matter collaborator. */
@@ -3312,24 +3312,8 @@ gapi.load('client', () => {
         }, {
             accountId: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -3357,6 +3341,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -3373,15 +3530,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -3405,6 +3553,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -3413,15 +3570,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -3445,6 +3593,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -3492,54 +3649,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -3565,122 +3674,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -3771,22 +3782,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -3848,6 +3843,11 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /** Reopens the specified matter. Returns matter with updated state. */
@@ -3855,24 +3855,8 @@ gapi.load('client', () => {
             matterId: "Test string",
         }, {
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -3900,6 +3884,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -3916,15 +4073,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -3948,6 +4096,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -3956,15 +4113,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -3988,6 +4136,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -4035,54 +4192,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -4108,122 +4217,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -4314,22 +4325,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -4391,6 +4386,11 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /** Undeletes the specified matter. Returns matter with updated state. */
@@ -4398,24 +4398,8 @@ gapi.load('client', () => {
             matterId: "Test string",
         }, {
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -4443,6 +4427,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -4459,15 +4616,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -4491,6 +4639,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -4499,15 +4656,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -4531,6 +4679,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -4578,54 +4735,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -4651,122 +4760,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -4857,22 +4868,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -4934,6 +4929,11 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /**
@@ -4955,24 +4955,8 @@ gapi.load('client', () => {
             name: "Test string",
             state: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
+        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
+        await gapi.client.vault.matters.holds.delete({
             holdId: "Test string",
             matterId: "Test string",
         });
@@ -5000,6 +4984,179 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Lists holds within a matter. An empty page token in ListHoldsResponse
+         * denotes no more holds to list.
+         */
+        await gapi.client.vault.matters.holds.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Creates a hold in the given matter. */
+        await gapi.client.vault.matters.holds.create({
+            matterId: "Test string",
+        }, {
+            accounts: [
+                {
+                    accountId: "Test string",
+                    email: "Test string",
+                    firstName: "Test string",
+                    holdTime: "Test string",
+                    lastName: "Test string",
+                }            ],
+            corpus: "Test string",
+            holdId: "Test string",
+            name: "Test string",
+            orgUnit: {
+                holdTime: "Test string",
+                orgUnitId: "Test string",
+            },
+            query: {
+                driveQuery: {
+                    includeSharedDriveFiles: true,
+                    includeTeamDriveFiles: true,
+                },
+                groupsQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+                hangoutsChatQuery: {
+                    includeRooms: true,
+                },
+                mailQuery: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                    terms: "Test string",
+                },
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountIds: [
+                "Test string"            ],
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -5016,15 +5173,6 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -5048,6 +5196,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /** Gets a hold by ID. */
         await gapi.client.vault.matters.holds.get({
@@ -5056,15 +5213,6 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -5088,6 +5236,15 @@ gapi.load('client', () => {
             firstName: "Test string",
             holdTime: "Test string",
             lastName: "Test string",
+        });
+        /**
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
         });
         /**
          * Updates the OU and/or query parameters of a hold. You cannot add accounts
@@ -5135,54 +5292,6 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-        await gapi.client.vault.matters.holds.delete({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
          * Lists HeldAccounts for a hold. This will only list individually specified
          * held accounts. If the hold is on an OU, then use
          * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
@@ -5208,122 +5317,24 @@ gapi.load('client', () => {
             lastName: "Test string",
         });
         /**
-         * Lists holds within a matter. An empty page token in ListHoldsResponse
-         * denotes no more holds to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.holds.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
             matterId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Creates a hold in the given matter. */
-        await gapi.client.vault.matters.holds.create({
-            matterId: "Test string",
-        }, {
-            accounts: [
-                {
-                    accountId: "Test string",
-                    email: "Test string",
-                    firstName: "Test string",
-                    holdTime: "Test string",
-                    lastName: "Test string",
-                }            ],
-            corpus: "Test string",
-            holdId: "Test string",
-            name: "Test string",
-            orgUnit: {
-                holdTime: "Test string",
-                orgUnitId: "Test string",
-            },
-            query: {
-                driveQuery: {
-                    includeSharedDriveFiles: true,
-                    includeTeamDriveFiles: true,
-                },
-                groupsQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-                hangoutsChatQuery: {
-                    includeRooms: true,
-                },
-                mailQuery: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                    terms: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
         });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
@@ -5414,22 +5425,6 @@ gapi.load('client', () => {
             exportId: "Test string",
             matterId: "Test string",
         });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
         /** Retrieves a saved query by Id. */
         await gapi.client.vault.matters.savedQueries.get({
             matterId: "Test string",
@@ -5491,6 +5486,11 @@ gapi.load('client', () => {
                 terms: "Test string",
                 timeZone: "Test string",
             },
+            savedQueryId: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
             savedQueryId: "Test string",
         });
         /**

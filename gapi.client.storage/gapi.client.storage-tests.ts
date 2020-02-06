@@ -571,8 +571,7 @@ gapi.load('client', () => {
             },
         });
         /** Stop watching resources through this channel */
-        await gapi.client.storage.channels.stop({
-        }, {
+        await gapi.client.storage.channels.stop(, {
             address: "Test string",
             expiration: "Test string",
             id: "Test string",

@@ -42,8 +42,7 @@ gapi.load('client', () => {
 
     async function run() {
         /** Gets information about the user, the user's Drive, and system capabilities. */
-        await gapi.client.drive.about.get({
-        });
+        await gapi.client.drive.about.get();
         /** Gets the starting pageToken for listing future changes. */
         await gapi.client.drive.changes.getStartPageToken({
             driveId: "Test string",
@@ -94,8 +93,7 @@ gapi.load('client', () => {
             type: "Test string",
         });
         /** Stop watching resources through this channel */
-        await gapi.client.drive.channels.stop({
-        }, {
+        await gapi.client.drive.channels.stop(, {
             address: "Test string",
             expiration: "Test string",
             id: "Test string",
@@ -731,8 +729,7 @@ gapi.load('client', () => {
             supportsTeamDrives: true,
         });
         /** Permanently deletes all of the user's trashed files. */
-        await gapi.client.drive.files.emptyTrash({
-        });
+        await gapi.client.drive.files.emptyTrash();
         /** Exports a Google Doc to the requested MIME type and returns the exported content. Please note that the exported content is limited to 10MB. */
         await gapi.client.drive.files.export({
             fileId: "Test string",

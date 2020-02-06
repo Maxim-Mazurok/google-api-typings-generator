@@ -58,8 +58,7 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /** Inserts a new contact. */
-        await gapi.client.mirror.contacts.insert({
-        }, {
+        await gapi.client.mirror.contacts.insert(, {
             acceptCommands: [
                 {
                     type: "Test string",
@@ -80,8 +79,7 @@ gapi.load('client', () => {
             type: "Test string",
         });
         /** Retrieves a list of contacts for the authenticated user. */
-        await gapi.client.mirror.contacts.list({
-        });
+        await gapi.client.mirror.contacts.list();
         /** Updates a contact in place. This method supports patch semantics. */
         await gapi.client.mirror.contacts.patch({
             id: "Test string",
@@ -133,8 +131,7 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /** Retrieves a list of locations for the user. */
-        await gapi.client.mirror.locations.list({
-        });
+        await gapi.client.mirror.locations.list();
         /** Gets a single setting by ID. */
         await gapi.client.mirror.settings.get({
             id: "Test string",
@@ -144,8 +141,7 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /** Creates a new subscription. */
-        await gapi.client.mirror.subscriptions.insert({
-        }, {
+        await gapi.client.mirror.subscriptions.insert(, {
             callbackUrl: "Test string",
             collection: "Test string",
             id: "Test string",
@@ -169,8 +165,7 @@ gapi.load('client', () => {
             verifyToken: "Test string",
         });
         /** Retrieves a list of subscriptions for the authenticated user and service. */
-        await gapi.client.mirror.subscriptions.list({
-        });
+        await gapi.client.mirror.subscriptions.list();
         /** Updates an existing subscription in place. */
         await gapi.client.mirror.subscriptions.update({
             id: "Test string",
@@ -242,8 +237,7 @@ gapi.load('client', () => {
             itemId: "Test string",
         });
         /** Inserts a new item into the timeline. */
-        await gapi.client.mirror.timeline.insert({
-        }, {
+        await gapi.client.mirror.timeline.insert(, {
             attachments: [
                 {
                     contentType: "Test string",

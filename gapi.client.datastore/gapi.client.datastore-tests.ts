@@ -112,15 +112,6 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists operations that match the specified filter in the request. If the
          * server doesn't support this method, it returns `UNIMPLEMENTED`.
          *
@@ -159,6 +150,15 @@ gapi.load('client', () => {
          * corresponding to `Code.CANCELLED`.
          */
         await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Begins a new transaction. */
@@ -235,15 +235,6 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists operations that match the specified filter in the request. If the
          * server doesn't support this method, it returns `UNIMPLEMENTED`.
          *
@@ -282,6 +273,15 @@ gapi.load('client', () => {
          * corresponding to `Code.CANCELLED`.
          */
         await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -510,15 +510,6 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists operations that match the specified filter in the request. If the
          * server doesn't support this method, it returns `UNIMPLEMENTED`.
          *
@@ -557,6 +548,15 @@ gapi.load('client', () => {
          * corresponding to `Code.CANCELLED`.
          */
         await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -644,15 +644,6 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists operations that match the specified filter in the request. If the
          * server doesn't support this method, it returns `UNIMPLEMENTED`.
          *
@@ -691,6 +682,15 @@ gapi.load('client', () => {
          * corresponding to `Code.CANCELLED`.
          */
         await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -775,15 +775,6 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists operations that match the specified filter in the request. If the
          * server doesn't support this method, it returns `UNIMPLEMENTED`.
          *
@@ -822,6 +813,15 @@ gapi.load('client', () => {
          * corresponding to `Code.CANCELLED`.
          */
         await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Looks up entities by key. */
@@ -908,15 +908,6 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists operations that match the specified filter in the request. If the
          * server doesn't support this method, it returns `UNIMPLEMENTED`.
          *
@@ -955,6 +946,15 @@ gapi.load('client', () => {
          * corresponding to `Code.CANCELLED`.
          */
         await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /**
@@ -1041,15 +1041,6 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists operations that match the specified filter in the request. If the
          * server doesn't support this method, it returns `UNIMPLEMENTED`.
          *
@@ -1088,6 +1079,15 @@ gapi.load('client', () => {
          * corresponding to `Code.CANCELLED`.
          */
         await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Rolls back a transaction. */
@@ -1158,15 +1158,6 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists operations that match the specified filter in the request. If the
          * server doesn't support this method, it returns `UNIMPLEMENTED`.
          *
@@ -1205,6 +1196,15 @@ gapi.load('client', () => {
          * corresponding to `Code.CANCELLED`.
          */
         await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
         /** Queries for entities. */
@@ -1468,15 +1468,6 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datastore.projects.operations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists operations that match the specified filter in the request. If the
          * server doesn't support this method, it returns `UNIMPLEMENTED`.
          *
@@ -1515,6 +1506,15 @@ gapi.load('client', () => {
          * corresponding to `Code.CANCELLED`.
          */
         await gapi.client.datastore.projects.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.datastore.projects.operations.delete({
             name: "Test string",
         });
     }

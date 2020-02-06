@@ -28,8 +28,7 @@ gapi.load('client', () => {
 
     async function run() {
         /** Returns information about the authenticated user. */
-        await gapi.client.content.accounts.authinfo({
-        });
+        await gapi.client.content.accounts.authinfo();
         /** Claims the website of a Merchant Center sub-account. */
         await gapi.client.content.accounts.claimwebsite({
             accountId: "Test string",
@@ -37,8 +36,7 @@ gapi.load('client', () => {
             overwrite: true,
         });
         /** Retrieves, inserts, updates, and deletes multiple Merchant Center (sub-)accounts in a single request. */
-        await gapi.client.content.accounts.custombatch({
-        }, {
+        await gapi.client.content.accounts.custombatch(, {
             entries: [
                 {
                     account: {
@@ -234,8 +232,7 @@ gapi.load('client', () => {
                 }            ],
         });
         /** Retrieves multiple Merchant Center account statuses in a single request. */
-        await gapi.client.content.accountstatuses.custombatch({
-        }, {
+        await gapi.client.content.accountstatuses.custombatch(, {
             entries: [
                 {
                     accountId: "Test string",
@@ -260,8 +257,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Retrieves and updates tax settings of multiple accounts in a single request. */
-        await gapi.client.content.accounttax.custombatch({
-        }, {
+        await gapi.client.content.accounttax.custombatch(, {
             entries: [
                 {
                     accountId: "Test string",
@@ -310,8 +306,7 @@ gapi.load('client', () => {
                 }            ],
         });
         /** Deletes, fetches, gets, inserts and updates multiple datafeeds in a single request. */
-        await gapi.client.content.datafeeds.custombatch({
-        }, {
+        await gapi.client.content.datafeeds.custombatch(, {
             entries: [
                 {
                     batchId: 42,
@@ -448,8 +443,7 @@ gapi.load('client', () => {
                 }            ],
         });
         /** Gets multiple Merchant Center datafeed statuses in a single request. */
-        await gapi.client.content.datafeedstatuses.custombatch({
-        }, {
+        await gapi.client.content.datafeedstatuses.custombatch(, {
             entries: [
                 {
                     batchId: 42,
@@ -474,8 +468,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Retrieves and/or updates the LIA settings of multiple accounts in a single request. */
-        await gapi.client.content.liasettings.custombatch({
-        }, {
+        await gapi.client.content.liasettings.custombatch(, {
             entries: [
                 {
                     accountId: "Test string",
@@ -535,8 +528,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Retrieves the list of POS data providers that have active settings for the all eiligible countries. */
-        await gapi.client.content.liasettings.listposdataproviders({
-        });
+        await gapi.client.content.liasettings.listposdataproviders();
         /** Requests access to a specified Google My Business account. */
         await gapi.client.content.liasettings.requestgmbaccess({
             accountId: "Test string",
@@ -1094,8 +1086,7 @@ gapi.load('client', () => {
             trackingId: "Test string",
         });
         /** Batches multiple POS-related calls in a single request. */
-        await gapi.client.content.pos.custombatch({
-        }, {
+        await gapi.client.content.pos.custombatch(, {
             entries: [
                 {
                     batchId: 42,
@@ -1201,8 +1192,7 @@ gapi.load('client', () => {
             timestamp: "Test string",
         });
         /** Retrieves, inserts, and deletes multiple products in a single request. */
-        await gapi.client.content.products.custombatch({
-        }, {
+        await gapi.client.content.products.custombatch(, {
             entries: [
                 {
                     batchId: 42,
@@ -1531,8 +1521,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Gets the statuses of multiple products in a single request. */
-        await gapi.client.content.productstatuses.custombatch({
-        }, {
+        await gapi.client.content.productstatuses.custombatch(, {
             entries: [
                 {
                     batchId: 42,
@@ -1558,8 +1547,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Updates regional inventory for multiple products or regions in a single request. */
-        await gapi.client.content.regionalinventory.custombatch({
-        }, {
+        await gapi.client.content.regionalinventory.custombatch(, {
             entries: [
                 {
                     batchId: 42,
@@ -1616,8 +1604,7 @@ gapi.load('client', () => {
             salePriceEffectiveDate: "Test string",
         });
         /** Batches multiple return address related calls in a single request. */
-        await gapi.client.content.returnaddress.custombatch({
-        }, {
+        await gapi.client.content.returnaddress.custombatch(, {
             entries: [
                 {
                     batchId: 42,
@@ -1679,8 +1666,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Batches multiple return policy related calls in a single request. */
-        await gapi.client.content.returnpolicy.custombatch({
-        }, {
+        await gapi.client.content.returnpolicy.custombatch(, {
             entries: [
                 {
                     batchId: 42,
@@ -1757,8 +1743,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
         });
         /** Retrieves and updates the shipping settings of multiple accounts in a single request. */
-        await gapi.client.content.shippingsettings.custombatch({
-        }, {
+        await gapi.client.content.shippingsettings.custombatch(, {
             entries: [
                 {
                     accountId: "Test string",

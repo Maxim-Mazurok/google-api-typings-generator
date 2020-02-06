@@ -84,8 +84,6 @@ declare namespace gapi.client {
             description?: string;
         }
         interface AutoprovisioningNodePoolDefaults {
-            /** Specifies the node management options for NAP created node-pools. */
-            management?: NodeManagement;
             /**
              * Scopes that are used by NAP when creating node pools. If oauth_scopes are
              * specified, service_account should be empty.
@@ -96,8 +94,6 @@ declare namespace gapi.client {
              * service_account is specified, scopes should be empty.
              */
             serviceAccount?: string;
-            /** Specifies the upgrade settings for NAP created node pools */
-            upgradeSettings?: UpgradeSettings;
         }
         interface BigQueryDestination {
             /** The ID of a BigQuery Dataset. */
@@ -1113,9 +1109,8 @@ declare namespace gapi.client {
             /** Sandbox configuration for this node. */
             sandboxConfig?: SandboxConfig;
             /**
-             * The Google Cloud Platform Service Account to be used by the node VMs.
-             * Specify the email address of the Service Account; otherwise, if no Service
-             * Account is specified, the "default" service account is used.
+             * The Google Cloud Platform Service Account to be used by the node VMs. If
+             * no Service Account is specified, the "default" service account is used.
              */
             serviceAccount?: string;
             /** Shielded Instance options. */

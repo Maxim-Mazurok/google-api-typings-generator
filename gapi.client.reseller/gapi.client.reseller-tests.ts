@@ -106,8 +106,7 @@ gapi.load('client', () => {
             resourceUiUrl: "Test string",
         });
         /** Returns all the details of the watch corresponding to the reseller. */
-        await gapi.client.reseller.resellernotify.getwatchdetails({
-        });
+        await gapi.client.reseller.resellernotify.getwatchdetails();
         /** Registers a Reseller for receiving notifications. */
         await gapi.client.reseller.resellernotify.register({
             serviceAccountEmailAddress: "Test string",
