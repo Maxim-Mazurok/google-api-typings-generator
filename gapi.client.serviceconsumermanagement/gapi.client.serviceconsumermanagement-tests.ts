@@ -86,6 +86,18 @@ gapi.load('client', () => {
             query: "Test string",
         });
         /**
+         * Creates a tenancy unit with no tenant resources.
+         * If tenancy unit already exists, it will be returned,
+         * however, in this case, returned TenancyUnit does not have tenant_resources
+         * field set and ListTenancyUnit has to be used to get a complete
+         * TenancyUnit with all fields populated.
+         */
+        await gapi.client.serviceconsumermanagement.services.tenancyUnits.create({
+            parent: "Test string",
+        }, {
+            tenancyUnitId: "Test string",
+        });
+        /**
          * Removes the specified project resource identified by a tenant resource tag.
          * The method removes the project lien with 'TenantManager' origin if that
          * was added. It then attempts to delete the project. If that operation
@@ -254,18 +266,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /**
-         * Creates a tenancy unit with no tenant resources.
-         * If tenancy unit already exists, it will be returned,
-         * however, in this case, returned TenancyUnit does not have tenant_resources
-         * field set and ListTenancyUnit has to be used to get a complete
-         * TenancyUnit with all fields populated.
-         */
-        await gapi.client.serviceconsumermanagement.services.tenancyUnits.create({
-            parent: "Test string",
-        }, {
-            tenancyUnitId: "Test string",
         });
     }
 });

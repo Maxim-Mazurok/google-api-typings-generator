@@ -64,6 +64,10 @@ gapi.load('client', () => {
             requests: [
                 {
                     createFooter: {
+                        sectionBreakLocation: {
+                            index: 42,
+                            segmentId: "Test string",
+                        },
                         type: "Test string",
                     },
                     createFootnote: {
@@ -76,6 +80,10 @@ gapi.load('client', () => {
                         },
                     },
                     createHeader: {
+                        sectionBreakLocation: {
+                            index: 42,
+                            segmentId: "Test string",
+                        },
                         type: "Test string",
                     },
                     createNamedRange: {
@@ -100,6 +108,12 @@ gapi.load('client', () => {
                             segmentId: "Test string",
                             startIndex: 42,
                         },
+                    },
+                    deleteFooter: {
+                        footerId: "Test string",
+                    },
+                    deleteHeader: {
+                        headerId: "Test string",
                     },
                     deleteNamedRange: {
                         name: "Test string",
@@ -501,6 +515,12 @@ gapi.load('client', () => {
                                 }                            ],
                             columnSeparatorStyle: "Test string",
                             contentDirection: "Test string",
+                            defaultFooterId: "Test string",
+                            defaultHeaderId: "Test string",
+                            evenPageFooterId: "Test string",
+                            evenPageHeaderId: "Test string",
+                            firstPageFooterId: "Test string",
+                            firstPageHeaderId: "Test string",
                             marginBottom: {
                                 magnitude: 42,
                                 unit: "Test string",
@@ -526,6 +546,7 @@ gapi.load('client', () => {
                                 unit: "Test string",
                             },
                             sectionType: "Test string",
+                            useFirstPageHeaderFooter: true,
                         },
                     },
                     updateTableCellStyle: {
@@ -1910,6 +1931,12 @@ gapi.load('client', () => {
                                     }                                ],
                                 columnSeparatorStyle: "Test string",
                                 contentDirection: "Test string",
+                                defaultFooterId: "Test string",
+                                defaultHeaderId: "Test string",
+                                evenPageFooterId: "Test string",
+                                evenPageHeaderId: "Test string",
+                                firstPageFooterId: "Test string",
+                                firstPageHeaderId: "Test string",
                                 marginBottom: {
                                     magnitude: 42,
                                     unit: "Test string",
@@ -1935,6 +1962,7 @@ gapi.load('client', () => {
                                     unit: "Test string",
                                 },
                                 sectionType: "Test string",
+                                useFirstPageHeaderFooter: true,
                             },
                             suggestedDeletionIds: [
                                 "Test string"                            ],
@@ -3447,6 +3475,12 @@ gapi.load('client', () => {
                                         }                                    ],
                                     columnSeparatorStyle: "Test string",
                                     contentDirection: "Test string",
+                                    defaultFooterId: "Test string",
+                                    defaultHeaderId: "Test string",
+                                    evenPageFooterId: "Test string",
+                                    evenPageHeaderId: "Test string",
+                                    firstPageFooterId: "Test string",
+                                    firstPageHeaderId: "Test string",
                                     marginBottom: {
                                         magnitude: 42,
                                         unit: "Test string",
@@ -3472,6 +3506,7 @@ gapi.load('client', () => {
                                         unit: "Test string",
                                     },
                                     sectionType: "Test string",
+                                    useFirstPageHeaderFooter: true,
                                 },
                                 suggestedDeletionIds: [
                                     "Test string"                                ],
@@ -4927,6 +4962,12 @@ gapi.load('client', () => {
                                         }                                    ],
                                     columnSeparatorStyle: "Test string",
                                     contentDirection: "Test string",
+                                    defaultFooterId: "Test string",
+                                    defaultHeaderId: "Test string",
+                                    evenPageFooterId: "Test string",
+                                    evenPageHeaderId: "Test string",
+                                    firstPageFooterId: "Test string",
+                                    firstPageHeaderId: "Test string",
                                     marginBottom: {
                                         magnitude: 42,
                                         unit: "Test string",
@@ -4952,6 +4993,7 @@ gapi.load('client', () => {
                                         unit: "Test string",
                                     },
                                     sectionType: "Test string",
+                                    useFirstPageHeaderFooter: true,
                                 },
                                 suggestedDeletionIds: [
                                     "Test string"                                ],
@@ -6407,6 +6449,12 @@ gapi.load('client', () => {
                                         }                                    ],
                                     columnSeparatorStyle: "Test string",
                                     contentDirection: "Test string",
+                                    defaultFooterId: "Test string",
+                                    defaultHeaderId: "Test string",
+                                    evenPageFooterId: "Test string",
+                                    evenPageHeaderId: "Test string",
+                                    firstPageFooterId: "Test string",
+                                    firstPageHeaderId: "Test string",
                                     marginBottom: {
                                         magnitude: 42,
                                         unit: "Test string",
@@ -6432,6 +6480,7 @@ gapi.load('client', () => {
                                         unit: "Test string",
                                     },
                                     sectionType: "Test string",
+                                    useFirstPageHeaderFooter: true,
                                 },
                                 suggestedDeletionIds: [
                                     "Test string"                                ],

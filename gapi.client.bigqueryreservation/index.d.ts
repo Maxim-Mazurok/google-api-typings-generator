@@ -26,13 +26,6 @@ declare namespace gapi.client {
             /** A list of operations that matches the specified filter in the request. */
             operations?: Operation[];
         }
-        interface LocationMetadata {
-            /**
-             * The legacy BigQuery location ID, e.g. “EU” for the “europe” location.
-             * This is for any API consumers that need the legacy “US” and “EU” locations.
-             */
-            legacyLocationId?: string;
-        }
         interface Operation {
             /**
              * If the value is `false`, it means the operation is still in progress.

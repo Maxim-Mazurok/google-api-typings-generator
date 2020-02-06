@@ -126,7 +126,7 @@ declare namespace gapi.client {
             name?: string;
             /**
              * The resource name for the contact group, assigned by the server. An ASCII
-             * string, in the form of `contactGroups/`<var>contact_group_id</var>.
+             * string, in the form of `contactGroups/{contact_group_id}`.
              */
             resourceName?: string;
         }
@@ -135,7 +135,7 @@ declare namespace gapi.client {
             contactGroupId?: string;
             /**
              * The resource name for the contact group, assigned by the server. An ASCII
-             * string, in the form of `contactGroups/`<var>contact_group_id</var>.
+             * string, in the form of `contactGroups/{contact_group_id}`.
              * Only contact_group_resource_name can be used for modifying memberships.
              * Any contact group membership can be removed, but only user group or
              * "myContacts" or "starred" system groups memberships can be added. A
@@ -380,13 +380,13 @@ declare namespace gapi.client {
         }
         interface ModifyContactGroupMembersRequest {
             /**
-             * The resource names of the contact people to add in the form of
-             * `people/`<var>person_id</var>.
+             * Optional. The resource names of the contact people to add in the form of
+             * `people/{person_id}`.
              */
             resourceNamesToAdd?: string[];
             /**
-             * The resource names of the contact people to remove in the form of
-             * `people/`<var>person_id</var>.
+             * Optional. The resource names of the contact people to remove in the form of
+             * `people/{person_id}`.
              */
             resourceNamesToRemove?: string[];
         }
@@ -502,7 +502,7 @@ declare namespace gapi.client {
             /** The person's street addresses. */
             addresses?: Address[];
             /**
-             * Output only. &#42;&#42;DEPRECATED&#42;&#42; (Please use `person.ageRanges` instead)&#42;&#42;
+             * Output only. &#42;&#42;DEPRECATED&#42;&#42; (Please use `person.ageRanges` instead)
              *
              * The person's age range.
              */
@@ -561,7 +561,7 @@ declare namespace gapi.client {
             /**
              * The resource name for the person, assigned by the server. An ASCII string
              * with a max length of 27 characters, in the form of
-             * `people/`<var>person_id</var>.
+             * `people/{person_id}`.
              */
             resourceName?: string;
             /** The person's SIP addresses. */
@@ -671,8 +671,9 @@ declare namespace gapi.client {
             metadata?: FieldMetadata;
             /**
              * The URL of the photo. You can change the desired size by appending a query
-             * parameter `sz=`<var>size</var> at the end of the url. Example:
-             * `https://lh3.googleusercontent.com/-T_wVWLlmg7w/AAAAAAAAAAI/AAAAAAAABa8/00gzXvDBYqw/s100/photo.jpg?sz=50`
+             * parameter `sz={size}` at the end of the url, where {size} is the size in
+             * pixels. Example:
+             * https://lh3.googleusercontent.com/-T_wVWLlmg7w/AAAAAAAAAAI/AAAAAAAABa8/00gzXvDBYqw/s100/photo.jpg?sz=50
              */
             url?: string;
         }
@@ -933,7 +934,7 @@ declare namespace gapi.client {
         interface MembersResource {
             /**
              * Modify the members of a contact group owned by the authenticated user.
-             * <br>
+             *
              * The only system contact groups that can have members added are
              * `contactGroups/myContacts` and `contactGroups/starred`. Other system
              * contact groups are deprecated and can only have contacts removed.
@@ -1174,7 +1175,7 @@ declare namespace gapi.client {
                  */
                 pageSize?: number;
                 /**
-                 * The next_page_token value returned from a previous call to
+                 * Optional. The next_page_token value returned from a previous call to
                  * [ListContactGroups](/people/api/rest/v1/contactgroups/list).
                  * Requests the next page of resources.
                  */
@@ -1184,7 +1185,7 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * A sync token, returned by a previous call to `contactgroups.list`.
+                 * Optional. A sync token, returned by a previous call to `contactgroups.list`.
                  * Only resources changed since the sync token was created will be returned.
                  */
                 syncToken?: string;
@@ -1218,7 +1219,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * The resource name for the contact group, assigned by the server. An ASCII
-                 * string, in the form of `contactGroups/`<var>contact_group_id</var>.
+                 * string, in the form of `contactGroups/{contact_group_id}`.
                  */
                 resourceName: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1249,7 +1250,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * The resource name for the contact group, assigned by the server. An ASCII
-                 * string, in the form of `contactGroups/`<var>contact_group_id</var>.
+                 * string, in the form of `contactGroups/{contact_group_id}`.
                  */
                 resourceName: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1264,7 +1265,7 @@ declare namespace gapi.client {
             /**
              * Provides a list of the authenticated user's contacts merged with any
              * connected profiles.
-             * <br>
+             *
              * The request throws a 400 error if 'personFields' is not specified.
              */
             list(request: {
@@ -1287,7 +1288,7 @@ declare namespace gapi.client {
                  * between 1 and 2000, inclusive. Defaults to 100 if not set or set to 0.
                  */
                 pageSize?: number;
-                /** The token of the page to be returned. */
+                /** Optional. The token of the page to be returned. */
                 pageToken?: string;
                 /**
                  * Required. A field mask to restrict which fields on each person are returned. Multiple
@@ -1335,7 +1336,7 @@ declare namespace gapi.client {
                  */
                 "requestMask.includeField"?: string;
                 /**
-                 * Whether the response should include a sync token, which can be used to get
+                 * Optional. Whether the response should include a sync token, which can be used to get
                  * all changes since the last request. For subsequent sync requests use the
                  * `sync_token` param instead. Initial sync requests that specify
                  * `request_sync_token` have an additional rate limit.
@@ -1344,12 +1345,12 @@ declare namespace gapi.client {
                 /** Required. The resource name to return connections for. Only `people/me` is valid. */
                 resourceName: string;
                 /**
-                 * The order in which the connections should be sorted. Defaults to
+                 * Optional. The order in which the connections should be sorted. Defaults to
                  * `LAST_MODIFIED_ASCENDING`.
                  */
                 sortOrder?: string;
                 /**
-                 * A sync token returned by a previous call to `people.connections.list`.
+                 * Optional. A sync token returned by a previous call to `people.connections.list`.
                  * Only resources changed since the sync token was created will be returned.
                  * Sync requests that specify `sync_token` have an additional rate limit.
                  */
@@ -1506,7 +1507,7 @@ declare namespace gapi.client {
             /**
              * Provides information about a person by specifying a resource name. Use
              * `people/me` to indicate the authenticated user.
-             * <br>
+             *
              * The request throws a 400 error if 'personFields' is not specified.
              */
             get(request: {
@@ -1574,7 +1575,7 @@ declare namespace gapi.client {
                  *
                  * - To get information about the authenticated user, specify `people/me`.
                  * - To get information about a google account, specify
-                 * `people/`<var>account_id</var>.
+                 * `people/{account_id}`.
                  * - To get information about a contact, specify the resource name that
                  * identifies the contact as returned by
                  * [`people.connections.list`](/people/api/rest/v1/people.connections/list).
@@ -1589,7 +1590,7 @@ declare namespace gapi.client {
              * Provides information about a list of specific people by specifying a list
              * of requested resource names. Use `people/me` to indicate the authenticated
              * user.
-             * <br>
+             *
              * The request throws a 400 error if 'personFields' is not specified.
              */
             getBatchGet(request: {
@@ -1657,7 +1658,7 @@ declare namespace gapi.client {
                  *
                  * - To get information about the authenticated user, specify `people/me`.
                  * - To get information about a google account, specify
-                 * `people/`<var>account_id</var>.
+                 * `people/{account_id}`.
                  * - To get information about a contact, specify the resource name that
                  * identifies the contact as returned by
                  * [`people.connections.list`](/people/api/rest/v1/people.connections/list).
@@ -1675,10 +1676,10 @@ declare namespace gapi.client {
              * will not be modified.
              *
              * The request throws a 400 error if `updatePersonFields` is not specified.
-             * <br>
+             *
              * The request throws a 400 error if `person.metadata.sources` is not
              * specified for the contact to be updated.
-             * <br>
+             *
              * The request throws a 400 error with an error with reason
              * `"failedPrecondition"` if `person.metadata.sources.etag` is different than
              * the contact's etag, which indicates the contact has changed since its data
@@ -1707,7 +1708,7 @@ declare namespace gapi.client {
                 /**
                  * The resource name for the person, assigned by the server. An ASCII string
                  * with a max length of 27 characters, in the form of
-                 * `people/`<var>person_id</var>.
+                 * `people/{person_id}`.
                  */
                 resourceName: string;
                 /**
@@ -1766,7 +1767,7 @@ declare namespace gapi.client {
                 /**
                  * The resource name for the person, assigned by the server. An ASCII string
                  * with a max length of 27 characters, in the form of
-                 * `people/`<var>person_id</var>.
+                 * `people/{person_id}`.
                  */
                 resourceName: string;
                 /**

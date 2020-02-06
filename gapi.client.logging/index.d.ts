@@ -24,6 +24,12 @@ declare namespace gapi.client {
              * are sharded based on UTC timezone.
              */
             usePartitionedTables?: boolean;
+            /**
+             * Output only. True if new timestamp column based partitioning is in use, false if legacy ingestion-time partitioning is in use. All new sinks will have
+             * this field set true and will use timestamp column based partitioning. If use_partitioned_tables is false, this value has no meaning and will be false.
+             * Legacy sinks using partitioned tables will have this field set to false.
+             */
+            usesTimestampColumnPartitioning?: boolean;
         }
         interface BucketOptions {
             /** The explicit buckets. */
@@ -225,8 +231,9 @@ declare namespace gapi.client {
             httpRequest?: HttpRequest;
             /**
              * Optional. A unique identifier for the log entry. If you provide a value, then Logging considers other log entries in the same project, with the same
-             * timestamp, and with the same insert_id to be duplicates which can be removed. If omitted in new log entries, then Logging assigns its own unique
-             * identifier. The insert_id is also used to order log entries that have the same timestamp value.
+             * timestamp, and with the same insert_id to be duplicates which are removed in a single query result. However, there are no guarantees of de-duplication
+             * in the export of logs.If the insert_id is omitted when writing a log entry, the Logging API  assigns its own unique identifier in this field.In
+             * queries, the insert_id is also used to order log entries that have the same log_name and timestamp values.
              */
             insertId?: string;
             /** The log entry payload, represented as a structure that is expressed as a JSON object. */

@@ -388,6 +388,7 @@ declare namespace gapi.client {
         interface ManagedConfiguration {
             /** Contains the ID of the managed configuration profile and the set of configuration variables (if any) defined for the user. */
             configurationVariables?: ConfigurationVariables;
+            /** Deprecated. */
             kind?: string;
             /** The set of managed properties for this configuration. */
             managedProperty?: ManagedProperty[];
@@ -561,6 +562,8 @@ declare namespace gapi.client {
              * Google. The value privateSelfHosted means that the package is a private app (restricted to an enterprise) and is privately hosted.
              */
             distributionChannel?: string;
+            /** Noteworthy features (if any) of this product. */
+            features?: string[];
             /** A link to an image that can be used as an icon for the product. This image is suitable for use at up to 512px x 512px. */
             iconUrl?: string;
             kind?: string;

@@ -53,7 +53,7 @@ gapi.load('client', () => {
         });
         /**
          * Modify the members of a contact group owned by the authenticated user.
-         * <br>
+         *
          * The only system contact groups that can have members added are
          * `contactGroups/myContacts` and `contactGroups/starred`. Other system
          * contact groups are deprecated and can only have contacts removed.
@@ -86,7 +86,7 @@ gapi.load('client', () => {
         });
         /**
          * Modify the members of a contact group owned by the authenticated user.
-         * <br>
+         *
          * The only system contact groups that can have members added are
          * `contactGroups/myContacts` and `contactGroups/starred`. Other system
          * contact groups are deprecated and can only have contacts removed.
@@ -109,7 +109,7 @@ gapi.load('client', () => {
         });
         /**
          * Modify the members of a contact group owned by the authenticated user.
-         * <br>
+         *
          * The only system contact groups that can have members added are
          * `contactGroups/myContacts` and `contactGroups/starred`. Other system
          * contact groups are deprecated and can only have contacts removed.
@@ -132,7 +132,7 @@ gapi.load('client', () => {
         });
         /**
          * Modify the members of a contact group owned by the authenticated user.
-         * <br>
+         *
          * The only system contact groups that can have members added are
          * `contactGroups/myContacts` and `contactGroups/starred`. Other system
          * contact groups are deprecated and can only have contacts removed.
@@ -156,7 +156,7 @@ gapi.load('client', () => {
         });
         /**
          * Modify the members of a contact group owned by the authenticated user.
-         * <br>
+         *
          * The only system contact groups that can have members added are
          * `contactGroups/myContacts` and `contactGroups/starred`. Other system
          * contact groups are deprecated and can only have contacts removed.
@@ -193,7 +193,7 @@ gapi.load('client', () => {
         });
         /**
          * Modify the members of a contact group owned by the authenticated user.
-         * <br>
+         *
          * The only system contact groups that can have members added are
          * `contactGroups/myContacts` and `contactGroups/starred`. Other system
          * contact groups are deprecated and can only have contacts removed.
@@ -852,7 +852,7 @@ gapi.load('client', () => {
         /**
          * Provides a list of the authenticated user's contacts merged with any
          * connected profiles.
-         * <br>
+         *
          * The request throws a 400 error if 'personFields' is not specified.
          */
         await gapi.client.people.people.connections.list({
@@ -872,7 +872,7 @@ gapi.load('client', () => {
         /**
          * Provides a list of the authenticated user's contacts merged with any
          * connected profiles.
-         * <br>
+         *
          * The request throws a 400 error if 'personFields' is not specified.
          */
         await gapi.client.people.people.connections.list({
@@ -893,7 +893,7 @@ gapi.load('client', () => {
         /**
          * Provides a list of the authenticated user's contacts merged with any
          * connected profiles.
-         * <br>
+         *
          * The request throws a 400 error if 'personFields' is not specified.
          */
         await gapi.client.people.people.connections.list({
@@ -909,7 +909,7 @@ gapi.load('client', () => {
         /**
          * Provides information about a person by specifying a resource name. Use
          * `people/me` to indicate the authenticated user.
-         * <br>
+         *
          * The request throws a 400 error if 'personFields' is not specified.
          */
         await gapi.client.people.people.get({
@@ -920,7 +920,7 @@ gapi.load('client', () => {
         /**
          * Provides a list of the authenticated user's contacts merged with any
          * connected profiles.
-         * <br>
+         *
          * The request throws a 400 error if 'personFields' is not specified.
          */
         await gapi.client.people.people.connections.list({
@@ -937,7 +937,7 @@ gapi.load('client', () => {
          * Provides information about a list of specific people by specifying a list
          * of requested resource names. Use `people/me` to indicate the authenticated
          * user.
-         * <br>
+         *
          * The request throws a 400 error if 'personFields' is not specified.
          */
         await gapi.client.people.people.getBatchGet({
@@ -948,7 +948,7 @@ gapi.load('client', () => {
         /**
          * Provides a list of the authenticated user's contacts merged with any
          * connected profiles.
-         * <br>
+         *
          * The request throws a 400 error if 'personFields' is not specified.
          */
         await gapi.client.people.people.connections.list({
@@ -966,10 +966,10 @@ gapi.load('client', () => {
          * will not be modified.
          *
          * The request throws a 400 error if `updatePersonFields` is not specified.
-         * <br>
+         *
          * The request throws a 400 error if `person.metadata.sources` is not
          * specified for the contact to be updated.
-         * <br>
+         *
          * The request throws a 400 error with an error with reason
          * `"failedPrecondition"` if `person.metadata.sources.etag` is different than
          * the contact's etag, which indicates the contact has changed since its data
@@ -1623,7 +1623,7 @@ gapi.load('client', () => {
         /**
          * Provides a list of the authenticated user's contacts merged with any
          * connected profiles.
-         * <br>
+         *
          * The request throws a 400 error if 'personFields' is not specified.
          */
         await gapi.client.people.people.connections.list({
@@ -1646,7 +1646,7 @@ gapi.load('client', () => {
         /**
          * Provides a list of the authenticated user's contacts merged with any
          * connected profiles.
-         * <br>
+         *
          * The request throws a 400 error if 'personFields' is not specified.
          */
         await gapi.client.people.people.connections.list({

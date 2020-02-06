@@ -305,7 +305,11 @@ declare namespace gapi.client {
             value?: string;
         }
         interface SpansResource {
-            /** Creates a new span. */
+            /**
+             * Creates a new span.
+             * In this case, writing traces is not consider an active developer
+             * method since traces are machine generated.
+             */
             createSpan(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -382,6 +386,8 @@ declare namespace gapi.client {
             /**
              * Sends new spans to new or existing traces. You cannot update
              * existing spans.
+             * In this case, writing traces is not consider an active developer
+             * method since traces are machine generated.
              */
             batchWrite(request: {
                 /** V1 error format. */

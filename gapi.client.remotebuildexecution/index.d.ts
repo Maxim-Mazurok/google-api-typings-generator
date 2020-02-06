@@ -984,6 +984,8 @@ declare namespace gapi.client {
              * supported.
              */
             machineType?: string;
+            /** The maximum number of actions a worker can execute concurrently. */
+            maxConcurrentActions?: string;
             /**
              * Minimum CPU platform to use when creating the worker.
              * See [CPU Platforms](https://cloud.google.com/compute/docs/cpu-platforms).

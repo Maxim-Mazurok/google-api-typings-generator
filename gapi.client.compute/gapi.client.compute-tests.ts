@@ -802,6 +802,7 @@ gapi.load('client', () => {
             creationTimestamp: "Test string",
             description: "Test string",
             diskSizeGb: "Test string",
+            downloadBytes: "Test string",
             id: "Test string",
             kind: "Test string",
             labelFingerprint: "Test string",
@@ -1298,11 +1299,14 @@ gapi.load('client', () => {
             IPAddress: "Test string",
             IPProtocol: "Test string",
             allPorts: true,
+            allowGlobalAccess: true,
             backendService: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
+            fingerprint: "Test string",
             id: "Test string",
             ipVersion: "Test string",
+            isMirroringCollector: true,
             kind: "Test string",
             loadBalancingScheme: "Test string",
             metadataFilters: [
@@ -1335,6 +1339,51 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+        });
+        /**
+         * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format
+         * and processing rules. Currently, you can only patch the network_tier field.
+         */
+        await gapi.client.compute.forwardingRules.patch({
+            forwardingRule: "Test string",
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            IPAddress: "Test string",
+            IPProtocol: "Test string",
+            allPorts: true,
+            allowGlobalAccess: true,
+            backendService: "Test string",
+            creationTimestamp: "Test string",
+            description: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            ipVersion: "Test string",
+            isMirroringCollector: true,
+            kind: "Test string",
+            loadBalancingScheme: "Test string",
+            metadataFilters: [
+                {
+                    filterLabels: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    filterMatchCriteria: "Test string",
+                }            ],
+            name: "Test string",
+            network: "Test string",
+            networkTier: "Test string",
+            portRange: "Test string",
+            ports: [
+                "Test string"            ],
+            region: "Test string",
+            selfLink: "Test string",
+            serviceLabel: "Test string",
+            serviceName: "Test string",
+            subnetwork: "Test string",
+            target: "Test string",
         });
         /** Changes target URL for forwarding rule. The new target should be of the same type as the old target. */
         await gapi.client.compute.forwardingRules.setTarget({
@@ -1407,11 +1456,14 @@ gapi.load('client', () => {
             IPAddress: "Test string",
             IPProtocol: "Test string",
             allPorts: true,
+            allowGlobalAccess: true,
             backendService: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
+            fingerprint: "Test string",
             id: "Test string",
             ipVersion: "Test string",
+            isMirroringCollector: true,
             kind: "Test string",
             loadBalancingScheme: "Test string",
             metadataFilters: [
@@ -1443,6 +1495,50 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+        });
+        /**
+         * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format
+         * and processing rules. Currently, you can only patch the network_tier field.
+         */
+        await gapi.client.compute.globalForwardingRules.patch({
+            forwardingRule: "Test string",
+            project: "Test string",
+            requestId: "Test string",
+        }, {
+            IPAddress: "Test string",
+            IPProtocol: "Test string",
+            allPorts: true,
+            allowGlobalAccess: true,
+            backendService: "Test string",
+            creationTimestamp: "Test string",
+            description: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            ipVersion: "Test string",
+            isMirroringCollector: true,
+            kind: "Test string",
+            loadBalancingScheme: "Test string",
+            metadataFilters: [
+                {
+                    filterLabels: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    filterMatchCriteria: "Test string",
+                }            ],
+            name: "Test string",
+            network: "Test string",
+            networkTier: "Test string",
+            portRange: "Test string",
+            ports: [
+                "Test string"            ],
+            region: "Test string",
+            selfLink: "Test string",
+            serviceLabel: "Test string",
+            serviceName: "Test string",
+            subnetwork: "Test string",
+            target: "Test string",
         });
         /** Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target. */
         await gapi.client.compute.globalForwardingRules.setTarget({
@@ -1479,11 +1575,15 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Waits for the specified Operations resource until it is done or timeout, and retrieves the specified Operations resource. 1. Immediately returns when
-         * the operation is already done. 2. Waits for no more than the default deadline (2 minutes, subject to change) and then returns the current state of the
-         * operation, which may be DONE or still in progress. 3. Is best-effort: a. The server can wait less than the default deadline or zero seconds, in
-         * overload situations. b. There is no guarantee that the operation is actually done when returns. 4. User should be prepared to retry if the operation is
-         * not DONE.
+         * Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified
+         * Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the
+         * current state of the operation, which might be DONE or still in progress.
+         *
+         * This method is called on a best-effort basis. Specifically:
+         * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
+         * seconds.
+         * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
+         * operation is not DONE.
          */
         await gapi.client.compute.globalOperations.wait({
             operation: "Test string",
@@ -2595,6 +2695,7 @@ gapi.load('client', () => {
                             rawKey: "Test string",
                             sha256: "Test string",
                         },
+                        diskSizeGb: "Test string",
                         guestOsFeatures: [
                             {
                                 type: "Test string",
@@ -2868,6 +2969,7 @@ gapi.load('client', () => {
                 rawKey: "Test string",
                 sha256: "Test string",
             },
+            diskSizeGb: "Test string",
             guestOsFeatures: [
                 {
                     type: "Test string",
@@ -2983,6 +3085,7 @@ gapi.load('client', () => {
                         rawKey: "Test string",
                         sha256: "Test string",
                     },
+                    diskSizeGb: "Test string",
                     guestOsFeatures: [
                         {
                             type: "Test string",
@@ -4535,6 +4638,137 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
+        /** Retrieves an aggregated list of packetMirrorings. */
+        await gapi.client.compute.packetMirrorings.aggregatedList({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+        });
+        /** Deletes the specified PacketMirroring resource. */
+        await gapi.client.compute.packetMirrorings.delete({
+            packetMirroring: "Test string",
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        });
+        /** Returns the specified PacketMirroring resource. */
+        await gapi.client.compute.packetMirrorings.get({
+            packetMirroring: "Test string",
+            project: "Test string",
+            region: "Test string",
+        });
+        /** Creates a PacketMirroring resource in the specified project and region using the data included in the request. */
+        await gapi.client.compute.packetMirrorings.insert({
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            collectorIlb: {
+                canonicalUrl: "Test string",
+                url: "Test string",
+            },
+            creationTimestamp: "Test string",
+            description: "Test string",
+            enable: "Test string",
+            filter: {
+                IPProtocols: [
+                    "Test string"                ],
+                cidrRanges: [
+                    "Test string"                ],
+            },
+            id: "Test string",
+            kind: "Test string",
+            mirroredResources: {
+                instances: [
+                    {
+                        canonicalUrl: "Test string",
+                        url: "Test string",
+                    }                ],
+                subnetworks: [
+                    {
+                        canonicalUrl: "Test string",
+                        url: "Test string",
+                    }                ],
+                tags: [
+                    "Test string"                ],
+            },
+            name: "Test string",
+            network: {
+                canonicalUrl: "Test string",
+                url: "Test string",
+            },
+            priority: 42,
+            region: "Test string",
+            selfLink: "Test string",
+        });
+        /** Retrieves a list of PacketMirroring resources available to the specified project and region. */
+        await gapi.client.compute.packetMirrorings.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            region: "Test string",
+        });
+        /**
+         * Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch
+         * format and processing rules.
+         */
+        await gapi.client.compute.packetMirrorings.patch({
+            packetMirroring: "Test string",
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            collectorIlb: {
+                canonicalUrl: "Test string",
+                url: "Test string",
+            },
+            creationTimestamp: "Test string",
+            description: "Test string",
+            enable: "Test string",
+            filter: {
+                IPProtocols: [
+                    "Test string"                ],
+                cidrRanges: [
+                    "Test string"                ],
+            },
+            id: "Test string",
+            kind: "Test string",
+            mirroredResources: {
+                instances: [
+                    {
+                        canonicalUrl: "Test string",
+                        url: "Test string",
+                    }                ],
+                subnetworks: [
+                    {
+                        canonicalUrl: "Test string",
+                        url: "Test string",
+                    }                ],
+                tags: [
+                    "Test string"                ],
+            },
+            name: "Test string",
+            network: {
+                canonicalUrl: "Test string",
+                url: "Test string",
+            },
+            priority: 42,
+            region: "Test string",
+            selfLink: "Test string",
+        });
+        /** Returns permissions that a caller has on the specified resource. */
+        await gapi.client.compute.packetMirrorings.testIamPermissions({
+            project: "Test string",
+            region: "Test string",
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
         /** Disable this project as a shared VPC host project. */
         await gapi.client.compute.projects.disableXpnHost({
             project: "Test string",
@@ -5263,6 +5497,7 @@ gapi.load('client', () => {
             creationTimestamp: "Test string",
             description: "Test string",
             diskSizeGb: "Test string",
+            downloadBytes: "Test string",
             id: "Test string",
             kind: "Test string",
             labelFingerprint: "Test string",
@@ -6014,11 +6249,15 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Waits for the specified region-specific Operations resource until it is done or timeout, and retrieves the specified Operations resource. 1.
-         * Immediately returns when the operation is already done. 2. Waits for no more than the default deadline (2 minutes, subject to change) and then returns
-         * the current state of the operation, which may be DONE or still in progress. 3. Is best-effort: a. The server can wait less than the default deadline or
-         * zero seconds, in overload situations. b. There is no guarantee that the operation is actually done when returns. 4. User should be prepared to retry if
-         * the operation is not DONE.
+         * Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified
+         * Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the
+         * current state of the operation, which might be DONE or still in progress.
+         *
+         * This method is called on a best-effort basis. Specifically:
+         * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
+         * seconds.
+         * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
+         * operation is not DONE.
          */
         await gapi.client.compute.regionOperations.wait({
             operation: "Test string",
@@ -11994,10 +12233,14 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Waits for the specified zone-specific Operations resource until it is done or timeout, and retrieves the specified Operations resource. 1. Immediately
-         * returns when the operation is already done. 2. Waits for no more than the default deadline (2 minutes, subject to change) and then returns the current
-         * state of the operation, which may be DONE or still in progress. 3. Is best-effort: a. The server can wait less than the default deadline or zero
-         * seconds, in overload situations. b. There is no guarantee that the operation is actually done when returns. 4. User should be prepared to retry if the
+         * Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified
+         * Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the
+         * current state of the operation, which might be DONE or still in progress.
+         *
+         * This method is called on a best-effort basis. Specifically:
+         * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
+         * seconds.
+         * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
          * operation is not DONE.
          */
         await gapi.client.compute.zoneOperations.wait({

@@ -199,9 +199,93 @@ gapi.load('client', () => {
                 versionBytes: "Test string",
             },
         });
-        /** Deletes the specified version. */
-        await gapi.client.firebasehosting.sites.versions.delete({
+        /** Creates a new version for a site. */
+        await gapi.client.firebasehosting.sites.versions.create({
+            parent: "Test string",
+            sizeBytes: "Test string",
+            versionId: "Test string",
+        }, {
+            config: {
+                appAssociation: "Test string",
+                cleanUrls: true,
+                headers: [
+                    {
+                        glob: "Test string",
+                        headers: {
+                            A: "Test string"                        },
+                        regex: "Test string",
+                    }                ],
+                redirects: [
+                    {
+                        glob: "Test string",
+                        location: "Test string",
+                        regex: "Test string",
+                        statusCode: 42,
+                    }                ],
+                rewrites: [
+                    {
+                        dynamicLinks: true,
+                        function: "Test string",
+                        glob: "Test string",
+                        path: "Test string",
+                        regex: "Test string",
+                        run: {
+                            region: "Test string",
+                            serviceId: "Test string",
+                        },
+                    }                ],
+                trailingSlashBehavior: "Test string",
+            },
+            createTime: "Test string",
+            createUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            deleteTime: "Test string",
+            deleteUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            fileCount: "Test string",
+            finalizeTime: "Test string",
+            finalizeUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            labels: {
+                A: "Test string"            },
             name: "Test string",
+            preview: {
+                active: true,
+                expireTime: "Test string",
+            },
+            status: "Test string",
+            versionBytes: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
+        /**
+         * Creates a new version on the target site using the content
+         * of the specified version.
+         */
+        await gapi.client.firebasehosting.sites.versions.clone({
+            parent: "Test string",
+        }, {
+            exclude: {
+                regexes: [
+                    "Test string"                ],
+            },
+            finalize: true,
+            include: {
+                regexes: [
+                    "Test string"                ],
+            },
+            sourceVersion: "Test string",
         });
         /** Lists the remaining files to be uploaded for the specified version. */
         await gapi.client.firebasehosting.sites.versions.files.list({
@@ -286,6 +370,31 @@ gapi.load('client', () => {
             parent: "Test string",
             status: "Test string",
         });
+        /** Adds content files to a version. */
+        await gapi.client.firebasehosting.sites.versions.populateFiles({
+            parent: "Test string",
+        }, {
+            files: {
+                A: "Test string"            },
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
+        /** Deletes the specified version. */
+        await gapi.client.firebasehosting.sites.versions.delete({
+            name: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
         /**
          * Lists the versions that have been created on the specified site.
          * Will include filtering in the future.
@@ -295,90 +404,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            status: "Test string",
-        });
-        /** Creates a new version for a site. */
-        await gapi.client.firebasehosting.sites.versions.create({
-            parent: "Test string",
-            sizeBytes: "Test string",
-            versionId: "Test string",
-        }, {
-            config: {
-                appAssociation: "Test string",
-                cleanUrls: true,
-                headers: [
-                    {
-                        glob: "Test string",
-                        headers: {
-                            A: "Test string"                        },
-                        regex: "Test string",
-                    }                ],
-                redirects: [
-                    {
-                        glob: "Test string",
-                        location: "Test string",
-                        regex: "Test string",
-                        statusCode: 42,
-                    }                ],
-                rewrites: [
-                    {
-                        dynamicLinks: true,
-                        function: "Test string",
-                        glob: "Test string",
-                        path: "Test string",
-                        regex: "Test string",
-                        run: {
-                            region: "Test string",
-                            serviceId: "Test string",
-                        },
-                    }                ],
-                trailingSlashBehavior: "Test string",
-            },
-            createTime: "Test string",
-            createUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            deleteTime: "Test string",
-            deleteUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            fileCount: "Test string",
-            finalizeTime: "Test string",
-            finalizeUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            preview: {
-                active: true,
-                expireTime: "Test string",
-            },
-            status: "Test string",
-            versionBytes: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            status: "Test string",
-        });
-        /** Adds content files to a version. */
-        await gapi.client.firebasehosting.sites.versions.populateFiles({
-            parent: "Test string",
-        }, {
-            files: {
-                A: "Test string"            },
         });
         /** Lists the remaining files to be uploaded for the specified version. */
         await gapi.client.firebasehosting.sites.versions.files.list({
@@ -556,9 +581,93 @@ gapi.load('client', () => {
                 versionBytes: "Test string",
             },
         });
-        /** Deletes the specified version. */
-        await gapi.client.firebasehosting.sites.versions.delete({
+        /** Creates a new version for a site. */
+        await gapi.client.firebasehosting.sites.versions.create({
+            parent: "Test string",
+            sizeBytes: "Test string",
+            versionId: "Test string",
+        }, {
+            config: {
+                appAssociation: "Test string",
+                cleanUrls: true,
+                headers: [
+                    {
+                        glob: "Test string",
+                        headers: {
+                            A: "Test string"                        },
+                        regex: "Test string",
+                    }                ],
+                redirects: [
+                    {
+                        glob: "Test string",
+                        location: "Test string",
+                        regex: "Test string",
+                        statusCode: 42,
+                    }                ],
+                rewrites: [
+                    {
+                        dynamicLinks: true,
+                        function: "Test string",
+                        glob: "Test string",
+                        path: "Test string",
+                        regex: "Test string",
+                        run: {
+                            region: "Test string",
+                            serviceId: "Test string",
+                        },
+                    }                ],
+                trailingSlashBehavior: "Test string",
+            },
+            createTime: "Test string",
+            createUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            deleteTime: "Test string",
+            deleteUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            fileCount: "Test string",
+            finalizeTime: "Test string",
+            finalizeUser: {
+                email: "Test string",
+                imageUrl: "Test string",
+            },
+            labels: {
+                A: "Test string"            },
             name: "Test string",
+            preview: {
+                active: true,
+                expireTime: "Test string",
+            },
+            status: "Test string",
+            versionBytes: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
+        /**
+         * Creates a new version on the target site using the content
+         * of the specified version.
+         */
+        await gapi.client.firebasehosting.sites.versions.clone({
+            parent: "Test string",
+        }, {
+            exclude: {
+                regexes: [
+                    "Test string"                ],
+            },
+            finalize: true,
+            include: {
+                regexes: [
+                    "Test string"                ],
+            },
+            sourceVersion: "Test string",
         });
         /** Lists the remaining files to be uploaded for the specified version. */
         await gapi.client.firebasehosting.sites.versions.files.list({
@@ -643,6 +752,31 @@ gapi.load('client', () => {
             parent: "Test string",
             status: "Test string",
         });
+        /** Adds content files to a version. */
+        await gapi.client.firebasehosting.sites.versions.populateFiles({
+            parent: "Test string",
+        }, {
+            files: {
+                A: "Test string"            },
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
+        /** Deletes the specified version. */
+        await gapi.client.firebasehosting.sites.versions.delete({
+            name: "Test string",
+        });
+        /** Lists the remaining files to be uploaded for the specified version. */
+        await gapi.client.firebasehosting.sites.versions.files.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            status: "Test string",
+        });
         /**
          * Lists the versions that have been created on the specified site.
          * Will include filtering in the future.
@@ -652,90 +786,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            status: "Test string",
-        });
-        /** Creates a new version for a site. */
-        await gapi.client.firebasehosting.sites.versions.create({
-            parent: "Test string",
-            sizeBytes: "Test string",
-            versionId: "Test string",
-        }, {
-            config: {
-                appAssociation: "Test string",
-                cleanUrls: true,
-                headers: [
-                    {
-                        glob: "Test string",
-                        headers: {
-                            A: "Test string"                        },
-                        regex: "Test string",
-                    }                ],
-                redirects: [
-                    {
-                        glob: "Test string",
-                        location: "Test string",
-                        regex: "Test string",
-                        statusCode: 42,
-                    }                ],
-                rewrites: [
-                    {
-                        dynamicLinks: true,
-                        function: "Test string",
-                        glob: "Test string",
-                        path: "Test string",
-                        regex: "Test string",
-                        run: {
-                            region: "Test string",
-                            serviceId: "Test string",
-                        },
-                    }                ],
-                trailingSlashBehavior: "Test string",
-            },
-            createTime: "Test string",
-            createUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            deleteTime: "Test string",
-            deleteUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            fileCount: "Test string",
-            finalizeTime: "Test string",
-            finalizeUser: {
-                email: "Test string",
-                imageUrl: "Test string",
-            },
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            preview: {
-                active: true,
-                expireTime: "Test string",
-            },
-            status: "Test string",
-            versionBytes: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            status: "Test string",
-        });
-        /** Adds content files to a version. */
-        await gapi.client.firebasehosting.sites.versions.populateFiles({
-            parent: "Test string",
-        }, {
-            files: {
-                A: "Test string"            },
         });
         /** Lists the remaining files to be uploaded for the specified version. */
         await gapi.client.firebasehosting.sites.versions.files.list({

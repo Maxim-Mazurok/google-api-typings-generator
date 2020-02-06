@@ -198,12 +198,25 @@ declare namespace gapi.client {
             /** The first color that is alternating. (Required) */
             firstBandColor?: Color;
             /**
+             * The first color that is alternating. (Required)
+             * If first_band_color is also set, this field takes precedence.
+             */
+            firstBandColorStyle?: ColorStyle;
+            /**
              * The color of the last row or column. If this field is not set, the last
              * row or column will be filled with either first_band_color or
              * second_band_color, depending on the color of the previous row or
              * column.
              */
             footerColor?: Color;
+            /**
+             * The color of the last row or column. If this field is not set, the last
+             * row or column will be filled with either first_band_color or
+             * second_band_color, depending on the color of the previous row or
+             * column.
+             * If footer_color is also set, this field takes precedence.
+             */
+            footerColorStyle?: ColorStyle;
             /**
              * The color of the first row or column. If this field is set, the first
              * row or column will be filled with this color and the colors will
@@ -213,8 +226,23 @@ declare namespace gapi.client {
              * as they normally would.
              */
             headerColor?: Color;
+            /**
+             * The color of the first row or column. If this field is set, the first
+             * row or column will be filled with this color and the colors will
+             * alternate between first_band_color and second_band_color starting
+             * from the second row or column. Otherwise, the first row or column will be
+             * filled with first_band_color and the colors will proceed to alternate
+             * as they normally would.
+             * If header_color is also set, this field takes precedence.
+             */
+            headerColorStyle?: ColorStyle;
             /** The second color that is alternating. (Required) */
             secondBandColor?: Color;
+            /**
+             * The second color that is alternating. (Required)
+             * If second_band_color is also set, this field takes precedence.
+             */
+            secondBandColorStyle?: ColorStyle;
         }
         interface BaselineValueFormat {
             /** The comparison type of key value with baseline value. */
@@ -230,6 +258,12 @@ declare namespace gapi.client {
              */
             negativeColor?: Color;
             /**
+             * Color to be used, in case baseline value represents a negative change for
+             * key value. This field is optional.
+             * If negative_color is also set, this field takes precedence.
+             */
+            negativeColorStyle?: ColorStyle;
+            /**
              * Specifies the horizontal text positioning of baseline value.
              * This field is optional. If not specified, default positioning is used.
              */
@@ -239,6 +273,12 @@ declare namespace gapi.client {
              * key value. This field is optional.
              */
             positiveColor?: Color;
+            /**
+             * Color to be used, in case baseline value represents a positive change for
+             * key value. This field is optional.
+             * If positive_color is also set, this field takes precedence.
+             */
+            positiveColorStyle?: ColorStyle;
             /** Text formatting options for baseline value. */
             textFormat?: TextFormat;
         }
@@ -271,10 +311,16 @@ declare namespace gapi.client {
         }
         interface BasicChartSeries {
             /**
-             * The color for elements (i.e. bars, lines, points) associated with this
-             * series.  If empty, a default color is used.
+             * The color for elements (such as bars, lines, and points) associated with
+             * this series.  If empty, a default color is used.
              */
             color?: Color;
+            /**
+             * The color for elements (such as bars, lines, and points) associated with
+             * this series.  If empty, a default color is used.
+             * If color is also set, this field takes precedence.
+             */
+            colorStyle?: ColorStyle;
             /**
              * The line style of this series. Valid only if the
              * chartType is AREA,
@@ -378,10 +424,9 @@ declare namespace gapi.client {
         }
         interface BatchClearValuesByDataFilterResponse {
             /**
-             * The ranges that were cleared, in A1 notation.
-             * (If the requests were for an unbounded range or a ranger larger
-             * than the bounds of the sheet, this will be the actual ranges
-             * that were cleared, bounded to the sheet's limits.)
+             * The ranges that were cleared, in A1 notation. If the requests are for an
+             * unbounded range or a ranger larger than the bounds of the sheet, this is
+             * the actual ranges that were cleared, bounded to the sheet's limits.
              */
             clearedRanges?: string[];
             /** The spreadsheet the updates were applied to. */
@@ -393,10 +438,9 @@ declare namespace gapi.client {
         }
         interface BatchClearValuesResponse {
             /**
-             * The ranges that were cleared, in A1 notation.
-             * (If the requests were for an unbounded range or a ranger larger
-             * than the bounds of the sheet, this will be the actual ranges
-             * that were cleared, bounded to the sheet's limits.)
+             * The ranges that were cleared, in A1 notation. If the requests are for an
+             * unbounded range or a ranger larger than the bounds of the sheet, this is
+             * the actual ranges that were cleared, bounded to the sheet's limits.
              */
             clearedRanges?: string[];
             /** The spreadsheet the updates were applied to. */
@@ -404,9 +448,8 @@ declare namespace gapi.client {
         }
         interface BatchGetValuesByDataFilterRequest {
             /**
-             * The data filters used to match the ranges of values to retrieve.  Ranges
-             * that match any of the specified data filters will be included in the
-             * response.
+             * The data filters used to match the ranges of values to retrieve. Ranges
+             * that match any of the specified data filters are included in the response.
              */
             dataFilters?: DataFilter[];
             /**
@@ -420,10 +463,9 @@ declare namespace gapi.client {
              * The major dimension that results should use.
              *
              * For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,
-             * then a request that selects that range and sets `majorDimension=ROWS` will
-             * return `[[1,2],[3,4]]`,
-             * whereas a request that sets `majorDimension=COLUMNS` will return
-             * `[[1,3],[2,4]]`.
+             * then a request that selects that range and sets `majorDimension=ROWS`
+             * returns `[[1,2],[3,4]]`, whereas a request that sets
+             * `majorDimension=COLUMNS` returns `[[1,3],[2,4]]`.
              */
             majorDimension?: string;
             /**
@@ -488,18 +530,18 @@ declare namespace gapi.client {
         interface BatchUpdateValuesByDataFilterRequest {
             /**
              * The new values to apply to the spreadsheet.  If more than one range is
-             * matched by the specified DataFilter the specified values will be
-             * applied to all of those ranges.
+             * matched by the specified DataFilter the specified values are applied to
+             * all of those ranges.
              */
             data?: DataFilterValueRange[];
             /**
              * Determines if the update response should include the values
              * of the cells that were updated. By default, responses
              * do not include the updated values. The `updatedData` field within
-             * each of the BatchUpdateValuesResponse.responses will contain
-             * the updated values. If the range to write was larger than than the range
-             * actually written, the response will include all values in the requested
-             * range (excluding trailing empty rows and columns).
+             * each of the BatchUpdateValuesResponse.responses contains the updated
+             * values. If the range to write was larger than the range actually written,
+             * the response includes all values in the requested range (excluding trailing
+             * empty rows and columns).
              */
             includeValuesInResponse?: boolean;
             /**
@@ -545,10 +587,10 @@ declare namespace gapi.client {
              * Determines if the update response should include the values
              * of the cells that were updated. By default, responses
              * do not include the updated values. The `updatedData` field within
-             * each of the BatchUpdateValuesResponse.responses will contain
-             * the updated values. If the range to write was larger than than the range
-             * actually written, the response will include all values in the requested
-             * range (excluding trailing empty rows and columns).
+             * each of the BatchUpdateValuesResponse.responses contains the updated
+             * values. If the range to write was larger than the range actually written,
+             * the response includes all values in the requested range (excluding trailing
+             * empty rows and columns).
              */
             includeValuesInResponse?: boolean;
             /**
@@ -620,6 +662,11 @@ declare namespace gapi.client {
         interface Border {
             /** The color of the border. */
             color?: Color;
+            /**
+             * The color of the border.
+             * If color is also set, this field takes precedence.
+             */
+            colorStyle?: ColorStyle;
             /** The style of the border. */
             style?: string;
             /**
@@ -641,6 +688,11 @@ declare namespace gapi.client {
         interface BubbleChartSpec {
             /** The bubble border color. */
             bubbleBorderColor?: Color;
+            /**
+             * The bubble border color.
+             * If bubble_border_color is also set, this field takes precedence.
+             */
+            bubbleBorderColorStyle?: ColorStyle;
             /** The data containing the bubble labels.  These do not need to be unique. */
             bubbleLabels?: ChartData;
             /**
@@ -811,6 +863,11 @@ declare namespace gapi.client {
         interface CellFormat {
             /** The background color of the cell. */
             backgroundColor?: Color;
+            /**
+             * The background color of the cell.
+             * If background_color is also set, this field takes precedence.
+             */
+            backgroundColorStyle?: ColorStyle;
             /** The borders of the cell. */
             borders?: Borders;
             /** The horizontal alignment of the value in the cell. */
@@ -896,6 +953,12 @@ declare namespace gapi.client {
              * Not applicable to Org charts.
              */
             backgroundColor?: Color;
+            /**
+             * The background color of the entire chart.
+             * Not applicable to Org charts.
+             * If background_color is also set, this field takes precedence.
+             */
+            backgroundColorStyle?: ColorStyle;
             /**
              * A basic chart specification, can be one of many kinds of charts.
              * See BasicChartType for the list of all
@@ -1092,9 +1155,9 @@ declare namespace gapi.client {
             majorDimension?: string;
             /**
              * The data to be written.  If the provided values exceed any of the ranges
-             * matched by the data filter then the request will fail.  If the provided
-             * values are less than the matched ranges only the specified values will be
-             * written, existing values in the matched ranges will remain unaffected.
+             * matched by the data filter then the request fails.  If the provided values
+             * are less than the matched ranges only the specified values are written,
+             * existing values in the matched ranges remain unaffected.
              */
             values?: any[][];
         }
@@ -1444,11 +1507,26 @@ declare namespace gapi.client {
              */
             visibleBackgroundColor?: Color;
             /**
+             * The background fill color to filter by; only cells with this fill color are
+             * shown. Mutually exclusive with all other filter criteria. Requests to set
+             * this field will fail with a 400 error if any other filter criteria field is
+             * set.
+             * If visible_background_color is also set, this field takes precedence.
+             */
+            visibleBackgroundColorStyle?: ColorStyle;
+            /**
              * The text color to filter by; only cells with this text color are shown.
              * Mutually exclusive with all other filter criteria. Requests to set this
              * field will fail with a 400 error if any other filter criteria field is set.
              */
             visibleForegroundColor?: Color;
+            /**
+             * The text color to filter by; only cells with this text color are shown.
+             * Mutually exclusive with all other filter criteria. Requests to set this
+             * field will fail with a 400 error if any other filter criteria field is set.
+             * If visible_foreground_color is also set, this field takes precedence.
+             */
+            visibleForegroundColorStyle?: ColorStyle;
         }
         interface FilterView {
             /**
@@ -1662,6 +1740,12 @@ declare namespace gapi.client {
              * This field is optional.
              */
             barColor?: Color;
+            /**
+             * The color of the column representing this series in each bucket.
+             * This field is optional.
+             * If bar_color is also set, this field takes precedence.
+             */
+            barColorStyle?: ColorStyle;
             /** The data for this histogram series. */
             data?: ChartData;
         }
@@ -1697,6 +1781,11 @@ declare namespace gapi.client {
         interface InterpolationPoint {
             /** The color this interpolation point should use. */
             color?: Color;
+            /**
+             * The color this interpolation point should use.
+             * If color is also set, this field takes precedence.
+             */
+            colorStyle?: ColorStyle;
             /** How the value should be interpreted. */
             type?: string;
             /**
@@ -1824,6 +1913,11 @@ declare namespace gapi.client {
             labels?: ChartData;
             /** The color of the org chart nodes. */
             nodeColor?: Color;
+            /**
+             * The color of the org chart nodes.
+             * If node_color is also set, this field takes precedence.
+             */
+            nodeColorStyle?: ColorStyle;
             /** The size of the org chart nodes. */
             nodeSize?: string;
             /**
@@ -1835,6 +1929,11 @@ declare namespace gapi.client {
             parentLabels?: ChartData;
             /** The color of the selected org chart nodes. */
             selectedNodeColor?: Color;
+            /**
+             * The color of the selected org chart nodes.
+             * If selected_node_color is also set, this field takes precedence.
+             */
+            selectedNodeColorStyle?: ColorStyle;
             /**
              * The data containing the tooltip for the corresponding node.  A blank value
              * results in no tooltip being displayed for the node.
@@ -2346,7 +2445,7 @@ declare namespace gapi.client {
             /**
              * The data filters describing the criteria used to determine which
              * DeveloperMetadata entries to return.  DeveloperMetadata matching any of the
-             * specified filters will be included in the response.
+             * specified filters are included in the response.
              */
             dataFilters?: DataFilter[];
         }
@@ -2447,6 +2546,11 @@ declare namespace gapi.client {
             sheetType?: string;
             /** The color of the tab in the UI. */
             tabColor?: Color;
+            /**
+             * The color of the tab in the UI.
+             * If tab_color is also set, this field takes precedence.
+             */
+            tabColorStyle?: ColorStyle;
             /** The name of the sheet. */
             title?: string;
         }
@@ -2470,6 +2574,11 @@ declare namespace gapi.client {
             applyToPivotTables?: boolean;
             /** The background color of the slicer. */
             backgroundColor?: Color;
+            /**
+             * The background color of the slicer.
+             * If background_color is also set, this field takes precedence.
+             */
+            backgroundColorStyle?: ColorStyle;
             /** The column index in the data table on which the filter is applied to. */
             columnIndex?: number;
             /** The data range of the slicer. */
@@ -2502,6 +2611,13 @@ declare namespace gapi.client {
              * foreground color is also set.
              */
             backgroundColor?: Color;
+            /**
+             * The background fill color to sort by. Mutually exclusive with sorting by
+             * text color. Requests to set this field will fail with a 400 error if
+             * foreground color is also set.
+             * If background_color is also set, this field takes precedence.
+             */
+            backgroundColorStyle?: ColorStyle;
             /** The dimension the sort should be applied to. */
             dimensionIndex?: number;
             /**
@@ -2510,6 +2626,13 @@ declare namespace gapi.client {
              * background color is also set.
              */
             foregroundColor?: Color;
+            /**
+             * The text color to sort by. Mutually exclusive with sorting by background
+             * fill color. Requests to set this field will fail with a 400 error if
+             * background color is also set.
+             * If foreground_color is also set, this field takes precedence.
+             */
+            foregroundColorStyle?: ColorStyle;
             /** The order data should be sorted. */
             sortOrder?: string;
         }
@@ -2557,8 +2680,8 @@ declare namespace gapi.client {
             defaultFormat?: CellFormat;
             /**
              * Determines whether and how circular references are resolved with iterative
-             * calculation.  Absence of this field means that circular references will
-             * result in calculation errors.
+             * calculation.  Absence of this field means that circular references result
+             * in calculation errors.
              */
             iterativeCalculationSettings?: IterativeCalculationSettings;
             /**
@@ -2588,8 +2711,8 @@ declare namespace gapi.client {
             /** / Name of the primary font family. */
             primaryFontFamily?: string;
             /**
-             * The spreadsheet theme color pairs. For update users need to give all pairs
-             * of theme colors.
+             * The spreadsheet theme color pairs. To update you must provide all theme
+             * color pairs.
              */
             themeColors?: ThemeColorPair[];
         }
@@ -2602,6 +2725,11 @@ declare namespace gapi.client {
             fontSize?: number;
             /** The foreground color of the text. */
             foregroundColor?: Color;
+            /**
+             * The foreground color of the text.
+             * If foreground_color is also set, this field takes precedence.
+             */
+            foregroundColorStyle?: ColorStyle;
             /** True if the text is italicized. */
             italic?: boolean;
             /** True if the text has a strikethrough. */
@@ -2671,6 +2799,13 @@ declare namespace gapi.client {
              */
             maxValueColor?: Color;
             /**
+             * The background color for cells with a color value greater than or equal
+             * to maxValue. Defaults to #109618 if not
+             * specified.
+             * If max_value_color is also set, this field takes precedence.
+             */
+            maxValueColorStyle?: ColorStyle;
+            /**
              * The background color for cells with a color value at the midpoint between
              * minValue and
              * maxValue. Defaults to #efe6dc if not
@@ -2678,16 +2813,37 @@ declare namespace gapi.client {
              */
             midValueColor?: Color;
             /**
+             * The background color for cells with a color value at the midpoint between
+             * minValue and
+             * maxValue. Defaults to #efe6dc if not
+             * specified.
+             * If mid_value_color is also set, this field takes precedence.
+             */
+            midValueColorStyle?: ColorStyle;
+            /**
              * The background color for cells with a color value less than or equal to
              * minValue. Defaults to #dc3912 if not
              * specified.
              */
             minValueColor?: Color;
             /**
+             * The background color for cells with a color value less than or equal to
+             * minValue. Defaults to #dc3912 if not
+             * specified.
+             * If min_value_color is also set, this field takes precedence.
+             */
+            minValueColorStyle?: ColorStyle;
+            /**
              * The background color for cells that have no color data associated with
              * them. Defaults to #000000 if not specified.
              */
             noDataColor?: Color;
+            /**
+             * The background color for cells that have no color data associated with
+             * them. Defaults to #000000 if not specified.
+             * If no_data_color is also set, this field takes precedence.
+             */
+            noDataColorStyle?: ColorStyle;
         }
         interface TreemapChartSpec {
             /**
@@ -2719,6 +2875,11 @@ declare namespace gapi.client {
             colorScale?: TreemapChartColorScale;
             /** The background color for header cells. */
             headerColor?: Color;
+            /**
+             * The background color for header cells.
+             * If header_color is also set, this field takes precedence.
+             */
+            headerColorStyle?: ColorStyle;
             /** True to hide tooltips. */
             hideTooltips?: boolean;
             /**
@@ -3072,6 +3233,11 @@ declare namespace gapi.client {
         interface WaterfallChartColumnStyle {
             /** The color of the column. */
             color?: Color;
+            /**
+             * The color of the column.
+             * If color is also set, this field takes precedence.
+             */
+            colorStyle?: ColorStyle;
             /** The label of the column's legend. */
             label?: string;
         }
@@ -3345,7 +3511,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * The A1 notation of a range to search for a logical table of data.
-                 * Values will be appended after the last row of the table.
+                 * Values are appended after the last row of the table.
                  */
                 range: string;
                 /**
@@ -3400,7 +3566,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * The A1 notation of a range to search for a logical table of data.
-                 * Values will be appended after the last row of the table.
+                 * Values are appended after the last row of the table.
                  */
                 range: string;
                 /**
@@ -3576,9 +3742,8 @@ declare namespace gapi.client {
                  * The major dimension that results should use.
                  *
                  * For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,
-                 * then requesting `range=A1:B2,majorDimension=ROWS` will return
-                 * `[[1,2],[3,4]]`,
-                 * whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return
+                 * then requesting `range=A1:B2,majorDimension=ROWS` returns `[[1,2],[3,4]]`,
+                 * whereas requesting `range=A1:B2,majorDimension=COLUMNS` returns
                  * `[[1,3],[2,4]]`.
                  */
                 majorDimension?: string;
@@ -3877,10 +4042,9 @@ declare namespace gapi.client {
                 /**
                  * The major dimension that results should use.
                  *
-                 * For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,
-                 * then requesting `range=A1:B2,majorDimension=ROWS` will return
-                 * `[[1,2],[3,4]]`,
-                 * whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return
+                 * For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`, then
+                 * requesting `range=A1:B2,majorDimension=ROWS` returns `[[1,2],[3,4]]`,
+                 * whereas requesting `range=A1:B2,majorDimension=COLUMNS` returns
                  * `[[1,3],[2,4]]`.
                  */
                 majorDimension?: string;
@@ -3924,9 +4088,9 @@ declare namespace gapi.client {
                  * Determines if the update response should include the values
                  * of the cells that were updated. By default, responses
                  * do not include the updated values.
-                 * If the range to write was larger than than the range actually written,
-                 * the response will include all values in the requested range (excluding
-                 * trailing empty rows and columns).
+                 * If the range to write was larger than the range actually written, the
+                 * response includes all values in the requested range (excluding trailing
+                 * empty rows and columns).
                  */
                 includeValuesInResponse?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3978,9 +4142,9 @@ declare namespace gapi.client {
                  * Determines if the update response should include the values
                  * of the cells that were updated. By default, responses
                  * do not include the updated values.
-                 * If the range to write was larger than than the range actually written,
-                 * the response will include all values in the requested range (excluding
-                 * trailing empty rows and columns).
+                 * If the range to write was larger than the range actually written, the
+                 * response includes all values in the requested range (excluding trailing
+                 * empty rows and columns).
                  */
                 includeValuesInResponse?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

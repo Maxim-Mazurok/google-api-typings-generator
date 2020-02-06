@@ -1500,6 +1500,17 @@ declare namespace gapi.client {
              */
             value?: string;
         }
+        interface GoogleCloudVideointelligenceV1p3beta1_DetectedLandmark {
+            /** The confidence score of the detected landmark. Range [0, 1]. */
+            confidence?: number;
+            /** The name of this landmark, i.e. left_hand, right_shoulder. */
+            name?: string;
+            /**
+             * The 2D point of the detected landmark using the normalized image
+             * coordindate system. The normalized coordinates have the range from 0 to 1.
+             */
+            point?: GoogleCloudVideointelligenceV1p3beta1_NormalizedVertex;
+        }
         interface GoogleCloudVideointelligenceV1p3beta1_Entity {
             /** Textual description, e.g. `Fixed-gear bicycle`. */
             description?: string;
@@ -1524,6 +1535,12 @@ declare namespace gapi.client {
              * video frame for this location.
              */
             timeOffset?: string;
+        }
+        interface GoogleCloudVideointelligenceV1p3beta1_FaceDetectionAnnotation {
+            /** The thumbnail of a person's face. */
+            thumbnail?: string;
+            /** The face tracks with attributes. */
+            tracks?: GoogleCloudVideointelligenceV1p3beta1_Track[];
         }
         interface GoogleCloudVideointelligenceV1p3beta1_LabelAnnotation {
             /**
@@ -1625,6 +1642,10 @@ declare namespace gapi.client {
             /** The timestamp of the frame in microseconds. */
             timeOffset?: string;
         }
+        interface GoogleCloudVideointelligenceV1p3beta1_PersonDetectionAnnotation {
+            /** The trackes that a person is detected. */
+            tracks?: GoogleCloudVideointelligenceV1p3beta1_Track[];
+        }
         interface GoogleCloudVideointelligenceV1p3beta1_RecognizedCelebrity {
             /** The recognized celebrity. */
             celebrity?: GoogleCloudVideointelligenceV1p3beta1_Celebrity;
@@ -1717,6 +1738,8 @@ declare namespace gapi.client {
         interface GoogleCloudVideointelligenceV1p3beta1_TimestampedObject {
             /** Optional. The attributes of the object in the bounding box. */
             attributes?: GoogleCloudVideointelligenceV1p3beta1_DetectedAttribute[];
+            /** Optional. The detected landmarks. */
+            landmarks?: GoogleCloudVideointelligenceV1p3beta1_DetectedLandmark[];
             /** Normalized Bounding box in a frame, where the object is located. */
             normalizedBoundingBox?: GoogleCloudVideointelligenceV1p3beta1_NormalizedBoundingBox;
             /**
@@ -1771,6 +1794,8 @@ declare namespace gapi.client {
             error?: GoogleRpc_Status;
             /** Explicit content annotation. */
             explicitAnnotation?: GoogleCloudVideointelligenceV1p3beta1_ExplicitContentAnnotation;
+            /** Face detection annotations. */
+            faceDetectionAnnotations?: GoogleCloudVideointelligenceV1p3beta1_FaceDetectionAnnotation[];
             /**
              * Label annotations on frame level.
              * There is exactly one element for each unique label.
@@ -1785,6 +1810,8 @@ declare namespace gapi.client {
             logoRecognitionAnnotations?: GoogleCloudVideointelligenceV1p3beta1_LogoRecognitionAnnotation[];
             /** Annotations for list of objects detected and tracked in video. */
             objectAnnotations?: GoogleCloudVideointelligenceV1p3beta1_ObjectTrackingAnnotation[];
+            /** Person detection annotations. */
+            personDetectionAnnotations?: GoogleCloudVideointelligenceV1p3beta1_PersonDetectionAnnotation[];
             /** Video segment on which the annotation is run. */
             segment?: GoogleCloudVideointelligenceV1p3beta1_VideoSegment;
             /**

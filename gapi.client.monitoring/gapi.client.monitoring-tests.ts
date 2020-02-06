@@ -58,10 +58,27 @@ gapi.load('client', () => {
                 resourceName: "Test string",
             },
         });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
+        /** Get a ServiceLevelObjective by name. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.get({
+            name: "Test string",
+            view: "Test string",
+        });
+        /** List the ServiceLevelObjectives for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
+            view: "Test string",
+        });
+        /** Update the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",
@@ -146,27 +163,10 @@ gapi.load('client', () => {
                 },
             },
         });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
-        });
-        /** Get a ServiceLevelObjective by name. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** List the ServiceLevelObjectives for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
             parent: "Test string",
-            view: "Test string",
-        });
-        /** Update the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
-            name: "Test string",
-            updateMask: "Test string",
+            serviceLevelObjectiveId: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",
@@ -255,10 +255,27 @@ gapi.load('client', () => {
         await gapi.client.monitoring.services.delete({
             name: "Test string",
         });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
+        /** Get a ServiceLevelObjective by name. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.get({
+            name: "Test string",
+            view: "Test string",
+        });
+        /** List the ServiceLevelObjectives for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
+            view: "Test string",
+        });
+        /** Update the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",
@@ -343,27 +360,10 @@ gapi.load('client', () => {
                 },
             },
         });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
-        });
-        /** Get a ServiceLevelObjective by name. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** List the ServiceLevelObjectives for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
             parent: "Test string",
-            view: "Test string",
-        });
-        /** Update the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
-            name: "Test string",
-            updateMask: "Test string",
+            serviceLevelObjectiveId: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",
@@ -452,10 +452,27 @@ gapi.load('client', () => {
         await gapi.client.monitoring.services.get({
             name: "Test string",
         });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
+        /** Get a ServiceLevelObjective by name. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.get({
+            name: "Test string",
+            view: "Test string",
+        });
+        /** List the ServiceLevelObjectives for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
+            view: "Test string",
+        });
+        /** Update the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",
@@ -540,27 +557,10 @@ gapi.load('client', () => {
                 },
             },
         });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
-        });
-        /** Get a ServiceLevelObjective by name. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** List the ServiceLevelObjectives for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
             parent: "Test string",
-            view: "Test string",
-        });
-        /** Update the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
-            name: "Test string",
-            updateMask: "Test string",
+            serviceLevelObjectiveId: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",
@@ -652,10 +652,27 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
+        /** Get a ServiceLevelObjective by name. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.get({
+            name: "Test string",
+            view: "Test string",
+        });
+        /** List the ServiceLevelObjectives for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
+            view: "Test string",
+        });
+        /** Update the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",
@@ -740,27 +757,10 @@ gapi.load('client', () => {
                 },
             },
         });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
-        });
-        /** Get a ServiceLevelObjective by name. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** List the ServiceLevelObjectives for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
             parent: "Test string",
-            view: "Test string",
-        });
-        /** Update the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
-            name: "Test string",
-            updateMask: "Test string",
+            serviceLevelObjectiveId: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",
@@ -870,10 +870,27 @@ gapi.load('client', () => {
                 resourceName: "Test string",
             },
         });
-        /** Create a ServiceLevelObjective for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.create({
+        /** Delete the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
+            name: "Test string",
+        });
+        /** Get a ServiceLevelObjective by name. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.get({
+            name: "Test string",
+            view: "Test string",
+        });
+        /** List the ServiceLevelObjectives for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
-            serviceLevelObjectiveId: "Test string",
+            view: "Test string",
+        });
+        /** Update the given ServiceLevelObjective. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",
@@ -958,27 +975,10 @@ gapi.load('client', () => {
                 },
             },
         });
-        /** Delete the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.delete({
-            name: "Test string",
-        });
-        /** Get a ServiceLevelObjective by name. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** List the ServiceLevelObjectives for the given Service. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        /** Create a ServiceLevelObjective for the given Service. */
+        await gapi.client.monitoring.services.serviceLevelObjectives.create({
             parent: "Test string",
-            view: "Test string",
-        });
-        /** Update the given ServiceLevelObjective. */
-        await gapi.client.monitoring.services.serviceLevelObjectives.patch({
-            name: "Test string",
-            updateMask: "Test string",
+            serviceLevelObjectiveId: "Test string",
         }, {
             calendarPeriod: "Test string",
             displayName: "Test string",

@@ -216,6 +216,7 @@ gapi.load('client', () => {
                 destinationInstanceName: "Test string",
                 kind: "Test string",
                 pitrTimestampMs: "Test string",
+                pointInTime: "Test string",
             },
         });
         /** Deletes a Cloud SQL instance. */
@@ -416,6 +417,7 @@ gapi.load('client', () => {
                     enabled: true,
                     kind: "Test string",
                     location: "Test string",
+                    pointInTimeRecoveryEnabled: true,
                     replicationLogArchivingEnabled: true,
                     startTime: "Test string",
                 },
@@ -581,6 +583,7 @@ gapi.load('client', () => {
                     enabled: true,
                     kind: "Test string",
                     location: "Test string",
+                    pointInTimeRecoveryEnabled: true,
                     replicationLogArchivingEnabled: true,
                     startTime: "Test string",
                 },
@@ -794,6 +797,7 @@ gapi.load('client', () => {
                     enabled: true,
                     kind: "Test string",
                     location: "Test string",
+                    pointInTimeRecoveryEnabled: true,
                     replicationLogArchivingEnabled: true,
                     startTime: "Test string",
                 },

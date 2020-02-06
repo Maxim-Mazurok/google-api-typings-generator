@@ -47,6 +47,25 @@ declare namespace gapi.client {
              */
             token?: string;
         }
+        interface CloneVersionRequest {
+            /**
+             * If provided, only paths that do not match any of the regexes in this
+             * list will be included in the new version.
+             */
+            exclude?: PathFilter;
+            /** If true, immediately finalize the version after cloning is complete. */
+            finalize?: boolean;
+            /**
+             * If provided, only paths that match one or more regexes in this list
+             * will be included in the new version.
+             */
+            include?: PathFilter;
+            /**
+             * Required. The name of the version to be cloned, in the format:
+             * `sites/{site}/versions/{version}`
+             */
+            sourceVersion?: string;
+        }
         interface CloudRunRewrite {
             /**
              * Optional. User-provided region where the Cloud Run service is hosted.<br>
@@ -149,6 +168,44 @@ declare namespace gapi.client {
             nextPageToken?: string;
             /** The list of versions, if any exist. */
             versions?: Version[];
+        }
+        interface Operation {
+            /**
+             * If the value is `false`, it means the operation is still in progress.
+             * If `true`, the operation is completed, and either `error` or `response` is
+             * available.
+             */
+            done?: boolean;
+            /** The error result of the operation in case of failure or cancellation. */
+            error?: Status;
+            /**
+             * Service-specific metadata associated with the operation.  It typically
+             * contains progress information and common metadata such as create time.
+             * Some services might not provide such metadata.  Any method that returns a
+             * long-running operation should document the metadata type, if any.
+             */
+            metadata?: Record<string, any>;
+            /**
+             * The server-assigned name, which is only unique within the same service that
+             * originally returns it. If you use the default HTTP mapping, the
+             * `name` should be a resource name ending with `operations/{unique_id}`.
+             */
+            name?: string;
+            /**
+             * The normal response of the operation in case of success.  If the original
+             * method returns no data on success, such as `Delete`, the response is
+             * `google.protobuf.Empty`.  If the original method is standard
+             * `Get`/`Create`/`Update`, the response should be the resource.  For other
+             * methods, the response should have the type `XxxResponse`, where `Xxx`
+             * is the original method name.  For example, if the original method name
+             * is `TakeSnapshot()`, the inferred response type is
+             * `TakeSnapshotResponse`.
+             */
+            response?: Record<string, any>;
+        }
+        interface PathFilter {
+            /** An array of regexes to filter by. */
+            regexes?: string[];
         }
         interface PopulateVersionFilesRequest {
             /**
@@ -294,6 +351,21 @@ declare namespace gapi.client {
              */
             maxVersions?: string;
         }
+        interface Status {
+            /** The status code, which should be an enum value of google.rpc.Code. */
+            code?: number;
+            /**
+             * A list of messages that carry the error details.  There is a common set of
+             * message types for APIs to use.
+             */
+            details?: Array<Record<string, any>>;
+            /**
+             * A developer-facing error message, which should be in English. Any
+             * user-facing error message should be localized and sent in the
+             * google.rpc.Status.details field, or localized by the client.
+             */
+            message?: string;
+        }
         interface Version {
             /**
              * The configuration for the behavior of the site. This configuration exists
@@ -367,6 +439,42 @@ declare namespace gapi.client {
              * <br>The value will be either `pending upload` or `uploaded`.
              */
             status?: string;
+        }
+        interface OperationsResource {
+            /**
+             * Gets the latest state of a long-running operation.  Clients can use this
+             * method to poll the operation result at intervals as recommended by the API
+             * service.
+             */
+            get(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The name of the operation resource. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+            }): Request<Operation>;
+        }
+        interface ProjectsResource {
+            operations: OperationsResource;
         }
         interface DomainsResource {
             /** Creates a domain mapping on the specified site. */
@@ -748,6 +856,71 @@ declare namespace gapi.client {
             }): Request<ListVersionFilesResponse>;
         }
         interface VersionsResource {
+            /**
+             * Creates a new version on the target site using the content
+             * of the specified version.
+             */
+            clone(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Required. The target site where the cloned version will reside,
+                 * in the format: `sites/{site}`
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Request body */
+                resource: CloneVersionRequest;
+            }): Request<Operation>;
+            clone(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Required. The target site where the cloned version will reside,
+                 * in the format: `sites/{site}`
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+            },
+            body: CloneVersionRequest): Request<Operation>;
             /** Creates a new version for a site. */
             create(request: {
                 /** V1 error format. */
@@ -1175,6 +1348,8 @@ declare namespace gapi.client {
             releases: ReleasesResource;
             versions: VersionsResource;
         }
+
+        const projects: ProjectsResource;
 
         const sites: SitesResource;
     }

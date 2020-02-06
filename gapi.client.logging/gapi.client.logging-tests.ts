@@ -190,6 +190,41 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.getCmekSettings({
             name: "Test string",
         });
+        /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
+        await gapi.client.logging.organizations.sinks.delete({
+            sinkName: "Test string",
+        });
+        /** Lists sinks. */
+        await gapi.client.logging.organizations.sinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
+         * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+         */
+        await gapi.client.logging.organizations.sinks.create({
+            parent: "Test string",
+            uniqueWriterIdentity: true,
+        }, {
+            bigqueryOptions: {
+                usePartitionedTables: true,
+                usesTimestampColumnPartitioning: true,
+            },
+            createTime: "Test string",
+            description: "Test string",
+            destination: "Test string",
+            disabled: true,
+            endTime: "Test string",
+            filter: "Test string",
+            includeChildren: true,
+            name: "Test string",
+            outputVersionFormat: "Test string",
+            startTime: "Test string",
+            updateTime: "Test string",
+            writerIdentity: "Test string",
+        });
         /** Gets a sink. */
         await gapi.client.logging.organizations.sinks.get({
             sinkName: "Test string",
@@ -205,6 +240,7 @@ gapi.load('client', () => {
         }, {
             bigqueryOptions: {
                 usePartitionedTables: true,
+                usesTimestampColumnPartitioning: true,
             },
             createTime: "Test string",
             description: "Test string",
@@ -230,6 +266,7 @@ gapi.load('client', () => {
         }, {
             bigqueryOptions: {
                 usePartitionedTables: true,
+                usesTimestampColumnPartitioning: true,
             },
             createTime: "Test string",
             description: "Test string",
@@ -243,46 +280,6 @@ gapi.load('client', () => {
             startTime: "Test string",
             updateTime: "Test string",
             writerIdentity: "Test string",
-        });
-        /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
-        await gapi.client.logging.organizations.sinks.delete({
-            sinkName: "Test string",
-        });
-        /** Lists sinks. */
-        await gapi.client.logging.organizations.sinks.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-         * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
-         */
-        await gapi.client.logging.organizations.sinks.create({
-            parent: "Test string",
-            uniqueWriterIdentity: true,
-        }, {
-            bigqueryOptions: {
-                usePartitionedTables: true,
-            },
-            createTime: "Test string",
-            description: "Test string",
-            destination: "Test string",
-            disabled: true,
-            endTime: "Test string",
-            filter: "Test string",
-            includeChildren: true,
-            name: "Test string",
-            outputVersionFormat: "Test string",
-            startTime: "Test string",
-            updateTime: "Test string",
-            writerIdentity: "Test string",
-        });
-        /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
-        await gapi.client.logging.organizations.logs.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /**
          * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
@@ -291,23 +288,11 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.logs.delete({
             logName: "Test string",
         });
-        /**
-         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-         * in a resource.
-         */
-        await gapi.client.logging.organizations.exclusions.create({
+        /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
+        await gapi.client.logging.organizations.logs.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disabled: true,
-            filter: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes an exclusion. */
-        await gapi.client.logging.organizations.exclusions.delete({
-            name: "Test string",
         });
         /** Lists all the exclusions in a parent resource. */
         await gapi.client.logging.organizations.exclusions.list({
@@ -330,6 +315,24 @@ gapi.load('client', () => {
             filter: "Test string",
             name: "Test string",
             updateTime: "Test string",
+        });
+        /**
+         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
+         * in a resource.
+         */
+        await gapi.client.logging.organizations.exclusions.create({
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes an exclusion. */
+        await gapi.client.logging.organizations.exclusions.delete({
+            name: "Test string",
         });
         /**
          * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations.
@@ -345,6 +348,41 @@ gapi.load('client', () => {
             name: "Test string",
             serviceAccountId: "Test string",
         });
+        /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
+        await gapi.client.logging.organizations.sinks.delete({
+            sinkName: "Test string",
+        });
+        /** Lists sinks. */
+        await gapi.client.logging.organizations.sinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
+         * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+         */
+        await gapi.client.logging.organizations.sinks.create({
+            parent: "Test string",
+            uniqueWriterIdentity: true,
+        }, {
+            bigqueryOptions: {
+                usePartitionedTables: true,
+                usesTimestampColumnPartitioning: true,
+            },
+            createTime: "Test string",
+            description: "Test string",
+            destination: "Test string",
+            disabled: true,
+            endTime: "Test string",
+            filter: "Test string",
+            includeChildren: true,
+            name: "Test string",
+            outputVersionFormat: "Test string",
+            startTime: "Test string",
+            updateTime: "Test string",
+            writerIdentity: "Test string",
+        });
         /** Gets a sink. */
         await gapi.client.logging.organizations.sinks.get({
             sinkName: "Test string",
@@ -360,6 +398,7 @@ gapi.load('client', () => {
         }, {
             bigqueryOptions: {
                 usePartitionedTables: true,
+                usesTimestampColumnPartitioning: true,
             },
             createTime: "Test string",
             description: "Test string",
@@ -385,6 +424,7 @@ gapi.load('client', () => {
         }, {
             bigqueryOptions: {
                 usePartitionedTables: true,
+                usesTimestampColumnPartitioning: true,
             },
             createTime: "Test string",
             description: "Test string",
@@ -398,46 +438,6 @@ gapi.load('client', () => {
             startTime: "Test string",
             updateTime: "Test string",
             writerIdentity: "Test string",
-        });
-        /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
-        await gapi.client.logging.organizations.sinks.delete({
-            sinkName: "Test string",
-        });
-        /** Lists sinks. */
-        await gapi.client.logging.organizations.sinks.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-         * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
-         */
-        await gapi.client.logging.organizations.sinks.create({
-            parent: "Test string",
-            uniqueWriterIdentity: true,
-        }, {
-            bigqueryOptions: {
-                usePartitionedTables: true,
-            },
-            createTime: "Test string",
-            description: "Test string",
-            destination: "Test string",
-            disabled: true,
-            endTime: "Test string",
-            filter: "Test string",
-            includeChildren: true,
-            name: "Test string",
-            outputVersionFormat: "Test string",
-            startTime: "Test string",
-            updateTime: "Test string",
-            writerIdentity: "Test string",
-        });
-        /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
-        await gapi.client.logging.organizations.logs.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /**
          * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
@@ -446,23 +446,11 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.logs.delete({
             logName: "Test string",
         });
-        /**
-         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-         * in a resource.
-         */
-        await gapi.client.logging.organizations.exclusions.create({
+        /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
+        await gapi.client.logging.organizations.logs.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disabled: true,
-            filter: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes an exclusion. */
-        await gapi.client.logging.organizations.exclusions.delete({
-            name: "Test string",
         });
         /** Lists all the exclusions in a parent resource. */
         await gapi.client.logging.organizations.exclusions.list({
@@ -487,6 +475,24 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
+         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
+         * in a resource.
+         */
+        await gapi.client.logging.organizations.exclusions.create({
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes an exclusion. */
+        await gapi.client.logging.organizations.exclusions.delete({
+            name: "Test string",
+        });
+        /**
          * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
          * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
          */
@@ -496,6 +502,7 @@ gapi.load('client', () => {
         }, {
             bigqueryOptions: {
                 usePartitionedTables: true,
+                usesTimestampColumnPartitioning: true,
             },
             createTime: "Test string",
             description: "Test string",
@@ -535,6 +542,7 @@ gapi.load('client', () => {
         }, {
             bigqueryOptions: {
                 usePartitionedTables: true,
+                usesTimestampColumnPartitioning: true,
             },
             createTime: "Test string",
             description: "Test string",

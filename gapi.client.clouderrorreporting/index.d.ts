@@ -73,7 +73,7 @@ declare namespace gapi.client {
             groupId?: string;
             /**
              * The group resource name.
-             * Example: <code>projects/my-project-123/groups/my-groupid</code>
+             * Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
              */
             name?: string;
             /** Associated tracking issues. */
@@ -583,7 +583,7 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The group resource name.
-                 * Example: <code>projects/my-project-123/groups/my-groupid</code>
+                 * Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -614,7 +614,7 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The group resource name.
-                 * Example: <code>projects/my-project-123/groups/my-groupid</code>
+                 * Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */

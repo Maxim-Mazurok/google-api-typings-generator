@@ -465,6 +465,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -495,6 +500,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -547,18 +564,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -1023,6 +1028,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -1053,6 +1063,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -1105,18 +1127,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -1582,6 +1592,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -1612,6 +1627,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -1664,18 +1691,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -2142,6 +2157,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -2172,6 +2192,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -2224,18 +2256,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -2709,6 +2729,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -2739,6 +2764,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -2791,18 +2828,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -3263,6 +3288,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -3293,6 +3323,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -3345,18 +3387,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -3816,6 +3846,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -3846,6 +3881,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -3898,18 +3945,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -4375,6 +4410,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -4405,6 +4445,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -4457,18 +4509,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -4939,6 +4979,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -4969,6 +5014,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -5021,18 +5078,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -5523,6 +5568,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -5553,6 +5603,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -5605,18 +5667,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -6085,6 +6135,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -6115,6 +6170,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -6167,18 +6234,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -6643,6 +6698,11 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
+                serviceIdentity: {
+                    description: "Test string",
+                    displayName: "Test string",
+                    serviceAccountParent: "Test string",
+                },
             },
         });
         /**
@@ -6673,6 +6733,18 @@ gapi.load('client', () => {
                 id: "Test string",
             },
             validateOnly: true,
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -6725,18 +6797,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed

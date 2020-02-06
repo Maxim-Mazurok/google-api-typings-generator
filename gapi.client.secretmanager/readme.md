@@ -1,5 +1,5 @@
 # TypeScript typings for Secret Manager API v1beta1
-Stores, manages, and secures access to application secrets.
+Stores and manages access to application secrets. Provides convenience while improving security.
 
 For detailed description please check [documentation](https://cloud.google.com/secret-manager/).
 

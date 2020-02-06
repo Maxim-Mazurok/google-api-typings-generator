@@ -293,6 +293,14 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "content#accountsLinkResponse". */
             kind?: string;
         }
+        interface AccountsListLinksResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsListLinksResponse". */
+            kind?: string;
+            /** The list of available links. */
+            links?: LinkedAccount[];
+            /** The token for the retrieval of the next page of links. */
+            nextPageToken?: string;
+        }
         interface AccountsListResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "content#accountsListResponse". */
             kind?: string;
@@ -911,6 +919,18 @@ declare namespace gapi.client {
         interface LiasettingsSetPosDataProviderResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "content#liasettingsSetPosDataProviderResponse". */
             kind?: string;
+        }
+        interface LinkService {
+            /** Service provided to or by the linked account. */
+            service?: string;
+            /** Status of the link */
+            status?: string;
+        }
+        interface LinkedAccount {
+            /** The ID of the linked account. */
+            linkedAccountId?: string;
+            /** List of provided services. */
+            services?: LinkService[];
         }
         interface LocationIdSet {
             /** A non-empty list of location IDs. They must all be of the same location type (e.g., state). */
@@ -3069,6 +3089,34 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<AccountsListResponse>;
+            /** Returns the list of accounts linked to your Merchant Center account. */
+            listlinks(request: {
+                /** The ID of the account for which to list links. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The maximum number of links to return in the response, used for pagination. */
+                maxResults?: number;
+                /**
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be
+                 * the ID of a sub-account of this account.
+                 */
+                merchantId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The token returned by the previous request. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<AccountsListLinksResponse>;
             /** Updates a Merchant Center account. */
             update(request: {
                 /** The ID of the account. */

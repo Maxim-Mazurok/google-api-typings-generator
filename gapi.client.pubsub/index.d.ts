@@ -102,6 +102,36 @@ declare namespace gapi.client {
              */
             subscription?: string;
         }
+        interface DeadLetterPolicy {
+            /**
+             * The name of the topic to which dead letter messages should be published.
+             * Format is `projects/{project}/topics/{topic}`.The Cloud Pub/Sub service
+             * account associated with the enclosing subscription's parent project (i.e.,
+             * service-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com) must have
+             * permission to Publish() to this topic.
+             *
+             * The operation will fail if the topic does not exist.
+             * Users should ensure that there is a subscription attached to this topic
+             * since messages published to a topic with no subscriptions are lost.
+             */
+            deadLetterTopic?: string;
+            /**
+             * The maximum number of delivery attempts for any message. The value must be
+             * between 5 and 100.
+             *
+             * The number of delivery attempts is defined as 1 + (the sum of number of
+             * NACKs and number of times the acknowledgement deadline has been exceeded
+             * for the message).
+             *
+             * A NACK is any call to ModifyAckDeadline with a 0 deadline. Note that
+             * client libraries may automatically extend ack_deadlines.
+             *
+             * This field will be honored on a best effort basis.
+             *
+             * If this parameter is 0, a default value of 5 is used.
+             */
+            maxDeliveryAttempts?: number;
+        }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
@@ -118,25 +148,22 @@ declare namespace gapi.client {
         }
         interface Expr {
             /**
-             * An optional description of the expression. This is a longer text which
+             * Optional. Description of the expression. This is a longer text which
              * describes the expression, e.g. when hovered over it in a UI.
              */
             description?: string;
             /**
-             * Textual representation of an expression in
-             * Common Expression Language syntax.
-             *
-             * The application context of the containing message determines which
-             * well-known feature set of CEL is supported.
+             * Textual representation of an expression in Common Expression Language
+             * syntax.
              */
             expression?: string;
             /**
-             * An optional string indicating the location of the expression for error
+             * Optional. String indicating the location of the expression for error
              * reporting, e.g. a file name and a position in the file.
              */
             location?: string;
             /**
-             * An optional title for the expression, i.e. a short string describing
+             * Optional. Title for the expression, i.e. a short string describing
              * its purpose. This can be used e.g. in UIs which allow to enter the
              * expression.
              */
@@ -392,6 +419,25 @@ declare namespace gapi.client {
         interface ReceivedMessage {
             /** This ID can be used to acknowledge the received message. */
             ackId?: string;
+            /**
+             * Delivery attempt counter is 1 + (the sum of number of NACKs and number of
+             * ack_deadline exceeds) for this message.
+             *
+             * A NACK is any call to ModifyAckDeadline with a 0 deadline. An ack_deadline
+             * exceeds event is whenever a message is not acknowledged within
+             * ack_deadline. Note that ack_deadline is initially
+             * Subscription.ackDeadlineSeconds, but may get extended automatically by
+             * the client library.
+             *
+             * The first delivery of a given message will have this value as 1. The value
+             * is calculated at best effort and is approximate.
+             *
+             * If a DeadLetterPolicy is not set on the subscription, this will be 0.
+             * <b>EXPERIMENTAL:</b> This feature is part of a closed alpha release. This
+             * API might be changed in backward-incompatible ways and is not recommended
+             * for production use. It is not subject to any SLA or deprecation policy.
+             */
+            deliveryAttempt?: number;
             /** The message. */
             message?: PubsubMessage;
         }
@@ -477,6 +523,20 @@ declare namespace gapi.client {
              * system will eventually redeliver the message.
              */
             ackDeadlineSeconds?: number;
+            /**
+             * A policy that specifies the conditions for dead lettering messages in
+             * this subscription. If dead_letter_policy is not set, dead lettering
+             * is disabled.
+             *
+             * The Cloud Pub/Sub service account associated with this subscriptions's
+             * parent project (i.e.,
+             * service-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com) must have
+             * permission to Acknowledge() messages on this subscription.
+             * <b>EXPERIMENTAL:</b> This feature is part of a closed alpha release. This
+             * API might be changed in backward-incompatible ways and is not recommended
+             * for production use. It is not subject to any SLA or deprecation policy.
+             */
+            deadLetterPolicy?: DeadLetterPolicy;
             /**
              * A policy that specifies the conditions for this subscription's expiration.
              * A subscription is considered active as long as any connected subscriber is

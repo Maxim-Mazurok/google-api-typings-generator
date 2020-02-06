@@ -1072,12 +1072,7 @@ declare namespace gapi.client {
              * `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
              */
             delete?: string;
-            /**
-             * Applies a transformation to a document.
-             * At most one `transform` per document is allowed in a given request.
-             * An `update` cannot follow a `transform` on the same document in a given
-             * request.
-             */
+            /** Applies a transformation to a document. */
             transform?: DocumentTransform;
             /** A document to write. */
             update?: Document;

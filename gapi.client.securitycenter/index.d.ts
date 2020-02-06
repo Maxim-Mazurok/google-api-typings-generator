@@ -144,25 +144,22 @@ declare namespace gapi.client {
         }
         interface Expr {
             /**
-             * An optional description of the expression. This is a longer text which
+             * Optional. Description of the expression. This is a longer text which
              * describes the expression, e.g. when hovered over it in a UI.
              */
             description?: string;
             /**
-             * Textual representation of an expression in
-             * Common Expression Language syntax.
-             *
-             * The application context of the containing message determines which
-             * well-known feature set of CEL is supported.
+             * Textual representation of an expression in Common Expression Language
+             * syntax.
              */
             expression?: string;
             /**
-             * An optional string indicating the location of the expression for error
+             * Optional. String indicating the location of the expression for error
              * reporting, e.g. a file name and a position in the file.
              */
             location?: string;
             /**
-             * An optional title for the expression, i.e. a short string describing
+             * Optional. Title for the expression, i.e. a short string describing
              * its purpose. This can be used e.g. in UIs which allow to enter the
              * expression.
              */
@@ -260,6 +257,192 @@ declare namespace gapi.client {
             duration?: string;
             /** The state of an asset discovery run. */
             state?: string;
+        }
+        interface GoogleCloudSecuritycenterV1p1beta1Asset {
+            /** The time at which the asset was created in Cloud SCC. */
+            createTime?: string;
+            /**
+             * IAM Policy information associated with the GCP resource described by the
+             * Cloud SCC asset. This information is managed and defined by the GCP
+             * resource and cannot be modified by the user.
+             */
+            iamPolicy?: GoogleCloudSecuritycenterV1p1beta1IamPolicy;
+            /**
+             * The relative resource name of this asset. See:
+             * https://cloud.google.com/apis/design/resource_names#relative_resource_name
+             * Example:
+             * "organizations/{organization_id}/assets/{asset_id}".
+             */
+            name?: string;
+            /**
+             * Resource managed properties. These properties are managed and defined by
+             * the GCP resource and cannot be modified by the user.
+             */
+            resourceProperties?: Record<string, any>;
+            /**
+             * Cloud SCC managed properties. These properties are managed by
+             * Cloud SCC and cannot be modified by the user.
+             */
+            securityCenterProperties?: GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties;
+            /**
+             * User specified security marks. These marks are entirely managed by the user
+             * and come from the SecurityMarks resource that belongs to the asset.
+             */
+            securityMarks?: GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
+            /**
+             * The time at which the asset was last updated, added, or deleted in Cloud
+             * SCC.
+             */
+            updateTime?: string;
+        }
+        interface GoogleCloudSecuritycenterV1p1beta1Finding {
+            /**
+             * The additional taxonomy group within findings from a given source.
+             * This field is immutable after creation time.
+             * Example: "XSS_FLASH_INJECTION"
+             */
+            category?: string;
+            /** The time at which the finding was created in Cloud SCC. */
+            createTime?: string;
+            /**
+             * The time at which the event took place. For example, if the finding
+             * represents an open firewall it would capture the time the detector believes
+             * the firewall became open. The accuracy is determined by the detector.
+             */
+            eventTime?: string;
+            /**
+             * The URI that, if available, points to a web page outside of Cloud SCC
+             * where additional information about the finding can be found. This field is
+             * guaranteed to be either empty or a well formed URL.
+             */
+            externalUri?: string;
+            /**
+             * The relative resource name of this finding. See:
+             * https://cloud.google.com/apis/design/resource_names#relative_resource_name
+             * Example:
+             * "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+             */
+            name?: string;
+            /**
+             * The relative resource name of the source the finding belongs to. See:
+             * https://cloud.google.com/apis/design/resource_names#relative_resource_name
+             * This field is immutable after creation time.
+             * For example:
+             * "organizations/{organization_id}/sources/{source_id}"
+             */
+            parent?: string;
+            /**
+             * For findings on Google Cloud Platform (GCP) resources, the full resource
+             * name of the GCP resource this finding is for. See:
+             * https://cloud.google.com/apis/design/resource_names#full_resource_name
+             * When the finding is for a non-GCP resource, the resourceName can be a
+             * customer or partner defined string.
+             * This field is immutable after creation time.
+             */
+            resourceName?: string;
+            /**
+             * Output only. User specified security marks. These marks are entirely
+             * managed by the user and come from the SecurityMarks resource that belongs
+             * to the finding.
+             */
+            securityMarks?: GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
+            /**
+             * Source specific properties. These properties are managed by the source
+             * that writes the finding. The key names in the source_properties map must be
+             * between 1 and 255 characters, and must start with a letter and contain
+             * alphanumeric characters or underscores only.
+             */
+            sourceProperties?: Record<string, any>;
+            /** The state of the finding. */
+            state?: string;
+        }
+        interface GoogleCloudSecuritycenterV1p1beta1IamPolicy {
+            /**
+             * The JSON representation of the Policy associated with the asset.
+             * See https://cloud.google.com/iam/reference/rest/v1p1beta1/Policy for
+             * format details.
+             */
+            policyBlob?: string;
+        }
+        interface GoogleCloudSecuritycenterV1p1beta1NotificationMessage {
+            /**
+             * If it's a Finding based notification config, this field will be
+             * populated.
+             */
+            finding?: GoogleCloudSecuritycenterV1p1beta1Finding;
+            /** Name of the notification config that generated current notification. */
+            notificationConfigName?: string;
+            /**
+             * If it's an asset based notification config, this field will be
+             * populated.
+             */
+            temporalAsset?: GoogleCloudSecuritycenterV1p1beta1TemporalAsset;
+        }
+        interface GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse {
+            /** The duration between asset discovery run start and end */
+            duration?: string;
+            /** The state of an asset discovery run. */
+            state?: string;
+        }
+        interface GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties {
+            /** The user defined display name for this resource. */
+            resourceDisplayName?: string;
+            /**
+             * The full resource name of the GCP resource this asset
+             * represents. This field is immutable after create time. See:
+             * https://cloud.google.com/apis/design/resource_names#full_resource_name
+             */
+            resourceName?: string;
+            /** Owners of the Google Cloud resource. */
+            resourceOwners?: string[];
+            /**
+             * The full resource name of the immediate parent of the resource. See:
+             * https://cloud.google.com/apis/design/resource_names#full_resource_name
+             */
+            resourceParent?: string;
+            /** The user defined display name for the parent of this resource. */
+            resourceParentDisplayName?: string;
+            /**
+             * The full resource name of the project the resource belongs to. See:
+             * https://cloud.google.com/apis/design/resource_names#full_resource_name
+             */
+            resourceProject?: string;
+            /** The user defined display name for the project of this resource. */
+            resourceProjectDisplayName?: string;
+            /**
+             * The type of the GCP resource. Examples include: APPLICATION,
+             * PROJECT, and ORGANIZATION. This is a case insensitive field defined by
+             * Cloud SCC and/or the producer of the resource and is immutable
+             * after create time.
+             */
+            resourceType?: string;
+        }
+        interface GoogleCloudSecuritycenterV1p1beta1SecurityMarks {
+            /**
+             * Mutable user specified security marks belonging to the parent resource.
+             * Constraints are as follows:
+             *
+             * &#42; Keys and values are treated as case insensitive
+             * &#42; Keys must be between 1 - 256 characters (inclusive)
+             * &#42; Keys must be letters, numbers, underscores, or dashes
+             * &#42; Values have leading and trailing whitespace trimmed, remaining
+             * characters must be between 1 - 4096 characters (inclusive)
+             */
+            marks?: Record<string, string>;
+            /**
+             * The relative resource name of the SecurityMarks. See:
+             * https://cloud.google.com/apis/design/resource_names#relative_resource_name
+             * Examples:
+             * "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+             * "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
+             */
+            name?: string;
+        }
+        interface GoogleCloudSecuritycenterV1p1beta1TemporalAsset {
+            /** Asset data that includes attributes, properties and marks about the asset. */
+            asset?: GoogleCloudSecuritycenterV1p1beta1Asset;
+            /** Represents if the asset was created/updated/deleted. */
+            changeType?: string;
         }
         interface GroupAssetsRequest {
             /**

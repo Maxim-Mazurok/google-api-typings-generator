@@ -286,6 +286,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {
@@ -331,6 +332,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {
@@ -615,6 +617,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {
@@ -660,6 +663,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {
@@ -941,6 +945,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {
@@ -986,6 +991,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {
@@ -1269,6 +1275,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {
@@ -1314,6 +1321,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {
@@ -1595,6 +1603,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {
@@ -1640,6 +1649,7 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includeRestOfWorld: true,
                     },
+                    inAppUpdatePriority: 42,
                     name: "Test string",
                     releaseNotes: [
                         {

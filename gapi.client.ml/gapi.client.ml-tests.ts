@@ -87,6 +87,351 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Deletes a model.
+         *
+         * You can only delete a model if there are no versions in it. You can delete
+         * versions by calling
+         * projects.models.versions.delete.
+         */
+        await gapi.client.ml.projects.models.delete({
+            name: "Test string",
+        });
+        /**
+         * Deletes a model version.
+         *
+         * Each model can have multiple versions deployed and in use at any given
+         * time. Use this method to remove a single version.
+         *
+         * Note: You cannot delete the version that is set as the default version
+         * of the model unless it is the only remaining version.
+         */
+        await gapi.client.ml.projects.models.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets basic information about all the versions of a model.
+         *
+         * If you expect that a model has many versions, or if you need to handle
+         * only a limited number of results at a time, you can request that the list
+         * be retrieved in batches (called pages).
+         *
+         * If there are no versions that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.models.versions.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a new version of a model from a trained TensorFlow model.
+         *
+         * If the version created in the cloud by this call is the first deployed
+         * version of the specified model, it will be made the default version of the
+         * model. When you add a version to a model that already has one or more
+         * versions, the default version does not automatically change. If you want a
+         * new version to be the default, you must call
+         * projects.models.versions.setDefault.
+         */
+        await gapi.client.ml.projects.models.versions.create({
+            parent: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Updates the specified Version resource.
+         *
+         * Currently the only update-able fields are `description`,
+         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
+         */
+        await gapi.client.ml.projects.models.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Gets information about a model version.
+         *
+         * Models can have multiple versions. You can call
+         * projects.models.versions.list
+         * to get the same information that this method returns for all of the
+         * versions of a model.
+         */
+        await gapi.client.ml.projects.models.versions.get({
+            name: "Test string",
+        });
+        /**
+         * Designates a version to be the default for the model.
+         *
+         * The default version is used for prediction requests made against the model
+         * that don't specify a version.
+         *
+         * The first version to be created for a model is automatically set as the
+         * default. You must make any subsequent changes to the default version
+         * setting manually using this method.
+         */
+        await gapi.client.ml.projects.models.versions.setDefault({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Lists the models in a project.
+         *
+         * Each project can contain multiple models, and each model can have multiple
+         * versions.
+         *
+         * If there are no models that match the request parameters, the list request
+         * returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.models.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Deletes a model version.
+         *
+         * Each model can have multiple versions deployed and in use at any given
+         * time. Use this method to remove a single version.
+         *
+         * Note: You cannot delete the version that is set as the default version
+         * of the model unless it is the only remaining version.
+         */
+        await gapi.client.ml.projects.models.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets basic information about all the versions of a model.
+         *
+         * If you expect that a model has many versions, or if you need to handle
+         * only a limited number of results at a time, you can request that the list
+         * be retrieved in batches (called pages).
+         *
+         * If there are no versions that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.models.versions.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a new version of a model from a trained TensorFlow model.
+         *
+         * If the version created in the cloud by this call is the first deployed
+         * version of the specified model, it will be made the default version of the
+         * model. When you add a version to a model that already has one or more
+         * versions, the default version does not automatically change. If you want a
+         * new version to be the default, you must call
+         * projects.models.versions.setDefault.
+         */
+        await gapi.client.ml.projects.models.versions.create({
+            parent: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Updates the specified Version resource.
+         *
+         * Currently the only update-able fields are `description`,
+         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
+         */
+        await gapi.client.ml.projects.models.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Gets information about a model version.
+         *
+         * Models can have multiple versions. You can call
+         * projects.models.versions.list
+         * to get the same information that this method returns for all of the
+         * versions of a model.
+         */
+        await gapi.client.ml.projects.models.versions.get({
+            name: "Test string",
+        });
+        /**
+         * Designates a version to be the default for the model.
+         *
+         * The default version is used for prediction requests made against the model
+         * that don't specify a version.
+         *
+         * The first version to be created for a model is automatically set as the
+         * default. You must make any subsequent changes to the default version
+         * setting manually using this method.
+         */
+        await gapi.client.ml.projects.models.versions.setDefault({
+            name: "Test string",
+        }, {
+        });
+        /**
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
@@ -676,67 +1021,12 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Updates a specific model resource.
-         *
-         * Currently the only supported fields to update are `description` and
-         * `default_version.name`.
+         * Gets information about a model, including its name, the description (if
+         * set), and the default version (if at least one version of the model has
+         * been deployed).
          */
-        await gapi.client.ml.projects.models.patch({
+        await gapi.client.ml.projects.models.get({
             name: "Test string",
-            updateMask: "Test string",
-        }, {
-            defaultVersion: {
-                acceleratorConfig: {
-                    count: "Test string",
-                    type: "Test string",
-                },
-                autoScaling: {
-                    minNodes: 42,
-                },
-                createTime: "Test string",
-                deploymentUri: "Test string",
-                description: "Test string",
-                errorMessage: "Test string",
-                etag: "Test string",
-                explanationConfig: {
-                    integratedGradientsAttribution: {
-                        numIntegralSteps: 42,
-                    },
-                    sampledShapleyAttribution: {
-                        numPaths: 42,
-                    },
-                },
-                framework: "Test string",
-                isDefault: true,
-                labels: {
-                    A: "Test string"                },
-                lastUseTime: "Test string",
-                machineType: "Test string",
-                manualScaling: {
-                    nodes: 42,
-                },
-                name: "Test string",
-                packageUris: [
-                    "Test string"                ],
-                predictionClass: "Test string",
-                pythonVersion: "Test string",
-                requestLoggingConfig: {
-                    bigqueryTableName: "Test string",
-                    samplingPercentage: 42,
-                },
-                runtimeVersion: "Test string",
-                serviceAccount: "Test string",
-                state: "Test string",
-            },
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            onlinePredictionConsoleLogging: true,
-            onlinePredictionLogging: true,
-            regions: [
-                "Test string"            ],
         });
         /**
          * Deletes a model version.
@@ -899,12 +1189,67 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Gets information about a model, including its name, the description (if
-         * set), and the default version (if at least one version of the model has
-         * been deployed).
+         * Updates a specific model resource.
+         *
+         * Currently the only supported fields to update are `description` and
+         * `default_version.name`.
          */
-        await gapi.client.ml.projects.models.get({
+        await gapi.client.ml.projects.models.patch({
             name: "Test string",
+            updateMask: "Test string",
+        }, {
+            defaultVersion: {
+                acceleratorConfig: {
+                    count: "Test string",
+                    type: "Test string",
+                },
+                autoScaling: {
+                    minNodes: 42,
+                },
+                createTime: "Test string",
+                deploymentUri: "Test string",
+                description: "Test string",
+                errorMessage: "Test string",
+                etag: "Test string",
+                explanationConfig: {
+                    integratedGradientsAttribution: {
+                        numIntegralSteps: 42,
+                    },
+                    sampledShapleyAttribution: {
+                        numPaths: 42,
+                    },
+                },
+                framework: "Test string",
+                isDefault: true,
+                labels: {
+                    A: "Test string"                },
+                lastUseTime: "Test string",
+                machineType: "Test string",
+                manualScaling: {
+                    nodes: 42,
+                },
+                name: "Test string",
+                packageUris: [
+                    "Test string"                ],
+                predictionClass: "Test string",
+                pythonVersion: "Test string",
+                requestLoggingConfig: {
+                    bigqueryTableName: "Test string",
+                    samplingPercentage: 42,
+                },
+                runtimeVersion: "Test string",
+                serviceAccount: "Test string",
+                state: "Test string",
+            },
+            description: "Test string",
+            etag: "Test string",
+            labels: {
+                A: "Test string"            },
+            name: "Test string",
+            onlinePredictionConsoleLogging: true,
+            onlinePredictionLogging: true,
+            regions: [
+                "Test string"            ],
         });
         /**
          * Deletes a model version.
@@ -1242,351 +1587,6 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Deletes a model.
-         *
-         * You can only delete a model if there are no versions in it. You can delete
-         * versions by calling
-         * projects.models.versions.delete.
-         */
-        await gapi.client.ml.projects.models.delete({
-            name: "Test string",
-        });
-        /**
-         * Deletes a model version.
-         *
-         * Each model can have multiple versions deployed and in use at any given
-         * time. Use this method to remove a single version.
-         *
-         * Note: You cannot delete the version that is set as the default version
-         * of the model unless it is the only remaining version.
-         */
-        await gapi.client.ml.projects.models.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Gets basic information about all the versions of a model.
-         *
-         * If you expect that a model has many versions, or if you need to handle
-         * only a limited number of results at a time, you can request that the list
-         * be retrieved in batches (called pages).
-         *
-         * If there are no versions that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.models.versions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a new version of a model from a trained TensorFlow model.
-         *
-         * If the version created in the cloud by this call is the first deployed
-         * version of the specified model, it will be made the default version of the
-         * model. When you add a version to a model that already has one or more
-         * versions, the default version does not automatically change. If you want a
-         * new version to be the default, you must call
-         * projects.models.versions.setDefault.
-         */
-        await gapi.client.ml.projects.models.versions.create({
-            parent: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Updates the specified Version resource.
-         *
-         * Currently the only update-able fields are `description`,
-         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
-         */
-        await gapi.client.ml.projects.models.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Gets information about a model version.
-         *
-         * Models can have multiple versions. You can call
-         * projects.models.versions.list
-         * to get the same information that this method returns for all of the
-         * versions of a model.
-         */
-        await gapi.client.ml.projects.models.versions.get({
-            name: "Test string",
-        });
-        /**
-         * Designates a version to be the default for the model.
-         *
-         * The default version is used for prediction requests made against the model
-         * that don't specify a version.
-         *
-         * The first version to be created for a model is automatically set as the
-         * default. You must make any subsequent changes to the default version
-         * setting manually using this method.
-         */
-        await gapi.client.ml.projects.models.versions.setDefault({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Lists the models in a project.
-         *
-         * Each project can contain multiple models, and each model can have multiple
-         * versions.
-         *
-         * If there are no models that match the request parameters, the list request
-         * returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.models.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Deletes a model version.
-         *
-         * Each model can have multiple versions deployed and in use at any given
-         * time. Use this method to remove a single version.
-         *
-         * Note: You cannot delete the version that is set as the default version
-         * of the model unless it is the only remaining version.
-         */
-        await gapi.client.ml.projects.models.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Gets basic information about all the versions of a model.
-         *
-         * If you expect that a model has many versions, or if you need to handle
-         * only a limited number of results at a time, you can request that the list
-         * be retrieved in batches (called pages).
-         *
-         * If there are no versions that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.models.versions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a new version of a model from a trained TensorFlow model.
-         *
-         * If the version created in the cloud by this call is the first deployed
-         * version of the specified model, it will be made the default version of the
-         * model. When you add a version to a model that already has one or more
-         * versions, the default version does not automatically change. If you want a
-         * new version to be the default, you must call
-         * projects.models.versions.setDefault.
-         */
-        await gapi.client.ml.projects.models.versions.create({
-            parent: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Updates the specified Version resource.
-         *
-         * Currently the only update-able fields are `description`,
-         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
-         */
-        await gapi.client.ml.projects.models.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Gets information about a model version.
-         *
-         * Models can have multiple versions. You can call
-         * projects.models.versions.list
-         * to get the same information that this method returns for all of the
-         * versions of a model.
-         */
-        await gapi.client.ml.projects.models.versions.get({
-            name: "Test string",
-        });
-        /**
-         * Designates a version to be the default for the model.
-         *
-         * The default version is used for prediction requests made against the model
-         * that don't specify a version.
-         *
-         * The first version to be created for a model is automatically set as the
-         * default. You must make any subsequent changes to the default version
-         * setting manually using this method.
-         */
-        await gapi.client.ml.projects.models.versions.setDefault({
-            name: "Test string",
-        }, {
-        });
-        /**
          * Get the complete list of CMLE capabilities in a location, along with their
          * location-specific properties.
          */
@@ -1595,6 +1595,33 @@ gapi.load('client', () => {
         });
         /** List all locations that provides at least one type of CMLE capability. */
         await gapi.client.ml.projects.locations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.ml.projects.jobs.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Lists the jobs in the project.
+         *
+         * If there are no jobs that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.jobs.list({
+            filter: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -1932,33 +1959,6 @@ gapi.load('client', () => {
         /** Describes a job. */
         await gapi.client.ml.projects.jobs.get({
             name: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.ml.projects.jobs.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the jobs in the project.
-         *
-         * If there are no jobs that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.jobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /**
          * Get the service account information associated with your project. You need
@@ -2011,6 +2011,351 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Deletes a model.
+         *
+         * You can only delete a model if there are no versions in it. You can delete
+         * versions by calling
+         * projects.models.versions.delete.
+         */
+        await gapi.client.ml.projects.models.delete({
+            name: "Test string",
+        });
+        /**
+         * Deletes a model version.
+         *
+         * Each model can have multiple versions deployed and in use at any given
+         * time. Use this method to remove a single version.
+         *
+         * Note: You cannot delete the version that is set as the default version
+         * of the model unless it is the only remaining version.
+         */
+        await gapi.client.ml.projects.models.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets basic information about all the versions of a model.
+         *
+         * If you expect that a model has many versions, or if you need to handle
+         * only a limited number of results at a time, you can request that the list
+         * be retrieved in batches (called pages).
+         *
+         * If there are no versions that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.models.versions.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a new version of a model from a trained TensorFlow model.
+         *
+         * If the version created in the cloud by this call is the first deployed
+         * version of the specified model, it will be made the default version of the
+         * model. When you add a version to a model that already has one or more
+         * versions, the default version does not automatically change. If you want a
+         * new version to be the default, you must call
+         * projects.models.versions.setDefault.
+         */
+        await gapi.client.ml.projects.models.versions.create({
+            parent: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Updates the specified Version resource.
+         *
+         * Currently the only update-able fields are `description`,
+         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
+         */
+        await gapi.client.ml.projects.models.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Gets information about a model version.
+         *
+         * Models can have multiple versions. You can call
+         * projects.models.versions.list
+         * to get the same information that this method returns for all of the
+         * versions of a model.
+         */
+        await gapi.client.ml.projects.models.versions.get({
+            name: "Test string",
+        });
+        /**
+         * Designates a version to be the default for the model.
+         *
+         * The default version is used for prediction requests made against the model
+         * that don't specify a version.
+         *
+         * The first version to be created for a model is automatically set as the
+         * default. You must make any subsequent changes to the default version
+         * setting manually using this method.
+         */
+        await gapi.client.ml.projects.models.versions.setDefault({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Lists the models in a project.
+         *
+         * Each project can contain multiple models, and each model can have multiple
+         * versions.
+         *
+         * If there are no models that match the request parameters, the list request
+         * returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.models.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Deletes a model version.
+         *
+         * Each model can have multiple versions deployed and in use at any given
+         * time. Use this method to remove a single version.
+         *
+         * Note: You cannot delete the version that is set as the default version
+         * of the model unless it is the only remaining version.
+         */
+        await gapi.client.ml.projects.models.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets basic information about all the versions of a model.
+         *
+         * If you expect that a model has many versions, or if you need to handle
+         * only a limited number of results at a time, you can request that the list
+         * be retrieved in batches (called pages).
+         *
+         * If there are no versions that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.models.versions.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a new version of a model from a trained TensorFlow model.
+         *
+         * If the version created in the cloud by this call is the first deployed
+         * version of the specified model, it will be made the default version of the
+         * model. When you add a version to a model that already has one or more
+         * versions, the default version does not automatically change. If you want a
+         * new version to be the default, you must call
+         * projects.models.versions.setDefault.
+         */
+        await gapi.client.ml.projects.models.versions.create({
+            parent: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Updates the specified Version resource.
+         *
+         * Currently the only update-able fields are `description`,
+         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
+         */
+        await gapi.client.ml.projects.models.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Gets information about a model version.
+         *
+         * Models can have multiple versions. You can call
+         * projects.models.versions.list
+         * to get the same information that this method returns for all of the
+         * versions of a model.
+         */
+        await gapi.client.ml.projects.models.versions.get({
+            name: "Test string",
+        });
+        /**
+         * Designates a version to be the default for the model.
+         *
+         * The default version is used for prediction requests made against the model
+         * that don't specify a version.
+         *
+         * The first version to be created for a model is automatically set as the
+         * default. You must make any subsequent changes to the default version
+         * setting manually using this method.
+         */
+        await gapi.client.ml.projects.models.versions.setDefault({
+            name: "Test string",
+        }, {
+        });
+        /**
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
@@ -2600,67 +2945,12 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Updates a specific model resource.
-         *
-         * Currently the only supported fields to update are `description` and
-         * `default_version.name`.
+         * Gets information about a model, including its name, the description (if
+         * set), and the default version (if at least one version of the model has
+         * been deployed).
          */
-        await gapi.client.ml.projects.models.patch({
+        await gapi.client.ml.projects.models.get({
             name: "Test string",
-            updateMask: "Test string",
-        }, {
-            defaultVersion: {
-                acceleratorConfig: {
-                    count: "Test string",
-                    type: "Test string",
-                },
-                autoScaling: {
-                    minNodes: 42,
-                },
-                createTime: "Test string",
-                deploymentUri: "Test string",
-                description: "Test string",
-                errorMessage: "Test string",
-                etag: "Test string",
-                explanationConfig: {
-                    integratedGradientsAttribution: {
-                        numIntegralSteps: 42,
-                    },
-                    sampledShapleyAttribution: {
-                        numPaths: 42,
-                    },
-                },
-                framework: "Test string",
-                isDefault: true,
-                labels: {
-                    A: "Test string"                },
-                lastUseTime: "Test string",
-                machineType: "Test string",
-                manualScaling: {
-                    nodes: 42,
-                },
-                name: "Test string",
-                packageUris: [
-                    "Test string"                ],
-                predictionClass: "Test string",
-                pythonVersion: "Test string",
-                requestLoggingConfig: {
-                    bigqueryTableName: "Test string",
-                    samplingPercentage: 42,
-                },
-                runtimeVersion: "Test string",
-                serviceAccount: "Test string",
-                state: "Test string",
-            },
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            onlinePredictionConsoleLogging: true,
-            onlinePredictionLogging: true,
-            regions: [
-                "Test string"            ],
         });
         /**
          * Deletes a model version.
@@ -2823,12 +3113,67 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Gets information about a model, including its name, the description (if
-         * set), and the default version (if at least one version of the model has
-         * been deployed).
+         * Updates a specific model resource.
+         *
+         * Currently the only supported fields to update are `description` and
+         * `default_version.name`.
          */
-        await gapi.client.ml.projects.models.get({
+        await gapi.client.ml.projects.models.patch({
             name: "Test string",
+            updateMask: "Test string",
+        }, {
+            defaultVersion: {
+                acceleratorConfig: {
+                    count: "Test string",
+                    type: "Test string",
+                },
+                autoScaling: {
+                    minNodes: 42,
+                },
+                createTime: "Test string",
+                deploymentUri: "Test string",
+                description: "Test string",
+                errorMessage: "Test string",
+                etag: "Test string",
+                explanationConfig: {
+                    integratedGradientsAttribution: {
+                        numIntegralSteps: 42,
+                    },
+                    sampledShapleyAttribution: {
+                        numPaths: 42,
+                    },
+                },
+                framework: "Test string",
+                isDefault: true,
+                labels: {
+                    A: "Test string"                },
+                lastUseTime: "Test string",
+                machineType: "Test string",
+                manualScaling: {
+                    nodes: 42,
+                },
+                name: "Test string",
+                packageUris: [
+                    "Test string"                ],
+                predictionClass: "Test string",
+                pythonVersion: "Test string",
+                requestLoggingConfig: {
+                    bigqueryTableName: "Test string",
+                    samplingPercentage: 42,
+                },
+                runtimeVersion: "Test string",
+                serviceAccount: "Test string",
+                state: "Test string",
+            },
+            description: "Test string",
+            etag: "Test string",
+            labels: {
+                A: "Test string"            },
+            name: "Test string",
+            onlinePredictionConsoleLogging: true,
+            onlinePredictionLogging: true,
+            regions: [
+                "Test string"            ],
         });
         /**
          * Deletes a model version.
@@ -3166,351 +3511,6 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Deletes a model.
-         *
-         * You can only delete a model if there are no versions in it. You can delete
-         * versions by calling
-         * projects.models.versions.delete.
-         */
-        await gapi.client.ml.projects.models.delete({
-            name: "Test string",
-        });
-        /**
-         * Deletes a model version.
-         *
-         * Each model can have multiple versions deployed and in use at any given
-         * time. Use this method to remove a single version.
-         *
-         * Note: You cannot delete the version that is set as the default version
-         * of the model unless it is the only remaining version.
-         */
-        await gapi.client.ml.projects.models.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Gets basic information about all the versions of a model.
-         *
-         * If you expect that a model has many versions, or if you need to handle
-         * only a limited number of results at a time, you can request that the list
-         * be retrieved in batches (called pages).
-         *
-         * If there are no versions that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.models.versions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a new version of a model from a trained TensorFlow model.
-         *
-         * If the version created in the cloud by this call is the first deployed
-         * version of the specified model, it will be made the default version of the
-         * model. When you add a version to a model that already has one or more
-         * versions, the default version does not automatically change. If you want a
-         * new version to be the default, you must call
-         * projects.models.versions.setDefault.
-         */
-        await gapi.client.ml.projects.models.versions.create({
-            parent: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Updates the specified Version resource.
-         *
-         * Currently the only update-able fields are `description`,
-         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
-         */
-        await gapi.client.ml.projects.models.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Gets information about a model version.
-         *
-         * Models can have multiple versions. You can call
-         * projects.models.versions.list
-         * to get the same information that this method returns for all of the
-         * versions of a model.
-         */
-        await gapi.client.ml.projects.models.versions.get({
-            name: "Test string",
-        });
-        /**
-         * Designates a version to be the default for the model.
-         *
-         * The default version is used for prediction requests made against the model
-         * that don't specify a version.
-         *
-         * The first version to be created for a model is automatically set as the
-         * default. You must make any subsequent changes to the default version
-         * setting manually using this method.
-         */
-        await gapi.client.ml.projects.models.versions.setDefault({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Lists the models in a project.
-         *
-         * Each project can contain multiple models, and each model can have multiple
-         * versions.
-         *
-         * If there are no models that match the request parameters, the list request
-         * returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.models.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Deletes a model version.
-         *
-         * Each model can have multiple versions deployed and in use at any given
-         * time. Use this method to remove a single version.
-         *
-         * Note: You cannot delete the version that is set as the default version
-         * of the model unless it is the only remaining version.
-         */
-        await gapi.client.ml.projects.models.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Gets basic information about all the versions of a model.
-         *
-         * If you expect that a model has many versions, or if you need to handle
-         * only a limited number of results at a time, you can request that the list
-         * be retrieved in batches (called pages).
-         *
-         * If there are no versions that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.models.versions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a new version of a model from a trained TensorFlow model.
-         *
-         * If the version created in the cloud by this call is the first deployed
-         * version of the specified model, it will be made the default version of the
-         * model. When you add a version to a model that already has one or more
-         * versions, the default version does not automatically change. If you want a
-         * new version to be the default, you must call
-         * projects.models.versions.setDefault.
-         */
-        await gapi.client.ml.projects.models.versions.create({
-            parent: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Updates the specified Version resource.
-         *
-         * Currently the only update-able fields are `description`,
-         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
-         */
-        await gapi.client.ml.projects.models.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Gets information about a model version.
-         *
-         * Models can have multiple versions. You can call
-         * projects.models.versions.list
-         * to get the same information that this method returns for all of the
-         * versions of a model.
-         */
-        await gapi.client.ml.projects.models.versions.get({
-            name: "Test string",
-        });
-        /**
-         * Designates a version to be the default for the model.
-         *
-         * The default version is used for prediction requests made against the model
-         * that don't specify a version.
-         *
-         * The first version to be created for a model is automatically set as the
-         * default. You must make any subsequent changes to the default version
-         * setting manually using this method.
-         */
-        await gapi.client.ml.projects.models.versions.setDefault({
-            name: "Test string",
-        }, {
-        });
-        /**
          * Get the complete list of CMLE capabilities in a location, along with their
          * location-specific properties.
          */
@@ -3519,6 +3519,33 @@ gapi.load('client', () => {
         });
         /** List all locations that provides at least one type of CMLE capability. */
         await gapi.client.ml.projects.locations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.ml.projects.jobs.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Lists the jobs in the project.
+         *
+         * If there are no jobs that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.jobs.list({
+            filter: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -3856,33 +3883,6 @@ gapi.load('client', () => {
         /** Describes a job. */
         await gapi.client.ml.projects.jobs.get({
             name: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.ml.projects.jobs.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the jobs in the project.
-         *
-         * If there are no jobs that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.jobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /**
          * Performs online prediction on the data in the request.
@@ -3942,6 +3942,351 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Deletes a model.
+         *
+         * You can only delete a model if there are no versions in it. You can delete
+         * versions by calling
+         * projects.models.versions.delete.
+         */
+        await gapi.client.ml.projects.models.delete({
+            name: "Test string",
+        });
+        /**
+         * Deletes a model version.
+         *
+         * Each model can have multiple versions deployed and in use at any given
+         * time. Use this method to remove a single version.
+         *
+         * Note: You cannot delete the version that is set as the default version
+         * of the model unless it is the only remaining version.
+         */
+        await gapi.client.ml.projects.models.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets basic information about all the versions of a model.
+         *
+         * If you expect that a model has many versions, or if you need to handle
+         * only a limited number of results at a time, you can request that the list
+         * be retrieved in batches (called pages).
+         *
+         * If there are no versions that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.models.versions.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a new version of a model from a trained TensorFlow model.
+         *
+         * If the version created in the cloud by this call is the first deployed
+         * version of the specified model, it will be made the default version of the
+         * model. When you add a version to a model that already has one or more
+         * versions, the default version does not automatically change. If you want a
+         * new version to be the default, you must call
+         * projects.models.versions.setDefault.
+         */
+        await gapi.client.ml.projects.models.versions.create({
+            parent: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Updates the specified Version resource.
+         *
+         * Currently the only update-able fields are `description`,
+         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
+         */
+        await gapi.client.ml.projects.models.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Gets information about a model version.
+         *
+         * Models can have multiple versions. You can call
+         * projects.models.versions.list
+         * to get the same information that this method returns for all of the
+         * versions of a model.
+         */
+        await gapi.client.ml.projects.models.versions.get({
+            name: "Test string",
+        });
+        /**
+         * Designates a version to be the default for the model.
+         *
+         * The default version is used for prediction requests made against the model
+         * that don't specify a version.
+         *
+         * The first version to be created for a model is automatically set as the
+         * default. You must make any subsequent changes to the default version
+         * setting manually using this method.
+         */
+        await gapi.client.ml.projects.models.versions.setDefault({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Lists the models in a project.
+         *
+         * Each project can contain multiple models, and each model can have multiple
+         * versions.
+         *
+         * If there are no models that match the request parameters, the list request
+         * returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.models.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Deletes a model version.
+         *
+         * Each model can have multiple versions deployed and in use at any given
+         * time. Use this method to remove a single version.
+         *
+         * Note: You cannot delete the version that is set as the default version
+         * of the model unless it is the only remaining version.
+         */
+        await gapi.client.ml.projects.models.versions.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets basic information about all the versions of a model.
+         *
+         * If you expect that a model has many versions, or if you need to handle
+         * only a limited number of results at a time, you can request that the list
+         * be retrieved in batches (called pages).
+         *
+         * If there are no versions that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.models.versions.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a new version of a model from a trained TensorFlow model.
+         *
+         * If the version created in the cloud by this call is the first deployed
+         * version of the specified model, it will be made the default version of the
+         * model. When you add a version to a model that already has one or more
+         * versions, the default version does not automatically change. If you want a
+         * new version to be the default, you must call
+         * projects.models.versions.setDefault.
+         */
+        await gapi.client.ml.projects.models.versions.create({
+            parent: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Updates the specified Version resource.
+         *
+         * Currently the only update-able fields are `description`,
+         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
+         */
+        await gapi.client.ml.projects.models.versions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            acceleratorConfig: {
+                count: "Test string",
+                type: "Test string",
+            },
+            autoScaling: {
+                minNodes: 42,
+            },
+            createTime: "Test string",
+            deploymentUri: "Test string",
+            description: "Test string",
+            errorMessage: "Test string",
+            etag: "Test string",
+            explanationConfig: {
+                integratedGradientsAttribution: {
+                    numIntegralSteps: 42,
+                },
+                sampledShapleyAttribution: {
+                    numPaths: 42,
+                },
+            },
+            framework: "Test string",
+            isDefault: true,
+            labels: {
+                A: "Test string"            },
+            lastUseTime: "Test string",
+            machineType: "Test string",
+            manualScaling: {
+                nodes: 42,
+            },
+            name: "Test string",
+            packageUris: [
+                "Test string"            ],
+            predictionClass: "Test string",
+            pythonVersion: "Test string",
+            requestLoggingConfig: {
+                bigqueryTableName: "Test string",
+                samplingPercentage: 42,
+            },
+            runtimeVersion: "Test string",
+            serviceAccount: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Gets information about a model version.
+         *
+         * Models can have multiple versions. You can call
+         * projects.models.versions.list
+         * to get the same information that this method returns for all of the
+         * versions of a model.
+         */
+        await gapi.client.ml.projects.models.versions.get({
+            name: "Test string",
+        });
+        /**
+         * Designates a version to be the default for the model.
+         *
+         * The default version is used for prediction requests made against the model
+         * that don't specify a version.
+         *
+         * The first version to be created for a model is automatically set as the
+         * default. You must make any subsequent changes to the default version
+         * setting manually using this method.
+         */
+        await gapi.client.ml.projects.models.versions.setDefault({
+            name: "Test string",
+        }, {
+        });
+        /**
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
@@ -4531,67 +4876,12 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Updates a specific model resource.
-         *
-         * Currently the only supported fields to update are `description` and
-         * `default_version.name`.
+         * Gets information about a model, including its name, the description (if
+         * set), and the default version (if at least one version of the model has
+         * been deployed).
          */
-        await gapi.client.ml.projects.models.patch({
+        await gapi.client.ml.projects.models.get({
             name: "Test string",
-            updateMask: "Test string",
-        }, {
-            defaultVersion: {
-                acceleratorConfig: {
-                    count: "Test string",
-                    type: "Test string",
-                },
-                autoScaling: {
-                    minNodes: 42,
-                },
-                createTime: "Test string",
-                deploymentUri: "Test string",
-                description: "Test string",
-                errorMessage: "Test string",
-                etag: "Test string",
-                explanationConfig: {
-                    integratedGradientsAttribution: {
-                        numIntegralSteps: 42,
-                    },
-                    sampledShapleyAttribution: {
-                        numPaths: 42,
-                    },
-                },
-                framework: "Test string",
-                isDefault: true,
-                labels: {
-                    A: "Test string"                },
-                lastUseTime: "Test string",
-                machineType: "Test string",
-                manualScaling: {
-                    nodes: 42,
-                },
-                name: "Test string",
-                packageUris: [
-                    "Test string"                ],
-                predictionClass: "Test string",
-                pythonVersion: "Test string",
-                requestLoggingConfig: {
-                    bigqueryTableName: "Test string",
-                    samplingPercentage: 42,
-                },
-                runtimeVersion: "Test string",
-                serviceAccount: "Test string",
-                state: "Test string",
-            },
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"            },
-            name: "Test string",
-            onlinePredictionConsoleLogging: true,
-            onlinePredictionLogging: true,
-            regions: [
-                "Test string"            ],
         });
         /**
          * Deletes a model version.
@@ -4754,12 +5044,67 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Gets information about a model, including its name, the description (if
-         * set), and the default version (if at least one version of the model has
-         * been deployed).
+         * Updates a specific model resource.
+         *
+         * Currently the only supported fields to update are `description` and
+         * `default_version.name`.
          */
-        await gapi.client.ml.projects.models.get({
+        await gapi.client.ml.projects.models.patch({
             name: "Test string",
+            updateMask: "Test string",
+        }, {
+            defaultVersion: {
+                acceleratorConfig: {
+                    count: "Test string",
+                    type: "Test string",
+                },
+                autoScaling: {
+                    minNodes: 42,
+                },
+                createTime: "Test string",
+                deploymentUri: "Test string",
+                description: "Test string",
+                errorMessage: "Test string",
+                etag: "Test string",
+                explanationConfig: {
+                    integratedGradientsAttribution: {
+                        numIntegralSteps: 42,
+                    },
+                    sampledShapleyAttribution: {
+                        numPaths: 42,
+                    },
+                },
+                framework: "Test string",
+                isDefault: true,
+                labels: {
+                    A: "Test string"                },
+                lastUseTime: "Test string",
+                machineType: "Test string",
+                manualScaling: {
+                    nodes: 42,
+                },
+                name: "Test string",
+                packageUris: [
+                    "Test string"                ],
+                predictionClass: "Test string",
+                pythonVersion: "Test string",
+                requestLoggingConfig: {
+                    bigqueryTableName: "Test string",
+                    samplingPercentage: 42,
+                },
+                runtimeVersion: "Test string",
+                serviceAccount: "Test string",
+                state: "Test string",
+            },
+            description: "Test string",
+            etag: "Test string",
+            labels: {
+                A: "Test string"            },
+            name: "Test string",
+            onlinePredictionConsoleLogging: true,
+            onlinePredictionLogging: true,
+            regions: [
+                "Test string"            ],
         });
         /**
          * Deletes a model version.
@@ -5097,351 +5442,6 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Deletes a model.
-         *
-         * You can only delete a model if there are no versions in it. You can delete
-         * versions by calling
-         * projects.models.versions.delete.
-         */
-        await gapi.client.ml.projects.models.delete({
-            name: "Test string",
-        });
-        /**
-         * Deletes a model version.
-         *
-         * Each model can have multiple versions deployed and in use at any given
-         * time. Use this method to remove a single version.
-         *
-         * Note: You cannot delete the version that is set as the default version
-         * of the model unless it is the only remaining version.
-         */
-        await gapi.client.ml.projects.models.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Gets basic information about all the versions of a model.
-         *
-         * If you expect that a model has many versions, or if you need to handle
-         * only a limited number of results at a time, you can request that the list
-         * be retrieved in batches (called pages).
-         *
-         * If there are no versions that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.models.versions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a new version of a model from a trained TensorFlow model.
-         *
-         * If the version created in the cloud by this call is the first deployed
-         * version of the specified model, it will be made the default version of the
-         * model. When you add a version to a model that already has one or more
-         * versions, the default version does not automatically change. If you want a
-         * new version to be the default, you must call
-         * projects.models.versions.setDefault.
-         */
-        await gapi.client.ml.projects.models.versions.create({
-            parent: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Updates the specified Version resource.
-         *
-         * Currently the only update-able fields are `description`,
-         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
-         */
-        await gapi.client.ml.projects.models.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Gets information about a model version.
-         *
-         * Models can have multiple versions. You can call
-         * projects.models.versions.list
-         * to get the same information that this method returns for all of the
-         * versions of a model.
-         */
-        await gapi.client.ml.projects.models.versions.get({
-            name: "Test string",
-        });
-        /**
-         * Designates a version to be the default for the model.
-         *
-         * The default version is used for prediction requests made against the model
-         * that don't specify a version.
-         *
-         * The first version to be created for a model is automatically set as the
-         * default. You must make any subsequent changes to the default version
-         * setting manually using this method.
-         */
-        await gapi.client.ml.projects.models.versions.setDefault({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Lists the models in a project.
-         *
-         * Each project can contain multiple models, and each model can have multiple
-         * versions.
-         *
-         * If there are no models that match the request parameters, the list request
-         * returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.models.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Deletes a model version.
-         *
-         * Each model can have multiple versions deployed and in use at any given
-         * time. Use this method to remove a single version.
-         *
-         * Note: You cannot delete the version that is set as the default version
-         * of the model unless it is the only remaining version.
-         */
-        await gapi.client.ml.projects.models.versions.delete({
-            name: "Test string",
-        });
-        /**
-         * Gets basic information about all the versions of a model.
-         *
-         * If you expect that a model has many versions, or if you need to handle
-         * only a limited number of results at a time, you can request that the list
-         * be retrieved in batches (called pages).
-         *
-         * If there are no versions that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.models.versions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a new version of a model from a trained TensorFlow model.
-         *
-         * If the version created in the cloud by this call is the first deployed
-         * version of the specified model, it will be made the default version of the
-         * model. When you add a version to a model that already has one or more
-         * versions, the default version does not automatically change. If you want a
-         * new version to be the default, you must call
-         * projects.models.versions.setDefault.
-         */
-        await gapi.client.ml.projects.models.versions.create({
-            parent: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Updates the specified Version resource.
-         *
-         * Currently the only update-able fields are `description`,
-         * `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
-         */
-        await gapi.client.ml.projects.models.versions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            acceleratorConfig: {
-                count: "Test string",
-                type: "Test string",
-            },
-            autoScaling: {
-                minNodes: 42,
-            },
-            createTime: "Test string",
-            deploymentUri: "Test string",
-            description: "Test string",
-            errorMessage: "Test string",
-            etag: "Test string",
-            explanationConfig: {
-                integratedGradientsAttribution: {
-                    numIntegralSteps: 42,
-                },
-                sampledShapleyAttribution: {
-                    numPaths: 42,
-                },
-            },
-            framework: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"            },
-            lastUseTime: "Test string",
-            machineType: "Test string",
-            manualScaling: {
-                nodes: 42,
-            },
-            name: "Test string",
-            packageUris: [
-                "Test string"            ],
-            predictionClass: "Test string",
-            pythonVersion: "Test string",
-            requestLoggingConfig: {
-                bigqueryTableName: "Test string",
-                samplingPercentage: 42,
-            },
-            runtimeVersion: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Gets information about a model version.
-         *
-         * Models can have multiple versions. You can call
-         * projects.models.versions.list
-         * to get the same information that this method returns for all of the
-         * versions of a model.
-         */
-        await gapi.client.ml.projects.models.versions.get({
-            name: "Test string",
-        });
-        /**
-         * Designates a version to be the default for the model.
-         *
-         * The default version is used for prediction requests made against the model
-         * that don't specify a version.
-         *
-         * The first version to be created for a model is automatically set as the
-         * default. You must make any subsequent changes to the default version
-         * setting manually using this method.
-         */
-        await gapi.client.ml.projects.models.versions.setDefault({
-            name: "Test string",
-        }, {
-        });
-        /**
          * Get the complete list of CMLE capabilities in a location, along with their
          * location-specific properties.
          */
@@ -5450,6 +5450,33 @@ gapi.load('client', () => {
         });
         /** List all locations that provides at least one type of CMLE capability. */
         await gapi.client.ml.projects.locations.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.ml.projects.jobs.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
+        /**
+         * Lists the jobs in the project.
+         *
+         * If there are no jobs that match the request parameters, the list
+         * request returns an empty response body: {}.
+         */
+        await gapi.client.ml.projects.jobs.list({
+            filter: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -5787,33 +5814,6 @@ gapi.load('client', () => {
         /** Describes a job. */
         await gapi.client.ml.projects.jobs.get({
             name: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.ml.projects.jobs.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists the jobs in the project.
-         *
-         * If there are no jobs that match the request parameters, the list
-         * request returns an empty response body: {}.
-         */
-        await gapi.client.ml.projects.jobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
     }
 });

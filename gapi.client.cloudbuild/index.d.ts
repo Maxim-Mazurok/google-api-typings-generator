@@ -360,7 +360,7 @@ declare namespace gapi.client {
             id?: string;
             /**
              * ignored_files and included_files are file glob matches using
-             * http://godoc/pkg/path/filepath#Match extended with support for "&#42;&#42;".
+             * https://golang.org/pkg/path/filepath/#Match extended with support for "&#42;&#42;".
              *
              * If ignored_files and changed files are both empty, then they are
              * not used to determine whether or not to trigger a build.

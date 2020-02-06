@@ -46,6 +46,10 @@ gapi.load('client', () => {
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
+        /** Returns information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.get({
+            name: "Test string",
+        });
         /** Updates information about a repo. */
         await gapi.client.sourcerepo.projects.repos.patch({
             name: "Test string",
@@ -67,10 +71,6 @@ gapi.load('client', () => {
                 url: "Test string",
             },
             updateMask: "Test string",
-        });
-        /** Returns information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.get({
-            name: "Test string",
         });
         /**
          * Returns permissions that a caller has on the specified resource.
@@ -189,6 +189,10 @@ gapi.load('client', () => {
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
+        /** Returns information about a repo. */
+        await gapi.client.sourcerepo.projects.repos.get({
+            name: "Test string",
+        });
         /** Updates information about a repo. */
         await gapi.client.sourcerepo.projects.repos.patch({
             name: "Test string",
@@ -210,10 +214,6 @@ gapi.load('client', () => {
                 url: "Test string",
             },
             updateMask: "Test string",
-        });
-        /** Returns information about a repo. */
-        await gapi.client.sourcerepo.projects.repos.get({
-            name: "Test string",
         });
         /**
          * Returns permissions that a caller has on the specified resource.

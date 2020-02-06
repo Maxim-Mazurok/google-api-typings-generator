@@ -16,8 +16,14 @@ gapi.load('client', () => {
         await gapi.client.chat.spaces.get({
             name: "Test string",
         });
-        /** Deletes a message. */
-        await gapi.client.chat.spaces.messages.delete({
+        /** Lists human memberships in a space. */
+        await gapi.client.chat.spaces.members.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns a membership. */
+        await gapi.client.chat.spaces.members.get({
             name: "Test string",
         });
         /** Returns a message. */
@@ -406,14 +412,8 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
-        /** Lists human memberships in a space. */
-        await gapi.client.chat.spaces.members.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns a membership. */
-        await gapi.client.chat.spaces.members.get({
+        /** Deletes a message. */
+        await gapi.client.chat.spaces.messages.delete({
             name: "Test string",
         });
         /** Lists spaces the caller is a member of. */
@@ -421,8 +421,14 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Deletes a message. */
-        await gapi.client.chat.spaces.messages.delete({
+        /** Lists human memberships in a space. */
+        await gapi.client.chat.spaces.members.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns a membership. */
+        await gapi.client.chat.spaces.members.get({
             name: "Test string",
         });
         /** Returns a message. */
@@ -811,14 +817,8 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
-        /** Lists human memberships in a space. */
-        await gapi.client.chat.spaces.members.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns a membership. */
-        await gapi.client.chat.spaces.members.get({
+        /** Deletes a message. */
+        await gapi.client.chat.spaces.messages.delete({
             name: "Test string",
         });
     }

@@ -50,6 +50,8 @@ declare namespace gapi.client {
             /** Location of the backup */
             location?: string;
             /** Reserved for future use. */
+            pointInTimeRecoveryEnabled?: boolean;
+            /** Reserved for future use. */
             replicationLogArchivingEnabled?: boolean;
             /**
              * Start time for the daily backup configuration in UTC timezone in the 24
@@ -149,6 +151,8 @@ declare namespace gapi.client {
             kind?: string;
             /** Reserved for future use. */
             pitrTimestampMs?: string;
+            /** Reserved for future use. */
+            pointInTime?: string;
         }
         interface Database {
             /** The MySQL charset value. */

@@ -177,6 +177,13 @@ gapi.load('client', () => {
             merchantId: "Test string",
             pageToken: "Test string",
         });
+        /** Returns the list of accounts linked to your Merchant Center account. */
+        await gapi.client.content.accounts.listlinks({
+            accountId: "Test string",
+            maxResults: 42,
+            merchantId: "Test string",
+            pageToken: "Test string",
+        });
         /** Updates a Merchant Center account. */
         await gapi.client.content.accounts.update({
             accountId: "Test string",

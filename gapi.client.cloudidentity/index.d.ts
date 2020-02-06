@@ -33,6 +33,197 @@ declare namespace gapi.client {
              */
             namespace?: string;
         }
+        interface GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes {
+            /** Baseband version of Android device. */
+            basebandVersion?: string;
+            /** Device bootloader version. Example: 0.6.7. */
+            bootloaderVersion?: string;
+            /** Build number of Android device. */
+            buildNumber?: string;
+            /** Whether developer options is enabled on device. */
+            enabledDeveloperOptions?: boolean;
+            /** Whether applications from unknown sources can be installed on device. */
+            enabledUnknownSources?: boolean;
+            /** Whether adb (USB debugging) is enabled on device. */
+            enabledUsbDebugging?: boolean;
+            /** Device encryption state. */
+            encryptionState?: string;
+            /** Device hardware. Example: Sprout. */
+            hardware?: string;
+            /** Kernel version of Android device. */
+            kernelVersion?: string;
+            /**
+             * Domain name for Google accounts on device. Type for other accounts on
+             * device. Will only be populated if |ownership_privilege| is
+             * |PROFILE_OWNER| or |DEVICE_OWNER|. Does not include the account signed in
+             * to the device policy app if that account's domain has only one account.
+             * Examples: "com.example", "xyz.com".
+             */
+            otherAccounts?: string[];
+            /**
+             * Whether this account is on an owner/primary profile.
+             * For phones, only true for owner profiles. Android 4+ devices
+             * can have secondary or restricted user profiles.
+             */
+            ownerProfileAccount?: boolean;
+            /** Ownership privileges on device. */
+            ownershipPrivilege?: string;
+            /** OS security patch update time on device. */
+            securityPatchTime?: string;
+            /**
+             * Whether device supports Android work profiles. If false, this service
+             * will not block access to corp data even if an administrator turns on the
+             * "Enforce Work Profile" policy.
+             */
+            supportsWorkProfile?: boolean;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1ApproveDeviceUserResponse {
+            /** Resultant DeviceUser object for the action. */
+            deviceUser?: GoogleAppsCloudidentityDevicesV1alpha1DeviceUser;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1BlockDeviceUserResponse {
+            /** Resultant DeviceUser object for the action. */
+            deviceUser?: GoogleAppsCloudidentityDevicesV1alpha1DeviceUser;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1CancelWipeDeviceResponse {
+            /**
+             * Resultant Device object for the action. Note that asset tags will not be
+             * returned in the device object.
+             */
+            device?: GoogleAppsCloudidentityDevicesV1alpha1Device;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1CancelWipeDeviceUserResponse {
+            /** Resultant DeviceUser object for the action. */
+            deviceUser?: GoogleAppsCloudidentityDevicesV1alpha1DeviceUser;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1Device {
+            /** Output only. Attributes specific to Android devices. */
+            androidSpecificAttributes?: GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes;
+            /** Asset tag of the device. */
+            assetTag?: string;
+            /** Output only. Device brand. Example: Samsung. */
+            brand?: string;
+            /** Output only. Represents whether the Device is compromised. */
+            compromisedState?: string;
+            /**
+             * Output only. When the Company-Owned device was imported. This field is empty for BYOD
+             * devices.
+             */
+            createTime?: string;
+            /** Output only. Type of device. */
+            deviceType?: string;
+            /** Output only. IMEI number of device if GSM device; empty otherwise. */
+            imei?: string;
+            /** Most recent time when device synced with this service. */
+            lastSyncTime?: string;
+            /** Output only. Management state of the device */
+            managementState?: string;
+            /** Output only. Device manufacturer. Example: Motorola. */
+            manufacturer?: string;
+            /** Output only. MEID number of device if CDMA device; empty otherwise. */
+            meid?: string;
+            /** Output only. Model name of device. Example: Pixel 3. */
+            model?: string;
+            /**
+             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names)
+             * of the Device in format: `devices/{device_id}`, where device_id is
+             * the unique id assigned to the Device.
+             */
+            name?: string;
+            /** Output only. Mobile or network operator of device, if available. */
+            networkOperator?: string;
+            /** Output only. OS version of the device. Example: Android 8.1.0. */
+            osVersion?: string;
+            /** Whether the device is owned by the company or an individual */
+            ownerType?: string;
+            /** Output only. OS release version. Example: 6.0. */
+            releaseVersion?: string;
+            /** Serial Number of device. Example: HT82V1A01076. */
+            serialNumber?: string;
+            /** WiFi MAC addresses of device. */
+            wifiMacAddresses?: string[];
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1DeviceUser {
+            /** Compromised State of the DeviceUser object */
+            compromisedState?: string;
+            /** Output only. Most recent time when user registered with this service. */
+            firstSyncTime?: string;
+            /** Output only. Default locale used on device, in IETF BCP-47 format. */
+            languageCode?: string;
+            /** Output only. Last time when user synced with policies. */
+            lastSyncTime?: string;
+            /** Output only. Management state of the user on the device. */
+            managementState?: string;
+            /**
+             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of
+             * the DeviceUser in format: `devices/{device_id}/deviceUsers/{user_id}`,
+             * where user_id is the ID of the user associated with the user session.
+             */
+            name?: string;
+            /** Password state of the DeviceUser object */
+            passwordState?: string;
+            /** Output only. User agent on the device for this specific user */
+            userAgent?: string;
+            /** Email address of the user registered on the device. */
+            userEmail?: string;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1EndpointApp {
+            /** Output only. Name of the app displayed to the user */
+            displayName?: string;
+            /**
+             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of
+             * the EndpointApp in format:
+             * `devices/{device}/deviceUsers/{device_user}/endpointApps/{endpoint_app}`,
+             * where client_app_id is the ID of the app associated with the Device.
+             */
+            name?: string;
+            /** Output only. Full package name of the installed app */
+            packageName?: string;
+            /** Output only. Names of all permissions granted to the installed app */
+            permissions?: string[];
+            /** Output only. Version code of the installed app */
+            versionCode?: number;
+            /** Output only. Version name of the installed app */
+            versionName?: string;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1ListDeviceUsersResponse {
+            /** Devices meeting the list restrictions. */
+            deviceUsers?: GoogleAppsCloudidentityDevicesV1alpha1DeviceUser[];
+            /**
+             * Token to retrieve the next page of results. Empty if there are no more
+             * results.
+             */
+            nextPageToken?: string;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1ListDevicesResponse {
+            /** Devices meeting the list restrictions. */
+            devices?: GoogleAppsCloudidentityDevicesV1alpha1Device[];
+            /**
+             * Token to retrieve the next page of results. Empty if there are no more
+             * results.
+             */
+            nextPageToken?: string;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1ListEndpointAppsResponse {
+            /** The list of matching EndpointApps found as a result of the request. */
+            endpointApps?: GoogleAppsCloudidentityDevicesV1alpha1EndpointApp[];
+            /**
+             * Token to retrieve the next page of results. Empty if there are no more
+             * results.
+             */
+            nextPageToken?: string;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1WipeDeviceResponse {
+            /**
+             * Resultant Device object for the action. Note that asset tags will not be
+             * returned in the device object.
+             */
+            device?: GoogleAppsCloudidentityDevicesV1alpha1Device;
+        }
+        interface GoogleAppsCloudidentityDevicesV1alpha1WipeDeviceUserResponse {
+            /** Resultant DeviceUser object for the action. */
+            deviceUser?: GoogleAppsCloudidentityDevicesV1alpha1DeviceUser;
+        }
         interface Group {
             /**
              * Output only. The time when the Group was created.
@@ -233,7 +424,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the
                  * Group to create Membership within. Format: `groups/{group_id}`, where
                  * `group_id` is the unique ID assigned to the Group.
                  */
@@ -265,7 +456,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the
                  * Group to create Membership within. Format: `groups/{group_id}`, where
                  * `group_id` is the unique ID assigned to the Group.
                  */
@@ -295,7 +486,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the
                  * Membership to be deleted.
                  *
                  * Format: `groups/{group_id}/memberships/{member_id}`, where `group_id` is
@@ -329,7 +520,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the
                  * Membership to be retrieved.
                  *
                  * Format: `groups/{group_id}/memberships/{member_id}`, where `group_id` is
@@ -372,7 +563,7 @@ declare namespace gapi.client {
                 /** The next_page_token value returned from a previous list request, if any. */
                 pageToken?: string;
                 /**
-                 * [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the
                  * Group to list Memberships within.
                  *
                  * Format: `groups/{group_id}`, where `group_id` is the unique ID assigned to
@@ -425,7 +616,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the
                  * Group to lookup Membership within.
                  *
                  * Format: `groups/{group_id}`, where `group_id` is the unique ID assigned to
@@ -510,7 +701,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the
                  * Group in the format: `groups/{group_id}`, where `group_id` is the unique ID
                  * assigned to the Group.
                  */
@@ -541,7 +732,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the
                  * Group in the format: `groups/{group_id}`, where `group_id` is the unique ID
                  * assigned to the Group.
                  */
@@ -580,10 +771,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** The next_page_token value returned from a previous list request, if any. */
                 pageToken?: string;
-                /**
-                 * `Required`. May be made Optional in the future.
-                 * Customer ID to list all groups from.
-                 */
+                /** Required. Customer ID to list all groups from. */
                 parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -667,7 +855,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Editable fields: `display_name`, `description` */
+                /** Required. Editable fields: `display_name`, `description` */
                 updateMask?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
@@ -703,7 +891,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Editable fields: `display_name`, `description` */
+                /** Required. Editable fields: `display_name`, `description` */
                 updateMask?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
@@ -737,7 +925,7 @@ declare namespace gapi.client {
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * `Required`. Query string for performing search on groups. Users can search
+                 * Required. `Required`. Query string for performing search on groups. Users can search
                  * on parent and label attributes of groups.
                  * EXACT match ('==') is supported on parent, and CONTAINS match ('in') is
                  * supported on labels.

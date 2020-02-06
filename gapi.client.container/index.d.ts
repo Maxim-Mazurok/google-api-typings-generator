@@ -84,6 +84,8 @@ declare namespace gapi.client {
             description?: string;
         }
         interface AutoprovisioningNodePoolDefaults {
+            /** Specifies the node management options for NAP created node-pools. */
+            management?: NodeManagement;
             /**
              * Scopes that are used by NAP when creating node pools. If oauth_scopes are
              * specified, service_account should be empty.
@@ -94,6 +96,8 @@ declare namespace gapi.client {
              * service_account is specified, scopes should be empty.
              */
             serviceAccount?: string;
+            /** Specifies the upgrade settings for NAP created node pools */
+            upgradeSettings?: UpgradeSettings;
         }
         interface BigQueryDestination {
             /** The ID of a BigQuery Dataset. */
@@ -369,6 +373,8 @@ declare namespace gapi.client {
              * typically put in the last `/16` from the container CIDR.
              */
             servicesIpv4Cidr?: string;
+            /** Shielded Nodes configuration. */
+            shieldedNodes?: ShieldedNodes;
             /** [Output only] The current status of this cluster. */
             status?: string;
             /**
@@ -508,6 +514,8 @@ declare namespace gapi.client {
             desiredNodeVersion?: string;
             /** The desired configuration for exporting resource usage. */
             desiredResourceUsageExportConfig?: ResourceUsageExportConfig;
+            /** Configuration for Shielded Nodes. */
+            desiredShieldedNodes?: ShieldedNodes;
             /** Cluster-level Vertical Pod Autoscaling configuration. */
             desiredVerticalPodAutoscaling?: VerticalPodAutoscaling;
         }
@@ -1102,9 +1110,12 @@ declare namespace gapi.client {
              * to this node pool.
              */
             reservationAffinity?: ReservationAffinity;
+            /** Sandbox configuration for this node. */
+            sandboxConfig?: SandboxConfig;
             /**
-             * The Google Cloud Platform Service Account to be used by the node VMs. If
-             * no Service Account is specified, the "default" service account is used.
+             * The Google Cloud Platform Service Account to be used by the node VMs.
+             * Specify the email address of the Service Account; otherwise, if no Service
+             * Account is specified, the "default" service account is used.
              */
             serviceAccount?: string;
             /** Shielded Instance options. */
@@ -1164,6 +1175,11 @@ declare namespace gapi.client {
              * associated with this node pool.
              */
             instanceGroupUrls?: string[];
+            /**
+             * The list of Google Compute Engine [zones](/compute/docs/zones#available)
+             * in which the NodePool's nodes should be located.
+             */
+            locations?: string[];
             /** NodeManagement configuration for this NodePool. */
             management?: NodeManagement;
             /**
@@ -1184,6 +1200,8 @@ declare namespace gapi.client {
              * node pool instance, if available.
              */
             statusMessage?: string;
+            /** Upgrade settings control disruption and speed of the upgrade. */
+            upgradeSettings?: UpgradeSettings;
             /** The version of the Kubernetes of this node. */
             version?: string;
         }
@@ -1271,6 +1289,8 @@ declare namespace gapi.client {
              * any other ranges in use within the cluster's network.
              */
             masterIpv4CidrBlock?: string;
+            /** Output only. The peering name in the customer VPC used by this cluster. */
+            peeringName?: string;
             /** Output only. The internal IP address of this cluster's master endpoint. */
             privateEndpoint?: string;
             /** Output only. The external IP address of this cluster's master endpoint. */
@@ -1367,6 +1387,10 @@ declare namespace gapi.client {
              * This field has been deprecated and replaced by the name field.
              */
             zone?: string;
+        }
+        interface SandboxConfig {
+            /** Type of the sandbox to use for the node. */
+            type?: string;
         }
         interface ServerConfig {
             /** Version of Kubernetes the service deploys by default. */
@@ -1776,6 +1800,10 @@ declare namespace gapi.client {
              */
             enableSecureBoot?: boolean;
         }
+        interface ShieldedNodes {
+            /** Whether Shielded Nodes features are enabled on all nodes in this cluster. */
+            enabled?: boolean;
+        }
         interface StartIPRotationRequest {
             /**
              * Required. Deprecated. The name of the cluster.
@@ -1892,6 +1920,14 @@ declare namespace gapi.client {
             /** Required. The desired image type for the node pool. */
             imageType?: string;
             /**
+             * The desired list of Google Compute Engine
+             * [zones](/compute/docs/zones#available) in which the node pool's nodes
+             * should be located. Changing the locations for a node pool will result
+             * in nodes being either created or removed from the node pool, depending
+             * on whether locations are being added or removed.
+             */
+            locations?: string[];
+            /**
              * The name (project, location, cluster, node pool) of the node pool to
              * update. Specified in the format
              * 'projects/&#42;/locations/&#42;/clusters/&#42;/nodePools/&#42;'.
@@ -1922,6 +1958,8 @@ declare namespace gapi.client {
              * This field has been deprecated and replaced by the name field.
              */
             projectId?: string;
+            /** Upgrade settings control disruption and speed of the upgrade. */
+            upgradeSettings?: UpgradeSettings;
             /**
              * Required. Deprecated. The name of the Google Compute Engine
              * [zone](/compute/docs/zones#available) in which the cluster
@@ -1929,6 +1967,19 @@ declare namespace gapi.client {
              * This field has been deprecated and replaced by the name field.
              */
             zone?: string;
+        }
+        interface UpgradeSettings {
+            /**
+             * The maximum number of nodes that can be created beyond the current size
+             * of the node pool during the upgrade process.
+             */
+            maxSurge?: number;
+            /**
+             * The maximum number of nodes that can be simultaneously unavailable during
+             * the upgrade process. A node is considered available if its status is
+             * Ready.
+             */
+            maxUnavailable?: number;
         }
         interface UsableSubnetwork {
             /** The range of internal addresses that are owned by this subnetwork. */
@@ -3058,7 +3109,12 @@ declare namespace gapi.client {
                 upload_protocol?: string;
             },
             body: SetLegacyAbacRequest): Request<Operation>;
-            /** Sets the locations for a specific cluster. */
+            /**
+             * Sets the locations for a specific cluster.
+             * Deprecated. Use
+             * [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.update)
+             * instead.
+             */
             setLocations(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -5137,7 +5193,12 @@ declare namespace gapi.client {
                  */
                 zone: string;
             }): Request<ListClustersResponse>;
-            /** Sets the locations for a specific cluster. */
+            /**
+             * Sets the locations for a specific cluster.
+             * Deprecated. Use
+             * [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.update)
+             * instead.
+             */
             locations(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

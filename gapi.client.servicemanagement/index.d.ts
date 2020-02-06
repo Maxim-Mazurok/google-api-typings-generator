@@ -205,8 +205,8 @@ declare namespace gapi.client {
             /** The address of the API backend. */
             address?: string;
             /**
-             * The number of seconds to wait for a response from a request.  The default
-             * deadline for gRPC is infinite (no deadline) and HTTP requests is 5 seconds.
+             * The number of seconds to wait for a response from a request. The default
+             * varies based on the request protocol and deployment environment.
              */
             deadline?: number;
             /**
@@ -615,25 +615,22 @@ declare namespace gapi.client {
         }
         interface Expr {
             /**
-             * An optional description of the expression. This is a longer text which
+             * Optional. Description of the expression. This is a longer text which
              * describes the expression, e.g. when hovered over it in a UI.
              */
             description?: string;
             /**
-             * Textual representation of an expression in
-             * Common Expression Language syntax.
-             *
-             * The application context of the containing message determines which
-             * well-known feature set of CEL is supported.
+             * Textual representation of an expression in Common Expression Language
+             * syntax.
              */
             expression?: string;
             /**
-             * An optional string indicating the location of the expression for error
+             * Optional. String indicating the location of the expression for error
              * reporting, e.g. a file name and a position in the file.
              */
             location?: string;
             /**
-             * An optional title for the expression, i.e. a short string describing
+             * Optional. Title for the expression, i.e. a short string describing
              * its purpose. This can be used e.g. in UIs which allow to enter the
              * expression.
              */
@@ -1579,6 +1576,25 @@ declare namespace gapi.client {
             /** Configuration controlling usage of this service. */
             usage?: Usage;
         }
+        interface ServiceIdentity {
+            /**
+             * Optional. A user-specified opaque description of the service account.
+             * Must be less than or equal to 256 UTF-8 bytes.
+             */
+            description?: string;
+            /**
+             * Optional. A user-specified name for the service account.
+             * Must be less than or equal to 100 UTF-8 bytes.
+             */
+            displayName?: string;
+            /**
+             * A service account project that hosts the service accounts.
+             *
+             * An example name would be:
+             * `projects/123456789`
+             */
+            serviceAccountParent?: string;
+        }
         interface SetIamPolicyRequest {
             /**
              * REQUIRED: The complete policy to be applied to the `resource`. The size of
@@ -1773,6 +1789,8 @@ declare namespace gapi.client {
              * &#42;&#42;NOTE:&#42;&#42; All service configuration rules follow "last one wins" order.
              */
             rules?: UsageRule[];
+            /** The configuration of a per-product per-project service identity. */
+            serviceIdentity?: ServiceIdentity;
         }
         interface UsageRule {
             /**

@@ -129,7 +129,7 @@ await gapi.client.people.deleteContactPhoto({ resourceName: "resourceName",  });
 /* 
 Provides information about a person by specifying a resource name. Use
 `people/me` to indicate the authenticated user.
-<br>
+
 The request throws a 400 error if 'personFields' is not specified.  
 */
 await gapi.client.people.get({ resourceName: "resourceName",  }); 
@@ -138,7 +138,7 @@ await gapi.client.people.get({ resourceName: "resourceName",  });
 Provides information about a list of specific people by specifying a list
 of requested resource names. Use `people/me` to indicate the authenticated
 user.
-<br>
+
 The request throws a 400 error if 'personFields' is not specified.  
 */
 await gapi.client.people.getBatchGet({  }); 
@@ -148,10 +148,10 @@ Update contact data for an existing contact person. Any non-contact data
 will not be modified.
 
 The request throws a 400 error if `updatePersonFields` is not specified.
-<br>
+
 The request throws a 400 error if `person.metadata.sources` is not
 specified for the contact to be updated.
-<br>
+
 The request throws a 400 error with an error with reason
 `"failedPrecondition"` if `person.metadata.sources.etag` is different than
 the contact's etag, which indicates the contact has changed since its data

@@ -72,11 +72,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                firstBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 footerColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                footerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 headerColor: {
                                     alpha: 42,
@@ -84,11 +102,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                headerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 secondBandColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                secondBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                             },
                             range: {
@@ -105,11 +141,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                firstBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 footerColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                footerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 headerColor: {
                                     alpha: 42,
@@ -117,11 +171,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                headerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 secondBandColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                secondBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                             },
                         },
@@ -152,6 +224,15 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                backgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 basicChart: {
                                     axis: [
                                         {
@@ -164,6 +245,15 @@ gapi.load('client', () => {
                                                     blue: 42,
                                                     green: 42,
                                                     red: 42,
+                                                },
+                                                foregroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
                                                 },
                                                 italic: true,
                                                 strikethrough: true,
@@ -210,6 +300,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             lineStyle: {
                                                 type: "Test string",
                                                 width: 42,
@@ -238,6 +337,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    bubbleBorderColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     bubbleLabels: {
                                         sourceRange: {
@@ -275,6 +383,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         italic: true,
                                         strikethrough: true,
@@ -408,6 +525,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            barColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             data: {
                                                 sourceRange: {
                                                     sources: [
@@ -443,6 +569,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    nodeColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     nodeSize: "Test string",
                                     parentLabels: {
                                         sourceRange: {
@@ -461,6 +596,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    selectedNodeColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     tooltips: {
                                         sourceRange: {
@@ -527,6 +671,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        negativeColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         position: {
                                             horizontalAlignment: "Test string",
                                         },
@@ -535,6 +688,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        positiveColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         textFormat: {
                                             bold: true,
@@ -545,6 +707,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            foregroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             italic: true,
                                             strikethrough: true,
@@ -581,6 +752,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            foregroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             italic: true,
                                             strikethrough: true,
                                             underline: true,
@@ -600,6 +780,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     italic: true,
                                     strikethrough: true,
                                     underline: true,
@@ -617,6 +806,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     italic: true,
                                     strikethrough: true,
@@ -645,11 +843,29 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        maxValueColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         midValueColor: {
                                             alpha: 42,
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        midValueColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         minValueColor: {
                                             alpha: 42,
@@ -657,11 +873,29 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        minValueColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         noDataColor: {
                                             alpha: 42,
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        noDataColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                     },
                                     headerColor: {
@@ -669,6 +903,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    headerColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     hideTooltips: true,
                                     hintedLevels: 42,
@@ -720,6 +963,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         italic: true,
                                         strikethrough: true,
@@ -776,6 +1028,15 @@ gapi.load('client', () => {
                                                     green: 42,
                                                     red: 42,
                                                 },
+                                                colorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
+                                                },
                                                 label: "Test string",
                                             },
                                             positiveColumnsStyle: {
@@ -785,6 +1046,15 @@ gapi.load('client', () => {
                                                     green: 42,
                                                     red: 42,
                                                 },
+                                                colorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
+                                                },
                                                 label: "Test string",
                                             },
                                             subtotalColumnsStyle: {
@@ -793,6 +1063,15 @@ gapi.load('client', () => {
                                                     blue: 42,
                                                     green: 42,
                                                     red: 42,
+                                                },
+                                                colorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
                                                 },
                                                 label: "Test string",
                                             },
@@ -821,6 +1100,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    backgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     borders: {
                                         bottom: {
                                             color: {
@@ -828,6 +1116,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             style: "Test string",
                                             width: 42,
@@ -839,6 +1136,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             style: "Test string",
                                             width: 42,
                                         },
@@ -849,6 +1155,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             style: "Test string",
                                             width: 42,
                                         },
@@ -858,6 +1173,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             style: "Test string",
                                             width: 42,
@@ -886,6 +1210,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         italic: true,
                                         strikethrough: true,
                                         underline: true,
@@ -906,6 +1239,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    colorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     type: "Test string",
                                     value: "Test string",
                                 },
@@ -916,6 +1258,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    colorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     type: "Test string",
                                     value: "Test string",
                                 },
@@ -925,6 +1276,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    colorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     type: "Test string",
                                     value: "Test string",
@@ -968,11 +1328,29 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    visibleBackgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     visibleForegroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    visibleForegroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                 }                            },
                             filterViewId: 42,
@@ -992,12 +1370,30 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    backgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     dimensionIndex: 42,
                                     foregroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     sortOrder: "Test string",
                                 }                            ],
@@ -1070,6 +1466,15 @@ gapi.load('client', () => {
                                 green: 42,
                                 red: 42,
                             },
+                            tabColorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
+                            },
                             title: "Test string",
                         },
                     },
@@ -1099,6 +1504,15 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                backgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 columnIndex: 42,
                                 dataRange: {
                                     endColumnIndex: 42,
@@ -1124,11 +1538,29 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    visibleBackgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     visibleForegroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    visibleForegroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                 },
                                 horizontalAlignment: "Test string",
@@ -1141,6 +1573,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     italic: true,
                                     strikethrough: true,
@@ -1176,6 +1617,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            backgroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             borders: {
                                                 bottom: {
                                                     color: {
@@ -1183,6 +1633,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     style: "Test string",
                                                     width: 42,
@@ -1194,6 +1653,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     style: "Test string",
                                                     width: 42,
                                                 },
@@ -1204,6 +1672,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     style: "Test string",
                                                     width: 42,
                                                 },
@@ -1213,6 +1690,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     style: "Test string",
                                                     width: 42,
@@ -1240,6 +1726,15 @@ gapi.load('client', () => {
                                                     blue: 42,
                                                     green: 42,
                                                     red: 42,
+                                                },
+                                                foregroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
                                                 },
                                                 italic: true,
                                                 strikethrough: true,
@@ -1444,6 +1939,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    foregroundColorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     italic: true,
                                                     strikethrough: true,
                                                     underline: true,
@@ -1457,6 +1961,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            backgroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             borders: {
                                                 bottom: {
                                                     color: {
@@ -1464,6 +1977,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     style: "Test string",
                                                     width: 42,
@@ -1475,6 +1997,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     style: "Test string",
                                                     width: 42,
                                                 },
@@ -1485,6 +2016,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     style: "Test string",
                                                     width: 42,
                                                 },
@@ -1494,6 +2034,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     style: "Test string",
                                                     width: 42,
@@ -1521,6 +2070,15 @@ gapi.load('client', () => {
                                                     blue: 42,
                                                     green: 42,
                                                     red: 42,
+                                                },
+                                                foregroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
                                                 },
                                                 italic: true,
                                                 strikethrough: true,
@@ -1837,6 +2395,15 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                backgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 borders: {
                                     bottom: {
                                         color: {
@@ -1844,6 +2411,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         style: "Test string",
                                         width: 42,
@@ -1855,6 +2431,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         style: "Test string",
                                         width: 42,
                                     },
@@ -1865,6 +2450,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         style: "Test string",
                                         width: 42,
                                     },
@@ -1874,6 +2468,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         style: "Test string",
                                         width: 42,
@@ -1901,6 +2504,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     italic: true,
                                     strikethrough: true,
@@ -2105,6 +2717,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         italic: true,
                                         strikethrough: true,
                                         underline: true,
@@ -2118,6 +2739,15 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                backgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 borders: {
                                     bottom: {
                                         color: {
@@ -2125,6 +2755,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         style: "Test string",
                                         width: 42,
@@ -2136,6 +2775,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         style: "Test string",
                                         width: 42,
                                     },
@@ -2146,6 +2794,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         style: "Test string",
                                         width: 42,
                                     },
@@ -2155,6 +2812,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         style: "Test string",
                                         width: 42,
@@ -2182,6 +2848,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     italic: true,
                                     strikethrough: true,
@@ -2234,11 +2909,29 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    visibleBackgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     visibleForegroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    visibleForegroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                 }                            },
                             range: {
@@ -2256,12 +2949,30 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    backgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     dimensionIndex: 42,
                                     foregroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     sortOrder: "Test string",
                                 }                            ],
@@ -2305,12 +3016,30 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                backgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 dimensionIndex: 42,
                                 foregroundColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                foregroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 sortOrder: "Test string",
                             }                        ],
@@ -2354,11 +3083,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                firstBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 footerColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                footerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 headerColor: {
                                     alpha: 42,
@@ -2366,11 +3113,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                headerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 secondBandColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                secondBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                             },
                             range: {
@@ -2387,11 +3152,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                firstBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 footerColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                footerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 headerColor: {
                                     alpha: 42,
@@ -2399,11 +3182,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                headerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 secondBandColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                secondBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                             },
                         },
@@ -2417,6 +3218,15 @@ gapi.load('client', () => {
                                 green: 42,
                                 red: 42,
                             },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
+                            },
                             style: "Test string",
                             width: 42,
                         },
@@ -2426,6 +3236,15 @@ gapi.load('client', () => {
                                 blue: 42,
                                 green: 42,
                                 red: 42,
+                            },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
                             },
                             style: "Test string",
                             width: 42,
@@ -2437,6 +3256,15 @@ gapi.load('client', () => {
                                 green: 42,
                                 red: 42,
                             },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
+                            },
                             style: "Test string",
                             width: 42,
                         },
@@ -2446,6 +3274,15 @@ gapi.load('client', () => {
                                 blue: 42,
                                 green: 42,
                                 red: 42,
+                            },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
                             },
                             style: "Test string",
                             width: 42,
@@ -2464,6 +3301,15 @@ gapi.load('client', () => {
                                 green: 42,
                                 red: 42,
                             },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
+                            },
                             style: "Test string",
                             width: 42,
                         },
@@ -2473,6 +3319,15 @@ gapi.load('client', () => {
                                 blue: 42,
                                 green: 42,
                                 red: 42,
+                            },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
                             },
                             style: "Test string",
                             width: 42,
@@ -2511,6 +3366,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            backgroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             borders: {
                                                 bottom: {
                                                     color: {
@@ -2518,6 +3382,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     style: "Test string",
                                                     width: 42,
@@ -2529,6 +3402,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     style: "Test string",
                                                     width: 42,
                                                 },
@@ -2539,6 +3421,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     style: "Test string",
                                                     width: 42,
                                                 },
@@ -2548,6 +3439,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     style: "Test string",
                                                     width: 42,
@@ -2575,6 +3475,15 @@ gapi.load('client', () => {
                                                     blue: 42,
                                                     green: 42,
                                                     red: 42,
+                                                },
+                                                foregroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
                                                 },
                                                 italic: true,
                                                 strikethrough: true,
@@ -2779,6 +3688,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    foregroundColorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     italic: true,
                                                     strikethrough: true,
                                                     underline: true,
@@ -2792,6 +3710,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            backgroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             borders: {
                                                 bottom: {
                                                     color: {
@@ -2799,6 +3726,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     style: "Test string",
                                                     width: 42,
@@ -2810,6 +3746,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     style: "Test string",
                                                     width: 42,
                                                 },
@@ -2820,6 +3765,15 @@ gapi.load('client', () => {
                                                         green: 42,
                                                         red: 42,
                                                     },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
                                                     style: "Test string",
                                                     width: 42,
                                                 },
@@ -2829,6 +3783,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     style: "Test string",
                                                     width: 42,
@@ -2856,6 +3819,15 @@ gapi.load('client', () => {
                                                     blue: 42,
                                                     green: 42,
                                                     red: 42,
+                                                },
+                                                foregroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
                                                 },
                                                 italic: true,
                                                 strikethrough: true,
@@ -2896,6 +3868,15 @@ gapi.load('client', () => {
                                 green: 42,
                                 red: 42,
                             },
+                            backgroundColorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
+                            },
                             basicChart: {
                                 axis: [
                                     {
@@ -2908,6 +3889,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            foregroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             italic: true,
                                             strikethrough: true,
@@ -2954,6 +3944,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         lineStyle: {
                                             type: "Test string",
                                             width: 42,
@@ -2982,6 +3981,15 @@ gapi.load('client', () => {
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                bubbleBorderColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 bubbleLabels: {
                                     sourceRange: {
@@ -3019,6 +4027,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     italic: true,
                                     strikethrough: true,
@@ -3152,6 +4169,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        barColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         data: {
                                             sourceRange: {
                                                 sources: [
@@ -3187,6 +4213,15 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                nodeColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 nodeSize: "Test string",
                                 parentLabels: {
                                     sourceRange: {
@@ -3205,6 +4240,15 @@ gapi.load('client', () => {
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                selectedNodeColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 tooltips: {
                                     sourceRange: {
@@ -3271,6 +4315,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    negativeColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     position: {
                                         horizontalAlignment: "Test string",
                                     },
@@ -3279,6 +4332,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    positiveColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     textFormat: {
                                         bold: true,
@@ -3289,6 +4351,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         italic: true,
                                         strikethrough: true,
@@ -3325,6 +4396,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         italic: true,
                                         strikethrough: true,
                                         underline: true,
@@ -3344,6 +4424,15 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                foregroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 italic: true,
                                 strikethrough: true,
                                 underline: true,
@@ -3361,6 +4450,15 @@ gapi.load('client', () => {
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                foregroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 italic: true,
                                 strikethrough: true,
@@ -3389,11 +4487,29 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    maxValueColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     midValueColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    midValueColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     minValueColor: {
                                         alpha: 42,
@@ -3401,11 +4517,29 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    minValueColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     noDataColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    noDataColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                 },
                                 headerColor: {
@@ -3413,6 +4547,15 @@ gapi.load('client', () => {
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                headerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 hideTooltips: true,
                                 hintedLevels: 42,
@@ -3464,6 +4607,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     italic: true,
                                     strikethrough: true,
@@ -3520,6 +4672,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             label: "Test string",
                                         },
                                         positiveColumnsStyle: {
@@ -3529,6 +4690,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             label: "Test string",
                                         },
                                         subtotalColumnsStyle: {
@@ -3537,6 +4707,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             label: "Test string",
                                         },
@@ -3565,6 +4744,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    backgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     borders: {
                                         bottom: {
                                             color: {
@@ -3572,6 +4760,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             style: "Test string",
                                             width: 42,
@@ -3583,6 +4780,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             style: "Test string",
                                             width: 42,
                                         },
@@ -3593,6 +4799,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             style: "Test string",
                                             width: 42,
                                         },
@@ -3602,6 +4817,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             style: "Test string",
                                             width: 42,
@@ -3630,6 +4854,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         italic: true,
                                         strikethrough: true,
                                         underline: true,
@@ -3650,6 +4883,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    colorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     type: "Test string",
                                     value: "Test string",
                                 },
@@ -3660,6 +4902,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    colorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     type: "Test string",
                                     value: "Test string",
                                 },
@@ -3669,6 +4920,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    colorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     type: "Test string",
                                     value: "Test string",
@@ -3820,11 +5080,29 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    visibleBackgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     visibleForegroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    visibleForegroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                 }                            },
                             filterViewId: 42,
@@ -3844,12 +5122,30 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    backgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     dimensionIndex: 42,
                                     foregroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     sortOrder: "Test string",
                                 }                            ],
@@ -3925,6 +5221,15 @@ gapi.load('client', () => {
                                 green: 42,
                                 red: 42,
                             },
+                            tabColorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
+                            },
                             title: "Test string",
                         },
                     },
@@ -3938,6 +5243,15 @@ gapi.load('client', () => {
                                 blue: 42,
                                 green: 42,
                                 red: 42,
+                            },
+                            backgroundColorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
                             },
                             columnIndex: 42,
                             dataRange: {
@@ -3964,11 +5278,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                visibleBackgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 visibleForegroundColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                visibleForegroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                             },
                             horizontalAlignment: "Test string",
@@ -3981,6 +5313,15 @@ gapi.load('client', () => {
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                foregroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 italic: true,
                                 strikethrough: true,
@@ -4000,6 +5341,15 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                backgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 borders: {
                                     bottom: {
                                         color: {
@@ -4007,6 +5357,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         style: "Test string",
                                         width: 42,
@@ -4018,6 +5377,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         style: "Test string",
                                         width: 42,
                                     },
@@ -4028,6 +5396,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         style: "Test string",
                                         width: 42,
                                     },
@@ -4037,6 +5414,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        colorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         style: "Test string",
                                         width: 42,
@@ -4064,6 +5450,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     italic: true,
                                     strikethrough: true,
@@ -4107,6 +5502,15 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
+         * Returns the developer metadata with the specified ID.
+         * The caller must specify the spreadsheet ID and the developer metadata's
+         * unique metadataId.
+         */
+        await gapi.client.sheets.spreadsheets.developerMetadata.get({
+            metadataId: 42,
+            spreadsheetId: "Test string",
+        });
+        /**
          * Returns all developer metadata matching the specified DataFilter.
          * If the provided DataFilter represents a DeveloperMetadataLookup object,
          * this will return all DeveloperMetadata entries selected by it. If the
@@ -4148,24 +5552,118 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Returns the developer metadata with the specified ID.
-         * The caller must specify the spreadsheet ID and the developer metadata's
-         * unique metadataId.
-         */
-        await gapi.client.sheets.spreadsheets.developerMetadata.get({
-            metadataId: 42,
-            spreadsheetId: "Test string",
-        });
-        /**
-         * Clears values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and range.
+         * Clears one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
          * Only values are cleared -- all other properties of the cell (such as
          * formatting, data validation, etc..) are kept.
          */
-        await gapi.client.sheets.spreadsheets.values.clear({
-            range: "Test string",
+        await gapi.client.sheets.spreadsheets.values.batchClear({
             spreadsheetId: "Test string",
         }, {
+            ranges: [
+                "Test string"            ],
+        });
+        /**
+         * Returns a range of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and a range.
+         */
+        await gapi.client.sheets.spreadsheets.values.get({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            range: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
+        });
+        /**
+         * Sets values in a range of a spreadsheet.
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.
+         */
+        await gapi.client.sheets.spreadsheets.values.update({
+            includeValuesInResponse: true,
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            spreadsheetId: "Test string",
+            valueInputOption: "Test string",
+        }, {
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
+        });
+        /**
+         * Sets values in one or more ranges of a spreadsheet.
+         * The caller must specify the spreadsheet ID,
+         * a valueInputOption, and one or more
+         * DataFilterValueRanges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchUpdateByDataFilter({
+            spreadsheetId: "Test string",
+        }, {
+            data: [
+                {
+                    dataFilter: {
+                        a1Range: "Test string",
+                        developerMetadataLookup: {
+                            locationMatchingStrategy: "Test string",
+                            locationType: "Test string",
+                            metadataId: 42,
+                            metadataKey: "Test string",
+                            metadataLocation: {
+                                dimensionRange: {
+                                    dimension: "Test string",
+                                    endIndex: 42,
+                                    sheetId: 42,
+                                    startIndex: 42,
+                                },
+                                locationType: "Test string",
+                                sheetId: 42,
+                                spreadsheet: true,
+                            },
+                            metadataValue: "Test string",
+                            visibility: "Test string",
+                        },
+                        gridRange: {
+                            endColumnIndex: 42,
+                            endRowIndex: 42,
+                            sheetId: 42,
+                            startColumnIndex: 42,
+                            startRowIndex: 42,
+                        },
+                    },
+                    majorDimension: "Test string",
+                    values: [
+                        [
+                            42                        ]                    ],
+                }            ],
+            includeValuesInResponse: true,
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            valueInputOption: "Test string",
+        });
+        /**
+         * Sets values in one or more ranges of a spreadsheet.
+         * The caller must specify the spreadsheet ID,
+         * a valueInputOption, and one or more
+         * ValueRanges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchUpdate({
+            spreadsheetId: "Test string",
+        }, {
+            data: [
+                {
+                    majorDimension: "Test string",
+                    range: "Test string",
+                    values: [
+                        [
+                            42                        ]                    ],
+                }            ],
+            includeValuesInResponse: true,
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            valueInputOption: "Test string",
         });
         /**
          * Returns one or more ranges of values from a spreadsheet.
@@ -4177,6 +5675,17 @@ gapi.load('client', () => {
             ranges: "Test string",
             spreadsheetId: "Test string",
             valueRenderOption: "Test string",
+        });
+        /**
+         * Clears values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and range.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
+         */
+        await gapi.client.sheets.spreadsheets.values.clear({
+            range: "Test string",
+            spreadsheetId: "Test string",
+        }, {
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -4294,120 +5803,6 @@ gapi.load('client', () => {
             valueRenderOption: "Test string",
         });
         /**
-         * Clears one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchClear({
-            spreadsheetId: "Test string",
-        }, {
-            ranges: [
-                "Test string"            ],
-        });
-        /**
-         * Returns a range of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and a range.
-         */
-        await gapi.client.sheets.spreadsheets.values.get({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            range: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
-         * Sets values in a range of a spreadsheet.
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.
-         */
-        await gapi.client.sheets.spreadsheets.values.update({
-            includeValuesInResponse: true,
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
-        });
-        /**
-         * Sets values in one or more ranges of a spreadsheet.
-         * The caller must specify the spreadsheet ID,
-         * a valueInputOption, and one or more
-         * DataFilterValueRanges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchUpdateByDataFilter({
-            spreadsheetId: "Test string",
-        }, {
-            data: [
-                {
-                    dataFilter: {
-                        a1Range: "Test string",
-                        developerMetadataLookup: {
-                            locationMatchingStrategy: "Test string",
-                            locationType: "Test string",
-                            metadataId: 42,
-                            metadataKey: "Test string",
-                            metadataLocation: {
-                                dimensionRange: {
-                                    dimension: "Test string",
-                                    endIndex: 42,
-                                    sheetId: 42,
-                                    startIndex: 42,
-                                },
-                                locationType: "Test string",
-                                sheetId: 42,
-                                spreadsheet: true,
-                            },
-                            metadataValue: "Test string",
-                            visibility: "Test string",
-                        },
-                        gridRange: {
-                            endColumnIndex: 42,
-                            endRowIndex: 42,
-                            sheetId: 42,
-                            startColumnIndex: 42,
-                            startRowIndex: 42,
-                        },
-                    },
-                    majorDimension: "Test string",
-                    values: [
-                        [
-                            42                        ]                    ],
-                }            ],
-            includeValuesInResponse: true,
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            valueInputOption: "Test string",
-        });
-        /**
-         * Sets values in one or more ranges of a spreadsheet.
-         * The caller must specify the spreadsheet ID,
-         * a valueInputOption, and one or more
-         * ValueRanges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchUpdate({
-            spreadsheetId: "Test string",
-        }, {
-            data: [
-                {
-                    majorDimension: "Test string",
-                    range: "Test string",
-                    values: [
-                        [
-                            42                        ]                    ],
-                }            ],
-            includeValuesInResponse: true,
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            valueInputOption: "Test string",
-        });
-        /**
          * Copies a single sheet from a spreadsheet to another spreadsheet.
          * Returns the properties of the newly created sheet.
          */
@@ -4459,6 +5854,15 @@ gapi.load('client', () => {
                         green: 42,
                         red: 42,
                     },
+                    backgroundColorStyle: {
+                        rgbColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                        },
+                        themeColor: "Test string",
+                    },
                     borders: {
                         bottom: {
                             color: {
@@ -4466,6 +5870,15 @@ gapi.load('client', () => {
                                 blue: 42,
                                 green: 42,
                                 red: 42,
+                            },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
                             },
                             style: "Test string",
                             width: 42,
@@ -4477,6 +5890,15 @@ gapi.load('client', () => {
                                 green: 42,
                                 red: 42,
                             },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
+                            },
                             style: "Test string",
                             width: 42,
                         },
@@ -4487,6 +5909,15 @@ gapi.load('client', () => {
                                 green: 42,
                                 red: 42,
                             },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
+                            },
                             style: "Test string",
                             width: 42,
                         },
@@ -4496,6 +5927,15 @@ gapi.load('client', () => {
                                 blue: 42,
                                 green: 42,
                                 red: 42,
+                            },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
                             },
                             style: "Test string",
                             width: 42,
@@ -4523,6 +5963,15 @@ gapi.load('client', () => {
                             blue: 42,
                             green: 42,
                             red: 42,
+                        },
+                        foregroundColorStyle: {
+                            rgbColor: {
+                                alpha: 42,
+                                blue: 42,
+                                green: 42,
+                                red: 42,
+                            },
+                            themeColor: "Test string",
                         },
                         italic: true,
                         strikethrough: true,
@@ -4571,11 +6020,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                firstBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 footerColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                footerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 headerColor: {
                                     alpha: 42,
@@ -4583,11 +6050,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                headerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 secondBandColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                secondBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                             },
                             range: {
@@ -4604,11 +6089,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                firstBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 footerColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                footerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 headerColor: {
                                     alpha: 42,
@@ -4616,11 +6119,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                headerColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 secondBandColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                secondBandColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                             },
                         }                    ],
@@ -4643,11 +6164,29 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                visibleBackgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 visibleForegroundColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                visibleForegroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                             }                        },
                         range: {
@@ -4665,12 +6204,30 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                backgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 dimensionIndex: 42,
                                 foregroundColor: {
                                     alpha: 42,
                                     blue: 42,
                                     green: 42,
                                     red: 42,
+                                },
+                                foregroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
                                 },
                                 sortOrder: "Test string",
                             }                        ],
@@ -4701,6 +6258,15 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                backgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 basicChart: {
                                     axis: [
                                         {
@@ -4713,6 +6279,15 @@ gapi.load('client', () => {
                                                     blue: 42,
                                                     green: 42,
                                                     red: 42,
+                                                },
+                                                foregroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
                                                 },
                                                 italic: true,
                                                 strikethrough: true,
@@ -4759,6 +6334,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             lineStyle: {
                                                 type: "Test string",
                                                 width: 42,
@@ -4787,6 +6371,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    bubbleBorderColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     bubbleLabels: {
                                         sourceRange: {
@@ -4824,6 +6417,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         italic: true,
                                         strikethrough: true,
@@ -4957,6 +6559,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            barColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             data: {
                                                 sourceRange: {
                                                     sources: [
@@ -4992,6 +6603,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    nodeColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     nodeSize: "Test string",
                                     parentLabels: {
                                         sourceRange: {
@@ -5010,6 +6630,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    selectedNodeColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     tooltips: {
                                         sourceRange: {
@@ -5076,6 +6705,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        negativeColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         position: {
                                             horizontalAlignment: "Test string",
                                         },
@@ -5084,6 +6722,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        positiveColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         textFormat: {
                                             bold: true,
@@ -5094,6 +6741,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            foregroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             italic: true,
                                             strikethrough: true,
@@ -5130,6 +6786,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            foregroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             italic: true,
                                             strikethrough: true,
                                             underline: true,
@@ -5149,6 +6814,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     italic: true,
                                     strikethrough: true,
                                     underline: true,
@@ -5166,6 +6840,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     italic: true,
                                     strikethrough: true,
@@ -5194,11 +6877,29 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        maxValueColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         midValueColor: {
                                             alpha: 42,
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        midValueColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         minValueColor: {
                                             alpha: 42,
@@ -5206,11 +6907,29 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        minValueColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         noDataColor: {
                                             alpha: 42,
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        noDataColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                     },
                                     headerColor: {
@@ -5218,6 +6937,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    headerColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     hideTooltips: true,
                                     hintedLevels: 42,
@@ -5269,6 +6997,15 @@ gapi.load('client', () => {
                                             blue: 42,
                                             green: 42,
                                             red: 42,
+                                        },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
                                         },
                                         italic: true,
                                         strikethrough: true,
@@ -5325,6 +7062,15 @@ gapi.load('client', () => {
                                                     green: 42,
                                                     red: 42,
                                                 },
+                                                colorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
+                                                },
                                                 label: "Test string",
                                             },
                                             positiveColumnsStyle: {
@@ -5334,6 +7080,15 @@ gapi.load('client', () => {
                                                     green: 42,
                                                     red: 42,
                                                 },
+                                                colorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
+                                                },
                                                 label: "Test string",
                                             },
                                             subtotalColumnsStyle: {
@@ -5342,6 +7097,15 @@ gapi.load('client', () => {
                                                     blue: 42,
                                                     green: 42,
                                                     red: 42,
+                                                },
+                                                colorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
                                                 },
                                                 label: "Test string",
                                             },
@@ -5379,6 +7143,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    backgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     borders: {
                                         bottom: {
                                             color: {
@@ -5386,6 +7159,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             style: "Test string",
                                             width: 42,
@@ -5397,6 +7179,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             style: "Test string",
                                             width: 42,
                                         },
@@ -5407,6 +7198,15 @@ gapi.load('client', () => {
                                                 green: 42,
                                                 red: 42,
                                             },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
                                             style: "Test string",
                                             width: 42,
                                         },
@@ -5416,6 +7216,15 @@ gapi.load('client', () => {
                                                 blue: 42,
                                                 green: 42,
                                                 red: 42,
+                                            },
+                                            colorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
                                             },
                                             style: "Test string",
                                             width: 42,
@@ -5444,6 +7253,15 @@ gapi.load('client', () => {
                                             green: 42,
                                             red: 42,
                                         },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
                                         italic: true,
                                         strikethrough: true,
                                         underline: true,
@@ -5464,6 +7282,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    colorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     type: "Test string",
                                     value: "Test string",
                                 },
@@ -5474,6 +7301,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    colorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     type: "Test string",
                                     value: "Test string",
                                 },
@@ -5483,6 +7319,15 @@ gapi.load('client', () => {
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    colorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     type: "Test string",
                                     value: "Test string",
@@ -5547,6 +7392,15 @@ gapi.load('client', () => {
                                                     green: 42,
                                                     red: 42,
                                                 },
+                                                backgroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
+                                                },
                                                 borders: {
                                                     bottom: {
                                                         color: {
@@ -5554,6 +7408,15 @@ gapi.load('client', () => {
                                                             blue: 42,
                                                             green: 42,
                                                             red: 42,
+                                                        },
+                                                        colorStyle: {
+                                                            rgbColor: {
+                                                                alpha: 42,
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                            themeColor: "Test string",
                                                         },
                                                         style: "Test string",
                                                         width: 42,
@@ -5565,6 +7428,15 @@ gapi.load('client', () => {
                                                             green: 42,
                                                             red: 42,
                                                         },
+                                                        colorStyle: {
+                                                            rgbColor: {
+                                                                alpha: 42,
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                            themeColor: "Test string",
+                                                        },
                                                         style: "Test string",
                                                         width: 42,
                                                     },
@@ -5575,6 +7447,15 @@ gapi.load('client', () => {
                                                             green: 42,
                                                             red: 42,
                                                         },
+                                                        colorStyle: {
+                                                            rgbColor: {
+                                                                alpha: 42,
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                            themeColor: "Test string",
+                                                        },
                                                         style: "Test string",
                                                         width: 42,
                                                     },
@@ -5584,6 +7465,15 @@ gapi.load('client', () => {
                                                             blue: 42,
                                                             green: 42,
                                                             red: 42,
+                                                        },
+                                                        colorStyle: {
+                                                            rgbColor: {
+                                                                alpha: 42,
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                            themeColor: "Test string",
                                                         },
                                                         style: "Test string",
                                                         width: 42,
@@ -5611,6 +7501,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    foregroundColorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     italic: true,
                                                     strikethrough: true,
@@ -5815,6 +7714,15 @@ gapi.load('client', () => {
                                                             green: 42,
                                                             red: 42,
                                                         },
+                                                        foregroundColorStyle: {
+                                                            rgbColor: {
+                                                                alpha: 42,
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                            themeColor: "Test string",
+                                                        },
                                                         italic: true,
                                                         strikethrough: true,
                                                         underline: true,
@@ -5828,6 +7736,15 @@ gapi.load('client', () => {
                                                     green: 42,
                                                     red: 42,
                                                 },
+                                                backgroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
+                                                },
                                                 borders: {
                                                     bottom: {
                                                         color: {
@@ -5835,6 +7752,15 @@ gapi.load('client', () => {
                                                             blue: 42,
                                                             green: 42,
                                                             red: 42,
+                                                        },
+                                                        colorStyle: {
+                                                            rgbColor: {
+                                                                alpha: 42,
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                            themeColor: "Test string",
                                                         },
                                                         style: "Test string",
                                                         width: 42,
@@ -5846,6 +7772,15 @@ gapi.load('client', () => {
                                                             green: 42,
                                                             red: 42,
                                                         },
+                                                        colorStyle: {
+                                                            rgbColor: {
+                                                                alpha: 42,
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                            themeColor: "Test string",
+                                                        },
                                                         style: "Test string",
                                                         width: 42,
                                                     },
@@ -5856,6 +7791,15 @@ gapi.load('client', () => {
                                                             green: 42,
                                                             red: 42,
                                                         },
+                                                        colorStyle: {
+                                                            rgbColor: {
+                                                                alpha: 42,
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                            themeColor: "Test string",
+                                                        },
                                                         style: "Test string",
                                                         width: 42,
                                                     },
@@ -5865,6 +7809,15 @@ gapi.load('client', () => {
                                                             blue: 42,
                                                             green: 42,
                                                             red: 42,
+                                                        },
+                                                        colorStyle: {
+                                                            rgbColor: {
+                                                                alpha: 42,
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                            themeColor: "Test string",
                                                         },
                                                         style: "Test string",
                                                         width: 42,
@@ -5892,6 +7845,15 @@ gapi.load('client', () => {
                                                         blue: 42,
                                                         green: 42,
                                                         red: 42,
+                                                    },
+                                                    foregroundColorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
                                                     },
                                                     italic: true,
                                                     strikethrough: true,
@@ -5981,11 +7943,29 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    visibleBackgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     visibleForegroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    visibleForegroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                 }                            },
                             filterViewId: 42,
@@ -6005,12 +7985,30 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    backgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     dimensionIndex: 42,
                                     foregroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                     sortOrder: "Test string",
                                 }                            ],
@@ -6044,6 +8042,15 @@ gapi.load('client', () => {
                             blue: 42,
                             green: 42,
                             red: 42,
+                        },
+                        tabColorStyle: {
+                            rgbColor: {
+                                alpha: 42,
+                                blue: 42,
+                                green: 42,
+                                red: 42,
+                            },
+                            themeColor: "Test string",
                         },
                         title: "Test string",
                     },
@@ -6114,6 +8121,15 @@ gapi.load('client', () => {
                                     green: 42,
                                     red: 42,
                                 },
+                                backgroundColorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
                                 columnIndex: 42,
                                 dataRange: {
                                     endColumnIndex: 42,
@@ -6139,11 +8155,29 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    visibleBackgroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     visibleForegroundColor: {
                                         alpha: 42,
                                         blue: 42,
                                         green: 42,
                                         red: 42,
+                                    },
+                                    visibleForegroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
                                     },
                                 },
                                 horizontalAlignment: "Test string",
@@ -6157,6 +8191,15 @@ gapi.load('client', () => {
                                         green: 42,
                                         red: 42,
                                     },
+                                    foregroundColorStyle: {
+                                        rgbColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        themeColor: "Test string",
+                                    },
                                     italic: true,
                                     strikethrough: true,
                                     underline: true,
@@ -6167,6 +8210,15 @@ gapi.load('client', () => {
                 }            ],
             spreadsheetId: "Test string",
             spreadsheetUrl: "Test string",
+        });
+        /**
+         * Returns the developer metadata with the specified ID.
+         * The caller must specify the spreadsheet ID and the developer metadata's
+         * unique metadataId.
+         */
+        await gapi.client.sheets.spreadsheets.developerMetadata.get({
+            metadataId: 42,
+            spreadsheetId: "Test string",
         });
         /**
          * Returns all developer metadata matching the specified DataFilter.
@@ -6210,24 +8262,118 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Returns the developer metadata with the specified ID.
-         * The caller must specify the spreadsheet ID and the developer metadata's
-         * unique metadataId.
-         */
-        await gapi.client.sheets.spreadsheets.developerMetadata.get({
-            metadataId: 42,
-            spreadsheetId: "Test string",
-        });
-        /**
-         * Clears values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and range.
+         * Clears one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
          * Only values are cleared -- all other properties of the cell (such as
          * formatting, data validation, etc..) are kept.
          */
-        await gapi.client.sheets.spreadsheets.values.clear({
-            range: "Test string",
+        await gapi.client.sheets.spreadsheets.values.batchClear({
             spreadsheetId: "Test string",
         }, {
+            ranges: [
+                "Test string"            ],
+        });
+        /**
+         * Returns a range of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and a range.
+         */
+        await gapi.client.sheets.spreadsheets.values.get({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            range: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
+        });
+        /**
+         * Sets values in a range of a spreadsheet.
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.
+         */
+        await gapi.client.sheets.spreadsheets.values.update({
+            includeValuesInResponse: true,
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            spreadsheetId: "Test string",
+            valueInputOption: "Test string",
+        }, {
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
+        });
+        /**
+         * Sets values in one or more ranges of a spreadsheet.
+         * The caller must specify the spreadsheet ID,
+         * a valueInputOption, and one or more
+         * DataFilterValueRanges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchUpdateByDataFilter({
+            spreadsheetId: "Test string",
+        }, {
+            data: [
+                {
+                    dataFilter: {
+                        a1Range: "Test string",
+                        developerMetadataLookup: {
+                            locationMatchingStrategy: "Test string",
+                            locationType: "Test string",
+                            metadataId: 42,
+                            metadataKey: "Test string",
+                            metadataLocation: {
+                                dimensionRange: {
+                                    dimension: "Test string",
+                                    endIndex: 42,
+                                    sheetId: 42,
+                                    startIndex: 42,
+                                },
+                                locationType: "Test string",
+                                sheetId: 42,
+                                spreadsheet: true,
+                            },
+                            metadataValue: "Test string",
+                            visibility: "Test string",
+                        },
+                        gridRange: {
+                            endColumnIndex: 42,
+                            endRowIndex: 42,
+                            sheetId: 42,
+                            startColumnIndex: 42,
+                            startRowIndex: 42,
+                        },
+                    },
+                    majorDimension: "Test string",
+                    values: [
+                        [
+                            42                        ]                    ],
+                }            ],
+            includeValuesInResponse: true,
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            valueInputOption: "Test string",
+        });
+        /**
+         * Sets values in one or more ranges of a spreadsheet.
+         * The caller must specify the spreadsheet ID,
+         * a valueInputOption, and one or more
+         * ValueRanges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchUpdate({
+            spreadsheetId: "Test string",
+        }, {
+            data: [
+                {
+                    majorDimension: "Test string",
+                    range: "Test string",
+                    values: [
+                        [
+                            42                        ]                    ],
+                }            ],
+            includeValuesInResponse: true,
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            valueInputOption: "Test string",
         });
         /**
          * Returns one or more ranges of values from a spreadsheet.
@@ -6239,6 +8385,17 @@ gapi.load('client', () => {
             ranges: "Test string",
             spreadsheetId: "Test string",
             valueRenderOption: "Test string",
+        });
+        /**
+         * Clears values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and range.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
+         */
+        await gapi.client.sheets.spreadsheets.values.clear({
+            range: "Test string",
+            spreadsheetId: "Test string",
+        }, {
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -6354,120 +8511,6 @@ gapi.load('client', () => {
             dateTimeRenderOption: "Test string",
             majorDimension: "Test string",
             valueRenderOption: "Test string",
-        });
-        /**
-         * Clears one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchClear({
-            spreadsheetId: "Test string",
-        }, {
-            ranges: [
-                "Test string"            ],
-        });
-        /**
-         * Returns a range of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and a range.
-         */
-        await gapi.client.sheets.spreadsheets.values.get({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            range: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
-         * Sets values in a range of a spreadsheet.
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.
-         */
-        await gapi.client.sheets.spreadsheets.values.update({
-            includeValuesInResponse: true,
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
-        });
-        /**
-         * Sets values in one or more ranges of a spreadsheet.
-         * The caller must specify the spreadsheet ID,
-         * a valueInputOption, and one or more
-         * DataFilterValueRanges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchUpdateByDataFilter({
-            spreadsheetId: "Test string",
-        }, {
-            data: [
-                {
-                    dataFilter: {
-                        a1Range: "Test string",
-                        developerMetadataLookup: {
-                            locationMatchingStrategy: "Test string",
-                            locationType: "Test string",
-                            metadataId: 42,
-                            metadataKey: "Test string",
-                            metadataLocation: {
-                                dimensionRange: {
-                                    dimension: "Test string",
-                                    endIndex: 42,
-                                    sheetId: 42,
-                                    startIndex: 42,
-                                },
-                                locationType: "Test string",
-                                sheetId: 42,
-                                spreadsheet: true,
-                            },
-                            metadataValue: "Test string",
-                            visibility: "Test string",
-                        },
-                        gridRange: {
-                            endColumnIndex: 42,
-                            endRowIndex: 42,
-                            sheetId: 42,
-                            startColumnIndex: 42,
-                            startRowIndex: 42,
-                        },
-                    },
-                    majorDimension: "Test string",
-                    values: [
-                        [
-                            42                        ]                    ],
-                }            ],
-            includeValuesInResponse: true,
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            valueInputOption: "Test string",
-        });
-        /**
-         * Sets values in one or more ranges of a spreadsheet.
-         * The caller must specify the spreadsheet ID,
-         * a valueInputOption, and one or more
-         * ValueRanges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchUpdate({
-            spreadsheetId: "Test string",
-        }, {
-            data: [
-                {
-                    majorDimension: "Test string",
-                    range: "Test string",
-                    values: [
-                        [
-                            42                        ]                    ],
-                }            ],
-            includeValuesInResponse: true,
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            valueInputOption: "Test string",
         });
         /**
          * Copies a single sheet from a spreadsheet to another spreadsheet.
@@ -6508,6 +8551,15 @@ gapi.load('client', () => {
             spreadsheetId: "Test string",
         });
         /**
+         * Returns the developer metadata with the specified ID.
+         * The caller must specify the spreadsheet ID and the developer metadata's
+         * unique metadataId.
+         */
+        await gapi.client.sheets.spreadsheets.developerMetadata.get({
+            metadataId: 42,
+            spreadsheetId: "Test string",
+        });
+        /**
          * Returns all developer metadata matching the specified DataFilter.
          * If the provided DataFilter represents a DeveloperMetadataLookup object,
          * this will return all DeveloperMetadata entries selected by it. If the
@@ -6549,24 +8601,118 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Returns the developer metadata with the specified ID.
-         * The caller must specify the spreadsheet ID and the developer metadata's
-         * unique metadataId.
-         */
-        await gapi.client.sheets.spreadsheets.developerMetadata.get({
-            metadataId: 42,
-            spreadsheetId: "Test string",
-        });
-        /**
-         * Clears values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and range.
+         * Clears one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
          * Only values are cleared -- all other properties of the cell (such as
          * formatting, data validation, etc..) are kept.
          */
-        await gapi.client.sheets.spreadsheets.values.clear({
-            range: "Test string",
+        await gapi.client.sheets.spreadsheets.values.batchClear({
             spreadsheetId: "Test string",
         }, {
+            ranges: [
+                "Test string"            ],
+        });
+        /**
+         * Returns a range of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and a range.
+         */
+        await gapi.client.sheets.spreadsheets.values.get({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            range: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
+        });
+        /**
+         * Sets values in a range of a spreadsheet.
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.
+         */
+        await gapi.client.sheets.spreadsheets.values.update({
+            includeValuesInResponse: true,
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            spreadsheetId: "Test string",
+            valueInputOption: "Test string",
+        }, {
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
+        });
+        /**
+         * Sets values in one or more ranges of a spreadsheet.
+         * The caller must specify the spreadsheet ID,
+         * a valueInputOption, and one or more
+         * DataFilterValueRanges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchUpdateByDataFilter({
+            spreadsheetId: "Test string",
+        }, {
+            data: [
+                {
+                    dataFilter: {
+                        a1Range: "Test string",
+                        developerMetadataLookup: {
+                            locationMatchingStrategy: "Test string",
+                            locationType: "Test string",
+                            metadataId: 42,
+                            metadataKey: "Test string",
+                            metadataLocation: {
+                                dimensionRange: {
+                                    dimension: "Test string",
+                                    endIndex: 42,
+                                    sheetId: 42,
+                                    startIndex: 42,
+                                },
+                                locationType: "Test string",
+                                sheetId: 42,
+                                spreadsheet: true,
+                            },
+                            metadataValue: "Test string",
+                            visibility: "Test string",
+                        },
+                        gridRange: {
+                            endColumnIndex: 42,
+                            endRowIndex: 42,
+                            sheetId: 42,
+                            startColumnIndex: 42,
+                            startRowIndex: 42,
+                        },
+                    },
+                    majorDimension: "Test string",
+                    values: [
+                        [
+                            42                        ]                    ],
+                }            ],
+            includeValuesInResponse: true,
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            valueInputOption: "Test string",
+        });
+        /**
+         * Sets values in one or more ranges of a spreadsheet.
+         * The caller must specify the spreadsheet ID,
+         * a valueInputOption, and one or more
+         * ValueRanges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchUpdate({
+            spreadsheetId: "Test string",
+        }, {
+            data: [
+                {
+                    majorDimension: "Test string",
+                    range: "Test string",
+                    values: [
+                        [
+                            42                        ]                    ],
+                }            ],
+            includeValuesInResponse: true,
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            valueInputOption: "Test string",
         });
         /**
          * Returns one or more ranges of values from a spreadsheet.
@@ -6578,6 +8724,17 @@ gapi.load('client', () => {
             ranges: "Test string",
             spreadsheetId: "Test string",
             valueRenderOption: "Test string",
+        });
+        /**
+         * Clears values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and range.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
+         */
+        await gapi.client.sheets.spreadsheets.values.clear({
+            range: "Test string",
+            spreadsheetId: "Test string",
+        }, {
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -6693,120 +8850,6 @@ gapi.load('client', () => {
             dateTimeRenderOption: "Test string",
             majorDimension: "Test string",
             valueRenderOption: "Test string",
-        });
-        /**
-         * Clears one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchClear({
-            spreadsheetId: "Test string",
-        }, {
-            ranges: [
-                "Test string"            ],
-        });
-        /**
-         * Returns a range of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and a range.
-         */
-        await gapi.client.sheets.spreadsheets.values.get({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            range: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
-         * Sets values in a range of a spreadsheet.
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.
-         */
-        await gapi.client.sheets.spreadsheets.values.update({
-            includeValuesInResponse: true,
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
-        });
-        /**
-         * Sets values in one or more ranges of a spreadsheet.
-         * The caller must specify the spreadsheet ID,
-         * a valueInputOption, and one or more
-         * DataFilterValueRanges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchUpdateByDataFilter({
-            spreadsheetId: "Test string",
-        }, {
-            data: [
-                {
-                    dataFilter: {
-                        a1Range: "Test string",
-                        developerMetadataLookup: {
-                            locationMatchingStrategy: "Test string",
-                            locationType: "Test string",
-                            metadataId: 42,
-                            metadataKey: "Test string",
-                            metadataLocation: {
-                                dimensionRange: {
-                                    dimension: "Test string",
-                                    endIndex: 42,
-                                    sheetId: 42,
-                                    startIndex: 42,
-                                },
-                                locationType: "Test string",
-                                sheetId: 42,
-                                spreadsheet: true,
-                            },
-                            metadataValue: "Test string",
-                            visibility: "Test string",
-                        },
-                        gridRange: {
-                            endColumnIndex: 42,
-                            endRowIndex: 42,
-                            sheetId: 42,
-                            startColumnIndex: 42,
-                            startRowIndex: 42,
-                        },
-                    },
-                    majorDimension: "Test string",
-                    values: [
-                        [
-                            42                        ]                    ],
-                }            ],
-            includeValuesInResponse: true,
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            valueInputOption: "Test string",
-        });
-        /**
-         * Sets values in one or more ranges of a spreadsheet.
-         * The caller must specify the spreadsheet ID,
-         * a valueInputOption, and one or more
-         * ValueRanges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchUpdate({
-            spreadsheetId: "Test string",
-        }, {
-            data: [
-                {
-                    majorDimension: "Test string",
-                    range: "Test string",
-                    values: [
-                        [
-                            42                        ]                    ],
-                }            ],
-            includeValuesInResponse: true,
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            valueInputOption: "Test string",
         });
         /**
          * Copies a single sheet from a spreadsheet to another spreadsheet.
@@ -6878,6 +8921,15 @@ gapi.load('client', () => {
             includeGridData: true,
         });
         /**
+         * Returns the developer metadata with the specified ID.
+         * The caller must specify the spreadsheet ID and the developer metadata's
+         * unique metadataId.
+         */
+        await gapi.client.sheets.spreadsheets.developerMetadata.get({
+            metadataId: 42,
+            spreadsheetId: "Test string",
+        });
+        /**
          * Returns all developer metadata matching the specified DataFilter.
          * If the provided DataFilter represents a DeveloperMetadataLookup object,
          * this will return all DeveloperMetadata entries selected by it. If the
@@ -6919,24 +8971,118 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Returns the developer metadata with the specified ID.
-         * The caller must specify the spreadsheet ID and the developer metadata's
-         * unique metadataId.
-         */
-        await gapi.client.sheets.spreadsheets.developerMetadata.get({
-            metadataId: 42,
-            spreadsheetId: "Test string",
-        });
-        /**
-         * Clears values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and range.
+         * Clears one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
          * Only values are cleared -- all other properties of the cell (such as
          * formatting, data validation, etc..) are kept.
          */
-        await gapi.client.sheets.spreadsheets.values.clear({
-            range: "Test string",
+        await gapi.client.sheets.spreadsheets.values.batchClear({
             spreadsheetId: "Test string",
         }, {
+            ranges: [
+                "Test string"            ],
+        });
+        /**
+         * Returns a range of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and a range.
+         */
+        await gapi.client.sheets.spreadsheets.values.get({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            range: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
+        });
+        /**
+         * Sets values in a range of a spreadsheet.
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.
+         */
+        await gapi.client.sheets.spreadsheets.values.update({
+            includeValuesInResponse: true,
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            spreadsheetId: "Test string",
+            valueInputOption: "Test string",
+        }, {
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
+        });
+        /**
+         * Sets values in one or more ranges of a spreadsheet.
+         * The caller must specify the spreadsheet ID,
+         * a valueInputOption, and one or more
+         * DataFilterValueRanges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchUpdateByDataFilter({
+            spreadsheetId: "Test string",
+        }, {
+            data: [
+                {
+                    dataFilter: {
+                        a1Range: "Test string",
+                        developerMetadataLookup: {
+                            locationMatchingStrategy: "Test string",
+                            locationType: "Test string",
+                            metadataId: 42,
+                            metadataKey: "Test string",
+                            metadataLocation: {
+                                dimensionRange: {
+                                    dimension: "Test string",
+                                    endIndex: 42,
+                                    sheetId: 42,
+                                    startIndex: 42,
+                                },
+                                locationType: "Test string",
+                                sheetId: 42,
+                                spreadsheet: true,
+                            },
+                            metadataValue: "Test string",
+                            visibility: "Test string",
+                        },
+                        gridRange: {
+                            endColumnIndex: 42,
+                            endRowIndex: 42,
+                            sheetId: 42,
+                            startColumnIndex: 42,
+                            startRowIndex: 42,
+                        },
+                    },
+                    majorDimension: "Test string",
+                    values: [
+                        [
+                            42                        ]                    ],
+                }            ],
+            includeValuesInResponse: true,
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            valueInputOption: "Test string",
+        });
+        /**
+         * Sets values in one or more ranges of a spreadsheet.
+         * The caller must specify the spreadsheet ID,
+         * a valueInputOption, and one or more
+         * ValueRanges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchUpdate({
+            spreadsheetId: "Test string",
+        }, {
+            data: [
+                {
+                    majorDimension: "Test string",
+                    range: "Test string",
+                    values: [
+                        [
+                            42                        ]                    ],
+                }            ],
+            includeValuesInResponse: true,
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            valueInputOption: "Test string",
         });
         /**
          * Returns one or more ranges of values from a spreadsheet.
@@ -6948,6 +9094,17 @@ gapi.load('client', () => {
             ranges: "Test string",
             spreadsheetId: "Test string",
             valueRenderOption: "Test string",
+        });
+        /**
+         * Clears values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and range.
+         * Only values are cleared -- all other properties of the cell (such as
+         * formatting, data validation, etc..) are kept.
+         */
+        await gapi.client.sheets.spreadsheets.values.clear({
+            range: "Test string",
+            spreadsheetId: "Test string",
+        }, {
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -7063,120 +9220,6 @@ gapi.load('client', () => {
             dateTimeRenderOption: "Test string",
             majorDimension: "Test string",
             valueRenderOption: "Test string",
-        });
-        /**
-         * Clears one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         * Only values are cleared -- all other properties of the cell (such as
-         * formatting, data validation, etc..) are kept.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchClear({
-            spreadsheetId: "Test string",
-        }, {
-            ranges: [
-                "Test string"            ],
-        });
-        /**
-         * Returns a range of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and a range.
-         */
-        await gapi.client.sheets.spreadsheets.values.get({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            range: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
-         * Sets values in a range of a spreadsheet.
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.
-         */
-        await gapi.client.sheets.spreadsheets.values.update({
-            includeValuesInResponse: true,
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
-        });
-        /**
-         * Sets values in one or more ranges of a spreadsheet.
-         * The caller must specify the spreadsheet ID,
-         * a valueInputOption, and one or more
-         * DataFilterValueRanges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchUpdateByDataFilter({
-            spreadsheetId: "Test string",
-        }, {
-            data: [
-                {
-                    dataFilter: {
-                        a1Range: "Test string",
-                        developerMetadataLookup: {
-                            locationMatchingStrategy: "Test string",
-                            locationType: "Test string",
-                            metadataId: 42,
-                            metadataKey: "Test string",
-                            metadataLocation: {
-                                dimensionRange: {
-                                    dimension: "Test string",
-                                    endIndex: 42,
-                                    sheetId: 42,
-                                    startIndex: 42,
-                                },
-                                locationType: "Test string",
-                                sheetId: 42,
-                                spreadsheet: true,
-                            },
-                            metadataValue: "Test string",
-                            visibility: "Test string",
-                        },
-                        gridRange: {
-                            endColumnIndex: 42,
-                            endRowIndex: 42,
-                            sheetId: 42,
-                            startColumnIndex: 42,
-                            startRowIndex: 42,
-                        },
-                    },
-                    majorDimension: "Test string",
-                    values: [
-                        [
-                            42                        ]                    ],
-                }            ],
-            includeValuesInResponse: true,
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            valueInputOption: "Test string",
-        });
-        /**
-         * Sets values in one or more ranges of a spreadsheet.
-         * The caller must specify the spreadsheet ID,
-         * a valueInputOption, and one or more
-         * ValueRanges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchUpdate({
-            spreadsheetId: "Test string",
-        }, {
-            data: [
-                {
-                    majorDimension: "Test string",
-                    range: "Test string",
-                    values: [
-                        [
-                            42                        ]                    ],
-                }            ],
-            includeValuesInResponse: true,
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            valueInputOption: "Test string",
         });
         /**
          * Copies a single sheet from a spreadsheet to another spreadsheet.

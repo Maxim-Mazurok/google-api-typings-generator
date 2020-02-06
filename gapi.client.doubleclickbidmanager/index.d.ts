@@ -169,6 +169,8 @@ declare namespace gapi.client {
             nextRunMinuteOfDay?: number;
             /** Canonical timezone code for report generation time. Defaults to America/New_York. */
             nextRunTimezoneCode?: string;
+            /** When to start running the query. Not applicable to `ONE_TIME` frequency. */
+            startTimeMs?: string;
         }
         interface Report {
             /** Key used to identify a report. */

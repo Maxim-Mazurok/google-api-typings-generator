@@ -491,6 +491,8 @@ declare namespace gapi.client {
             severity?: string;
         }
         interface KioskCustomization {
+            /** Specifies whether the Settings app is allowed in kiosk mode. */
+            deviceSettings?: string;
             /** Sets the behavior of a device in kiosk mode when a user presses and holds (long-presses) the Power button. */
             powerButtonActions?: string;
             /** Specifies whether system info and notifications are disabled in kiosk mode. */
@@ -787,7 +789,7 @@ declare namespace gapi.client {
             keyguardDisabledFeatures?: string[];
             /**
              * Whether the kiosk custom launcher is enabled. This replaces the home screen with a launcher that locks down the device to the apps installed via the
-             * applications setting. Apps appear on a single page in alphabetical order. The status bar is disabled when this is set.
+             * applications setting. Apps appear on a single page in alphabetical order. Use kioskCustomization to further configure the kiosk device behavior.
              */
             kioskCustomLauncherEnabled?: boolean;
             /**

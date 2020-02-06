@@ -179,8 +179,9 @@ declare namespace gapi.client {
              * When any of the optional fields that make up the data stream ID are absent, they will be omitted from the data stream ID. The minimum viable data
              * stream ID would be: type:dataType.name:developer project number
              *
-             * Finally, the developer project number is obfuscated when read by any REST or Android client that did not create the data source. Only the data source
-             * creator will see the developer project number in clear and normal form.
+             * Finally, the developer project number and device UID are obfuscated when read by any REST or Android client that did not create the data source. Only
+             * the data source creator will see the developer project number in clear and normal form. This means a client will see a different set of data_stream_ids
+             * than another client with different credentials.
              */
             dataStreamId?: string;
             /**
@@ -245,6 +246,8 @@ declare namespace gapi.client {
             /**
              * The serial number or other unique ID for the hardware. This field is obfuscated when read by any REST or Android client that did not create the data
              * source. Only the data source creator will see the uid field in clear and normal form.
+             *
+             * The obfuscation preserves equality; that is, given two IDs, if id1 == id2, obfuscated(id1) == obfuscated(id2).
              */
             uid?: string;
             /** Version string for the device hardware/software. */

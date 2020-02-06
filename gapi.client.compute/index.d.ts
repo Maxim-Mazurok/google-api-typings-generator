@@ -415,6 +415,8 @@ declare namespace gapi.client {
              * Instance templates do not store customer-supplied encryption keys, so you cannot use your own keys to encrypt disks in a managed instance group.
              */
             diskEncryptionKey?: CustomerEncryptionKey;
+            /** The size of the disk in GB. */
+            diskSizeGb?: string;
             /**
              * A list of features to enable on the guest operating system. Applicable only for bootable images. Read  Enabling guest operating system features to see
              * a list of available options.
@@ -1038,8 +1040,9 @@ declare namespace gapi.client {
             fingerprint?: string;
             /**
              * The list of URLs to the HttpHealthCheck or HttpsHealthCheck resource for health checking this BackendService. Currently at most one health check can be
-             * specified, and a health check is required for Compute Engine backend services. A health check must not be specified for App Engine backend and Cloud
-             * Function backend.
+             * specified. Health check is optional for Compute Engine backend services if there is no backend. A health check must not be specified when adding
+             * Internet Network Endpoint Group or Serverless Network Endpoint Group as backends. In all other cases, a health check is required for Compute Engine
+             * backend services.
              *
              * For internal load balancing, a URL to a HealthCheck resource must be specified instead.
              */
@@ -1291,9 +1294,9 @@ declare namespace gapi.client {
              *
              * &#42; `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`.
              *
-             * &#42; `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For
-             * example,`alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains
-             * the role in the binding.
+             * &#42; `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
+             * in the binding.
              *
              * &#42; `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
              * deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to
@@ -1561,7 +1564,7 @@ declare namespace gapi.client {
             disabled?: boolean;
             /** Specifies the content for the Access-Control-Expose-Headers header. */
             exposeHeaders?: string[];
-            /** Specifies how long the results of a preflight request can be cached. This translates to the content for the Access-Control-Max-Age header. */
+            /** Specifies how long results of a preflight request can be cached in seconds. This translates to the Access-Control-Max-Age header. */
             maxAge?: number;
         }
         interface CustomerEncryptionKey {
@@ -2161,7 +2164,7 @@ declare namespace gapi.client {
             id?: number;
             /**
              * IP address of the interface in the external VPN gateway. Only IPv4 is supported. This IP address can be either from your on-premise gateway or another
-             * Cloud provider?s VPN gateway, it cannot be an IP address from Google Compute Engine.
+             * Cloud provider's VPN gateway, it cannot be an IP address from Google Compute Engine.
              */
             ipAddress?: string;
         }
@@ -2412,6 +2415,11 @@ declare namespace gapi.client {
              */
             allPorts?: boolean;
             /**
+             * This field is used along with the backend_service field for internal load balancing or with the target field for internal TargetInstance. If the field
+             * is set to TRUE, clients can access ILB from all regions. Otherwise only allows access from clients in the same region as the internal load balancer.
+             */
+            allowGlobalAccess?: boolean;
+            /**
              * This field is only used for INTERNAL load balancing.
              *
              * For internal load balancing, this field identifies the BackendService resource to receive the matched traffic.
@@ -2421,6 +2429,14 @@ declare namespace gapi.client {
             creationTimestamp?: string;
             /** An optional description of this resource. Provide this property when you create the resource. */
             description?: string;
+            /**
+             * Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when
+             * inserting a ForwardingRule. Include the fingerprint in patch request to ensure that you do not overwrite changes that were applied from another
+             * concurrent request.
+             *
+             * To see the latest fingerprint, make a get() request to retrieve a ForwardingRule.
+             */
+            fingerprint?: string;
             /** [Output Only] The unique identifier for the resource. This identifier is defined by the server. */
             id?: string;
             /**
@@ -2428,17 +2444,29 @@ declare namespace gapi.client {
              * rule.
              */
             ipVersion?: string;
+            /**
+             * Indicates whether or not this load balancer can be used as a collector for packet mirroring. To prevent mirroring loops, instances behind this load
+             * balancer will not have their traffic mirrored even if a PacketMirroring rule applies to them. This can only be set to true for load balancers that have
+             * their loadBalancingScheme set to INTERNAL.
+             */
+            isMirroringCollector?: boolean;
             /** [Output Only] Type of the resource. Always compute#forwardingRule for Forwarding Rule resources. */
             kind?: string;
             /**
-             * Specifies the forwarding rule type. EXTERNAL is used for: - Classic Cloud VPN gateways - Protocol forwarding to VMs from an external IP address - The
-             * following load balancers: HTTP(S), SSL Proxy, TCP Proxy, and Network TCP/UDP.
+             * Specifies the forwarding rule type.
              *
-             * INTERNAL is used for: - Protocol forwarding to VMs from an internal IP address - Internal TCP/UDP load balancers
              *
-             * INTERNAL_MANAGED is used for: - Internal HTTP(S) load balancers
-             *
-             * INTERNAL_SELF_MANAGED is used for: - Traffic Director
+             * - EXTERNAL is used for:
+             * - Classic Cloud VPN gateways
+             * - Protocol forwarding to VMs from an external IP address
+             * - The following load balancers: HTTP(S), SSL Proxy, TCP Proxy, and Network TCP/UDP
+             * - INTERNAL is used for:
+             * - Protocol forwarding to VMs from an internal IP address
+             * - Internal TCP/UDP load balancers
+             * - INTERNAL_MANAGED is used for:
+             * - Internal HTTP(S) load balancers
+             * - >INTERNAL_SELF_MANAGED is used for:
+             * - Traffic Director
              *
              * For more information about forwarding rules, refer to Forwarding rule concepts.
              */
@@ -2538,7 +2566,7 @@ declare namespace gapi.client {
             /**
              * The URL of the target resource to receive the matched traffic. For regional forwarding rules, this target must live in the same region as the
              * forwarding rule. For global forwarding rules, this target must be a global load balancing resource. The forwarded traffic must be of a type appropriate
-             * to the target object. For INTERNAL_SELF_MANAGED load balancing, only HTTP and HTTPS targets are valid.
+             * to the target object. For INTERNAL_SELF_MANAGED load balancing, only targetHttpProxy is valid, not targetHttpsProxy.
              */
             target?: string;
         }
@@ -2714,21 +2742,13 @@ declare namespace gapi.client {
             portName?: string;
             /**
              * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in
-             * port
-             * is used for health checking.
-             * USE_NAMED_PORT: The
-             * portName
-             * is used for health checking.
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
              * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
              * named port specified in the Backend Service is used for health checking.
              *
              *
-             * If not specified, HTTP2 health check follows behavior specified in
-             * port
-             * and
-             * portName
-             * fields.
+             * If not specified, HTTP2 health check follows behavior specified in port and portName fields.
              */
             portSpecification?: string;
             /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
@@ -2753,21 +2773,13 @@ declare namespace gapi.client {
             portName?: string;
             /**
              * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in
-             * port
-             * is used for health checking.
-             * USE_NAMED_PORT: The
-             * portName
-             * is used for health checking.
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
              * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
              * named port specified in the Backend Service is used for health checking.
              *
              *
-             * If not specified, HTTP health check follows behavior specified in
-             * port
-             * and
-             * portName
-             * fields.
+             * If not specified, HTTP health check follows behavior specified in port and portName fields.
              */
             portSpecification?: string;
             /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
@@ -2792,21 +2804,13 @@ declare namespace gapi.client {
             portName?: string;
             /**
              * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in
-             * port
-             * is used for health checking.
-             * USE_NAMED_PORT: The
-             * portName
-             * is used for health checking.
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
              * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
              * named port specified in the Backend Service is used for health checking.
              *
              *
-             * If not specified, HTTPS health check follows behavior specified in
-             * port
-             * and
-             * portName
-             * fields.
+             * If not specified, HTTPS health check follows behavior specified in port and portName fields.
              */
             portSpecification?: string;
             /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
@@ -3209,13 +3213,17 @@ declare namespace gapi.client {
             httpsRedirect?: boolean;
             /**
              * The path that will be used in the redirect response instead of the one that was supplied in the request.
-             * Only one of pathRedirect or prefixRedirect must be specified.
+             * pathRedirect cannot be supplied together with prefixRedirect. Supply one alone or neither. If neither is supplied, the path of the original request
+             * will be used for the redirect.
              * The value must be between 1 and 1024 characters.
              */
             pathRedirect?: string;
             /**
              * The prefix that replaces the prefixMatch specified in the HttpRouteRuleMatch, retaining the remaining portion of the URL before redirecting the
              * request.
+             * prefixRedirect cannot be supplied together with pathRedirect. Supply one alone or neither. If neither is supplied, the path of the original request
+             * will be used for the redirect.
+             * The value must be between 1 and 1024 characters.
              */
             prefixRedirect?: string;
             /**
@@ -4700,7 +4708,7 @@ declare namespace gapi.client {
             /**
              * Up to 16 candidate prefixes that can be used to restrict the allocation of cloudRouterIpAddress and customerRouterIpAddress for this attachment. All
              * prefixes must be within link-local address space (169.254.0.0/16) and must be /29 or shorter (/28, /27, etc). Google will attempt to select an unused
-             * /29 from the supplied candidate prefix(es). The request will fail if all possible /29s are in use on Google?s edge. If not supplied, Google will
+             * /29 from the supplied candidate prefix(es). The request will fail if all possible /29s are in use on Google's edge. If not supplied, Google will
              * randomly select an unused /29 from all of link-local space.
              */
             candidateSubnets?: string[];
@@ -4877,14 +4885,14 @@ declare namespace gapi.client {
         }
         interface InterconnectAttachmentPartnerMetadata {
             /**
-             * Plain text name of the Interconnect this attachment is connected to, as displayed in the Partner?s portal. For instance "Chicago 1". This value may be
+             * Plain text name of the Interconnect this attachment is connected to, as displayed in the Partner's portal. For instance "Chicago 1". This value may be
              * validated to match approved Partner values.
              */
             interconnectName?: string;
             /** Plain text name of the Partner providing this attachment. This value may be validated to match approved Partner values. */
             partnerName?: string;
             /**
-             * URL of the Partner?s portal for this Attachment. Partners may customise this to be a deep link to the specific resource on the Partner portal. This
+             * URL of the Partner's portal for this Attachment. Partners may customise this to be a deep link to the specific resource on the Partner portal. This
              * value may be validated to match approved Partner values.
              */
             portalUrl?: string;
@@ -4945,9 +4953,9 @@ declare namespace gapi.client {
             macAddress?: string;
         }
         interface InterconnectDiagnosticsLinkLACPStatus {
-            /** System ID of the port on Google?s side of the LACP exchange. */
+            /** System ID of the port on Google's side of the LACP exchange. */
             googleSystemId?: string;
-            /** System ID of the port on the neighbor?s side of the LACP exchange. */
+            /** System ID of the port on the neighbor's side of the LACP exchange. */
             neighborSystemId?: string;
             /**
              * The state of a LACP link, which can take one of the following values:
@@ -5434,12 +5442,20 @@ declare namespace gapi.client {
             id?: string;
             /** [Output Only] The URL of the instance. The URL can exist even if the instance has not yet been created. */
             instance?: string;
+            /** [Output Only] Health state of the instance per health-check. */
+            instanceHealth?: ManagedInstanceInstanceHealth[];
             /** [Output Only] The status of the instance. This field is empty when the instance does not exist. */
             instanceStatus?: string;
             /** [Output Only] Information about the last attempt to create or delete the instance. */
             lastAttempt?: ManagedInstanceLastAttempt;
             /** [Output Only] Intended version of this instance. */
             version?: ManagedInstanceVersion;
+        }
+        interface ManagedInstanceInstanceHealth {
+            /** [Output Only] The current detailed instance health state. */
+            detailedHealthState?: string;
+            /** [Output Only] The URL for the health check that verifies whether the instance is healthy. */
+            healthCheck?: string;
         }
         interface ManagedInstanceLastAttempt {
             /** [Output Only] Encountered errors during the last attempt to create or delete the instance. */
@@ -6624,6 +6640,212 @@ declare namespace gapi.client {
              */
             successRateStdevFactor?: number;
         }
+        interface PacketMirroring {
+            /**
+             * The Forwarding Rule resource of type loadBalancingScheme=INTERNAL that will be used as collector for mirrored traffic. The specified forwarding rule
+             * must have isMirroringCollector set to true.
+             */
+            collectorIlb?: PacketMirroringForwardingRuleInfo;
+            /** [Output Only] Creation timestamp in RFC3339 text format. */
+            creationTimestamp?: string;
+            /** An optional description of this resource. Provide this property when you create the resource. */
+            description?: string;
+            /**
+             * Indicates whether or not this packet mirroring takes effect. If set to FALSE, this packet mirroring policy will not be enforced on the network.
+             *
+             * The default is TRUE.
+             */
+            enable?: string;
+            /** Filter for mirrored traffic. If unspecified, all traffic is mirrored. */
+            filter?: PacketMirroringFilter;
+            /** [Output Only] The unique identifier for the resource. This identifier is defined by the server. */
+            id?: string;
+            /** [Output Only] Type of the resource. Always compute#packetMirroring for packet mirrorings. */
+            kind?: string;
+            /**
+             * PacketMirroring mirroredResourceInfos. MirroredResourceInfo specifies a set of mirrored VM instances, subnetworks and/or tags for which traffic from/to
+             * all VM instances will be mirrored.
+             */
+            mirroredResources?: PacketMirroringMirroredResourceInfo;
+            /**
+             * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+             */
+            name?: string;
+            /**
+             * Specifies the mirrored VPC network. Only packets in this network will be mirrored. All mirrored VMs should have a NIC in the given network. All
+             * mirrored subnetworks should belong to the given network.
+             */
+            network?: PacketMirroringNetworkInfo;
+            /**
+             * The priority of applying this configuration. Priority is used to break ties in cases where there is more than one matching rule. In the case of two
+             * rules that apply for a given Instance, the one with the lowest-numbered priority value wins.
+             *
+             * Default value is 1000. Valid range is 0 through 65535.
+             */
+            priority?: number;
+            /** [Output Only] URI of the region where the packetMirroring resides. */
+            region?: string;
+            /** [Output Only] Server-defined URL for the resource. */
+            selfLink?: string;
+        }
+        interface PacketMirroringAggregatedList {
+            /** [Output Only] Unique identifier for the resource; defined by the server. */
+            id?: string;
+            /** A list of PacketMirroring resources. */
+            items?: Record<string, PacketMirroringsScopedList>;
+            /** Type of resource. */
+            kind?: string;
+            /**
+             * [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the
+             * nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to
+             * continue paging through the results.
+             */
+            nextPageToken?: string;
+            /** [Output Only] Server-defined URL for this resource. */
+            selfLink?: string;
+            /** [Output Only] Informational warning message. */
+            warning?: {
+                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
+                code?: string;
+                /**
+                 * [Output Only] Metadata about this warning in key: value format. For example:
+                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+                 */
+                data?: Array<{
+                    /**
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
+                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
+                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
+                     * for IP forwarding).
+                     */
+                    key?: string;
+                    /** [Output Only] A warning data value corresponding to the key. */
+                    value?: string;
+                }>;
+                /** [Output Only] A human-readable description of the warning code. */
+                message?: string;
+            };
+        }
+        interface PacketMirroringFilter {
+            /**
+             * Protocols that apply as filter on mirrored traffic. If no protocols are specified, all traffic that matches the specified CIDR ranges is mirrored. If
+             * neither cidrRanges nor IPProtocols is specified, all traffic is mirrored.
+             */
+            IPProtocols?: string[];
+            /**
+             * IP CIDR ranges that apply as filter on the source (ingress) or destination (egress) IP in the IP header. Only IPv4 is supported. If no ranges are
+             * specified, all traffic that matches the specified IPProtocols is mirrored. If neither cidrRanges nor IPProtocols is specified, all traffic is mirrored.
+             */
+            cidrRanges?: string[];
+        }
+        interface PacketMirroringForwardingRuleInfo {
+            /** [Output Only] Unique identifier for the forwarding rule; defined by the server. */
+            canonicalUrl?: string;
+            /** Resource URL to the forwarding rule representing the ILB configured as destination of the mirrored traffic. */
+            url?: string;
+        }
+        interface PacketMirroringList {
+            /** [Output Only] Unique identifier for the resource; defined by the server. */
+            id?: string;
+            /** A list of PacketMirroring resources. */
+            items?: PacketMirroring[];
+            /** [Output Only] Type of resource. Always compute#packetMirroring for packetMirrorings. */
+            kind?: string;
+            /**
+             * [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the
+             * nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to
+             * continue paging through the results.
+             */
+            nextPageToken?: string;
+            /** [Output Only] Server-defined URL for this resource. */
+            selfLink?: string;
+            /** [Output Only] Informational warning message. */
+            warning?: {
+                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
+                code?: string;
+                /**
+                 * [Output Only] Metadata about this warning in key: value format. For example:
+                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+                 */
+                data?: Array<{
+                    /**
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
+                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
+                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
+                     * for IP forwarding).
+                     */
+                    key?: string;
+                    /** [Output Only] A warning data value corresponding to the key. */
+                    value?: string;
+                }>;
+                /** [Output Only] A human-readable description of the warning code. */
+                message?: string;
+            };
+        }
+        interface PacketMirroringMirroredResourceInfo {
+            /**
+             * A set of virtual machine instances that are being mirrored. They must live in zones contained in the same region as this packetMirroring.
+             *
+             * Note that this config will apply only to those network interfaces of the Instances that belong to the network specified in this packetMirroring.
+             *
+             * You may specify a maximum of 50 Instances.
+             */
+            instances?: PacketMirroringMirroredResourceInfoInstanceInfo[];
+            /**
+             * A set of subnetworks for which traffic from/to all VM instances will be mirrored. They must live in the same region as this packetMirroring.
+             *
+             * You may specify a maximum of 5 subnetworks.
+             */
+            subnetworks?: PacketMirroringMirroredResourceInfoSubnetInfo[];
+            /** A set of mirrored tags. Traffic from/to all VM instances that have one or more of these tags will be mirrored. */
+            tags?: string[];
+        }
+        interface PacketMirroringMirroredResourceInfoInstanceInfo {
+            /** [Output Only] Unique identifier for the instance; defined by the server. */
+            canonicalUrl?: string;
+            /** Resource URL to the virtual machine instance which is being mirrored. */
+            url?: string;
+        }
+        interface PacketMirroringMirroredResourceInfoSubnetInfo {
+            /** [Output Only] Unique identifier for the subnetwork; defined by the server. */
+            canonicalUrl?: string;
+            /** Resource URL to the subnetwork for which traffic from/to all VM instances will be mirrored. */
+            url?: string;
+        }
+        interface PacketMirroringNetworkInfo {
+            /** [Output Only] Unique identifier for the network; defined by the server. */
+            canonicalUrl?: string;
+            /** URL of the network resource. */
+            url?: string;
+        }
+        interface PacketMirroringsScopedList {
+            /** A list of packetMirrorings contained in this scope. */
+            packetMirrorings?: PacketMirroring[];
+            /** Informational warning which replaces the list of packetMirrorings when the list is empty. */
+            warning?: {
+                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
+                code?: string;
+                /**
+                 * [Output Only] Metadata about this warning in key: value format. For example:
+                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+                 */
+                data?: Array<{
+                    /**
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
+                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
+                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
+                     * for IP forwarding).
+                     */
+                    key?: string;
+                    /** [Output Only] A warning data value corresponding to the key. */
+                    value?: string;
+                }>;
+                /** [Output Only] A human-readable description of the warning code. */
+                message?: string;
+            };
+        }
         interface PathMatcher {
             /**
              * defaultRouteAction takes effect when none of the  pathRules or routeRules match. The load balancer performs advanced routing actions like URL rewrites,
@@ -7534,7 +7756,7 @@ declare namespace gapi.client {
             weeklySchedule?: ResourcePolicyWeeklyCycle;
         }
         interface ResourcePolicySnapshotSchedulePolicySnapshotProperties {
-            /** Indication to perform a ?guest aware? snapshot. */
+            /** Indication to perform a 'guest aware' snapshot. */
             guestFlush?: boolean;
             /** Labels to apply to scheduled snapshots. These can be later modified by the setLabels method. Label values may be empty. */
             labels?: Record<string, string>;
@@ -8072,21 +8294,13 @@ declare namespace gapi.client {
             portName?: string;
             /**
              * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in
-             * port
-             * is used for health checking.
-             * USE_NAMED_PORT: The
-             * portName
-             * is used for health checking.
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
              * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
              * named port specified in the Backend Service is used for health checking.
              *
              *
-             * If not specified, SSL health check follows behavior specified in
-             * port
-             * and
-             * portName
-             * fields.
+             * If not specified, SSL health check follows behavior specified in port and portName fields.
              */
             portSpecification?: string;
             /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
@@ -8211,7 +8425,7 @@ declare namespace gapi.client {
             description?: string;
             /** [Output only] Type of the resource. Always compute#securityPolicyRule for security policy rules */
             kind?: string;
-            /** A match condition that incoming traffic is evaluated against. If it evaluates to true, the corresponding ?action? is enforced. */
+            /** A match condition that incoming traffic is evaluated against. If it evaluates to true, the corresponding 'action' is enforced. */
             match?: SecurityPolicyRuleMatcher;
             /** If set to true, the specified action is not enforced. */
             preview?: boolean;
@@ -8306,6 +8520,8 @@ declare namespace gapi.client {
             description?: string;
             /** [Output Only] Size of the source disk, specified in GB. */
             diskSizeGb?: string;
+            /** [Output Only] Number of bytes downloaded to restore a snapshot to a disk. */
+            downloadBytes?: string;
             /** [Output Only] The unique identifier for the resource. This identifier is defined by the server. */
             id?: string;
             /** [Output Only] Type of the resource. Always compute#snapshot for Snapshot resources. */
@@ -8885,21 +9101,13 @@ declare namespace gapi.client {
             portName?: string;
             /**
              * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in
-             * port
-             * is used for health checking.
-             * USE_NAMED_PORT: The
-             * portName
-             * is used for health checking.
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
              * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
              * named port specified in the Backend Service is used for health checking.
              *
              *
-             * If not specified, TCP health check follows behavior specified in
-             * port
-             * and
-             * portName
-             * fields.
+             * If not specified, TCP health check follows behavior specified in port and portName fields.
              */
             portSpecification?: string;
             /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
@@ -13877,6 +14085,79 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<ForwardingRuleList>;
+            /**
+             * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format
+             * and processing rules. Currently, you can only patch the network_tier field.
+             */
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Name of the ForwardingRule resource to patch. */
+                forwardingRule: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region scoping this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: ForwardingRule;
+            }): Request<Operation>;
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Name of the ForwardingRule resource to patch. */
+                forwardingRule: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region scoping this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: ForwardingRule): Request<Operation>;
             /** Changes target URL for forwarding rule. The new target should be of the same type as the old target. */
             setTarget(request: {
                 /** Data format for the response. */
@@ -14281,6 +14562,75 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<ForwardingRuleList>;
+            /**
+             * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format
+             * and processing rules. Currently, you can only patch the network_tier field.
+             */
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Name of the ForwardingRule resource to patch. */
+                forwardingRule: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: ForwardingRule;
+            }): Request<Operation>;
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Name of the ForwardingRule resource to patch. */
+                forwardingRule: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: ForwardingRule): Request<Operation>;
             /** Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target. */
             setTarget(request: {
                 /** Data format for the response. */
@@ -14492,11 +14842,15 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<OperationList>;
             /**
-             * Waits for the specified Operations resource until it is done or timeout, and retrieves the specified Operations resource. 1. Immediately returns when
-             * the operation is already done. 2. Waits for no more than the default deadline (2 minutes, subject to change) and then returns the current state of the
-             * operation, which may be DONE or still in progress. 3. Is best-effort: a. The server can wait less than the default deadline or zero seconds, in
-             * overload situations. b. There is no guarantee that the operation is actually done when returns. 4. User should be prepared to retry if the operation is
-             * not DONE.
+             * Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified
+             * Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the
+             * current state of the operation, which might be DONE or still in progress.
+             *
+             * This method is called on a best-effort basis. Specifically:
+             * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
+             * seconds.
+             * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
+             * operation is not DONE.
              */
             wait(request: {
                 /** Data format for the response. */
@@ -22449,6 +22803,330 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<NodeTypeList>;
         }
+        interface PacketMirroringsResource {
+            /** Retrieves an aggregated list of packetMirrorings. */
+            aggregatedList(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
+                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+                 *
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
+                 *
+                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
+                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 *
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
+                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
+                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+                 */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+                 *
+                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
+                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
+                 * is returned first.
+                 *
+                 * Currently, only sorting by name or creationTimestamp desc is supported.
+                 */
+                orderBy?: string;
+                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<PacketMirroringAggregatedList>;
+            /** Deletes the specified PacketMirroring resource. */
+            delete(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Name of the PacketMirroring resource to delete. */
+                packetMirroring: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<Operation>;
+            /** Returns the specified PacketMirroring resource. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Name of the PacketMirroring resource to return. */
+                packetMirroring: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region for this request. */
+                region: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<PacketMirroring>;
+            /** Creates a PacketMirroring resource in the specified project and region using the data included in the request. */
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: PacketMirroring;
+            }): Request<Operation>;
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: PacketMirroring): Request<Operation>;
+            /** Retrieves a list of PacketMirroring resources available to the specified project and region. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
+                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+                 *
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
+                 *
+                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
+                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 *
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
+                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
+                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+                 */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+                 *
+                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
+                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
+                 * is returned first.
+                 *
+                 * Currently, only sorting by name or creationTimestamp desc is supported.
+                 */
+                orderBy?: string;
+                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region for this request. */
+                region: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<PacketMirroringList>;
+            /**
+             * Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch
+             * format and processing rules.
+             */
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Name of the PacketMirroring resource to patch. */
+                packetMirroring: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: PacketMirroring;
+            }): Request<Operation>;
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Name of the PacketMirroring resource to patch. */
+                packetMirroring: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: PacketMirroring): Request<Operation>;
+            /** Returns permissions that a caller has on the specified resource. */
+            testIamPermissions(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. */
+                region: string;
+                /** Name or id of the resource for this request. */
+                resource: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: TestPermissionsRequest): Request<TestPermissionsResponse>;
+        }
         interface ProjectsResource {
             /** Disable this project as a shared VPC host project. */
             disableXpnHost(request: {
@@ -26120,11 +26798,15 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<OperationList>;
             /**
-             * Waits for the specified region-specific Operations resource until it is done or timeout, and retrieves the specified Operations resource. 1.
-             * Immediately returns when the operation is already done. 2. Waits for no more than the default deadline (2 minutes, subject to change) and then returns
-             * the current state of the operation, which may be DONE or still in progress. 3. Is best-effort: a. The server can wait less than the default deadline or
-             * zero seconds, in overload situations. b. There is no guarantee that the operation is actually done when returns. 4. User should be prepared to retry if
-             * the operation is not DONE.
+             * Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified
+             * Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the
+             * current state of the operation, which might be DONE or still in progress.
+             *
+             * This method is called on a best-effort basis. Specifically:
+             * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
+             * seconds.
+             * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
+             * operation is not DONE.
              */
             wait(request: {
                 /** Data format for the response. */
@@ -33926,10 +34608,14 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<OperationList>;
             /**
-             * Waits for the specified zone-specific Operations resource until it is done or timeout, and retrieves the specified Operations resource. 1. Immediately
-             * returns when the operation is already done. 2. Waits for no more than the default deadline (2 minutes, subject to change) and then returns the current
-             * state of the operation, which may be DONE or still in progress. 3. Is best-effort: a. The server can wait less than the default deadline or zero
-             * seconds, in overload situations. b. There is no guarantee that the operation is actually done when returns. 4. User should be prepared to retry if the
+             * Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified
+             * Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the
+             * current state of the operation, which might be DONE or still in progress.
+             *
+             * This method is called on a best-effort basis. Specifically:
+             * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
+             * seconds.
+             * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
              * operation is not DONE.
              */
             wait(request: {
@@ -34092,6 +34778,8 @@ declare namespace gapi.client {
         const nodeTemplates: NodeTemplatesResource;
 
         const nodeTypes: NodeTypesResource;
+
+        const packetMirrorings: PacketMirroringsResource;
 
         const projects: ProjectsResource;
 

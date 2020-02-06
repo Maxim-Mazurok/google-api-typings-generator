@@ -20,7 +20,6 @@ declare namespace gapi.client {
         interface AuditConfig {
             /** The configuration for logging of each type of permission. */
             auditLogConfigs?: AuditLogConfig[];
-            exemptedMembers?: string[];
             /**
              * Specifies a service that will be enabled for audit logging.
              * For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
@@ -35,13 +34,8 @@ declare namespace gapi.client {
              * Follows the same format of Binding.members.
              */
             exemptedMembers?: string[];
-            ignoreChildExemptions?: boolean;
             /** The log type that this config enables. */
             logType?: string;
-        }
-        interface AuthorizationLoggingOptions {
-            /** The type of the permission that was checked. */
-            permissionType?: string;
         }
         interface Binding {
             /**
@@ -71,6 +65,26 @@ declare namespace gapi.client {
              * &#42; `group:{emailid}`: An email address that represents a Google group.
              * For example, `admins@example.com`.
              *
+             * &#42; `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * identifier) representing a user that has been recently deleted. For
+             * example, `alice@example.com?uid=123456789012345678901`. If the user is
+             * recovered, this value reverts to `user:{emailid}` and the recovered user
+             * retains the role in the binding.
+             *
+             * &#42; `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
+             * unique identifier) representing a service account that has been recently
+             * deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`.
+             * If the service account is undeleted, this value reverts to
+             * `serviceAccount:{emailid}` and the undeleted service account retains the
+             * role in the binding.
+             *
+             * &#42; `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If
+             * the group is recovered, this value reverts to `group:{emailid}` and the
+             * recovered group retains the role in the binding.
+             *
              *
              * &#42; `domain:{domain}`: The G Suite domain (primary) that represents all the
              * users of that domain. For example, `google.com` or `example.com`.
@@ -85,76 +99,27 @@ declare namespace gapi.client {
         // tslint:disable-next-line:no-empty-interface
         interface CancelOperationRequest {
         }
-        interface CloudAuditOptions {
-            /** Information used by the Cloud Audit Logging pipeline. */
-            authorizationLoggingOptions?: AuthorizationLoggingOptions;
-            /** The log_name to populate in the Cloud Audit Record. */
-            logName?: string;
-        }
-        interface Condition {
-            /** Trusted attributes supplied by the IAM system. */
-            iam?: string;
-            /** An operator to apply the subject with. */
-            op?: string;
-            /** Trusted attributes discharged by the service. */
-            svc?: string;
-            /**
-             * Trusted attributes supplied by any service that owns resources and uses
-             * the IAM system for access control.
-             */
-            sys?: string;
-            /** The objects of the condition. */
-            values?: string[];
-        }
-        interface CounterOptions {
-            /** Custom fields. */
-            customFields?: CustomField[];
-            /** The field value to attribute. */
-            field?: string;
-            /** The metric to update. */
-            metric?: string;
-        }
-        interface CustomField {
-            /** Name is the field name. */
-            name?: string;
-            /**
-             * Value is the field value. It is important that in contrast to the
-             * CounterOptions.field, the value here is a constant that is not
-             * derived from the IAMContext.
-             */
-            value?: string;
-        }
-        interface DataAccessOptions {
-            /**
-             * Whether Gin logging should happen in a fail-closed manner at the caller.
-             * This is relevant only in the LocalIAM implementation, for now.
-             */
-            logMode?: string;
-        }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface Expr {
             /**
-             * An optional description of the expression. This is a longer text which
+             * Optional. Description of the expression. This is a longer text which
              * describes the expression, e.g. when hovered over it in a UI.
              */
             description?: string;
             /**
-             * Textual representation of an expression in
-             * Common Expression Language syntax.
-             *
-             * The application context of the containing message determines which
-             * well-known feature set of CEL is supported.
+             * Textual representation of an expression in Common Expression Language
+             * syntax.
              */
             expression?: string;
             /**
-             * An optional string indicating the location of the expression for error
+             * Optional. String indicating the location of the expression for error
              * reporting, e.g. a file name and a position in the file.
              */
             location?: string;
             /**
-             * An optional title for the expression, i.e. a short string describing
+             * Optional. Title for the expression, i.e. a short string describing
              * its purpose. This can be used e.g. in UIs which allow to enter the
              * expression.
              */
@@ -179,9 +144,14 @@ declare namespace gapi.client {
             /** Option to enable Stackdriver Monitoring. */
             enableStackdriverMonitoring?: boolean;
             /**
+             * Output only. Cloud Storage bucket generated by Data Fusion in the customer
+             * project.
+             */
+            gcsBucket?: string;
+            /**
              * The resource labels for instance to use to annotate any related underlying
-             * resources such as GCE VMs. The character '=' is not allowed to be used
-             * within the labels.
+             * resources such as Compute Engine VMs. The character '=' is not allowed to
+             * be used within the labels.
              */
             labels?: Record<string, string>;
             /**
@@ -223,7 +193,7 @@ declare namespace gapi.client {
             type?: string;
             /** Output only. The time the instance was last updated. */
             updateTime?: string;
-            /** Current version of the Data Fusion. Only specifiable in Update. */
+            /** Current version of Data Fusion. */
             version?: string;
             /** Name of the zone in which the Data Fusion instance will be created. */
             zone?: string;
@@ -275,14 +245,6 @@ declare namespace gapi.client {
              * For example: `"projects/example-project/locations/us-east1"`
              */
             name?: string;
-        }
-        interface LogConfig {
-            /** Cloud audit options. */
-            cloudAudit?: CloudAuditOptions;
-            /** Counter options. */
-            counter?: CounterOptions;
-            /** Data access options. */
-            dataAccess?: DataAccessOptions;
         }
         interface NetworkConfig {
             /**
@@ -358,9 +320,9 @@ declare namespace gapi.client {
             /** Specifies cloud audit logging configuration for this policy. */
             auditConfigs?: AuditConfig[];
             /**
-             * Associates a list of `members` to a `role`. Optionally may specify a
-             * `condition` that determines when binding is in effect.
-             * `bindings` with no members will result in an error.
+             * Associates a list of `members` to a `role`. Optionally, may specify a
+             * `condition` that determines how and when the `bindings` are applied. Each
+             * of the `bindings` must contain at least one member.
              */
             bindings?: Binding[];
             /**
@@ -372,78 +334,39 @@ declare namespace gapi.client {
              * systems are expected to put that etag in the request to `setIamPolicy` to
              * ensure that their change will be applied to the same version of the policy.
              *
-             * If no `etag` is provided in the call to `setIamPolicy`, then the existing
-             * policy is overwritten. Due to blind-set semantics of an etag-less policy,
-             * 'setIamPolicy' will not fail even if either of incoming or stored policy
-             * does not meet the version requirements.
+             * &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field
+             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+             * you to overwrite a version `3` policy with a version `1` policy, and all of
+             * the conditions in the version `3` policy are lost.
              */
             etag?: string;
-            iamOwned?: boolean;
-            /**
-             * If more than one rule is specified, the rules are applied in the following
-             * manner:
-             * - All matching LOG rules are always applied.
-             * - If any DENY/DENY_WITH_LOG rule matches, permission is denied.
-             * Logging will be applied if one or more matching rule requires logging.
-             * - Otherwise, if any ALLOW/ALLOW_WITH_LOG rule matches, permission is
-             * granted.
-             * Logging will be applied if one or more matching rule requires logging.
-             * - Otherwise, if no rule applies, permission is denied.
-             */
-            rules?: Rule[];
             /**
              * Specifies the format of the policy.
              *
-             * Valid values are 0, 1, and 3. Requests specifying an invalid value will be
-             * rejected.
+             * Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
+             * are rejected.
              *
-             * Operations affecting conditional bindings must specify version 3. This can
-             * be either setting a conditional policy, modifying a conditional binding,
-             * or removing a conditional binding from the stored conditional policy.
-             * Operations on non-conditional policies may specify any valid value or
-             * leave the field unset.
+             * Any operation that affects conditional role bindings must specify version
+             * `3`. This requirement applies to the following operations:
              *
-             * If no etag is provided in the call to `setIamPolicy`, any version
-             * compliance checks on the incoming and/or stored policy is skipped.
+             * &#42; Getting a policy that includes a conditional role binding
+             * &#42; Adding a conditional role binding to a policy
+             * &#42; Changing a conditional role binding in a policy
+             * &#42; Removing any role binding, with or without a condition, from a policy
+             * that includes conditions
+             *
+             * &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field
+             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+             * you to overwrite a version `3` policy with a version `1` policy, and all of
+             * the conditions in the version `3` policy are lost.
+             *
+             * If a policy does not include any conditions, operations on that policy may
+             * specify any valid version or leave the field unset.
              */
             version?: number;
         }
         // tslint:disable-next-line:no-empty-interface
         interface RestartInstanceRequest {
-        }
-        interface Rule {
-            /** Required */
-            action?: string;
-            /**
-             * Additional restrictions that must be met. All conditions must pass for the
-             * rule to match.
-             */
-            conditions?: Condition[];
-            /** Human-readable description of the rule. */
-            description?: string;
-            /**
-             * If one or more 'in' clauses are specified, the rule matches if
-             * the PRINCIPAL/AUTHORITY_SELECTOR is in at least one of these entries.
-             */
-            in?: string[];
-            /**
-             * The config returned to callers of tech.iam.IAM.CheckPolicy for any entries
-             * that match the LOG action.
-             */
-            logConfig?: LogConfig[];
-            /**
-             * If one or more 'not_in' clauses are specified, the rule matches
-             * if the PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries.
-             * The format for in and not_in entries can be found at in the Local IAM
-             * documentation (see go/local-iam#features).
-             */
-            notIn?: string[];
-            /**
-             * A permission is a string of form '<service>.<resource type>.<verb>'
-             * (e.g., 'storage.buckets.list'). A value of '&#42;' matches all permissions,
-             * and a verb part of '&#42;' (e.g., 'storage.buckets.&#42;') matches all verbs.
-             */
-            permissions?: string[];
         }
         interface SetIamPolicyRequest {
             /**
@@ -1223,6 +1146,11 @@ declare namespace gapi.client {
                 fields?: string;
                 /** The standard list filter. */
                 filter?: string;
+                /**
+                 * If true, the returned list will include locations which are not yet
+                 * revealed.
+                 */
+                includeUnrevealedLocations?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** The resource that owns the locations collection, if applicable. */

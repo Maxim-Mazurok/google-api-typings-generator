@@ -451,6 +451,8 @@ declare namespace gapi.client {
             emailAddress?: string;
             /** Time at which the subscription will expire, in milliseconds since the Epoch. */
             expiryTimeMillis?: string;
+            /** User account identifier in the third-party service. Only present if account linking happened as part of the subscription purchase flow. */
+            externalAccountId?: string;
             /** The family name of the user when the subscription was purchased. Only present for purchases made with 'Subscribe with Google'. */
             familyName?: string;
             /** The given name of the user when the subscription was purchased. Only present for purchases made with 'Subscribe with Google'. */
@@ -499,10 +501,20 @@ declare namespace gapi.client {
             profileId?: string;
             /** The profile name of the user when the subscription was purchased. Only present for purchases made with 'Subscribe with Google'. */
             profileName?: string;
+            /** The promotion code applied on this purchase. This field is only set if a vanity code promotion is applied when the subscription was purchased. */
+            promotionCode?: string;
+            /**
+             * The type of promotion applied on this purchase. This field is only set if a promotion is applied when the subscription was purchased. Possible values
+             * are:
+             * - One time code
+             * - Vanity code
+             */
+            promotionType?: number;
             /**
              * The type of purchase of the subscription. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values
              * are:
              * - Test (i.e. purchased from a license testing account)
+             * - Promo (i.e. purchased using a promo code)
              */
             purchaseType?: number;
             /** Time at which the subscription was granted, in milliseconds since the Epoch. */
@@ -549,6 +561,11 @@ declare namespace gapi.client {
         interface TrackRelease {
             controls?: Control[];
             countryTargeting?: CountryTargeting;
+            /**
+             * In-app update priority of the release. All newly added APKs in the release will be considered at this priority. in_app_update_priority can take values
+             * between [0, 5]. 5 is the highest priority. Default priority is 0. See https://developer.android.com/guide/playcore/in-app-updates.
+             */
+            inAppUpdatePriority?: number;
             /**
              * The release name, used to identify this release in the Play Console UI. Not required to be unique. This is optional, if not set it will be generated
              * from the version_name in the APKs.

@@ -93,6 +93,11 @@ Lists the sub-accounts in your Merchant Center account.
 await gapi.client.accounts.list({ merchantId: "merchantId",  }); 
     
 /* 
+Returns the list of accounts linked to your Merchant Center account.  
+*/
+await gapi.client.accounts.listlinks({ accountId: "accountId", merchantId: "merchantId",  }); 
+    
+/* 
 Updates a Merchant Center account.  
 */
 await gapi.client.accounts.update({ accountId: "accountId", merchantId: "merchantId",  }); 

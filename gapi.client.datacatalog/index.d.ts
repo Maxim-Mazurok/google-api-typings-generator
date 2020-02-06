@@ -81,25 +81,22 @@ declare namespace gapi.client {
         }
         interface Expr {
             /**
-             * An optional description of the expression. This is a longer text which
+             * Optional. Description of the expression. This is a longer text which
              * describes the expression, e.g. when hovered over it in a UI.
              */
             description?: string;
             /**
-             * Textual representation of an expression in
-             * Common Expression Language syntax.
-             *
-             * The application context of the containing message determines which
-             * well-known feature set of CEL is supported.
+             * Textual representation of an expression in Common Expression Language
+             * syntax.
              */
             expression?: string;
             /**
-             * An optional string indicating the location of the expression for error
+             * Optional. String indicating the location of the expression for error
              * reporting, e.g. a file name and a position in the file.
              */
             location?: string;
             /**
-             * An optional title for the expression, i.e. a short string describing
+             * Optional. Title for the expression, i.e. a short string describing
              * its purpose. This can be used e.g. in UIs which allow to enter the
              * expression.
              */
@@ -289,7 +286,7 @@ declare namespace gapi.client {
         interface GoogleCloudDatacatalogV1beta1GcsFilesetSpec {
             /**
              * Required. Patterns to identify a set of files in Google Cloud Storage. See [Cloud
-             * Storage documentation](storage/docs/gsutil/addlhelp/WildcardNames) for
+             * Storage documentation](/storage/docs/gsutil/addlhelp/WildcardNames) for
              * more information. Note that bucket wildcards are currently not supported.
              *
              * Examples of valid file_patterns:
@@ -300,9 +297,20 @@ declare namespace gapi.client {
              * spanning all subdirectories.
              * &#42; `gs://bucket_name/file&#42;`: matches files prefixed by `file` in
              * `bucket_name`
+             * &#42; `gs://bucket_name/??.txt`: matches files with two characters followed by
+             * `.txt` in `bucket_name`
+             * &#42; `gs://bucket_name/[aeiou].txt`: matches files that contain a single
+             * vowel character followed by `.txt` in
+             * `bucket_name`
+             * &#42; `gs://bucket_name/[a-m].txt`: matches files that contain `a`, `b`, ...
+             * or `m` followed by `.txt` in `bucket_name`
              * &#42; `gs://bucket_name/a/&#42;/b`: matches all files in `bucket_name` that match
              * `a/&#42;/b` pattern, such as `a/c/b`, `a/d/b`
              * &#42; `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+             *
+             * You can combine wildcards to provide more powerful matches, for example:
+             *
+             * &#42; `gs://bucket_name/[a-m]??.j&#42;g`
              */
             filePatterns?: string[];
             /**
@@ -755,10 +763,10 @@ declare namespace gapi.client {
              * the complete resource, only the resource identifier and high level
              * fields. Clients can subsequentally call `Get` methods.
              *
-             * Note that searches do not have full recall. There may be results that match
-             * your query but are not returned, even in subsequent pages of results. These
-             * missing results may vary across repeated calls to search. Do not rely on
-             * this method if you need to guarantee full recall.
+             * Note that Data Catalog search queries do not guarantee full recall. Query
+             * results that match your query may not be returned, even in subsequent
+             * result pages. Also note that results returned (and not returned) can vary
+             * across repeated search queries.
              *
              * See [Data Catalog Search
              * Syntax](/data-catalog/docs/how-to/search-reference) for more information.
@@ -861,7 +869,7 @@ declare namespace gapi.client {
                  * &#42; ``pubsub.project_id.`topic.id.with.dots` ``
                  * &#42; `bigquery.table.project_id.dataset_id.table_id`
                  * &#42; `bigquery.dataset.project_id.dataset_id`
-                 * &#42; `datacatalog.project_id.location_id.entry_group_id.entry_id`
+                 * &#42; `datacatalog.entry.project_id.location_id.entry_group_id.entry_id`
                  *
                  * `&#42;_id`s shoud satisfy the standard SQL rules for identifiers.
                  * https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical.
@@ -1413,53 +1421,6 @@ declare namespace gapi.client {
                 upload_protocol?: string;
             },
             body: GoogleCloudDatacatalogV1beta1Entry): Request<GoogleCloudDatacatalogV1beta1Entry>;
-            /**
-             * Sets the access control policy for a resource. Replaces any existing
-             * policy.
-             * Supported resources are:
-             * - Tag templates.
-             * - Entries.
-             * - Entry groups.
-             * Note, this method cannot be used to manage policies for BigQuery, Cloud
-             * Pub/Sub and any external Google Cloud Platform resources synced to Cloud
-             * Data Catalog.
-             *
-             * Callers must have following Google IAM permission
-             * - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag
-             * templates.
-             * - `datacatalog.entries.setIamPolicy` to set policies on entries.
-             * - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
-             */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified.
-                 * See the operation documentation for the appropriate value for this field.
-                 */
-                resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            },
-            body: SetIamPolicyRequest): Request<Policy>;
             /**
              * Returns the caller's permissions on a resource.
              * If the resource does not exist, an empty set of permissions is returned

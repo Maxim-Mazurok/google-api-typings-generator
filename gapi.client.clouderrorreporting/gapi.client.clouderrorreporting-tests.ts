@@ -31,6 +31,17 @@ gapi.load('client', () => {
         await gapi.client.clouderrorreporting.projects.deleteEvents({
             projectName: "Test string",
         });
+        /** Lists the specified events. */
+        await gapi.client.clouderrorreporting.projects.events.list({
+            groupId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectName: "Test string",
+            "serviceFilter.resourceType": "Test string",
+            "serviceFilter.service": "Test string",
+            "serviceFilter.version": "Test string",
+            "timeRange.period": "Test string",
+        });
         /**
          * Report an individual error event.
          *
@@ -73,17 +84,6 @@ gapi.load('client', () => {
                 service: "Test string",
                 version: "Test string",
             },
-        });
-        /** Lists the specified events. */
-        await gapi.client.clouderrorreporting.projects.events.list({
-            groupId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectName: "Test string",
-            "serviceFilter.resourceType": "Test string",
-            "serviceFilter.service": "Test string",
-            "serviceFilter.version": "Test string",
-            "timeRange.period": "Test string",
         });
         /** Get the specified group. */
         await gapi.client.clouderrorreporting.projects.groups.get({

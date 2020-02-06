@@ -85,6 +85,7 @@ gapi.load('client', () => {
                 frequency: "Test string",
                 nextRunMinuteOfDay: 42,
                 nextRunTimezoneCode: "Test string",
+                startTimeMs: "Test string",
             },
             timezoneCode: "Test string",
         });

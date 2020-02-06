@@ -498,7 +498,7 @@ declare namespace gapi.client {
              * The frame_number component exists only for multi-frame instances.
              *
              * Refer to the DICOM conformance statement for permissible MIME types:
-             * https://cloud.google.com/healthcare/docs/dicom#wado-rs
+             * https://cloud.google.com/healthcare/docs/dicom#retrieve_transaction
              *
              * The following extensions are used for output files:
              * application/dicom -> .dcm
@@ -1053,7 +1053,8 @@ declare namespace gapi.client {
              * The FHIR resource type to search, such as Patient or Observation. For a
              * complete list, see the FHIR Resource Index
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
              */
             resourceType?: string;
         }
@@ -1354,7 +1355,7 @@ declare namespace gapi.client {
             /**
              * DeleteInstance deletes an instance associated with the given study, series,
              * and SOP Instance UID. Delete requests are equivalent to the GET requests
-             * specified in the WADO-RS standard.
+             * specified in the Retrieve transaction.
              */
             delete(request: {
                 /** V1 error format. */
@@ -1513,8 +1514,8 @@ declare namespace gapi.client {
         interface SeriesResource {
             /**
              * DeleteSeries deletes all instances within the given study and series.
-             * Delete requests are equivalent to the GET requests specified in the WADO-RS
-             * standard.
+             * Delete requests are equivalent to the GET requests specified in the
+             * Retrieve transaction.
              */
             delete(request: {
                 /** V1 error format. */
@@ -1671,7 +1672,7 @@ declare namespace gapi.client {
         interface StudiesResource {
             /**
              * DeleteStudy deletes all instances within the given study. Delete requests
-             * are equivalent to the GET requests specified in the WADO-RS standard.
+             * are equivalent to the GET requests specified in the Retrieve transaction.
              */
             delete(request: {
                 /** V1 error format. */
@@ -2000,7 +2001,7 @@ declare namespace gapi.client {
             },
             body: DicomStore): Request<DicomStore>;
             /**
-             * Creates a new DICOM store containing de-identified data from the source
+             * De-identifies data from the source store and writes it to the destination
              * store. The metadata field type
              * is OperationMetadata.
              * If the request is successful, the
@@ -2703,7 +2704,8 @@ declare namespace gapi.client {
              * `Observation.code`, sorted from most recent to oldest.
              *
              * Implements the FHIR extended operation Observation-lastn
-             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn)).
+             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/observation-operations.html#lastn)).
              *
              * DSTU2 doesn't define the Observation-lastn method, but the server supports
              * it the same way it supports STU3.
@@ -2852,14 +2854,16 @@ declare namespace gapi.client {
             }): Request<{}>;
             /**
              * Gets the FHIR capability statement
-             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html)),
+             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/capabilitystatement.html)),
              * or the [conformance
              * statement](http://hl7.org/implement/standards/fhir/DSTU2/conformance.html)
              * in the DSTU2 case for the store, which contains a description of
              * functionality supported by the server.
              *
              * Implements the FHIR standard capabilities interaction
-             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities)),
+             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#capabilities)),
              * or the [conformance
              * interaction](http://hl7.org/implement/standards/fhir/DSTU2/http.html#conformance)
              * in the DSTU2 case.
@@ -2898,7 +2902,8 @@ declare namespace gapi.client {
              *
              * Implements the FHIR standard conditional delete interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.12.1),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#3.1.0.7.1)).
              * If multiple resources match, all of them will be deleted.
              *
              * Search terms are provided as query parameters following the same pattern as
@@ -2936,7 +2941,8 @@ declare namespace gapi.client {
                  * The FHIR resource type to delete, such as Patient or Observation. For a
                  * complete list, see the FHIR Resource Index
                  * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
+                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
+                 * [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
                  */
                 type: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2950,7 +2956,8 @@ declare namespace gapi.client {
              * specified in a [JSON Patch](http://jsonpatch.com/) document.
              *
              * Implements the FHIR standard conditional patch interaction
-             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch)).
+             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#patch)).
              *
              * DSTU2 doesn't define a conditional patch method, but the server supports it
              * in the same way it supports STU3.
@@ -2996,7 +3003,8 @@ declare namespace gapi.client {
                  * The FHIR resource type to update, such as Patient or Observation. For a
                  * complete list, see the FHIR Resource Index
                  * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
+                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
+                 * [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
                  */
                 type: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -3031,7 +3039,8 @@ declare namespace gapi.client {
                  * The FHIR resource type to update, such as Patient or Observation. For a
                  * complete list, see the FHIR Resource Index
                  * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
+                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
+                 * [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
                  */
                 type: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -3046,7 +3055,8 @@ declare namespace gapi.client {
              *
              * Implements the FHIR standard conditional update interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.10.2),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#cond-update)).
              *
              * Search terms are provided as query parameters following the same pattern as
              * the search method.
@@ -3096,7 +3106,8 @@ declare namespace gapi.client {
                  * The FHIR resource type to update, such as Patient or Observation. For a
                  * complete list, see the FHIR Resource Index
                  * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
+                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
+                 * [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
                  * Must match the resource type in the provided content.
                  */
                 type: string;
@@ -3132,7 +3143,8 @@ declare namespace gapi.client {
                  * The FHIR resource type to update, such as Patient or Observation. For a
                  * complete list, see the FHIR Resource Index
                  * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
+                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
+                 * [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
                  * Must match the resource type in the provided content.
                  */
                 type: string;
@@ -3147,12 +3159,14 @@ declare namespace gapi.client {
              *
              * Implements the FHIR standard create interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#create),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#create)),
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#create)),
              * which creates a new resource with a server-assigned resource ID.
              *
              * Also supports the FHIR standard conditional create interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#ccreate),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#ccreate)),
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#ccreate),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#ccreate)),
              * specified by supplying an `If-None-Exist` header containing a FHIR search
              * query. If no resources match this search query, the server processes the
              * create operation as normal.
@@ -3193,7 +3207,8 @@ declare namespace gapi.client {
                  * The FHIR resource type to create, such as Patient or Observation. For a
                  * complete list, see the FHIR Resource Index
                  * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
+                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
+                 * [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
                  * Must match the resource type in the provided content.
                  */
                 type: string;
@@ -3229,7 +3244,8 @@ declare namespace gapi.client {
                  * The FHIR resource type to create, such as Patient or Observation. For a
                  * complete list, see the FHIR Resource Index
                  * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
-                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
+                 * [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
+                 * [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
                  * Must match the resource type in the provided content.
                  */
                 type: string;
@@ -3244,7 +3260,8 @@ declare namespace gapi.client {
              *
              * Implements the FHIR standard delete interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#delete),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#delete)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#delete),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#delete)).
              *
              * Note: Unless resource versioning is disabled by setting the
              * disable_resource_versioning flag
@@ -3284,16 +3301,19 @@ declare namespace gapi.client {
              *
              * Implements the FHIR standard batch/transaction interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#transaction),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#transaction)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#transaction),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#transaction)).
              *
              * Supports all interactions within a bundle, except search. This method
              * accepts Bundles of type `batch` and `transaction`, processing them
              * according to the batch processing rules
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.1),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1))
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#brules))
              * and transaction processing rules
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.2),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#trules)).
              *
              * The request body must contain a JSON-encoded FHIR `Bundle` resource, and
              * the request headers must contain `Content-Type: application/fhir+json`.
@@ -3368,7 +3388,8 @@ declare namespace gapi.client {
              *
              * Implements the per-resource form of the FHIR standard history interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#history),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#history)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#history),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#history)).
              *
              * On success, the response body will contain a JSON-encoded representation
              * of a `Bundle` resource of type `history`, containing the version history
@@ -3442,7 +3463,8 @@ declare namespace gapi.client {
              * in a [JSON Patch](http://jsonpatch.com/) document.
              *
              * Implements the FHIR standard patch interaction
-             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch)).
+             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#patch)]).
              *
              * DSTU2 doesn't define a patch method, but the server supports it in the same
              * way it supports STU3.
@@ -3517,11 +3539,13 @@ declare namespace gapi.client {
              *
              * Implements the FHIR standard read interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#read),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#read)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#read),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#read)).
              *
              * Also supports the FHIR standard conditional read interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#cread),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cread))
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cread),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#cread))
              * specified by supplying an `If-Modified-Since` header with a date/time value
              * or an `If-None-Match` header with an ETag value.
              *
@@ -3564,10 +3588,12 @@ declare namespace gapi.client {
              *
              * Implements the FHIR standard search interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#search),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search))
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#search))
              * using the search semantics described in the FHIR Search specification
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/search.html),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/search.html)).
              *
              * Supports three methods of search defined by the specification:
              *
@@ -3593,7 +3619,8 @@ declare namespace gapi.client {
              * are supported on each FHIR resource. A list of all search parameters
              * defined by the specification can be found in the FHIR Search Parameter
              * Registry
-             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html)).
+             * ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/searchparameter-registry.html)).
              * FHIR search parameters for DSTU2 can be found on each resource's definition
              * page.
              *
@@ -3676,7 +3703,8 @@ declare namespace gapi.client {
              *
              * Implements the FHIR standard update interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#update),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#update)).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#update),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#update)).
              *
              * If the specified resource does
              * not exist and the FHIR store has
@@ -3756,7 +3784,8 @@ declare namespace gapi.client {
              *
              * Implements the FHIR standard vread interaction
              * ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#vread),
-             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#vread).
+             * [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#vread),
+             * [R4](http://hl7.org/implement/standards/fhir/R4/http.html#vread)).
              *
              * On success, the response body will contain a JSON-encoded representation
              * of the resource.
@@ -3860,7 +3889,7 @@ declare namespace gapi.client {
             },
             body: FhirStore): Request<FhirStore>;
             /**
-             * Creates a new FHIR store containing de-identified data from the source
+             * De-identifies data from the source store and writes it to the destination
              * store. The metadata field type
              * is OperationMetadata.
              * If the request is successful, the
@@ -4710,7 +4739,15 @@ declare namespace gapi.client {
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
             }): Request<ListMessagesResponse>;
-            /** Update the message. */
+            /**
+             * Update the message.
+             *
+             * The contents of the message in Message.data and data extracted from
+             * the contents such as Message.create_time cannot be altered. Only the
+             * Message.labels field is allowed to be updated. The labels in the
+             * request are merged with the existing set of labels. Existing labels with
+             * the same keys are updated.
+             */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -4740,9 +4777,6 @@ declare namespace gapi.client {
                  * The update mask applies to the resource. For the `FieldMask` definition,
                  * see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
-                 * Only the `labels` field is allowed to be updated.
-                 * The labels in the request are merged with the existing set of labels.
-                 * Existing labels with the same keys are updated.
                  */
                 updateMask?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -4781,9 +4815,6 @@ declare namespace gapi.client {
                  * The update mask applies to the resource. For the `FieldMask` definition,
                  * see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
-                 * Only the `labels` field is allowed to be updated.
-                 * The labels in the request are merged with the existing set of labels.
-                 * Existing labels with the same keys are updated.
                  */
                 updateMask?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */

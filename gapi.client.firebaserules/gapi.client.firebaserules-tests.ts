@@ -143,15 +143,6 @@ gapi.load('client', () => {
                     }                ],
             },
         });
-        /** Get the `Release` executable to use when enforcing rules. */
-        await gapi.client.firebaserules.projects.releases.getExecutable({
-            executableVersion: "Test string",
-            name: "Test string",
-        });
-        /** Delete a `Release` by resource name. */
-        await gapi.client.firebaserules.projects.releases.delete({
-            name: "Test string",
-        });
         /**
          * List the `Release` values for a project. This list may optionally be
          * filtered by `Release` name, `Ruleset` name, `TestSuite` name, or any
@@ -215,6 +206,15 @@ gapi.load('client', () => {
         });
         /** Get a `Release` by name. */
         await gapi.client.firebaserules.projects.releases.get({
+            name: "Test string",
+        });
+        /** Get the `Release` executable to use when enforcing rules. */
+        await gapi.client.firebaserules.projects.releases.getExecutable({
+            executableVersion: "Test string",
+            name: "Test string",
+        });
+        /** Delete a `Release` by resource name. */
+        await gapi.client.firebaserules.projects.releases.delete({
             name: "Test string",
         });
     }

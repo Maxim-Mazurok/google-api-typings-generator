@@ -230,8 +230,8 @@ declare namespace gapi.client {
             /** The address of the API backend. */
             address?: string;
             /**
-             * The number of seconds to wait for a response from a request.  The default
-             * deadline for gRPC is infinite (no deadline) and HTTP requests is 5 seconds.
+             * The number of seconds to wait for a response from a request. The default
+             * varies based on the request protocol and deployment environment.
              */
             deadline?: number;
             /**

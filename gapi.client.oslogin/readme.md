@@ -1,5 +1,5 @@
 # TypeScript typings for Cloud OS Login API v1
-You can use OS Login to manage access to your VM instances using IAM roles. For more information, read [OS Login](/compute/docs/oslogin/).
+You can use OS Login to manage access to your VM instances using IAM roles.
 For detailed description please check [documentation](https://cloud.google.com/compute/docs/oslogin/).
 
 ## Installing

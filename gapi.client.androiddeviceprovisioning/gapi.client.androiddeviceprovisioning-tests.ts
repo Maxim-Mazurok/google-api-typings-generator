@@ -17,6 +17,13 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Deletes an unused configuration. The API call fails if the customer has
+         * devices with the configuration applied.
+         */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.delete({
+            name: "Test string",
+        });
         /** Gets the details of a configuration. */
         await gapi.client.androiddeviceprovisioning.customers.configurations.get({
             name: "Test string",
@@ -60,18 +67,21 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Deletes an unused configuration. The API call fails if the customer has
-         * devices with the configuration applied.
-         */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.delete({
-            name: "Test string",
-        });
-        /**
          * Lists the DPCs (device policy controllers) that support zero-touch
          * enrollment.
          */
         await gapi.client.androiddeviceprovisioning.customers.dpcs.list({
             parent: "Test string",
+        });
+        /** Lists a customer's devices. */
+        await gapi.client.androiddeviceprovisioning.customers.devices.list({
+            pageSize: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the details of a device. */
+        await gapi.client.androiddeviceprovisioning.customers.devices.get({
+            name: "Test string",
         });
         /**
          * Unclaims a device from a customer and removes it from zero-touch
@@ -128,16 +138,6 @@ gapi.load('client', () => {
                     serialNumber: "Test string",
                 },
             },
-        });
-        /** Lists a customer's devices. */
-        await gapi.client.androiddeviceprovisioning.customers.devices.list({
-            pageSize: "Test string",
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the details of a device. */
-        await gapi.client.androiddeviceprovisioning.customers.devices.get({
-            name: "Test string",
         });
         /**
          * Gets the latest state of a long-running operation.  Clients can use this

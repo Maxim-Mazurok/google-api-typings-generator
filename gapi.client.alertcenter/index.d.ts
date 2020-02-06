@@ -303,6 +303,17 @@ declare namespace gapi.client {
             /** The serial number of the device. */
             serialNumber?: string;
         }
+        interface DlpRuleViolation {
+            /**
+             * Details about the violated DLP rule.
+             *
+             * Admins can use the predefined detectors provided by Google Cloud DLP
+             * https://cloud.google.com/dlp/ when setting up a DLP rule. Matched Cloud DLP
+             * detectors in this violation if any will be captured in the
+             * MatchInfo.predefined_detector.
+             */
+            ruleViolationInfo?: RuleViolationInfo;
+        }
         interface DomainId {
             /** The primary domain for the customer. */
             customerPrimaryDomain?: string;
@@ -401,6 +412,12 @@ declare namespace gapi.client {
             /** The sender email address. */
             fromHeader?: string;
         }
+        interface MatchInfo {
+            /** For matched detector predefined by Google. */
+            predefinedDetector?: PredefinedDetectorInfo;
+            /** For matched detector defined by administrators. */
+            userDefinedDetector?: UserDefinedDetectorInfo;
+        }
         interface Notification {
             /** A Google Cloud Pub/sub topic destination. */
             cloudPubsubTopic?: CloudPubsubTopic;
@@ -415,6 +432,10 @@ declare namespace gapi.client {
             /** The list of messages contained by this alert. */
             messages?: GmailMessageInfo[];
         }
+        interface PredefinedDetectorInfo {
+            /** Name that uniquely identifies the detector. */
+            detectorName?: string;
+        }
         interface RequestInfo {
             /**
              * List of app developers who triggered notifications for above
@@ -428,6 +449,51 @@ declare namespace gapi.client {
              * SQL instance.
              */
             numberOfRequests?: string;
+        }
+        interface ResourceInfo {
+            /** Drive file ID. */
+            documentId?: string;
+            /** Title of the resource, e.g. email subject, or document title. */
+            resourceTitle?: string;
+        }
+        interface RuleInfo {
+            /** User provided name of the rule. */
+            displayName?: string;
+            /** Resource name that uniquely identifies the rule. */
+            resourceName?: string;
+        }
+        interface RuleViolationInfo {
+            /** Source of the data. */
+            dataSource?: string;
+            /** List of matches that were found in the resource content. */
+            matchInfo?: MatchInfo[];
+            /**
+             * Resource recipients.
+             *
+             * For Drive, they are grantees that the Drive file was shared with at the
+             * time of rule triggering. Valid values include user emails, group emails,
+             * domains, or 'anyone' if the file was publicly accessible. If the file was
+             * private the recipients list will be empty.
+             *
+             * For Gmail, they are emails of the users or groups that the Gmail message
+             * was sent to.
+             */
+            recipients?: string[];
+            /** Details of the resource which violated the rule. */
+            resourceInfo?: ResourceInfo;
+            /** Details of the violated rule. */
+            ruleInfo?: RuleInfo;
+            /** Actions suppressed due to other actions with higher priority. */
+            suppressedActionTypes?: string[];
+            /** Trigger of the rule. */
+            trigger?: string;
+            /** Actions applied as a consequence of the rule being triggered. */
+            triggeredActionTypes?: string[];
+            /**
+             * Email of the user who caused the violation. Value could be empty if not
+             * applicable, for example, a violation found by drive continuous scan.
+             */
+            triggeringUserEmail?: string;
         }
         interface Settings {
             /** The list of notifications. */
@@ -491,6 +557,12 @@ declare namespace gapi.client {
             displayName?: string;
             /** Email address of the user. */
             emailAddress?: string;
+        }
+        interface UserDefinedDetectorInfo {
+            /** Display name of the detector. */
+            displayName?: string;
+            /** Resource name that uniquely identifies the detector. */
+            resourceName?: string;
         }
         interface FeedbackResource {
             /**

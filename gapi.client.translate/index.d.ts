@@ -432,8 +432,12 @@ declare namespace gapi.client {
         }
         interface TranslateTextGlossaryConfig {
             /**
-             * Required. Specifies the glossary used for this translation. Use
-             * this format: projects/&#42;/locations/&#42;/glossaries/&#42;
+             * Required. The `glossary` to be applied for this translation.
+             *
+             * The format depends on glossary:
+             *
+             * - User provided custom glossary:
+             * `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`
              */
             glossary?: string;
             /**
