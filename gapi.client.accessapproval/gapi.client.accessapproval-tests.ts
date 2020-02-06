@@ -357,6 +357,21 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Lists approval requests associated with a project, folder, or organization.
+         * Approval requests can be filtered by state (pending, active, dismissed).
+         * The order is reverse chronological.
+         */
+        await gapi.client.accessapproval.projects.approvalRequests.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
+        await gapi.client.accessapproval.projects.approvalRequests.get({
+            name: "Test string",
+        });
+        /**
          * Dismisses a request. Returns the updated ApprovalRequest.
          *
          * NOTE: This does not deny access to the resource if another request has been
@@ -382,27 +397,27 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             expireTime: "Test string",
-        });
-        /**
-         * Lists approval requests associated with a project, folder, or organization.
-         * Approval requests can be filtered by state (pending, active, dismissed).
-         * The order is reverse chronological.
-         */
-        await gapi.client.accessapproval.projects.approvalRequests.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
-        await gapi.client.accessapproval.projects.approvalRequests.get({
-            name: "Test string",
         });
         /** Gets the settings associated with a project, folder, or organization. */
         await gapi.client.accessapproval.projects.getAccessApprovalSettings({
             name: "Test string",
         });
         /**
+         * Lists approval requests associated with a project, folder, or organization.
+         * Approval requests can be filtered by state (pending, active, dismissed).
+         * The order is reverse chronological.
+         */
+        await gapi.client.accessapproval.projects.approvalRequests.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
+        await gapi.client.accessapproval.projects.approvalRequests.get({
+            name: "Test string",
+        });
+        /**
          * Dismisses a request. Returns the updated ApprovalRequest.
          *
          * NOTE: This does not deny access to the resource if another request has been
@@ -428,21 +443,6 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             expireTime: "Test string",
-        });
-        /**
-         * Lists approval requests associated with a project, folder, or organization.
-         * Approval requests can be filtered by state (pending, active, dismissed).
-         * The order is reverse chronological.
-         */
-        await gapi.client.accessapproval.projects.approvalRequests.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
-        await gapi.client.accessapproval.projects.approvalRequests.get({
-            name: "Test string",
         });
         /**
          * Updates the settings associated with a project, folder, or organization.
@@ -463,6 +463,21 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
+         * Lists approval requests associated with a project, folder, or organization.
+         * Approval requests can be filtered by state (pending, active, dismissed).
+         * The order is reverse chronological.
+         */
+        await gapi.client.accessapproval.projects.approvalRequests.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
+        await gapi.client.accessapproval.projects.approvalRequests.get({
+            name: "Test string",
+        });
+        /**
          * Dismisses a request. Returns the updated ApprovalRequest.
          *
          * NOTE: This does not deny access to the resource if another request has been
@@ -488,21 +503,6 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             expireTime: "Test string",
-        });
-        /**
-         * Lists approval requests associated with a project, folder, or organization.
-         * Approval requests can be filtered by state (pending, active, dismissed).
-         * The order is reverse chronological.
-         */
-        await gapi.client.accessapproval.projects.approvalRequests.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
-        await gapi.client.accessapproval.projects.approvalRequests.get({
-            name: "Test string",
         });
     }
 });

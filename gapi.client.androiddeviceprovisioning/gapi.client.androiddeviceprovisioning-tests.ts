@@ -17,30 +17,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Gets the details of a configuration. */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.get({
-            name: "Test string",
-        });
-        /** Updates a configuration's field values. */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            companyName: "Test string",
-            configurationId: "Test string",
-            configurationName: "Test string",
-            contactEmail: "Test string",
-            contactPhone: "Test string",
-            customMessage: "Test string",
-            dpcExtras: "Test string",
-            dpcResourcePath: "Test string",
-            isDefault: true,
-            name: "Test string",
-        });
-        /** Lists a customer's configurations. */
-        await gapi.client.androiddeviceprovisioning.customers.configurations.list({
-            parent: "Test string",
-        });
         /**
          * Creates a new configuration. Once created, a customer can apply the
          * configuration to devices.
@@ -65,6 +41,30 @@ gapi.load('client', () => {
          */
         await gapi.client.androiddeviceprovisioning.customers.configurations.delete({
             name: "Test string",
+        });
+        /** Gets the details of a configuration. */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.get({
+            name: "Test string",
+        });
+        /** Updates a configuration's field values. */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            companyName: "Test string",
+            configurationId: "Test string",
+            configurationName: "Test string",
+            contactEmail: "Test string",
+            contactPhone: "Test string",
+            customMessage: "Test string",
+            dpcExtras: "Test string",
+            dpcResourcePath: "Test string",
+            isDefault: true,
+            name: "Test string",
+        });
+        /** Lists a customer's configurations. */
+        await gapi.client.androiddeviceprovisioning.customers.configurations.list({
+            parent: "Test string",
         });
         /**
          * Lists the DPCs (device policy controllers) that support zero-touch

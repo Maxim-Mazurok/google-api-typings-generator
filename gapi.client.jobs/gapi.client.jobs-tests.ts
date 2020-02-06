@@ -44,6 +44,119 @@ gapi.load('client', () => {
             type: "Test string",
         });
         /**
+         * Deletes specified company.
+         * Prerequisite: The company has no jobs associated with it.
+         */
+        await gapi.client.jobs.projects.companies.delete({
+            name: "Test string",
+        });
+        /** Retrieves specified company. */
+        await gapi.client.jobs.projects.companies.get({
+            name: "Test string",
+        });
+        /**
+         * Updates specified company. Company names can't be updated. To update a
+         * company name, delete the company and all jobs associated with it, and only
+         * then re-create them.
+         */
+        await gapi.client.jobs.projects.companies.patch({
+            name: "Test string",
+        }, {
+            company: {
+                careerSiteUri: "Test string",
+                derivedInfo: {
+                    headquartersLocation: {
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        locationType: "Test string",
+                        postalAddress: {
+                            addressLines: [
+                                "Test string"                            ],
+                            administrativeArea: "Test string",
+                            languageCode: "Test string",
+                            locality: "Test string",
+                            organization: "Test string",
+                            postalCode: "Test string",
+                            recipients: [
+                                "Test string"                            ],
+                            regionCode: "Test string",
+                            revision: 42,
+                            sortingCode: "Test string",
+                            sublocality: "Test string",
+                        },
+                        radiusInMiles: 42,
+                    },
+                },
+                displayName: "Test string",
+                eeoText: "Test string",
+                externalId: "Test string",
+                headquartersAddress: "Test string",
+                hiringAgency: true,
+                imageUri: "Test string",
+                keywordSearchableJobCustomAttributes: [
+                    "Test string"                ],
+                name: "Test string",
+                size: "Test string",
+                suspended: true,
+                websiteUri: "Test string",
+            },
+            updateMask: "Test string",
+        });
+        /** Lists all companies associated with the service account. */
+        await gapi.client.jobs.projects.companies.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            requireOpenJobs: true,
+        });
+        /** Creates a new company entity. */
+        await gapi.client.jobs.projects.companies.create({
+            parent: "Test string",
+        }, {
+            company: {
+                careerSiteUri: "Test string",
+                derivedInfo: {
+                    headquartersLocation: {
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        locationType: "Test string",
+                        postalAddress: {
+                            addressLines: [
+                                "Test string"                            ],
+                            administrativeArea: "Test string",
+                            languageCode: "Test string",
+                            locality: "Test string",
+                            organization: "Test string",
+                            postalCode: "Test string",
+                            recipients: [
+                                "Test string"                            ],
+                            regionCode: "Test string",
+                            revision: 42,
+                            sortingCode: "Test string",
+                            sublocality: "Test string",
+                        },
+                        radiusInMiles: 42,
+                    },
+                },
+                displayName: "Test string",
+                eeoText: "Test string",
+                externalId: "Test string",
+                headquartersAddress: "Test string",
+                hiringAgency: true,
+                imageUri: "Test string",
+                keywordSearchableJobCustomAttributes: [
+                    "Test string"                ],
+                name: "Test string",
+                size: "Test string",
+                suspended: true,
+                websiteUri: "Test string",
+            },
+        });
+        /**
          * Report events issued when end user interacts with customer's application
          * that uses Cloud Talent Solution. You may inspect the created events in
          * [self service
@@ -69,15 +182,6 @@ gapi.load('client', () => {
                 requestId: "Test string",
             },
         });
-        /**
-         * Deletes the specified job.
-         *
-         * Typically, the job becomes unsearchable within 10 seconds, but it may take
-         * up to 5 minutes.
-         */
-        await gapi.client.jobs.projects.jobs.delete({
-            name: "Test string",
-        });
         /** Lists jobs by filter. */
         await gapi.client.jobs.projects.jobs.list({
             filter: "Test string",
@@ -85,6 +189,12 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Deletes a list of Jobs by filter. */
+        await gapi.client.jobs.projects.jobs.batchDelete({
+            parent: "Test string",
+        }, {
+            filter: "Test string",
         });
         /**
          * Creates a new job.
@@ -224,12 +334,6 @@ gapi.load('client', () => {
                 visibility: "Test string",
             },
         });
-        /** Deletes a list of Jobs by filter. */
-        await gapi.client.jobs.projects.jobs.batchDelete({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-        });
         /**
          * Searches for jobs using the provided SearchJobsRequest.
          *
@@ -347,13 +451,6 @@ gapi.load('client', () => {
             },
             requirePreciseResultSize: true,
             searchMode: "Test string",
-        });
-        /**
-         * Retrieves the specified job, whose status is OPEN or recently EXPIRED
-         * within the last 90 days.
-         */
-        await gapi.client.jobs.projects.jobs.get({
-            name: "Test string",
         });
         /**
          * Updates specified job.
@@ -495,6 +592,13 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
+         * Retrieves the specified job, whose status is OPEN or recently EXPIRED
+         * within the last 90 days.
+         */
+        await gapi.client.jobs.projects.jobs.get({
+            name: "Test string",
+        });
+        /**
          * Searches for jobs using the provided SearchJobsRequest.
          *
          * This API call is intended for the use case of targeting passive job
@@ -617,117 +721,13 @@ gapi.load('client', () => {
             requirePreciseResultSize: true,
             searchMode: "Test string",
         });
-        /** Retrieves specified company. */
-        await gapi.client.jobs.projects.companies.get({
-            name: "Test string",
-        });
         /**
-         * Updates specified company. Company names can't be updated. To update a
-         * company name, delete the company and all jobs associated with it, and only
-         * then re-create them.
+         * Deletes the specified job.
+         *
+         * Typically, the job becomes unsearchable within 10 seconds, but it may take
+         * up to 5 minutes.
          */
-        await gapi.client.jobs.projects.companies.patch({
-            name: "Test string",
-        }, {
-            company: {
-                careerSiteUri: "Test string",
-                derivedInfo: {
-                    headquartersLocation: {
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        locationType: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                        radiusInMiles: 42,
-                    },
-                },
-                displayName: "Test string",
-                eeoText: "Test string",
-                externalId: "Test string",
-                headquartersAddress: "Test string",
-                hiringAgency: true,
-                imageUri: "Test string",
-                keywordSearchableJobCustomAttributes: [
-                    "Test string"                ],
-                name: "Test string",
-                size: "Test string",
-                suspended: true,
-                websiteUri: "Test string",
-            },
-            updateMask: "Test string",
-        });
-        /** Lists all companies associated with the service account. */
-        await gapi.client.jobs.projects.companies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            requireOpenJobs: true,
-        });
-        /** Creates a new company entity. */
-        await gapi.client.jobs.projects.companies.create({
-            parent: "Test string",
-        }, {
-            company: {
-                careerSiteUri: "Test string",
-                derivedInfo: {
-                    headquartersLocation: {
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        locationType: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                        radiusInMiles: 42,
-                    },
-                },
-                displayName: "Test string",
-                eeoText: "Test string",
-                externalId: "Test string",
-                headquartersAddress: "Test string",
-                hiringAgency: true,
-                imageUri: "Test string",
-                keywordSearchableJobCustomAttributes: [
-                    "Test string"                ],
-                name: "Test string",
-                size: "Test string",
-                suspended: true,
-                websiteUri: "Test string",
-            },
-        });
-        /**
-         * Deletes specified company.
-         * Prerequisite: The company has no jobs associated with it.
-         */
-        await gapi.client.jobs.projects.companies.delete({
+        await gapi.client.jobs.projects.jobs.delete({
             name: "Test string",
         });
     }

@@ -40,73 +40,51 @@ gapi.load('client', () => {
             },
             sendEmails: true,
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -432,63 +410,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -577,79 +498,136 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /** Closes the specified matter. Returns matter with updated state. */
         await gapi.client.vault.matters.close({
             matterId: "Test string",
         }, {
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -975,63 +953,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -1120,6 +1041,85 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /**
          * Creates a new matter with the given name and description. The initial state
@@ -1138,73 +1138,51 @@ gapi.load('client', () => {
             name: "Test string",
             state: "Test string",
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -1530,63 +1508,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -1675,78 +1596,135 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /** Deletes the specified matter. Returns matter with updated state. */
         await gapi.client.vault.matters.delete({
             matterId: "Test string",
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -2072,63 +2050,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -2217,79 +2138,136 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /** Gets the specified matter. */
         await gapi.client.vault.matters.get({
             matterId: "Test string",
             view: "Test string",
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -2615,63 +2593,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -2760,6 +2681,85 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /** Lists matters the user has access to. */
         await gapi.client.vault.matters.list({
@@ -2768,73 +2768,51 @@ gapi.load('client', () => {
             state: "Test string",
             view: "Test string",
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -3160,63 +3138,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -3305,6 +3226,85 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /** Removes an account as a matter collaborator. */
         await gapi.client.vault.matters.removePermissions({
@@ -3312,73 +3312,51 @@ gapi.load('client', () => {
         }, {
             accountId: "Test string",
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -3704,63 +3682,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -3849,79 +3770,136 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /** Reopens the specified matter. Returns matter with updated state. */
         await gapi.client.vault.matters.reopen({
             matterId: "Test string",
         }, {
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -4247,63 +4225,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -4392,79 +4313,136 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /** Undeletes the specified matter. Returns matter with updated state. */
         await gapi.client.vault.matters.undelete({
             matterId: "Test string",
         }, {
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -4790,63 +4768,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -4935,6 +4856,85 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /**
          * Updates the specified matter.
@@ -4955,73 +4955,51 @@ gapi.load('client', () => {
             name: "Test string",
             state: "Test string",
         });
-        /** Creates a saved query. */
-        await gapi.client.vault.matters.savedQueries.create({
+        /**
+         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
+         * order as the request. If this request leaves the hold with no held
+         * accounts, the hold will not apply to any accounts.
+         */
+        await gapi.client.vault.matters.holds.removeHeldAccounts({
+            holdId: "Test string",
             matterId: "Test string",
         }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            matterId: "Test string",
-            query: {
-                accountInfo: {
-                    emails: [
-                        "Test string"                    ],
-                },
-                corpus: "Test string",
-                dataScope: "Test string",
-                driveOptions: {
-                    includeSharedDrives: true,
-                    includeTeamDrives: true,
-                    versionDate: "Test string",
-                },
-                endTime: "Test string",
-                hangoutsChatInfo: {
-                    roomId: [
-                        "Test string"                    ],
-                },
-                hangoutsChatOptions: {
-                    includeRooms: true,
-                },
-                mailOptions: {
-                    excludeDrafts: true,
-                },
-                method: "Test string",
-                orgUnitInfo: {
-                    orgUnitId: "Test string",
-                },
-                searchMethod: "Test string",
-                sharedDriveInfo: {
-                    sharedDriveIds: [
-                        "Test string"                    ],
-                },
-                startTime: "Test string",
-                teamDriveInfo: {
-                    teamDriveIds: [
-                        "Test string"                    ],
-                },
-                terms: "Test string",
-                timeZone: "Test string",
-            },
-            savedQueryId: "Test string",
-        });
-        /** Deletes a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.delete({
-            matterId: "Test string",
-            savedQueryId: "Test string",
-        });
-        /** Retrieves a saved query by Id. */
-        await gapi.client.vault.matters.savedQueries.get({
-            matterId: "Test string",
-            savedQueryId: "Test string",
+            accountIds: [
+                "Test string"            ],
         });
         /**
-         * Lists saved queries within a matter. An empty page token in
-         * ListSavedQueriesResponse denotes no more saved queries to list.
+         * Removes a HeldAccount from a hold. If this request leaves the hold with
+         * no held accounts, the hold will not apply to any accounts.
          */
-        await gapi.client.vault.matters.savedQueries.list({
+        await gapi.client.vault.matters.holds.accounts.delete({
+            accountId: "Test string",
+            holdId: "Test string",
             matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
+        });
+        /**
+         * Lists HeldAccounts for a hold. This will only list individually specified
+         * held accounts. If the hold is on an OU, then use
+         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
+         * to enumerate its members.
+         */
+        await gapi.client.vault.matters.holds.accounts.list({
+            holdId: "Test string",
+            matterId: "Test string",
+        });
+        /**
+         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
+         * has no held_org_unit set. Attempting to add an account to an OU-based
+         * hold will result in an error.
+         */
+        await gapi.client.vault.matters.holds.accounts.create({
+            holdId: "Test string",
+            matterId: "Test string",
+        }, {
+            accountId: "Test string",
+            email: "Test string",
+            firstName: "Test string",
+            holdTime: "Test string",
+            lastName: "Test string",
         });
         /**
          * Adds HeldAccounts to a hold. Returns a list of accounts that have been
@@ -5347,63 +5325,6 @@ gapi.load('client', () => {
             holdTime: "Test string",
             lastName: "Test string",
         });
-        /**
-         * Removes HeldAccounts from a hold. Returns a list of statuses in the same
-         * order as the request. If this request leaves the hold with no held
-         * accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.removeHeldAccounts({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountIds: [
-                "Test string"            ],
-        });
-        /**
-         * Removes a HeldAccount from a hold. If this request leaves the hold with
-         * no held accounts, the hold will not apply to any accounts.
-         */
-        await gapi.client.vault.matters.holds.accounts.delete({
-            accountId: "Test string",
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Lists HeldAccounts for a hold. This will only list individually specified
-         * held accounts. If the hold is on an OU, then use
-         * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
-         * to enumerate its members.
-         */
-        await gapi.client.vault.matters.holds.accounts.list({
-            holdId: "Test string",
-            matterId: "Test string",
-        });
-        /**
-         * Adds a HeldAccount to a hold. Accounts can only be added to a hold that
-         * has no held_org_unit set. Attempting to add an account to an OU-based
-         * hold will result in an error.
-         */
-        await gapi.client.vault.matters.holds.accounts.create({
-            holdId: "Test string",
-            matterId: "Test string",
-        }, {
-            accountId: "Test string",
-            email: "Test string",
-            firstName: "Test string",
-            holdTime: "Test string",
-            lastName: "Test string",
-        });
-        /** Gets an Export. */
-        await gapi.client.vault.matters.exports.get({
-            exportId: "Test string",
-            matterId: "Test string",
-        });
-        /** Lists Exports. */
-        await gapi.client.vault.matters.exports.list({
-            matterId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
         /** Creates an Export. */
         await gapi.client.vault.matters.exports.create({
             matterId: "Test string",
@@ -5492,6 +5413,85 @@ gapi.load('client', () => {
         await gapi.client.vault.matters.exports.delete({
             exportId: "Test string",
             matterId: "Test string",
+        });
+        /** Gets an Export. */
+        await gapi.client.vault.matters.exports.get({
+            exportId: "Test string",
+            matterId: "Test string",
+        });
+        /** Lists Exports. */
+        await gapi.client.vault.matters.exports.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.delete({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /** Retrieves a saved query by Id. */
+        await gapi.client.vault.matters.savedQueries.get({
+            matterId: "Test string",
+            savedQueryId: "Test string",
+        });
+        /**
+         * Lists saved queries within a matter. An empty page token in
+         * ListSavedQueriesResponse denotes no more saved queries to list.
+         */
+        await gapi.client.vault.matters.savedQueries.list({
+            matterId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a saved query. */
+        await gapi.client.vault.matters.savedQueries.create({
+            matterId: "Test string",
+        }, {
+            createTime: "Test string",
+            displayName: "Test string",
+            matterId: "Test string",
+            query: {
+                accountInfo: {
+                    emails: [
+                        "Test string"                    ],
+                },
+                corpus: "Test string",
+                dataScope: "Test string",
+                driveOptions: {
+                    includeSharedDrives: true,
+                    includeTeamDrives: true,
+                    versionDate: "Test string",
+                },
+                endTime: "Test string",
+                hangoutsChatInfo: {
+                    roomId: [
+                        "Test string"                    ],
+                },
+                hangoutsChatOptions: {
+                    includeRooms: true,
+                },
+                mailOptions: {
+                    excludeDrafts: true,
+                },
+                method: "Test string",
+                orgUnitInfo: {
+                    orgUnitId: "Test string",
+                },
+                searchMethod: "Test string",
+                sharedDriveInfo: {
+                    sharedDriveIds: [
+                        "Test string"                    ],
+                },
+                startTime: "Test string",
+                teamDriveInfo: {
+                    teamDriveIds: [
+                        "Test string"                    ],
+                },
+                terms: "Test string",
+                timeZone: "Test string",
+            },
+            savedQueryId: "Test string",
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is

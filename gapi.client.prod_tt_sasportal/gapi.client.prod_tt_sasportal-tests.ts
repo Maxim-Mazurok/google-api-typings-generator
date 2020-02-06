@@ -31,6 +31,51 @@ gapi.load('client', () => {
         await gapi.client.prod_tt_sasportal.customers.get({
             name: "Test string",
         });
+        /** Deletes a node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.delete({
+            name: "Test string",
+        });
+        /** Lists nodes. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Returns a requested node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.get({
+            name: "Test string",
+        });
+        /** Updates an existing node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Moves a node under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Creates a device under a node or customer. Returned devices are unordered. */
+        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
+            parent: "Test string",
+        }, {
+            csv: "Test string",
+        });
         /** Gets details about a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.get({
             name: "Test string",
@@ -374,57 +419,57 @@ gapi.load('client', () => {
             },
             serialNumber: "Test string",
             state: "Test string",
-        });
-        /** Creates a device under a node or customer. Returned devices are unordered. */
-        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
-            parent: "Test string",
-        }, {
-            csv: "Test string",
-        });
-        /** Creates a new node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Returns a requested node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.get({
-            name: "Test string",
-        });
-        /** Updates an existing node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Moves a node under another node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
-        });
-        /** Deletes a node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.delete({
-            name: "Test string",
-        });
-        /** Lists nodes. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Returns a list of requested customers. */
         await gapi.client.prod_tt_sasportal.customers.list({
             pageSize: 42,
             pageToken: "Test string",
         });
+        /** Deletes a node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.delete({
+            name: "Test string",
+        });
+        /** Lists nodes. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Returns a requested node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.get({
+            name: "Test string",
+        });
+        /** Updates an existing node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Moves a node under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Creates a device under a node or customer. Returned devices are unordered. */
+        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
+            parent: "Test string",
+        }, {
+            csv: "Test string",
+        });
         /** Gets details about a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.get({
             name: "Test string",
@@ -768,51 +813,6 @@ gapi.load('client', () => {
             },
             serialNumber: "Test string",
             state: "Test string",
-        });
-        /** Creates a device under a node or customer. Returned devices are unordered. */
-        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
-            parent: "Test string",
-        }, {
-            csv: "Test string",
-        });
-        /** Creates a new node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Returns a requested node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.get({
-            name: "Test string",
-        });
-        /** Updates an existing node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Moves a node under another node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
-        });
-        /** Deletes a node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.delete({
-            name: "Test string",
-        });
-        /** Lists nodes. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Updates an existing customer. */
         await gapi.client.prod_tt_sasportal.customers.patch({
@@ -824,6 +824,51 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
+        /** Deletes a node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.delete({
+            name: "Test string",
+        });
+        /** Lists nodes. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Returns a requested node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.get({
+            name: "Test string",
+        });
+        /** Updates an existing node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Moves a node under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Creates a device under a node or customer. Returned devices are unordered. */
+        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
+            parent: "Test string",
+        }, {
+            csv: "Test string",
+        });
         /** Gets details about a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.get({
             name: "Test string",
@@ -1167,51 +1212,6 @@ gapi.load('client', () => {
             },
             serialNumber: "Test string",
             state: "Test string",
-        });
-        /** Creates a device under a node or customer. Returned devices are unordered. */
-        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
-            parent: "Test string",
-        }, {
-            csv: "Test string",
-        });
-        /** Creates a new node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Returns a requested node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.get({
-            name: "Test string",
-        });
-        /** Updates an existing node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Moves a node under another node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
-        });
-        /** Deletes a node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.delete({
-            name: "Test string",
-        });
-        /** Lists nodes. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Generates a secret to be used with the ValidateInstaller method */
         await gapi.client.prod_tt_sasportal.installer.generateSecret({

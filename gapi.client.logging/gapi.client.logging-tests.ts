@@ -190,6 +190,46 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.getCmekSettings({
             name: "Test string",
         });
+        /**
+         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
+         * in a resource.
+         */
+        await gapi.client.logging.organizations.exclusions.create({
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes an exclusion. */
+        await gapi.client.logging.organizations.exclusions.delete({
+            name: "Test string",
+        });
+        /** Lists all the exclusions in a parent resource. */
+        await gapi.client.logging.organizations.exclusions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the description of an exclusion. */
+        await gapi.client.logging.organizations.exclusions.get({
+            name: "Test string",
+        });
+        /** Changes one or more properties of an existing exclusion. */
+        await gapi.client.logging.organizations.exclusions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
         /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
         await gapi.client.logging.organizations.sinks.delete({
             sinkName: "Test string",
@@ -293,46 +333,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /**
-         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-         * in a resource.
-         */
-        await gapi.client.logging.organizations.exclusions.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disabled: true,
-            filter: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes an exclusion. */
-        await gapi.client.logging.organizations.exclusions.delete({
-            name: "Test string",
-        });
-        /** Lists all the exclusions in a parent resource. */
-        await gapi.client.logging.organizations.exclusions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the description of an exclusion. */
-        await gapi.client.logging.organizations.exclusions.get({
-            name: "Test string",
-        });
-        /** Changes one or more properties of an existing exclusion. */
-        await gapi.client.logging.organizations.exclusions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disabled: true,
-            filter: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
         });
         /**
          * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations.
@@ -348,6 +348,46 @@ gapi.load('client', () => {
             name: "Test string",
             serviceAccountId: "Test string",
         });
+        /**
+         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
+         * in a resource.
+         */
+        await gapi.client.logging.organizations.exclusions.create({
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes an exclusion. */
+        await gapi.client.logging.organizations.exclusions.delete({
+            name: "Test string",
+        });
+        /** Lists all the exclusions in a parent resource. */
+        await gapi.client.logging.organizations.exclusions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the description of an exclusion. */
+        await gapi.client.logging.organizations.exclusions.get({
+            name: "Test string",
+        });
+        /** Changes one or more properties of an existing exclusion. */
+        await gapi.client.logging.organizations.exclusions.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
         /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
         await gapi.client.logging.organizations.sinks.delete({
             sinkName: "Test string",
@@ -451,46 +491,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /**
-         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-         * in a resource.
-         */
-        await gapi.client.logging.organizations.exclusions.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disabled: true,
-            filter: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes an exclusion. */
-        await gapi.client.logging.organizations.exclusions.delete({
-            name: "Test string",
-        });
-        /** Lists all the exclusions in a parent resource. */
-        await gapi.client.logging.organizations.exclusions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the description of an exclusion. */
-        await gapi.client.logging.organizations.exclusions.get({
-            name: "Test string",
-        });
-        /** Changes one or more properties of an existing exclusion. */
-        await gapi.client.logging.organizations.exclusions.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disabled: true,
-            filter: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
         });
         /**
          * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's

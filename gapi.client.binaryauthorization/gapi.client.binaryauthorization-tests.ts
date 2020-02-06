@@ -40,13 +40,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
+         * Lists attestors.
+         * Returns INVALID_ARGUMENT if the project does not exist.
          */
-        await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
+        await gapi.client.binaryauthorization.projects.attestors.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -54,7 +54,7 @@ gapi.load('client', () => {
          *
          * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
          */
-        await gapi.client.binaryauthorization.projects.policy.setIamPolicy({
+        await gapi.client.binaryauthorization.projects.attestors.setIamPolicy({
             resource: "Test string",
         }, {
             policy: {
@@ -73,30 +73,6 @@ gapi.load('client', () => {
                 etag: "Test string",
                 version: 42,
             },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.binaryauthorization.projects.policy.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists attestors.
-         * Returns INVALID_ARGUMENT if the project does not exist.
-         */
-        await gapi.client.binaryauthorization.projects.attestors.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /**
          * Creates an attestor, and returns a copy of the new
@@ -124,32 +100,6 @@ gapi.load('client', () => {
                             signatureAlgorithm: "Test string",
                         },
                     }                ],
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.binaryauthorization.projects.attestors.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
             },
         });
         /**
@@ -214,6 +164,56 @@ gapi.load('client', () => {
          */
         await gapi.client.binaryauthorization.projects.attestors.delete({
             name: "Test string",
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
+            "options.requestedPolicyVersion": 42,
+            resource: "Test string",
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.binaryauthorization.projects.policy.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.binaryauthorization.projects.policy.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
         });
         /**
          * Creates or updates a project's policy, and returns a copy of the
@@ -248,13 +248,13 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
+         * Lists attestors.
+         * Returns INVALID_ARGUMENT if the project does not exist.
          */
-        await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
+        await gapi.client.binaryauthorization.projects.attestors.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -262,7 +262,7 @@ gapi.load('client', () => {
          *
          * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
          */
-        await gapi.client.binaryauthorization.projects.policy.setIamPolicy({
+        await gapi.client.binaryauthorization.projects.attestors.setIamPolicy({
             resource: "Test string",
         }, {
             policy: {
@@ -281,30 +281,6 @@ gapi.load('client', () => {
                 etag: "Test string",
                 version: 42,
             },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
-         */
-        await gapi.client.binaryauthorization.projects.policy.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
-        /**
-         * Lists attestors.
-         * Returns INVALID_ARGUMENT if the project does not exist.
-         */
-        await gapi.client.binaryauthorization.projects.attestors.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /**
          * Creates an attestor, and returns a copy of the new
@@ -332,32 +308,6 @@ gapi.load('client', () => {
                             signatureAlgorithm: "Test string",
                         },
                     }                ],
-            },
-        });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
-         */
-        await gapi.client.binaryauthorization.projects.attestors.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                version: 42,
             },
         });
         /**
@@ -422,6 +372,56 @@ gapi.load('client', () => {
          */
         await gapi.client.binaryauthorization.projects.attestors.delete({
             name: "Test string",
+        });
+        /**
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
+         */
+        await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
+            "options.requestedPolicyVersion": 42,
+            resource: "Test string",
+        });
+        /**
+         * Sets the access control policy on the specified resource. Replaces any
+         * existing policy.
+         *
+         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         */
+        await gapi.client.binaryauthorization.projects.policy.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource.
+         * If the resource does not exist, this will return an empty set of
+         * permissions, not a NOT_FOUND error.
+         *
+         * Note: This operation is designed to be used for building permission-aware
+         * UIs and command-line tools, not for authorization checking. This operation
+         * may "fail open" without warning.
+         */
+        await gapi.client.binaryauthorization.projects.policy.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
         });
     }
 });

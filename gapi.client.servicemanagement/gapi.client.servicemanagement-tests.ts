@@ -60,6 +60,35 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -473,33 +502,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -552,18 +564,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -623,6 +623,35 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -1036,33 +1065,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -1115,18 +1127,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -1187,6 +1187,35 @@ gapi.load('client', () => {
             consumerId: "Test string",
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -1600,33 +1629,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -1679,18 +1691,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -1752,6 +1752,35 @@ gapi.load('client', () => {
             consumerId: "Test string",
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -2165,33 +2194,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -2244,18 +2256,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -2324,6 +2324,35 @@ gapi.load('client', () => {
                 A: 42            },
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -2737,33 +2766,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -2816,18 +2828,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -2883,6 +2883,35 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -3296,33 +3325,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -3375,18 +3387,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -3441,6 +3441,35 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -3854,33 +3883,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -3933,18 +3945,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -4005,6 +4005,35 @@ gapi.load('client', () => {
             },
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -4418,33 +4447,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -4497,18 +4509,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -4574,6 +4574,35 @@ gapi.load('client', () => {
             producerProjectId: "Test string",
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -4987,33 +5016,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -5066,18 +5078,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -5163,6 +5163,35 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -5576,33 +5605,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -5655,18 +5667,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -5730,6 +5730,35 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -6143,33 +6172,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -6222,18 +6234,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed
@@ -6293,6 +6293,35 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
+         * Creates a new service configuration (version) for a managed service based
+         * on
+         * user-supplied configuration source files (for example: OpenAPI
+         * Specification). This method stores the source configurations as well as the
+         * generated service configuration. To rollout the service configuration to
+         * other services,
+         * please call CreateServiceRollout.
+         *
+         * Only the 100 most recent configuration sources and ones referenced by
+         * existing service configurtions are kept for each service. The rest will be
+         * deleted eventually.
+         *
+         * Operation<response: SubmitConfigSourceResponse>
+         */
+        await gapi.client.servicemanagement.services.configs.submit({
+            serviceName: "Test string",
+        }, {
+            configSource: {
+                files: [
+                    {
+                        fileContents: "Test string",
+                        filePath: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                id: "Test string",
+            },
+            validateOnly: true,
+        });
+        /**
          * Lists the history of the service configuration for a managed service,
          * from the newest to the oldest.
          */
@@ -6706,33 +6735,16 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service based
-         * on
-         * user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the
-         * generated service configuration. To rollout the service configuration to
-         * other services,
-         * please call CreateServiceRollout.
-         *
-         * Only the 100 most recent configuration sources and ones referenced by
-         * existing service configurtions are kept for each service. The rest will be
-         * deleted eventually.
-         *
-         * Operation<response: SubmitConfigSourceResponse>
+         * Gets the access control policy for a resource.
+         * Returns an empty policy if the resource exists and does not have a policy
+         * set.
          */
-        await gapi.client.servicemanagement.services.configs.submit({
-            serviceName: "Test string",
+        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
+            resource: "Test string",
         }, {
-            configSource: {
-                files: [
-                    {
-                        fileContents: "Test string",
-                        filePath: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                id: "Test string",
+            options: {
+                requestedPolicyVersion: 42,
             },
-            validateOnly: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any
@@ -6785,18 +6797,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
-        await gapi.client.servicemanagement.services.consumers.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
         });
         /**
          * Lists the history of the service configuration rollouts for a managed

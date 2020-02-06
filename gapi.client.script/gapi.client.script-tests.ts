@@ -140,6 +140,17 @@ gapi.load('client', () => {
             scriptId: "Test string",
             versionNumber: 42,
         });
+        /** Gets a version of a script project. */
+        await gapi.client.script.projects.versions.get({
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
+        /** List the versions of a script project. */
+        await gapi.client.script.projects.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            scriptId: "Test string",
+        });
         /**
          * Creates a new immutable version using the current code, with a unique
          * version number.
@@ -151,17 +162,6 @@ gapi.load('client', () => {
             description: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
-        });
-        /** Gets a version of a script project. */
-        await gapi.client.script.projects.versions.get({
-            scriptId: "Test string",
-            versionNumber: 42,
-        });
-        /** List the versions of a script project. */
-        await gapi.client.script.projects.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            scriptId: "Test string",
         });
         /** Gets a script project's metadata. */
         await gapi.client.script.projects.get({
@@ -204,6 +204,17 @@ gapi.load('client', () => {
             scriptId: "Test string",
             versionNumber: 42,
         });
+        /** Gets a version of a script project. */
+        await gapi.client.script.projects.versions.get({
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
+        /** List the versions of a script project. */
+        await gapi.client.script.projects.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            scriptId: "Test string",
+        });
         /**
          * Creates a new immutable version using the current code, with a unique
          * version number.
@@ -215,17 +226,6 @@ gapi.load('client', () => {
             description: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
-        });
-        /** Gets a version of a script project. */
-        await gapi.client.script.projects.versions.get({
-            scriptId: "Test string",
-            versionNumber: 42,
-        });
-        /** List the versions of a script project. */
-        await gapi.client.script.projects.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            scriptId: "Test string",
         });
         /**
          * Gets the content of the script project, including the code source and
@@ -272,6 +272,17 @@ gapi.load('client', () => {
             scriptId: "Test string",
             versionNumber: 42,
         });
+        /** Gets a version of a script project. */
+        await gapi.client.script.projects.versions.get({
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
+        /** List the versions of a script project. */
+        await gapi.client.script.projects.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            scriptId: "Test string",
+        });
         /**
          * Creates a new immutable version using the current code, with a unique
          * version number.
@@ -283,17 +294,6 @@ gapi.load('client', () => {
             description: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
-        });
-        /** Gets a version of a script project. */
-        await gapi.client.script.projects.versions.get({
-            scriptId: "Test string",
-            versionNumber: 42,
-        });
-        /** List the versions of a script project. */
-        await gapi.client.script.projects.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            scriptId: "Test string",
         });
         /**
          * Get metrics data for scripts, such as number of executions and
@@ -341,6 +341,17 @@ gapi.load('client', () => {
             scriptId: "Test string",
             versionNumber: 42,
         });
+        /** Gets a version of a script project. */
+        await gapi.client.script.projects.versions.get({
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
+        /** List the versions of a script project. */
+        await gapi.client.script.projects.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            scriptId: "Test string",
+        });
         /**
          * Creates a new immutable version using the current code, with a unique
          * version number.
@@ -352,17 +363,6 @@ gapi.load('client', () => {
             description: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
-        });
-        /** Gets a version of a script project. */
-        await gapi.client.script.projects.versions.get({
-            scriptId: "Test string",
-            versionNumber: 42,
-        });
-        /** List the versions of a script project. */
-        await gapi.client.script.projects.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            scriptId: "Test string",
         });
         /**
          * Updates the content of the specified script project.
@@ -433,6 +433,17 @@ gapi.load('client', () => {
             scriptId: "Test string",
             versionNumber: 42,
         });
+        /** Gets a version of a script project. */
+        await gapi.client.script.projects.versions.get({
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
+        /** List the versions of a script project. */
+        await gapi.client.script.projects.versions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            scriptId: "Test string",
+        });
         /**
          * Creates a new immutable version using the current code, with a unique
          * version number.
@@ -444,17 +455,6 @@ gapi.load('client', () => {
             description: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
-        });
-        /** Gets a version of a script project. */
-        await gapi.client.script.projects.versions.get({
-            scriptId: "Test string",
-            versionNumber: 42,
-        });
-        /** List the versions of a script project. */
-        await gapi.client.script.projects.versions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            scriptId: "Test string",
         });
         /**
          * Runs a function in an Apps Script project. The script project must be

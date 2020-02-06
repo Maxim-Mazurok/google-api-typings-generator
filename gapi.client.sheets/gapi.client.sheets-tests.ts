@@ -5562,17 +5562,6 @@ gapi.load('client', () => {
             spreadsheetId: "Test string",
         });
         /**
-         * Returns one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGet({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            ranges: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
          * Clears values from a spreadsheet.
          * The caller must specify the spreadsheet ID and range.
          * Only values are cleared -- all other properties of the cell (such as
@@ -5582,6 +5571,17 @@ gapi.load('client', () => {
             range: "Test string",
             spreadsheetId: "Test string",
         }, {
+        });
+        /**
+         * Returns one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchGet({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            ranges: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -5722,6 +5722,25 @@ gapi.load('client', () => {
             valueRenderOption: "Test string",
         });
         /**
+         * Sets values in a range of a spreadsheet.
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.
+         */
+        await gapi.client.sheets.spreadsheets.values.update({
+            includeValuesInResponse: true,
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            spreadsheetId: "Test string",
+            valueInputOption: "Test string",
+        }, {
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
+        });
+        /**
          * Sets values in one or more ranges of a spreadsheet.
          * The caller must specify the spreadsheet ID,
          * a valueInputOption, and one or more
@@ -5770,25 +5789,6 @@ gapi.load('client', () => {
             responseDateTimeRenderOption: "Test string",
             responseValueRenderOption: "Test string",
             valueInputOption: "Test string",
-        });
-        /**
-         * Sets values in a range of a spreadsheet.
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.
-         */
-        await gapi.client.sheets.spreadsheets.values.update({
-            includeValuesInResponse: true,
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
         });
         /**
          * Sets values in one or more ranges of a spreadsheet.
@@ -8272,17 +8272,6 @@ gapi.load('client', () => {
             spreadsheetId: "Test string",
         });
         /**
-         * Returns one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGet({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            ranges: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
          * Clears values from a spreadsheet.
          * The caller must specify the spreadsheet ID and range.
          * Only values are cleared -- all other properties of the cell (such as
@@ -8292,6 +8281,17 @@ gapi.load('client', () => {
             range: "Test string",
             spreadsheetId: "Test string",
         }, {
+        });
+        /**
+         * Returns one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchGet({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            ranges: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -8432,6 +8432,25 @@ gapi.load('client', () => {
             valueRenderOption: "Test string",
         });
         /**
+         * Sets values in a range of a spreadsheet.
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.
+         */
+        await gapi.client.sheets.spreadsheets.values.update({
+            includeValuesInResponse: true,
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            spreadsheetId: "Test string",
+            valueInputOption: "Test string",
+        }, {
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
+        });
+        /**
          * Sets values in one or more ranges of a spreadsheet.
          * The caller must specify the spreadsheet ID,
          * a valueInputOption, and one or more
@@ -8480,25 +8499,6 @@ gapi.load('client', () => {
             responseDateTimeRenderOption: "Test string",
             responseValueRenderOption: "Test string",
             valueInputOption: "Test string",
-        });
-        /**
-         * Sets values in a range of a spreadsheet.
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.
-         */
-        await gapi.client.sheets.spreadsheets.values.update({
-            includeValuesInResponse: true,
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
         });
         /**
          * Sets values in one or more ranges of a spreadsheet.
@@ -8611,17 +8611,6 @@ gapi.load('client', () => {
             spreadsheetId: "Test string",
         });
         /**
-         * Returns one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGet({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            ranges: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
          * Clears values from a spreadsheet.
          * The caller must specify the spreadsheet ID and range.
          * Only values are cleared -- all other properties of the cell (such as
@@ -8631,6 +8620,17 @@ gapi.load('client', () => {
             range: "Test string",
             spreadsheetId: "Test string",
         }, {
+        });
+        /**
+         * Returns one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchGet({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            ranges: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -8771,6 +8771,25 @@ gapi.load('client', () => {
             valueRenderOption: "Test string",
         });
         /**
+         * Sets values in a range of a spreadsheet.
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.
+         */
+        await gapi.client.sheets.spreadsheets.values.update({
+            includeValuesInResponse: true,
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            spreadsheetId: "Test string",
+            valueInputOption: "Test string",
+        }, {
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
+        });
+        /**
          * Sets values in one or more ranges of a spreadsheet.
          * The caller must specify the spreadsheet ID,
          * a valueInputOption, and one or more
@@ -8819,25 +8838,6 @@ gapi.load('client', () => {
             responseDateTimeRenderOption: "Test string",
             responseValueRenderOption: "Test string",
             valueInputOption: "Test string",
-        });
-        /**
-         * Sets values in a range of a spreadsheet.
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.
-         */
-        await gapi.client.sheets.spreadsheets.values.update({
-            includeValuesInResponse: true,
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
         });
         /**
          * Sets values in one or more ranges of a spreadsheet.
@@ -8981,17 +8981,6 @@ gapi.load('client', () => {
             spreadsheetId: "Test string",
         });
         /**
-         * Returns one or more ranges of values from a spreadsheet.
-         * The caller must specify the spreadsheet ID and one or more ranges.
-         */
-        await gapi.client.sheets.spreadsheets.values.batchGet({
-            dateTimeRenderOption: "Test string",
-            majorDimension: "Test string",
-            ranges: "Test string",
-            spreadsheetId: "Test string",
-            valueRenderOption: "Test string",
-        });
-        /**
          * Clears values from a spreadsheet.
          * The caller must specify the spreadsheet ID and range.
          * Only values are cleared -- all other properties of the cell (such as
@@ -9001,6 +8990,17 @@ gapi.load('client', () => {
             range: "Test string",
             spreadsheetId: "Test string",
         }, {
+        });
+        /**
+         * Returns one or more ranges of values from a spreadsheet.
+         * The caller must specify the spreadsheet ID and one or more ranges.
+         */
+        await gapi.client.sheets.spreadsheets.values.batchGet({
+            dateTimeRenderOption: "Test string",
+            majorDimension: "Test string",
+            ranges: "Test string",
+            spreadsheetId: "Test string",
+            valueRenderOption: "Test string",
         });
         /**
          * Clears one or more ranges of values from a spreadsheet.
@@ -9141,6 +9141,25 @@ gapi.load('client', () => {
             valueRenderOption: "Test string",
         });
         /**
+         * Sets values in a range of a spreadsheet.
+         * The caller must specify the spreadsheet ID, range, and
+         * a valueInputOption.
+         */
+        await gapi.client.sheets.spreadsheets.values.update({
+            includeValuesInResponse: true,
+            range: "Test string",
+            responseDateTimeRenderOption: "Test string",
+            responseValueRenderOption: "Test string",
+            spreadsheetId: "Test string",
+            valueInputOption: "Test string",
+        }, {
+            majorDimension: "Test string",
+            range: "Test string",
+            values: [
+                [
+                    42                ]            ],
+        });
+        /**
          * Sets values in one or more ranges of a spreadsheet.
          * The caller must specify the spreadsheet ID,
          * a valueInputOption, and one or more
@@ -9189,25 +9208,6 @@ gapi.load('client', () => {
             responseDateTimeRenderOption: "Test string",
             responseValueRenderOption: "Test string",
             valueInputOption: "Test string",
-        });
-        /**
-         * Sets values in a range of a spreadsheet.
-         * The caller must specify the spreadsheet ID, range, and
-         * a valueInputOption.
-         */
-        await gapi.client.sheets.spreadsheets.values.update({
-            includeValuesInResponse: true,
-            range: "Test string",
-            responseDateTimeRenderOption: "Test string",
-            responseValueRenderOption: "Test string",
-            spreadsheetId: "Test string",
-            valueInputOption: "Test string",
-        }, {
-            majorDimension: "Test string",
-            range: "Test string",
-            values: [
-                [
-                    42                ]            ],
         });
         /**
          * Sets values in one or more ranges of a spreadsheet.

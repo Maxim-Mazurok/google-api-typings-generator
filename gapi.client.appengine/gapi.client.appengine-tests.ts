@@ -66,90 +66,432 @@ gapi.load('client', () => {
             name: "Test string",
             servingStatus: "Test string",
         });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.appengine.apps.locations.list({
+        /** Deletes the specified service and all enclosed versions. */
+        await gapi.client.appengine.apps.services.delete({
             appsId: "Test string",
-            filter: "Test string",
+            servicesId: "Test string",
+        });
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Gets information about a location. */
-        await gapi.client.appengine.apps.locations.get({
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
             appsId: "Test string",
-            locationsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Uploads the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.create({
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
             appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         }, {
-            certificateRawData: {
-                privateKey: "Test string",
-                publicCertificate: "Test string",
-            },
-            displayName: "Test string",
-            domainMappingsCount: 42,
-            domainNames: [
-                "Test string"            ],
-            expireTime: "Test string",
-            id: "Test string",
-            managedCertificate: {
-                lastRenewalTime: "Test string",
-                status: "Test string",
-            },
-            name: "Test string",
-            visibleDomainMappings: [
-                "Test string"            ],
+            sshKey: "Test string",
         });
-        /** Deletes the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.delete({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-        });
-        /** Lists all SSL certificates the user is authorized to administer. */
-        await gapi.client.appengine.apps.authorizedCertificates.list({
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
             appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /** Gets the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.get({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
+            servicesId: "Test string",
             view: "Test string",
         });
         /**
-         * Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new
-         * certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
          */
-        await gapi.client.appengine.apps.authorizedCertificates.patch({
+        await gapi.client.appengine.apps.services.versions.instances.delete({
             appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-            updateMask: "Test string",
-        }, {
-            certificateRawData: {
-                privateKey: "Test string",
-                publicCertificate: "Test string",
-            },
-            displayName: "Test string",
-            domainMappingsCount: 42,
-            domainNames: [
-                "Test string"            ],
-            expireTime: "Test string",
-            id: "Test string",
-            managedCertificate: {
-                lastRenewalTime: "Test string",
-                status: "Test string",
-            },
-            name: "Test string",
-            visibleDomainMappings: [
-                "Test string"            ],
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Lists all the services in the application. */
-        await gapi.client.appengine.apps.services.list({
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
             appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
+        }, {
+            apiConfig: {
+                authFailAction: "Test string",
+                login: "Test string",
+                script: "Test string",
+                securityLevel: "Test string",
+                url: "Test string",
+            },
+            automaticScaling: {
+                coolDownPeriod: "Test string",
+                cpuUtilization: {
+                    aggregationWindowLength: "Test string",
+                    targetUtilization: 42,
+                },
+                diskUtilization: {
+                    targetReadBytesPerSecond: 42,
+                    targetReadOpsPerSecond: 42,
+                    targetWriteBytesPerSecond: 42,
+                    targetWriteOpsPerSecond: 42,
+                },
+                maxConcurrentRequests: 42,
+                maxIdleInstances: 42,
+                maxPendingLatency: "Test string",
+                maxTotalInstances: 42,
+                minIdleInstances: 42,
+                minPendingLatency: "Test string",
+                minTotalInstances: 42,
+                networkUtilization: {
+                    targetReceivedBytesPerSecond: 42,
+                    targetReceivedPacketsPerSecond: 42,
+                    targetSentBytesPerSecond: 42,
+                    targetSentPacketsPerSecond: 42,
+                },
+                requestUtilization: {
+                    targetConcurrentRequests: 42,
+                    targetRequestCountPerSecond: 42,
+                },
+                standardSchedulerSettings: {
+                    maxInstances: 42,
+                    minInstances: 42,
+                    targetCpuUtilization: 42,
+                    targetThroughputUtilization: 42,
+                },
+            },
+            basicScaling: {
+                idleTimeout: "Test string",
+                maxInstances: 42,
+            },
+            betaSettings: {
+                A: "Test string"            },
+            createTime: "Test string",
+            createdBy: "Test string",
+            defaultExpiration: "Test string",
+            deployment: {
+                cloudBuildOptions: {
+                    appYamlPath: "Test string",
+                    cloudBuildTimeout: "Test string",
+                },
+                container: {
+                    image: "Test string",
+                },
+                files: {
+                    A: {
+                        mimeType: "Test string",
+                        sha1Sum: "Test string",
+                        sourceUrl: "Test string",
+                    }                },
+                zip: {
+                    filesCount: 42,
+                    sourceUrl: "Test string",
+                },
+            },
+            diskUsageBytes: "Test string",
+            endpointsApiService: {
+                configId: "Test string",
+                disableTraceSampling: true,
+                name: "Test string",
+                rolloutStrategy: "Test string",
+            },
+            entrypoint: {
+                shell: "Test string",
+            },
+            env: "Test string",
+            envVariables: {
+                A: "Test string"            },
+            errorHandlers: [
+                {
+                    errorCode: "Test string",
+                    mimeType: "Test string",
+                    staticFile: "Test string",
+                }            ],
+            handlers: [
+                {
+                    apiEndpoint: {
+                        scriptPath: "Test string",
+                    },
+                    authFailAction: "Test string",
+                    login: "Test string",
+                    redirectHttpResponseCode: "Test string",
+                    script: {
+                        scriptPath: "Test string",
+                    },
+                    securityLevel: "Test string",
+                    staticFiles: {
+                        applicationReadable: true,
+                        expiration: "Test string",
+                        httpHeaders: {
+                            A: "Test string"                        },
+                        mimeType: "Test string",
+                        path: "Test string",
+                        requireMatchingFile: true,
+                        uploadPathRegex: "Test string",
+                    },
+                    urlRegex: "Test string",
+                }            ],
+            healthCheck: {
+                checkInterval: "Test string",
+                disableHealthCheck: true,
+                healthyThreshold: 42,
+                host: "Test string",
+                restartThreshold: 42,
+                timeout: "Test string",
+                unhealthyThreshold: 42,
+            },
+            id: "Test string",
+            inboundServices: [
+                "Test string"            ],
+            instanceClass: "Test string",
+            libraries: [
+                {
+                    name: "Test string",
+                    version: "Test string",
+                }            ],
+            livenessCheck: {
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                initialDelay: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            manualScaling: {
+                instances: 42,
+            },
+            name: "Test string",
+            network: {
+                forwardedPorts: [
+                    "Test string"                ],
+                instanceTag: "Test string",
+                name: "Test string",
+                sessionAffinity: true,
+                subnetworkName: "Test string",
+            },
+            nobuildFilesRegex: "Test string",
+            readinessCheck: {
+                appStartTimeout: "Test string",
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            resources: {
+                cpu: 42,
+                diskGb: 42,
+                memoryGb: 42,
+                volumes: [
+                    {
+                        name: "Test string",
+                        sizeGb: 42,
+                        volumeType: "Test string",
+                    }                ],
+            },
+            runtime: "Test string",
+            runtimeApiVersion: "Test string",
+            runtimeChannel: "Test string",
+            runtimeMainExecutablePath: "Test string",
+            servingStatus: "Test string",
+            threadsafe: true,
+            versionUrl: "Test string",
+            vm: true,
+            vpcAccessConnector: {
+                name: "Test string",
+            },
+            zones: [
+                "Test string"            ],
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -388,6 +730,12 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
+        /** Lists all the services in the application. */
+        await gapi.client.appengine.apps.services.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Deletes an existing Version resource. */
         await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
@@ -577,6 +925,243 @@ gapi.load('client', () => {
             servicesId: "Test string",
             updateMask: "Test string",
             versionsId: "Test string",
+        }, {
+            apiConfig: {
+                authFailAction: "Test string",
+                login: "Test string",
+                script: "Test string",
+                securityLevel: "Test string",
+                url: "Test string",
+            },
+            automaticScaling: {
+                coolDownPeriod: "Test string",
+                cpuUtilization: {
+                    aggregationWindowLength: "Test string",
+                    targetUtilization: 42,
+                },
+                diskUtilization: {
+                    targetReadBytesPerSecond: 42,
+                    targetReadOpsPerSecond: 42,
+                    targetWriteBytesPerSecond: 42,
+                    targetWriteOpsPerSecond: 42,
+                },
+                maxConcurrentRequests: 42,
+                maxIdleInstances: 42,
+                maxPendingLatency: "Test string",
+                maxTotalInstances: 42,
+                minIdleInstances: 42,
+                minPendingLatency: "Test string",
+                minTotalInstances: 42,
+                networkUtilization: {
+                    targetReceivedBytesPerSecond: 42,
+                    targetReceivedPacketsPerSecond: 42,
+                    targetSentBytesPerSecond: 42,
+                    targetSentPacketsPerSecond: 42,
+                },
+                requestUtilization: {
+                    targetConcurrentRequests: 42,
+                    targetRequestCountPerSecond: 42,
+                },
+                standardSchedulerSettings: {
+                    maxInstances: 42,
+                    minInstances: 42,
+                    targetCpuUtilization: 42,
+                    targetThroughputUtilization: 42,
+                },
+            },
+            basicScaling: {
+                idleTimeout: "Test string",
+                maxInstances: 42,
+            },
+            betaSettings: {
+                A: "Test string"            },
+            createTime: "Test string",
+            createdBy: "Test string",
+            defaultExpiration: "Test string",
+            deployment: {
+                cloudBuildOptions: {
+                    appYamlPath: "Test string",
+                    cloudBuildTimeout: "Test string",
+                },
+                container: {
+                    image: "Test string",
+                },
+                files: {
+                    A: {
+                        mimeType: "Test string",
+                        sha1Sum: "Test string",
+                        sourceUrl: "Test string",
+                    }                },
+                zip: {
+                    filesCount: 42,
+                    sourceUrl: "Test string",
+                },
+            },
+            diskUsageBytes: "Test string",
+            endpointsApiService: {
+                configId: "Test string",
+                disableTraceSampling: true,
+                name: "Test string",
+                rolloutStrategy: "Test string",
+            },
+            entrypoint: {
+                shell: "Test string",
+            },
+            env: "Test string",
+            envVariables: {
+                A: "Test string"            },
+            errorHandlers: [
+                {
+                    errorCode: "Test string",
+                    mimeType: "Test string",
+                    staticFile: "Test string",
+                }            ],
+            handlers: [
+                {
+                    apiEndpoint: {
+                        scriptPath: "Test string",
+                    },
+                    authFailAction: "Test string",
+                    login: "Test string",
+                    redirectHttpResponseCode: "Test string",
+                    script: {
+                        scriptPath: "Test string",
+                    },
+                    securityLevel: "Test string",
+                    staticFiles: {
+                        applicationReadable: true,
+                        expiration: "Test string",
+                        httpHeaders: {
+                            A: "Test string"                        },
+                        mimeType: "Test string",
+                        path: "Test string",
+                        requireMatchingFile: true,
+                        uploadPathRegex: "Test string",
+                    },
+                    urlRegex: "Test string",
+                }            ],
+            healthCheck: {
+                checkInterval: "Test string",
+                disableHealthCheck: true,
+                healthyThreshold: 42,
+                host: "Test string",
+                restartThreshold: 42,
+                timeout: "Test string",
+                unhealthyThreshold: 42,
+            },
+            id: "Test string",
+            inboundServices: [
+                "Test string"            ],
+            instanceClass: "Test string",
+            libraries: [
+                {
+                    name: "Test string",
+                    version: "Test string",
+                }            ],
+            livenessCheck: {
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                initialDelay: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            manualScaling: {
+                instances: 42,
+            },
+            name: "Test string",
+            network: {
+                forwardedPorts: [
+                    "Test string"                ],
+                instanceTag: "Test string",
+                name: "Test string",
+                sessionAffinity: true,
+                subnetworkName: "Test string",
+            },
+            nobuildFilesRegex: "Test string",
+            readinessCheck: {
+                appStartTimeout: "Test string",
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            resources: {
+                cpu: 42,
+                diskGb: 42,
+                memoryGb: 42,
+                volumes: [
+                    {
+                        name: "Test string",
+                        sizeGb: 42,
+                        volumeType: "Test string",
+                    }                ],
+            },
+            runtime: "Test string",
+            runtimeApiVersion: "Test string",
+            runtimeChannel: "Test string",
+            runtimeMainExecutablePath: "Test string",
+            servingStatus: "Test string",
+            threadsafe: true,
+            versionUrl: "Test string",
+            vm: true,
+            vpcAccessConnector: {
+                name: "Test string",
+            },
+            zones: [
+                "Test string"            ],
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
+            appsId: "Test string",
+            servicesId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -815,10 +1400,195 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -1052,195 +1822,10 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -1489,243 +2074,6 @@ gapi.load('client', () => {
                 shardBy: "Test string",
             },
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
-            appsId: "Test string",
-            servicesId: "Test string",
-        }, {
-            apiConfig: {
-                authFailAction: "Test string",
-                login: "Test string",
-                script: "Test string",
-                securityLevel: "Test string",
-                url: "Test string",
-            },
-            automaticScaling: {
-                coolDownPeriod: "Test string",
-                cpuUtilization: {
-                    aggregationWindowLength: "Test string",
-                    targetUtilization: 42,
-                },
-                diskUtilization: {
-                    targetReadBytesPerSecond: 42,
-                    targetReadOpsPerSecond: 42,
-                    targetWriteBytesPerSecond: 42,
-                    targetWriteOpsPerSecond: 42,
-                },
-                maxConcurrentRequests: 42,
-                maxIdleInstances: 42,
-                maxPendingLatency: "Test string",
-                maxTotalInstances: 42,
-                minIdleInstances: 42,
-                minPendingLatency: "Test string",
-                minTotalInstances: 42,
-                networkUtilization: {
-                    targetReceivedBytesPerSecond: 42,
-                    targetReceivedPacketsPerSecond: 42,
-                    targetSentBytesPerSecond: 42,
-                    targetSentPacketsPerSecond: 42,
-                },
-                requestUtilization: {
-                    targetConcurrentRequests: 42,
-                    targetRequestCountPerSecond: 42,
-                },
-                standardSchedulerSettings: {
-                    maxInstances: 42,
-                    minInstances: 42,
-                    targetCpuUtilization: 42,
-                    targetThroughputUtilization: 42,
-                },
-            },
-            basicScaling: {
-                idleTimeout: "Test string",
-                maxInstances: 42,
-            },
-            betaSettings: {
-                A: "Test string"            },
-            createTime: "Test string",
-            createdBy: "Test string",
-            defaultExpiration: "Test string",
-            deployment: {
-                cloudBuildOptions: {
-                    appYamlPath: "Test string",
-                    cloudBuildTimeout: "Test string",
-                },
-                container: {
-                    image: "Test string",
-                },
-                files: {
-                    A: {
-                        mimeType: "Test string",
-                        sha1Sum: "Test string",
-                        sourceUrl: "Test string",
-                    }                },
-                zip: {
-                    filesCount: 42,
-                    sourceUrl: "Test string",
-                },
-            },
-            diskUsageBytes: "Test string",
-            endpointsApiService: {
-                configId: "Test string",
-                disableTraceSampling: true,
-                name: "Test string",
-                rolloutStrategy: "Test string",
-            },
-            entrypoint: {
-                shell: "Test string",
-            },
-            env: "Test string",
-            envVariables: {
-                A: "Test string"            },
-            errorHandlers: [
-                {
-                    errorCode: "Test string",
-                    mimeType: "Test string",
-                    staticFile: "Test string",
-                }            ],
-            handlers: [
-                {
-                    apiEndpoint: {
-                        scriptPath: "Test string",
-                    },
-                    authFailAction: "Test string",
-                    login: "Test string",
-                    redirectHttpResponseCode: "Test string",
-                    script: {
-                        scriptPath: "Test string",
-                    },
-                    securityLevel: "Test string",
-                    staticFiles: {
-                        applicationReadable: true,
-                        expiration: "Test string",
-                        httpHeaders: {
-                            A: "Test string"                        },
-                        mimeType: "Test string",
-                        path: "Test string",
-                        requireMatchingFile: true,
-                        uploadPathRegex: "Test string",
-                    },
-                    urlRegex: "Test string",
-                }            ],
-            healthCheck: {
-                checkInterval: "Test string",
-                disableHealthCheck: true,
-                healthyThreshold: 42,
-                host: "Test string",
-                restartThreshold: 42,
-                timeout: "Test string",
-                unhealthyThreshold: 42,
-            },
-            id: "Test string",
-            inboundServices: [
-                "Test string"            ],
-            instanceClass: "Test string",
-            libraries: [
-                {
-                    name: "Test string",
-                    version: "Test string",
-                }            ],
-            livenessCheck: {
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                initialDelay: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            manualScaling: {
-                instances: 42,
-            },
-            name: "Test string",
-            network: {
-                forwardedPorts: [
-                    "Test string"                ],
-                instanceTag: "Test string",
-                name: "Test string",
-                sessionAffinity: true,
-                subnetworkName: "Test string",
-            },
-            nobuildFilesRegex: "Test string",
-            readinessCheck: {
-                appStartTimeout: "Test string",
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            resources: {
-                cpu: 42,
-                diskGb: 42,
-                memoryGb: 42,
-                volumes: [
-                    {
-                        name: "Test string",
-                        sizeGb: 42,
-                        volumeType: "Test string",
-                    }                ],
-            },
-            runtime: "Test string",
-            runtimeApiVersion: "Test string",
-            runtimeChannel: "Test string",
-            runtimeMainExecutablePath: "Test string",
-            servingStatus: "Test string",
-            threadsafe: true,
-            versionUrl: "Test string",
-            vm: true,
-            vpcAccessConnector: {
-                name: "Test string",
-            },
-            zones: [
-                "Test string"            ],
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
         /** Deletes an existing Version resource. */
         await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
@@ -2148,437 +2496,10 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deletes the specified service and all enclosed versions. */
-        await gapi.client.appengine.apps.services.delete({
-            appsId: "Test string",
-            servicesId: "Test string",
-        });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-        }, {
-            apiConfig: {
-                authFailAction: "Test string",
-                login: "Test string",
-                script: "Test string",
-                securityLevel: "Test string",
-                url: "Test string",
-            },
-            automaticScaling: {
-                coolDownPeriod: "Test string",
-                cpuUtilization: {
-                    aggregationWindowLength: "Test string",
-                    targetUtilization: 42,
-                },
-                diskUtilization: {
-                    targetReadBytesPerSecond: 42,
-                    targetReadOpsPerSecond: 42,
-                    targetWriteBytesPerSecond: 42,
-                    targetWriteOpsPerSecond: 42,
-                },
-                maxConcurrentRequests: 42,
-                maxIdleInstances: 42,
-                maxPendingLatency: "Test string",
-                maxTotalInstances: 42,
-                minIdleInstances: 42,
-                minPendingLatency: "Test string",
-                minTotalInstances: 42,
-                networkUtilization: {
-                    targetReceivedBytesPerSecond: 42,
-                    targetReceivedPacketsPerSecond: 42,
-                    targetSentBytesPerSecond: 42,
-                    targetSentPacketsPerSecond: 42,
-                },
-                requestUtilization: {
-                    targetConcurrentRequests: 42,
-                    targetRequestCountPerSecond: 42,
-                },
-                standardSchedulerSettings: {
-                    maxInstances: 42,
-                    minInstances: 42,
-                    targetCpuUtilization: 42,
-                    targetThroughputUtilization: 42,
-                },
-            },
-            basicScaling: {
-                idleTimeout: "Test string",
-                maxInstances: 42,
-            },
-            betaSettings: {
-                A: "Test string"            },
-            createTime: "Test string",
-            createdBy: "Test string",
-            defaultExpiration: "Test string",
-            deployment: {
-                cloudBuildOptions: {
-                    appYamlPath: "Test string",
-                    cloudBuildTimeout: "Test string",
-                },
-                container: {
-                    image: "Test string",
-                },
-                files: {
-                    A: {
-                        mimeType: "Test string",
-                        sha1Sum: "Test string",
-                        sourceUrl: "Test string",
-                    }                },
-                zip: {
-                    filesCount: 42,
-                    sourceUrl: "Test string",
-                },
-            },
-            diskUsageBytes: "Test string",
-            endpointsApiService: {
-                configId: "Test string",
-                disableTraceSampling: true,
-                name: "Test string",
-                rolloutStrategy: "Test string",
-            },
-            entrypoint: {
-                shell: "Test string",
-            },
-            env: "Test string",
-            envVariables: {
-                A: "Test string"            },
-            errorHandlers: [
-                {
-                    errorCode: "Test string",
-                    mimeType: "Test string",
-                    staticFile: "Test string",
-                }            ],
-            handlers: [
-                {
-                    apiEndpoint: {
-                        scriptPath: "Test string",
-                    },
-                    authFailAction: "Test string",
-                    login: "Test string",
-                    redirectHttpResponseCode: "Test string",
-                    script: {
-                        scriptPath: "Test string",
-                    },
-                    securityLevel: "Test string",
-                    staticFiles: {
-                        applicationReadable: true,
-                        expiration: "Test string",
-                        httpHeaders: {
-                            A: "Test string"                        },
-                        mimeType: "Test string",
-                        path: "Test string",
-                        requireMatchingFile: true,
-                        uploadPathRegex: "Test string",
-                    },
-                    urlRegex: "Test string",
-                }            ],
-            healthCheck: {
-                checkInterval: "Test string",
-                disableHealthCheck: true,
-                healthyThreshold: 42,
-                host: "Test string",
-                restartThreshold: 42,
-                timeout: "Test string",
-                unhealthyThreshold: 42,
-            },
-            id: "Test string",
-            inboundServices: [
-                "Test string"            ],
-            instanceClass: "Test string",
-            libraries: [
-                {
-                    name: "Test string",
-                    version: "Test string",
-                }            ],
-            livenessCheck: {
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                initialDelay: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            manualScaling: {
-                instances: 42,
-            },
-            name: "Test string",
-            network: {
-                forwardedPorts: [
-                    "Test string"                ],
-                instanceTag: "Test string",
-                name: "Test string",
-                sessionAffinity: true,
-                subnetworkName: "Test string",
-            },
-            nobuildFilesRegex: "Test string",
-            readinessCheck: {
-                appStartTimeout: "Test string",
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            resources: {
-                cpu: 42,
-                diskGb: 42,
-                memoryGb: 42,
-                volumes: [
-                    {
-                        name: "Test string",
-                        sizeGb: 42,
-                        volumeType: "Test string",
-                    }                ],
-            },
-            runtime: "Test string",
-            runtimeApiVersion: "Test string",
-            runtimeChannel: "Test string",
-            runtimeMainExecutablePath: "Test string",
-            servingStatus: "Test string",
-            threadsafe: true,
-            versionUrl: "Test string",
-            vm: true,
-            vpcAccessConnector: {
-                name: "Test string",
-            },
-            zones: [
-                "Test string"            ],
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -2899,95 +2820,516 @@ gapi.load('client', () => {
                 pendingManagedCertificateId: "Test string",
                 sslManagementType: "Test string",
             },
+        });
+        /** Lists information about the supported locations for this service. */
+        await gapi.client.appengine.apps.locations.list({
+            appsId: "Test string",
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets information about a location. */
+        await gapi.client.appengine.apps.locations.get({
+            appsId: "Test string",
+            locationsId: "Test string",
+        });
+        /** Deletes the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.delete({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+        });
+        /** Lists all SSL certificates the user is authorized to administer. */
+        await gapi.client.appengine.apps.authorizedCertificates.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /** Gets the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.get({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new
+         * certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.
+         */
+        await gapi.client.appengine.apps.authorizedCertificates.patch({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+            updateMask: "Test string",
+        }, {
+            certificateRawData: {
+                privateKey: "Test string",
+                publicCertificate: "Test string",
+            },
+            displayName: "Test string",
+            domainMappingsCount: 42,
+            domainNames: [
+                "Test string"            ],
+            expireTime: "Test string",
+            id: "Test string",
+            managedCertificate: {
+                lastRenewalTime: "Test string",
+                status: "Test string",
+            },
+            name: "Test string",
+            visibleDomainMappings: [
+                "Test string"            ],
+        });
+        /** Uploads the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.create({
+            appsId: "Test string",
+        }, {
+            certificateRawData: {
+                privateKey: "Test string",
+                publicCertificate: "Test string",
+            },
+            displayName: "Test string",
+            domainMappingsCount: 42,
+            domainNames: [
+                "Test string"            ],
+            expireTime: "Test string",
+            id: "Test string",
+            managedCertificate: {
+                lastRenewalTime: "Test string",
+                status: "Test string",
+            },
+            name: "Test string",
+            visibleDomainMappings: [
+                "Test string"            ],
         });
         /** Gets information about an application. */
         await gapi.client.appengine.apps.get({
             appsId: "Test string",
         });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.appengine.apps.locations.list({
+        /** Deletes the specified service and all enclosed versions. */
+        await gapi.client.appengine.apps.services.delete({
             appsId: "Test string",
-            filter: "Test string",
+            servicesId: "Test string",
+        });
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Gets information about a location. */
-        await gapi.client.appengine.apps.locations.get({
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
             appsId: "Test string",
-            locationsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Uploads the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.create({
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
             appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         }, {
-            certificateRawData: {
-                privateKey: "Test string",
-                publicCertificate: "Test string",
-            },
-            displayName: "Test string",
-            domainMappingsCount: 42,
-            domainNames: [
-                "Test string"            ],
-            expireTime: "Test string",
-            id: "Test string",
-            managedCertificate: {
-                lastRenewalTime: "Test string",
-                status: "Test string",
-            },
-            name: "Test string",
-            visibleDomainMappings: [
-                "Test string"            ],
+            sshKey: "Test string",
         });
-        /** Deletes the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.delete({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-        });
-        /** Lists all SSL certificates the user is authorized to administer. */
-        await gapi.client.appengine.apps.authorizedCertificates.list({
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
             appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /** Gets the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.get({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
+            servicesId: "Test string",
             view: "Test string",
         });
         /**
-         * Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new
-         * certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
          */
-        await gapi.client.appengine.apps.authorizedCertificates.patch({
+        await gapi.client.appengine.apps.services.versions.instances.delete({
             appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-            updateMask: "Test string",
-        }, {
-            certificateRawData: {
-                privateKey: "Test string",
-                publicCertificate: "Test string",
-            },
-            displayName: "Test string",
-            domainMappingsCount: 42,
-            domainNames: [
-                "Test string"            ],
-            expireTime: "Test string",
-            id: "Test string",
-            managedCertificate: {
-                lastRenewalTime: "Test string",
-                status: "Test string",
-            },
-            name: "Test string",
-            visibleDomainMappings: [
-                "Test string"            ],
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Lists all the services in the application. */
-        await gapi.client.appengine.apps.services.list({
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
             appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
+        }, {
+            apiConfig: {
+                authFailAction: "Test string",
+                login: "Test string",
+                script: "Test string",
+                securityLevel: "Test string",
+                url: "Test string",
+            },
+            automaticScaling: {
+                coolDownPeriod: "Test string",
+                cpuUtilization: {
+                    aggregationWindowLength: "Test string",
+                    targetUtilization: 42,
+                },
+                diskUtilization: {
+                    targetReadBytesPerSecond: 42,
+                    targetReadOpsPerSecond: 42,
+                    targetWriteBytesPerSecond: 42,
+                    targetWriteOpsPerSecond: 42,
+                },
+                maxConcurrentRequests: 42,
+                maxIdleInstances: 42,
+                maxPendingLatency: "Test string",
+                maxTotalInstances: 42,
+                minIdleInstances: 42,
+                minPendingLatency: "Test string",
+                minTotalInstances: 42,
+                networkUtilization: {
+                    targetReceivedBytesPerSecond: 42,
+                    targetReceivedPacketsPerSecond: 42,
+                    targetSentBytesPerSecond: 42,
+                    targetSentPacketsPerSecond: 42,
+                },
+                requestUtilization: {
+                    targetConcurrentRequests: 42,
+                    targetRequestCountPerSecond: 42,
+                },
+                standardSchedulerSettings: {
+                    maxInstances: 42,
+                    minInstances: 42,
+                    targetCpuUtilization: 42,
+                    targetThroughputUtilization: 42,
+                },
+            },
+            basicScaling: {
+                idleTimeout: "Test string",
+                maxInstances: 42,
+            },
+            betaSettings: {
+                A: "Test string"            },
+            createTime: "Test string",
+            createdBy: "Test string",
+            defaultExpiration: "Test string",
+            deployment: {
+                cloudBuildOptions: {
+                    appYamlPath: "Test string",
+                    cloudBuildTimeout: "Test string",
+                },
+                container: {
+                    image: "Test string",
+                },
+                files: {
+                    A: {
+                        mimeType: "Test string",
+                        sha1Sum: "Test string",
+                        sourceUrl: "Test string",
+                    }                },
+                zip: {
+                    filesCount: 42,
+                    sourceUrl: "Test string",
+                },
+            },
+            diskUsageBytes: "Test string",
+            endpointsApiService: {
+                configId: "Test string",
+                disableTraceSampling: true,
+                name: "Test string",
+                rolloutStrategy: "Test string",
+            },
+            entrypoint: {
+                shell: "Test string",
+            },
+            env: "Test string",
+            envVariables: {
+                A: "Test string"            },
+            errorHandlers: [
+                {
+                    errorCode: "Test string",
+                    mimeType: "Test string",
+                    staticFile: "Test string",
+                }            ],
+            handlers: [
+                {
+                    apiEndpoint: {
+                        scriptPath: "Test string",
+                    },
+                    authFailAction: "Test string",
+                    login: "Test string",
+                    redirectHttpResponseCode: "Test string",
+                    script: {
+                        scriptPath: "Test string",
+                    },
+                    securityLevel: "Test string",
+                    staticFiles: {
+                        applicationReadable: true,
+                        expiration: "Test string",
+                        httpHeaders: {
+                            A: "Test string"                        },
+                        mimeType: "Test string",
+                        path: "Test string",
+                        requireMatchingFile: true,
+                        uploadPathRegex: "Test string",
+                    },
+                    urlRegex: "Test string",
+                }            ],
+            healthCheck: {
+                checkInterval: "Test string",
+                disableHealthCheck: true,
+                healthyThreshold: 42,
+                host: "Test string",
+                restartThreshold: 42,
+                timeout: "Test string",
+                unhealthyThreshold: 42,
+            },
+            id: "Test string",
+            inboundServices: [
+                "Test string"            ],
+            instanceClass: "Test string",
+            libraries: [
+                {
+                    name: "Test string",
+                    version: "Test string",
+                }            ],
+            livenessCheck: {
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                initialDelay: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            manualScaling: {
+                instances: 42,
+            },
+            name: "Test string",
+            network: {
+                forwardedPorts: [
+                    "Test string"                ],
+                instanceTag: "Test string",
+                name: "Test string",
+                sessionAffinity: true,
+                subnetworkName: "Test string",
+            },
+            nobuildFilesRegex: "Test string",
+            readinessCheck: {
+                appStartTimeout: "Test string",
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            resources: {
+                cpu: 42,
+                diskGb: 42,
+                memoryGb: 42,
+                volumes: [
+                    {
+                        name: "Test string",
+                        sizeGb: 42,
+                        volumeType: "Test string",
+                    }                ],
+            },
+            runtime: "Test string",
+            runtimeApiVersion: "Test string",
+            runtimeChannel: "Test string",
+            runtimeMainExecutablePath: "Test string",
+            servingStatus: "Test string",
+            threadsafe: true,
+            versionUrl: "Test string",
+            vm: true,
+            vpcAccessConnector: {
+                name: "Test string",
+            },
+            zones: [
+                "Test string"            ],
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -3226,6 +3568,12 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
+        /** Lists all the services in the application. */
+        await gapi.client.appengine.apps.services.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Deletes an existing Version resource. */
         await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
@@ -3415,6 +3763,243 @@ gapi.load('client', () => {
             servicesId: "Test string",
             updateMask: "Test string",
             versionsId: "Test string",
+        }, {
+            apiConfig: {
+                authFailAction: "Test string",
+                login: "Test string",
+                script: "Test string",
+                securityLevel: "Test string",
+                url: "Test string",
+            },
+            automaticScaling: {
+                coolDownPeriod: "Test string",
+                cpuUtilization: {
+                    aggregationWindowLength: "Test string",
+                    targetUtilization: 42,
+                },
+                diskUtilization: {
+                    targetReadBytesPerSecond: 42,
+                    targetReadOpsPerSecond: 42,
+                    targetWriteBytesPerSecond: 42,
+                    targetWriteOpsPerSecond: 42,
+                },
+                maxConcurrentRequests: 42,
+                maxIdleInstances: 42,
+                maxPendingLatency: "Test string",
+                maxTotalInstances: 42,
+                minIdleInstances: 42,
+                minPendingLatency: "Test string",
+                minTotalInstances: 42,
+                networkUtilization: {
+                    targetReceivedBytesPerSecond: 42,
+                    targetReceivedPacketsPerSecond: 42,
+                    targetSentBytesPerSecond: 42,
+                    targetSentPacketsPerSecond: 42,
+                },
+                requestUtilization: {
+                    targetConcurrentRequests: 42,
+                    targetRequestCountPerSecond: 42,
+                },
+                standardSchedulerSettings: {
+                    maxInstances: 42,
+                    minInstances: 42,
+                    targetCpuUtilization: 42,
+                    targetThroughputUtilization: 42,
+                },
+            },
+            basicScaling: {
+                idleTimeout: "Test string",
+                maxInstances: 42,
+            },
+            betaSettings: {
+                A: "Test string"            },
+            createTime: "Test string",
+            createdBy: "Test string",
+            defaultExpiration: "Test string",
+            deployment: {
+                cloudBuildOptions: {
+                    appYamlPath: "Test string",
+                    cloudBuildTimeout: "Test string",
+                },
+                container: {
+                    image: "Test string",
+                },
+                files: {
+                    A: {
+                        mimeType: "Test string",
+                        sha1Sum: "Test string",
+                        sourceUrl: "Test string",
+                    }                },
+                zip: {
+                    filesCount: 42,
+                    sourceUrl: "Test string",
+                },
+            },
+            diskUsageBytes: "Test string",
+            endpointsApiService: {
+                configId: "Test string",
+                disableTraceSampling: true,
+                name: "Test string",
+                rolloutStrategy: "Test string",
+            },
+            entrypoint: {
+                shell: "Test string",
+            },
+            env: "Test string",
+            envVariables: {
+                A: "Test string"            },
+            errorHandlers: [
+                {
+                    errorCode: "Test string",
+                    mimeType: "Test string",
+                    staticFile: "Test string",
+                }            ],
+            handlers: [
+                {
+                    apiEndpoint: {
+                        scriptPath: "Test string",
+                    },
+                    authFailAction: "Test string",
+                    login: "Test string",
+                    redirectHttpResponseCode: "Test string",
+                    script: {
+                        scriptPath: "Test string",
+                    },
+                    securityLevel: "Test string",
+                    staticFiles: {
+                        applicationReadable: true,
+                        expiration: "Test string",
+                        httpHeaders: {
+                            A: "Test string"                        },
+                        mimeType: "Test string",
+                        path: "Test string",
+                        requireMatchingFile: true,
+                        uploadPathRegex: "Test string",
+                    },
+                    urlRegex: "Test string",
+                }            ],
+            healthCheck: {
+                checkInterval: "Test string",
+                disableHealthCheck: true,
+                healthyThreshold: 42,
+                host: "Test string",
+                restartThreshold: 42,
+                timeout: "Test string",
+                unhealthyThreshold: 42,
+            },
+            id: "Test string",
+            inboundServices: [
+                "Test string"            ],
+            instanceClass: "Test string",
+            libraries: [
+                {
+                    name: "Test string",
+                    version: "Test string",
+                }            ],
+            livenessCheck: {
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                initialDelay: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            manualScaling: {
+                instances: 42,
+            },
+            name: "Test string",
+            network: {
+                forwardedPorts: [
+                    "Test string"                ],
+                instanceTag: "Test string",
+                name: "Test string",
+                sessionAffinity: true,
+                subnetworkName: "Test string",
+            },
+            nobuildFilesRegex: "Test string",
+            readinessCheck: {
+                appStartTimeout: "Test string",
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            resources: {
+                cpu: 42,
+                diskGb: 42,
+                memoryGb: 42,
+                volumes: [
+                    {
+                        name: "Test string",
+                        sizeGb: 42,
+                        volumeType: "Test string",
+                    }                ],
+            },
+            runtime: "Test string",
+            runtimeApiVersion: "Test string",
+            runtimeChannel: "Test string",
+            runtimeMainExecutablePath: "Test string",
+            servingStatus: "Test string",
+            threadsafe: true,
+            versionUrl: "Test string",
+            vm: true,
+            vpcAccessConnector: {
+                name: "Test string",
+            },
+            zones: [
+                "Test string"            ],
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
+            appsId: "Test string",
+            servicesId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -3653,10 +4238,195 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -3890,195 +4660,10 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -4327,243 +4912,6 @@ gapi.load('client', () => {
                 shardBy: "Test string",
             },
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
-            appsId: "Test string",
-            servicesId: "Test string",
-        }, {
-            apiConfig: {
-                authFailAction: "Test string",
-                login: "Test string",
-                script: "Test string",
-                securityLevel: "Test string",
-                url: "Test string",
-            },
-            automaticScaling: {
-                coolDownPeriod: "Test string",
-                cpuUtilization: {
-                    aggregationWindowLength: "Test string",
-                    targetUtilization: 42,
-                },
-                diskUtilization: {
-                    targetReadBytesPerSecond: 42,
-                    targetReadOpsPerSecond: 42,
-                    targetWriteBytesPerSecond: 42,
-                    targetWriteOpsPerSecond: 42,
-                },
-                maxConcurrentRequests: 42,
-                maxIdleInstances: 42,
-                maxPendingLatency: "Test string",
-                maxTotalInstances: 42,
-                minIdleInstances: 42,
-                minPendingLatency: "Test string",
-                minTotalInstances: 42,
-                networkUtilization: {
-                    targetReceivedBytesPerSecond: 42,
-                    targetReceivedPacketsPerSecond: 42,
-                    targetSentBytesPerSecond: 42,
-                    targetSentPacketsPerSecond: 42,
-                },
-                requestUtilization: {
-                    targetConcurrentRequests: 42,
-                    targetRequestCountPerSecond: 42,
-                },
-                standardSchedulerSettings: {
-                    maxInstances: 42,
-                    minInstances: 42,
-                    targetCpuUtilization: 42,
-                    targetThroughputUtilization: 42,
-                },
-            },
-            basicScaling: {
-                idleTimeout: "Test string",
-                maxInstances: 42,
-            },
-            betaSettings: {
-                A: "Test string"            },
-            createTime: "Test string",
-            createdBy: "Test string",
-            defaultExpiration: "Test string",
-            deployment: {
-                cloudBuildOptions: {
-                    appYamlPath: "Test string",
-                    cloudBuildTimeout: "Test string",
-                },
-                container: {
-                    image: "Test string",
-                },
-                files: {
-                    A: {
-                        mimeType: "Test string",
-                        sha1Sum: "Test string",
-                        sourceUrl: "Test string",
-                    }                },
-                zip: {
-                    filesCount: 42,
-                    sourceUrl: "Test string",
-                },
-            },
-            diskUsageBytes: "Test string",
-            endpointsApiService: {
-                configId: "Test string",
-                disableTraceSampling: true,
-                name: "Test string",
-                rolloutStrategy: "Test string",
-            },
-            entrypoint: {
-                shell: "Test string",
-            },
-            env: "Test string",
-            envVariables: {
-                A: "Test string"            },
-            errorHandlers: [
-                {
-                    errorCode: "Test string",
-                    mimeType: "Test string",
-                    staticFile: "Test string",
-                }            ],
-            handlers: [
-                {
-                    apiEndpoint: {
-                        scriptPath: "Test string",
-                    },
-                    authFailAction: "Test string",
-                    login: "Test string",
-                    redirectHttpResponseCode: "Test string",
-                    script: {
-                        scriptPath: "Test string",
-                    },
-                    securityLevel: "Test string",
-                    staticFiles: {
-                        applicationReadable: true,
-                        expiration: "Test string",
-                        httpHeaders: {
-                            A: "Test string"                        },
-                        mimeType: "Test string",
-                        path: "Test string",
-                        requireMatchingFile: true,
-                        uploadPathRegex: "Test string",
-                    },
-                    urlRegex: "Test string",
-                }            ],
-            healthCheck: {
-                checkInterval: "Test string",
-                disableHealthCheck: true,
-                healthyThreshold: 42,
-                host: "Test string",
-                restartThreshold: 42,
-                timeout: "Test string",
-                unhealthyThreshold: 42,
-            },
-            id: "Test string",
-            inboundServices: [
-                "Test string"            ],
-            instanceClass: "Test string",
-            libraries: [
-                {
-                    name: "Test string",
-                    version: "Test string",
-                }            ],
-            livenessCheck: {
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                initialDelay: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            manualScaling: {
-                instances: 42,
-            },
-            name: "Test string",
-            network: {
-                forwardedPorts: [
-                    "Test string"                ],
-                instanceTag: "Test string",
-                name: "Test string",
-                sessionAffinity: true,
-                subnetworkName: "Test string",
-            },
-            nobuildFilesRegex: "Test string",
-            readinessCheck: {
-                appStartTimeout: "Test string",
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            resources: {
-                cpu: 42,
-                diskGb: 42,
-                memoryGb: 42,
-                volumes: [
-                    {
-                        name: "Test string",
-                        sizeGb: 42,
-                        volumeType: "Test string",
-                    }                ],
-            },
-            runtime: "Test string",
-            runtimeApiVersion: "Test string",
-            runtimeChannel: "Test string",
-            runtimeMainExecutablePath: "Test string",
-            servingStatus: "Test string",
-            threadsafe: true,
-            versionUrl: "Test string",
-            vm: true,
-            vpcAccessConnector: {
-                name: "Test string",
-            },
-            zones: [
-                "Test string"            ],
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
         /** Deletes an existing Version resource. */
         await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
@@ -4986,437 +5334,10 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deletes the specified service and all enclosed versions. */
-        await gapi.client.appengine.apps.services.delete({
-            appsId: "Test string",
-            servicesId: "Test string",
-        });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-        }, {
-            apiConfig: {
-                authFailAction: "Test string",
-                login: "Test string",
-                script: "Test string",
-                securityLevel: "Test string",
-                url: "Test string",
-            },
-            automaticScaling: {
-                coolDownPeriod: "Test string",
-                cpuUtilization: {
-                    aggregationWindowLength: "Test string",
-                    targetUtilization: 42,
-                },
-                diskUtilization: {
-                    targetReadBytesPerSecond: 42,
-                    targetReadOpsPerSecond: 42,
-                    targetWriteBytesPerSecond: 42,
-                    targetWriteOpsPerSecond: 42,
-                },
-                maxConcurrentRequests: 42,
-                maxIdleInstances: 42,
-                maxPendingLatency: "Test string",
-                maxTotalInstances: 42,
-                minIdleInstances: 42,
-                minPendingLatency: "Test string",
-                minTotalInstances: 42,
-                networkUtilization: {
-                    targetReceivedBytesPerSecond: 42,
-                    targetReceivedPacketsPerSecond: 42,
-                    targetSentBytesPerSecond: 42,
-                    targetSentPacketsPerSecond: 42,
-                },
-                requestUtilization: {
-                    targetConcurrentRequests: 42,
-                    targetRequestCountPerSecond: 42,
-                },
-                standardSchedulerSettings: {
-                    maxInstances: 42,
-                    minInstances: 42,
-                    targetCpuUtilization: 42,
-                    targetThroughputUtilization: 42,
-                },
-            },
-            basicScaling: {
-                idleTimeout: "Test string",
-                maxInstances: 42,
-            },
-            betaSettings: {
-                A: "Test string"            },
-            createTime: "Test string",
-            createdBy: "Test string",
-            defaultExpiration: "Test string",
-            deployment: {
-                cloudBuildOptions: {
-                    appYamlPath: "Test string",
-                    cloudBuildTimeout: "Test string",
-                },
-                container: {
-                    image: "Test string",
-                },
-                files: {
-                    A: {
-                        mimeType: "Test string",
-                        sha1Sum: "Test string",
-                        sourceUrl: "Test string",
-                    }                },
-                zip: {
-                    filesCount: 42,
-                    sourceUrl: "Test string",
-                },
-            },
-            diskUsageBytes: "Test string",
-            endpointsApiService: {
-                configId: "Test string",
-                disableTraceSampling: true,
-                name: "Test string",
-                rolloutStrategy: "Test string",
-            },
-            entrypoint: {
-                shell: "Test string",
-            },
-            env: "Test string",
-            envVariables: {
-                A: "Test string"            },
-            errorHandlers: [
-                {
-                    errorCode: "Test string",
-                    mimeType: "Test string",
-                    staticFile: "Test string",
-                }            ],
-            handlers: [
-                {
-                    apiEndpoint: {
-                        scriptPath: "Test string",
-                    },
-                    authFailAction: "Test string",
-                    login: "Test string",
-                    redirectHttpResponseCode: "Test string",
-                    script: {
-                        scriptPath: "Test string",
-                    },
-                    securityLevel: "Test string",
-                    staticFiles: {
-                        applicationReadable: true,
-                        expiration: "Test string",
-                        httpHeaders: {
-                            A: "Test string"                        },
-                        mimeType: "Test string",
-                        path: "Test string",
-                        requireMatchingFile: true,
-                        uploadPathRegex: "Test string",
-                    },
-                    urlRegex: "Test string",
-                }            ],
-            healthCheck: {
-                checkInterval: "Test string",
-                disableHealthCheck: true,
-                healthyThreshold: 42,
-                host: "Test string",
-                restartThreshold: 42,
-                timeout: "Test string",
-                unhealthyThreshold: 42,
-            },
-            id: "Test string",
-            inboundServices: [
-                "Test string"            ],
-            instanceClass: "Test string",
-            libraries: [
-                {
-                    name: "Test string",
-                    version: "Test string",
-                }            ],
-            livenessCheck: {
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                initialDelay: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            manualScaling: {
-                instances: 42,
-            },
-            name: "Test string",
-            network: {
-                forwardedPorts: [
-                    "Test string"                ],
-                instanceTag: "Test string",
-                name: "Test string",
-                sessionAffinity: true,
-                subnetworkName: "Test string",
-            },
-            nobuildFilesRegex: "Test string",
-            readinessCheck: {
-                appStartTimeout: "Test string",
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            resources: {
-                cpu: 42,
-                diskGb: 42,
-                memoryGb: 42,
-                volumes: [
-                    {
-                        name: "Test string",
-                        sizeGb: 42,
-                        volumeType: "Test string",
-                    }                ],
-            },
-            runtime: "Test string",
-            runtimeApiVersion: "Test string",
-            runtimeChannel: "Test string",
-            runtimeMainExecutablePath: "Test string",
-            servingStatus: "Test string",
-            threadsafe: true,
-            versionUrl: "Test string",
-            vm: true,
-            vpcAccessConnector: {
-                name: "Test string",
-            },
-            zones: [
-                "Test string"            ],
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -5737,6 +5658,85 @@ gapi.load('client', () => {
                 pendingManagedCertificateId: "Test string",
                 sslManagementType: "Test string",
             },
+        });
+        /** Lists information about the supported locations for this service. */
+        await gapi.client.appengine.apps.locations.list({
+            appsId: "Test string",
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets information about a location. */
+        await gapi.client.appengine.apps.locations.get({
+            appsId: "Test string",
+            locationsId: "Test string",
+        });
+        /** Deletes the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.delete({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+        });
+        /** Lists all SSL certificates the user is authorized to administer. */
+        await gapi.client.appengine.apps.authorizedCertificates.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /** Gets the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.get({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new
+         * certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.
+         */
+        await gapi.client.appengine.apps.authorizedCertificates.patch({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+            updateMask: "Test string",
+        }, {
+            certificateRawData: {
+                privateKey: "Test string",
+                publicCertificate: "Test string",
+            },
+            displayName: "Test string",
+            domainMappingsCount: 42,
+            domainNames: [
+                "Test string"            ],
+            expireTime: "Test string",
+            id: "Test string",
+            managedCertificate: {
+                lastRenewalTime: "Test string",
+                status: "Test string",
+            },
+            name: "Test string",
+            visibleDomainMappings: [
+                "Test string"            ],
+        });
+        /** Uploads the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.create({
+            appsId: "Test string",
+        }, {
+            certificateRawData: {
+                privateKey: "Test string",
+                publicCertificate: "Test string",
+            },
+            displayName: "Test string",
+            domainMappingsCount: 42,
+            domainNames: [
+                "Test string"            ],
+            expireTime: "Test string",
+            id: "Test string",
+            managedCertificate: {
+                lastRenewalTime: "Test string",
+                status: "Test string",
+            },
+            name: "Test string",
+            visibleDomainMappings: [
+                "Test string"            ],
         });
         /**
          * Updates the specified Application resource. You can update the following fields:
@@ -5774,90 +5774,432 @@ gapi.load('client', () => {
             name: "Test string",
             servingStatus: "Test string",
         });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.appengine.apps.locations.list({
+        /** Deletes the specified service and all enclosed versions. */
+        await gapi.client.appengine.apps.services.delete({
             appsId: "Test string",
-            filter: "Test string",
+            servicesId: "Test string",
+        });
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Gets information about a location. */
-        await gapi.client.appengine.apps.locations.get({
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
             appsId: "Test string",
-            locationsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Uploads the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.create({
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
             appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         }, {
-            certificateRawData: {
-                privateKey: "Test string",
-                publicCertificate: "Test string",
-            },
-            displayName: "Test string",
-            domainMappingsCount: 42,
-            domainNames: [
-                "Test string"            ],
-            expireTime: "Test string",
-            id: "Test string",
-            managedCertificate: {
-                lastRenewalTime: "Test string",
-                status: "Test string",
-            },
-            name: "Test string",
-            visibleDomainMappings: [
-                "Test string"            ],
+            sshKey: "Test string",
         });
-        /** Deletes the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.delete({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-        });
-        /** Lists all SSL certificates the user is authorized to administer. */
-        await gapi.client.appengine.apps.authorizedCertificates.list({
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
             appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /** Gets the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.get({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
+            servicesId: "Test string",
             view: "Test string",
         });
         /**
-         * Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new
-         * certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
          */
-        await gapi.client.appengine.apps.authorizedCertificates.patch({
+        await gapi.client.appengine.apps.services.versions.instances.delete({
             appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-            updateMask: "Test string",
-        }, {
-            certificateRawData: {
-                privateKey: "Test string",
-                publicCertificate: "Test string",
-            },
-            displayName: "Test string",
-            domainMappingsCount: 42,
-            domainNames: [
-                "Test string"            ],
-            expireTime: "Test string",
-            id: "Test string",
-            managedCertificate: {
-                lastRenewalTime: "Test string",
-                status: "Test string",
-            },
-            name: "Test string",
-            visibleDomainMappings: [
-                "Test string"            ],
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Lists all the services in the application. */
-        await gapi.client.appengine.apps.services.list({
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
             appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
+        }, {
+            apiConfig: {
+                authFailAction: "Test string",
+                login: "Test string",
+                script: "Test string",
+                securityLevel: "Test string",
+                url: "Test string",
+            },
+            automaticScaling: {
+                coolDownPeriod: "Test string",
+                cpuUtilization: {
+                    aggregationWindowLength: "Test string",
+                    targetUtilization: 42,
+                },
+                diskUtilization: {
+                    targetReadBytesPerSecond: 42,
+                    targetReadOpsPerSecond: 42,
+                    targetWriteBytesPerSecond: 42,
+                    targetWriteOpsPerSecond: 42,
+                },
+                maxConcurrentRequests: 42,
+                maxIdleInstances: 42,
+                maxPendingLatency: "Test string",
+                maxTotalInstances: 42,
+                minIdleInstances: 42,
+                minPendingLatency: "Test string",
+                minTotalInstances: 42,
+                networkUtilization: {
+                    targetReceivedBytesPerSecond: 42,
+                    targetReceivedPacketsPerSecond: 42,
+                    targetSentBytesPerSecond: 42,
+                    targetSentPacketsPerSecond: 42,
+                },
+                requestUtilization: {
+                    targetConcurrentRequests: 42,
+                    targetRequestCountPerSecond: 42,
+                },
+                standardSchedulerSettings: {
+                    maxInstances: 42,
+                    minInstances: 42,
+                    targetCpuUtilization: 42,
+                    targetThroughputUtilization: 42,
+                },
+            },
+            basicScaling: {
+                idleTimeout: "Test string",
+                maxInstances: 42,
+            },
+            betaSettings: {
+                A: "Test string"            },
+            createTime: "Test string",
+            createdBy: "Test string",
+            defaultExpiration: "Test string",
+            deployment: {
+                cloudBuildOptions: {
+                    appYamlPath: "Test string",
+                    cloudBuildTimeout: "Test string",
+                },
+                container: {
+                    image: "Test string",
+                },
+                files: {
+                    A: {
+                        mimeType: "Test string",
+                        sha1Sum: "Test string",
+                        sourceUrl: "Test string",
+                    }                },
+                zip: {
+                    filesCount: 42,
+                    sourceUrl: "Test string",
+                },
+            },
+            diskUsageBytes: "Test string",
+            endpointsApiService: {
+                configId: "Test string",
+                disableTraceSampling: true,
+                name: "Test string",
+                rolloutStrategy: "Test string",
+            },
+            entrypoint: {
+                shell: "Test string",
+            },
+            env: "Test string",
+            envVariables: {
+                A: "Test string"            },
+            errorHandlers: [
+                {
+                    errorCode: "Test string",
+                    mimeType: "Test string",
+                    staticFile: "Test string",
+                }            ],
+            handlers: [
+                {
+                    apiEndpoint: {
+                        scriptPath: "Test string",
+                    },
+                    authFailAction: "Test string",
+                    login: "Test string",
+                    redirectHttpResponseCode: "Test string",
+                    script: {
+                        scriptPath: "Test string",
+                    },
+                    securityLevel: "Test string",
+                    staticFiles: {
+                        applicationReadable: true,
+                        expiration: "Test string",
+                        httpHeaders: {
+                            A: "Test string"                        },
+                        mimeType: "Test string",
+                        path: "Test string",
+                        requireMatchingFile: true,
+                        uploadPathRegex: "Test string",
+                    },
+                    urlRegex: "Test string",
+                }            ],
+            healthCheck: {
+                checkInterval: "Test string",
+                disableHealthCheck: true,
+                healthyThreshold: 42,
+                host: "Test string",
+                restartThreshold: 42,
+                timeout: "Test string",
+                unhealthyThreshold: 42,
+            },
+            id: "Test string",
+            inboundServices: [
+                "Test string"            ],
+            instanceClass: "Test string",
+            libraries: [
+                {
+                    name: "Test string",
+                    version: "Test string",
+                }            ],
+            livenessCheck: {
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                initialDelay: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            manualScaling: {
+                instances: 42,
+            },
+            name: "Test string",
+            network: {
+                forwardedPorts: [
+                    "Test string"                ],
+                instanceTag: "Test string",
+                name: "Test string",
+                sessionAffinity: true,
+                subnetworkName: "Test string",
+            },
+            nobuildFilesRegex: "Test string",
+            readinessCheck: {
+                appStartTimeout: "Test string",
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            resources: {
+                cpu: 42,
+                diskGb: 42,
+                memoryGb: 42,
+                volumes: [
+                    {
+                        name: "Test string",
+                        sizeGb: 42,
+                        volumeType: "Test string",
+                    }                ],
+            },
+            runtime: "Test string",
+            runtimeApiVersion: "Test string",
+            runtimeChannel: "Test string",
+            runtimeMainExecutablePath: "Test string",
+            servingStatus: "Test string",
+            threadsafe: true,
+            versionUrl: "Test string",
+            vm: true,
+            vpcAccessConnector: {
+                name: "Test string",
+            },
+            zones: [
+                "Test string"            ],
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -6096,6 +6438,12 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
+        /** Lists all the services in the application. */
+        await gapi.client.appengine.apps.services.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Deletes an existing Version resource. */
         await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
@@ -6285,6 +6633,243 @@ gapi.load('client', () => {
             servicesId: "Test string",
             updateMask: "Test string",
             versionsId: "Test string",
+        }, {
+            apiConfig: {
+                authFailAction: "Test string",
+                login: "Test string",
+                script: "Test string",
+                securityLevel: "Test string",
+                url: "Test string",
+            },
+            automaticScaling: {
+                coolDownPeriod: "Test string",
+                cpuUtilization: {
+                    aggregationWindowLength: "Test string",
+                    targetUtilization: 42,
+                },
+                diskUtilization: {
+                    targetReadBytesPerSecond: 42,
+                    targetReadOpsPerSecond: 42,
+                    targetWriteBytesPerSecond: 42,
+                    targetWriteOpsPerSecond: 42,
+                },
+                maxConcurrentRequests: 42,
+                maxIdleInstances: 42,
+                maxPendingLatency: "Test string",
+                maxTotalInstances: 42,
+                minIdleInstances: 42,
+                minPendingLatency: "Test string",
+                minTotalInstances: 42,
+                networkUtilization: {
+                    targetReceivedBytesPerSecond: 42,
+                    targetReceivedPacketsPerSecond: 42,
+                    targetSentBytesPerSecond: 42,
+                    targetSentPacketsPerSecond: 42,
+                },
+                requestUtilization: {
+                    targetConcurrentRequests: 42,
+                    targetRequestCountPerSecond: 42,
+                },
+                standardSchedulerSettings: {
+                    maxInstances: 42,
+                    minInstances: 42,
+                    targetCpuUtilization: 42,
+                    targetThroughputUtilization: 42,
+                },
+            },
+            basicScaling: {
+                idleTimeout: "Test string",
+                maxInstances: 42,
+            },
+            betaSettings: {
+                A: "Test string"            },
+            createTime: "Test string",
+            createdBy: "Test string",
+            defaultExpiration: "Test string",
+            deployment: {
+                cloudBuildOptions: {
+                    appYamlPath: "Test string",
+                    cloudBuildTimeout: "Test string",
+                },
+                container: {
+                    image: "Test string",
+                },
+                files: {
+                    A: {
+                        mimeType: "Test string",
+                        sha1Sum: "Test string",
+                        sourceUrl: "Test string",
+                    }                },
+                zip: {
+                    filesCount: 42,
+                    sourceUrl: "Test string",
+                },
+            },
+            diskUsageBytes: "Test string",
+            endpointsApiService: {
+                configId: "Test string",
+                disableTraceSampling: true,
+                name: "Test string",
+                rolloutStrategy: "Test string",
+            },
+            entrypoint: {
+                shell: "Test string",
+            },
+            env: "Test string",
+            envVariables: {
+                A: "Test string"            },
+            errorHandlers: [
+                {
+                    errorCode: "Test string",
+                    mimeType: "Test string",
+                    staticFile: "Test string",
+                }            ],
+            handlers: [
+                {
+                    apiEndpoint: {
+                        scriptPath: "Test string",
+                    },
+                    authFailAction: "Test string",
+                    login: "Test string",
+                    redirectHttpResponseCode: "Test string",
+                    script: {
+                        scriptPath: "Test string",
+                    },
+                    securityLevel: "Test string",
+                    staticFiles: {
+                        applicationReadable: true,
+                        expiration: "Test string",
+                        httpHeaders: {
+                            A: "Test string"                        },
+                        mimeType: "Test string",
+                        path: "Test string",
+                        requireMatchingFile: true,
+                        uploadPathRegex: "Test string",
+                    },
+                    urlRegex: "Test string",
+                }            ],
+            healthCheck: {
+                checkInterval: "Test string",
+                disableHealthCheck: true,
+                healthyThreshold: 42,
+                host: "Test string",
+                restartThreshold: 42,
+                timeout: "Test string",
+                unhealthyThreshold: 42,
+            },
+            id: "Test string",
+            inboundServices: [
+                "Test string"            ],
+            instanceClass: "Test string",
+            libraries: [
+                {
+                    name: "Test string",
+                    version: "Test string",
+                }            ],
+            livenessCheck: {
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                initialDelay: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            manualScaling: {
+                instances: 42,
+            },
+            name: "Test string",
+            network: {
+                forwardedPorts: [
+                    "Test string"                ],
+                instanceTag: "Test string",
+                name: "Test string",
+                sessionAffinity: true,
+                subnetworkName: "Test string",
+            },
+            nobuildFilesRegex: "Test string",
+            readinessCheck: {
+                appStartTimeout: "Test string",
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            resources: {
+                cpu: 42,
+                diskGb: 42,
+                memoryGb: 42,
+                volumes: [
+                    {
+                        name: "Test string",
+                        sizeGb: 42,
+                        volumeType: "Test string",
+                    }                ],
+            },
+            runtime: "Test string",
+            runtimeApiVersion: "Test string",
+            runtimeChannel: "Test string",
+            runtimeMainExecutablePath: "Test string",
+            servingStatus: "Test string",
+            threadsafe: true,
+            versionUrl: "Test string",
+            vm: true,
+            vpcAccessConnector: {
+                name: "Test string",
+            },
+            zones: [
+                "Test string"            ],
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
+            appsId: "Test string",
+            servicesId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -6523,10 +7108,195 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -6760,195 +7530,10 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -7197,243 +7782,6 @@ gapi.load('client', () => {
                 shardBy: "Test string",
             },
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
-            appsId: "Test string",
-            servicesId: "Test string",
-        }, {
-            apiConfig: {
-                authFailAction: "Test string",
-                login: "Test string",
-                script: "Test string",
-                securityLevel: "Test string",
-                url: "Test string",
-            },
-            automaticScaling: {
-                coolDownPeriod: "Test string",
-                cpuUtilization: {
-                    aggregationWindowLength: "Test string",
-                    targetUtilization: 42,
-                },
-                diskUtilization: {
-                    targetReadBytesPerSecond: 42,
-                    targetReadOpsPerSecond: 42,
-                    targetWriteBytesPerSecond: 42,
-                    targetWriteOpsPerSecond: 42,
-                },
-                maxConcurrentRequests: 42,
-                maxIdleInstances: 42,
-                maxPendingLatency: "Test string",
-                maxTotalInstances: 42,
-                minIdleInstances: 42,
-                minPendingLatency: "Test string",
-                minTotalInstances: 42,
-                networkUtilization: {
-                    targetReceivedBytesPerSecond: 42,
-                    targetReceivedPacketsPerSecond: 42,
-                    targetSentBytesPerSecond: 42,
-                    targetSentPacketsPerSecond: 42,
-                },
-                requestUtilization: {
-                    targetConcurrentRequests: 42,
-                    targetRequestCountPerSecond: 42,
-                },
-                standardSchedulerSettings: {
-                    maxInstances: 42,
-                    minInstances: 42,
-                    targetCpuUtilization: 42,
-                    targetThroughputUtilization: 42,
-                },
-            },
-            basicScaling: {
-                idleTimeout: "Test string",
-                maxInstances: 42,
-            },
-            betaSettings: {
-                A: "Test string"            },
-            createTime: "Test string",
-            createdBy: "Test string",
-            defaultExpiration: "Test string",
-            deployment: {
-                cloudBuildOptions: {
-                    appYamlPath: "Test string",
-                    cloudBuildTimeout: "Test string",
-                },
-                container: {
-                    image: "Test string",
-                },
-                files: {
-                    A: {
-                        mimeType: "Test string",
-                        sha1Sum: "Test string",
-                        sourceUrl: "Test string",
-                    }                },
-                zip: {
-                    filesCount: 42,
-                    sourceUrl: "Test string",
-                },
-            },
-            diskUsageBytes: "Test string",
-            endpointsApiService: {
-                configId: "Test string",
-                disableTraceSampling: true,
-                name: "Test string",
-                rolloutStrategy: "Test string",
-            },
-            entrypoint: {
-                shell: "Test string",
-            },
-            env: "Test string",
-            envVariables: {
-                A: "Test string"            },
-            errorHandlers: [
-                {
-                    errorCode: "Test string",
-                    mimeType: "Test string",
-                    staticFile: "Test string",
-                }            ],
-            handlers: [
-                {
-                    apiEndpoint: {
-                        scriptPath: "Test string",
-                    },
-                    authFailAction: "Test string",
-                    login: "Test string",
-                    redirectHttpResponseCode: "Test string",
-                    script: {
-                        scriptPath: "Test string",
-                    },
-                    securityLevel: "Test string",
-                    staticFiles: {
-                        applicationReadable: true,
-                        expiration: "Test string",
-                        httpHeaders: {
-                            A: "Test string"                        },
-                        mimeType: "Test string",
-                        path: "Test string",
-                        requireMatchingFile: true,
-                        uploadPathRegex: "Test string",
-                    },
-                    urlRegex: "Test string",
-                }            ],
-            healthCheck: {
-                checkInterval: "Test string",
-                disableHealthCheck: true,
-                healthyThreshold: 42,
-                host: "Test string",
-                restartThreshold: 42,
-                timeout: "Test string",
-                unhealthyThreshold: 42,
-            },
-            id: "Test string",
-            inboundServices: [
-                "Test string"            ],
-            instanceClass: "Test string",
-            libraries: [
-                {
-                    name: "Test string",
-                    version: "Test string",
-                }            ],
-            livenessCheck: {
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                initialDelay: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            manualScaling: {
-                instances: 42,
-            },
-            name: "Test string",
-            network: {
-                forwardedPorts: [
-                    "Test string"                ],
-                instanceTag: "Test string",
-                name: "Test string",
-                sessionAffinity: true,
-                subnetworkName: "Test string",
-            },
-            nobuildFilesRegex: "Test string",
-            readinessCheck: {
-                appStartTimeout: "Test string",
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            resources: {
-                cpu: 42,
-                diskGb: 42,
-                memoryGb: 42,
-                volumes: [
-                    {
-                        name: "Test string",
-                        sizeGb: 42,
-                        volumeType: "Test string",
-                    }                ],
-            },
-            runtime: "Test string",
-            runtimeApiVersion: "Test string",
-            runtimeChannel: "Test string",
-            runtimeMainExecutablePath: "Test string",
-            servingStatus: "Test string",
-            threadsafe: true,
-            versionUrl: "Test string",
-            vm: true,
-            vpcAccessConnector: {
-                name: "Test string",
-            },
-            zones: [
-                "Test string"            ],
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
         /** Deletes an existing Version resource. */
         await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
@@ -7856,437 +8204,10 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deletes the specified service and all enclosed versions. */
-        await gapi.client.appengine.apps.services.delete({
-            appsId: "Test string",
-            servicesId: "Test string",
-        });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-        }, {
-            apiConfig: {
-                authFailAction: "Test string",
-                login: "Test string",
-                script: "Test string",
-                securityLevel: "Test string",
-                url: "Test string",
-            },
-            automaticScaling: {
-                coolDownPeriod: "Test string",
-                cpuUtilization: {
-                    aggregationWindowLength: "Test string",
-                    targetUtilization: 42,
-                },
-                diskUtilization: {
-                    targetReadBytesPerSecond: 42,
-                    targetReadOpsPerSecond: 42,
-                    targetWriteBytesPerSecond: 42,
-                    targetWriteOpsPerSecond: 42,
-                },
-                maxConcurrentRequests: 42,
-                maxIdleInstances: 42,
-                maxPendingLatency: "Test string",
-                maxTotalInstances: 42,
-                minIdleInstances: 42,
-                minPendingLatency: "Test string",
-                minTotalInstances: 42,
-                networkUtilization: {
-                    targetReceivedBytesPerSecond: 42,
-                    targetReceivedPacketsPerSecond: 42,
-                    targetSentBytesPerSecond: 42,
-                    targetSentPacketsPerSecond: 42,
-                },
-                requestUtilization: {
-                    targetConcurrentRequests: 42,
-                    targetRequestCountPerSecond: 42,
-                },
-                standardSchedulerSettings: {
-                    maxInstances: 42,
-                    minInstances: 42,
-                    targetCpuUtilization: 42,
-                    targetThroughputUtilization: 42,
-                },
-            },
-            basicScaling: {
-                idleTimeout: "Test string",
-                maxInstances: 42,
-            },
-            betaSettings: {
-                A: "Test string"            },
-            createTime: "Test string",
-            createdBy: "Test string",
-            defaultExpiration: "Test string",
-            deployment: {
-                cloudBuildOptions: {
-                    appYamlPath: "Test string",
-                    cloudBuildTimeout: "Test string",
-                },
-                container: {
-                    image: "Test string",
-                },
-                files: {
-                    A: {
-                        mimeType: "Test string",
-                        sha1Sum: "Test string",
-                        sourceUrl: "Test string",
-                    }                },
-                zip: {
-                    filesCount: 42,
-                    sourceUrl: "Test string",
-                },
-            },
-            diskUsageBytes: "Test string",
-            endpointsApiService: {
-                configId: "Test string",
-                disableTraceSampling: true,
-                name: "Test string",
-                rolloutStrategy: "Test string",
-            },
-            entrypoint: {
-                shell: "Test string",
-            },
-            env: "Test string",
-            envVariables: {
-                A: "Test string"            },
-            errorHandlers: [
-                {
-                    errorCode: "Test string",
-                    mimeType: "Test string",
-                    staticFile: "Test string",
-                }            ],
-            handlers: [
-                {
-                    apiEndpoint: {
-                        scriptPath: "Test string",
-                    },
-                    authFailAction: "Test string",
-                    login: "Test string",
-                    redirectHttpResponseCode: "Test string",
-                    script: {
-                        scriptPath: "Test string",
-                    },
-                    securityLevel: "Test string",
-                    staticFiles: {
-                        applicationReadable: true,
-                        expiration: "Test string",
-                        httpHeaders: {
-                            A: "Test string"                        },
-                        mimeType: "Test string",
-                        path: "Test string",
-                        requireMatchingFile: true,
-                        uploadPathRegex: "Test string",
-                    },
-                    urlRegex: "Test string",
-                }            ],
-            healthCheck: {
-                checkInterval: "Test string",
-                disableHealthCheck: true,
-                healthyThreshold: 42,
-                host: "Test string",
-                restartThreshold: 42,
-                timeout: "Test string",
-                unhealthyThreshold: 42,
-            },
-            id: "Test string",
-            inboundServices: [
-                "Test string"            ],
-            instanceClass: "Test string",
-            libraries: [
-                {
-                    name: "Test string",
-                    version: "Test string",
-                }            ],
-            livenessCheck: {
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                initialDelay: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            manualScaling: {
-                instances: 42,
-            },
-            name: "Test string",
-            network: {
-                forwardedPorts: [
-                    "Test string"                ],
-                instanceTag: "Test string",
-                name: "Test string",
-                sessionAffinity: true,
-                subnetworkName: "Test string",
-            },
-            nobuildFilesRegex: "Test string",
-            readinessCheck: {
-                appStartTimeout: "Test string",
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            resources: {
-                cpu: 42,
-                diskGb: 42,
-                memoryGb: 42,
-                volumes: [
-                    {
-                        name: "Test string",
-                        sizeGb: 42,
-                        volumeType: "Test string",
-                    }                ],
-            },
-            runtime: "Test string",
-            runtimeApiVersion: "Test string",
-            runtimeChannel: "Test string",
-            runtimeMainExecutablePath: "Test string",
-            servingStatus: "Test string",
-            threadsafe: true,
-            versionUrl: "Test string",
-            vm: true,
-            vpcAccessConnector: {
-                name: "Test string",
-            },
-            zones: [
-                "Test string"            ],
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -8607,6 +8528,85 @@ gapi.load('client', () => {
                 pendingManagedCertificateId: "Test string",
                 sslManagementType: "Test string",
             },
+        });
+        /** Lists information about the supported locations for this service. */
+        await gapi.client.appengine.apps.locations.list({
+            appsId: "Test string",
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets information about a location. */
+        await gapi.client.appengine.apps.locations.get({
+            appsId: "Test string",
+            locationsId: "Test string",
+        });
+        /** Deletes the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.delete({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+        });
+        /** Lists all SSL certificates the user is authorized to administer. */
+        await gapi.client.appengine.apps.authorizedCertificates.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /** Gets the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.get({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new
+         * certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.
+         */
+        await gapi.client.appengine.apps.authorizedCertificates.patch({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+            updateMask: "Test string",
+        }, {
+            certificateRawData: {
+                privateKey: "Test string",
+                publicCertificate: "Test string",
+            },
+            displayName: "Test string",
+            domainMappingsCount: 42,
+            domainNames: [
+                "Test string"            ],
+            expireTime: "Test string",
+            id: "Test string",
+            managedCertificate: {
+                lastRenewalTime: "Test string",
+                status: "Test string",
+            },
+            name: "Test string",
+            visibleDomainMappings: [
+                "Test string"            ],
+        });
+        /** Uploads the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.create({
+            appsId: "Test string",
+        }, {
+            certificateRawData: {
+                privateKey: "Test string",
+                publicCertificate: "Test string",
+            },
+            displayName: "Test string",
+            domainMappingsCount: 42,
+            domainNames: [
+                "Test string"            ],
+            expireTime: "Test string",
+            id: "Test string",
+            managedCertificate: {
+                lastRenewalTime: "Test string",
+                status: "Test string",
+            },
+            name: "Test string",
+            visibleDomainMappings: [
+                "Test string"            ],
         });
         /**
          * Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account.
@@ -8619,90 +8619,432 @@ gapi.load('client', () => {
             appsId: "Test string",
         }, {
         });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.appengine.apps.locations.list({
+        /** Deletes the specified service and all enclosed versions. */
+        await gapi.client.appengine.apps.services.delete({
             appsId: "Test string",
-            filter: "Test string",
+            servicesId: "Test string",
+        });
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Gets information about a location. */
-        await gapi.client.appengine.apps.locations.get({
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
             appsId: "Test string",
-            locationsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Uploads the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.create({
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
             appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         }, {
-            certificateRawData: {
-                privateKey: "Test string",
-                publicCertificate: "Test string",
-            },
-            displayName: "Test string",
-            domainMappingsCount: 42,
-            domainNames: [
-                "Test string"            ],
-            expireTime: "Test string",
-            id: "Test string",
-            managedCertificate: {
-                lastRenewalTime: "Test string",
-                status: "Test string",
-            },
-            name: "Test string",
-            visibleDomainMappings: [
-                "Test string"            ],
+            sshKey: "Test string",
         });
-        /** Deletes the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.delete({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-        });
-        /** Lists all SSL certificates the user is authorized to administer. */
-        await gapi.client.appengine.apps.authorizedCertificates.list({
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
             appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            view: "Test string",
-        });
-        /** Gets the specified SSL certificate. */
-        await gapi.client.appengine.apps.authorizedCertificates.get({
-            appsId: "Test string",
-            authorizedCertificatesId: "Test string",
+            servicesId: "Test string",
             view: "Test string",
         });
         /**
-         * Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new
-         * certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
          */
-        await gapi.client.appengine.apps.authorizedCertificates.patch({
+        await gapi.client.appengine.apps.services.versions.instances.delete({
             appsId: "Test string",
-            authorizedCertificatesId: "Test string",
-            updateMask: "Test string",
-        }, {
-            certificateRawData: {
-                privateKey: "Test string",
-                publicCertificate: "Test string",
-            },
-            displayName: "Test string",
-            domainMappingsCount: 42,
-            domainNames: [
-                "Test string"            ],
-            expireTime: "Test string",
-            id: "Test string",
-            managedCertificate: {
-                lastRenewalTime: "Test string",
-                status: "Test string",
-            },
-            name: "Test string",
-            visibleDomainMappings: [
-                "Test string"            ],
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
         });
-        /** Lists all the services in the application. */
-        await gapi.client.appengine.apps.services.list({
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
             appsId: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
+        }, {
+            apiConfig: {
+                authFailAction: "Test string",
+                login: "Test string",
+                script: "Test string",
+                securityLevel: "Test string",
+                url: "Test string",
+            },
+            automaticScaling: {
+                coolDownPeriod: "Test string",
+                cpuUtilization: {
+                    aggregationWindowLength: "Test string",
+                    targetUtilization: 42,
+                },
+                diskUtilization: {
+                    targetReadBytesPerSecond: 42,
+                    targetReadOpsPerSecond: 42,
+                    targetWriteBytesPerSecond: 42,
+                    targetWriteOpsPerSecond: 42,
+                },
+                maxConcurrentRequests: 42,
+                maxIdleInstances: 42,
+                maxPendingLatency: "Test string",
+                maxTotalInstances: 42,
+                minIdleInstances: 42,
+                minPendingLatency: "Test string",
+                minTotalInstances: 42,
+                networkUtilization: {
+                    targetReceivedBytesPerSecond: 42,
+                    targetReceivedPacketsPerSecond: 42,
+                    targetSentBytesPerSecond: 42,
+                    targetSentPacketsPerSecond: 42,
+                },
+                requestUtilization: {
+                    targetConcurrentRequests: 42,
+                    targetRequestCountPerSecond: 42,
+                },
+                standardSchedulerSettings: {
+                    maxInstances: 42,
+                    minInstances: 42,
+                    targetCpuUtilization: 42,
+                    targetThroughputUtilization: 42,
+                },
+            },
+            basicScaling: {
+                idleTimeout: "Test string",
+                maxInstances: 42,
+            },
+            betaSettings: {
+                A: "Test string"            },
+            createTime: "Test string",
+            createdBy: "Test string",
+            defaultExpiration: "Test string",
+            deployment: {
+                cloudBuildOptions: {
+                    appYamlPath: "Test string",
+                    cloudBuildTimeout: "Test string",
+                },
+                container: {
+                    image: "Test string",
+                },
+                files: {
+                    A: {
+                        mimeType: "Test string",
+                        sha1Sum: "Test string",
+                        sourceUrl: "Test string",
+                    }                },
+                zip: {
+                    filesCount: 42,
+                    sourceUrl: "Test string",
+                },
+            },
+            diskUsageBytes: "Test string",
+            endpointsApiService: {
+                configId: "Test string",
+                disableTraceSampling: true,
+                name: "Test string",
+                rolloutStrategy: "Test string",
+            },
+            entrypoint: {
+                shell: "Test string",
+            },
+            env: "Test string",
+            envVariables: {
+                A: "Test string"            },
+            errorHandlers: [
+                {
+                    errorCode: "Test string",
+                    mimeType: "Test string",
+                    staticFile: "Test string",
+                }            ],
+            handlers: [
+                {
+                    apiEndpoint: {
+                        scriptPath: "Test string",
+                    },
+                    authFailAction: "Test string",
+                    login: "Test string",
+                    redirectHttpResponseCode: "Test string",
+                    script: {
+                        scriptPath: "Test string",
+                    },
+                    securityLevel: "Test string",
+                    staticFiles: {
+                        applicationReadable: true,
+                        expiration: "Test string",
+                        httpHeaders: {
+                            A: "Test string"                        },
+                        mimeType: "Test string",
+                        path: "Test string",
+                        requireMatchingFile: true,
+                        uploadPathRegex: "Test string",
+                    },
+                    urlRegex: "Test string",
+                }            ],
+            healthCheck: {
+                checkInterval: "Test string",
+                disableHealthCheck: true,
+                healthyThreshold: 42,
+                host: "Test string",
+                restartThreshold: 42,
+                timeout: "Test string",
+                unhealthyThreshold: 42,
+            },
+            id: "Test string",
+            inboundServices: [
+                "Test string"            ],
+            instanceClass: "Test string",
+            libraries: [
+                {
+                    name: "Test string",
+                    version: "Test string",
+                }            ],
+            livenessCheck: {
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                initialDelay: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            manualScaling: {
+                instances: 42,
+            },
+            name: "Test string",
+            network: {
+                forwardedPorts: [
+                    "Test string"                ],
+                instanceTag: "Test string",
+                name: "Test string",
+                sessionAffinity: true,
+                subnetworkName: "Test string",
+            },
+            nobuildFilesRegex: "Test string",
+            readinessCheck: {
+                appStartTimeout: "Test string",
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            resources: {
+                cpu: 42,
+                diskGb: 42,
+                memoryGb: 42,
+                volumes: [
+                    {
+                        name: "Test string",
+                        sizeGb: 42,
+                        volumeType: "Test string",
+                    }                ],
+            },
+            runtime: "Test string",
+            runtimeApiVersion: "Test string",
+            runtimeChannel: "Test string",
+            runtimeMainExecutablePath: "Test string",
+            servingStatus: "Test string",
+            threadsafe: true,
+            versionUrl: "Test string",
+            vm: true,
+            vpcAccessConnector: {
+                name: "Test string",
+            },
+            zones: [
+                "Test string"            ],
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
         });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
@@ -8941,6 +9283,12 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
+        /** Lists all the services in the application. */
+        await gapi.client.appengine.apps.services.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Deletes an existing Version resource. */
         await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
@@ -9130,6 +9478,243 @@ gapi.load('client', () => {
             servicesId: "Test string",
             updateMask: "Test string",
             versionsId: "Test string",
+        }, {
+            apiConfig: {
+                authFailAction: "Test string",
+                login: "Test string",
+                script: "Test string",
+                securityLevel: "Test string",
+                url: "Test string",
+            },
+            automaticScaling: {
+                coolDownPeriod: "Test string",
+                cpuUtilization: {
+                    aggregationWindowLength: "Test string",
+                    targetUtilization: 42,
+                },
+                diskUtilization: {
+                    targetReadBytesPerSecond: 42,
+                    targetReadOpsPerSecond: 42,
+                    targetWriteBytesPerSecond: 42,
+                    targetWriteOpsPerSecond: 42,
+                },
+                maxConcurrentRequests: 42,
+                maxIdleInstances: 42,
+                maxPendingLatency: "Test string",
+                maxTotalInstances: 42,
+                minIdleInstances: 42,
+                minPendingLatency: "Test string",
+                minTotalInstances: 42,
+                networkUtilization: {
+                    targetReceivedBytesPerSecond: 42,
+                    targetReceivedPacketsPerSecond: 42,
+                    targetSentBytesPerSecond: 42,
+                    targetSentPacketsPerSecond: 42,
+                },
+                requestUtilization: {
+                    targetConcurrentRequests: 42,
+                    targetRequestCountPerSecond: 42,
+                },
+                standardSchedulerSettings: {
+                    maxInstances: 42,
+                    minInstances: 42,
+                    targetCpuUtilization: 42,
+                    targetThroughputUtilization: 42,
+                },
+            },
+            basicScaling: {
+                idleTimeout: "Test string",
+                maxInstances: 42,
+            },
+            betaSettings: {
+                A: "Test string"            },
+            createTime: "Test string",
+            createdBy: "Test string",
+            defaultExpiration: "Test string",
+            deployment: {
+                cloudBuildOptions: {
+                    appYamlPath: "Test string",
+                    cloudBuildTimeout: "Test string",
+                },
+                container: {
+                    image: "Test string",
+                },
+                files: {
+                    A: {
+                        mimeType: "Test string",
+                        sha1Sum: "Test string",
+                        sourceUrl: "Test string",
+                    }                },
+                zip: {
+                    filesCount: 42,
+                    sourceUrl: "Test string",
+                },
+            },
+            diskUsageBytes: "Test string",
+            endpointsApiService: {
+                configId: "Test string",
+                disableTraceSampling: true,
+                name: "Test string",
+                rolloutStrategy: "Test string",
+            },
+            entrypoint: {
+                shell: "Test string",
+            },
+            env: "Test string",
+            envVariables: {
+                A: "Test string"            },
+            errorHandlers: [
+                {
+                    errorCode: "Test string",
+                    mimeType: "Test string",
+                    staticFile: "Test string",
+                }            ],
+            handlers: [
+                {
+                    apiEndpoint: {
+                        scriptPath: "Test string",
+                    },
+                    authFailAction: "Test string",
+                    login: "Test string",
+                    redirectHttpResponseCode: "Test string",
+                    script: {
+                        scriptPath: "Test string",
+                    },
+                    securityLevel: "Test string",
+                    staticFiles: {
+                        applicationReadable: true,
+                        expiration: "Test string",
+                        httpHeaders: {
+                            A: "Test string"                        },
+                        mimeType: "Test string",
+                        path: "Test string",
+                        requireMatchingFile: true,
+                        uploadPathRegex: "Test string",
+                    },
+                    urlRegex: "Test string",
+                }            ],
+            healthCheck: {
+                checkInterval: "Test string",
+                disableHealthCheck: true,
+                healthyThreshold: 42,
+                host: "Test string",
+                restartThreshold: 42,
+                timeout: "Test string",
+                unhealthyThreshold: 42,
+            },
+            id: "Test string",
+            inboundServices: [
+                "Test string"            ],
+            instanceClass: "Test string",
+            libraries: [
+                {
+                    name: "Test string",
+                    version: "Test string",
+                }            ],
+            livenessCheck: {
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                initialDelay: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            manualScaling: {
+                instances: 42,
+            },
+            name: "Test string",
+            network: {
+                forwardedPorts: [
+                    "Test string"                ],
+                instanceTag: "Test string",
+                name: "Test string",
+                sessionAffinity: true,
+                subnetworkName: "Test string",
+            },
+            nobuildFilesRegex: "Test string",
+            readinessCheck: {
+                appStartTimeout: "Test string",
+                checkInterval: "Test string",
+                failureThreshold: 42,
+                host: "Test string",
+                path: "Test string",
+                successThreshold: 42,
+                timeout: "Test string",
+            },
+            resources: {
+                cpu: 42,
+                diskGb: 42,
+                memoryGb: 42,
+                volumes: [
+                    {
+                        name: "Test string",
+                        sizeGb: 42,
+                        volumeType: "Test string",
+                    }                ],
+            },
+            runtime: "Test string",
+            runtimeApiVersion: "Test string",
+            runtimeChannel: "Test string",
+            runtimeMainExecutablePath: "Test string",
+            servingStatus: "Test string",
+            threadsafe: true,
+            versionUrl: "Test string",
+            vm: true,
+            vpcAccessConnector: {
+                name: "Test string",
+            },
+            zones: [
+                "Test string"            ],
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
+            appsId: "Test string",
+            servicesId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -9368,10 +9953,195 @@ gapi.load('client', () => {
             appsId: "Test string",
             servicesId: "Test string",
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
+        /** Deletes an existing Version resource. */
+        await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
             servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Lists the versions of a service. */
+        await gapi.client.appengine.apps.services.versions.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
+        await gapi.client.appengine.apps.services.versions.get({
+            appsId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
+         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
+         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
+         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
+         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.delete({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
+         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+         */
+        await gapi.client.appengine.apps.services.versions.instances.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /** Gets instance information. */
+        await gapi.client.appengine.apps.services.versions.instances.get({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        });
+        /**
+         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
+         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
+         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
+         */
+        await gapi.client.appengine.apps.services.versions.instances.debug({
+            appsId: "Test string",
+            instancesId: "Test string",
+            servicesId: "Test string",
+            versionsId: "Test string",
+        }, {
+            sshKey: "Test string",
+        });
+        /**
+         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
+         * version resource uses:Standard environment
+         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
+         * scaling in the standard environment:
+         * automatic_scaling.min_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_idle_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automaticScaling.standard_scheduler_settings.max_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.min_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
+         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
+         * in the standard environment:
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
+         * environment
+         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
+         * scaling in the flexible environment:
+         * automatic_scaling.min_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.max_total_instances
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cool_down_period_sec
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         * automatic_scaling.cpu_utilization.target_utilization
+         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+         */
+        await gapi.client.appengine.apps.services.versions.patch({
+            appsId: "Test string",
+            servicesId: "Test string",
+            updateMask: "Test string",
+            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -9605,195 +10375,10 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
+        /** Deploys code and resource files to a new version. */
+        await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -10042,243 +10627,6 @@ gapi.load('client', () => {
                 shardBy: "Test string",
             },
         });
-        /** Deploys code and resource files to a new version. */
-        await gapi.client.appengine.apps.services.versions.create({
-            appsId: "Test string",
-            servicesId: "Test string",
-        }, {
-            apiConfig: {
-                authFailAction: "Test string",
-                login: "Test string",
-                script: "Test string",
-                securityLevel: "Test string",
-                url: "Test string",
-            },
-            automaticScaling: {
-                coolDownPeriod: "Test string",
-                cpuUtilization: {
-                    aggregationWindowLength: "Test string",
-                    targetUtilization: 42,
-                },
-                diskUtilization: {
-                    targetReadBytesPerSecond: 42,
-                    targetReadOpsPerSecond: 42,
-                    targetWriteBytesPerSecond: 42,
-                    targetWriteOpsPerSecond: 42,
-                },
-                maxConcurrentRequests: 42,
-                maxIdleInstances: 42,
-                maxPendingLatency: "Test string",
-                maxTotalInstances: 42,
-                minIdleInstances: 42,
-                minPendingLatency: "Test string",
-                minTotalInstances: 42,
-                networkUtilization: {
-                    targetReceivedBytesPerSecond: 42,
-                    targetReceivedPacketsPerSecond: 42,
-                    targetSentBytesPerSecond: 42,
-                    targetSentPacketsPerSecond: 42,
-                },
-                requestUtilization: {
-                    targetConcurrentRequests: 42,
-                    targetRequestCountPerSecond: 42,
-                },
-                standardSchedulerSettings: {
-                    maxInstances: 42,
-                    minInstances: 42,
-                    targetCpuUtilization: 42,
-                    targetThroughputUtilization: 42,
-                },
-            },
-            basicScaling: {
-                idleTimeout: "Test string",
-                maxInstances: 42,
-            },
-            betaSettings: {
-                A: "Test string"            },
-            createTime: "Test string",
-            createdBy: "Test string",
-            defaultExpiration: "Test string",
-            deployment: {
-                cloudBuildOptions: {
-                    appYamlPath: "Test string",
-                    cloudBuildTimeout: "Test string",
-                },
-                container: {
-                    image: "Test string",
-                },
-                files: {
-                    A: {
-                        mimeType: "Test string",
-                        sha1Sum: "Test string",
-                        sourceUrl: "Test string",
-                    }                },
-                zip: {
-                    filesCount: 42,
-                    sourceUrl: "Test string",
-                },
-            },
-            diskUsageBytes: "Test string",
-            endpointsApiService: {
-                configId: "Test string",
-                disableTraceSampling: true,
-                name: "Test string",
-                rolloutStrategy: "Test string",
-            },
-            entrypoint: {
-                shell: "Test string",
-            },
-            env: "Test string",
-            envVariables: {
-                A: "Test string"            },
-            errorHandlers: [
-                {
-                    errorCode: "Test string",
-                    mimeType: "Test string",
-                    staticFile: "Test string",
-                }            ],
-            handlers: [
-                {
-                    apiEndpoint: {
-                        scriptPath: "Test string",
-                    },
-                    authFailAction: "Test string",
-                    login: "Test string",
-                    redirectHttpResponseCode: "Test string",
-                    script: {
-                        scriptPath: "Test string",
-                    },
-                    securityLevel: "Test string",
-                    staticFiles: {
-                        applicationReadable: true,
-                        expiration: "Test string",
-                        httpHeaders: {
-                            A: "Test string"                        },
-                        mimeType: "Test string",
-                        path: "Test string",
-                        requireMatchingFile: true,
-                        uploadPathRegex: "Test string",
-                    },
-                    urlRegex: "Test string",
-                }            ],
-            healthCheck: {
-                checkInterval: "Test string",
-                disableHealthCheck: true,
-                healthyThreshold: 42,
-                host: "Test string",
-                restartThreshold: 42,
-                timeout: "Test string",
-                unhealthyThreshold: 42,
-            },
-            id: "Test string",
-            inboundServices: [
-                "Test string"            ],
-            instanceClass: "Test string",
-            libraries: [
-                {
-                    name: "Test string",
-                    version: "Test string",
-                }            ],
-            livenessCheck: {
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                initialDelay: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            manualScaling: {
-                instances: 42,
-            },
-            name: "Test string",
-            network: {
-                forwardedPorts: [
-                    "Test string"                ],
-                instanceTag: "Test string",
-                name: "Test string",
-                sessionAffinity: true,
-                subnetworkName: "Test string",
-            },
-            nobuildFilesRegex: "Test string",
-            readinessCheck: {
-                appStartTimeout: "Test string",
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            resources: {
-                cpu: 42,
-                diskGb: 42,
-                memoryGb: 42,
-                volumes: [
-                    {
-                        name: "Test string",
-                        sizeGb: 42,
-                        volumeType: "Test string",
-                    }                ],
-            },
-            runtime: "Test string",
-            runtimeApiVersion: "Test string",
-            runtimeChannel: "Test string",
-            runtimeMainExecutablePath: "Test string",
-            servingStatus: "Test string",
-            threadsafe: true,
-            versionUrl: "Test string",
-            vm: true,
-            vpcAccessConnector: {
-                name: "Test string",
-            },
-            zones: [
-                "Test string"            ],
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
         /** Deletes an existing Version resource. */
         await gapi.client.appengine.apps.services.versions.delete({
             appsId: "Test string",
@@ -10701,437 +11049,10 @@ gapi.load('client', () => {
         }, {
             sshKey: "Test string",
         });
-        /** Deletes the specified service and all enclosed versions. */
-        await gapi.client.appengine.apps.services.delete({
-            appsId: "Test string",
-            servicesId: "Test string",
-        });
         /** Deploys code and resource files to a new version. */
         await gapi.client.appengine.apps.services.versions.create({
             appsId: "Test string",
             servicesId: "Test string",
-        }, {
-            apiConfig: {
-                authFailAction: "Test string",
-                login: "Test string",
-                script: "Test string",
-                securityLevel: "Test string",
-                url: "Test string",
-            },
-            automaticScaling: {
-                coolDownPeriod: "Test string",
-                cpuUtilization: {
-                    aggregationWindowLength: "Test string",
-                    targetUtilization: 42,
-                },
-                diskUtilization: {
-                    targetReadBytesPerSecond: 42,
-                    targetReadOpsPerSecond: 42,
-                    targetWriteBytesPerSecond: 42,
-                    targetWriteOpsPerSecond: 42,
-                },
-                maxConcurrentRequests: 42,
-                maxIdleInstances: 42,
-                maxPendingLatency: "Test string",
-                maxTotalInstances: 42,
-                minIdleInstances: 42,
-                minPendingLatency: "Test string",
-                minTotalInstances: 42,
-                networkUtilization: {
-                    targetReceivedBytesPerSecond: 42,
-                    targetReceivedPacketsPerSecond: 42,
-                    targetSentBytesPerSecond: 42,
-                    targetSentPacketsPerSecond: 42,
-                },
-                requestUtilization: {
-                    targetConcurrentRequests: 42,
-                    targetRequestCountPerSecond: 42,
-                },
-                standardSchedulerSettings: {
-                    maxInstances: 42,
-                    minInstances: 42,
-                    targetCpuUtilization: 42,
-                    targetThroughputUtilization: 42,
-                },
-            },
-            basicScaling: {
-                idleTimeout: "Test string",
-                maxInstances: 42,
-            },
-            betaSettings: {
-                A: "Test string"            },
-            createTime: "Test string",
-            createdBy: "Test string",
-            defaultExpiration: "Test string",
-            deployment: {
-                cloudBuildOptions: {
-                    appYamlPath: "Test string",
-                    cloudBuildTimeout: "Test string",
-                },
-                container: {
-                    image: "Test string",
-                },
-                files: {
-                    A: {
-                        mimeType: "Test string",
-                        sha1Sum: "Test string",
-                        sourceUrl: "Test string",
-                    }                },
-                zip: {
-                    filesCount: 42,
-                    sourceUrl: "Test string",
-                },
-            },
-            diskUsageBytes: "Test string",
-            endpointsApiService: {
-                configId: "Test string",
-                disableTraceSampling: true,
-                name: "Test string",
-                rolloutStrategy: "Test string",
-            },
-            entrypoint: {
-                shell: "Test string",
-            },
-            env: "Test string",
-            envVariables: {
-                A: "Test string"            },
-            errorHandlers: [
-                {
-                    errorCode: "Test string",
-                    mimeType: "Test string",
-                    staticFile: "Test string",
-                }            ],
-            handlers: [
-                {
-                    apiEndpoint: {
-                        scriptPath: "Test string",
-                    },
-                    authFailAction: "Test string",
-                    login: "Test string",
-                    redirectHttpResponseCode: "Test string",
-                    script: {
-                        scriptPath: "Test string",
-                    },
-                    securityLevel: "Test string",
-                    staticFiles: {
-                        applicationReadable: true,
-                        expiration: "Test string",
-                        httpHeaders: {
-                            A: "Test string"                        },
-                        mimeType: "Test string",
-                        path: "Test string",
-                        requireMatchingFile: true,
-                        uploadPathRegex: "Test string",
-                    },
-                    urlRegex: "Test string",
-                }            ],
-            healthCheck: {
-                checkInterval: "Test string",
-                disableHealthCheck: true,
-                healthyThreshold: 42,
-                host: "Test string",
-                restartThreshold: 42,
-                timeout: "Test string",
-                unhealthyThreshold: 42,
-            },
-            id: "Test string",
-            inboundServices: [
-                "Test string"            ],
-            instanceClass: "Test string",
-            libraries: [
-                {
-                    name: "Test string",
-                    version: "Test string",
-                }            ],
-            livenessCheck: {
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                initialDelay: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            manualScaling: {
-                instances: 42,
-            },
-            name: "Test string",
-            network: {
-                forwardedPorts: [
-                    "Test string"                ],
-                instanceTag: "Test string",
-                name: "Test string",
-                sessionAffinity: true,
-                subnetworkName: "Test string",
-            },
-            nobuildFilesRegex: "Test string",
-            readinessCheck: {
-                appStartTimeout: "Test string",
-                checkInterval: "Test string",
-                failureThreshold: 42,
-                host: "Test string",
-                path: "Test string",
-                successThreshold: 42,
-                timeout: "Test string",
-            },
-            resources: {
-                cpu: 42,
-                diskGb: 42,
-                memoryGb: 42,
-                volumes: [
-                    {
-                        name: "Test string",
-                        sizeGb: 42,
-                        volumeType: "Test string",
-                    }                ],
-            },
-            runtime: "Test string",
-            runtimeApiVersion: "Test string",
-            runtimeChannel: "Test string",
-            runtimeMainExecutablePath: "Test string",
-            servingStatus: "Test string",
-            threadsafe: true,
-            versionUrl: "Test string",
-            vm: true,
-            vpcAccessConnector: {
-                name: "Test string",
-            },
-            zones: [
-                "Test string"            ],
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Deletes an existing Version resource. */
-        await gapi.client.appengine.apps.services.versions.delete({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Lists the versions of a service. */
-        await gapi.client.appengine.apps.services.versions.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-        await gapi.client.appengine.apps.services.versions.get({
-            appsId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How
-         * Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment
-         * (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting
-         * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
-         * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.delete({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
-         * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
-         */
-        await gapi.client.appengine.apps.services.versions.instances.list({
-            appsId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /** Gets instance information. */
-        await gapi.client.appengine.apps.services.versions.instances.get({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        });
-        /**
-         * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug
-         * mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over
-         * and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
-         */
-        await gapi.client.appengine.apps.services.versions.instances.debug({
-            appsId: "Test string",
-            instancesId: "Test string",
-            servicesId: "Test string",
-            versionsId: "Test string",
-        }, {
-            sshKey: "Test string",
-        });
-        /**
-         * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the
-         * version resource uses:Standard environment
-         * instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
-         * scaling in the standard environment:
-         * automatic_scaling.min_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_idle_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automaticScaling.standard_scheduler_settings.max_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.min_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_cpu_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-         * automaticScaling.standard_scheduler_settings.target_throughput_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling
-         * in the standard environment:
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible
-         * environment
-         * serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
-         * scaling in the flexible environment:
-         * automatic_scaling.min_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.max_total_instances
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cool_down_period_sec
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         * automatic_scaling.cpu_utilization.target_utilization
-         * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-         */
-        await gapi.client.appengine.apps.services.versions.patch({
-            appsId: "Test string",
-            servicesId: "Test string",
-            updateMask: "Test string",
-            versionsId: "Test string",
         }, {
             apiConfig: {
                 authFailAction: "Test string",
@@ -11452,6 +11373,85 @@ gapi.load('client', () => {
                 pendingManagedCertificateId: "Test string",
                 sslManagementType: "Test string",
             },
+        });
+        /** Lists information about the supported locations for this service. */
+        await gapi.client.appengine.apps.locations.list({
+            appsId: "Test string",
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets information about a location. */
+        await gapi.client.appengine.apps.locations.get({
+            appsId: "Test string",
+            locationsId: "Test string",
+        });
+        /** Deletes the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.delete({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+        });
+        /** Lists all SSL certificates the user is authorized to administer. */
+        await gapi.client.appengine.apps.authorizedCertificates.list({
+            appsId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /** Gets the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.get({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new
+         * certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.
+         */
+        await gapi.client.appengine.apps.authorizedCertificates.patch({
+            appsId: "Test string",
+            authorizedCertificatesId: "Test string",
+            updateMask: "Test string",
+        }, {
+            certificateRawData: {
+                privateKey: "Test string",
+                publicCertificate: "Test string",
+            },
+            displayName: "Test string",
+            domainMappingsCount: 42,
+            domainNames: [
+                "Test string"            ],
+            expireTime: "Test string",
+            id: "Test string",
+            managedCertificate: {
+                lastRenewalTime: "Test string",
+                status: "Test string",
+            },
+            name: "Test string",
+            visibleDomainMappings: [
+                "Test string"            ],
+        });
+        /** Uploads the specified SSL certificate. */
+        await gapi.client.appengine.apps.authorizedCertificates.create({
+            appsId: "Test string",
+        }, {
+            certificateRawData: {
+                privateKey: "Test string",
+                publicCertificate: "Test string",
+            },
+            displayName: "Test string",
+            domainMappingsCount: 42,
+            domainNames: [
+                "Test string"            ],
+            expireTime: "Test string",
+            id: "Test string",
+            managedCertificate: {
+                lastRenewalTime: "Test string",
+                status: "Test string",
+            },
+            name: "Test string",
+            visibleDomainMappings: [
+                "Test string"            ],
         });
     }
 });

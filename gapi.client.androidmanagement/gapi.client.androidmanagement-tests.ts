@@ -64,46 +64,72 @@ gapi.load('client', () => {
                     },
                 }            ],
         });
-        /** Deletes a device. This operation wipes the device. */
-        await gapi.client.androidmanagement.enterprises.devices.delete({
+        /** Creates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.create({
+            parent: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
             name: "Test string",
-            wipeDataFlags: "Test string",
-            wipeReasonMessage: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
         });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.delete({
+        /** Deletes a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.delete({
             name: "Test string",
         });
-        /**
-         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
-         * binding allows API services to override the binding to use different resource name schemes, such as users/&#42;/operations. To override the binding, API
-         * services can add a binding such as "/v1/{name=users/&#42;}/operations" to their service configuration. For backwards compatibility, the default name
-         * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
-         * id.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.list({
-            filter: "Test string",
+        /** Gets a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.get({
             name: "Test string",
+        });
+        /** Lists web apps for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.webApps.list({
             pageSize: 42,
             pageToken: "Test string",
+            parent: "Test string",
         });
-        /**
-         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.get({
+        /** Updates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
+            name: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
+        });
+        /** Creates an enrollment token for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
+            parent: "Test string",
+        }, {
+            additionalData: "Test string",
+            duration: "Test string",
+            expirationTimestamp: "Test string",
+            name: "Test string",
+            oneTimeOnly: true,
+            policyName: "Test string",
+            qrCode: "Test string",
+            user: {
+                accountIdentifier: "Test string",
+            },
+            value: "Test string",
+        });
+        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
+            name: "Test string",
+        });
+        /** Gets info about an application. */
+        await gapi.client.androidmanagement.enterprises.applications.get({
+            languageCode: "Test string",
             name: "Test string",
         });
         /** Gets a device. */
@@ -452,6 +478,48 @@ gapi.load('client', () => {
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
             name: "Test string",
         });
+        /** Deletes a device. This operation wipes the device. */
+        await gapi.client.androidmanagement.enterprises.devices.delete({
+            name: "Test string",
+            wipeDataFlags: "Test string",
+            wipeReasonMessage: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
+         * binding allows API services to override the binding to use different resource name schemes, such as users/&#42;/operations. To override the binding, API
+         * services can add a binding such as "/v1/{name=users/&#42;}/operations" to their service configuration. For backwards compatibility, the default name
+         * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
+         * id.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.get({
+            name: "Test string",
+        });
         /** Creates a web token to access an embeddable managed Google Play web UI for a given enterprise. */
         await gapi.client.androidmanagement.enterprises.webTokens.create({
             parent: "Test string",
@@ -742,119 +810,77 @@ gapi.load('client', () => {
             vpnConfigDisabled: true,
             wifiConfigDisabled: true,
             wifiConfigsLockdownEnabled: true,
-        });
-        /** Deletes a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.delete({
-            name: "Test string",
-        });
-        /** Gets a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.get({
-            name: "Test string",
-        });
-        /** Lists web apps for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Creates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.create({
-            parent: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
-            name: "Test string",
-        });
-        /** Creates an enrollment token for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
-            parent: "Test string",
-        }, {
-            additionalData: "Test string",
-            duration: "Test string",
-            expirationTimestamp: "Test string",
-            name: "Test string",
-            oneTimeOnly: true,
-            policyName: "Test string",
-            qrCode: "Test string",
-            user: {
-                accountIdentifier: "Test string",
-            },
-            value: "Test string",
-        });
-        /** Gets info about an application. */
-        await gapi.client.androidmanagement.enterprises.applications.get({
-            languageCode: "Test string",
-            name: "Test string",
         });
         /** Gets an enterprise. */
         await gapi.client.androidmanagement.enterprises.get({
             name: "Test string",
         });
-        /** Deletes a device. This operation wipes the device. */
-        await gapi.client.androidmanagement.enterprises.devices.delete({
+        /** Creates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.create({
+            parent: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
             name: "Test string",
-            wipeDataFlags: "Test string",
-            wipeReasonMessage: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
         });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.delete({
+        /** Deletes a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.delete({
             name: "Test string",
         });
-        /**
-         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
-         * binding allows API services to override the binding to use different resource name schemes, such as users/&#42;/operations. To override the binding, API
-         * services can add a binding such as "/v1/{name=users/&#42;}/operations" to their service configuration. For backwards compatibility, the default name
-         * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
-         * id.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.list({
-            filter: "Test string",
+        /** Gets a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.get({
             name: "Test string",
+        });
+        /** Lists web apps for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.webApps.list({
             pageSize: 42,
             pageToken: "Test string",
+            parent: "Test string",
         });
-        /**
-         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.get({
+        /** Updates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
+            name: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
+        });
+        /** Creates an enrollment token for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
+            parent: "Test string",
+        }, {
+            additionalData: "Test string",
+            duration: "Test string",
+            expirationTimestamp: "Test string",
+            name: "Test string",
+            oneTimeOnly: true,
+            policyName: "Test string",
+            qrCode: "Test string",
+            user: {
+                accountIdentifier: "Test string",
+            },
+            value: "Test string",
+        });
+        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
+            name: "Test string",
+        });
+        /** Gets info about an application. */
+        await gapi.client.androidmanagement.enterprises.applications.get({
+            languageCode: "Test string",
             name: "Test string",
         });
         /** Gets a device. */
@@ -1203,6 +1229,48 @@ gapi.load('client', () => {
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
             name: "Test string",
         });
+        /** Deletes a device. This operation wipes the device. */
+        await gapi.client.androidmanagement.enterprises.devices.delete({
+            name: "Test string",
+            wipeDataFlags: "Test string",
+            wipeReasonMessage: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
+         * binding allows API services to override the binding to use different resource name schemes, such as users/&#42;/operations. To override the binding, API
+         * services can add a binding such as "/v1/{name=users/&#42;}/operations" to their service configuration. For backwards compatibility, the default name
+         * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
+         * id.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.get({
+            name: "Test string",
+        });
         /** Creates a web token to access an embeddable managed Google Play web UI for a given enterprise. */
         await gapi.client.androidmanagement.enterprises.webTokens.create({
             parent: "Test string",
@@ -1493,74 +1561,6 @@ gapi.load('client', () => {
             vpnConfigDisabled: true,
             wifiConfigDisabled: true,
             wifiConfigsLockdownEnabled: true,
-        });
-        /** Deletes a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.delete({
-            name: "Test string",
-        });
-        /** Gets a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.get({
-            name: "Test string",
-        });
-        /** Lists web apps for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Creates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.create({
-            parent: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
-            name: "Test string",
-        });
-        /** Creates an enrollment token for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
-            parent: "Test string",
-        }, {
-            additionalData: "Test string",
-            duration: "Test string",
-            expirationTimestamp: "Test string",
-            name: "Test string",
-            oneTimeOnly: true,
-            policyName: "Test string",
-            qrCode: "Test string",
-            user: {
-                accountIdentifier: "Test string",
-            },
-            value: "Test string",
-        });
-        /** Gets info about an application. */
-        await gapi.client.androidmanagement.enterprises.applications.get({
-            languageCode: "Test string",
-            name: "Test string",
         });
         /** Updates an enterprise. */
         await gapi.client.androidmanagement.enterprises.patch({
@@ -1598,46 +1598,72 @@ gapi.load('client', () => {
                     },
                 }            ],
         });
-        /** Deletes a device. This operation wipes the device. */
-        await gapi.client.androidmanagement.enterprises.devices.delete({
+        /** Creates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.create({
+            parent: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
             name: "Test string",
-            wipeDataFlags: "Test string",
-            wipeReasonMessage: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
         });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.delete({
+        /** Deletes a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.delete({
             name: "Test string",
         });
-        /**
-         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
-         * binding allows API services to override the binding to use different resource name schemes, such as users/&#42;/operations. To override the binding, API
-         * services can add a binding such as "/v1/{name=users/&#42;}/operations" to their service configuration. For backwards compatibility, the default name
-         * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
-         * id.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.list({
-            filter: "Test string",
+        /** Gets a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.get({
             name: "Test string",
+        });
+        /** Lists web apps for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.webApps.list({
             pageSize: 42,
             pageToken: "Test string",
+            parent: "Test string",
         });
-        /**
-         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.androidmanagement.enterprises.devices.operations.get({
+        /** Updates a web app. */
+        await gapi.client.androidmanagement.enterprises.webApps.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayMode: "Test string",
+            icons: [
+                {
+                    imageData: "Test string",
+                }            ],
+            name: "Test string",
+            startUrl: "Test string",
+            title: "Test string",
+            versionCode: "Test string",
+        });
+        /** Creates an enrollment token for a given enterprise. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
+            parent: "Test string",
+        }, {
+            additionalData: "Test string",
+            duration: "Test string",
+            expirationTimestamp: "Test string",
+            name: "Test string",
+            oneTimeOnly: true,
+            policyName: "Test string",
+            qrCode: "Test string",
+            user: {
+                accountIdentifier: "Test string",
+            },
+            value: "Test string",
+        });
+        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
+        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
+            name: "Test string",
+        });
+        /** Gets info about an application. */
+        await gapi.client.androidmanagement.enterprises.applications.get({
+            languageCode: "Test string",
             name: "Test string",
         });
         /** Gets a device. */
@@ -1986,6 +2012,48 @@ gapi.load('client', () => {
         await gapi.client.androidmanagement.enterprises.devices.operations.get({
             name: "Test string",
         });
+        /** Deletes a device. This operation wipes the device. */
+        await gapi.client.androidmanagement.enterprises.devices.delete({
+            name: "Test string",
+            wipeDataFlags: "Test string",
+            wipeReasonMessage: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.cancel({
+            name: "Test string",
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
+         * binding allows API services to override the binding to use different resource name schemes, such as users/&#42;/operations. To override the binding, API
+         * services can add a binding such as "/v1/{name=users/&#42;}/operations" to their service configuration. For backwards compatibility, the default name
+         * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
+         * id.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.androidmanagement.enterprises.devices.operations.get({
+            name: "Test string",
+        });
         /** Creates a web token to access an embeddable managed Google Play web UI for a given enterprise. */
         await gapi.client.androidmanagement.enterprises.webTokens.create({
             parent: "Test string",
@@ -2276,74 +2344,6 @@ gapi.load('client', () => {
             vpnConfigDisabled: true,
             wifiConfigDisabled: true,
             wifiConfigsLockdownEnabled: true,
-        });
-        /** Deletes a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.delete({
-            name: "Test string",
-        });
-        /** Gets a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.get({
-            name: "Test string",
-        });
-        /** Lists web apps for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.webApps.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Creates a web app. */
-        await gapi.client.androidmanagement.enterprises.webApps.create({
-            parent: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            name: "Test string",
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-        });
-        /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.delete({
-            name: "Test string",
-        });
-        /** Creates an enrollment token for a given enterprise. */
-        await gapi.client.androidmanagement.enterprises.enrollmentTokens.create({
-            parent: "Test string",
-        }, {
-            additionalData: "Test string",
-            duration: "Test string",
-            expirationTimestamp: "Test string",
-            name: "Test string",
-            oneTimeOnly: true,
-            policyName: "Test string",
-            qrCode: "Test string",
-            user: {
-                accountIdentifier: "Test string",
-            },
-            value: "Test string",
-        });
-        /** Gets info about an application. */
-        await gapi.client.androidmanagement.enterprises.applications.get({
-            languageCode: "Test string",
-            name: "Test string",
         });
         /** Creates an enterprise signup URL. */
         await gapi.client.androidmanagement.signupUrls.create({
