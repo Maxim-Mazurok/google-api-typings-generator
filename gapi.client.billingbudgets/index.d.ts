@@ -203,10 +203,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest;
             }): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
@@ -234,10 +234,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
             /** Deletes a budget. Returns successfully if already deleted. */
@@ -265,10 +265,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /** Returns a budget. */
             get(request: {
@@ -295,10 +295,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
             /** Returns a list of budgets for a billing account. */
             list(request: {
@@ -336,10 +336,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudBillingBudgetsV1beta1ListBudgetsResponse>;
             /** Updates a budget and returns the updated budget. */
             patch(request: {
@@ -367,10 +367,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest;
             }): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
@@ -399,10 +399,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
         }

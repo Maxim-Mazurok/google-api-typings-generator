@@ -273,10 +273,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudRecommenderV1beta1Recommendation>;
             /**
              * Lists recommendations for a Cloud project. Requires the recommender.&#42;.list
@@ -331,10 +331,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudRecommenderV1beta1ListRecommendationsResponse>;
             /**
              * Marks the Recommendation State as Claimed. Users can use this method to
@@ -369,10 +369,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest;
             }): Request<GoogleCloudRecommenderV1beta1Recommendation>;
@@ -397,10 +397,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest): Request<GoogleCloudRecommenderV1beta1Recommendation>;
             /**
@@ -437,10 +437,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest;
             }): Request<GoogleCloudRecommenderV1beta1Recommendation>;
@@ -465,10 +465,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest): Request<GoogleCloudRecommenderV1beta1Recommendation>;
             /**
@@ -505,10 +505,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest;
             }): Request<GoogleCloudRecommenderV1beta1Recommendation>;
@@ -533,10 +533,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest): Request<GoogleCloudRecommenderV1beta1Recommendation>;
         }

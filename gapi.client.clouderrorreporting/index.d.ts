@@ -191,9 +191,6 @@ declare namespace gapi.client {
              */
             timeRangeBegin?: string;
         }
-        // tslint:disable-next-line:no-empty-interface
-        interface ReportErrorEventResponse {
-        }
         interface ReportedErrorEvent {
             /** Optional. A description of the context in which the error occurred. */
             context?: ErrorContext;
@@ -232,6 +229,9 @@ declare namespace gapi.client {
             message?: string;
             /** Required. The service context in which this error has occurred. */
             serviceContext?: ServiceContext;
+        }
+        // tslint:disable-next-line:no-empty-interface
+        interface ReportErrorEventResponse {
         }
         interface ServiceContext {
             /**
@@ -355,10 +355,10 @@ declare namespace gapi.client {
                 "serviceFilter.version"?: string;
                 /** Restricts the query to the specified time range. */
                 "timeRange.period"?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListEventsResponse>;
             /**
              * Report an individual error event.
@@ -399,10 +399,10 @@ declare namespace gapi.client {
                 projectName: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: ReportedErrorEvent;
             }): Request<{}>;
@@ -434,12 +434,115 @@ declare namespace gapi.client {
                 projectName: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: ReportedErrorEvent): Request<{}>;
+        }
+        interface GroupsResource {
+            /** Get the specified group. */
+            get(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Required. The group resource name. Written as
+                 * <code>projects/<var>projectID</var>/groups/<var>group_name</var></code>.
+                 * Call
+                 * <a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list">
+                 * <code>groupStats.list</code></a> to return a list of groups belonging to
+                 * this project.
+                 *
+                 * Example: <code>projects/my-project-123/groups/my-group</code>
+                 */
+                groupName: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ErrorGroup>;
+            /**
+             * Replace the data for the specified group.
+             * Fails if the group does not exist.
+             */
+            update(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The group resource name.
+                 * Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: ErrorGroup;
+            }): Request<ErrorGroup>;
+            update(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The group resource name.
+                 * Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: ErrorGroup): Request<ErrorGroup>;
         }
         interface GroupStatsResource {
             /** Lists the specified groups. */
@@ -514,121 +617,18 @@ declare namespace gapi.client {
                  * [`ServiceContext.version`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.version).
                  */
                 "serviceFilter.version"?: string;
-                /** Restricts the query to the specified time range. */
-                "timeRange.period"?: string;
                 /**
                  * Optional. The preferred duration for a single returned `TimedCount`.
                  * If not set, no timed counts are returned.
                  */
                 timedCountDuration?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                /** Restricts the query to the specified time range. */
+                "timeRange.period"?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListGroupStatsResponse>;
-        }
-        interface GroupsResource {
-            /** Get the specified group. */
-            get(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /**
-                 * Required. The group resource name. Written as
-                 * <code>projects/<var>projectID</var>/groups/<var>group_name</var></code>.
-                 * Call
-                 * <a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list">
-                 * <code>groupStats.list</code></a> to return a list of groups belonging to
-                 * this project.
-                 *
-                 * Example: <code>projects/my-project-123/groups/my-group</code>
-                 */
-                groupName: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            }): Request<ErrorGroup>;
-            /**
-             * Replace the data for the specified group.
-             * Fails if the group does not exist.
-             */
-            update(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The group resource name.
-                 * Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Request body */
-                resource: ErrorGroup;
-            }): Request<ErrorGroup>;
-            update(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The group resource name.
-                 * Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            },
-            body: ErrorGroup): Request<ErrorGroup>;
         }
         interface ProjectsResource {
             /** Deletes all error events of a given project. */
@@ -660,14 +660,14 @@ declare namespace gapi.client {
                 projectName: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             events: EventsResource;
-            groupStats: GroupStatsResource;
             groups: GroupsResource;
+            groupStats: GroupStatsResource;
         }
 
         const projects: ProjectsResource;

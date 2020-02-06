@@ -113,6 +113,11 @@ declare namespace gapi.client {
             /** The string value - this will be present for types string, choice and hidden. */
             valueString?: string;
         }
+        interface ApprovalUrlInfo {
+            /** A URL that displays a product's permissions and that can also be used to approve the product with the Products.approve call. */
+            approvalUrl?: string;
+            kind?: string;
+        }
         interface AppState {
             /** List of keyed app states. This field will always be present. */
             keyedAppState?: KeyedAppState[];
@@ -140,11 +145,6 @@ declare namespace gapi.client {
              * string could be "1.4").
              */
             versionString?: string;
-        }
-        interface ApprovalUrlInfo {
-            /** A URL that displays a product's permissions and that can also be used to approve the product with the Products.approve call. */
-            approvalUrl?: string;
-            kind?: string;
         }
         interface AuthenticationToken {
             kind?: string;
@@ -217,18 +217,18 @@ declare namespace gapi.client {
             /** The ID of the user. This field will always be present. */
             userId?: string;
         }
+        interface DevicesListResponse {
+            /** A managed device. */
+            device?: Device[];
+            /** Identifies what kind of resource this is. Value: the fixed string "androidenterprise#devicesListResponse". */
+            kind?: string;
+        }
         interface DeviceState {
             /**
              * The state of the Google account on the device. "enabled" indicates that the Google account on the device can be used to access Google services
              * (including Google Play), while "disabled" means that it cannot. A new device is initially in the "disabled" state.
              */
             accountState?: string;
-            kind?: string;
-        }
-        interface DevicesListResponse {
-            /** A managed device. */
-            device?: Device[];
-            /** Identifies what kind of resource this is. Value: the fixed string "androidenterprise#devicesListResponse". */
             kind?: string;
         }
         interface Enterprise {
@@ -310,17 +310,17 @@ declare namespace gapi.client {
             /** The ID of the product that the license is for. For example, "app:com.google.android.gm". */
             productId?: string;
         }
-        interface GroupLicenseUsersListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "androidenterprise#groupLicenseUsersListResponse". */
-            kind?: string;
-            /** A user of an enterprise. */
-            user?: User[];
-        }
         interface GroupLicensesListResponse {
             /** A group license for a product approved for use in the enterprise. */
             groupLicense?: GroupLicense[];
             /** Identifies what kind of resource this is. Value: the fixed string "androidenterprise#groupLicensesListResponse". */
             kind?: string;
+        }
+        interface GroupLicenseUsersListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "androidenterprise#groupLicenseUsersListResponse". */
+            kind?: string;
+            /** A user of an enterprise. */
+            user?: User[];
         }
         interface Install {
             /**
@@ -635,6 +635,20 @@ declare namespace gapi.client {
             /** Deprecated. Use trackIds instead. */
             tracks?: string[];
         }
+        interface ProductsApproveRequest {
+            /**
+             * The approval URL that was shown to the user. Only the permissions shown to the user with that URL will be accepted, which may not be the product's
+             * entire set of permissions. For example, the URL may only display new permissions from an update after the product was approved, or not include new
+             * permissions if the product was updated since the URL was generated.
+             */
+            approvalUrlInfo?: ApprovalUrlInfo;
+            /**
+             * Sets how new permission requests for the product are handled. "allPermissions" automatically approves all current and future permissions for the
+             * product. "currentPermissionsOnly" approves the current set of permissions for the product, but any future permissions added through updates will
+             * require manual reapproval. If not specified, only the current set of permissions will be approved.
+             */
+            approvedPermissions?: string;
+        }
         interface ProductSet {
             kind?: string;
             /** The list of product IDs making up the set of products. */
@@ -655,37 +669,6 @@ declare namespace gapi.client {
              */
             productVisibility?: ProductVisibility[];
         }
-        interface ProductSigningCertificate {
-            /**
-             * The base64 urlsafe encoded SHA1 hash of the certificate. (This field is deprecated in favor of SHA2-256. It should not be used and may be removed at
-             * any time.)
-             */
-            certificateHashSha1?: string;
-            /** The base64 urlsafe encoded SHA2-256 hash of the certificate. */
-            certificateHashSha256?: string;
-        }
-        interface ProductVisibility {
-            /** The product ID to make visible to the user. Required for each item in the productVisibility list. */
-            productId?: string;
-            /** Grants the user visibility to the specified product track(s), identified by trackIds. */
-            trackIds?: string[];
-            /** Deprecated. Use trackIds instead. */
-            tracks?: string[];
-        }
-        interface ProductsApproveRequest {
-            /**
-             * The approval URL that was shown to the user. Only the permissions shown to the user with that URL will be accepted, which may not be the product's
-             * entire set of permissions. For example, the URL may only display new permissions from an update after the product was approved, or not include new
-             * permissions if the product was updated since the URL was generated.
-             */
-            approvalUrlInfo?: ApprovalUrlInfo;
-            /**
-             * Sets how new permission requests for the product are handled. "allPermissions" automatically approves all current and future permissions for the
-             * product. "currentPermissionsOnly" approves the current set of permissions for the product, but any future permissions added through updates will
-             * require manual reapproval. If not specified, only the current set of permissions will be approved.
-             */
-            approvedPermissions?: string;
-        }
         interface ProductsGenerateApprovalUrlResponse {
             /**
              * A URL that can be rendered in an iframe to display the permissions (if any) of a product. This URL can be used to approve the product only once and
@@ -694,6 +677,15 @@ declare namespace gapi.client {
              * approved, and the URL will only display those new permissions that have not yet been accepted.
              */
             url?: string;
+        }
+        interface ProductSigningCertificate {
+            /**
+             * The base64 urlsafe encoded SHA1 hash of the certificate. (This field is deprecated in favor of SHA2-256. It should not be used and may be removed at
+             * any time.)
+             */
+            certificateHashSha1?: string;
+            /** The base64 urlsafe encoded SHA2-256 hash of the certificate. */
+            certificateHashSha256?: string;
         }
         interface ProductsListResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "androidenterprise#productsListResponse". */
@@ -704,6 +696,14 @@ declare namespace gapi.client {
             product?: Product[];
             /** Pagination information for token pagination. */
             tokenPagination?: TokenPagination;
+        }
+        interface ProductVisibility {
+            /** The product ID to make visible to the user. Required for each item in the productVisibility list. */
+            productId?: string;
+            /** Grants the user visibility to the specified product track(s), identified by trackIds. */
+            trackIds?: string[];
+            /** Deprecated. Use trackIds instead. */
+            tracks?: string[];
         }
         interface ServiceAccount {
             /** Credentials that can be used to authenticate as this ServiceAccount. */
@@ -842,18 +842,18 @@ declare namespace gapi.client {
             /** The user's primary email address, for example, "jsmith@example.com". Will always be set for Google managed users and not set for EMM managed users. */
             primaryEmail?: string;
         }
+        interface UsersListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "androidenterprise#usersListResponse". */
+            kind?: string;
+            /** A user of an enterprise. */
+            user?: User[];
+        }
         interface UserToken {
             kind?: string;
             /** The token (activation code) to be entered by the user. This consists of a sequence of decimal digits. Note that the leading digit may be 0. */
             token?: string;
             /** The unique ID for the user. */
             userId?: string;
-        }
-        interface UsersListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "androidenterprise#usersListResponse". */
-            kind?: string;
-            /** A user of an enterprise. */
-            user?: User[];
         }
         interface VariableSet {
             kind?: string;

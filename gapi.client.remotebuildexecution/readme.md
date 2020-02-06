@@ -66,7 +66,7 @@ Errors:
 
 * `NOT_FOUND`: The requested `ActionResult` is not in the cache.  
 */
-await gapi.client.actionResults.get({ sizeBytes: "sizeBytes", instanceName: "instanceName", hash: "hash",  }); 
+await gapi.client.actionResults.get({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  }); 
     
 /* 
 Upload a new execution result.
@@ -86,7 +86,7 @@ Errors:
 * `RESOURCE_EXHAUSTED`: There is insufficient storage space to add the
   entry to the cache.  
 */
-await gapi.client.actionResults.update({ sizeBytes: "sizeBytes", instanceName: "instanceName", hash: "hash",  }); 
+await gapi.client.actionResults.update({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  }); 
     
 /* 
 Execute an action remotely.
@@ -240,7 +240,7 @@ portion present and omit the rest.
 
 * `NOT_FOUND`: The requested tree root is not present in the CAS.  
 */
-await gapi.client.blobs.getTree({ hash: "hash", sizeBytes: "sizeBytes", instanceName: "instanceName",  }); 
+await gapi.client.blobs.getTree({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  }); 
     
 /* 
 Wait for an execution operation to complete. When the client initially

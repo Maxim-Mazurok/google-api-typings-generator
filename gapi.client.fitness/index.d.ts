@@ -150,6 +150,30 @@ declare namespace gapi.client {
              */
             value?: Value[];
         }
+        interface Dataset {
+            /** The data stream ID of the data source that created the points in this dataset. */
+            dataSourceId?: string;
+            /**
+             * The largest end time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also
+             * match the second part of the dataset identifier.
+             */
+            maxEndTimeNs?: string;
+            /**
+             * The smallest start time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also
+             * match the first part of the dataset identifier.
+             */
+            minStartTimeNs?: string;
+            /**
+             * This token will be set when a dataset is received in response to a GET request and the dataset is too large to be included in a single response.
+             * Provide this value in a subsequent GET request to return the next page of data points within this dataset.
+             */
+            nextPageToken?: string;
+            /**
+             * A partial list of data points contained in the dataset, ordered by largest endTimeNanos first. This list is considered complete when retrieving a small
+             * dataset and partial when patching a dataset or retrieving a dataset that is too large to include in a single response.
+             */
+            point?: DataPoint[];
+        }
         interface DataSource {
             /** Information about an application which feeds sensor data into the platform. */
             application?: Application;
@@ -211,30 +235,6 @@ declare namespace gapi.client {
             /** Defines the name and format of data. Unlike data type names, field names are not namespaced, and only need to be unique within the data type. */
             name?: string;
             optional?: boolean;
-        }
-        interface Dataset {
-            /** The data stream ID of the data source that created the points in this dataset. */
-            dataSourceId?: string;
-            /**
-             * The largest end time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also
-             * match the second part of the dataset identifier.
-             */
-            maxEndTimeNs?: string;
-            /**
-             * The smallest start time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also
-             * match the first part of the dataset identifier.
-             */
-            minStartTimeNs?: string;
-            /**
-             * This token will be set when a dataset is received in response to a GET request and the dataset is too large to be included in a single response.
-             * Provide this value in a subsequent GET request to return the next page of data points within this dataset.
-             */
-            nextPageToken?: string;
-            /**
-             * A partial list of data points contained in the dataset, ordered by largest endTimeNanos first. This list is considered complete when retrieving a small
-             * dataset and partial when patching a dataset or retrieving a dataset that is too large to include in a single response.
-             */
-            point?: DataPoint[];
         }
         interface Device {
             /** Manufacturer of the product/hardware. */
@@ -328,6 +328,51 @@ declare namespace gapi.client {
             key?: string;
             value?: MapValue;
         }
+        interface DatasetResource {
+            /**
+             * Aggregates data of a certain type or stream into buckets divided by a given type of boundary. Multiple data sets of multiple types and from multiple
+             * sources can be aggregated into exactly one bucket type per request.
+             */
+            aggregate(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
+                userId: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: AggregateRequest;
+            }): Request<AggregateResponse>;
+            aggregate(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
+                userId: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: AggregateRequest): Request<AggregateResponse>;
+        }
         interface DataPointChangesResource {
             /** Queries for user's data point changes for a particular data source. */
             list(request: {
@@ -370,13 +415,13 @@ declare namespace gapi.client {
                 alt?: string;
                 /** The client's current time in milliseconds since epoch. */
                 currentTimeMillis?: string;
-                /** The data stream ID of the data source that created the dataset. */
-                dataSourceId: string;
                 /**
                  * Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch.
                  * The ID is formatted like: "startTime-endTime" where startTime and endTime are 64 bit integers.
                  */
                 datasetId: string;
+                /** The data stream ID of the data source that created the dataset. */
+                dataSourceId: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -402,13 +447,13 @@ declare namespace gapi.client {
             get(request: {
                 /** Data format for the response. */
                 alt?: string;
-                /** The data stream ID of the data source that created the dataset. */
-                dataSourceId: string;
                 /**
                  * Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch.
                  * The ID is formatted like: "startTime-endTime" where startTime and endTime are 64 bit integers.
                  */
                 datasetId: string;
+                /** The data stream ID of the data source that created the dataset. */
+                dataSourceId: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -447,13 +492,13 @@ declare namespace gapi.client {
                  * instead of milliseconds.
                  */
                 currentTimeMillis?: string;
-                /** The data stream ID of the data source that created the dataset. */
-                dataSourceId: string;
                 /**
                  * Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch.
                  * The ID is formatted like: "startTime-endTime" where startTime and endTime are 64 bit integers.
                  */
                 datasetId: string;
+                /** The data stream ID of the data source that created the dataset. */
+                dataSourceId: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -479,13 +524,13 @@ declare namespace gapi.client {
                  * instead of milliseconds.
                  */
                 currentTimeMillis?: string;
-                /** The data stream ID of the data source that created the dataset. */
-                dataSourceId: string;
                 /**
                  * Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch.
                  * The ID is formatted like: "startTime-endTime" where startTime and endTime are 64 bit integers.
                  */
                 datasetId: string;
+                /** The data stream ID of the data source that created the dataset. */
+                dataSourceId: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -678,51 +723,6 @@ declare namespace gapi.client {
             dataPointChanges: DataPointChangesResource;
             datasets: DatasetsResource;
         }
-        interface DatasetResource {
-            /**
-             * Aggregates data of a certain type or stream into buckets divided by a given type of boundary. Multiple data sets of multiple types and from multiple
-             * sources can be aggregated into exactly one bucket type per request.
-             */
-            aggregate(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: AggregateRequest;
-            }): Request<AggregateResponse>;
-            aggregate(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: AggregateRequest): Request<AggregateResponse>;
-        }
         interface SessionsResource {
             /** Deletes a session specified by the given session ID. */
             delete(request: {
@@ -834,8 +834,8 @@ declare namespace gapi.client {
             body: Session): Request<Session>;
         }
         interface UsersResource {
-            dataSources: DataSourcesResource;
             dataset: DatasetResource;
+            dataSources: DataSourcesResource;
             sessions: SessionsResource;
         }
 

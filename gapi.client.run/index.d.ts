@@ -699,6 +699,40 @@ declare namespace gapi.client {
              */
             type?: string;
         }
+        interface Handler {
+            /**
+             * (Optional)
+             *
+             * Cloud Run fully managed: not supported
+             *
+             * Cloud Run for Anthos: supported
+             *
+             * One and only one of the following should be specified.
+             * Exec specifies the action to take.
+             */
+            exec?: ExecAction;
+            /**
+             * (Optional)
+             *
+             * Cloud Run fully managed: not supported
+             *
+             * Cloud Run for Anthos: supported
+             *
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: HTTPGetAction;
+            /**
+             * (Optional)
+             *
+             * Cloud Run fully managed: not supported
+             *
+             * Cloud Run for Anthos: supported
+             *
+             * TCPSocket specifies an action involving a TCP port.
+             * TCP hooks not yet supported
+             */
+            tcpSocket?: TCPSocketAction;
+        }
         interface HTTPGetAction {
             /**
              * (Optional)
@@ -760,40 +794,6 @@ declare namespace gapi.client {
              * The header field value
              */
             value?: string;
-        }
-        interface Handler {
-            /**
-             * (Optional)
-             *
-             * Cloud Run fully managed: not supported
-             *
-             * Cloud Run for Anthos: supported
-             *
-             * One and only one of the following should be specified.
-             * Exec specifies the action to take.
-             */
-            exec?: ExecAction;
-            /**
-             * (Optional)
-             *
-             * Cloud Run fully managed: not supported
-             *
-             * Cloud Run for Anthos: supported
-             *
-             * HTTPGet specifies the http request to perform.
-             */
-            httpGet?: HTTPGetAction;
-            /**
-             * (Optional)
-             *
-             * Cloud Run fully managed: not supported
-             *
-             * Cloud Run for Anthos: supported
-             *
-             * TCPSocket specifies an action involving a TCP port.
-             * TCP hooks not yet supported
-             */
-            tcpSocket?: TCPSocketAction;
         }
         interface IntOrString {
             /** The int value. */
@@ -2068,10 +2068,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListAuthorizedDomainsResponse>;
         }
         interface ConfigurationsResource {
@@ -2101,10 +2101,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Configuration>;
             /** List configurations. */
             list(request: {
@@ -2118,14 +2118,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2154,10 +2154,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -2192,10 +2192,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: DomainMapping;
             }): Request<DomainMapping>;
@@ -2224,10 +2224,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: DomainMapping): Request<DomainMapping>;
             /** Delete a domain mapping. */
@@ -2267,10 +2267,10 @@ declare namespace gapi.client {
                 propagationPolicy?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Status>;
             /** Get information about a domain mapping. */
             get(request: {
@@ -2298,10 +2298,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<DomainMapping>;
             /** List domain mappings. */
             list(request: {
@@ -2315,14 +2315,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2351,10 +2351,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -2400,10 +2400,10 @@ declare namespace gapi.client {
                 propagationPolicy?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Status>;
             /** Get information about a revision. */
             get(request: {
@@ -2431,10 +2431,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Revision>;
             /** List revisions. */
             list(request: {
@@ -2448,14 +2448,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2484,10 +2484,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -2522,10 +2522,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Route>;
             /** List routes. */
             list(request: {
@@ -2539,14 +2539,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2575,10 +2575,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -2613,10 +2613,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Service;
             }): Request<Service>;
@@ -2645,10 +2645,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Service): Request<Service>;
             /**
@@ -2692,10 +2692,10 @@ declare namespace gapi.client {
                 propagationPolicy?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Status>;
             /** Get information about a service. */
             get(request: {
@@ -2723,10 +2723,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Service>;
             /** List services. */
             list(request: {
@@ -2740,14 +2740,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2776,10 +2776,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -2821,10 +2821,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Service;
             }): Request<Service>;
@@ -2853,10 +2853,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Service): Request<Service>;
         }
@@ -2895,10 +2895,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListAuthorizedDomainsResponse>;
         }
         interface ConfigurationsResource {
@@ -2928,10 +2928,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Configuration>;
             /** List configurations. */
             list(request: {
@@ -2945,14 +2945,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2981,10 +2981,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -3019,10 +3019,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: DomainMapping;
             }): Request<DomainMapping>;
@@ -3051,10 +3051,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: DomainMapping): Request<DomainMapping>;
             /** Delete a domain mapping. */
@@ -3094,10 +3094,10 @@ declare namespace gapi.client {
                 propagationPolicy?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Status>;
             /** Get information about a domain mapping. */
             get(request: {
@@ -3125,10 +3125,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<DomainMapping>;
             /** List domain mappings. */
             list(request: {
@@ -3142,14 +3142,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3178,10 +3178,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -3227,10 +3227,10 @@ declare namespace gapi.client {
                 propagationPolicy?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Status>;
             /** Get information about a revision. */
             get(request: {
@@ -3258,10 +3258,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Revision>;
             /** List revisions. */
             list(request: {
@@ -3275,14 +3275,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3311,10 +3311,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -3349,10 +3349,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Route>;
             /** List routes. */
             list(request: {
@@ -3366,14 +3366,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3402,10 +3402,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -3440,10 +3440,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Service;
             }): Request<Service>;
@@ -3472,10 +3472,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Service): Request<Service>;
             /**
@@ -3519,10 +3519,10 @@ declare namespace gapi.client {
                 propagationPolicy?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Status>;
             /** Get information about a service. */
             get(request: {
@@ -3550,10 +3550,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Service>;
             /**
              * Get the IAM Access Control policy currently in effect for the given
@@ -3594,10 +3594,10 @@ declare namespace gapi.client {
                  * See the operation documentation for the appropriate value for this field.
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Policy>;
             /** List services. */
             list(request: {
@@ -3611,14 +3611,14 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Optional encoded string to continue paging. */
                 continue?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
                 /**
                  * Allows to filter resources based on a specific value for a field name.
                  * Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
                  * Not currently used by Cloud Run.
                  */
                 fieldSelector?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3647,10 +3647,10 @@ declare namespace gapi.client {
                  * start. Not currently used by Cloud Run.
                  */
                 resourceVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Flag that indicates that the client expects to watch this resource as well.
                  * Not currently used by Cloud Run.
@@ -3692,10 +3692,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Service;
             }): Request<Service>;
@@ -3724,10 +3724,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Service): Request<Service>;
             /**
@@ -3758,10 +3758,10 @@ declare namespace gapi.client {
                  * See the operation documentation for the appropriate value for this field.
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -3793,10 +3793,10 @@ declare namespace gapi.client {
                  * See the operation documentation for the appropriate value for this field.
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
         }
@@ -3829,10 +3829,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListLocationsResponse>;
             authorizeddomains: AuthorizeddomainsResource;
             configurations: ConfigurationsResource;

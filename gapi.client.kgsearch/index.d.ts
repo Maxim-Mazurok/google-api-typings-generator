@@ -78,10 +78,10 @@ declare namespace gapi.client {
                  * returned entities will contain one or more of these types.
                  */
                 types?: string | string[];
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<SearchResponse>;
         }
 

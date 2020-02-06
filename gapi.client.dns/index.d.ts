@@ -96,20 +96,6 @@ declare namespace gapi.client {
             /** Specifies the algorithm used to calculate this digest. */
             type?: string;
         }
-        interface DnsKeySpec {
-            /** String mnemonic specifying the DNSSEC algorithm of this key. */
-            algorithm?: string;
-            /** Length of the keys in bits. */
-            keyLength?: number;
-            /**
-             * Specifies whether this is a key signing key (KSK) or a zone signing key (ZSK). Key signing keys have the Secure Entry Point flag set and, when active,
-             * will only be used to sign resource record sets of type DNSKEY. Zone signing keys do not have the Secure Entry Point flag set and will be used to sign
-             * all other types of resource record sets.
-             */
-            keyType?: string;
-            /** Identifies what kind of resource this is. Value: the fixed string "dns#dnsKeySpec". */
-            kind?: string;
-        }
         interface DnsKeysListResponse {
             /** The requested resources. */
             dnsKeys?: DnsKey[];
@@ -125,6 +111,20 @@ declare namespace gapi.client {
              * retrieve a "snapshot" of collections larger than the maximum page size.
              */
             nextPageToken?: string;
+        }
+        interface DnsKeySpec {
+            /** String mnemonic specifying the DNSSEC algorithm of this key. */
+            algorithm?: string;
+            /** Length of the keys in bits. */
+            keyLength?: number;
+            /**
+             * Specifies whether this is a key signing key (KSK) or a zone signing key (ZSK). Key signing keys have the Secure Entry Point flag set and, when active,
+             * will only be used to sign resource record sets of type DNSKEY. Zone signing keys do not have the Secure Entry Point flag set and will be used to sign
+             * all other types of resource record sets.
+             */
+            keyType?: string;
+            /** Identifies what kind of resource this is. Value: the fixed string "dns#dnsKeySpec". */
+            kind?: string;
         }
         interface ManagedZone {
             /** The time that this resource was created on the server. This is in RFC3339 text format. Output only. */
@@ -151,13 +151,13 @@ declare namespace gapi.client {
              * letter or digit, and only contain lowercase letters, digits or dashes.
              */
             name?: string;
+            /** Delegate your managed_zone to these virtual name servers; defined by the server (output only) */
+            nameServers?: string[];
             /**
              * Optionally specifies the NameServerSet for this ManagedZone. A NameServerSet is a set of DNS name servers that all host the same ManagedZones. Most
              * users will leave this field unset.
              */
             nameServerSet?: string;
-            /** Delegate your managed_zone to these virtual name servers; defined by the server (output only) */
-            nameServers?: string[];
             /** The presence of this field indicates that DNS Peering is enabled for this zone. The value of this field contains the network to peer with. */
             peeringConfig?: ManagedZonePeeringConfig;
             /** For privately visible zones, the set of Virtual Private Cloud resources that the zone is visible from. */

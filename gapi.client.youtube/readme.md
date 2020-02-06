@@ -114,6 +114,16 @@ Uploads a channel banner image to YouTube. This method represents the first two 
 await gapi.client.channelBanners.insert({  }); 
     
 /* 
+Returns a collection of zero or more channel resources that match the request criteria.  
+*/
+await gapi.client.channels.list({ part: "part",  }); 
+    
+/* 
+Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion objects and their child properties.  
+*/
+await gapi.client.channels.update({ part: "part",  }); 
+    
+/* 
 Deletes a channelSection.  
 */
 await gapi.client.channelSections.delete({ id: "id",  }); 
@@ -132,31 +142,6 @@ await gapi.client.channelSections.list({ part: "part",  });
 Update a channelSection.  
 */
 await gapi.client.channelSections.update({ part: "part",  }); 
-    
-/* 
-Returns a collection of zero or more channel resources that match the request criteria.  
-*/
-await gapi.client.channels.list({ part: "part",  }); 
-    
-/* 
-Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion objects and their child properties.  
-*/
-await gapi.client.channels.update({ part: "part",  }); 
-    
-/* 
-Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead.  
-*/
-await gapi.client.commentThreads.insert({ part: "part",  }); 
-    
-/* 
-Returns a list of comment threads that match the API request parameters.  
-*/
-await gapi.client.commentThreads.list({ part: "part",  }); 
-    
-/* 
-Modifies the top-level comment in a comment thread.  
-*/
-await gapi.client.commentThreads.update({ part: "part",  }); 
     
 /* 
 Deletes a comment.  
@@ -187,6 +172,21 @@ await gapi.client.comments.setModerationStatus({ id: "id", moderationStatus: "mo
 Modifies a comment.  
 */
 await gapi.client.comments.update({ part: "part",  }); 
+    
+/* 
+Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead.  
+*/
+await gapi.client.commentThreads.insert({ part: "part",  }); 
+    
+/* 
+Returns a list of comment threads that match the API request parameters.  
+*/
+await gapi.client.commentThreads.list({ part: "part",  }); 
+    
+/* 
+Modifies the top-level comment in a comment thread.  
+*/
+await gapi.client.commentThreads.update({ part: "part",  }); 
     
 /* 
 Returns a list of categories that can be associated with YouTube channels.  

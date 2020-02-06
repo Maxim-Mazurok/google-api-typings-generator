@@ -31,9 +31,143 @@ gapi.load('client', () => {
         await gapi.client.prod_tt_sasportal.customers.get({
             name: "Test string",
         });
+        /** Creates a device under a node or customer. Returned devices are unordered. */
+        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
+            parent: "Test string",
+        }, {
+            csv: "Test string",
+        });
+        /** Creates a device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.devices.create({
+            parent: "Test string",
+        }, {
+            activeConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            displayName: "Test string",
+            fccId: "Test string",
+            grants: [
+                {
+                    channelType: "Test string",
+                    expireTime: "Test string",
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    maxEirp: 42,
+                    moveList: [
+                        {
+                            dpaId: "Test string",
+                            frequencyRange: {
+                                highFrequencyMhz: 42,
+                                lowFrequencyMhz: 42,
+                            },
+                        }                    ],
+                    state: "Test string",
+                }            ],
+            name: "Test string",
+            preloadedConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            serialNumber: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Creates a signed device under a
+         * node or customer.
+         */
+        await gapi.client.prod_tt_sasportal.customers.devices.createSigned({
+            parent: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
+        /** Deletes a device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.delete({
+            name: "Test string",
+        });
         /** Gets details about a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.get({
             name: "Test string",
+        });
+        /** Lists devices under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.devices.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Moves a device under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.devices.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
         });
         /** Updates a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.patch({
@@ -240,33 +374,6 @@ gapi.load('client', () => {
                 state: "Test string",
             },
         });
-        /** Moves a device under another node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.devices.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
-        });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
-        await gapi.client.prod_tt_sasportal.customers.devices.createSigned({
-            parent: "Test string",
-        }, {
-            encodedDevice: "Test string",
-            installerId: "Test string",
-        });
-        /** Deletes a device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.delete({
-            name: "Test string",
-        });
-        /** Lists devices under a node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.devices.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Updates a signed device. */
         await gapi.client.prod_tt_sasportal.customers.devices.updateSigned({
             name: "Test string",
@@ -274,135 +381,21 @@ gapi.load('client', () => {
             encodedDevice: "Test string",
             installerId: "Test string",
         });
-        /** Creates a device under a node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.devices.create({
+        /** Creates a new node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.create({
             parent: "Test string",
-        }, {
-            activeConfig: {
-                airInterface: {
-                    radioTechnology: "Test string",
-                    supportedSpec: "Test string",
-                },
-                callSign: "Test string",
-                category: "Test string",
-                installationParams: {
-                    antennaAzimuth: 42,
-                    antennaBeamwidth: 42,
-                    antennaDowntilt: 42,
-                    antennaGain: 42,
-                    antennaModel: "Test string",
-                    eirpCapability: 42,
-                    height: 42,
-                    heightType: "Test string",
-                    horizontalAccuracy: 42,
-                    indoorDeployment: true,
-                    latitude: 42,
-                    longitude: 42,
-                    verticalAccuracy: 42,
-                },
-                isSigned: true,
-                measurementCapabilities: [
-                    "Test string"                ],
-                model: {
-                    firmwareVersion: "Test string",
-                    hardwareVersion: "Test string",
-                    name: "Test string",
-                    softwareVersion: "Test string",
-                    vendor: "Test string",
-                },
-                state: "Test string",
-                updateTime: "Test string",
-                userId: "Test string",
-            },
-            displayName: "Test string",
-            fccId: "Test string",
-            grants: [
-                {
-                    channelType: "Test string",
-                    expireTime: "Test string",
-                    frequencyRange: {
-                        highFrequencyMhz: 42,
-                        lowFrequencyMhz: 42,
-                    },
-                    maxEirp: 42,
-                    moveList: [
-                        {
-                            dpaId: "Test string",
-                            frequencyRange: {
-                                highFrequencyMhz: 42,
-                                lowFrequencyMhz: 42,
-                            },
-                        }                    ],
-                    state: "Test string",
-                }            ],
-            name: "Test string",
-            preloadedConfig: {
-                airInterface: {
-                    radioTechnology: "Test string",
-                    supportedSpec: "Test string",
-                },
-                callSign: "Test string",
-                category: "Test string",
-                installationParams: {
-                    antennaAzimuth: 42,
-                    antennaBeamwidth: 42,
-                    antennaDowntilt: 42,
-                    antennaGain: 42,
-                    antennaModel: "Test string",
-                    eirpCapability: 42,
-                    height: 42,
-                    heightType: "Test string",
-                    horizontalAccuracy: 42,
-                    indoorDeployment: true,
-                    latitude: 42,
-                    longitude: 42,
-                    verticalAccuracy: 42,
-                },
-                isSigned: true,
-                measurementCapabilities: [
-                    "Test string"                ],
-                model: {
-                    firmwareVersion: "Test string",
-                    hardwareVersion: "Test string",
-                    name: "Test string",
-                    softwareVersion: "Test string",
-                    vendor: "Test string",
-                },
-                state: "Test string",
-                updateTime: "Test string",
-                userId: "Test string",
-            },
-            serialNumber: "Test string",
-            state: "Test string",
-        });
-        /** Creates a device under a node or customer. Returned devices are unordered. */
-        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
-            parent: "Test string",
-        }, {
-            csv: "Test string",
-        });
-        /** Updates an existing node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
-            name: "Test string",
-            updateMask: "Test string",
         }, {
             displayName: "Test string",
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Returns a requested node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.get({
-            name: "Test string",
-        });
-        /** Moves a node under another node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
-        });
         /** Deletes a node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.delete({
+            name: "Test string",
+        });
+        /** Returns a requested node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.get({
             name: "Test string",
         });
         /** Lists nodes. */
@@ -411,9 +404,16 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Creates a new node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.create({
-            parent: "Test string",
+        /** Moves a node under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Updates an existing node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             displayName: "Test string",
             name: "Test string",
@@ -425,9 +425,143 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /** Creates a device under a node or customer. Returned devices are unordered. */
+        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
+            parent: "Test string",
+        }, {
+            csv: "Test string",
+        });
+        /** Creates a device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.devices.create({
+            parent: "Test string",
+        }, {
+            activeConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            displayName: "Test string",
+            fccId: "Test string",
+            grants: [
+                {
+                    channelType: "Test string",
+                    expireTime: "Test string",
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    maxEirp: 42,
+                    moveList: [
+                        {
+                            dpaId: "Test string",
+                            frequencyRange: {
+                                highFrequencyMhz: 42,
+                                lowFrequencyMhz: 42,
+                            },
+                        }                    ],
+                    state: "Test string",
+                }            ],
+            name: "Test string",
+            preloadedConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            serialNumber: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Creates a signed device under a
+         * node or customer.
+         */
+        await gapi.client.prod_tt_sasportal.customers.devices.createSigned({
+            parent: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
+        /** Deletes a device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.delete({
+            name: "Test string",
+        });
         /** Gets details about a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.get({
             name: "Test string",
+        });
+        /** Lists devices under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.devices.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Moves a device under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.devices.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
         });
         /** Updates a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.patch({
@@ -634,33 +768,6 @@ gapi.load('client', () => {
                 state: "Test string",
             },
         });
-        /** Moves a device under another node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.devices.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
-        });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
-        await gapi.client.prod_tt_sasportal.customers.devices.createSigned({
-            parent: "Test string",
-        }, {
-            encodedDevice: "Test string",
-            installerId: "Test string",
-        });
-        /** Deletes a device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.delete({
-            name: "Test string",
-        });
-        /** Lists devices under a node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.devices.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Updates a signed device. */
         await gapi.client.prod_tt_sasportal.customers.devices.updateSigned({
             name: "Test string",
@@ -668,135 +775,21 @@ gapi.load('client', () => {
             encodedDevice: "Test string",
             installerId: "Test string",
         });
-        /** Creates a device under a node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.devices.create({
+        /** Creates a new node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.create({
             parent: "Test string",
-        }, {
-            activeConfig: {
-                airInterface: {
-                    radioTechnology: "Test string",
-                    supportedSpec: "Test string",
-                },
-                callSign: "Test string",
-                category: "Test string",
-                installationParams: {
-                    antennaAzimuth: 42,
-                    antennaBeamwidth: 42,
-                    antennaDowntilt: 42,
-                    antennaGain: 42,
-                    antennaModel: "Test string",
-                    eirpCapability: 42,
-                    height: 42,
-                    heightType: "Test string",
-                    horizontalAccuracy: 42,
-                    indoorDeployment: true,
-                    latitude: 42,
-                    longitude: 42,
-                    verticalAccuracy: 42,
-                },
-                isSigned: true,
-                measurementCapabilities: [
-                    "Test string"                ],
-                model: {
-                    firmwareVersion: "Test string",
-                    hardwareVersion: "Test string",
-                    name: "Test string",
-                    softwareVersion: "Test string",
-                    vendor: "Test string",
-                },
-                state: "Test string",
-                updateTime: "Test string",
-                userId: "Test string",
-            },
-            displayName: "Test string",
-            fccId: "Test string",
-            grants: [
-                {
-                    channelType: "Test string",
-                    expireTime: "Test string",
-                    frequencyRange: {
-                        highFrequencyMhz: 42,
-                        lowFrequencyMhz: 42,
-                    },
-                    maxEirp: 42,
-                    moveList: [
-                        {
-                            dpaId: "Test string",
-                            frequencyRange: {
-                                highFrequencyMhz: 42,
-                                lowFrequencyMhz: 42,
-                            },
-                        }                    ],
-                    state: "Test string",
-                }            ],
-            name: "Test string",
-            preloadedConfig: {
-                airInterface: {
-                    radioTechnology: "Test string",
-                    supportedSpec: "Test string",
-                },
-                callSign: "Test string",
-                category: "Test string",
-                installationParams: {
-                    antennaAzimuth: 42,
-                    antennaBeamwidth: 42,
-                    antennaDowntilt: 42,
-                    antennaGain: 42,
-                    antennaModel: "Test string",
-                    eirpCapability: 42,
-                    height: 42,
-                    heightType: "Test string",
-                    horizontalAccuracy: 42,
-                    indoorDeployment: true,
-                    latitude: 42,
-                    longitude: 42,
-                    verticalAccuracy: 42,
-                },
-                isSigned: true,
-                measurementCapabilities: [
-                    "Test string"                ],
-                model: {
-                    firmwareVersion: "Test string",
-                    hardwareVersion: "Test string",
-                    name: "Test string",
-                    softwareVersion: "Test string",
-                    vendor: "Test string",
-                },
-                state: "Test string",
-                updateTime: "Test string",
-                userId: "Test string",
-            },
-            serialNumber: "Test string",
-            state: "Test string",
-        });
-        /** Creates a device under a node or customer. Returned devices are unordered. */
-        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
-            parent: "Test string",
-        }, {
-            csv: "Test string",
-        });
-        /** Updates an existing node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
-            name: "Test string",
-            updateMask: "Test string",
         }, {
             displayName: "Test string",
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Returns a requested node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.get({
-            name: "Test string",
-        });
-        /** Moves a node under another node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
-        });
         /** Deletes a node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.delete({
+            name: "Test string",
+        });
+        /** Returns a requested node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.get({
             name: "Test string",
         });
         /** Lists nodes. */
@@ -805,9 +798,16 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Creates a new node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.create({
-            parent: "Test string",
+        /** Moves a node under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Updates an existing node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             displayName: "Test string",
             name: "Test string",
@@ -824,9 +824,143 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
+        /** Creates a device under a node or customer. Returned devices are unordered. */
+        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
+            parent: "Test string",
+        }, {
+            csv: "Test string",
+        });
+        /** Creates a device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.devices.create({
+            parent: "Test string",
+        }, {
+            activeConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            displayName: "Test string",
+            fccId: "Test string",
+            grants: [
+                {
+                    channelType: "Test string",
+                    expireTime: "Test string",
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    maxEirp: 42,
+                    moveList: [
+                        {
+                            dpaId: "Test string",
+                            frequencyRange: {
+                                highFrequencyMhz: 42,
+                                lowFrequencyMhz: 42,
+                            },
+                        }                    ],
+                    state: "Test string",
+                }            ],
+            name: "Test string",
+            preloadedConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            serialNumber: "Test string",
+            state: "Test string",
+        });
+        /**
+         * Creates a signed device under a
+         * node or customer.
+         */
+        await gapi.client.prod_tt_sasportal.customers.devices.createSigned({
+            parent: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
+        /** Deletes a device. */
+        await gapi.client.prod_tt_sasportal.customers.devices.delete({
+            name: "Test string",
+        });
         /** Gets details about a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.get({
             name: "Test string",
+        });
+        /** Lists devices under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.devices.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Moves a device under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.devices.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
         });
         /** Updates a device. */
         await gapi.client.prod_tt_sasportal.customers.devices.patch({
@@ -1033,33 +1167,6 @@ gapi.load('client', () => {
                 state: "Test string",
             },
         });
-        /** Moves a device under another node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.devices.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
-        });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
-        await gapi.client.prod_tt_sasportal.customers.devices.createSigned({
-            parent: "Test string",
-        }, {
-            encodedDevice: "Test string",
-            installerId: "Test string",
-        });
-        /** Deletes a device. */
-        await gapi.client.prod_tt_sasportal.customers.devices.delete({
-            name: "Test string",
-        });
-        /** Lists devices under a node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.devices.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Updates a signed device. */
         await gapi.client.prod_tt_sasportal.customers.devices.updateSigned({
             name: "Test string",
@@ -1067,135 +1174,21 @@ gapi.load('client', () => {
             encodedDevice: "Test string",
             installerId: "Test string",
         });
-        /** Creates a device under a node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.devices.create({
+        /** Creates a new node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.create({
             parent: "Test string",
-        }, {
-            activeConfig: {
-                airInterface: {
-                    radioTechnology: "Test string",
-                    supportedSpec: "Test string",
-                },
-                callSign: "Test string",
-                category: "Test string",
-                installationParams: {
-                    antennaAzimuth: 42,
-                    antennaBeamwidth: 42,
-                    antennaDowntilt: 42,
-                    antennaGain: 42,
-                    antennaModel: "Test string",
-                    eirpCapability: 42,
-                    height: 42,
-                    heightType: "Test string",
-                    horizontalAccuracy: 42,
-                    indoorDeployment: true,
-                    latitude: 42,
-                    longitude: 42,
-                    verticalAccuracy: 42,
-                },
-                isSigned: true,
-                measurementCapabilities: [
-                    "Test string"                ],
-                model: {
-                    firmwareVersion: "Test string",
-                    hardwareVersion: "Test string",
-                    name: "Test string",
-                    softwareVersion: "Test string",
-                    vendor: "Test string",
-                },
-                state: "Test string",
-                updateTime: "Test string",
-                userId: "Test string",
-            },
-            displayName: "Test string",
-            fccId: "Test string",
-            grants: [
-                {
-                    channelType: "Test string",
-                    expireTime: "Test string",
-                    frequencyRange: {
-                        highFrequencyMhz: 42,
-                        lowFrequencyMhz: 42,
-                    },
-                    maxEirp: 42,
-                    moveList: [
-                        {
-                            dpaId: "Test string",
-                            frequencyRange: {
-                                highFrequencyMhz: 42,
-                                lowFrequencyMhz: 42,
-                            },
-                        }                    ],
-                    state: "Test string",
-                }            ],
-            name: "Test string",
-            preloadedConfig: {
-                airInterface: {
-                    radioTechnology: "Test string",
-                    supportedSpec: "Test string",
-                },
-                callSign: "Test string",
-                category: "Test string",
-                installationParams: {
-                    antennaAzimuth: 42,
-                    antennaBeamwidth: 42,
-                    antennaDowntilt: 42,
-                    antennaGain: 42,
-                    antennaModel: "Test string",
-                    eirpCapability: 42,
-                    height: 42,
-                    heightType: "Test string",
-                    horizontalAccuracy: 42,
-                    indoorDeployment: true,
-                    latitude: 42,
-                    longitude: 42,
-                    verticalAccuracy: 42,
-                },
-                isSigned: true,
-                measurementCapabilities: [
-                    "Test string"                ],
-                model: {
-                    firmwareVersion: "Test string",
-                    hardwareVersion: "Test string",
-                    name: "Test string",
-                    softwareVersion: "Test string",
-                    vendor: "Test string",
-                },
-                state: "Test string",
-                updateTime: "Test string",
-                userId: "Test string",
-            },
-            serialNumber: "Test string",
-            state: "Test string",
-        });
-        /** Creates a device under a node or customer. Returned devices are unordered. */
-        await gapi.client.prod_tt_sasportal.customers.devices.bulk({
-            parent: "Test string",
-        }, {
-            csv: "Test string",
-        });
-        /** Updates an existing node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
-            name: "Test string",
-            updateMask: "Test string",
         }, {
             displayName: "Test string",
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Returns a requested node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.get({
-            name: "Test string",
-        });
-        /** Moves a node under another node or customer. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.move({
-            name: "Test string",
-        }, {
-            destination: "Test string",
-        });
         /** Deletes a node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.delete({
+            name: "Test string",
+        });
+        /** Returns a requested node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.get({
             name: "Test string",
         });
         /** Lists nodes. */
@@ -1204,9 +1197,16 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Creates a new node. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.create({
-            parent: "Test string",
+        /** Moves a node under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Updates an existing node. */
+        await gapi.client.prod_tt_sasportal.customers.nodes.patch({
+            name: "Test string",
+            updateMask: "Test string",
         }, {
             displayName: "Test string",
             name: "Test string",

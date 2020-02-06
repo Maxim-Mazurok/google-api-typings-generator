@@ -54,7 +54,7 @@ await gapi.client.entity.get({ entityId: "entityId",  });
 The RDAP API recognizes this command from the RDAP specification but
 does not support it. The response is a formatted 501 error.  
 */
-await gapi.client.ip.get({ ipId1: "ipId1", ipId: "ipId",  }); 
+await gapi.client.ip.get({ ipId: "ipId", ipId1: "ipId1",  }); 
     
 /* 
 The RDAP API recognizes this command from the RDAP specification but

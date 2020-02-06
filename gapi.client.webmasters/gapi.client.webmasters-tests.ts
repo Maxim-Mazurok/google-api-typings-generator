@@ -70,8 +70,8 @@ gapi.load('client', () => {
         });
         /** Lists the sitemaps-entries submitted for this site, or included in the sitemap index file (if sitemapIndex is specified in the request). */
         await gapi.client.webmasters.sitemaps.list({
-            siteUrl: "Test string",
             sitemapIndex: "Test string",
+            siteUrl: "Test string",
         });
         /** Submits a sitemap for a site. */
         await gapi.client.webmasters.sitemaps.submit({

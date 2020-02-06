@@ -238,21 +238,6 @@ Updates the specified BackendService resource with the data included in the requ
 await gapi.client.backendServices.update({ backendService: "backendService", project: "project",  }); 
     
 /* 
-Retrieves an aggregated list of disk types.  
-*/
-await gapi.client.diskTypes.aggregatedList({ project: "project",  }); 
-    
-/* 
-Returns the specified disk type. Gets a list of available disk types by making a list() request.  
-*/
-await gapi.client.diskTypes.get({ diskType: "diskType", project: "project", zone: "zone",  }); 
-    
-/* 
-Retrieves a list of disk types available to the specified project.  
-*/
-await gapi.client.diskTypes.list({ project: "project", zone: "zone",  }); 
-    
-/* 
 Adds existing resource policies to a disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation.  
 */
 await gapi.client.disks.addResourcePolicies({ disk: "disk", project: "project", zone: "zone",  }); 
@@ -316,6 +301,21 @@ await gapi.client.disks.setLabels({ project: "project", resource: "resource", zo
 Returns permissions that a caller has on the specified resource.  
 */
 await gapi.client.disks.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  }); 
+    
+/* 
+Retrieves an aggregated list of disk types.  
+*/
+await gapi.client.diskTypes.aggregatedList({ project: "project",  }); 
+    
+/* 
+Returns the specified disk type. Gets a list of available disk types by making a list() request.  
+*/
+await gapi.client.diskTypes.get({ diskType: "diskType", project: "project", zone: "zone",  }); 
+    
+/* 
+Retrieves a list of disk types available to the specified project.  
+*/
+await gapi.client.diskTypes.list({ project: "project", zone: "zone",  }); 
     
 /* 
 Deletes the specified externalVpnGateway.  
@@ -778,41 +778,6 @@ Sets the named ports for the specified instance group.
 await gapi.client.instanceGroups.setNamedPorts({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  }); 
     
 /* 
-Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that are already in use by a managed instance group.  
-*/
-await gapi.client.instanceTemplates.delete({ instanceTemplate: "instanceTemplate", project: "project",  }); 
-    
-/* 
-Returns the specified instance template. Gets a list of available instance templates by making a list() request.  
-*/
-await gapi.client.instanceTemplates.get({ instanceTemplate: "instanceTemplate", project: "project",  }); 
-    
-/* 
-Gets the access control policy for a resource. May be empty if no such policy or resource exists.  
-*/
-await gapi.client.instanceTemplates.getIamPolicy({ project: "project", resource: "resource",  }); 
-    
-/* 
-Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.  
-*/
-await gapi.client.instanceTemplates.insert({ project: "project",  }); 
-    
-/* 
-Retrieves a list of instance templates that are contained within the specified project.  
-*/
-await gapi.client.instanceTemplates.list({ project: "project",  }); 
-    
-/* 
-Sets the access control policy on the specified resource. Replaces any existing policy.  
-*/
-await gapi.client.instanceTemplates.setIamPolicy({ project: "project", resource: "resource",  }); 
-    
-/* 
-Returns permissions that a caller has on the specified resource.  
-*/
-await gapi.client.instanceTemplates.testIamPermissions({ project: "project", resource: "resource",  }); 
-    
-/* 
 Adds an access config to an instance's network interface.  
 */
 await gapi.client.instances.addAccessConfig({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  }); 
@@ -991,6 +956,41 @@ await gapi.client.instances.updateNetworkInterface({ instance: "instance", netwo
 Updates the Shielded Instance config for an instance. You can only use this method on a stopped instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.  
 */
 await gapi.client.instances.updateShieldedInstanceConfig({ instance: "instance", project: "project", zone: "zone",  }); 
+    
+/* 
+Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that are already in use by a managed instance group.  
+*/
+await gapi.client.instanceTemplates.delete({ instanceTemplate: "instanceTemplate", project: "project",  }); 
+    
+/* 
+Returns the specified instance template. Gets a list of available instance templates by making a list() request.  
+*/
+await gapi.client.instanceTemplates.get({ instanceTemplate: "instanceTemplate", project: "project",  }); 
+    
+/* 
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.  
+*/
+await gapi.client.instanceTemplates.getIamPolicy({ project: "project", resource: "resource",  }); 
+    
+/* 
+Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.  
+*/
+await gapi.client.instanceTemplates.insert({ project: "project",  }); 
+    
+/* 
+Retrieves a list of instance templates that are contained within the specified project.  
+*/
+await gapi.client.instanceTemplates.list({ project: "project",  }); 
+    
+/* 
+Sets the access control policy on the specified resource. Replaces any existing policy.  
+*/
+await gapi.client.instanceTemplates.setIamPolicy({ project: "project", resource: "resource",  }); 
+    
+/* 
+Returns permissions that a caller has on the specified resource.  
+*/
+await gapi.client.instanceTemplates.testIamPermissions({ project: "project", resource: "resource",  }); 
     
 /* 
 Retrieves an aggregated list of interconnect attachments.  
@@ -1518,16 +1518,6 @@ Retrieves a list of commitments contained within the specified region.
 await gapi.client.regionCommitments.list({ project: "project", region: "region",  }); 
     
 /* 
-Returns the specified regional disk type. Gets a list of available disk types by making a list() request.  
-*/
-await gapi.client.regionDiskTypes.get({ diskType: "diskType", project: "project", region: "region",  }); 
-    
-/* 
-Retrieves a list of regional disk types available to the specified project.  
-*/
-await gapi.client.regionDiskTypes.list({ project: "project", region: "region",  }); 
-    
-/* 
 Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation.  
 */
 await gapi.client.regionDisks.addResourcePolicies({ disk: "disk", project: "project", region: "region",  }); 
@@ -1576,6 +1566,16 @@ await gapi.client.regionDisks.setLabels({ project: "project", region: "region", 
 Returns permissions that a caller has on the specified resource.  
 */
 await gapi.client.regionDisks.testIamPermissions({ project: "project", region: "region", resource: "resource",  }); 
+    
+/* 
+Returns the specified regional disk type. Gets a list of available disk types by making a list() request.  
+*/
+await gapi.client.regionDiskTypes.get({ diskType: "diskType", project: "project", region: "region",  }); 
+    
+/* 
+Retrieves a list of regional disk types available to the specified project.  
+*/
+await gapi.client.regionDiskTypes.list({ project: "project", region: "region",  }); 
     
 /* 
 Deletes the specified HealthCheck resource.  
@@ -1735,6 +1735,16 @@ This method is called on a best-effort basis. Specifically:
 await gapi.client.regionOperations.wait({ operation: "operation", project: "project", region: "region",  }); 
     
 /* 
+Returns the specified Region resource. Gets a list of available regions by making a list() request.  
+*/
+await gapi.client.regions.get({ project: "project", region: "region",  }); 
+    
+/* 
+Retrieves the list of region resources available to the specified project.  
+*/
+await gapi.client.regions.list({ project: "project",  }); 
+    
+/* 
 Deletes the specified SslCertificate resource in the region.  
 */
 await gapi.client.regionSslCertificates.delete({ project: "project", region: "region", sslCertificate: "sslCertificate",  }); 
@@ -1843,16 +1853,6 @@ await gapi.client.regionUrlMaps.update({ project: "project", region: "region", u
 Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap.  
 */
 await gapi.client.regionUrlMaps.validate({ project: "project", region: "region", urlMap: "urlMap",  }); 
-    
-/* 
-Returns the specified Region resource. Gets a list of available regions by making a list() request.  
-*/
-await gapi.client.regions.get({ project: "project", region: "region",  }); 
-    
-/* 
-Retrieves the list of region resources available to the specified project.  
-*/
-await gapi.client.regions.list({ project: "project",  }); 
     
 /* 
 Retrieves an aggregated list of reservations.  

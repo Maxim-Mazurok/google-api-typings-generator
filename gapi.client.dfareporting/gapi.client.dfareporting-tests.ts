@@ -54,6 +54,89 @@ gapi.load('client', () => {
         await gapi.client.dfareporting.accountPermissions.list({
             profileId: "Test string",
         });
+        /** Gets one account by ID. */
+        await gapi.client.dfareporting.accounts.get({
+            id: "Test string",
+            profileId: "Test string",
+        });
+        /** Retrieves the list of accounts, possibly filtered. This method supports paging. */
+        await gapi.client.dfareporting.accounts.list({
+            active: true,
+            ids: "Test string",
+            maxResults: 42,
+            pageToken: "Test string",
+            profileId: "Test string",
+            searchString: "Test string",
+            sortField: "Test string",
+            sortOrder: "Test string",
+        });
+        /** Updates an existing account. This method supports patch semantics. */
+        await gapi.client.dfareporting.accounts.patch({
+            id: "Test string",
+            profileId: "Test string",
+        }, {
+            accountPermissionIds: [
+                "Test string"            ],
+            accountProfile: "Test string",
+            active: true,
+            activeAdsLimitTier: "Test string",
+            activeViewOptOut: true,
+            availablePermissionIds: [
+                "Test string"            ],
+            countryId: "Test string",
+            currencyId: "Test string",
+            defaultCreativeSizeId: "Test string",
+            description: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            locale: "Test string",
+            maximumImageSize: "Test string",
+            name: "Test string",
+            nielsenOcrEnabled: true,
+            reportsConfiguration: {
+                exposureToConversionEnabled: true,
+                lookbackConfiguration: {
+                    clickDuration: 42,
+                    postImpressionActivitiesDuration: 42,
+                },
+                reportGenerationTimeZoneId: "Test string",
+            },
+            shareReportsWithTwitter: true,
+            teaserSizeLimit: "Test string",
+        });
+        /** Updates an existing account. */
+        await gapi.client.dfareporting.accounts.update({
+            profileId: "Test string",
+        }, {
+            accountPermissionIds: [
+                "Test string"            ],
+            accountProfile: "Test string",
+            active: true,
+            activeAdsLimitTier: "Test string",
+            activeViewOptOut: true,
+            availablePermissionIds: [
+                "Test string"            ],
+            countryId: "Test string",
+            currencyId: "Test string",
+            defaultCreativeSizeId: "Test string",
+            description: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            locale: "Test string",
+            maximumImageSize: "Test string",
+            name: "Test string",
+            nielsenOcrEnabled: true,
+            reportsConfiguration: {
+                exposureToConversionEnabled: true,
+                lookbackConfiguration: {
+                    clickDuration: 42,
+                    postImpressionActivitiesDuration: 42,
+                },
+                reportGenerationTimeZoneId: "Test string",
+            },
+            shareReportsWithTwitter: true,
+            teaserSizeLimit: "Test string",
+        });
         /** Gets one account user profile by ID. */
         await gapi.client.dfareporting.accountUserProfiles.get({
             id: "Test string",
@@ -195,89 +278,6 @@ gapi.load('client', () => {
                 status: "Test string",
             },
             userRoleId: "Test string",
-        });
-        /** Gets one account by ID. */
-        await gapi.client.dfareporting.accounts.get({
-            id: "Test string",
-            profileId: "Test string",
-        });
-        /** Retrieves the list of accounts, possibly filtered. This method supports paging. */
-        await gapi.client.dfareporting.accounts.list({
-            active: true,
-            ids: "Test string",
-            maxResults: 42,
-            pageToken: "Test string",
-            profileId: "Test string",
-            searchString: "Test string",
-            sortField: "Test string",
-            sortOrder: "Test string",
-        });
-        /** Updates an existing account. This method supports patch semantics. */
-        await gapi.client.dfareporting.accounts.patch({
-            id: "Test string",
-            profileId: "Test string",
-        }, {
-            accountPermissionIds: [
-                "Test string"            ],
-            accountProfile: "Test string",
-            active: true,
-            activeAdsLimitTier: "Test string",
-            activeViewOptOut: true,
-            availablePermissionIds: [
-                "Test string"            ],
-            countryId: "Test string",
-            currencyId: "Test string",
-            defaultCreativeSizeId: "Test string",
-            description: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            locale: "Test string",
-            maximumImageSize: "Test string",
-            name: "Test string",
-            nielsenOcrEnabled: true,
-            reportsConfiguration: {
-                exposureToConversionEnabled: true,
-                lookbackConfiguration: {
-                    clickDuration: 42,
-                    postImpressionActivitiesDuration: 42,
-                },
-                reportGenerationTimeZoneId: "Test string",
-            },
-            shareReportsWithTwitter: true,
-            teaserSizeLimit: "Test string",
-        });
-        /** Updates an existing account. */
-        await gapi.client.dfareporting.accounts.update({
-            profileId: "Test string",
-        }, {
-            accountPermissionIds: [
-                "Test string"            ],
-            accountProfile: "Test string",
-            active: true,
-            activeAdsLimitTier: "Test string",
-            activeViewOptOut: true,
-            availablePermissionIds: [
-                "Test string"            ],
-            countryId: "Test string",
-            currencyId: "Test string",
-            defaultCreativeSizeId: "Test string",
-            description: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            locale: "Test string",
-            maximumImageSize: "Test string",
-            name: "Test string",
-            nielsenOcrEnabled: true,
-            reportsConfiguration: {
-                exposureToConversionEnabled: true,
-                lookbackConfiguration: {
-                    clickDuration: 42,
-                    postImpressionActivitiesDuration: 42,
-                },
-                reportGenerationTimeZoneId: "Test string",
-            },
-            shareReportsWithTwitter: true,
-            teaserSizeLimit: "Test string",
         });
         /** Gets one ad by ID. */
         await gapi.client.dfareporting.ads.get({
@@ -542,6 +542,14 @@ gapi.load('client', () => {
                         kind: "Test string",
                         name: "Test string",
                     }                ],
+                operatingSystems: [
+                    {
+                        dartId: "Test string",
+                        desktop: true,
+                        kind: "Test string",
+                        mobile: true,
+                        name: "Test string",
+                    }                ],
                 operatingSystemVersions: [
                     {
                         id: "Test string",
@@ -556,14 +564,6 @@ gapi.load('client', () => {
                             mobile: true,
                             name: "Test string",
                         },
-                    }                ],
-                operatingSystems: [
-                    {
-                        dartId: "Test string",
-                        desktop: true,
-                        kind: "Test string",
-                        mobile: true,
-                        name: "Test string",
                     }                ],
                 platformTypes: [
                     {
@@ -860,6 +860,14 @@ gapi.load('client', () => {
                         kind: "Test string",
                         name: "Test string",
                     }                ],
+                operatingSystems: [
+                    {
+                        dartId: "Test string",
+                        desktop: true,
+                        kind: "Test string",
+                        mobile: true,
+                        name: "Test string",
+                    }                ],
                 operatingSystemVersions: [
                     {
                         id: "Test string",
@@ -874,14 +882,6 @@ gapi.load('client', () => {
                             mobile: true,
                             name: "Test string",
                         },
-                    }                ],
-                operatingSystems: [
-                    {
-                        dartId: "Test string",
-                        desktop: true,
-                        kind: "Test string",
-                        mobile: true,
-                        name: "Test string",
                     }                ],
                 platformTypes: [
                     {
@@ -1150,6 +1150,14 @@ gapi.load('client', () => {
                         kind: "Test string",
                         name: "Test string",
                     }                ],
+                operatingSystems: [
+                    {
+                        dartId: "Test string",
+                        desktop: true,
+                        kind: "Test string",
+                        mobile: true,
+                        name: "Test string",
+                    }                ],
                 operatingSystemVersions: [
                     {
                         id: "Test string",
@@ -1164,14 +1172,6 @@ gapi.load('client', () => {
                             mobile: true,
                             name: "Test string",
                         },
-                    }                ],
-                operatingSystems: [
-                    {
-                        dartId: "Test string",
-                        desktop: true,
-                        kind: "Test string",
-                        mobile: true,
-                        name: "Test string",
                     }                ],
                 platformTypes: [
                     {
@@ -2040,57 +2040,6 @@ gapi.load('client', () => {
             warnedValidationRules: [
                 "Test string"            ],
         });
-        /** Deletes an existing creative field value. */
-        await gapi.client.dfareporting.creativeFieldValues.delete({
-            creativeFieldId: "Test string",
-            id: "Test string",
-            profileId: "Test string",
-        });
-        /** Gets one creative field value by ID. */
-        await gapi.client.dfareporting.creativeFieldValues.get({
-            creativeFieldId: "Test string",
-            id: "Test string",
-            profileId: "Test string",
-        });
-        /** Inserts a new creative field value. */
-        await gapi.client.dfareporting.creativeFieldValues.insert({
-            creativeFieldId: "Test string",
-            profileId: "Test string",
-        }, {
-            id: "Test string",
-            kind: "Test string",
-            value: "Test string",
-        });
-        /** Retrieves a list of creative field values, possibly filtered. This method supports paging. */
-        await gapi.client.dfareporting.creativeFieldValues.list({
-            creativeFieldId: "Test string",
-            ids: "Test string",
-            maxResults: 42,
-            pageToken: "Test string",
-            profileId: "Test string",
-            searchString: "Test string",
-            sortField: "Test string",
-            sortOrder: "Test string",
-        });
-        /** Updates an existing creative field value. This method supports patch semantics. */
-        await gapi.client.dfareporting.creativeFieldValues.patch({
-            creativeFieldId: "Test string",
-            id: "Test string",
-            profileId: "Test string",
-        }, {
-            id: "Test string",
-            kind: "Test string",
-            value: "Test string",
-        });
-        /** Updates an existing creative field value. */
-        await gapi.client.dfareporting.creativeFieldValues.update({
-            creativeFieldId: "Test string",
-            profileId: "Test string",
-        }, {
-            id: "Test string",
-            kind: "Test string",
-            value: "Test string",
-        });
         /** Deletes an existing creative field. */
         await gapi.client.dfareporting.creativeFields.delete({
             id: "Test string",
@@ -2169,6 +2118,57 @@ gapi.load('client', () => {
             kind: "Test string",
             name: "Test string",
             subaccountId: "Test string",
+        });
+        /** Deletes an existing creative field value. */
+        await gapi.client.dfareporting.creativeFieldValues.delete({
+            creativeFieldId: "Test string",
+            id: "Test string",
+            profileId: "Test string",
+        });
+        /** Gets one creative field value by ID. */
+        await gapi.client.dfareporting.creativeFieldValues.get({
+            creativeFieldId: "Test string",
+            id: "Test string",
+            profileId: "Test string",
+        });
+        /** Inserts a new creative field value. */
+        await gapi.client.dfareporting.creativeFieldValues.insert({
+            creativeFieldId: "Test string",
+            profileId: "Test string",
+        }, {
+            id: "Test string",
+            kind: "Test string",
+            value: "Test string",
+        });
+        /** Retrieves a list of creative field values, possibly filtered. This method supports paging. */
+        await gapi.client.dfareporting.creativeFieldValues.list({
+            creativeFieldId: "Test string",
+            ids: "Test string",
+            maxResults: 42,
+            pageToken: "Test string",
+            profileId: "Test string",
+            searchString: "Test string",
+            sortField: "Test string",
+            sortOrder: "Test string",
+        });
+        /** Updates an existing creative field value. This method supports patch semantics. */
+        await gapi.client.dfareporting.creativeFieldValues.patch({
+            creativeFieldId: "Test string",
+            id: "Test string",
+            profileId: "Test string",
+        }, {
+            id: "Test string",
+            kind: "Test string",
+            value: "Test string",
+        });
+        /** Updates an existing creative field value. */
+        await gapi.client.dfareporting.creativeFieldValues.update({
+            creativeFieldId: "Test string",
+            profileId: "Test string",
+        }, {
+            id: "Test string",
+            kind: "Test string",
+            value: "Test string",
         });
         /** Gets one creative group by ID. */
         await gapi.client.dfareporting.creativeGroups.get({
@@ -2259,9 +2259,6 @@ gapi.load('client', () => {
         }, {
             accountId: "Test string",
             active: true,
-            adParameters: "Test string",
-            adTagKeys: [
-                "Test string"            ],
             additionalSizes: [
                 {
                     height: 42,
@@ -2270,6 +2267,9 @@ gapi.load('client', () => {
                     kind: "Test string",
                     width: 42,
                 }            ],
+            adParameters: "Test string",
+            adTagKeys: [
+                "Test string"            ],
             advertiserId: "Test string",
             allowScriptAccess: true,
             archived: true,
@@ -2342,15 +2342,6 @@ gapi.load('client', () => {
                     targetType: "Test string",
                     videoReportingId: "Test string",
                 }            ],
-            creativeAssetSelection: {
-                defaultAssetId: "Test string",
-                rules: [
-                    {
-                        assetId: "Test string",
-                        name: "Test string",
-                        targetingTemplateId: "Test string",
-                    }                ],
-            },
             creativeAssets: [
                 {
                     actionScript3: true,
@@ -2481,6 +2472,15 @@ gapi.load('client', () => {
                     zipFilename: "Test string",
                     zipFilesize: "Test string",
                 }            ],
+            creativeAssetSelection: {
+                defaultAssetId: "Test string",
+                rules: [
+                    {
+                        assetId: "Test string",
+                        name: "Test string",
+                        targetingTemplateId: "Test string",
+                    }                ],
+            },
             creativeFieldAssignments: [
                 {
                     creativeFieldId: "Test string",
@@ -2664,9 +2664,6 @@ gapi.load('client', () => {
         }, {
             accountId: "Test string",
             active: true,
-            adParameters: "Test string",
-            adTagKeys: [
-                "Test string"            ],
             additionalSizes: [
                 {
                     height: 42,
@@ -2675,6 +2672,9 @@ gapi.load('client', () => {
                     kind: "Test string",
                     width: 42,
                 }            ],
+            adParameters: "Test string",
+            adTagKeys: [
+                "Test string"            ],
             advertiserId: "Test string",
             allowScriptAccess: true,
             archived: true,
@@ -2747,15 +2747,6 @@ gapi.load('client', () => {
                     targetType: "Test string",
                     videoReportingId: "Test string",
                 }            ],
-            creativeAssetSelection: {
-                defaultAssetId: "Test string",
-                rules: [
-                    {
-                        assetId: "Test string",
-                        name: "Test string",
-                        targetingTemplateId: "Test string",
-                    }                ],
-            },
             creativeAssets: [
                 {
                     actionScript3: true,
@@ -2886,6 +2877,15 @@ gapi.load('client', () => {
                     zipFilename: "Test string",
                     zipFilesize: "Test string",
                 }            ],
+            creativeAssetSelection: {
+                defaultAssetId: "Test string",
+                rules: [
+                    {
+                        assetId: "Test string",
+                        name: "Test string",
+                        targetingTemplateId: "Test string",
+                    }                ],
+            },
             creativeFieldAssignments: [
                 {
                     creativeFieldId: "Test string",
@@ -3048,9 +3048,6 @@ gapi.load('client', () => {
         }, {
             accountId: "Test string",
             active: true,
-            adParameters: "Test string",
-            adTagKeys: [
-                "Test string"            ],
             additionalSizes: [
                 {
                     height: 42,
@@ -3059,6 +3056,9 @@ gapi.load('client', () => {
                     kind: "Test string",
                     width: 42,
                 }            ],
+            adParameters: "Test string",
+            adTagKeys: [
+                "Test string"            ],
             advertiserId: "Test string",
             allowScriptAccess: true,
             archived: true,
@@ -3131,15 +3131,6 @@ gapi.load('client', () => {
                     targetType: "Test string",
                     videoReportingId: "Test string",
                 }            ],
-            creativeAssetSelection: {
-                defaultAssetId: "Test string",
-                rules: [
-                    {
-                        assetId: "Test string",
-                        name: "Test string",
-                        targetingTemplateId: "Test string",
-                    }                ],
-            },
             creativeAssets: [
                 {
                     actionScript3: true,
@@ -3270,6 +3261,15 @@ gapi.load('client', () => {
                     zipFilename: "Test string",
                     zipFilesize: "Test string",
                 }            ],
+            creativeAssetSelection: {
+                defaultAssetId: "Test string",
+                rules: [
+                    {
+                        assetId: "Test string",
+                        name: "Test string",
+                        targetingTemplateId: "Test string",
+                    }                ],
+            },
             creativeFieldAssignments: [
                 {
                     creativeFieldId: "Test string",
@@ -3520,8 +3520,8 @@ gapi.load('client', () => {
                     dfpNetworkCode: "Test string",
                     dfpNetworkName: "Test string",
                     programmaticPlacementAccepted: true,
-                    pubPaidPlacementAccepted: true,
                     publisherPortalOnly: true,
+                    pubPaidPlacementAccepted: true,
                 },
                 instreamVideoPlacementAccepted: true,
                 interstitialPlacementAccepted: true,
@@ -4316,15 +4316,6 @@ gapi.load('client', () => {
         await gapi.client.dfareporting.mobileCarriers.list({
             profileId: "Test string",
         });
-        /** Gets one operating system version by ID. */
-        await gapi.client.dfareporting.operatingSystemVersions.get({
-            id: "Test string",
-            profileId: "Test string",
-        });
-        /** Retrieves a list of operating system versions. */
-        await gapi.client.dfareporting.operatingSystemVersions.list({
-            profileId: "Test string",
-        });
         /** Gets one operating system by DART ID. */
         await gapi.client.dfareporting.operatingSystems.get({
             dartId: "Test string",
@@ -4332,6 +4323,15 @@ gapi.load('client', () => {
         });
         /** Retrieves a list of operating systems. */
         await gapi.client.dfareporting.operatingSystems.list({
+            profileId: "Test string",
+        });
+        /** Gets one operating system version by ID. */
+        await gapi.client.dfareporting.operatingSystemVersions.get({
+            id: "Test string",
+            profileId: "Test string",
+        });
+        /** Retrieves a list of operating system versions. */
+        await gapi.client.dfareporting.operatingSystemVersions.list({
             profileId: "Test string",
         });
         /** Gets one order document by ID. */
@@ -4682,54 +4682,6 @@ gapi.load('client', () => {
                 value: "Test string",
             },
             subaccountId: "Test string",
-        });
-        /** Deletes an existing placement strategy. */
-        await gapi.client.dfareporting.placementStrategies.delete({
-            id: "Test string",
-            profileId: "Test string",
-        });
-        /** Gets one placement strategy by ID. */
-        await gapi.client.dfareporting.placementStrategies.get({
-            id: "Test string",
-            profileId: "Test string",
-        });
-        /** Inserts a new placement strategy. */
-        await gapi.client.dfareporting.placementStrategies.insert({
-            profileId: "Test string",
-        }, {
-            accountId: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            name: "Test string",
-        });
-        /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
-        await gapi.client.dfareporting.placementStrategies.list({
-            ids: "Test string",
-            maxResults: 42,
-            pageToken: "Test string",
-            profileId: "Test string",
-            searchString: "Test string",
-            sortField: "Test string",
-            sortOrder: "Test string",
-        });
-        /** Updates an existing placement strategy. This method supports patch semantics. */
-        await gapi.client.dfareporting.placementStrategies.patch({
-            id: "Test string",
-            profileId: "Test string",
-        }, {
-            accountId: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            name: "Test string",
-        });
-        /** Updates an existing placement strategy. */
-        await gapi.client.dfareporting.placementStrategies.update({
-            profileId: "Test string",
-        }, {
-            accountId: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            name: "Test string",
         });
         /** Generates tags for a placement. */
         await gapi.client.dfareporting.placements.generatetags({
@@ -5265,6 +5217,54 @@ gapi.load('client', () => {
             },
             vpaidAdapterChoice: "Test string",
         });
+        /** Deletes an existing placement strategy. */
+        await gapi.client.dfareporting.placementStrategies.delete({
+            id: "Test string",
+            profileId: "Test string",
+        });
+        /** Gets one placement strategy by ID. */
+        await gapi.client.dfareporting.placementStrategies.get({
+            id: "Test string",
+            profileId: "Test string",
+        });
+        /** Inserts a new placement strategy. */
+        await gapi.client.dfareporting.placementStrategies.insert({
+            profileId: "Test string",
+        }, {
+            accountId: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+        });
+        /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
+        await gapi.client.dfareporting.placementStrategies.list({
+            ids: "Test string",
+            maxResults: 42,
+            pageToken: "Test string",
+            profileId: "Test string",
+            searchString: "Test string",
+            sortField: "Test string",
+            sortOrder: "Test string",
+        });
+        /** Updates an existing placement strategy. This method supports patch semantics. */
+        await gapi.client.dfareporting.placementStrategies.patch({
+            id: "Test string",
+            profileId: "Test string",
+        }, {
+            accountId: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+        });
+        /** Updates an existing placement strategy. */
+        await gapi.client.dfareporting.placementStrategies.update({
+            profileId: "Test string",
+        }, {
+            accountId: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+        });
         /** Gets one platform type by ID. */
         await gapi.client.dfareporting.platformTypes.get({
             id: "Test string",
@@ -5302,34 +5302,6 @@ gapi.load('client', () => {
         /** Retrieves a list of regions. */
         await gapi.client.dfareporting.regions.list({
             profileId: "Test string",
-        });
-        /** Gets one remarketing list share by remarketing list ID. */
-        await gapi.client.dfareporting.remarketingListShares.get({
-            profileId: "Test string",
-            remarketingListId: "Test string",
-        });
-        /** Updates an existing remarketing list share. This method supports patch semantics. */
-        await gapi.client.dfareporting.remarketingListShares.patch({
-            profileId: "Test string",
-            remarketingListId: "Test string",
-        }, {
-            kind: "Test string",
-            remarketingListId: "Test string",
-            sharedAccountIds: [
-                "Test string"            ],
-            sharedAdvertiserIds: [
-                "Test string"            ],
-        });
-        /** Updates an existing remarketing list share. */
-        await gapi.client.dfareporting.remarketingListShares.update({
-            profileId: "Test string",
-        }, {
-            kind: "Test string",
-            remarketingListId: "Test string",
-            sharedAccountIds: [
-                "Test string"            ],
-            sharedAdvertiserIds: [
-                "Test string"            ],
         });
         /** Gets one remarketing list by ID. */
         await gapi.client.dfareporting.remarketingLists.get({
@@ -5474,6 +5446,34 @@ gapi.load('client', () => {
             listSource: "Test string",
             name: "Test string",
             subaccountId: "Test string",
+        });
+        /** Gets one remarketing list share by remarketing list ID. */
+        await gapi.client.dfareporting.remarketingListShares.get({
+            profileId: "Test string",
+            remarketingListId: "Test string",
+        });
+        /** Updates an existing remarketing list share. This method supports patch semantics. */
+        await gapi.client.dfareporting.remarketingListShares.patch({
+            profileId: "Test string",
+            remarketingListId: "Test string",
+        }, {
+            kind: "Test string",
+            remarketingListId: "Test string",
+            sharedAccountIds: [
+                "Test string"            ],
+            sharedAdvertiserIds: [
+                "Test string"            ],
+        });
+        /** Updates an existing remarketing list share. */
+        await gapi.client.dfareporting.remarketingListShares.update({
+            profileId: "Test string",
+        }, {
+            kind: "Test string",
+            remarketingListId: "Test string",
+            sharedAccountIds: [
+                "Test string"            ],
+            sharedAdvertiserIds: [
+                "Test string"            ],
         });
         /** Deletes a report by its ID. */
         await gapi.client.dfareporting.reports.delete({
@@ -8369,6 +8369,14 @@ gapi.load('client', () => {
                         kind: "Test string",
                         name: "Test string",
                     }                ],
+                operatingSystems: [
+                    {
+                        dartId: "Test string",
+                        desktop: true,
+                        kind: "Test string",
+                        mobile: true,
+                        name: "Test string",
+                    }                ],
                 operatingSystemVersions: [
                     {
                         id: "Test string",
@@ -8383,14 +8391,6 @@ gapi.load('client', () => {
                             mobile: true,
                             name: "Test string",
                         },
-                    }                ],
-                operatingSystems: [
-                    {
-                        dartId: "Test string",
-                        desktop: true,
-                        kind: "Test string",
-                        mobile: true,
-                        name: "Test string",
                     }                ],
                 platformTypes: [
                     {
@@ -8526,6 +8526,14 @@ gapi.load('client', () => {
                         kind: "Test string",
                         name: "Test string",
                     }                ],
+                operatingSystems: [
+                    {
+                        dartId: "Test string",
+                        desktop: true,
+                        kind: "Test string",
+                        mobile: true,
+                        name: "Test string",
+                    }                ],
                 operatingSystemVersions: [
                     {
                         id: "Test string",
@@ -8540,14 +8548,6 @@ gapi.load('client', () => {
                             mobile: true,
                             name: "Test string",
                         },
-                    }                ],
-                operatingSystems: [
-                    {
-                        dartId: "Test string",
-                        desktop: true,
-                        kind: "Test string",
-                        mobile: true,
-                        name: "Test string",
                     }                ],
                 platformTypes: [
                     {
@@ -8671,6 +8671,14 @@ gapi.load('client', () => {
                         kind: "Test string",
                         name: "Test string",
                     }                ],
+                operatingSystems: [
+                    {
+                        dartId: "Test string",
+                        desktop: true,
+                        kind: "Test string",
+                        mobile: true,
+                        name: "Test string",
+                    }                ],
                 operatingSystemVersions: [
                     {
                         id: "Test string",
@@ -8685,14 +8693,6 @@ gapi.load('client', () => {
                             mobile: true,
                             name: "Test string",
                         },
-                    }                ],
-                operatingSystems: [
-                    {
-                        dartId: "Test string",
-                        desktop: true,
-                        kind: "Test string",
-                        mobile: true,
-                        name: "Test string",
                     }                ],
                 platformTypes: [
                     {

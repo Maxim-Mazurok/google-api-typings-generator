@@ -115,8 +115,8 @@ gapi.load('client', () => {
             "serviceFilter.resourceType": "Test string",
             "serviceFilter.service": "Test string",
             "serviceFilter.version": "Test string",
-            "timeRange.period": "Test string",
             timedCountDuration: "Test string",
+            "timeRange.period": "Test string",
         });
     }
 });

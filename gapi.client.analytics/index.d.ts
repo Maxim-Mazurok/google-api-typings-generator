@@ -55,6 +55,27 @@ declare namespace gapi.client {
             /** Account name. */
             name?: string;
         }
+        interface Accounts {
+            /** A list of accounts. */
+            items?: Account[];
+            /**
+             * The maximum number of entries the response can contain, regardless of the actual number of entries returned. Its value ranges from 1 to 1000 with a
+             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             */
+            itemsPerPage?: number;
+            /** Collection type. */
+            kind?: string;
+            /** Next link for this account collection. */
+            nextLink?: string;
+            /** Previous link for this account collection. */
+            previousLink?: string;
+            /** The starting index of the entries, which is 1 by default or otherwise specified by the start-index query parameter. */
+            startIndex?: number;
+            /** The total number of results for the query, regardless of the number of results in the response. */
+            totalResults?: number;
+            /** Email ID of the authenticated user */
+            username?: string;
+        }
         interface AccountSummaries {
             /** A list of AccountSummaries. */
             items?: AccountSummary[];
@@ -120,27 +141,6 @@ declare namespace gapi.client {
             profile?: Profile;
             /** Web property for the account. */
             webproperty?: Webproperty;
-        }
-        interface Accounts {
-            /** A list of accounts. */
-            items?: Account[];
-            /**
-             * The maximum number of entries the response can contain, regardless of the actual number of entries returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
-             */
-            itemsPerPage?: number;
-            /** Collection type. */
-            kind?: string;
-            /** Next link for this account collection. */
-            nextLink?: string;
-            /** Previous link for this account collection. */
-            previousLink?: string;
-            /** The starting index of the entries, which is 1 by default or otherwise specified by the start-index query parameter. */
-            startIndex?: number;
-            /** The total number of results for the query, regardless of the number of results in the response. */
-            totalResults?: number;
-            /** Email ID of the authenticated user */
-            username?: string;
         }
         interface AdWordsAccount {
             /** True if auto-tagging is enabled on the Google Ads account. Read-only after the insert operation. */
@@ -1283,18 +1283,6 @@ declare namespace gapi.client {
             /** Web property ID of the form UA-XXXXX-YY to which this view (profile) belongs. */
             webPropertyId?: string;
         }
-        interface ProfileSummary {
-            /** View (profile) ID. */
-            id?: string;
-            /** Resource type for Analytics ProfileSummary. */
-            kind?: string;
-            /** View (profile) name. */
-            name?: string;
-            /** Indicates whether this view (profile) is starred or not. */
-            starred?: boolean;
-            /** View (Profile) type. Supported types: WEB or APP. */
-            type?: string;
-        }
         interface Profiles {
             /** A list of views (profiles). */
             items?: Profile[];
@@ -1315,6 +1303,18 @@ declare namespace gapi.client {
             totalResults?: number;
             /** Email ID of the authenticated user */
             username?: string;
+        }
+        interface ProfileSummary {
+            /** View (profile) ID. */
+            id?: string;
+            /** Resource type for Analytics ProfileSummary. */
+            kind?: string;
+            /** View (profile) name. */
+            name?: string;
+            /** Indicates whether this view (profile) is starred or not. */
+            starred?: boolean;
+            /** View (Profile) type. Supported types: WEB or APP. */
+            type?: string;
         }
         interface RealtimeData {
             /** Column headers that list dimension names followed by the metric names. The order of dimensions and metrics is same as specified in the request. */
@@ -1616,38 +1616,6 @@ declare namespace gapi.client {
             id?: string;
             kind?: string;
         }
-        interface WebPropertyRef {
-            /** Account ID to which this web property belongs. */
-            accountId?: string;
-            /** Link for this web property. */
-            href?: string;
-            /** Web property ID of the form UA-XXXXX-YY. */
-            id?: string;
-            /** Internal ID for this web property. */
-            internalWebPropertyId?: string;
-            /** Analytics web property reference. */
-            kind?: string;
-            /** Name of this web property. */
-            name?: string;
-        }
-        interface WebPropertySummary {
-            /** Web property ID of the form UA-XXXXX-YY. */
-            id?: string;
-            /** Internal ID for this web property. */
-            internalWebPropertyId?: string;
-            /** Resource type for Analytics WebPropertySummary. */
-            kind?: string;
-            /** Level for this web property. Possible values are STANDARD or PREMIUM. */
-            level?: string;
-            /** Web property name. */
-            name?: string;
-            /** List of profiles under this web property. */
-            profiles?: ProfileSummary[];
-            /** Indicates whether this web property is starred or not. */
-            starred?: boolean;
-            /** Website url for this web property. */
-            websiteUrl?: string;
-        }
         interface Webproperties {
             /** A list of web properties. */
             items?: Webproperty[];
@@ -1730,6 +1698,38 @@ declare namespace gapi.client {
             starred?: boolean;
             /** Time this web property was last modified. */
             updated?: string;
+            /** Website url for this web property. */
+            websiteUrl?: string;
+        }
+        interface WebPropertyRef {
+            /** Account ID to which this web property belongs. */
+            accountId?: string;
+            /** Link for this web property. */
+            href?: string;
+            /** Web property ID of the form UA-XXXXX-YY. */
+            id?: string;
+            /** Internal ID for this web property. */
+            internalWebPropertyId?: string;
+            /** Analytics web property reference. */
+            kind?: string;
+            /** Name of this web property. */
+            name?: string;
+        }
+        interface WebPropertySummary {
+            /** Web property ID of the form UA-XXXXX-YY. */
+            id?: string;
+            /** Internal ID for this web property. */
+            internalWebPropertyId?: string;
+            /** Resource type for Analytics WebPropertySummary. */
+            kind?: string;
+            /** Level for this web property. Possible values are STANDARD or PREMIUM. */
+            level?: string;
+            /** Web property name. */
+            name?: string;
+            /** List of profiles under this web property. */
+            profiles?: ProfileSummary[];
+            /** Indicates whether this web property is starred or not. */
+            starred?: boolean;
             /** Website url for this web property. */
             websiteUrl?: string;
         }
@@ -1864,6 +1864,29 @@ declare namespace gapi.client {
             ga: GaResource;
             mcf: McfResource;
             realtime: RealtimeResource;
+        }
+        interface AccountsResource {
+            /** Lists all accounts to which the user has access. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The maximum number of accounts to include in this response. */
+                "max-results"?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** An index of the first account to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. */
+                "start-index"?: number;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<Accounts>;
         }
         interface AccountSummariesResource {
             /** Lists account summaries (lightweight tree comprised of accounts/properties/profiles) to which the user has access. */
@@ -2017,29 +2040,6 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: EntityUserLink): Request<EntityUserLink>;
-        }
-        interface AccountsResource {
-            /** Lists all accounts to which the user has access. */
-            list(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** The maximum number of accounts to include in this response. */
-                "max-results"?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** An index of the first account to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. */
-                "start-index"?: number;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<Accounts>;
         }
         interface ClientIdResource {
             /** Hashes the given Client ID. */
@@ -3374,166 +3374,6 @@ declare namespace gapi.client {
             },
             body: ProfileFilterLink): Request<ProfileFilterLink>;
         }
-        interface ProfileUserLinksResource {
-            /** Removes a user from the given view (profile). */
-            delete(request: {
-                /** Account ID to delete the user link for. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** Link ID to delete the user link for. */
-                linkId: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** View (Profile) ID to delete the user link for. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Web Property ID to delete the user link for. */
-                webPropertyId: string;
-            }): Request<void>;
-            /** Adds a new user to the given view (profile). */
-            insert(request: {
-                /** Account ID to create the user link for. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** View (Profile) ID to create the user link for. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Web Property ID to create the user link for. */
-                webPropertyId: string;
-                /** Request body */
-                resource: EntityUserLink;
-            }): Request<EntityUserLink>;
-            insert(request: {
-                /** Account ID to create the user link for. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** View (Profile) ID to create the user link for. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Web Property ID to create the user link for. */
-                webPropertyId: string;
-            },
-            body: EntityUserLink): Request<EntityUserLink>;
-            /** Lists profile-user links for a given view (profile). */
-            list(request: {
-                /** Account ID which the given view (profile) belongs to. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** The maximum number of profile-user links to include in this response. */
-                "max-results"?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /**
-                 * View (Profile) ID to retrieve the profile-user links for. Can either be a specific profile ID or '~all', which refers to all the profiles that user has
-                 * access to.
-                 */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** An index of the first profile-user link to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. */
-                "start-index"?: number;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /**
-                 * Web Property ID which the given view (profile) belongs to. Can either be a specific web property ID or '~all', which refers to all the web properties
-                 * that user has access to.
-                 */
-                webPropertyId: string;
-            }): Request<EntityUserLinks>;
-            /** Updates permissions for an existing user on the given view (profile). */
-            update(request: {
-                /** Account ID to update the user link for. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** Link ID to update the user link for. */
-                linkId: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** View (Profile ID) to update the user link for. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Web Property ID to update the user link for. */
-                webPropertyId: string;
-                /** Request body */
-                resource: EntityUserLink;
-            }): Request<EntityUserLink>;
-            update(request: {
-                /** Account ID to update the user link for. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** Link ID to update the user link for. */
-                linkId: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** View (Profile ID) to update the user link for. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Web Property ID to update the user link for. */
-                webPropertyId: string;
-            },
-            body: EntityUserLink): Request<EntityUserLink>;
-        }
         interface ProfilesResource {
             /** Deletes a view (profile). */
             delete(request: {
@@ -3752,6 +3592,166 @@ declare namespace gapi.client {
                 webPropertyId: string;
             },
             body: Profile): Request<Profile>;
+        }
+        interface ProfileUserLinksResource {
+            /** Removes a user from the given view (profile). */
+            delete(request: {
+                /** Account ID to delete the user link for. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Link ID to delete the user link for. */
+                linkId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** View (Profile) ID to delete the user link for. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Web Property ID to delete the user link for. */
+                webPropertyId: string;
+            }): Request<void>;
+            /** Adds a new user to the given view (profile). */
+            insert(request: {
+                /** Account ID to create the user link for. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** View (Profile) ID to create the user link for. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Web Property ID to create the user link for. */
+                webPropertyId: string;
+                /** Request body */
+                resource: EntityUserLink;
+            }): Request<EntityUserLink>;
+            insert(request: {
+                /** Account ID to create the user link for. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** View (Profile) ID to create the user link for. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Web Property ID to create the user link for. */
+                webPropertyId: string;
+            },
+            body: EntityUserLink): Request<EntityUserLink>;
+            /** Lists profile-user links for a given view (profile). */
+            list(request: {
+                /** Account ID which the given view (profile) belongs to. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The maximum number of profile-user links to include in this response. */
+                "max-results"?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /**
+                 * View (Profile) ID to retrieve the profile-user links for. Can either be a specific profile ID or '~all', which refers to all the profiles that user has
+                 * access to.
+                 */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** An index of the first profile-user link to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. */
+                "start-index"?: number;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /**
+                 * Web Property ID which the given view (profile) belongs to. Can either be a specific web property ID or '~all', which refers to all the web properties
+                 * that user has access to.
+                 */
+                webPropertyId: string;
+            }): Request<EntityUserLinks>;
+            /** Updates permissions for an existing user on the given view (profile). */
+            update(request: {
+                /** Account ID to update the user link for. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Link ID to update the user link for. */
+                linkId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** View (Profile ID) to update the user link for. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Web Property ID to update the user link for. */
+                webPropertyId: string;
+                /** Request body */
+                resource: EntityUserLink;
+            }): Request<EntityUserLink>;
+            update(request: {
+                /** Account ID to update the user link for. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Link ID to update the user link for. */
+                linkId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** View (Profile ID) to update the user link for. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Web Property ID to update the user link for. */
+                webPropertyId: string;
+            },
+            body: EntityUserLink): Request<EntityUserLink>;
         }
         interface RemarketingAudienceResource {
             /** Delete a remarketing audience. */
@@ -4242,6 +4242,183 @@ declare namespace gapi.client {
                 webPropertyId: string;
             }): Request<Upload>;
         }
+        interface WebpropertiesResource {
+            /** Gets a web property to which the user has access. */
+            get(request: {
+                /** Account ID to retrieve the web property for. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** ID to retrieve the web property for. */
+                webPropertyId: string;
+            }): Request<Webproperty>;
+            /**
+             * Create a new property if the account has fewer than 20 properties. Web properties are visible in the Google Analytics interface only if they have at
+             * least one profile.
+             */
+            insert(request: {
+                /** Account ID to create the web property for. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: Webproperty;
+            }): Request<Webproperty>;
+            insert(request: {
+                /** Account ID to create the web property for. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: Webproperty): Request<Webproperty>;
+            /** Lists web properties to which the user has access. */
+            list(request: {
+                /** Account ID to retrieve web properties for. Can either be a specific account ID or '~all', which refers to all the accounts that user has access to. */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The maximum number of web properties to include in this response. */
+                "max-results"?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. */
+                "start-index"?: number;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<Webproperties>;
+            /** Updates an existing web property. This method supports patch semantics. */
+            patch(request: {
+                /** Account ID to which the web property belongs */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Web property ID */
+                webPropertyId: string;
+                /** Request body */
+                resource: Webproperty;
+            }): Request<Webproperty>;
+            patch(request: {
+                /** Account ID to which the web property belongs */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Web property ID */
+                webPropertyId: string;
+            },
+            body: Webproperty): Request<Webproperty>;
+            /** Updates an existing web property. */
+            update(request: {
+                /** Account ID to which the web property belongs */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Web property ID */
+                webPropertyId: string;
+                /** Request body */
+                resource: Webproperty;
+            }): Request<Webproperty>;
+            update(request: {
+                /** Account ID to which the web property belongs */
+                accountId: string;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Web property ID */
+                webPropertyId: string;
+            },
+            body: Webproperty): Request<Webproperty>;
+        }
         interface WebPropertyAdWordsLinksResource {
             /** Deletes a web property-Google Ads link. */
             delete(request: {
@@ -4455,183 +4632,6 @@ declare namespace gapi.client {
             },
             body: EntityAdWordsLink): Request<EntityAdWordsLink>;
         }
-        interface WebpropertiesResource {
-            /** Gets a web property to which the user has access. */
-            get(request: {
-                /** Account ID to retrieve the web property for. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** ID to retrieve the web property for. */
-                webPropertyId: string;
-            }): Request<Webproperty>;
-            /**
-             * Create a new property if the account has fewer than 20 properties. Web properties are visible in the Google Analytics interface only if they have at
-             * least one profile.
-             */
-            insert(request: {
-                /** Account ID to create the web property for. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: Webproperty;
-            }): Request<Webproperty>;
-            insert(request: {
-                /** Account ID to create the web property for. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: Webproperty): Request<Webproperty>;
-            /** Lists web properties to which the user has access. */
-            list(request: {
-                /** Account ID to retrieve web properties for. Can either be a specific account ID or '~all', which refers to all the accounts that user has access to. */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** The maximum number of web properties to include in this response. */
-                "max-results"?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. */
-                "start-index"?: number;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<Webproperties>;
-            /** Updates an existing web property. This method supports patch semantics. */
-            patch(request: {
-                /** Account ID to which the web property belongs */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Web property ID */
-                webPropertyId: string;
-                /** Request body */
-                resource: Webproperty;
-            }): Request<Webproperty>;
-            patch(request: {
-                /** Account ID to which the web property belongs */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Web property ID */
-                webPropertyId: string;
-            },
-            body: Webproperty): Request<Webproperty>;
-            /** Updates an existing web property. */
-            update(request: {
-                /** Account ID to which the web property belongs */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Web property ID */
-                webPropertyId: string;
-                /** Request body */
-                resource: Webproperty;
-            }): Request<Webproperty>;
-            update(request: {
-                /** Account ID to which the web property belongs */
-                accountId: string;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Web property ID */
-                webPropertyId: string;
-            },
-            body: Webproperty): Request<Webproperty>;
-        }
         interface WebpropertyUserLinksResource {
             /** Removes a user from the given web property. */
             delete(request: {
@@ -4778,9 +4778,9 @@ declare namespace gapi.client {
             body: EntityUserLink): Request<EntityUserLink>;
         }
         interface ManagementResource {
+            accounts: AccountsResource;
             accountSummaries: AccountSummariesResource;
             accountUserLinks: AccountUserLinksResource;
-            accounts: AccountsResource;
             clientId: ClientIdResource;
             customDataSources: CustomDataSourcesResource;
             customDimensions: CustomDimensionsResource;
@@ -4789,14 +4789,14 @@ declare namespace gapi.client {
             filters: FiltersResource;
             goals: GoalsResource;
             profileFilterLinks: ProfileFilterLinksResource;
-            profileUserLinks: ProfileUserLinksResource;
             profiles: ProfilesResource;
+            profileUserLinks: ProfileUserLinksResource;
             remarketingAudience: RemarketingAudienceResource;
             segments: SegmentsResource;
             unsampledReports: UnsampledReportsResource;
             uploads: UploadsResource;
-            webPropertyAdWordsLinks: WebPropertyAdWordsLinksResource;
             webproperties: WebpropertiesResource;
+            webPropertyAdWordsLinks: WebPropertyAdWordsLinksResource;
             webpropertyUserLinks: WebpropertyUserLinksResource;
         }
         interface ColumnsResource {

@@ -356,9 +356,9 @@ declare namespace gapi.client {
             isDisputed?: boolean;
             languageCode?: string;
             localityName?: string;
-            postBoxNumber?: string;
             postalCodeNumber?: string;
             postalCodeNumberExtension?: string;
+            postBoxNumber?: string;
             premiseName?: string;
             recipientName?: string;
             sortingCode?: string;

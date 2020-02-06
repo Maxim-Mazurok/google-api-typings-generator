@@ -412,10 +412,6 @@ declare namespace gapi.client {
             /** The type of the metric, for example `INTEGER`. */
             type?: string;
         }
-        interface OrFiltersForSegment {
-            /** List of segment filters to be combined with a `OR` operator. */
-            segmentFilterClauses?: SegmentFilterClause[];
-        }
         interface OrderBy {
             /**
              * The field which to sort by. The default sort order is ascending. Example:
@@ -428,6 +424,10 @@ declare namespace gapi.client {
             orderType?: string;
             /** The sorting order for the field. */
             sortOrder?: string;
+        }
+        interface OrFiltersForSegment {
+            /** List of segment filters to be combined with a `OR` operator. */
+            segmentFilterClauses?: SegmentFilterClause[];
         }
         interface PageviewData {
             /** The URL of the page that the visitor viewed. */
@@ -971,10 +971,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GetReportsRequest;
             }): Request<GetReportsResponse>;
@@ -997,10 +997,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GetReportsRequest): Request<GetReportsResponse>;
         }
@@ -1025,10 +1025,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SearchUserActivityRequest;
             }): Request<SearchUserActivityResponse>;
@@ -1051,10 +1051,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SearchUserActivityRequest): Request<SearchUserActivityResponse>;
         }

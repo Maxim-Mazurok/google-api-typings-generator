@@ -150,6 +150,20 @@ declare namespace gapi.client {
              */
             outputDirectorySymlinks?: BuildBazelRemoteExecutionV2OutputSymlink[];
             /**
+             * The output files of the action. For each output file requested in the
+             * `output_files` field of the Action, if the corresponding file existed after
+             * the action completed, a single entry will be present either in this field,
+             * or the `output_file_symlinks` field if the file was a symbolic link to
+             * another file.
+             *
+             * If an output of the same name was found, but was a directory rather
+             * than a regular file, the server will return a FAILED_PRECONDITION.
+             * If the action does not produce the requested output, then that output
+             * will be omitted from the list. The server is free to arrange the output
+             * list as desired; clients MUST NOT assume that the output list is sorted.
+             */
+            outputFiles?: BuildBazelRemoteExecutionV2OutputFile[];
+            /**
              * The output files of the action that are symbolic links to other files. Those
              * may be links to other output files, or input files, or even absolute paths
              * outside of the working directory, if the server supports
@@ -166,20 +180,6 @@ declare namespace gapi.client {
              * list as desired; clients MUST NOT assume that the output list is sorted.
              */
             outputFileSymlinks?: BuildBazelRemoteExecutionV2OutputSymlink[];
-            /**
-             * The output files of the action. For each output file requested in the
-             * `output_files` field of the Action, if the corresponding file existed after
-             * the action completed, a single entry will be present either in this field,
-             * or the `output_file_symlinks` field if the file was a symbolic link to
-             * another file.
-             *
-             * If an output of the same name was found, but was a directory rather
-             * than a regular file, the server will return a FAILED_PRECONDITION.
-             * If the action does not produce the requested output, then that output
-             * will be omitted from the list. The server is free to arrange the output
-             * list as desired; clients MUST NOT assume that the output list is sorted.
-             */
-            outputFiles?: BuildBazelRemoteExecutionV2OutputFile[];
             /**
              * The digest for a blob containing the standard error of the action, which
              * can be retrieved from the
@@ -386,6 +386,28 @@ declare namespace gapi.client {
             /** The name of the directory. */
             name?: string;
         }
+        interface BuildBazelRemoteExecutionV2ExecutedActionMetadata {
+            /** When the worker completed executing the action command. */
+            executionCompletedTimestamp?: string;
+            /** When the worker started executing the action command. */
+            executionStartTimestamp?: string;
+            /** When the worker finished fetching action inputs. */
+            inputFetchCompletedTimestamp?: string;
+            /** When the worker started fetching action inputs. */
+            inputFetchStartTimestamp?: string;
+            /** When the worker finished uploading action outputs. */
+            outputUploadCompletedTimestamp?: string;
+            /** When the worker started uploading action outputs. */
+            outputUploadStartTimestamp?: string;
+            /** When was the action added to the queue. */
+            queuedTimestamp?: string;
+            /** The name of the worker which ran the execution. */
+            worker?: string;
+            /** When the worker completed the action, including all stages. */
+            workerCompletedTimestamp?: string;
+            /** When the worker received the action. */
+            workerStartTimestamp?: string;
+        }
         interface BuildBazelRemoteExecutionV2ExecuteOperationMetadata {
             /**
              * The digest of the Action
@@ -474,28 +496,6 @@ declare namespace gapi.client {
              * information available, such as the stdout and stderr of a timed-out action.
              */
             status?: GoogleRpcStatus;
-        }
-        interface BuildBazelRemoteExecutionV2ExecutedActionMetadata {
-            /** When the worker completed executing the action command. */
-            executionCompletedTimestamp?: string;
-            /** When the worker started executing the action command. */
-            executionStartTimestamp?: string;
-            /** When the worker finished fetching action inputs. */
-            inputFetchCompletedTimestamp?: string;
-            /** When the worker started fetching action inputs. */
-            inputFetchStartTimestamp?: string;
-            /** When the worker finished uploading action outputs. */
-            outputUploadCompletedTimestamp?: string;
-            /** When the worker started uploading action outputs. */
-            outputUploadStartTimestamp?: string;
-            /** When was the action added to the queue. */
-            queuedTimestamp?: string;
-            /** The name of the worker which ran the execution. */
-            worker?: string;
-            /** When the worker completed the action, including all stages. */
-            workerCompletedTimestamp?: string;
-            /** When the worker received the action. */
-            workerStartTimestamp?: string;
         }
         interface BuildBazelRemoteExecutionV2ExecutionCapabilities {
             /** Remote execution may only support a single digest function. */
@@ -1386,10 +1386,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The size of the blob, in bytes. */
                 sizeBytes: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<BuildBazelRemoteExecutionV2ActionResult>;
             /**
              * Upload a new execution result.
@@ -1454,10 +1454,10 @@ declare namespace gapi.client {
                 "resultsCachePolicy.priority"?: number;
                 /** The size of the blob, in bytes. */
                 sizeBytes: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BuildBazelRemoteExecutionV2ActionResult;
             }): Request<BuildBazelRemoteExecutionV2ActionResult>;
@@ -1506,10 +1506,10 @@ declare namespace gapi.client {
                 "resultsCachePolicy.priority"?: number;
                 /** The size of the blob, in bytes. */
                 sizeBytes: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BuildBazelRemoteExecutionV2ActionResult): Request<BuildBazelRemoteExecutionV2ActionResult>;
         }
@@ -1606,10 +1606,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BuildBazelRemoteExecutionV2ExecuteRequest;
             }): Request<GoogleLongrunningOperation>;
@@ -1640,10 +1640,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BuildBazelRemoteExecutionV2ExecuteRequest): Request<GoogleLongrunningOperation>;
         }
@@ -1697,10 +1697,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BuildBazelRemoteExecutionV2BatchReadBlobsRequest;
             }): Request<BuildBazelRemoteExecutionV2BatchReadBlobsResponse>;
@@ -1731,10 +1731,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BuildBazelRemoteExecutionV2BatchReadBlobsRequest): Request<BuildBazelRemoteExecutionV2BatchReadBlobsResponse>;
             /**
@@ -1790,10 +1790,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BuildBazelRemoteExecutionV2BatchUpdateBlobsRequest;
             }): Request<BuildBazelRemoteExecutionV2BatchUpdateBlobsResponse>;
@@ -1824,10 +1824,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BuildBazelRemoteExecutionV2BatchUpdateBlobsRequest): Request<BuildBazelRemoteExecutionV2BatchUpdateBlobsResponse>;
             /**
@@ -1865,10 +1865,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BuildBazelRemoteExecutionV2FindMissingBlobsRequest;
             }): Request<BuildBazelRemoteExecutionV2FindMissingBlobsResponse>;
@@ -1899,10 +1899,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BuildBazelRemoteExecutionV2FindMissingBlobsRequest): Request<BuildBazelRemoteExecutionV2FindMissingBlobsResponse>;
             /**
@@ -1975,10 +1975,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The size of the blob, in bytes. */
                 sizeBytes: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<BuildBazelRemoteExecutionV2GetTreeResponse>;
         }
         interface OperationsResource {
@@ -2014,10 +2014,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BuildBazelRemoteExecutionV2WaitExecutionRequest;
             }): Request<GoogleLongrunningOperation>;
@@ -2045,10 +2045,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BuildBazelRemoteExecutionV2WaitExecutionRequest): Request<GoogleLongrunningOperation>;
         }
@@ -2090,10 +2090,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<BuildBazelRemoteExecutionV2ServerCapabilities>;
         }
 

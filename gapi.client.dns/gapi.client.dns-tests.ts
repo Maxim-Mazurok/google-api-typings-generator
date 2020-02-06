@@ -147,9 +147,9 @@ gapi.load('client', () => {
             labels: {
                 A: "Test string"            },
             name: "Test string",
-            nameServerSet: "Test string",
             nameServers: [
                 "Test string"            ],
+            nameServerSet: "Test string",
             peeringConfig: {
                 kind: "Test string",
                 targetNetwork: {
@@ -221,9 +221,9 @@ gapi.load('client', () => {
             labels: {
                 A: "Test string"            },
             name: "Test string",
-            nameServerSet: "Test string",
             nameServers: [
                 "Test string"            ],
+            nameServerSet: "Test string",
             peeringConfig: {
                 kind: "Test string",
                 targetNetwork: {
@@ -276,9 +276,9 @@ gapi.load('client', () => {
             labels: {
                 A: "Test string"            },
             name: "Test string",
-            nameServerSet: "Test string",
             nameServers: [
                 "Test string"            ],
+            nameServerSet: "Test string",
             peeringConfig: {
                 kind: "Test string",
                 targetNetwork: {

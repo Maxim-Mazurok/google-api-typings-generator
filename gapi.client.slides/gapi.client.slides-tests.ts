@@ -541,6 +541,11 @@ gapi.load('client', () => {
                         objectId: "Test string",
                         title: "Test string",
                     },
+                    updatePageElementsZOrder: {
+                        operation: "Test string",
+                        pageElementObjectIds: [
+                            "Test string"                        ],
+                    },
                     updatePageElementTransform: {
                         applyMode: "Test string",
                         objectId: "Test string",
@@ -553,11 +558,6 @@ gapi.load('client', () => {
                             translateY: 42,
                             unit: "Test string",
                         },
-                    },
-                    updatePageElementsZOrder: {
-                        operation: "Test string",
-                        pageElementObjectIds: [
-                            "Test string"                        ],
                     },
                     updatePageProperties: {
                         fields: "Test string",
@@ -901,6 +901,11 @@ gapi.load('client', () => {
                 requiredRevisionId: "Test string",
             },
         });
+        /** Gets the latest version of the specified page in the presentation. */
+        await gapi.client.slides.presentations.pages.get({
+            pageObjectId: "Test string",
+            presentationId: "Test string",
+        });
         /**
          * Generates a thumbnail of the latest version of the specified page in the
          * presentation and returns a URL to the thumbnail image.
@@ -913,11 +918,6 @@ gapi.load('client', () => {
             presentationId: "Test string",
             "thumbnailProperties.mimeType": "Test string",
             "thumbnailProperties.thumbnailSize": "Test string",
-        });
-        /** Gets the latest version of the specified page in the presentation. */
-        await gapi.client.slides.presentations.pages.get({
-            pageObjectId: "Test string",
-            presentationId: "Test string",
         });
         /**
          * Creates a blank presentation using the title given in the request. If a
@@ -4878,6 +4878,11 @@ gapi.load('client', () => {
                 }            ],
             title: "Test string",
         });
+        /** Gets the latest version of the specified page in the presentation. */
+        await gapi.client.slides.presentations.pages.get({
+            pageObjectId: "Test string",
+            presentationId: "Test string",
+        });
         /**
          * Generates a thumbnail of the latest version of the specified page in the
          * presentation and returns a URL to the thumbnail image.
@@ -4890,16 +4895,16 @@ gapi.load('client', () => {
             presentationId: "Test string",
             "thumbnailProperties.mimeType": "Test string",
             "thumbnailProperties.thumbnailSize": "Test string",
-        });
-        /** Gets the latest version of the specified page in the presentation. */
-        await gapi.client.slides.presentations.pages.get({
-            pageObjectId: "Test string",
-            presentationId: "Test string",
         });
         /** Gets the latest version of the specified presentation. */
         await gapi.client.slides.presentations.get({
             presentationId: "Test string",
         });
+        /** Gets the latest version of the specified page in the presentation. */
+        await gapi.client.slides.presentations.pages.get({
+            pageObjectId: "Test string",
+            presentationId: "Test string",
+        });
         /**
          * Generates a thumbnail of the latest version of the specified page in the
          * presentation and returns a URL to the thumbnail image.
@@ -4912,11 +4917,6 @@ gapi.load('client', () => {
             presentationId: "Test string",
             "thumbnailProperties.mimeType": "Test string",
             "thumbnailProperties.thumbnailSize": "Test string",
-        });
-        /** Gets the latest version of the specified page in the presentation. */
-        await gapi.client.slides.presentations.pages.get({
-            pageObjectId: "Test string",
-            presentationId: "Test string",
         });
     }
 });

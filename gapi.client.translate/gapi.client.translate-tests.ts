@@ -110,6 +110,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
          * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
          * exist.
          */
@@ -120,11 +127,20 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
          */
-        await gapi.client.translate.projects.locations.glossaries.get({
+        await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
+        }, {
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is
@@ -133,6 +149,14 @@ gapi.load('client', () => {
          * `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
         });
         /**
@@ -154,12 +178,131 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
+         * Waits for the specified long-running operation until it is done or reaches
+         * at most a specified timeout, returning the latest state.  If the operation
+         * is already done, the latest state is immediately returned.  If the timeout
+         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+         * timeout is used.  If the server does not support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Note that this method is on a best-effort basis.  It may return the latest
+         * state before the specified timeout (including immediately), meaning even an
+         * immediate response is no guarantee that the operation is done.
+         */
+        await gapi.client.translate.projects.locations.operations.wait({
+            name: "Test string",
+        }, {
+            timeout: "Test string",
+        });
+        /** Detects the language of text within a request. */
+        await gapi.client.translate.projects.locations.detectLanguage({
+            parent: "Test string",
+        }, {
+            content: "Test string",
+            labels: {
+                A: "Test string"            },
+            mimeType: "Test string",
+            model: "Test string",
+        });
+        /**
+         * Creates a glossary and returns the long-running operation. Returns
+         * NOT_FOUND, if the project doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.create({
+            parent: "Test string",
+        }, {
+            endTime: "Test string",
+            entryCount: 42,
+            inputConfig: {
+                gcsSource: {
+                    inputUri: "Test string",
+                },
+            },
+            languageCodesSet: {
+                languageCodes: [
+                    "Test string"                ],
+            },
+            languagePair: {
+                sourceLanguageCode: "Test string",
+                targetLanguageCode: "Test string",
+            },
+            name: "Test string",
+            submitTime: "Test string",
+        });
+        /**
+         * Deletes a glossary, or cancels glossary construction
+         * if the glossary isn't created yet.
+         * Returns NOT_FOUND, if the glossary doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
+         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.translate.projects.locations.operations.cancel({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
          * Gets the latest state of a long-running operation.  Clients can use this
          * method to poll the operation result at intervals as recommended by the API
          * service.
          */
         await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the
+         * server doesn't support this method, it returns `UNIMPLEMENTED`.
+         *
+         * NOTE: the `name` binding allows API services to override the binding
+         * to use different resource name schemes, such as `users/&#42;/operations`. To
+         * override the binding, API services can add a binding such as
+         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+         * For backwards compatibility, the default name includes the operations
+         * collection id, however overriding users must ensure the name binding
+         * is the parent resource, without the operations collection id.
+         */
+        await gapi.client.translate.projects.locations.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /**
          * Waits for the specified long-running operation until it is done or reaches
@@ -177,6 +320,60 @@ gapi.load('client', () => {
         }, {
             timeout: "Test string",
         });
+        /** Gets information about a location. */
+        await gapi.client.translate.projects.locations.get({
+            name: "Test string",
+        });
+        /**
+         * Creates a glossary and returns the long-running operation. Returns
+         * NOT_FOUND, if the project doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.create({
+            parent: "Test string",
+        }, {
+            endTime: "Test string",
+            entryCount: 42,
+            inputConfig: {
+                gcsSource: {
+                    inputUri: "Test string",
+                },
+            },
+            languageCodesSet: {
+                languageCodes: [
+                    "Test string"                ],
+            },
+            languagePair: {
+                sourceLanguageCode: "Test string",
+                targetLanguageCode: "Test string",
+            },
+            name: "Test string",
+            submitTime: "Test string",
+        });
+        /**
+         * Deletes a glossary, or cancels glossary construction
+         * if the glossary isn't created yet.
+         * Returns NOT_FOUND, if the glossary doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
+         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /**
          * Starts asynchronous cancellation on a long-running operation.  The server
          * makes a best effort to cancel the operation, but success is not
@@ -192,6 +389,180 @@ gapi.load('client', () => {
         await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
         }, {
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the
+         * server doesn't support this method, it returns `UNIMPLEMENTED`.
+         *
+         * NOTE: the `name` binding allows API services to override the binding
+         * to use different resource name schemes, such as `users/&#42;/operations`. To
+         * override the binding, API services can add a binding such as
+         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+         * For backwards compatibility, the default name includes the operations
+         * collection id, however overriding users must ensure the name binding
+         * is the parent resource, without the operations collection id.
+         */
+        await gapi.client.translate.projects.locations.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Waits for the specified long-running operation until it is done or reaches
+         * at most a specified timeout, returning the latest state.  If the operation
+         * is already done, the latest state is immediately returned.  If the timeout
+         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+         * timeout is used.  If the server does not support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Note that this method is on a best-effort basis.  It may return the latest
+         * state before the specified timeout (including immediately), meaning even an
+         * immediate response is no guarantee that the operation is done.
+         */
+        await gapi.client.translate.projects.locations.operations.wait({
+            name: "Test string",
+        }, {
+            timeout: "Test string",
+        });
+        /** Returns a list of supported languages for translation. */
+        await gapi.client.translate.projects.locations.getSupportedLanguages({
+            displayLanguageCode: "Test string",
+            model: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a glossary and returns the long-running operation. Returns
+         * NOT_FOUND, if the project doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.create({
+            parent: "Test string",
+        }, {
+            endTime: "Test string",
+            entryCount: 42,
+            inputConfig: {
+                gcsSource: {
+                    inputUri: "Test string",
+                },
+            },
+            languageCodesSet: {
+                languageCodes: [
+                    "Test string"                ],
+            },
+            languagePair: {
+                sourceLanguageCode: "Test string",
+                targetLanguageCode: "Test string",
+            },
+            name: "Test string",
+            submitTime: "Test string",
+        });
+        /**
+         * Deletes a glossary, or cancels glossary construction
+         * if the glossary isn't created yet.
+         * Returns NOT_FOUND, if the glossary doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
+         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.translate.projects.locations.operations.cancel({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the
+         * server doesn't support this method, it returns `UNIMPLEMENTED`.
+         *
+         * NOTE: the `name` binding allows API services to override the binding
+         * to use different resource name schemes, such as `users/&#42;/operations`. To
+         * override the binding, API services can add a binding such as
+         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+         * For backwards compatibility, the default name includes the operations
+         * collection id, however overriding users must ensure the name binding
+         * is the parent resource, without the operations collection id.
+         */
+        await gapi.client.translate.projects.locations.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Waits for the specified long-running operation until it is done or reaches
+         * at most a specified timeout, returning the latest state.  If the operation
+         * is already done, the latest state is immediately returned.  If the timeout
+         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+         * timeout is used.  If the server does not support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Note that this method is on a best-effort basis.  It may return the latest
+         * state before the specified timeout (including immediately), meaning even an
+         * immediate response is no guarantee that the operation is done.
+         */
+        await gapi.client.translate.projects.locations.operations.wait({
+            name: "Test string",
+        }, {
+            timeout: "Test string",
         });
         /** Lists information about the supported locations for this service. */
         await gapi.client.translate.projects.locations.list({
@@ -234,6 +605,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
          * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
          * exist.
          */
@@ -244,11 +622,20 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
          */
-        await gapi.client.translate.projects.locations.glossaries.get({
+        await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
+        }, {
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is
@@ -257,6 +644,14 @@ gapi.load('client', () => {
          * `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
         });
         /**
@@ -278,14 +673,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
          * Waits for the specified long-running operation until it is done or reaches
          * at most a specified timeout, returning the latest state.  If the operation
          * is already done, the latest state is immediately returned.  If the timeout
@@ -300,22 +687,6 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
         });
         /** Translates input text and returns translated text. */
         await gapi.client.translate.projects.locations.translateText({
@@ -368,6 +739,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
          * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
          * exist.
          */
@@ -378,11 +756,20 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
          */
-        await gapi.client.translate.projects.locations.glossaries.get({
+        await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
+        }, {
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is
@@ -391,6 +778,14 @@ gapi.load('client', () => {
          * `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
         });
         /**
@@ -412,14 +807,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
          * Waits for the specified long-running operation until it is done or reaches
          * at most a specified timeout, returning the latest state.  If the operation
          * is already done, the latest state is immediately returned.  If the timeout
@@ -434,393 +821,6 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Returns a list of supported languages for translation. */
-        await gapi.client.translate.projects.locations.getSupportedLanguages({
-            displayLanguageCode: "Test string",
-            model: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a glossary and returns the long-running operation. Returns
-         * NOT_FOUND, if the project doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            entryCount: 42,
-            inputConfig: {
-                gcsSource: {
-                    inputUri: "Test string",
-                },
-            },
-            languageCodesSet: {
-                languageCodes: [
-                    "Test string"                ],
-            },
-            languagePair: {
-                sourceLanguageCode: "Test string",
-                targetLanguageCode: "Test string",
-            },
-            name: "Test string",
-            submitTime: "Test string",
-        });
-        /**
-         * Deletes a glossary, or cancels glossary construction
-         * if the glossary isn't created yet.
-         * Returns NOT_FOUND, if the glossary doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.get({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.translate.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
-         */
-        await gapi.client.translate.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Waits for the specified long-running operation until it is done or reaches
-         * at most a specified timeout, returning the latest state.  If the operation
-         * is already done, the latest state is immediately returned.  If the timeout
-         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-         * timeout is used.  If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         * Note that this method is on a best-effort basis.  It may return the latest
-         * state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.translate.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Detects the language of text within a request. */
-        await gapi.client.translate.projects.locations.detectLanguage({
-            parent: "Test string",
-        }, {
-            content: "Test string",
-            labels: {
-                A: "Test string"            },
-            mimeType: "Test string",
-            model: "Test string",
-        });
-        /**
-         * Creates a glossary and returns the long-running operation. Returns
-         * NOT_FOUND, if the project doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            entryCount: 42,
-            inputConfig: {
-                gcsSource: {
-                    inputUri: "Test string",
-                },
-            },
-            languageCodesSet: {
-                languageCodes: [
-                    "Test string"                ],
-            },
-            languagePair: {
-                sourceLanguageCode: "Test string",
-                targetLanguageCode: "Test string",
-            },
-            name: "Test string",
-            submitTime: "Test string",
-        });
-        /**
-         * Deletes a glossary, or cancels glossary construction
-         * if the glossary isn't created yet.
-         * Returns NOT_FOUND, if the glossary doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.get({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.translate.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
-         */
-        await gapi.client.translate.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Waits for the specified long-running operation until it is done or reaches
-         * at most a specified timeout, returning the latest state.  If the operation
-         * is already done, the latest state is immediately returned.  If the timeout
-         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-         * timeout is used.  If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         * Note that this method is on a best-effort basis.  It may return the latest
-         * state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.translate.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Gets information about a location. */
-        await gapi.client.translate.projects.locations.get({
-            name: "Test string",
-        });
-        /**
-         * Creates a glossary and returns the long-running operation. Returns
-         * NOT_FOUND, if the project doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            entryCount: 42,
-            inputConfig: {
-                gcsSource: {
-                    inputUri: "Test string",
-                },
-            },
-            languageCodesSet: {
-                languageCodes: [
-                    "Test string"                ],
-            },
-            languagePair: {
-                sourceLanguageCode: "Test string",
-                targetLanguageCode: "Test string",
-            },
-            name: "Test string",
-            submitTime: "Test string",
-        });
-        /**
-         * Deletes a glossary, or cancels glossary construction
-         * if the glossary isn't created yet.
-         * Returns NOT_FOUND, if the glossary doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.get({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.translate.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
-         */
-        await gapi.client.translate.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Waits for the specified long-running operation until it is done or reaches
-         * at most a specified timeout, returning the latest state.  If the operation
-         * is already done, the latest state is immediately returned.  If the timeout
-         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-         * timeout is used.  If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         * Note that this method is on a best-effort basis.  It may return the latest
-         * state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.translate.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
         });
         /** Returns a list of supported languages for translation. */
         await gapi.client.translate.projects.getSupportedLanguages({
@@ -899,6 +899,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
          * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
          * exist.
          */
@@ -909,11 +916,20 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
          */
-        await gapi.client.translate.projects.locations.glossaries.get({
+        await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
+        }, {
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is
@@ -922,6 +938,14 @@ gapi.load('client', () => {
          * `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
         });
         /**
@@ -943,12 +967,131 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
+         * Waits for the specified long-running operation until it is done or reaches
+         * at most a specified timeout, returning the latest state.  If the operation
+         * is already done, the latest state is immediately returned.  If the timeout
+         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+         * timeout is used.  If the server does not support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Note that this method is on a best-effort basis.  It may return the latest
+         * state before the specified timeout (including immediately), meaning even an
+         * immediate response is no guarantee that the operation is done.
+         */
+        await gapi.client.translate.projects.locations.operations.wait({
+            name: "Test string",
+        }, {
+            timeout: "Test string",
+        });
+        /** Detects the language of text within a request. */
+        await gapi.client.translate.projects.locations.detectLanguage({
+            parent: "Test string",
+        }, {
+            content: "Test string",
+            labels: {
+                A: "Test string"            },
+            mimeType: "Test string",
+            model: "Test string",
+        });
+        /**
+         * Creates a glossary and returns the long-running operation. Returns
+         * NOT_FOUND, if the project doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.create({
+            parent: "Test string",
+        }, {
+            endTime: "Test string",
+            entryCount: 42,
+            inputConfig: {
+                gcsSource: {
+                    inputUri: "Test string",
+                },
+            },
+            languageCodesSet: {
+                languageCodes: [
+                    "Test string"                ],
+            },
+            languagePair: {
+                sourceLanguageCode: "Test string",
+                targetLanguageCode: "Test string",
+            },
+            name: "Test string",
+            submitTime: "Test string",
+        });
+        /**
+         * Deletes a glossary, or cancels glossary construction
+         * if the glossary isn't created yet.
+         * Returns NOT_FOUND, if the glossary doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
+         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.translate.projects.locations.operations.cancel({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
          * Gets the latest state of a long-running operation.  Clients can use this
          * method to poll the operation result at intervals as recommended by the API
          * service.
          */
         await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the
+         * server doesn't support this method, it returns `UNIMPLEMENTED`.
+         *
+         * NOTE: the `name` binding allows API services to override the binding
+         * to use different resource name schemes, such as `users/&#42;/operations`. To
+         * override the binding, API services can add a binding such as
+         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+         * For backwards compatibility, the default name includes the operations
+         * collection id, however overriding users must ensure the name binding
+         * is the parent resource, without the operations collection id.
+         */
+        await gapi.client.translate.projects.locations.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /**
          * Waits for the specified long-running operation until it is done or reaches
@@ -966,6 +1109,60 @@ gapi.load('client', () => {
         }, {
             timeout: "Test string",
         });
+        /** Gets information about a location. */
+        await gapi.client.translate.projects.locations.get({
+            name: "Test string",
+        });
+        /**
+         * Creates a glossary and returns the long-running operation. Returns
+         * NOT_FOUND, if the project doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.create({
+            parent: "Test string",
+        }, {
+            endTime: "Test string",
+            entryCount: 42,
+            inputConfig: {
+                gcsSource: {
+                    inputUri: "Test string",
+                },
+            },
+            languageCodesSet: {
+                languageCodes: [
+                    "Test string"                ],
+            },
+            languagePair: {
+                sourceLanguageCode: "Test string",
+                targetLanguageCode: "Test string",
+            },
+            name: "Test string",
+            submitTime: "Test string",
+        });
+        /**
+         * Deletes a glossary, or cancels glossary construction
+         * if the glossary isn't created yet.
+         * Returns NOT_FOUND, if the glossary doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
+         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /**
          * Starts asynchronous cancellation on a long-running operation.  The server
          * makes a best effort to cancel the operation, but success is not
@@ -981,6 +1178,180 @@ gapi.load('client', () => {
         await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
         }, {
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the
+         * server doesn't support this method, it returns `UNIMPLEMENTED`.
+         *
+         * NOTE: the `name` binding allows API services to override the binding
+         * to use different resource name schemes, such as `users/&#42;/operations`. To
+         * override the binding, API services can add a binding such as
+         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+         * For backwards compatibility, the default name includes the operations
+         * collection id, however overriding users must ensure the name binding
+         * is the parent resource, without the operations collection id.
+         */
+        await gapi.client.translate.projects.locations.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Waits for the specified long-running operation until it is done or reaches
+         * at most a specified timeout, returning the latest state.  If the operation
+         * is already done, the latest state is immediately returned.  If the timeout
+         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+         * timeout is used.  If the server does not support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Note that this method is on a best-effort basis.  It may return the latest
+         * state before the specified timeout (including immediately), meaning even an
+         * immediate response is no guarantee that the operation is done.
+         */
+        await gapi.client.translate.projects.locations.operations.wait({
+            name: "Test string",
+        }, {
+            timeout: "Test string",
+        });
+        /** Returns a list of supported languages for translation. */
+        await gapi.client.translate.projects.locations.getSupportedLanguages({
+            displayLanguageCode: "Test string",
+            model: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a glossary and returns the long-running operation. Returns
+         * NOT_FOUND, if the project doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.create({
+            parent: "Test string",
+        }, {
+            endTime: "Test string",
+            entryCount: 42,
+            inputConfig: {
+                gcsSource: {
+                    inputUri: "Test string",
+                },
+            },
+            languageCodesSet: {
+                languageCodes: [
+                    "Test string"                ],
+            },
+            languagePair: {
+                sourceLanguageCode: "Test string",
+                targetLanguageCode: "Test string",
+            },
+            name: "Test string",
+            submitTime: "Test string",
+        });
+        /**
+         * Deletes a glossary, or cancels glossary construction
+         * if the glossary isn't created yet.
+         * Returns NOT_FOUND, if the glossary doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
+         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.translate.projects.locations.operations.cancel({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the
+         * server doesn't support this method, it returns `UNIMPLEMENTED`.
+         *
+         * NOTE: the `name` binding allows API services to override the binding
+         * to use different resource name schemes, such as `users/&#42;/operations`. To
+         * override the binding, API services can add a binding such as
+         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+         * For backwards compatibility, the default name includes the operations
+         * collection id, however overriding users must ensure the name binding
+         * is the parent resource, without the operations collection id.
+         */
+        await gapi.client.translate.projects.locations.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Waits for the specified long-running operation until it is done or reaches
+         * at most a specified timeout, returning the latest state.  If the operation
+         * is already done, the latest state is immediately returned.  If the timeout
+         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+         * timeout is used.  If the server does not support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Note that this method is on a best-effort basis.  It may return the latest
+         * state before the specified timeout (including immediately), meaning even an
+         * immediate response is no guarantee that the operation is done.
+         */
+        await gapi.client.translate.projects.locations.operations.wait({
+            name: "Test string",
+        }, {
+            timeout: "Test string",
         });
         /** Lists information about the supported locations for this service. */
         await gapi.client.translate.projects.locations.list({
@@ -1023,6 +1394,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
          * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
          * exist.
          */
@@ -1033,11 +1411,20 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
          */
-        await gapi.client.translate.projects.locations.glossaries.get({
+        await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
+        }, {
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is
@@ -1046,6 +1433,14 @@ gapi.load('client', () => {
          * `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
         });
         /**
@@ -1067,14 +1462,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
          * Waits for the specified long-running operation until it is done or reaches
          * at most a specified timeout, returning the latest state.  If the operation
          * is already done, the latest state is immediately returned.  If the timeout
@@ -1089,22 +1476,6 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
         });
         /** Translates input text and returns translated text. */
         await gapi.client.translate.projects.locations.translateText({
@@ -1157,6 +1528,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
          * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
          * exist.
          */
@@ -1167,11 +1545,20 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
          */
-        await gapi.client.translate.projects.locations.glossaries.get({
+        await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
+        }, {
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is
@@ -1180,6 +1567,14 @@ gapi.load('client', () => {
          * `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
         });
         /**
@@ -1201,14 +1596,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
          * Waits for the specified long-running operation until it is done or reaches
          * at most a specified timeout, returning the latest state.  If the operation
          * is already done, the latest state is immediately returned.  If the timeout
@@ -1223,393 +1610,6 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Returns a list of supported languages for translation. */
-        await gapi.client.translate.projects.locations.getSupportedLanguages({
-            displayLanguageCode: "Test string",
-            model: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a glossary and returns the long-running operation. Returns
-         * NOT_FOUND, if the project doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            entryCount: 42,
-            inputConfig: {
-                gcsSource: {
-                    inputUri: "Test string",
-                },
-            },
-            languageCodesSet: {
-                languageCodes: [
-                    "Test string"                ],
-            },
-            languagePair: {
-                sourceLanguageCode: "Test string",
-                targetLanguageCode: "Test string",
-            },
-            name: "Test string",
-            submitTime: "Test string",
-        });
-        /**
-         * Deletes a glossary, or cancels glossary construction
-         * if the glossary isn't created yet.
-         * Returns NOT_FOUND, if the glossary doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.get({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.translate.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
-         */
-        await gapi.client.translate.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Waits for the specified long-running operation until it is done or reaches
-         * at most a specified timeout, returning the latest state.  If the operation
-         * is already done, the latest state is immediately returned.  If the timeout
-         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-         * timeout is used.  If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         * Note that this method is on a best-effort basis.  It may return the latest
-         * state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.translate.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Detects the language of text within a request. */
-        await gapi.client.translate.projects.locations.detectLanguage({
-            parent: "Test string",
-        }, {
-            content: "Test string",
-            labels: {
-                A: "Test string"            },
-            mimeType: "Test string",
-            model: "Test string",
-        });
-        /**
-         * Creates a glossary and returns the long-running operation. Returns
-         * NOT_FOUND, if the project doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            entryCount: 42,
-            inputConfig: {
-                gcsSource: {
-                    inputUri: "Test string",
-                },
-            },
-            languageCodesSet: {
-                languageCodes: [
-                    "Test string"                ],
-            },
-            languagePair: {
-                sourceLanguageCode: "Test string",
-                targetLanguageCode: "Test string",
-            },
-            name: "Test string",
-            submitTime: "Test string",
-        });
-        /**
-         * Deletes a glossary, or cancels glossary construction
-         * if the glossary isn't created yet.
-         * Returns NOT_FOUND, if the glossary doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.get({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.translate.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
-         */
-        await gapi.client.translate.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Waits for the specified long-running operation until it is done or reaches
-         * at most a specified timeout, returning the latest state.  If the operation
-         * is already done, the latest state is immediately returned.  If the timeout
-         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-         * timeout is used.  If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         * Note that this method is on a best-effort basis.  It may return the latest
-         * state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.translate.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Gets information about a location. */
-        await gapi.client.translate.projects.locations.get({
-            name: "Test string",
-        });
-        /**
-         * Creates a glossary and returns the long-running operation. Returns
-         * NOT_FOUND, if the project doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            entryCount: 42,
-            inputConfig: {
-                gcsSource: {
-                    inputUri: "Test string",
-                },
-            },
-            languageCodesSet: {
-                languageCodes: [
-                    "Test string"                ],
-            },
-            languagePair: {
-                sourceLanguageCode: "Test string",
-                targetLanguageCode: "Test string",
-            },
-            name: "Test string",
-            submitTime: "Test string",
-        });
-        /**
-         * Deletes a glossary, or cancels glossary construction
-         * if the glossary isn't created yet.
-         * Returns NOT_FOUND, if the glossary doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.get({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.translate.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
-         */
-        await gapi.client.translate.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Waits for the specified long-running operation until it is done or reaches
-         * at most a specified timeout, returning the latest state.  If the operation
-         * is already done, the latest state is immediately returned.  If the timeout
-         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-         * timeout is used.  If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         * Note that this method is on a best-effort basis.  It may return the latest
-         * state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.translate.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
         });
         /** Translates input text and returns translated text. */
         await gapi.client.translate.projects.translateText({
@@ -1699,6 +1699,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
          * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
          * exist.
          */
@@ -1709,11 +1716,20 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
          */
-        await gapi.client.translate.projects.locations.glossaries.get({
+        await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
+        }, {
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is
@@ -1722,6 +1738,14 @@ gapi.load('client', () => {
          * `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
         });
         /**
@@ -1743,12 +1767,131 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
+         * Waits for the specified long-running operation until it is done or reaches
+         * at most a specified timeout, returning the latest state.  If the operation
+         * is already done, the latest state is immediately returned.  If the timeout
+         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+         * timeout is used.  If the server does not support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Note that this method is on a best-effort basis.  It may return the latest
+         * state before the specified timeout (including immediately), meaning even an
+         * immediate response is no guarantee that the operation is done.
+         */
+        await gapi.client.translate.projects.locations.operations.wait({
+            name: "Test string",
+        }, {
+            timeout: "Test string",
+        });
+        /** Detects the language of text within a request. */
+        await gapi.client.translate.projects.locations.detectLanguage({
+            parent: "Test string",
+        }, {
+            content: "Test string",
+            labels: {
+                A: "Test string"            },
+            mimeType: "Test string",
+            model: "Test string",
+        });
+        /**
+         * Creates a glossary and returns the long-running operation. Returns
+         * NOT_FOUND, if the project doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.create({
+            parent: "Test string",
+        }, {
+            endTime: "Test string",
+            entryCount: 42,
+            inputConfig: {
+                gcsSource: {
+                    inputUri: "Test string",
+                },
+            },
+            languageCodesSet: {
+                languageCodes: [
+                    "Test string"                ],
+            },
+            languagePair: {
+                sourceLanguageCode: "Test string",
+                targetLanguageCode: "Test string",
+            },
+            name: "Test string",
+            submitTime: "Test string",
+        });
+        /**
+         * Deletes a glossary, or cancels glossary construction
+         * if the glossary isn't created yet.
+         * Returns NOT_FOUND, if the glossary doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
+         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.translate.projects.locations.operations.cancel({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
          * Gets the latest state of a long-running operation.  Clients can use this
          * method to poll the operation result at intervals as recommended by the API
          * service.
          */
         await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the
+         * server doesn't support this method, it returns `UNIMPLEMENTED`.
+         *
+         * NOTE: the `name` binding allows API services to override the binding
+         * to use different resource name schemes, such as `users/&#42;/operations`. To
+         * override the binding, API services can add a binding such as
+         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+         * For backwards compatibility, the default name includes the operations
+         * collection id, however overriding users must ensure the name binding
+         * is the parent resource, without the operations collection id.
+         */
+        await gapi.client.translate.projects.locations.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /**
          * Waits for the specified long-running operation until it is done or reaches
@@ -1766,6 +1909,60 @@ gapi.load('client', () => {
         }, {
             timeout: "Test string",
         });
+        /** Gets information about a location. */
+        await gapi.client.translate.projects.locations.get({
+            name: "Test string",
+        });
+        /**
+         * Creates a glossary and returns the long-running operation. Returns
+         * NOT_FOUND, if the project doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.create({
+            parent: "Test string",
+        }, {
+            endTime: "Test string",
+            entryCount: 42,
+            inputConfig: {
+                gcsSource: {
+                    inputUri: "Test string",
+                },
+            },
+            languageCodesSet: {
+                languageCodes: [
+                    "Test string"                ],
+            },
+            languagePair: {
+                sourceLanguageCode: "Test string",
+                targetLanguageCode: "Test string",
+            },
+            name: "Test string",
+            submitTime: "Test string",
+        });
+        /**
+         * Deletes a glossary, or cancels glossary construction
+         * if the glossary isn't created yet.
+         * Returns NOT_FOUND, if the glossary doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
+         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /**
          * Starts asynchronous cancellation on a long-running operation.  The server
          * makes a best effort to cancel the operation, but success is not
@@ -1781,6 +1978,180 @@ gapi.load('client', () => {
         await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
         }, {
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the
+         * server doesn't support this method, it returns `UNIMPLEMENTED`.
+         *
+         * NOTE: the `name` binding allows API services to override the binding
+         * to use different resource name schemes, such as `users/&#42;/operations`. To
+         * override the binding, API services can add a binding such as
+         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+         * For backwards compatibility, the default name includes the operations
+         * collection id, however overriding users must ensure the name binding
+         * is the parent resource, without the operations collection id.
+         */
+        await gapi.client.translate.projects.locations.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Waits for the specified long-running operation until it is done or reaches
+         * at most a specified timeout, returning the latest state.  If the operation
+         * is already done, the latest state is immediately returned.  If the timeout
+         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+         * timeout is used.  If the server does not support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Note that this method is on a best-effort basis.  It may return the latest
+         * state before the specified timeout (including immediately), meaning even an
+         * immediate response is no guarantee that the operation is done.
+         */
+        await gapi.client.translate.projects.locations.operations.wait({
+            name: "Test string",
+        }, {
+            timeout: "Test string",
+        });
+        /** Returns a list of supported languages for translation. */
+        await gapi.client.translate.projects.locations.getSupportedLanguages({
+            displayLanguageCode: "Test string",
+            model: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a glossary and returns the long-running operation. Returns
+         * NOT_FOUND, if the project doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.create({
+            parent: "Test string",
+        }, {
+            endTime: "Test string",
+            entryCount: 42,
+            inputConfig: {
+                gcsSource: {
+                    inputUri: "Test string",
+                },
+            },
+            languageCodesSet: {
+                languageCodes: [
+                    "Test string"                ],
+            },
+            languagePair: {
+                sourceLanguageCode: "Test string",
+                targetLanguageCode: "Test string",
+            },
+            name: "Test string",
+            submitTime: "Test string",
+        });
+        /**
+         * Deletes a glossary, or cancels glossary construction
+         * if the glossary isn't created yet.
+         * Returns NOT_FOUND, if the glossary doesn't exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
+         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
+         */
+        await gapi.client.translate.projects.locations.operations.cancel({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Deletes a long-running operation. This method indicates that the client is
+         * no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         */
+        await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
+            name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the
+         * server doesn't support this method, it returns `UNIMPLEMENTED`.
+         *
+         * NOTE: the `name` binding allows API services to override the binding
+         * to use different resource name schemes, such as `users/&#42;/operations`. To
+         * override the binding, API services can add a binding such as
+         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+         * For backwards compatibility, the default name includes the operations
+         * collection id, however overriding users must ensure the name binding
+         * is the parent resource, without the operations collection id.
+         */
+        await gapi.client.translate.projects.locations.operations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Waits for the specified long-running operation until it is done or reaches
+         * at most a specified timeout, returning the latest state.  If the operation
+         * is already done, the latest state is immediately returned.  If the timeout
+         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+         * timeout is used.  If the server does not support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Note that this method is on a best-effort basis.  It may return the latest
+         * state before the specified timeout (including immediately), meaning even an
+         * immediate response is no guarantee that the operation is done.
+         */
+        await gapi.client.translate.projects.locations.operations.wait({
+            name: "Test string",
+        }, {
+            timeout: "Test string",
         });
         /** Lists information about the supported locations for this service. */
         await gapi.client.translate.projects.locations.list({
@@ -1823,6 +2194,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
          * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
          * exist.
          */
@@ -1833,11 +2211,20 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
          */
-        await gapi.client.translate.projects.locations.glossaries.get({
+        await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
+        }, {
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is
@@ -1846,6 +2233,14 @@ gapi.load('client', () => {
          * `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
         });
         /**
@@ -1867,14 +2262,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
          * Waits for the specified long-running operation until it is done or reaches
          * at most a specified timeout, returning the latest state.  If the operation
          * is already done, the latest state is immediately returned.  If the timeout
@@ -1889,22 +2276,6 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
         });
         /** Translates input text and returns translated text. */
         await gapi.client.translate.projects.locations.translateText({
@@ -1957,6 +2328,13 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
+         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
+         * exist.
+         */
+        await gapi.client.translate.projects.locations.glossaries.get({
+            name: "Test string",
+        });
+        /**
          * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
          * exist.
          */
@@ -1967,11 +2345,20 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
+         * Starts asynchronous cancellation on a long-running operation.  The server
+         * makes a best effort to cancel the operation, but success is not
+         * guaranteed.  If the server doesn't support this method, it returns
+         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+         * Operations.GetOperation or
+         * other methods to check whether the cancellation succeeded or whether the
+         * operation completed despite cancellation. On successful cancellation,
+         * the operation is not deleted; instead, it becomes an operation with
+         * an Operation.error value with a google.rpc.Status.code of 1,
+         * corresponding to `Code.CANCELLED`.
          */
-        await gapi.client.translate.projects.locations.glossaries.get({
+        await gapi.client.translate.projects.locations.operations.cancel({
             name: "Test string",
+        }, {
         });
         /**
          * Deletes a long-running operation. This method indicates that the client is
@@ -1980,6 +2367,14 @@ gapi.load('client', () => {
          * `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.translate.projects.locations.operations.delete({
+            name: "Test string",
+        });
+        /**
+         * Gets the latest state of a long-running operation.  Clients can use this
+         * method to poll the operation result at intervals as recommended by the API
+         * service.
+         */
+        await gapi.client.translate.projects.locations.operations.get({
             name: "Test string",
         });
         /**
@@ -2001,14 +2396,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
          * Waits for the specified long-running operation until it is done or reaches
          * at most a specified timeout, returning the latest state.  If the operation
          * is already done, the latest state is immediately returned.  If the timeout
@@ -2023,393 +2410,6 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Returns a list of supported languages for translation. */
-        await gapi.client.translate.projects.locations.getSupportedLanguages({
-            displayLanguageCode: "Test string",
-            model: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a glossary and returns the long-running operation. Returns
-         * NOT_FOUND, if the project doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            entryCount: 42,
-            inputConfig: {
-                gcsSource: {
-                    inputUri: "Test string",
-                },
-            },
-            languageCodesSet: {
-                languageCodes: [
-                    "Test string"                ],
-            },
-            languagePair: {
-                sourceLanguageCode: "Test string",
-                targetLanguageCode: "Test string",
-            },
-            name: "Test string",
-            submitTime: "Test string",
-        });
-        /**
-         * Deletes a glossary, or cancels glossary construction
-         * if the glossary isn't created yet.
-         * Returns NOT_FOUND, if the glossary doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.get({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.translate.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
-         */
-        await gapi.client.translate.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Waits for the specified long-running operation until it is done or reaches
-         * at most a specified timeout, returning the latest state.  If the operation
-         * is already done, the latest state is immediately returned.  If the timeout
-         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-         * timeout is used.  If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         * Note that this method is on a best-effort basis.  It may return the latest
-         * state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.translate.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Detects the language of text within a request. */
-        await gapi.client.translate.projects.locations.detectLanguage({
-            parent: "Test string",
-        }, {
-            content: "Test string",
-            labels: {
-                A: "Test string"            },
-            mimeType: "Test string",
-            model: "Test string",
-        });
-        /**
-         * Creates a glossary and returns the long-running operation. Returns
-         * NOT_FOUND, if the project doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            entryCount: 42,
-            inputConfig: {
-                gcsSource: {
-                    inputUri: "Test string",
-                },
-            },
-            languageCodesSet: {
-                languageCodes: [
-                    "Test string"                ],
-            },
-            languagePair: {
-                sourceLanguageCode: "Test string",
-                targetLanguageCode: "Test string",
-            },
-            name: "Test string",
-            submitTime: "Test string",
-        });
-        /**
-         * Deletes a glossary, or cancels glossary construction
-         * if the glossary isn't created yet.
-         * Returns NOT_FOUND, if the glossary doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.get({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.translate.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
-         */
-        await gapi.client.translate.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Waits for the specified long-running operation until it is done or reaches
-         * at most a specified timeout, returning the latest state.  If the operation
-         * is already done, the latest state is immediately returned.  If the timeout
-         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-         * timeout is used.  If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         * Note that this method is on a best-effort basis.  It may return the latest
-         * state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.translate.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Gets information about a location. */
-        await gapi.client.translate.projects.locations.get({
-            name: "Test string",
-        });
-        /**
-         * Creates a glossary and returns the long-running operation. Returns
-         * NOT_FOUND, if the project doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            entryCount: 42,
-            inputConfig: {
-                gcsSource: {
-                    inputUri: "Test string",
-                },
-            },
-            languageCodesSet: {
-                languageCodes: [
-                    "Test string"                ],
-            },
-            languagePair: {
-                sourceLanguageCode: "Test string",
-                targetLanguageCode: "Test string",
-            },
-            name: "Test string",
-            submitTime: "Test string",
-        });
-        /**
-         * Deletes a glossary, or cancels glossary construction
-         * if the glossary isn't created yet.
-         * Returns NOT_FOUND, if the glossary doesn't exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
-         * exist.
-         */
-        await gapi.client.translate.projects.locations.glossaries.get({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.translate.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
-         */
-        await gapi.client.translate.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
-        await gapi.client.translate.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /**
-         * Waits for the specified long-running operation until it is done or reaches
-         * at most a specified timeout, returning the latest state.  If the operation
-         * is already done, the latest state is immediately returned.  If the timeout
-         * specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-         * timeout is used.  If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
-         * Note that this method is on a best-effort basis.  It may return the latest
-         * state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.translate.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.translate.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
         });
     }
 });

@@ -103,6 +103,15 @@ gapi.load('client', () => {
             parentId: "Test string",
             title: "Test string",
         });
+        /** Creates a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.create({
+            scriptId: "Test string",
+        }, {
+            description: "Test string",
+            manifestFileName: "Test string",
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
         /** Deletes a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.delete({
             deploymentId: "Test string",
@@ -131,12 +140,15 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /** Creates a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.create({
+        /**
+         * Creates a new immutable version using the current code, with a unique
+         * version number.
+         */
+        await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
+            createTime: "Test string",
             description: "Test string",
-            manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
         });
@@ -150,23 +162,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             scriptId: "Test string",
-        });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
-        await gapi.client.script.projects.versions.create({
-            scriptId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            scriptId: "Test string",
-            versionNumber: 42,
         });
         /** Gets a script project's metadata. */
         await gapi.client.script.projects.get({
             scriptId: "Test string",
         });
+        /** Creates a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.create({
+            scriptId: "Test string",
+        }, {
+            description: "Test string",
+            manifestFileName: "Test string",
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
         /** Deletes a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.delete({
             deploymentId: "Test string",
@@ -195,12 +204,15 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /** Creates a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.create({
+        /**
+         * Creates a new immutable version using the current code, with a unique
+         * version number.
+         */
+        await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
+            createTime: "Test string",
             description: "Test string",
-            manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
         });
@@ -214,18 +226,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             scriptId: "Test string",
-        });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
-        await gapi.client.script.projects.versions.create({
-            scriptId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            scriptId: "Test string",
-            versionNumber: 42,
         });
         /**
          * Gets the content of the script project, including the code source and
@@ -235,6 +235,15 @@ gapi.load('client', () => {
             scriptId: "Test string",
             versionNumber: 42,
         });
+        /** Creates a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.create({
+            scriptId: "Test string",
+        }, {
+            description: "Test string",
+            manifestFileName: "Test string",
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
         /** Deletes a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.delete({
             deploymentId: "Test string",
@@ -263,12 +272,15 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /** Creates a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.create({
+        /**
+         * Creates a new immutable version using the current code, with a unique
+         * version number.
+         */
+        await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
+            createTime: "Test string",
             description: "Test string",
-            manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
         });
@@ -282,18 +294,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             scriptId: "Test string",
-        });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
-        await gapi.client.script.projects.versions.create({
-            scriptId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            scriptId: "Test string",
-            versionNumber: 42,
         });
         /**
          * Get metrics data for scripts, such as number of executions and
@@ -304,6 +304,15 @@ gapi.load('client', () => {
             metricsGranularity: "Test string",
             scriptId: "Test string",
         });
+        /** Creates a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.create({
+            scriptId: "Test string",
+        }, {
+            description: "Test string",
+            manifestFileName: "Test string",
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
         /** Deletes a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.delete({
             deploymentId: "Test string",
@@ -332,12 +341,15 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /** Creates a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.create({
+        /**
+         * Creates a new immutable version using the current code, with a unique
+         * version number.
+         */
+        await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
+            createTime: "Test string",
             description: "Test string",
-            manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
         });
@@ -351,18 +363,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             scriptId: "Test string",
-        });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
-        await gapi.client.script.projects.versions.create({
-            scriptId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            scriptId: "Test string",
-            versionNumber: 42,
         });
         /**
          * Updates the content of the specified script project.
@@ -396,6 +396,15 @@ gapi.load('client', () => {
                 }            ],
             scriptId: "Test string",
         });
+        /** Creates a deployment of an Apps Script project. */
+        await gapi.client.script.projects.deployments.create({
+            scriptId: "Test string",
+        }, {
+            description: "Test string",
+            manifestFileName: "Test string",
+            scriptId: "Test string",
+            versionNumber: 42,
+        });
         /** Deletes a deployment of an Apps Script project. */
         await gapi.client.script.projects.deployments.delete({
             deploymentId: "Test string",
@@ -424,12 +433,15 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /** Creates a deployment of an Apps Script project. */
-        await gapi.client.script.projects.deployments.create({
+        /**
+         * Creates a new immutable version using the current code, with a unique
+         * version number.
+         */
+        await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
+            createTime: "Test string",
             description: "Test string",
-            manifestFileName: "Test string",
             scriptId: "Test string",
             versionNumber: 42,
         });
@@ -443,18 +455,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             scriptId: "Test string",
-        });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
-        await gapi.client.script.projects.versions.create({
-            scriptId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            scriptId: "Test string",
-            versionNumber: 42,
         });
         /**
          * Runs a function in an Apps Script project. The script project must be

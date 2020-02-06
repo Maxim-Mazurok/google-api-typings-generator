@@ -74,6 +74,42 @@ declare namespace gapi.client {
             /** Kind this is, in this case adsense#adCode. */
             kind?: string;
         }
+        interface AdsenseReportsGenerateResponse {
+            /** The averages of the report. This is the same length as any other row in the report; cells corresponding to dimension columns are empty. */
+            averages?: string[];
+            /** The requested end date in yyyy-mm-dd format. */
+            endDate?: string;
+            /**
+             * The header information of the columns requested in the report. This is a list of headers; one for each dimension in the request, followed by one for
+             * each metric in the request.
+             */
+            headers?: Array<{
+                /** The currency of this column. Only present if the header type is METRIC_CURRENCY. */
+                currency?: string;
+                /** The name of the header. */
+                name?: string;
+                /** The type of the header; one of DIMENSION, METRIC_TALLY, METRIC_RATIO, or METRIC_CURRENCY. */
+                type?: string;
+            }>;
+            /** Kind this is, in this case adsense#report. */
+            kind?: string;
+            /**
+             * The output rows of the report. Each row is a list of cells; one for each dimension in the request, followed by one for each metric in the request. The
+             * dimension cells contain strings, and the metric cells contain numbers.
+             */
+            rows?: string[][];
+            /** The requested start date in yyyy-mm-dd format. */
+            startDate?: string;
+            /**
+             * The total number of rows matched by the report request. Fewer rows may be returned in the response due to being limited by the row count requested or
+             * the report row limit.
+             */
+            totalMatchedRows?: string;
+            /** The totals of the report. This is the same length as any other row in the report; cells corresponding to dimension columns are empty. */
+            totals?: string[];
+            /** Any warnings associated with generation of the report. */
+            warnings?: string[];
+        }
         interface AdStyle {
             /**
              * The colors which are included in the style. These are represented as six hexadecimal characters, similar to HTML color codes, but without the leading
@@ -173,42 +209,6 @@ declare namespace gapi.client {
             kind?: string;
             /** Continuation token used to page through ad units. To retrieve the next page of results, set the next request's "pageToken" value to this. */
             nextPageToken?: string;
-        }
-        interface AdsenseReportsGenerateResponse {
-            /** The averages of the report. This is the same length as any other row in the report; cells corresponding to dimension columns are empty. */
-            averages?: string[];
-            /** The requested end date in yyyy-mm-dd format. */
-            endDate?: string;
-            /**
-             * The header information of the columns requested in the report. This is a list of headers; one for each dimension in the request, followed by one for
-             * each metric in the request.
-             */
-            headers?: Array<{
-                /** The currency of this column. Only present if the header type is METRIC_CURRENCY. */
-                currency?: string;
-                /** The name of the header. */
-                name?: string;
-                /** The type of the header; one of DIMENSION, METRIC_TALLY, METRIC_RATIO, or METRIC_CURRENCY. */
-                type?: string;
-            }>;
-            /** Kind this is, in this case adsense#report. */
-            kind?: string;
-            /**
-             * The output rows of the report. Each row is a list of cells; one for each dimension in the request, followed by one for each metric in the request. The
-             * dimension cells contain strings, and the metric cells contain numbers.
-             */
-            rows?: string[][];
-            /** The requested start date in yyyy-mm-dd format. */
-            startDate?: string;
-            /**
-             * The total number of rows matched by the report request. Fewer rows may be returned in the response due to being limited by the row count requested or
-             * the report row limit.
-             */
-            totalMatchedRows?: string;
-            /** The totals of the report. This is the same length as any other row in the report; cells corresponding to dimension columns are empty. */
-            totals?: string[];
-            /** Any warnings associated with generation of the report. */
-            warnings?: string[];
         }
         interface Alert {
             /** Unique identifier of this alert. This should be considered an opaque identifier; it is not safe to rely on it being in any particular format. */
@@ -786,10 +786,10 @@ declare namespace gapi.client {
                 startDate: string;
                 /** Index of the first row of report data to return. */
                 startIndex?: number;
-                /** Whether the report should be generated in the AdSense account's local timezone. If false default PST/PDT timezone will be used. */
-                useTimezoneReporting?: boolean;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
+                /** Whether the report should be generated in the AdSense account's local timezone. If false default PST/PDT timezone will be used. */
+                useTimezoneReporting?: boolean;
             }): Request<AdsenseReportsGenerateResponse>;
             saved: SavedResource;
         }
@@ -1336,10 +1336,10 @@ declare namespace gapi.client {
                 startDate: string;
                 /** Index of the first row of report data to return. */
                 startIndex?: number;
-                /** Whether the report should be generated in the AdSense account's local timezone. If false default PST/PDT timezone will be used. */
-                useTimezoneReporting?: boolean;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
+                /** Whether the report should be generated in the AdSense account's local timezone. If false default PST/PDT timezone will be used. */
+                useTimezoneReporting?: boolean;
             }): Request<AdsenseReportsGenerateResponse>;
             saved: SavedResource;
         }

@@ -126,7 +126,6 @@ gapi.load('client', () => {
         });
         /** Submit a new creative. */
         await gapi.client.adexchangebuyer.creatives.insert(, {
-            HTMLSnippet: "Test string",
             accountId: 42,
             adChoicesDestinationUrl: "Test string",
             adTechnologyProviders: {
@@ -173,6 +172,7 @@ gapi.load('client', () => {
                     }                ],
             },
             height: 42,
+            HTMLSnippet: "Test string",
             impressionTrackingUrl: [
                 "Test string"            ],
             kind: "Test string",

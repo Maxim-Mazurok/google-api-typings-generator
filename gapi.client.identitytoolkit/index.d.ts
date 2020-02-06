@@ -504,12 +504,12 @@ declare namespace gapi.client {
             continueUrl?: string;
             /** The email of the user. */
             email?: string;
+            /** The user's Gitkit login token for email change. */
+            idToken?: string;
             /** iOS app store id to download the app if it's not already installed */
             iOSAppStoreId?: string;
             /** the iOS bundle id of iOS app to handle the action code */
             iOSBundleId?: string;
-            /** The user's Gitkit login token for email change. */
-            idToken?: string;
             /** The fixed string "identitytoolkit#relyingparty". */
             kind?: string;
             /** The new email if the code is for email change. */

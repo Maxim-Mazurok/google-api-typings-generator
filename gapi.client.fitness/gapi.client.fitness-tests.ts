@@ -24,14 +24,14 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/fitness.blood_pressure.read',
             /** See and add info about your blood pressure in Google Fit. I consent to Google sharing my blood pressure information with this app. */
             'https://www.googleapis.com/auth/fitness.blood_pressure.write',
-            /** See info about your body measurements and heart rate in Google Fit */
-            'https://www.googleapis.com/auth/fitness.body.read',
-            /** See and add info about your body measurements and heart rate to Google Fit */
-            'https://www.googleapis.com/auth/fitness.body.write',
             /** See info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app. */
             'https://www.googleapis.com/auth/fitness.body_temperature.read',
             /** See and add to info about your body temperature in Google Fit. I consent to Google sharing my body temperature information with this app. */
             'https://www.googleapis.com/auth/fitness.body_temperature.write',
+            /** See info about your body measurements and heart rate in Google Fit */
+            'https://www.googleapis.com/auth/fitness.body.read',
+            /** See and add info about your body measurements and heart rate to Google Fit */
+            'https://www.googleapis.com/auth/fitness.body.write',
             /** See your Google Fit speed and distance data */
             'https://www.googleapis.com/auth/fitness.location.read',
             /** See and add to your Google Fit location data */

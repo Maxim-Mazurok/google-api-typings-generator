@@ -154,13 +154,13 @@ declare namespace gapi.client {
             lighthouseVersion?: string;
             /** The original requested url. */
             requestedUrl?: string;
-            /** List of all run warnings in the LHR.  Will always output to at least `[]`. */
-            runWarnings?: any[];
             /**
              * A top-level error message that, if present, indicates a serious enough
              * problem that this Lighthouse result may need to be discarded.
              */
             runtimeError?: RuntimeError;
+            /** List of all run warnings in the LHR.  Will always output to at least `[]`. */
+            runWarnings?: any[];
             /** The Stack Pack advice strings. */
             stackPacks?: StackPack[];
             /** Timing information for this LHR. */
@@ -328,10 +328,10 @@ declare namespace gapi.client {
                  * default
                  */
                 strategy?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The URL to fetch and analyze */
                 url?: string;
                 /** Campaign name for analytics. */

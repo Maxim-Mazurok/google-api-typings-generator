@@ -63,14 +63,6 @@ declare namespace gapi.client {
             /** ID of the actual config used to process the request. */
             serviceConfigId?: string;
         }
-        interface AttributeValue {
-            /** A Boolean value represented by `true` or `false`. */
-            boolValue?: boolean;
-            /** A 64-bit signed integer. */
-            intValue?: string;
-            /** A string up to 256 bytes long. */
-            stringValue?: TruncatableString;
-        }
         interface Attributes {
             /**
              * The set of attributes. Each attribute's key can be up to 128 bytes
@@ -89,6 +81,14 @@ declare namespace gapi.client {
              * If this value is 0 then all attributes are valid.
              */
             droppedAttributesCount?: number;
+        }
+        interface AttributeValue {
+            /** A Boolean value represented by `true` or `false`. */
+            boolValue?: boolean;
+            /** A 64-bit signed integer. */
+            intValue?: string;
+            /** A string up to 256 bytes long. */
+            stringValue?: TruncatableString;
         }
         interface AuditLog {
             /** Authentication information. */
@@ -1406,10 +1406,10 @@ declare namespace gapi.client {
                  * See google.api.Service for the definition of a service name.
                  */
                 serviceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: AllocateQuotaRequest;
             }): client.Request<AllocateQuotaResponse>;
@@ -1439,10 +1439,10 @@ declare namespace gapi.client {
                  * See google.api.Service for the definition of a service name.
                  */
                 serviceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: AllocateQuotaRequest): client.Request<AllocateQuotaResponse>;
             /**
@@ -1491,10 +1491,10 @@ declare namespace gapi.client {
                  * for the definition of a service name.
                  */
                 serviceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CheckRequest;
             }): client.Request<CheckResponse>;
@@ -1526,10 +1526,10 @@ declare namespace gapi.client {
                  * for the definition of a service name.
                  */
                 serviceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CheckRequest): client.Request<CheckResponse>;
             /**
@@ -1577,10 +1577,10 @@ declare namespace gapi.client {
                  * for the definition of a service name.
                  */
                 serviceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: ReportRequest;
             }): client.Request<ReportResponse>;
@@ -1612,10 +1612,10 @@ declare namespace gapi.client {
                  * for the definition of a service name.
                  */
                 serviceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: ReportRequest): client.Request<ReportResponse>;
         }

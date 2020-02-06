@@ -4439,10 +4439,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchAnnotateFilesRequest;
             }): Request<BatchAnnotateFilesResponse>;
@@ -4465,10 +4465,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchAnnotateFilesRequest): Request<BatchAnnotateFilesResponse>;
             /**
@@ -4498,10 +4498,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: AsyncBatchAnnotateFilesRequest;
             }): Request<Operation>;
@@ -4524,10 +4524,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: AsyncBatchAnnotateFilesRequest): Request<Operation>;
         }
@@ -4552,10 +4552,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchAnnotateImagesRequest;
             }): Request<BatchAnnotateImagesResponse>;
@@ -4578,10 +4578,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchAnnotateImagesRequest): Request<BatchAnnotateImagesResponse>;
             /**
@@ -4614,10 +4614,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: AsyncBatchAnnotateImagesRequest;
             }): Request<Operation>;
@@ -4640,10 +4640,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: AsyncBatchAnnotateImagesRequest): Request<Operation>;
         }
@@ -4674,10 +4674,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
         }
         interface LocationsResource {
@@ -4717,10 +4717,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CancelOperationRequest;
             }): Request<{}>;
@@ -4745,10 +4745,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CancelOperationRequest): Request<{}>;
             /**
@@ -4778,10 +4778,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /**
              * Gets the latest state of a long-running operation.  Clients can use this
@@ -4809,10 +4809,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the
@@ -4853,10 +4853,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListOperationsResponse>;
         }
         interface FilesResource {
@@ -4903,10 +4903,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchAnnotateFilesRequest;
             }): Request<BatchAnnotateFilesResponse>;
@@ -4944,10 +4944,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchAnnotateFilesRequest): Request<BatchAnnotateFilesResponse>;
             /**
@@ -4992,10 +4992,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: AsyncBatchAnnotateFilesRequest;
             }): Request<Operation>;
@@ -5033,10 +5033,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: AsyncBatchAnnotateFilesRequest): Request<Operation>;
         }
@@ -5076,10 +5076,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchAnnotateImagesRequest;
             }): Request<BatchAnnotateImagesResponse>;
@@ -5117,10 +5117,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchAnnotateImagesRequest): Request<BatchAnnotateImagesResponse>;
             /**
@@ -5168,10 +5168,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: AsyncBatchAnnotateImagesRequest;
             }): Request<Operation>;
@@ -5209,10 +5209,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: AsyncBatchAnnotateImagesRequest): Request<Operation>;
         }
@@ -5260,10 +5260,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchAnnotateFilesRequest;
             }): Request<BatchAnnotateFilesResponse>;
@@ -5301,10 +5301,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchAnnotateFilesRequest): Request<BatchAnnotateFilesResponse>;
             /**
@@ -5349,10 +5349,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: AsyncBatchAnnotateFilesRequest;
             }): Request<Operation>;
@@ -5390,10 +5390,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: AsyncBatchAnnotateFilesRequest): Request<Operation>;
         }
@@ -5433,10 +5433,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchAnnotateImagesRequest;
             }): Request<BatchAnnotateImagesResponse>;
@@ -5474,10 +5474,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchAnnotateImagesRequest): Request<BatchAnnotateImagesResponse>;
             /**
@@ -5525,10 +5525,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: AsyncBatchAnnotateImagesRequest;
             }): Request<Operation>;
@@ -5566,10 +5566,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: AsyncBatchAnnotateImagesRequest): Request<Operation>;
         }
@@ -5600,572 +5600,11 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
-        }
-        interface ProductsResource {
-            /**
-             * Lists the Products in a ProductSet, in an unspecified order. If the
-             * ProductSet does not exist, the products field of the response will be
-             * empty.
-             *
-             * Possible errors:
-             *
-             * &#42; Returns INVALID_ARGUMENT if page_size is greater than 100 or less than 1.
-             */
-            list(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The ProductSet resource for which to retrieve Products.
-                 *
-                 * Format is:
-                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The maximum number of items to return. Default 10, maximum 100. */
-                pageSize?: number;
-                /** The next_page_token returned from a previous List request, if any. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            }): Request<ListProductsInProductSetResponse>;
-        }
-        interface ProductSetsResource {
-            /**
-             * Adds a Product to the specified ProductSet. If the Product is already
-             * present, no change is made.
-             *
-             * One Product can be added to at most 100 ProductSets.
-             *
-             * Possible errors:
-             *
-             * &#42; Returns NOT_FOUND if the Product or the ProductSet doesn't exist.
-             */
-            addProduct(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The resource name for the ProductSet to modify.
-                 *
-                 * Format is:
-                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Request body */
-                resource: AddProductToProductSetRequest;
-            }): Request<{}>;
-            addProduct(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The resource name for the ProductSet to modify.
-                 *
-                 * Format is:
-                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            },
-            body: AddProductToProductSetRequest): Request<{}>;
-            /**
-             * Creates and returns a new ProductSet resource.
-             *
-             * Possible errors:
-             *
-             * &#42; Returns INVALID_ARGUMENT if display_name is missing, or is longer than
-             * 4096 characters.
-             */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The project in which the ProductSet should be created.
-                 *
-                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /**
-                 * A user-supplied resource id for this ProductSet. If set, the server will
-                 * attempt to use this value as the resource id. If it is already in use, an
-                 * error is returned with code ALREADY_EXISTS. Must be at most 128 characters
-                 * long. It cannot contain the character `/`.
-                 */
-                productSetId?: string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Request body */
-                resource: ProductSet;
-            }): Request<ProductSet>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The project in which the ProductSet should be created.
-                 *
-                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /**
-                 * A user-supplied resource id for this ProductSet. If set, the server will
-                 * attempt to use this value as the resource id. If it is already in use, an
-                 * error is returned with code ALREADY_EXISTS. Must be at most 128 characters
-                 * long. It cannot contain the character `/`.
-                 */
-                productSetId?: string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            },
-            body: ProductSet): Request<ProductSet>;
-            /**
-             * Permanently deletes a ProductSet. Products and ReferenceImages in the
-             * ProductSet are not deleted.
-             *
-             * The actual image files are not deleted from Google Cloud Storage.
-             */
-            delete(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. Resource name of the ProductSet to delete.
-                 *
-                 * Format is:
-                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            }): Request<{}>;
-            /**
-             * Gets information associated with a ProductSet.
-             *
-             * Possible errors:
-             *
-             * &#42; Returns NOT_FOUND if the ProductSet does not exist.
-             */
-            get(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. Resource name of the ProductSet to get.
-                 *
-                 * Format is:
-                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            }): Request<ProductSet>;
-            /**
-             * Asynchronous API that imports a list of reference images to specified
-             * product sets based on a list of image information.
-             *
-             * The google.longrunning.Operation API can be used to keep track of the
-             * progress and results of the request.
-             * `Operation.metadata` contains `BatchOperationMetadata`. (progress)
-             * `Operation.response` contains `ImportProductSetsResponse`. (results)
-             *
-             * The input source of this method is a csv file on Google Cloud Storage.
-             * For the format of the csv file please see
-             * ImportProductSetsGcsSource.csv_file_uri.
-             */
-            import(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The project in which the ProductSets should be imported.
-                 *
-                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Request body */
-                resource: ImportProductSetsRequest;
-            }): Request<Operation>;
-            import(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The project in which the ProductSets should be imported.
-                 *
-                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            },
-            body: ImportProductSetsRequest): Request<Operation>;
-            /**
-             * Lists ProductSets in an unspecified order.
-             *
-             * Possible errors:
-             *
-             * &#42; Returns INVALID_ARGUMENT if page_size is greater than 100, or less
-             * than 1.
-             */
-            list(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The maximum number of items to return. Default 10, maximum 100. */
-                pageSize?: number;
-                /** The next_page_token returned from a previous List request, if any. */
-                pageToken?: string;
-                /**
-                 * Required. The project from which ProductSets should be listed.
-                 *
-                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            }): Request<ListProductSetsResponse>;
-            /**
-             * Makes changes to a ProductSet resource.
-             * Only display_name can be updated currently.
-             *
-             * Possible errors:
-             *
-             * &#42; Returns NOT_FOUND if the ProductSet does not exist.
-             * &#42; Returns INVALID_ARGUMENT if display_name is present in update_mask but
-             * missing from the request or longer than 4096 characters.
-             */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The resource name of the ProductSet.
-                 *
-                 * Format is:
-                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
-                 *
-                 * This field is ignored when creating a ProductSet.
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * The FieldMask that specifies which fields to
-                 * update.
-                 * If update_mask isn't specified, all mutable fields are to be updated.
-                 * Valid mask path is `display_name`.
-                 */
-                updateMask?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Request body */
-                resource: ProductSet;
-            }): Request<ProductSet>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The resource name of the ProductSet.
-                 *
-                 * Format is:
-                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
-                 *
-                 * This field is ignored when creating a ProductSet.
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * The FieldMask that specifies which fields to
-                 * update.
-                 * If update_mask isn't specified, all mutable fields are to be updated.
-                 * Valid mask path is `display_name`.
-                 */
-                updateMask?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            },
-            body: ProductSet): Request<ProductSet>;
-            /** Removes a Product from the specified ProductSet. */
-            removeProduct(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The resource name for the ProductSet to modify.
-                 *
-                 * Format is:
-                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Request body */
-                resource: RemoveProductFromProductSetRequest;
-            }): Request<{}>;
-            removeProduct(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The resource name for the ProductSet to modify.
-                 *
-                 * Format is:
-                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-            },
-            body: RemoveProductFromProductSetRequest): Request<{}>;
-            products: ProductsResource;
         }
         interface ReferenceImagesResource {
             /**
@@ -6222,10 +5661,10 @@ declare namespace gapi.client {
                  * most 128 characters long. It cannot contain the character `/`.
                  */
                 referenceImageId?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: ReferenceImage;
             }): Request<ReferenceImage>;
@@ -6262,10 +5701,10 @@ declare namespace gapi.client {
                  * most 128 characters long. It cannot contain the character `/`.
                  */
                 referenceImageId?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: ReferenceImage): Request<ReferenceImage>;
             /**
@@ -6304,10 +5743,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /**
              * Gets information associated with a ReferenceImage.
@@ -6343,10 +5782,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ReferenceImage>;
             /**
              * Lists reference images.
@@ -6392,10 +5831,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListReferenceImagesResponse>;
         }
         interface ProductsResource {
@@ -6442,10 +5881,10 @@ declare namespace gapi.client {
                 productId?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Product;
             }): Request<Product>;
@@ -6482,10 +5921,10 @@ declare namespace gapi.client {
                 productId?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Product): Request<Product>;
             /**
@@ -6521,10 +5960,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /**
              * Gets information associated with a Product.
@@ -6559,10 +5998,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Product>;
             /**
              * Lists products in an unspecified order.
@@ -6601,10 +6040,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListProductsResponse>;
             /**
              * Makes changes to a Product resource.
@@ -6659,10 +6098,10 @@ declare namespace gapi.client {
                  * `description`.
                  */
                 updateMask?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Product;
             }): Request<Product>;
@@ -6702,10 +6141,10 @@ declare namespace gapi.client {
                  * `description`.
                  */
                 updateMask?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Product): Request<Product>;
             /**
@@ -6759,10 +6198,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: PurgeProductsRequest;
             }): Request<Operation>;
@@ -6791,20 +6230,581 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: PurgeProductsRequest): Request<Operation>;
             referenceImages: ReferenceImagesResource;
+        }
+        interface ProductsResource {
+            /**
+             * Lists the Products in a ProductSet, in an unspecified order. If the
+             * ProductSet does not exist, the products field of the response will be
+             * empty.
+             *
+             * Possible errors:
+             *
+             * &#42; Returns INVALID_ARGUMENT if page_size is greater than 100 or less than 1.
+             */
+            list(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The ProductSet resource for which to retrieve Products.
+                 *
+                 * Format is:
+                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The maximum number of items to return. Default 10, maximum 100. */
+                pageSize?: number;
+                /** The next_page_token returned from a previous List request, if any. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ListProductsInProductSetResponse>;
+        }
+        interface ProductSetsResource {
+            /**
+             * Adds a Product to the specified ProductSet. If the Product is already
+             * present, no change is made.
+             *
+             * One Product can be added to at most 100 ProductSets.
+             *
+             * Possible errors:
+             *
+             * &#42; Returns NOT_FOUND if the Product or the ProductSet doesn't exist.
+             */
+            addProduct(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource name for the ProductSet to modify.
+                 *
+                 * Format is:
+                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: AddProductToProductSetRequest;
+            }): Request<{}>;
+            addProduct(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource name for the ProductSet to modify.
+                 *
+                 * Format is:
+                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: AddProductToProductSetRequest): Request<{}>;
+            /**
+             * Creates and returns a new ProductSet resource.
+             *
+             * Possible errors:
+             *
+             * &#42; Returns INVALID_ARGUMENT if display_name is missing, or is longer than
+             * 4096 characters.
+             */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Required. The project in which the ProductSet should be created.
+                 *
+                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /**
+                 * A user-supplied resource id for this ProductSet. If set, the server will
+                 * attempt to use this value as the resource id. If it is already in use, an
+                 * error is returned with code ALREADY_EXISTS. Must be at most 128 characters
+                 * long. It cannot contain the character `/`.
+                 */
+                productSetId?: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: ProductSet;
+            }): Request<ProductSet>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Required. The project in which the ProductSet should be created.
+                 *
+                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /**
+                 * A user-supplied resource id for this ProductSet. If set, the server will
+                 * attempt to use this value as the resource id. If it is already in use, an
+                 * error is returned with code ALREADY_EXISTS. Must be at most 128 characters
+                 * long. It cannot contain the character `/`.
+                 */
+                productSetId?: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: ProductSet): Request<ProductSet>;
+            /**
+             * Permanently deletes a ProductSet. Products and ReferenceImages in the
+             * ProductSet are not deleted.
+             *
+             * The actual image files are not deleted from Google Cloud Storage.
+             */
+            delete(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. Resource name of the ProductSet to delete.
+                 *
+                 * Format is:
+                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<{}>;
+            /**
+             * Gets information associated with a ProductSet.
+             *
+             * Possible errors:
+             *
+             * &#42; Returns NOT_FOUND if the ProductSet does not exist.
+             */
+            get(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. Resource name of the ProductSet to get.
+                 *
+                 * Format is:
+                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ProductSet>;
+            /**
+             * Asynchronous API that imports a list of reference images to specified
+             * product sets based on a list of image information.
+             *
+             * The google.longrunning.Operation API can be used to keep track of the
+             * progress and results of the request.
+             * `Operation.metadata` contains `BatchOperationMetadata`. (progress)
+             * `Operation.response` contains `ImportProductSetsResponse`. (results)
+             *
+             * The input source of this method is a csv file on Google Cloud Storage.
+             * For the format of the csv file please see
+             * ImportProductSetsGcsSource.csv_file_uri.
+             */
+            import(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Required. The project in which the ProductSets should be imported.
+                 *
+                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: ImportProductSetsRequest;
+            }): Request<Operation>;
+            import(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Required. The project in which the ProductSets should be imported.
+                 *
+                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: ImportProductSetsRequest): Request<Operation>;
+            /**
+             * Lists ProductSets in an unspecified order.
+             *
+             * Possible errors:
+             *
+             * &#42; Returns INVALID_ARGUMENT if page_size is greater than 100, or less
+             * than 1.
+             */
+            list(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The maximum number of items to return. Default 10, maximum 100. */
+                pageSize?: number;
+                /** The next_page_token returned from a previous List request, if any. */
+                pageToken?: string;
+                /**
+                 * Required. The project from which ProductSets should be listed.
+                 *
+                 * Format is `projects/PROJECT_ID/locations/LOC_ID`.
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ListProductSetsResponse>;
+            /**
+             * Makes changes to a ProductSet resource.
+             * Only display_name can be updated currently.
+             *
+             * Possible errors:
+             *
+             * &#42; Returns NOT_FOUND if the ProductSet does not exist.
+             * &#42; Returns INVALID_ARGUMENT if display_name is present in update_mask but
+             * missing from the request or longer than 4096 characters.
+             */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The resource name of the ProductSet.
+                 *
+                 * Format is:
+                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
+                 *
+                 * This field is ignored when creating a ProductSet.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * The FieldMask that specifies which fields to
+                 * update.
+                 * If update_mask isn't specified, all mutable fields are to be updated.
+                 * Valid mask path is `display_name`.
+                 */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: ProductSet;
+            }): Request<ProductSet>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The resource name of the ProductSet.
+                 *
+                 * Format is:
+                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
+                 *
+                 * This field is ignored when creating a ProductSet.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * The FieldMask that specifies which fields to
+                 * update.
+                 * If update_mask isn't specified, all mutable fields are to be updated.
+                 * Valid mask path is `display_name`.
+                 */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: ProductSet): Request<ProductSet>;
+            /** Removes a Product from the specified ProductSet. */
+            removeProduct(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource name for the ProductSet to modify.
+                 *
+                 * Format is:
+                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: RemoveProductFromProductSetRequest;
+            }): Request<{}>;
+            removeProduct(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The resource name for the ProductSet to modify.
+                 *
+                 * Format is:
+                 * `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: RemoveProductFromProductSetRequest): Request<{}>;
+            products: ProductsResource;
         }
         interface LocationsResource {
             files: FilesResource;
             images: ImagesResource;
             operations: OperationsResource;
-            productSets: ProductSetsResource;
             products: ProductsResource;
+            productSets: ProductSetsResource;
         }
         interface OperationsResource {
             /**
@@ -6833,10 +6833,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
         }
         interface ProjectsResource {

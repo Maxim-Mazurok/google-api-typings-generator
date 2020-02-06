@@ -144,6 +144,93 @@ declare namespace gapi.client {
             /** A filter on a property. */
             propertyFilter?: PropertyFilter;
         }
+        interface GoogleDatastoreAdminV1beta1CommonMetadata {
+            /** The time the operation ended, either successfully or otherwise. */
+            endTime?: string;
+            /**
+             * The client-assigned labels which were provided when the operation was
+             * created. May also include additional labels.
+             */
+            labels?: Record<string, string>;
+            /**
+             * The type of the operation. Can be used as a filter in
+             * ListOperationsRequest.
+             */
+            operationType?: string;
+            /** The time that work began on the operation. */
+            startTime?: string;
+            /** The current state of the Operation. */
+            state?: string;
+        }
+        interface GoogleDatastoreAdminV1beta1EntityFilter {
+            /** If empty, then this represents all kinds. */
+            kinds?: string[];
+            /**
+             * An empty list represents all namespaces. This is the preferred
+             * usage for projects that don't use namespaces.
+             *
+             * An empty string element represents the default namespace. This should be
+             * used if the project has data in non-default namespaces, but doesn't want to
+             * include them.
+             * Each namespace in this list must be unique.
+             */
+            namespaceIds?: string[];
+        }
+        interface GoogleDatastoreAdminV1beta1ExportEntitiesMetadata {
+            /** Metadata common to all Datastore Admin operations. */
+            common?: GoogleDatastoreAdminV1beta1CommonMetadata;
+            /** Description of which entities are being exported. */
+            entityFilter?: GoogleDatastoreAdminV1beta1EntityFilter;
+            /**
+             * Location for the export metadata and data files. This will be the same
+             * value as the
+             * google.datastore.admin.v1beta1.ExportEntitiesRequest.output_url_prefix
+             * field. The final output location is provided in
+             * google.datastore.admin.v1beta1.ExportEntitiesResponse.output_url.
+             */
+            outputUrlPrefix?: string;
+            /** An estimate of the number of bytes processed. */
+            progressBytes?: GoogleDatastoreAdminV1beta1Progress;
+            /** An estimate of the number of entities processed. */
+            progressEntities?: GoogleDatastoreAdminV1beta1Progress;
+        }
+        interface GoogleDatastoreAdminV1beta1ExportEntitiesResponse {
+            /**
+             * Location of the output metadata file. This can be used to begin an import
+             * into Cloud Datastore (this project or another project). See
+             * google.datastore.admin.v1beta1.ImportEntitiesRequest.input_url.
+             * Only present if the operation completed successfully.
+             */
+            outputUrl?: string;
+        }
+        interface GoogleDatastoreAdminV1beta1ImportEntitiesMetadata {
+            /** Metadata common to all Datastore Admin operations. */
+            common?: GoogleDatastoreAdminV1beta1CommonMetadata;
+            /** Description of which entities are being imported. */
+            entityFilter?: GoogleDatastoreAdminV1beta1EntityFilter;
+            /**
+             * The location of the import metadata file. This will be the same value as
+             * the google.datastore.admin.v1beta1.ExportEntitiesResponse.output_url
+             * field.
+             */
+            inputUrl?: string;
+            /** An estimate of the number of bytes processed. */
+            progressBytes?: GoogleDatastoreAdminV1beta1Progress;
+            /** An estimate of the number of entities processed. */
+            progressEntities?: GoogleDatastoreAdminV1beta1Progress;
+        }
+        interface GoogleDatastoreAdminV1beta1Progress {
+            /**
+             * The amount of work that has been completed. Note that this may be greater
+             * than work_estimated.
+             */
+            workCompleted?: string;
+            /**
+             * An estimate of how much work needs to be performed. May be zero if the
+             * work estimate is unavailable.
+             */
+            workEstimated?: string;
+        }
         interface GoogleDatastoreAdminV1CommonMetadata {
             /** The time the operation ended, either successfully or otherwise. */
             endTime?: string;
@@ -286,6 +373,12 @@ declare namespace gapi.client {
             /** Output only. The state of the index. */
             state?: string;
         }
+        interface GoogleDatastoreAdminV1IndexedProperty {
+            /** Required. The indexed property's direction.  Must not be DIRECTION_UNSPECIFIED. */
+            direction?: string;
+            /** Required. The property name to index. */
+            name?: string;
+        }
         interface GoogleDatastoreAdminV1IndexOperationMetadata {
             /** Metadata common to all Datastore Admin operations. */
             common?: GoogleDatastoreAdminV1CommonMetadata;
@@ -294,12 +387,6 @@ declare namespace gapi.client {
             /** An estimate of the number of entities processed. */
             progressEntities?: GoogleDatastoreAdminV1Progress;
         }
-        interface GoogleDatastoreAdminV1IndexedProperty {
-            /** Required. The indexed property's direction.  Must not be DIRECTION_UNSPECIFIED. */
-            direction?: string;
-            /** Required. The property name to index. */
-            name?: string;
-        }
         interface GoogleDatastoreAdminV1ListIndexesResponse {
             /** The indexes. */
             indexes?: GoogleDatastoreAdminV1Index[];
@@ -307,93 +394,6 @@ declare namespace gapi.client {
             nextPageToken?: string;
         }
         interface GoogleDatastoreAdminV1Progress {
-            /**
-             * The amount of work that has been completed. Note that this may be greater
-             * than work_estimated.
-             */
-            workCompleted?: string;
-            /**
-             * An estimate of how much work needs to be performed. May be zero if the
-             * work estimate is unavailable.
-             */
-            workEstimated?: string;
-        }
-        interface GoogleDatastoreAdminV1beta1CommonMetadata {
-            /** The time the operation ended, either successfully or otherwise. */
-            endTime?: string;
-            /**
-             * The client-assigned labels which were provided when the operation was
-             * created. May also include additional labels.
-             */
-            labels?: Record<string, string>;
-            /**
-             * The type of the operation. Can be used as a filter in
-             * ListOperationsRequest.
-             */
-            operationType?: string;
-            /** The time that work began on the operation. */
-            startTime?: string;
-            /** The current state of the Operation. */
-            state?: string;
-        }
-        interface GoogleDatastoreAdminV1beta1EntityFilter {
-            /** If empty, then this represents all kinds. */
-            kinds?: string[];
-            /**
-             * An empty list represents all namespaces. This is the preferred
-             * usage for projects that don't use namespaces.
-             *
-             * An empty string element represents the default namespace. This should be
-             * used if the project has data in non-default namespaces, but doesn't want to
-             * include them.
-             * Each namespace in this list must be unique.
-             */
-            namespaceIds?: string[];
-        }
-        interface GoogleDatastoreAdminV1beta1ExportEntitiesMetadata {
-            /** Metadata common to all Datastore Admin operations. */
-            common?: GoogleDatastoreAdminV1beta1CommonMetadata;
-            /** Description of which entities are being exported. */
-            entityFilter?: GoogleDatastoreAdminV1beta1EntityFilter;
-            /**
-             * Location for the export metadata and data files. This will be the same
-             * value as the
-             * google.datastore.admin.v1beta1.ExportEntitiesRequest.output_url_prefix
-             * field. The final output location is provided in
-             * google.datastore.admin.v1beta1.ExportEntitiesResponse.output_url.
-             */
-            outputUrlPrefix?: string;
-            /** An estimate of the number of bytes processed. */
-            progressBytes?: GoogleDatastoreAdminV1beta1Progress;
-            /** An estimate of the number of entities processed. */
-            progressEntities?: GoogleDatastoreAdminV1beta1Progress;
-        }
-        interface GoogleDatastoreAdminV1beta1ExportEntitiesResponse {
-            /**
-             * Location of the output metadata file. This can be used to begin an import
-             * into Cloud Datastore (this project or another project). See
-             * google.datastore.admin.v1beta1.ImportEntitiesRequest.input_url.
-             * Only present if the operation completed successfully.
-             */
-            outputUrl?: string;
-        }
-        interface GoogleDatastoreAdminV1beta1ImportEntitiesMetadata {
-            /** Metadata common to all Datastore Admin operations. */
-            common?: GoogleDatastoreAdminV1beta1CommonMetadata;
-            /** Description of which entities are being imported. */
-            entityFilter?: GoogleDatastoreAdminV1beta1EntityFilter;
-            /**
-             * The location of the import metadata file. This will be the same value as
-             * the google.datastore.admin.v1beta1.ExportEntitiesResponse.output_url
-             * field.
-             */
-            inputUrl?: string;
-            /** An estimate of the number of bytes processed. */
-            progressBytes?: GoogleDatastoreAdminV1beta1Progress;
-            /** An estimate of the number of entities processed. */
-            progressEntities?: GoogleDatastoreAdminV1beta1Progress;
-        }
-        interface GoogleDatastoreAdminV1beta1Progress {
             /**
              * The amount of work that has been completed. Note that this may be greater
              * than work_estimated.
@@ -695,10 +695,10 @@ declare namespace gapi.client {
         interface QueryResultBatch {
             /** A cursor that points to the position after the last result in the batch. */
             endCursor?: string;
-            /** The result type for every entity in `entity_results`. */
-            entityResultType?: string;
             /** The results for this batch. */
             entityResults?: EntityResult[];
+            /** The result type for every entity in `entity_results`. */
+            entityResultType?: string;
             /** The state of the query after the current batch. */
             moreResults?: string;
             /**
@@ -897,10 +897,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleDatastoreAdminV1Index;
             }): Request<GoogleLongrunningOperation>;
@@ -925,10 +925,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleDatastoreAdminV1Index): Request<GoogleLongrunningOperation>;
             /**
@@ -966,10 +966,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleLongrunningOperation>;
             /** Gets an index. */
             get(request: {
@@ -995,10 +995,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleDatastoreAdminV1Index>;
             /**
              * Lists the indexes that match the specified filters.  Datastore uses an
@@ -1034,10 +1034,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleDatastoreAdminV1ListIndexesResponse>;
         }
         interface OperationsResource {
@@ -1074,10 +1074,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /**
              * Deletes a long-running operation. This method indicates that the client is
@@ -1106,10 +1106,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /**
              * Gets the latest state of a long-running operation.  Clients can use this
@@ -1137,10 +1137,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleLongrunningOperation>;
             /**
              * Lists operations that match the specified filter in the request. If the
@@ -1181,10 +1181,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleLongrunningListOperationsResponse>;
         }
         interface ProjectsResource {
@@ -1213,10 +1213,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: AllocateIdsRequest;
             }): Request<AllocateIdsResponse>;
@@ -1241,10 +1241,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: AllocateIdsRequest): Request<AllocateIdsResponse>;
             /** Begins a new transaction. */
@@ -1269,10 +1269,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BeginTransactionRequest;
             }): Request<BeginTransactionResponse>;
@@ -1297,10 +1297,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BeginTransactionRequest): Request<BeginTransactionResponse>;
             /**
@@ -1328,10 +1328,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CommitRequest;
             }): Request<CommitResponse>;
@@ -1356,10 +1356,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CommitRequest): Request<CommitResponse>;
             /**
@@ -1393,10 +1393,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleDatastoreAdminV1ExportEntitiesRequest;
             }): Request<GoogleLongrunningOperation>;
@@ -1421,10 +1421,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleDatastoreAdminV1ExportEntitiesRequest): Request<GoogleLongrunningOperation>;
             /**
@@ -1455,10 +1455,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleDatastoreAdminV1ImportEntitiesRequest;
             }): Request<GoogleLongrunningOperation>;
@@ -1483,10 +1483,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleDatastoreAdminV1ImportEntitiesRequest): Request<GoogleLongrunningOperation>;
             /** Looks up entities by key. */
@@ -1511,10 +1511,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: LookupRequest;
             }): Request<LookupResponse>;
@@ -1539,10 +1539,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: LookupRequest): Request<LookupResponse>;
             /**
@@ -1570,10 +1570,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: ReserveIdsRequest;
             }): Request<{}>;
@@ -1598,10 +1598,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: ReserveIdsRequest): Request<{}>;
             /** Rolls back a transaction. */
@@ -1626,10 +1626,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: RollbackRequest;
             }): Request<{}>;
@@ -1654,10 +1654,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: RollbackRequest): Request<{}>;
             /** Queries for entities. */
@@ -1682,10 +1682,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: RunQueryRequest;
             }): Request<RunQueryResponse>;
@@ -1710,10 +1710,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: RunQueryRequest): Request<RunQueryResponse>;
             indexes: IndexesResource;

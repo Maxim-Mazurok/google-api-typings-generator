@@ -960,10 +960,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. The resource name of the contact group to modify. */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: ModifyContactGroupMembersRequest;
             }): Request<ModifyContactGroupMembersResponse>;
@@ -988,10 +988,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. The resource name of the contact group to modify. */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: ModifyContactGroupMembersRequest): Request<ModifyContactGroupMembersResponse>;
         }
@@ -1026,10 +1026,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. The resource names of the contact groups to get. */
                 resourceNames?: string | string[];
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<BatchGetContactGroupsResponse>;
             /** Create a new contact group owned by the authenticated user. */
             create(request: {
@@ -1051,10 +1051,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CreateContactGroupRequest;
             }): Request<ContactGroup>;
@@ -1077,10 +1077,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CreateContactGroupRequest): Request<ContactGroup>;
             /**
@@ -1110,10 +1110,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. The resource name of the contact group to delete. */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /**
              * Get a specific contact group owned by the authenticated user by specifying
@@ -1145,10 +1145,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. The resource name of the contact group to get. */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ContactGroup>;
             /**
              * List all contact groups owned by the authenticated user. Members of the
@@ -1189,10 +1189,10 @@ declare namespace gapi.client {
                  * Only resources changed since the sync token was created will be returned.
                  */
                 syncToken?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListContactGroupsResponse>;
             /**
              * Update the name of an existing contact group owned by the authenticated
@@ -1222,10 +1222,10 @@ declare namespace gapi.client {
                  * string, in the form of `contactGroups/{contact_group_id}`.
                  */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: UpdateContactGroupRequest;
             }): Request<ContactGroup>;
@@ -1253,10 +1253,10 @@ declare namespace gapi.client {
                  * string, in the form of `contactGroups/{contact_group_id}`.
                  */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: UpdateContactGroupRequest): Request<ContactGroup>;
             members: MembersResource;
@@ -1355,10 +1355,10 @@ declare namespace gapi.client {
                  * Sync requests that specify `sync_token` have an additional rate limit.
                  */
                 syncToken?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListConnectionsResponse>;
         }
         interface PeopleResource {
@@ -1382,10 +1382,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Person;
             }): Request<Person>;
@@ -1408,10 +1408,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Person): Request<Person>;
             /** Delete a contact person. Any non-contact data will not be deleted. */
@@ -1436,10 +1436,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. The resource name of the contact to delete. */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /** Delete a contact's photo. */
             deleteContactPhoto(request: {
@@ -1499,10 +1499,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. The resource name of the contact whose photo will be deleted. */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<DeleteContactPhotoResponse>;
             /**
              * Provides information about a person by specifying a resource name. Use
@@ -1581,10 +1581,10 @@ declare namespace gapi.client {
                  * [`people.connections.list`](/people/api/rest/v1/people.connections/list).
                  */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Person>;
             /**
              * Provides information about a list of specific people by specifying a list
@@ -1666,10 +1666,10 @@ declare namespace gapi.client {
                  * You can include up to 50 resource names in one request.
                  */
                 resourceNames?: string | string[];
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GetPeopleResponse>;
             /**
              * Update contact data for an existing contact person. Any non-contact data
@@ -1738,10 +1738,10 @@ declare namespace gapi.client {
                  * &#42; userDefined
                  */
                 updatePersonFields?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Person;
             }): Request<Person>;
@@ -1797,10 +1797,10 @@ declare namespace gapi.client {
                  * &#42; userDefined
                  */
                 updatePersonFields?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Person): Request<Person>;
             /** Update a contact's photo. */
@@ -1825,10 +1825,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. Person resource name */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: UpdateContactPhotoRequest;
             }): Request<UpdateContactPhotoResponse>;
@@ -1853,10 +1853,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. Person resource name */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: UpdateContactPhotoRequest): Request<UpdateContactPhotoResponse>;
             connections: ConnectionsResource;

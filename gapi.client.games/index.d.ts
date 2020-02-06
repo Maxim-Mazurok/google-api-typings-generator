@@ -900,12 +900,6 @@ declare namespace gapi.client {
             /** The variant / mode of the application being played; can be any integer value, or left blank. */
             variant?: number;
         }
-        interface RoomAutoMatchStatus {
-            /** Uniquely identifies the type of this resource. Value is always the fixed string games#roomAutoMatchStatus. */
-            kind?: string;
-            /** An estimate for the amount of time (in seconds) that auto-matching is expected to take to complete. */
-            waitEstimateSeconds?: number;
-        }
         interface RoomAutoMatchingCriteria {
             /**
              * A bitmask indicating when auto-matches are valid. When ANDed with other exclusive bitmasks, the result must be zero. Can be used to support exclusive
@@ -918,6 +912,12 @@ declare namespace gapi.client {
             maxAutoMatchingPlayers?: number;
             /** The minimum number of players that should be added to the room by auto-matching. */
             minAutoMatchingPlayers?: number;
+        }
+        interface RoomAutoMatchStatus {
+            /** Uniquely identifies the type of this resource. Value is always the fixed string games#roomAutoMatchStatus. */
+            kind?: string;
+            /** An estimate for the amount of time (in seconds) that auto-matching is expected to take to complete. */
+            waitEstimateSeconds?: number;
         }
         interface RoomClientAddress {
             /** Uniquely identifies the type of this resource. Value is always the fixed string games#roomClientAddress. */

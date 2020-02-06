@@ -303,97 +303,6 @@ gapi.load('client', () => {
             kind: "Test string",
             url: "Test string",
         });
-        /** Deletes a channelSection. */
-        await gapi.client.youtube.channelSections.delete({
-            id: "Test string",
-            onBehalfOfContentOwner: "Test string",
-        });
-        /** Adds a channelSection for the authenticated user's channel. */
-        await gapi.client.youtube.channelSections.insert({
-            onBehalfOfContentOwner: "Test string",
-            onBehalfOfContentOwnerChannel: "Test string",
-            part: "Test string",
-        }, {
-            contentDetails: {
-                channels: [
-                    "Test string"                ],
-                playlists: [
-                    "Test string"                ],
-            },
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            localizations: {
-                A: {
-                    title: "Test string",
-                }            },
-            snippet: {
-                channelId: "Test string",
-                defaultLanguage: "Test string",
-                localized: {
-                    title: "Test string",
-                },
-                position: 42,
-                style: "Test string",
-                title: "Test string",
-                type: "Test string",
-            },
-            targeting: {
-                countries: [
-                    "Test string"                ],
-                languages: [
-                    "Test string"                ],
-                regions: [
-                    "Test string"                ],
-            },
-        });
-        /** Returns channelSection resources that match the API request criteria. */
-        await gapi.client.youtube.channelSections.list({
-            channelId: "Test string",
-            hl: "Test string",
-            id: "Test string",
-            mine: true,
-            onBehalfOfContentOwner: "Test string",
-            part: "Test string",
-        });
-        /** Update a channelSection. */
-        await gapi.client.youtube.channelSections.update({
-            onBehalfOfContentOwner: "Test string",
-            part: "Test string",
-        }, {
-            contentDetails: {
-                channels: [
-                    "Test string"                ],
-                playlists: [
-                    "Test string"                ],
-            },
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            localizations: {
-                A: {
-                    title: "Test string",
-                }            },
-            snippet: {
-                channelId: "Test string",
-                defaultLanguage: "Test string",
-                localized: {
-                    title: "Test string",
-                },
-                position: 42,
-                style: "Test string",
-                title: "Test string",
-                type: "Test string",
-            },
-            targeting: {
-                countries: [
-                    "Test string"                ],
-                languages: [
-                    "Test string"                ],
-                regions: [
-                    "Test string"                ],
-            },
-        });
         /** Returns a collection of zero or more channel resources that match the request criteria. */
         await gapi.client.youtube.channels.list({
             categoryId: "Test string",
@@ -640,6 +549,173 @@ gapi.load('client', () => {
                     "Test string"                ],
             },
         });
+        /** Deletes a channelSection. */
+        await gapi.client.youtube.channelSections.delete({
+            id: "Test string",
+            onBehalfOfContentOwner: "Test string",
+        });
+        /** Adds a channelSection for the authenticated user's channel. */
+        await gapi.client.youtube.channelSections.insert({
+            onBehalfOfContentOwner: "Test string",
+            onBehalfOfContentOwnerChannel: "Test string",
+            part: "Test string",
+        }, {
+            contentDetails: {
+                channels: [
+                    "Test string"                ],
+                playlists: [
+                    "Test string"                ],
+            },
+            etag: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            localizations: {
+                A: {
+                    title: "Test string",
+                }            },
+            snippet: {
+                channelId: "Test string",
+                defaultLanguage: "Test string",
+                localized: {
+                    title: "Test string",
+                },
+                position: 42,
+                style: "Test string",
+                title: "Test string",
+                type: "Test string",
+            },
+            targeting: {
+                countries: [
+                    "Test string"                ],
+                languages: [
+                    "Test string"                ],
+                regions: [
+                    "Test string"                ],
+            },
+        });
+        /** Returns channelSection resources that match the API request criteria. */
+        await gapi.client.youtube.channelSections.list({
+            channelId: "Test string",
+            hl: "Test string",
+            id: "Test string",
+            mine: true,
+            onBehalfOfContentOwner: "Test string",
+            part: "Test string",
+        });
+        /** Update a channelSection. */
+        await gapi.client.youtube.channelSections.update({
+            onBehalfOfContentOwner: "Test string",
+            part: "Test string",
+        }, {
+            contentDetails: {
+                channels: [
+                    "Test string"                ],
+                playlists: [
+                    "Test string"                ],
+            },
+            etag: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            localizations: {
+                A: {
+                    title: "Test string",
+                }            },
+            snippet: {
+                channelId: "Test string",
+                defaultLanguage: "Test string",
+                localized: {
+                    title: "Test string",
+                },
+                position: 42,
+                style: "Test string",
+                title: "Test string",
+                type: "Test string",
+            },
+            targeting: {
+                countries: [
+                    "Test string"                ],
+                languages: [
+                    "Test string"                ],
+                regions: [
+                    "Test string"                ],
+            },
+        });
+        /** Deletes a comment. */
+        await gapi.client.youtube.comments.delete({
+            id: "Test string",
+        });
+        /** Creates a reply to an existing comment. Note: To create a top-level comment, use the commentThreads.insert method. */
+        await gapi.client.youtube.comments.insert({
+            part: "Test string",
+        }, {
+            etag: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            snippet: {
+                authorChannelId: 42,
+                authorChannelUrl: "Test string",
+                authorDisplayName: "Test string",
+                authorProfileImageUrl: "Test string",
+                canRate: true,
+                channelId: "Test string",
+                likeCount: 42,
+                moderationStatus: "Test string",
+                parentId: "Test string",
+                publishedAt: "Test string",
+                textDisplay: "Test string",
+                textOriginal: "Test string",
+                updatedAt: "Test string",
+                videoId: "Test string",
+                viewerRating: "Test string",
+            },
+        });
+        /** Returns a list of comments that match the API request parameters. */
+        await gapi.client.youtube.comments.list({
+            id: "Test string",
+            maxResults: 42,
+            pageToken: "Test string",
+            parentId: "Test string",
+            part: "Test string",
+            textFormat: "Test string",
+        });
+        /** Expresses the caller's opinion that one or more comments should be flagged as spam. */
+        await gapi.client.youtube.comments.markAsSpam({
+            id: "Test string",
+        });
+        /**
+         * Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the
+         * comments.
+         */
+        await gapi.client.youtube.comments.setModerationStatus({
+            banAuthor: true,
+            id: "Test string",
+            moderationStatus: "Test string",
+        });
+        /** Modifies a comment. */
+        await gapi.client.youtube.comments.update({
+            part: "Test string",
+        }, {
+            etag: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            snippet: {
+                authorChannelId: 42,
+                authorChannelUrl: "Test string",
+                authorDisplayName: "Test string",
+                authorProfileImageUrl: "Test string",
+                canRate: true,
+                channelId: "Test string",
+                likeCount: 42,
+                moderationStatus: "Test string",
+                parentId: "Test string",
+                publishedAt: "Test string",
+                textDisplay: "Test string",
+                textOriginal: "Test string",
+                updatedAt: "Test string",
+                videoId: "Test string",
+                viewerRating: "Test string",
+            },
+        });
         /** Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead. */
         await gapi.client.youtube.commentThreads.insert({
             part: "Test string",
@@ -776,82 +852,6 @@ gapi.load('client', () => {
                 },
                 totalReplyCount: 42,
                 videoId: "Test string",
-            },
-        });
-        /** Deletes a comment. */
-        await gapi.client.youtube.comments.delete({
-            id: "Test string",
-        });
-        /** Creates a reply to an existing comment. Note: To create a top-level comment, use the commentThreads.insert method. */
-        await gapi.client.youtube.comments.insert({
-            part: "Test string",
-        }, {
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            snippet: {
-                authorChannelId: 42,
-                authorChannelUrl: "Test string",
-                authorDisplayName: "Test string",
-                authorProfileImageUrl: "Test string",
-                canRate: true,
-                channelId: "Test string",
-                likeCount: 42,
-                moderationStatus: "Test string",
-                parentId: "Test string",
-                publishedAt: "Test string",
-                textDisplay: "Test string",
-                textOriginal: "Test string",
-                updatedAt: "Test string",
-                videoId: "Test string",
-                viewerRating: "Test string",
-            },
-        });
-        /** Returns a list of comments that match the API request parameters. */
-        await gapi.client.youtube.comments.list({
-            id: "Test string",
-            maxResults: 42,
-            pageToken: "Test string",
-            parentId: "Test string",
-            part: "Test string",
-            textFormat: "Test string",
-        });
-        /** Expresses the caller's opinion that one or more comments should be flagged as spam. */
-        await gapi.client.youtube.comments.markAsSpam({
-            id: "Test string",
-        });
-        /**
-         * Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the
-         * comments.
-         */
-        await gapi.client.youtube.comments.setModerationStatus({
-            banAuthor: true,
-            id: "Test string",
-            moderationStatus: "Test string",
-        });
-        /** Modifies a comment. */
-        await gapi.client.youtube.comments.update({
-            part: "Test string",
-        }, {
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            snippet: {
-                authorChannelId: 42,
-                authorChannelUrl: "Test string",
-                authorDisplayName: "Test string",
-                authorProfileImageUrl: "Test string",
-                canRate: true,
-                channelId: "Test string",
-                likeCount: 42,
-                moderationStatus: "Test string",
-                parentId: "Test string",
-                publishedAt: "Test string",
-                textDisplay: "Test string",
-                textOriginal: "Test string",
-                updatedAt: "Test string",
-                videoId: "Test string",
-                viewerRating: "Test string",
             },
         });
         /** Returns a list of categories that can be associated with YouTube channels. */
@@ -1201,13 +1201,13 @@ gapi.load('client', () => {
                 type: "Test string",
                 userBannedDetails: {
                     banDurationSeconds: "Test string",
-                    banType: "Test string",
                     bannedUserDetails: {
                         channelId: "Test string",
                         channelUrl: "Test string",
                         displayName: "Test string",
                         profileImageUrl: "Test string",
                     },
+                    banType: "Test string",
                 },
             },
         });
@@ -1863,8 +1863,8 @@ gapi.load('client', () => {
                     bbfcRating: "Test string",
                     bfvcRating: "Test string",
                     bmukkRating: "Test string",
-                    catvRating: "Test string",
                     catvfrRating: "Test string",
+                    catvRating: "Test string",
                     cbfcRating: "Test string",
                     cccRating: "Test string",
                     cceRating: "Test string",
@@ -1912,8 +1912,8 @@ gapi.load('client', () => {
                     mpaaRating: "Test string",
                     mpaatRating: "Test string",
                     mtrcbRating: "Test string",
-                    nbcRating: "Test string",
                     nbcplRating: "Test string",
+                    nbcRating: "Test string",
                     nfrcRating: "Test string",
                     nfvcbRating: "Test string",
                     nkclvRating: "Test string",
@@ -2169,8 +2169,8 @@ gapi.load('client', () => {
                     bbfcRating: "Test string",
                     bfvcRating: "Test string",
                     bmukkRating: "Test string",
-                    catvRating: "Test string",
                     catvfrRating: "Test string",
+                    catvRating: "Test string",
                     cbfcRating: "Test string",
                     cccRating: "Test string",
                     cceRating: "Test string",
@@ -2218,8 +2218,8 @@ gapi.load('client', () => {
                     mpaaRating: "Test string",
                     mpaatRating: "Test string",
                     mtrcbRating: "Test string",
-                    nbcRating: "Test string",
                     nbcplRating: "Test string",
+                    nbcRating: "Test string",
                     nfrcRating: "Test string",
                     nfvcbRating: "Test string",
                     nkclvRating: "Test string",

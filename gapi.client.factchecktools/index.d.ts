@@ -18,12 +18,12 @@ declare namespace gapi.client {
 
     namespace factchecktools {
         interface GoogleFactcheckingFactchecktoolsV1alpha1Claim {
+            /** A person or organization stating the claim. For instance, "John Doe". */
+            claimant?: string;
             /** The date that the claim was made. */
             claimDate?: string;
             /** One or more reviews of this claim (namely, a fact-checking article). */
             claimReview?: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReview[];
-            /** A person or organization stating the claim. For instance, "John Doe". */
-            claimant?: string;
             /** The claim text. For instance, "Crime has doubled in the last 2 years." */
             text?: string;
         }
@@ -260,10 +260,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The review publisher site to filter results by, e.g. nytimes.com. */
                 reviewPublisherSiteFilter?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleFactcheckingFactchecktoolsV1alpha1FactCheckedClaimSearchResponse>;
         }
         interface PagesResource {
@@ -287,10 +287,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage;
             }): Request<GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage>;
@@ -313,10 +313,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage): Request<GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage>;
             /** Delete all `ClaimReview` markup on a page. */
@@ -341,10 +341,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /** Get all `ClaimReview` markup on a page. */
             get(request: {
@@ -368,10 +368,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage>;
             /**
              * List the `ClaimReview` markup pages for a specific URL or for an
@@ -420,10 +420,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * The URL from which to get `ClaimReview` markup. There will be at most one
                  * result. If markup is associated with a more canonical version of the URL
@@ -465,10 +465,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage;
             }): Request<GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage>;
@@ -497,10 +497,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage): Request<GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage>;
         }

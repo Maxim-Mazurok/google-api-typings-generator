@@ -215,18 +215,6 @@ declare namespace gapi.client {
              */
             nextPageToken?: string;
         }
-        interface ListReportTypesResponse {
-            /**
-             * A token to retrieve next page of results.
-             * Pass this value in the
-             * ListReportTypesRequest.page_token
-             * field in the subsequent call to `ListReportTypes` method to retrieve the
-             * next page of results.
-             */
-            nextPageToken?: string;
-            /** The list of report types. */
-            reportTypes?: ReportType[];
-        }
         interface ListReportsResponse {
             /**
              * A token to retrieve next page of results.
@@ -238,6 +226,18 @@ declare namespace gapi.client {
             nextPageToken?: string;
             /** The list of report types. */
             reports?: Report[];
+        }
+        interface ListReportTypesResponse {
+            /**
+             * A token to retrieve next page of results.
+             * Pass this value in the
+             * ListReportTypesRequest.page_token
+             * field in the subsequent call to `ListReportTypes` method to retrieve the
+             * next page of results.
+             */
+            nextPageToken?: string;
+            /** The list of report types. */
+            reportTypes?: ReportType[];
         }
         interface Report {
             /** The date/time when this report was created. */
@@ -305,10 +305,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the report to retrieve. */
                 reportId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Report>;
             /**
              * Lists reports created by a specific job.
@@ -364,10 +364,10 @@ declare namespace gapi.client {
                  * date/time are returned.
                  */
                 startTimeBefore?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListReportsResponse>;
         }
         interface JobsResource {
@@ -396,10 +396,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Job;
             }): Request<Job>;
@@ -427,10 +427,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Job): Request<Job>;
             /** Deletes a job. */
@@ -460,10 +460,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /** Gets a job. */
             get(request: {
@@ -492,10 +492,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Job>;
             /** Lists jobs. */
             list(request: {
@@ -540,10 +540,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListJobsResponse>;
             reports: ReportsResource;
         }
@@ -573,10 +573,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Name of the media that is being downloaded. */
                 resourceName: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GdataMedia>;
         }
         interface ReportTypesResource {
@@ -623,10 +623,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListReportTypesResponse>;
         }
 

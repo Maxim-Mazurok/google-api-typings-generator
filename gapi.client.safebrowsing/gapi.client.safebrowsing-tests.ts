@@ -79,6 +79,9 @@ gapi.load('client', () => {
                 userId: "Test string",
             },
         });
+        /** Lists the Safe Browsing threat lists available for download. */
+        await gapi.client.safebrowsing.threatLists.list({
+        });
         /**
          * Fetches the most recent threat list updates. A client can request updates
          * for multiple lists at once.
@@ -105,9 +108,6 @@ gapi.load('client', () => {
                     threatEntryType: "Test string",
                     threatType: "Test string",
                 }            ],
-        });
-        /** Lists the Safe Browsing threat lists available for download. */
-        await gapi.client.safebrowsing.threatLists.list({
         });
         /** Finds the threat entries that match the Safe Browsing lists. */
         await gapi.client.safebrowsing.threatMatches.find({

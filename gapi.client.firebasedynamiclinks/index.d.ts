@@ -282,13 +282,13 @@ declare namespace gapi.client {
              * This message will be publicly visible.
              */
             matchMessage?: string;
-            /** Which IP version the request was made from. */
-            requestIpVersion?: string;
             /**
              * Entire FDL (short or long) attributed post-install via one of several
              * techniques (fingerprint, copy unique).
              */
             requestedLink?: string;
+            /** Which IP version the request was made from. */
+            requestIpVersion?: string;
             /**
              * The entire FDL, expanded from a short link. It is the same as the
              * requested_link, if it is long. Parameters from this should not be
@@ -382,22 +382,6 @@ declare namespace gapi.client {
             /** Campaign term; used with paid search to supply the keywords for ads. */
             utmTerm?: string;
         }
-        interface ITunesConnectAnalytics {
-            /** Affiliate token used to create affiliate-coded links. */
-            at?: string;
-            /**
-             * Campaign text that developers can optionally add to any link in order to
-             * track sales from a specific marketing campaign.
-             */
-            ct?: string;
-            /** iTune media types, including music, podcasts, audiobooks and so on. */
-            mt?: string;
-            /**
-             * Provider token that enables analytics for Dynamic Links from within iTunes
-             * Connect.
-             */
-            pt?: string;
-        }
         interface IosInfo {
             /** iOS App Store ID. */
             iosAppStoreId?: string;
@@ -417,6 +401,22 @@ declare namespace gapi.client {
             iosIpadFallbackLink?: string;
             /** iOS minimum version. */
             iosMinimumVersion?: string;
+        }
+        interface ITunesConnectAnalytics {
+            /** Affiliate token used to create affiliate-coded links. */
+            at?: string;
+            /**
+             * Campaign text that developers can optionally add to any link in order to
+             * track sales from a specific marketing campaign.
+             */
+            ct?: string;
+            /** iTune media types, including music, podcasts, audiobooks and so on. */
+            mt?: string;
+            /**
+             * Provider token that enables analytics for Dynamic Links from within iTunes
+             * Connect.
+             */
+            pt?: string;
         }
         interface ManagedShortLink {
             /** Creation timestamp of the short link. */
@@ -496,10 +496,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CreateManagedShortLinkRequest;
             }): Request<CreateManagedShortLinkResponse>;
@@ -522,10 +522,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CreateManagedShortLinkRequest): Request<CreateManagedShortLinkResponse>;
         }
@@ -560,10 +560,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CreateShortDynamicLinkRequest;
             }): Request<CreateShortDynamicLinkResponse>;
@@ -586,10 +586,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CreateShortDynamicLinkRequest): Request<CreateShortDynamicLinkResponse>;
         }
@@ -624,10 +624,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Google SDK version. Version takes the form "$major.$minor.$patch" */
                 sdkVersion?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<DynamicLinkStats>;
             /** Get iOS strong/weak-match info for post-install attribution. */
             installAttribution(request: {
@@ -649,10 +649,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GetIosPostInstallAttributionRequest;
             }): Request<GetIosPostInstallAttributionResponse>;
@@ -675,10 +675,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GetIosPostInstallAttributionRequest): Request<GetIosPostInstallAttributionResponse>;
             /** Get iOS reopen attribution for app universal link open deeplinking. */
@@ -701,10 +701,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GetIosReopenAttributionRequest;
             }): Request<GetIosReopenAttributionResponse>;
@@ -727,10 +727,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GetIosReopenAttributionRequest): Request<GetIosReopenAttributionResponse>;
         }

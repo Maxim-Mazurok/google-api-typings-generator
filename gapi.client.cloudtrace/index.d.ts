@@ -29,14 +29,6 @@ declare namespace gapi.client {
              */
             description?: TruncatableString;
         }
-        interface AttributeValue {
-            /** A Boolean value represented by `true` or `false`. */
-            boolValue?: boolean;
-            /** A 64-bit signed integer. */
-            intValue?: string;
-            /** A string up to 256 bytes long. */
-            stringValue?: TruncatableString;
-        }
         interface Attributes {
             /**
              * The set of attributes. Each attribute's key can be up to 128 bytes
@@ -55,6 +47,14 @@ declare namespace gapi.client {
              * If this value is 0 then all attributes are valid.
              */
             droppedAttributesCount?: number;
+        }
+        interface AttributeValue {
+            /** A Boolean value represented by `true` or `false`. */
+            boolValue?: boolean;
+            /** A 64-bit signed integer. */
+            intValue?: string;
+            /** A string up to 256 bytes long. */
+            stringValue?: TruncatableString;
         }
         interface BatchWriteSpansRequest {
             /**
@@ -339,10 +339,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Span;
             }): Request<Span>;
@@ -375,10 +375,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Span): Request<Span>;
         }
@@ -413,10 +413,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchWriteSpansRequest;
             }): Request<{}>;
@@ -444,10 +444,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchWriteSpansRequest): Request<{}>;
             spans: SpansResource;

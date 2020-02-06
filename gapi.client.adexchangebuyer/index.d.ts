@@ -152,8 +152,6 @@ declare namespace gapi.client {
             proposals?: Proposal[];
         }
         interface Creative {
-            /** The HTML snippet that displays the ad when inserted in the web page. If set, videoURL, videoVastXML, and nativeAd should not be set. */
-            HTMLSnippet?: string;
             /** Account id. */
             accountId?: number;
             /** The link to the Ad Preferences page. This is only supported for native ads. */
@@ -242,6 +240,8 @@ declare namespace gapi.client {
             };
             /** Ad height. */
             height?: number;
+            /** The HTML snippet that displays the ad when inserted in the web page. If set, videoURL, videoVastXML, and nativeAd should not be set. */
+            HTMLSnippet?: string;
             /** The set of urls to be called to record an impression. */
             impressionTrackingUrl?: string[];
             /** Resource type. */

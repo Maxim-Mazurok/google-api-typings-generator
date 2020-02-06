@@ -105,8 +105,6 @@ declare namespace gapi.client {
              * `FAILURE`.
              */
             images?: string[];
-            /** Output only. URL to logs for this build in Google Cloud Console. */
-            logUrl?: string;
             /**
              * Google Cloud Storage bucket where logs should be written (see
              * [Bucket Name
@@ -114,6 +112,8 @@ declare namespace gapi.client {
              * Logs file names will be of the format `${logs_bucket}/log-${build_id}.txt`.
              */
             logsBucket?: string;
+            /** Output only. URL to logs for this build in Google Cloud Console. */
+            logUrl?: string;
             /** Special options for this build. */
             options?: BuildOptions;
             /** Output only. ID of the project. */
@@ -183,15 +183,15 @@ declare namespace gapi.client {
              */
             env?: string[];
             /**
-             * Option to define build log streaming behavior to Google Cloud
-             * Storage.
-             */
-            logStreamingOption?: string;
-            /**
              * Option to specify the logging mode, which determines where the logs are
              * stored.
              */
             logging?: string;
+            /**
+             * Option to define build log streaming behavior to Google Cloud
+             * Storage.
+             */
+            logStreamingOption?: string;
             /** Compute Engine machine type on which to run the build. */
             machineType?: string;
             /** Requested verifiability options. */
@@ -454,17 +454,17 @@ declare namespace gapi.client {
             /** The hash value. */
             value?: string;
         }
-        interface ListBuildTriggersResponse {
-            /** Token to receive the next page of results. */
-            nextPageToken?: string;
-            /** `BuildTriggers` for the project, sorted by `create_time` descending. */
-            triggers?: BuildTrigger[];
-        }
         interface ListBuildsResponse {
             /** Builds will be sorted by `create_time`, descending. */
             builds?: Build[];
             /** Token to receive the next page of results. */
             nextPageToken?: string;
+        }
+        interface ListBuildTriggersResponse {
+            /** Token to receive the next page of results. */
+            nextPageToken?: string;
+            /** `BuildTriggers` for the project, sorted by `create_time` descending. */
+            triggers?: BuildTrigger[];
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
@@ -738,10 +738,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CancelOperationRequest;
             }): Request<{}>;
@@ -766,10 +766,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CancelOperationRequest): Request<{}>;
             /**
@@ -798,10 +798,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the
@@ -842,10 +842,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListOperationsResponse>;
         }
         interface BuildsResource {
@@ -873,10 +873,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CancelBuildRequest;
             }): Request<Build>;
@@ -903,10 +903,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CancelBuildRequest): Request<Build>;
             /**
@@ -937,10 +937,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Build;
             }): Request<Operation>;
@@ -965,10 +965,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Build): Request<Operation>;
             /**
@@ -1000,10 +1000,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Build>;
             /**
              * Lists previously requested builds.
@@ -1038,10 +1038,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListBuildsResponse>;
             /**
              * Creates a new build based on the specified build.
@@ -1095,10 +1095,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: RetryBuildRequest;
             }): Request<Operation>;
@@ -1125,10 +1125,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: RetryBuildRequest): Request<Operation>;
         }
@@ -1159,10 +1159,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BuildTrigger;
             }): Request<BuildTrigger>;
@@ -1187,10 +1187,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BuildTrigger): Request<BuildTrigger>;
             /**
@@ -1221,10 +1221,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. ID of the `BuildTrigger` to delete. */
                 triggerId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /**
              * Returns information about a `BuildTrigger`.
@@ -1254,10 +1254,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. Identifier (`id` or `name`) of the `BuildTrigger` to get. */
                 triggerId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<BuildTrigger>;
             /**
              * Lists existing `BuildTrigger`s.
@@ -1289,10 +1289,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListBuildTriggersResponse>;
             /**
              * Updates a `BuildTrigger` by its project ID and trigger ID.
@@ -1322,10 +1322,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. ID of the `BuildTrigger` to update. */
                 triggerId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BuildTrigger;
             }): Request<BuildTrigger>;
@@ -1352,10 +1352,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. ID of the `BuildTrigger` to update. */
                 triggerId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BuildTrigger): Request<BuildTrigger>;
             /** Runs a `BuildTrigger` at a particular source revision. */
@@ -1382,10 +1382,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. ID of the trigger. */
                 triggerId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: RepoSource;
             }): Request<Operation>;
@@ -1412,10 +1412,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required. ID of the trigger. */
                 triggerId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: RepoSource): Request<Operation>;
         }

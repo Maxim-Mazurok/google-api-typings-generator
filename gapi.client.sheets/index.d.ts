@@ -1066,6 +1066,17 @@ declare namespace gapi.client {
             /** Theme color. */
             themeColor?: string;
         }
+        interface ConditionalFormatRule {
+            /** The formatting is either "on" or "off" according to the rule. */
+            booleanRule?: BooleanRule;
+            /** The formatting will vary based on the gradients in the rule. */
+            gradientRule?: GradientRule;
+            /**
+             * The ranges that are formatted if the condition is true.
+             * All the ranges must be on the same grid.
+             */
+            ranges?: GridRange[];
+        }
         interface ConditionValue {
             /**
              * A relative date (based on the current date).
@@ -1086,17 +1097,6 @@ declare namespace gapi.client {
              * Formulas are supported (and must begin with an `=` or a '+').
              */
             userEnteredValue?: string;
-        }
-        interface ConditionalFormatRule {
-            /** The formatting is either "on" or "off" according to the rule. */
-            booleanRule?: BooleanRule;
-            /** The formatting will vary based on the gradients in the rule. */
-            gradientRule?: GradientRule;
-            /**
-             * The ranges that are formatted if the condition is true.
-             * All the ranges must be on the same grid.
-             */
-            ranges?: GridRange[];
         }
         interface CopyPasteRequest {
             /**
@@ -3332,10 +3332,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to retrieve metadata from. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): client.Request<DeveloperMetadata>;
             /**
              * Returns all developer metadata matching the specified DataFilter.
@@ -3365,10 +3365,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to retrieve metadata from. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SearchDeveloperMetadataRequest;
             }): client.Request<SearchDeveloperMetadataResponse>;
@@ -3393,10 +3393,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to retrieve metadata from. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SearchDeveloperMetadataRequest): client.Request<SearchDeveloperMetadataResponse>;
         }
@@ -3428,10 +3428,10 @@ declare namespace gapi.client {
                 sheetId: number;
                 /** The ID of the spreadsheet containing the sheet to copy. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CopySheetToAnotherSpreadsheetRequest;
             }): client.Request<SheetProperties>;
@@ -3458,10 +3458,10 @@ declare namespace gapi.client {
                 sheetId: number;
                 /** The ID of the spreadsheet containing the sheet to copy. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CopySheetToAnotherSpreadsheetRequest): client.Request<SheetProperties>;
         }
@@ -3528,10 +3528,10 @@ declare namespace gapi.client {
                 responseValueRenderOption?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** How the input data should be interpreted. */
                 valueInputOption?: string;
                 /** Request body */
@@ -3583,10 +3583,10 @@ declare namespace gapi.client {
                 responseValueRenderOption?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** How the input data should be interpreted. */
                 valueInputOption?: string;
             },
@@ -3618,10 +3618,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchClearValuesRequest;
             }): client.Request<BatchClearValuesResponse>;
@@ -3646,10 +3646,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchClearValuesRequest): client.Request<BatchClearValuesResponse>;
             /**
@@ -3680,10 +3680,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchClearValuesByDataFilterRequest;
             }): client.Request<BatchClearValuesByDataFilterResponse>;
@@ -3708,10 +3708,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchClearValuesByDataFilterRequest): client.Request<BatchClearValuesByDataFilterResponse>;
             /**
@@ -3757,10 +3757,10 @@ declare namespace gapi.client {
                 ranges?: string | string[];
                 /** The ID of the spreadsheet to retrieve data from. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * How values should be represented in the output.
                  * The default render option is ValueRenderOption.FORMATTED_VALUE.
@@ -3794,10 +3794,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to retrieve data from. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchGetValuesByDataFilterRequest;
             }): client.Request<BatchGetValuesByDataFilterResponse>;
@@ -3822,10 +3822,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to retrieve data from. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchGetValuesByDataFilterRequest): client.Request<BatchGetValuesByDataFilterResponse>;
             /**
@@ -3855,10 +3855,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchUpdateValuesRequest;
             }): client.Request<BatchUpdateValuesResponse>;
@@ -3883,10 +3883,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchUpdateValuesRequest): client.Request<BatchUpdateValuesResponse>;
             /**
@@ -3916,10 +3916,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchUpdateValuesByDataFilterRequest;
             }): client.Request<BatchUpdateValuesByDataFilterResponse>;
@@ -3944,10 +3944,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchUpdateValuesByDataFilterRequest): client.Request<BatchUpdateValuesByDataFilterResponse>;
             /**
@@ -3979,10 +3979,10 @@ declare namespace gapi.client {
                 range: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: ClearValuesRequest;
             }): client.Request<ClearValuesResponse>;
@@ -4009,10 +4009,10 @@ declare namespace gapi.client {
                 range: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: ClearValuesRequest): client.Request<ClearValuesResponse>;
             /**
@@ -4058,10 +4058,10 @@ declare namespace gapi.client {
                 range: string;
                 /** The ID of the spreadsheet to retrieve data from. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * How values should be represented in the output.
                  * The default render option is ValueRenderOption.FORMATTED_VALUE.
@@ -4118,10 +4118,10 @@ declare namespace gapi.client {
                 responseValueRenderOption?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** How the input data should be interpreted. */
                 valueInputOption?: string;
                 /** Request body */
@@ -4172,10 +4172,10 @@ declare namespace gapi.client {
                 responseValueRenderOption?: string;
                 /** The ID of the spreadsheet to update. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** How the input data should be interpreted. */
                 valueInputOption?: string;
             },
@@ -4224,10 +4224,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The spreadsheet to apply the updates to. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchUpdateSpreadsheetRequest;
             }): client.Request<BatchUpdateSpreadsheetResponse>;
@@ -4252,10 +4252,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The spreadsheet to apply the updates to. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchUpdateSpreadsheetRequest): client.Request<BatchUpdateSpreadsheetResponse>;
             /** Creates a spreadsheet, returning the newly created spreadsheet. */
@@ -4278,10 +4278,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Spreadsheet;
             }): client.Request<Spreadsheet>;
@@ -4304,10 +4304,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Spreadsheet): client.Request<Spreadsheet>;
             /**
@@ -4361,10 +4361,10 @@ declare namespace gapi.client {
                 ranges?: string | string[];
                 /** The spreadsheet to request. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): client.Request<Spreadsheet>;
             /**
              * Returns the spreadsheet at the given ID.
@@ -4411,10 +4411,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The spreadsheet to request. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GetSpreadsheetByDataFilterRequest;
             }): client.Request<Spreadsheet>;
@@ -4439,10 +4439,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The spreadsheet to request. */
                 spreadsheetId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GetSpreadsheetByDataFilterRequest): client.Request<Spreadsheet>;
             developerMetadata: DeveloperMetadataResource;

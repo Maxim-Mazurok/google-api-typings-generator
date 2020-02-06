@@ -84,6 +84,26 @@ Retrieves the list of account permissions.
 await gapi.client.accountPermissions.list({ profileId: "profileId",  }); 
     
 /* 
+Gets one account by ID.  
+*/
+await gapi.client.accounts.get({ id: "id", profileId: "profileId",  }); 
+    
+/* 
+Retrieves the list of accounts, possibly filtered. This method supports paging.  
+*/
+await gapi.client.accounts.list({ profileId: "profileId",  }); 
+    
+/* 
+Updates an existing account. This method supports patch semantics.  
+*/
+await gapi.client.accounts.patch({ id: "id", profileId: "profileId",  }); 
+    
+/* 
+Updates an existing account.  
+*/
+await gapi.client.accounts.update({ profileId: "profileId",  }); 
+    
+/* 
 Gets one account user profile by ID.  
 */
 await gapi.client.accountUserProfiles.get({ id: "id", profileId: "profileId",  }); 
@@ -107,26 +127,6 @@ await gapi.client.accountUserProfiles.patch({ id: "id", profileId: "profileId", 
 Updates an existing account user profile.  
 */
 await gapi.client.accountUserProfiles.update({ profileId: "profileId",  }); 
-    
-/* 
-Gets one account by ID.  
-*/
-await gapi.client.accounts.get({ id: "id", profileId: "profileId",  }); 
-    
-/* 
-Retrieves the list of accounts, possibly filtered. This method supports paging.  
-*/
-await gapi.client.accounts.list({ profileId: "profileId",  }); 
-    
-/* 
-Updates an existing account. This method supports patch semantics.  
-*/
-await gapi.client.accounts.patch({ id: "id", profileId: "profileId",  }); 
-    
-/* 
-Updates an existing account.  
-*/
-await gapi.client.accounts.update({ profileId: "profileId",  }); 
     
 /* 
 Gets one ad by ID.  
@@ -354,36 +354,6 @@ Inserts a new creative asset.
 await gapi.client.creativeAssets.insert({ advertiserId: "advertiserId", profileId: "profileId",  }); 
     
 /* 
-Deletes an existing creative field value.  
-*/
-await gapi.client.creativeFieldValues.delete({ creativeFieldId: "creativeFieldId", id: "id", profileId: "profileId",  }); 
-    
-/* 
-Gets one creative field value by ID.  
-*/
-await gapi.client.creativeFieldValues.get({ creativeFieldId: "creativeFieldId", id: "id", profileId: "profileId",  }); 
-    
-/* 
-Inserts a new creative field value.  
-*/
-await gapi.client.creativeFieldValues.insert({ creativeFieldId: "creativeFieldId", profileId: "profileId",  }); 
-    
-/* 
-Retrieves a list of creative field values, possibly filtered. This method supports paging.  
-*/
-await gapi.client.creativeFieldValues.list({ creativeFieldId: "creativeFieldId", profileId: "profileId",  }); 
-    
-/* 
-Updates an existing creative field value. This method supports patch semantics.  
-*/
-await gapi.client.creativeFieldValues.patch({ creativeFieldId: "creativeFieldId", id: "id", profileId: "profileId",  }); 
-    
-/* 
-Updates an existing creative field value.  
-*/
-await gapi.client.creativeFieldValues.update({ creativeFieldId: "creativeFieldId", profileId: "profileId",  }); 
-    
-/* 
 Deletes an existing creative field.  
 */
 await gapi.client.creativeFields.delete({ id: "id", profileId: "profileId",  }); 
@@ -412,6 +382,36 @@ await gapi.client.creativeFields.patch({ id: "id", profileId: "profileId",  });
 Updates an existing creative field.  
 */
 await gapi.client.creativeFields.update({ profileId: "profileId",  }); 
+    
+/* 
+Deletes an existing creative field value.  
+*/
+await gapi.client.creativeFieldValues.delete({ creativeFieldId: "creativeFieldId", id: "id", profileId: "profileId",  }); 
+    
+/* 
+Gets one creative field value by ID.  
+*/
+await gapi.client.creativeFieldValues.get({ creativeFieldId: "creativeFieldId", id: "id", profileId: "profileId",  }); 
+    
+/* 
+Inserts a new creative field value.  
+*/
+await gapi.client.creativeFieldValues.insert({ creativeFieldId: "creativeFieldId", profileId: "profileId",  }); 
+    
+/* 
+Retrieves a list of creative field values, possibly filtered. This method supports paging.  
+*/
+await gapi.client.creativeFieldValues.list({ creativeFieldId: "creativeFieldId", profileId: "profileId",  }); 
+    
+/* 
+Updates an existing creative field value. This method supports patch semantics.  
+*/
+await gapi.client.creativeFieldValues.patch({ creativeFieldId: "creativeFieldId", id: "id", profileId: "profileId",  }); 
+    
+/* 
+Updates an existing creative field value.  
+*/
+await gapi.client.creativeFieldValues.update({ creativeFieldId: "creativeFieldId", profileId: "profileId",  }); 
     
 /* 
 Gets one creative group by ID.  
@@ -664,16 +664,6 @@ Retrieves a list of mobile carriers.
 await gapi.client.mobileCarriers.list({ profileId: "profileId",  }); 
     
 /* 
-Gets one operating system version by ID.  
-*/
-await gapi.client.operatingSystemVersions.get({ id: "id", profileId: "profileId",  }); 
-    
-/* 
-Retrieves a list of operating system versions.  
-*/
-await gapi.client.operatingSystemVersions.list({ profileId: "profileId",  }); 
-    
-/* 
 Gets one operating system by DART ID.  
 */
 await gapi.client.operatingSystems.get({ dartId: "dartId", profileId: "profileId",  }); 
@@ -682,6 +672,16 @@ await gapi.client.operatingSystems.get({ dartId: "dartId", profileId: "profileId
 Retrieves a list of operating systems.  
 */
 await gapi.client.operatingSystems.list({ profileId: "profileId",  }); 
+    
+/* 
+Gets one operating system version by ID.  
+*/
+await gapi.client.operatingSystemVersions.get({ id: "id", profileId: "profileId",  }); 
+    
+/* 
+Retrieves a list of operating system versions.  
+*/
+await gapi.client.operatingSystemVersions.list({ profileId: "profileId",  }); 
     
 /* 
 Gets one order document by ID.  
@@ -729,36 +729,6 @@ Updates an existing placement group.
 await gapi.client.placementGroups.update({ profileId: "profileId",  }); 
     
 /* 
-Deletes an existing placement strategy.  
-*/
-await gapi.client.placementStrategies.delete({ id: "id", profileId: "profileId",  }); 
-    
-/* 
-Gets one placement strategy by ID.  
-*/
-await gapi.client.placementStrategies.get({ id: "id", profileId: "profileId",  }); 
-    
-/* 
-Inserts a new placement strategy.  
-*/
-await gapi.client.placementStrategies.insert({ profileId: "profileId",  }); 
-    
-/* 
-Retrieves a list of placement strategies, possibly filtered. This method supports paging.  
-*/
-await gapi.client.placementStrategies.list({ profileId: "profileId",  }); 
-    
-/* 
-Updates an existing placement strategy. This method supports patch semantics.  
-*/
-await gapi.client.placementStrategies.patch({ id: "id", profileId: "profileId",  }); 
-    
-/* 
-Updates an existing placement strategy.  
-*/
-await gapi.client.placementStrategies.update({ profileId: "profileId",  }); 
-    
-/* 
 Generates tags for a placement.  
 */
 await gapi.client.placements.generatetags({ profileId: "profileId",  }); 
@@ -787,6 +757,36 @@ await gapi.client.placements.patch({ id: "id", profileId: "profileId",  });
 Updates an existing placement.  
 */
 await gapi.client.placements.update({ profileId: "profileId",  }); 
+    
+/* 
+Deletes an existing placement strategy.  
+*/
+await gapi.client.placementStrategies.delete({ id: "id", profileId: "profileId",  }); 
+    
+/* 
+Gets one placement strategy by ID.  
+*/
+await gapi.client.placementStrategies.get({ id: "id", profileId: "profileId",  }); 
+    
+/* 
+Inserts a new placement strategy.  
+*/
+await gapi.client.placementStrategies.insert({ profileId: "profileId",  }); 
+    
+/* 
+Retrieves a list of placement strategies, possibly filtered. This method supports paging.  
+*/
+await gapi.client.placementStrategies.list({ profileId: "profileId",  }); 
+    
+/* 
+Updates an existing placement strategy. This method supports patch semantics.  
+*/
+await gapi.client.placementStrategies.patch({ id: "id", profileId: "profileId",  }); 
+    
+/* 
+Updates an existing placement strategy.  
+*/
+await gapi.client.placementStrategies.update({ profileId: "profileId",  }); 
     
 /* 
 Gets one platform type by ID.  
@@ -824,21 +824,6 @@ Retrieves a list of regions.
 await gapi.client.regions.list({ profileId: "profileId",  }); 
     
 /* 
-Gets one remarketing list share by remarketing list ID.  
-*/
-await gapi.client.remarketingListShares.get({ profileId: "profileId", remarketingListId: "remarketingListId",  }); 
-    
-/* 
-Updates an existing remarketing list share. This method supports patch semantics.  
-*/
-await gapi.client.remarketingListShares.patch({ profileId: "profileId", remarketingListId: "remarketingListId",  }); 
-    
-/* 
-Updates an existing remarketing list share.  
-*/
-await gapi.client.remarketingListShares.update({ profileId: "profileId",  }); 
-    
-/* 
 Gets one remarketing list by ID.  
 */
 await gapi.client.remarketingLists.get({ id: "id", profileId: "profileId",  }); 
@@ -862,6 +847,21 @@ await gapi.client.remarketingLists.patch({ id: "id", profileId: "profileId",  })
 Updates an existing remarketing list.  
 */
 await gapi.client.remarketingLists.update({ profileId: "profileId",  }); 
+    
+/* 
+Gets one remarketing list share by remarketing list ID.  
+*/
+await gapi.client.remarketingListShares.get({ profileId: "profileId", remarketingListId: "remarketingListId",  }); 
+    
+/* 
+Updates an existing remarketing list share. This method supports patch semantics.  
+*/
+await gapi.client.remarketingListShares.patch({ profileId: "profileId", remarketingListId: "remarketingListId",  }); 
+    
+/* 
+Updates an existing remarketing list share.  
+*/
+await gapi.client.remarketingListShares.update({ profileId: "profileId",  }); 
     
 /* 
 Deletes a report by its ID.  

@@ -59,6 +59,30 @@ declare namespace gapi.client {
              */
             version?: string;
         }
+        interface Authentication {
+            /** Defines a set of authentication providers that a service supports. */
+            providers?: AuthProvider[];
+            /**
+             * A list of authentication rules that apply to individual API methods.
+             *
+             * &#42;&#42;NOTE:&#42;&#42; All service configuration rules follow "last one wins" order.
+             */
+            rules?: AuthenticationRule[];
+        }
+        interface AuthenticationRule {
+            /** If true, the service accepts API keys without any other credential. */
+            allowWithoutCredential?: boolean;
+            /** The requirements for OAuth credentials. */
+            oauth?: OAuthRequirements;
+            /** Requirements for additional authentication providers. */
+            requirements?: AuthRequirement[];
+            /**
+             * Selects the methods to which this rule applies.
+             *
+             * Refer to selector for syntax details.
+             */
+            selector?: string;
+        }
         interface AuthProvider {
             /**
              * The list of JWT
@@ -141,30 +165,6 @@ declare namespace gapi.client {
              * provider_id: bookstore_auth
              */
             providerId?: string;
-        }
-        interface Authentication {
-            /** Defines a set of authentication providers that a service supports. */
-            providers?: AuthProvider[];
-            /**
-             * A list of authentication rules that apply to individual API methods.
-             *
-             * &#42;&#42;NOTE:&#42;&#42; All service configuration rules follow "last one wins" order.
-             */
-            rules?: AuthenticationRule[];
-        }
-        interface AuthenticationRule {
-            /** If true, the service accepts API keys without any other credential. */
-            allowWithoutCredential?: boolean;
-            /** The requirements for OAuth credentials. */
-            oauth?: OAuthRequirements;
-            /** Requirements for additional authentication providers. */
-            requirements?: AuthRequirement[];
-            /**
-             * Selects the methods to which this rule applies.
-             *
-             * Refer to selector for syntax details.
-             */
-            selector?: string;
         }
         interface Backend {
             /**
@@ -643,6 +643,28 @@ declare namespace gapi.client {
              */
             serviceAccountParent?: string;
         }
+        interface GoogleApiServiceusageV1beta1GetServiceIdentityResponse {
+            /**
+             * Service identity that service producer can use to access consumer
+             * resources. If exists is true, it contains email and unique_id. If exists is
+             * false, it contains pre-constructed email and empty unique_id.
+             */
+            identity?: GoogleApiServiceusageV1beta1ServiceIdentity;
+            /** Service identity state. */
+            state?: string;
+        }
+        interface GoogleApiServiceusageV1beta1ServiceIdentity {
+            /**
+             * The email address of the service account that a service producer would use
+             * to access consumer resources.
+             */
+            email?: string;
+            /**
+             * The unique and stable id of the service account.
+             * https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts#ServiceAccount
+             */
+            uniqueId?: string;
+        }
         interface GoogleApiServiceusageV1OperationMetadata {
             /**
              * The full name of the resources that this operation is directly
@@ -706,28 +728,6 @@ declare namespace gapi.client {
             title?: string;
             /** Configuration controlling usage of this service. */
             usage?: Usage;
-        }
-        interface GoogleApiServiceusageV1beta1GetServiceIdentityResponse {
-            /**
-             * Service identity that service producer can use to access consumer
-             * resources. If exists is true, it contains email and unique_id. If exists is
-             * false, it contains pre-constructed email and empty unique_id.
-             */
-            identity?: GoogleApiServiceusageV1beta1ServiceIdentity;
-            /** Service identity state. */
-            state?: string;
-        }
-        interface GoogleApiServiceusageV1beta1ServiceIdentity {
-            /**
-             * The email address of the service account that a service producer would use
-             * to access consumer resources.
-             */
-            email?: string;
-            /**
-             * The unique and stable id of the service account.
-             * https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts#ServiceAccount
-             */
-            uniqueId?: string;
         }
         interface Http {
             /**
@@ -1606,10 +1606,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CancelOperationRequest;
             }): Request<{}>;
@@ -1634,10 +1634,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CancelOperationRequest): Request<{}>;
             /**
@@ -1667,10 +1667,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /**
              * Gets the latest state of a long-running operation.  Clients can use this
@@ -1698,10 +1698,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the
@@ -1742,10 +1742,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListOperationsResponse>;
         }
         interface ServicesResource {
@@ -1782,10 +1782,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchEnableServicesRequest;
             }): Request<Operation>;
@@ -1817,10 +1817,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchEnableServicesRequest): Request<Operation>;
             /**
@@ -1861,10 +1861,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: DisableServiceRequest;
             }): Request<Operation>;
@@ -1897,10 +1897,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: DisableServiceRequest): Request<Operation>;
             /** Enable a service so that it can be used with a project. */
@@ -1937,10 +1937,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: EnableServiceRequest;
             }): Request<Operation>;
@@ -1977,10 +1977,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: EnableServiceRequest): Request<Operation>;
             /** Returns the service configuration and enabled state for a given service. */
@@ -2011,10 +2011,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleApiServiceusageV1Service>;
             /**
              * List all services available to the specified project, and the current
@@ -2067,10 +2067,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListServicesResponse>;
         }
 

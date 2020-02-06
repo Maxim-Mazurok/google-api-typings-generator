@@ -1199,6 +1199,24 @@ declare namespace gapi.client {
             /** The text style of this named style. */
             textStyle?: TextStyle;
         }
+        interface NamedStyles {
+            /**
+             * The named styles.
+             *
+             * There is an entry for each of the possible named style types.
+             */
+            styles?: NamedStyle[];
+        }
+        interface NamedStylesSuggestionState {
+            /**
+             * A mask that indicates which of the fields on the corresponding NamedStyle in styles have been changed in this
+             * suggestion.
+             *
+             * The order of these named style suggestion states match the order of the
+             * corresponding named style within the named styles suggestion.
+             */
+            stylesSuggestionStates?: NamedStyleSuggestionState[];
+        }
         interface NamedStyleSuggestionState {
             /**
              * The named style type that this suggestion state corresponds to.
@@ -1217,24 +1235,6 @@ declare namespace gapi.client {
              * suggestion.
              */
             textStyleSuggestionState?: TextStyleSuggestionState;
-        }
-        interface NamedStyles {
-            /**
-             * The named styles.
-             *
-             * There is an entry for each of the possible named style types.
-             */
-            styles?: NamedStyle[];
-        }
-        interface NamedStylesSuggestionState {
-            /**
-             * A mask that indicates which of the fields on the corresponding NamedStyle in styles have been changed in this
-             * suggestion.
-             *
-             * The order of these named style suggestion states match the order of the
-             * corresponding named style within the named styles suggestion.
-             */
-            stylesSuggestionStates?: NamedStyleSuggestionState[];
         }
         interface NestingLevel {
             /**
@@ -2248,12 +2248,6 @@ declare namespace gapi.client {
             /** A mask that indicates which of the fields on the base TextStyle have been changed in this suggestion. */
             textStyleSuggestionState?: TextStyleSuggestionState;
         }
-        interface TabStop {
-            /** The alignment of this tab stop. If unset, the value defaults to START. */
-            alignment?: string;
-            /** The offset between this tab stop and the start margin. */
-            offset?: Dimension;
-        }
         interface Table {
             /**
              * Number of columns in the table.
@@ -2473,6 +2467,12 @@ declare namespace gapi.client {
              * table_row_style.
              */
             tableColumnProperties?: TableColumnProperties[];
+        }
+        interface TabStop {
+            /** The alignment of this tab stop. If unset, the value defaults to START. */
+            alignment?: string;
+            /** The offset between this tab stop and the start margin. */
+            offset?: Dimension;
         }
         interface TextRun {
             /**
@@ -2912,10 +2912,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchUpdateDocumentRequest;
             }): client.Request<BatchUpdateDocumentResponse>;
@@ -2940,10 +2940,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchUpdateDocumentRequest): client.Request<BatchUpdateDocumentResponse>;
             /**
@@ -2971,10 +2971,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Document;
             }): client.Request<Document>;
@@ -2997,10 +2997,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Document): client.Request<Document>;
             /** Gets the latest version of the specified document. */
@@ -3032,10 +3032,10 @@ declare namespace gapi.client {
                  * used.
                  */
                 suggestionsViewMode?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): client.Request<Document>;
         }
 

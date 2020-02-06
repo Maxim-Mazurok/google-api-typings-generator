@@ -99,11 +99,6 @@ gapi.load('client', () => {
                     path: "Test string",
                     target: "Test string",
                 }            ],
-            outputFileSymlinks: [
-                {
-                    path: "Test string",
-                    target: "Test string",
-                }            ],
             outputFiles: [
                 {
                     contents: "Test string",
@@ -113,6 +108,11 @@ gapi.load('client', () => {
                     },
                     isExecutable: true,
                     path: "Test string",
+                }            ],
+            outputFileSymlinks: [
+                {
+                    path: "Test string",
+                    target: "Test string",
                 }            ],
             stderrDigest: {
                 hash: "Test string",

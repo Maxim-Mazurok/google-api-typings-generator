@@ -693,15 +693,15 @@ declare namespace gapi.client {
             /** The video's rating from the Austrian Board of Media Classification (Bundesministerium für Unterricht, Kunst und Kultur). */
             bmukkRating?: string;
             /**
-             * Rating system for Canadian TV - Canadian TV Classification System The video's rating from the Canadian Radio-Television and Telecommunications
-             * Commission (CRTC) for Canadian English-language broadcasts. For more information, see the Canadian Broadcast Standards Council website.
-             */
-            catvRating?: string;
-            /**
              * The video's rating from the Canadian Radio-Television and Telecommunications Commission (CRTC) for Canadian French-language broadcasts. For more
              * information, see the Canadian Broadcast Standards Council website.
              */
             catvfrRating?: string;
+            /**
+             * Rating system for Canadian TV - Canadian TV Classification System The video's rating from the Canadian Radio-Television and Telecommunications
+             * Commission (CRTC) for Canadian English-language broadcasts. For more information, see the Canadian Broadcast Standards Council website.
+             */
+            catvRating?: string;
             /** The video's Central Board of Film Certification (CBFC - India) rating. */
             cbfcRating?: string;
             /** The video's Consejo de Calificación Cinematográfica (Chile) rating. */
@@ -792,10 +792,10 @@ declare namespace gapi.client {
             mpaatRating?: string;
             /** The video's rating from the Movie and Television Review and Classification Board (Philippines). */
             mtrcbRating?: string;
-            /** The video's rating from the Maldives National Bureau of Classification. */
-            nbcRating?: string;
             /** The video's rating in Poland. */
             nbcplRating?: string;
+            /** The video's rating from the Maldives National Bureau of Classification. */
+            nbcRating?: string;
             /** The video's rating from the Bulgarian National Film Center. */
             nfrcRating?: string;
             /** The video's rating from Nigeria's National Film and Video Censors Board. */
@@ -1428,10 +1428,10 @@ declare namespace gapi.client {
         interface LiveChatUserBannedMessageDetails {
             /** The duration of the ban. This property is only present if the banType is temporary. */
             banDurationSeconds?: string;
-            /** The type of ban. */
-            banType?: string;
             /** The details of the user that was banned. */
             bannedUserDetails?: ChannelProfileDetails;
+            /** The type of ban. */
+            banType?: string;
         }
         interface LiveStream {
             /**
@@ -1554,14 +1554,6 @@ declare namespace gapi.client {
             /** The visitorId identifies the visitor. */
             visitorId?: string;
         }
-        interface MemberSnippet {
-            /** The id of the channel that's offering memberships. */
-            creatorChannelId?: string;
-            /** Details about the member. */
-            memberDetails?: ChannelProfileDetails;
-            /** Details about the user's membership. */
-            membershipsDetails?: MembershipsDetails;
-        }
         interface MembershipsDetails {
             /** All levels that the user has access to. This includes the currently active level and all other levels that are included because of a higher purchase. */
             accessibleLevels?: string[];
@@ -1609,6 +1601,14 @@ declare namespace gapi.client {
             /** The id of the channel that's offering channel memberships. */
             creatorChannelId?: string;
             levelDetails?: LevelDetails;
+        }
+        interface MemberSnippet {
+            /** The id of the channel that's offering memberships. */
+            creatorChannelId?: string;
+            /** Details about the member. */
+            memberDetails?: ChannelProfileDetails;
+            /** Details about the user's membership. */
+            membershipsDetails?: MembershipsDetails;
         }
         interface MonitorStreamInfo {
             /** If you have set the enableMonitorStream property to true, then this property determines the length of the live broadcast delay. */
@@ -3117,6 +3117,146 @@ declare namespace gapi.client {
             },
             body: ChannelBannerResource): Request<ChannelBannerResource>;
         }
+        interface ChannelsResource {
+            /** Returns a collection of zero or more channel resources that match the request criteria. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** The categoryId parameter specifies a YouTube guide category, thereby requesting YouTube channels associated with that category. */
+                categoryId?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** The forUsername parameter specifies a YouTube username, thereby requesting the channel associated with that username. */
+                forUsername?: string;
+                /** The hl parameter should be used for filter out the properties that are not in the given language. Used for the brandingSettings part. */
+                hl?: string;
+                /**
+                 * The id parameter specifies a comma-separated list of the YouTube channel ID(s) for the resource(s) that are being retrieved. In a channel resource, the
+                 * id property specifies the channel's YouTube channel ID.
+                 */
+                id?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Note: This parameter is intended exclusively for YouTube content partners.
+                 *
+                 * Set this parameter's value to true to instruct the API to only return channels managed by the content owner that the onBehalfOfContentOwner parameter
+                 * specifies. The user must be authenticated as a CMS account linked to the specified content owner and onBehalfOfContentOwner must be provided.
+                 */
+                managedByMe?: boolean;
+                /** The maxResults parameter specifies the maximum number of items that should be returned in the result set. */
+                maxResults?: number;
+                /** Set this parameter's value to true to instruct the API to only return channels owned by the authenticated user. */
+                mine?: boolean;
+                /** Use the subscriptions.list method and its mySubscribers parameter to retrieve a list of subscribers to the authenticated user's channel. */
+                mySubscribers?: boolean;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Note: This parameter is intended exclusively for YouTube content partners.
+                 *
+                 * The onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the
+                 * content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube
+                 * channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication
+                 * credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
+                 */
+                onBehalfOfContentOwner?: string;
+                /**
+                 * The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken
+                 * properties identify other pages that could be retrieved.
+                 */
+                pageToken?: string;
+                /**
+                 * The part parameter specifies a comma-separated list of one or more channel resource properties that the API response will include.
+                 *
+                 * If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a channel
+                 * resource, the contentDetails property contains other properties, such as the uploads properties. As such, if you set part=contentDetails, the API
+                 * response will also contain all of those nested properties.
+                 */
+                part: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<ChannelListResponse>;
+            /**
+             * Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion
+             * objects and their child properties.
+             */
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value.
+                 * This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate
+                 * once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual
+                 * CMS account that the user authenticates with needs to be linked to the specified YouTube content owner.
+                 */
+                onBehalfOfContentOwner?: string;
+                /**
+                 * The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that
+                 * the API response will include.
+                 *
+                 * The API currently only allows the parameter value to be set to either brandingSettings or invideoPromotion. (You cannot update both of those parts with
+                 * a single request.)
+                 *
+                 * Note that this method overrides the existing values for all of the mutable properties that are contained in any parts that the parameter value
+                 * specifies.
+                 */
+                part: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: Channel;
+            }): Request<Channel>;
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value.
+                 * This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate
+                 * once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual
+                 * CMS account that the user authenticates with needs to be linked to the specified YouTube content owner.
+                 */
+                onBehalfOfContentOwner?: string;
+                /**
+                 * The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that
+                 * the API response will include.
+                 *
+                 * The API currently only allows the parameter value to be set to either brandingSettings or invideoPromotion. (You cannot update both of those parts with
+                 * a single request.)
+                 *
+                 * Note that this method overrides the existing values for all of the mutable properties that are contained in any parts that the parameter value
+                 * specifies.
+                 */
+                part: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: Channel): Request<Channel>;
+        }
         interface ChannelSectionsResource {
             /** Deletes a channelSection. */
             delete(request: {
@@ -3365,306 +3505,6 @@ declare namespace gapi.client {
             },
             body: ChannelSection): Request<ChannelSection>;
         }
-        interface ChannelsResource {
-            /** Returns a collection of zero or more channel resources that match the request criteria. */
-            list(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The categoryId parameter specifies a YouTube guide category, thereby requesting YouTube channels associated with that category. */
-                categoryId?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** The forUsername parameter specifies a YouTube username, thereby requesting the channel associated with that username. */
-                forUsername?: string;
-                /** The hl parameter should be used for filter out the properties that are not in the given language. Used for the brandingSettings part. */
-                hl?: string;
-                /**
-                 * The id parameter specifies a comma-separated list of the YouTube channel ID(s) for the resource(s) that are being retrieved. In a channel resource, the
-                 * id property specifies the channel's YouTube channel ID.
-                 */
-                id?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Note: This parameter is intended exclusively for YouTube content partners.
-                 *
-                 * Set this parameter's value to true to instruct the API to only return channels managed by the content owner that the onBehalfOfContentOwner parameter
-                 * specifies. The user must be authenticated as a CMS account linked to the specified content owner and onBehalfOfContentOwner must be provided.
-                 */
-                managedByMe?: boolean;
-                /** The maxResults parameter specifies the maximum number of items that should be returned in the result set. */
-                maxResults?: number;
-                /** Set this parameter's value to true to instruct the API to only return channels owned by the authenticated user. */
-                mine?: boolean;
-                /** Use the subscriptions.list method and its mySubscribers parameter to retrieve a list of subscribers to the authenticated user's channel. */
-                mySubscribers?: boolean;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Note: This parameter is intended exclusively for YouTube content partners.
-                 *
-                 * The onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the
-                 * content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube
-                 * channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication
-                 * credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.
-                 */
-                onBehalfOfContentOwner?: string;
-                /**
-                 * The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken
-                 * properties identify other pages that could be retrieved.
-                 */
-                pageToken?: string;
-                /**
-                 * The part parameter specifies a comma-separated list of one or more channel resource properties that the API response will include.
-                 *
-                 * If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a channel
-                 * resource, the contentDetails property contains other properties, such as the uploads properties. As such, if you set part=contentDetails, the API
-                 * response will also contain all of those nested properties.
-                 */
-                part: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<ChannelListResponse>;
-            /**
-             * Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion
-             * objects and their child properties.
-             */
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value.
-                 * This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate
-                 * once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual
-                 * CMS account that the user authenticates with needs to be linked to the specified YouTube content owner.
-                 */
-                onBehalfOfContentOwner?: string;
-                /**
-                 * The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that
-                 * the API response will include.
-                 *
-                 * The API currently only allows the parameter value to be set to either brandingSettings or invideoPromotion. (You cannot update both of those parts with
-                 * a single request.)
-                 *
-                 * Note that this method overrides the existing values for all of the mutable properties that are contained in any parts that the parameter value
-                 * specifies.
-                 */
-                part: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: Channel;
-            }): Request<Channel>;
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value.
-                 * This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate
-                 * once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual
-                 * CMS account that the user authenticates with needs to be linked to the specified YouTube content owner.
-                 */
-                onBehalfOfContentOwner?: string;
-                /**
-                 * The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that
-                 * the API response will include.
-                 *
-                 * The API currently only allows the parameter value to be set to either brandingSettings or invideoPromotion. (You cannot update both of those parts with
-                 * a single request.)
-                 *
-                 * Note that this method overrides the existing values for all of the mutable properties that are contained in any parts that the parameter value
-                 * specifies.
-                 */
-                part: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: Channel): Request<Channel>;
-        }
-        interface CommentThreadsResource {
-            /** Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead. */
-            insert(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost
-                 * of 2 units.
-                 */
-                part: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: CommentThread;
-            }): Request<CommentThread>;
-            insert(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost
-                 * of 2 units.
-                 */
-                part: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: CommentThread): Request<CommentThread>;
-            /** Returns a list of comment threads that match the API request parameters. */
-            list(request: {
-                /**
-                 * The allThreadsRelatedToChannelId parameter instructs the API to return all comment threads associated with the specified channel. The response can
-                 * include comments about the channel or about the channel's videos.
-                 */
-                allThreadsRelatedToChannelId?: string;
-                /** Data format for the response. */
-                alt?: string;
-                /**
-                 * The channelId parameter instructs the API to return comment threads containing comments about the specified channel. (The response will not include
-                 * comments left on videos that the channel uploaded.)
-                 */
-                channelId?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** The id parameter specifies a comma-separated list of comment thread IDs for the resources that should be retrieved. */
-                id?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The maxResults parameter specifies the maximum number of items that should be returned in the result set.
-                 *
-                 * Note: This parameter is not supported for use in conjunction with the id parameter.
-                 */
-                maxResults?: number;
-                /**
-                 * Set this parameter to limit the returned comment threads to a particular moderation state.
-                 *
-                 * Note: This parameter is not supported for use in conjunction with the id parameter.
-                 */
-                moderationStatus?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The order parameter specifies the order in which the API response should list comment threads. Valid values are:
-                 * - time - Comment threads are ordered by time. This is the default behavior.
-                 * - relevance - Comment threads are ordered by relevance.Note: This parameter is not supported for use in conjunction with the id parameter.
-                 */
-                order?: string;
-                /**
-                 * The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identifies
-                 * the next page of the result that can be retrieved.
-                 *
-                 * Note: This parameter is not supported for use in conjunction with the id parameter.
-                 */
-                pageToken?: string;
-                /** The part parameter specifies a comma-separated list of one or more commentThread resource properties that the API response will include. */
-                part: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * The searchTerms parameter instructs the API to limit the API response to only contain comments that contain the specified search terms.
-                 *
-                 * Note: This parameter is not supported for use in conjunction with the id parameter.
-                 */
-                searchTerms?: string;
-                /** Set this parameter's value to html or plainText to instruct the API to return the comments left by users in html formatted or in plain text. */
-                textFormat?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** The videoId parameter instructs the API to return comment threads associated with the specified video ID. */
-                videoId?: string;
-            }): Request<CommentThreadListResponse>;
-            /** Modifies the top-level comment in a comment thread. */
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The part parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include
-                 * the snippet part in the parameter value since that part contains all of the properties that the API request can update.
-                 */
-                part: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: CommentThread;
-            }): Request<CommentThread>;
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The part parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include
-                 * the snippet part in the parameter value since that part contains all of the properties that the API request can update.
-                 */
-                part: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: CommentThread): Request<CommentThread>;
-        }
         interface CommentsResource {
             /** Deletes a comment. */
             delete(request: {
@@ -3872,6 +3712,166 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: Comment): Request<Comment>;
+        }
+        interface CommentThreadsResource {
+            /** Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead. */
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost
+                 * of 2 units.
+                 */
+                part: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: CommentThread;
+            }): Request<CommentThread>;
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost
+                 * of 2 units.
+                 */
+                part: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: CommentThread): Request<CommentThread>;
+            /** Returns a list of comment threads that match the API request parameters. */
+            list(request: {
+                /**
+                 * The allThreadsRelatedToChannelId parameter instructs the API to return all comment threads associated with the specified channel. The response can
+                 * include comments about the channel or about the channel's videos.
+                 */
+                allThreadsRelatedToChannelId?: string;
+                /** Data format for the response. */
+                alt?: string;
+                /**
+                 * The channelId parameter instructs the API to return comment threads containing comments about the specified channel. (The response will not include
+                 * comments left on videos that the channel uploaded.)
+                 */
+                channelId?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** The id parameter specifies a comma-separated list of comment thread IDs for the resources that should be retrieved. */
+                id?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The maxResults parameter specifies the maximum number of items that should be returned in the result set.
+                 *
+                 * Note: This parameter is not supported for use in conjunction with the id parameter.
+                 */
+                maxResults?: number;
+                /**
+                 * Set this parameter to limit the returned comment threads to a particular moderation state.
+                 *
+                 * Note: This parameter is not supported for use in conjunction with the id parameter.
+                 */
+                moderationStatus?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The order parameter specifies the order in which the API response should list comment threads. Valid values are:
+                 * - time - Comment threads are ordered by time. This is the default behavior.
+                 * - relevance - Comment threads are ordered by relevance.Note: This parameter is not supported for use in conjunction with the id parameter.
+                 */
+                order?: string;
+                /**
+                 * The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identifies
+                 * the next page of the result that can be retrieved.
+                 *
+                 * Note: This parameter is not supported for use in conjunction with the id parameter.
+                 */
+                pageToken?: string;
+                /** The part parameter specifies a comma-separated list of one or more commentThread resource properties that the API response will include. */
+                part: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * The searchTerms parameter instructs the API to limit the API response to only contain comments that contain the specified search terms.
+                 *
+                 * Note: This parameter is not supported for use in conjunction with the id parameter.
+                 */
+                searchTerms?: string;
+                /** Set this parameter's value to html or plainText to instruct the API to return the comments left by users in html formatted or in plain text. */
+                textFormat?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** The videoId parameter instructs the API to return comment threads associated with the specified video ID. */
+                videoId?: string;
+            }): Request<CommentThreadListResponse>;
+            /** Modifies the top-level comment in a comment thread. */
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The part parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include
+                 * the snippet part in the parameter value since that part contains all of the properties that the API request can update.
+                 */
+                part: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: CommentThread;
+            }): Request<CommentThread>;
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The part parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include
+                 * the snippet part in the parameter value since that part contains all of the properties that the API request can update.
+                 */
+                part: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: CommentThread): Request<CommentThread>;
         }
         interface GuideCategoriesResource {
             /** Returns a list of categories that can be associated with YouTube channels. */
@@ -6567,13 +6567,13 @@ declare namespace gapi.client {
 
         const channelBanners: ChannelBannersResource;
 
-        const channelSections: ChannelSectionsResource;
-
         const channels: ChannelsResource;
 
-        const commentThreads: CommentThreadsResource;
+        const channelSections: ChannelSectionsResource;
 
         const comments: CommentsResource;
+
+        const commentThreads: CommentThreadsResource;
 
         const guideCategories: GuideCategoriesResource;
 

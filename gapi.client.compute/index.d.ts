@@ -283,22 +283,10 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        interface AddressList {
-            /** [Output Only] Unique identifier for the resource; defined by the server. */
-            id?: string;
-            /** A list of Address resources. */
-            items?: Address[];
-            /** [Output Only] Type of resource. Always compute#addressList for lists of addresses. */
-            kind?: string;
-            /**
-             * [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the
-             * nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to
-             * continue paging through the results.
-             */
-            nextPageToken?: string;
-            /** [Output Only] Server-defined URL for this resource. */
-            selfLink?: string;
-            /** [Output Only] Informational warning message. */
+        interface AddressesScopedList {
+            /** [Output Only] A list of addresses contained in this scope. */
+            addresses?: Address[];
+            /** [Output Only] Informational warning which replaces the list of addresses when the list is empty. */
             warning?: {
                 /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
                 code?: string;
@@ -321,10 +309,22 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        interface AddressesScopedList {
-            /** [Output Only] A list of addresses contained in this scope. */
-            addresses?: Address[];
-            /** [Output Only] Informational warning which replaces the list of addresses when the list is empty. */
+        interface AddressList {
+            /** [Output Only] Unique identifier for the resource; defined by the server. */
+            id?: string;
+            /** A list of Address resources. */
+            items?: Address[];
+            /** [Output Only] Type of resource. Always compute#addressList for lists of addresses. */
+            kind?: string;
+            /**
+             * [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the
+             * nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to
+             * continue paging through the results.
+             */
+            nextPageToken?: string;
+            /** [Output Only] Server-defined URL for this resource. */
+            selfLink?: string;
+            /** [Output Only] Informational warning message. */
             warning?: {
                 /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
                 code?: string;
@@ -382,10 +382,10 @@ declare namespace gapi.client {
         interface AllocationSpecificSKUReservation {
             /** Specifies the number of resources that are allocated. */
             count?: string;
-            /** [Output Only] Indicates how many instances are in use. */
-            inUseCount?: string;
             /** The instance properties for the reservation. */
             instanceProperties?: AllocationSpecificSKUAllocationReservedInstanceProperties;
+            /** [Output Only] Indicates how many instances are in use. */
+            inUseCount?: string;
         }
         interface AttachedDisk {
             /** Specifies whether the disk will be auto-deleted when the instance is deleted (but not when the disk is detached from the instance). */
@@ -683,6 +683,32 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
+        interface AutoscalersScopedList {
+            /** [Output Only] A list of autoscalers contained in this scope. */
+            autoscalers?: Autoscaler[];
+            /** [Output Only] Informational warning which replaces the list of autoscalers when the list is empty. */
+            warning?: {
+                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
+                code?: string;
+                /**
+                 * [Output Only] Metadata about this warning in key: value format. For example:
+                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+                 */
+                data?: Array<{
+                    /**
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
+                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
+                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
+                     * for IP forwarding).
+                     */
+                    key?: string;
+                    /** [Output Only] A warning data value corresponding to the key. */
+                    value?: string;
+                }>;
+                /** [Output Only] A human-readable description of the warning code. */
+                message?: string;
+            };
+        }
         interface AutoscalerStatusDetails {
             /** The status message. */
             message?: string;
@@ -712,32 +738,6 @@ declare namespace gapi.client {
              * versions.
              */
             type?: string;
-        }
-        interface AutoscalersScopedList {
-            /** [Output Only] A list of autoscalers contained in this scope. */
-            autoscalers?: Autoscaler[];
-            /** [Output Only] Informational warning which replaces the list of autoscalers when the list is empty. */
-            warning?: {
-                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
-                code?: string;
-                /**
-                 * [Output Only] Metadata about this warning in key: value format. For example:
-                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
-                 */
-                data?: Array<{
-                    /**
-                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
-                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
-                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
-                     * for IP forwarding).
-                     */
-                    key?: string;
-                    /** [Output Only] A warning data value corresponding to the key. */
-                    value?: string;
-                }>;
-                /** [Output Only] A human-readable description of the warning code. */
-                message?: string;
-            };
         }
         interface AutoscalingPolicy {
             /**
@@ -1860,6 +1860,44 @@ declare namespace gapi.client {
              */
             targetDisk?: string;
         }
+        interface DisksAddResourcePoliciesRequest {
+            /** Resource policies to be added to this disk. Currently you can only specify one policy here. */
+            resourcePolicies?: string[];
+        }
+        interface DisksRemoveResourcePoliciesRequest {
+            /** Resource policies to be removed from this disk. */
+            resourcePolicies?: string[];
+        }
+        interface DisksResizeRequest {
+            /** The new size of the persistent disk, which is specified in GB. */
+            sizeGb?: string;
+        }
+        interface DisksScopedList {
+            /** [Output Only] A list of disks contained in this scope. */
+            disks?: Disk[];
+            /** [Output Only] Informational warning which replaces the list of disks when the list is empty. */
+            warning?: {
+                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
+                code?: string;
+                /**
+                 * [Output Only] Metadata about this warning in key: value format. For example:
+                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+                 */
+                data?: Array<{
+                    /**
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
+                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
+                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
+                     * for IP forwarding).
+                     */
+                    key?: string;
+                    /** [Output Only] A warning data value corresponding to the key. */
+                    value?: string;
+                }>;
+                /** [Output Only] A human-readable description of the warning code. */
+                message?: string;
+            };
+        }
         interface DiskType {
             /** [Output Only] Creation timestamp in RFC3339 text format. */
             creationTimestamp?: string;
@@ -1970,44 +2008,6 @@ declare namespace gapi.client {
             /** [Output Only] A list of disk types contained in this scope. */
             diskTypes?: DiskType[];
             /** [Output Only] Informational warning which replaces the list of disk types when the list is empty. */
-            warning?: {
-                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
-                code?: string;
-                /**
-                 * [Output Only] Metadata about this warning in key: value format. For example:
-                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
-                 */
-                data?: Array<{
-                    /**
-                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
-                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
-                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
-                     * for IP forwarding).
-                     */
-                    key?: string;
-                    /** [Output Only] A warning data value corresponding to the key. */
-                    value?: string;
-                }>;
-                /** [Output Only] A human-readable description of the warning code. */
-                message?: string;
-            };
-        }
-        interface DisksAddResourcePoliciesRequest {
-            /** Resource policies to be added to this disk. Currently you can only specify one policy here. */
-            resourcePolicies?: string[];
-        }
-        interface DisksRemoveResourcePoliciesRequest {
-            /** Resource policies to be removed from this disk. */
-            resourcePolicies?: string[];
-        }
-        interface DisksResizeRequest {
-            /** The new size of the persistent disk, which is specified in GB. */
-            sizeGb?: string;
-        }
-        interface DisksScopedList {
-            /** [Output Only] A list of disks contained in this scope. */
-            disks?: Disk[];
-            /** [Output Only] Informational warning which replaces the list of disks when the list is empty. */
             warning?: {
                 /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
                 code?: string;
@@ -2384,6 +2384,39 @@ declare namespace gapi.client {
         }
         interface ForwardingRule {
             /**
+             * This field is used along with the backend_service field for internal load balancing or with the target field for internal TargetInstance. If the field
+             * is set to TRUE, clients can access ILB from all regions. Otherwise only allows access from clients in the same region as the internal load balancer.
+             */
+            allowGlobalAccess?: boolean;
+            /**
+             * This field is used along with the backend_service field for internal load balancing or with the target field for internal TargetInstance. This field
+             * cannot be used with port or portRange fields.
+             *
+             * When the load balancing scheme is INTERNAL and protocol is TCP/UDP, specify this field to allow packets addressed to any ports will be forwarded to the
+             * backends configured with this forwarding rule.
+             */
+            allPorts?: boolean;
+            /**
+             * This field is only used for INTERNAL load balancing.
+             *
+             * For internal load balancing, this field identifies the BackendService resource to receive the matched traffic.
+             */
+            backendService?: string;
+            /** [Output Only] Creation timestamp in RFC3339 text format. */
+            creationTimestamp?: string;
+            /** An optional description of this resource. Provide this property when you create the resource. */
+            description?: string;
+            /**
+             * Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when
+             * inserting a ForwardingRule. Include the fingerprint in patch request to ensure that you do not overwrite changes that were applied from another
+             * concurrent request.
+             *
+             * To see the latest fingerprint, make a get() request to retrieve a ForwardingRule.
+             */
+            fingerprint?: string;
+            /** [Output Only] The unique identifier for the resource. This identifier is defined by the server. */
+            id?: string;
+            /**
              * IP address that this forwarding rule serves. When a client sends traffic to this IP address, the forwarding rule directs the traffic to the target that
              * you specify in the forwarding rule.
              *
@@ -2406,39 +2439,6 @@ declare namespace gapi.client {
              * Balancing, the load balancing scheme is EXTERNAL, and one of TCP or UDP is valid.
              */
             IPProtocol?: string;
-            /**
-             * This field is used along with the backend_service field for internal load balancing or with the target field for internal TargetInstance. This field
-             * cannot be used with port or portRange fields.
-             *
-             * When the load balancing scheme is INTERNAL and protocol is TCP/UDP, specify this field to allow packets addressed to any ports will be forwarded to the
-             * backends configured with this forwarding rule.
-             */
-            allPorts?: boolean;
-            /**
-             * This field is used along with the backend_service field for internal load balancing or with the target field for internal TargetInstance. If the field
-             * is set to TRUE, clients can access ILB from all regions. Otherwise only allows access from clients in the same region as the internal load balancer.
-             */
-            allowGlobalAccess?: boolean;
-            /**
-             * This field is only used for INTERNAL load balancing.
-             *
-             * For internal load balancing, this field identifies the BackendService resource to receive the matched traffic.
-             */
-            backendService?: string;
-            /** [Output Only] Creation timestamp in RFC3339 text format. */
-            creationTimestamp?: string;
-            /** An optional description of this resource. Provide this property when you create the resource. */
-            description?: string;
-            /**
-             * Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when
-             * inserting a ForwardingRule. Include the fingerprint in patch request to ensure that you do not overwrite changes that were applied from another
-             * concurrent request.
-             *
-             * To see the latest fingerprint, make a get() request to retrieve a ForwardingRule.
-             */
-            fingerprint?: string;
-            /** [Output Only] The unique identifier for the resource. This identifier is defined by the server. */
-            id?: string;
             /**
              * The IP Version that will be used by this forwarding rule. Valid options are IPV4 or IPV6. This can only be specified for an external global forwarding
              * rule.
@@ -2730,99 +2730,6 @@ declare namespace gapi.client {
             /** The ID of a supported feature. Read  Enabling guest operating system features to see a list of available options. */
             type?: string;
         }
-        interface HTTP2HealthCheck {
-            /**
-             * The value of the host header in the HTTP/2 health check request. If left empty (default value), the IP on behalf of which this health check is
-             * performed will be used.
-             */
-            host?: string;
-            /** The TCP port number for the health check request. The default value is 443. Valid values are 1 through 65535. */
-            port?: number;
-            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
-            portName?: string;
-            /**
-             * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in port is used for health checking.
-             * USE_NAMED_PORT: The portName is used for health checking.
-             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
-             * named port specified in the Backend Service is used for health checking.
-             *
-             *
-             * If not specified, HTTP2 health check follows behavior specified in port and portName fields.
-             */
-            portSpecification?: string;
-            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
-            proxyHeader?: string;
-            /** The request path of the HTTP/2 health check request. The default value is /. */
-            requestPath?: string;
-            /**
-             * The string to match anywhere in the first 1024 bytes of the response body. If left empty (the default value), the status code determines health. The
-             * response data can only be ASCII.
-             */
-            response?: string;
-        }
-        interface HTTPHealthCheck {
-            /**
-             * The value of the host header in the HTTP health check request. If left empty (default value), the IP on behalf of which this health check is performed
-             * will be used.
-             */
-            host?: string;
-            /** The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535. */
-            port?: number;
-            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
-            portName?: string;
-            /**
-             * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in port is used for health checking.
-             * USE_NAMED_PORT: The portName is used for health checking.
-             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
-             * named port specified in the Backend Service is used for health checking.
-             *
-             *
-             * If not specified, HTTP health check follows behavior specified in port and portName fields.
-             */
-            portSpecification?: string;
-            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
-            proxyHeader?: string;
-            /** The request path of the HTTP health check request. The default value is /. */
-            requestPath?: string;
-            /**
-             * The string to match anywhere in the first 1024 bytes of the response body. If left empty (the default value), the status code determines health. The
-             * response data can only be ASCII.
-             */
-            response?: string;
-        }
-        interface HTTPSHealthCheck {
-            /**
-             * The value of the host header in the HTTPS health check request. If left empty (default value), the IP on behalf of which this health check is performed
-             * will be used.
-             */
-            host?: string;
-            /** The TCP port number for the health check request. The default value is 443. Valid values are 1 through 65535. */
-            port?: number;
-            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
-            portName?: string;
-            /**
-             * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in port is used for health checking.
-             * USE_NAMED_PORT: The portName is used for health checking.
-             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
-             * named port specified in the Backend Service is used for health checking.
-             *
-             *
-             * If not specified, HTTPS health check follows behavior specified in port and portName fields.
-             */
-            portSpecification?: string;
-            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
-            proxyHeader?: string;
-            /** The request path of the HTTPS health check request. The default value is /. */
-            requestPath?: string;
-            /**
-             * The string to match anywhere in the first 1024 bytes of the response body. If left empty (the default value), the status code determines health. The
-             * response data can only be ASCII.
-             */
-            response?: string;
-        }
         interface HealthCheck {
             /** How often (in seconds) to send a health check. The default value is 5 seconds. */
             checkIntervalSec?: number;
@@ -3000,6 +2907,37 @@ declare namespace gapi.client {
             /** The name of the PathMatcher to use to match the path portion of the URL if the hostRule matches the URL's host portion. */
             pathMatcher?: string;
         }
+        interface HTTP2HealthCheck {
+            /**
+             * The value of the host header in the HTTP/2 health check request. If left empty (default value), the IP on behalf of which this health check is
+             * performed will be used.
+             */
+            host?: string;
+            /** The TCP port number for the health check request. The default value is 443. Valid values are 1 through 65535. */
+            port?: number;
+            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
+            portName?: string;
+            /**
+             * Specifies how port is selected for health checking, can be one of following values:
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
+             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
+             * named port specified in the Backend Service is used for health checking.
+             *
+             *
+             * If not specified, HTTP2 health check follows behavior specified in port and portName fields.
+             */
+            portSpecification?: string;
+            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
+            proxyHeader?: string;
+            /** The request path of the HTTP/2 health check request. The default value is /. */
+            requestPath?: string;
+            /**
+             * The string to match anywhere in the first 1024 bytes of the response body. If left empty (the default value), the status code determines health. The
+             * response data can only be ASCII.
+             */
+            response?: string;
+        }
         interface HttpFaultAbort {
             /**
              * The HTTP status code used to abort the request.
@@ -3139,6 +3077,37 @@ declare namespace gapi.client {
             timeoutSec?: number;
             /** A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2. */
             unhealthyThreshold?: number;
+        }
+        interface HTTPHealthCheck {
+            /**
+             * The value of the host header in the HTTP health check request. If left empty (default value), the IP on behalf of which this health check is performed
+             * will be used.
+             */
+            host?: string;
+            /** The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535. */
+            port?: number;
+            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
+            portName?: string;
+            /**
+             * Specifies how port is selected for health checking, can be one of following values:
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
+             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
+             * named port specified in the Backend Service is used for health checking.
+             *
+             *
+             * If not specified, HTTP health check follows behavior specified in port and portName fields.
+             */
+            portSpecification?: string;
+            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
+            proxyHeader?: string;
+            /** The request path of the HTTP health check request. The default value is /. */
+            requestPath?: string;
+            /**
+             * The string to match anywhere in the first 1024 bytes of the response body. If left empty (the default value), the status code determines health. The
+             * response data can only be ASCII.
+             */
+            response?: string;
         }
         interface HttpHealthCheckList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
@@ -3424,6 +3393,37 @@ declare namespace gapi.client {
             timeoutSec?: number;
             /** A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2. */
             unhealthyThreshold?: number;
+        }
+        interface HTTPSHealthCheck {
+            /**
+             * The value of the host header in the HTTPS health check request. If left empty (default value), the IP on behalf of which this health check is performed
+             * will be used.
+             */
+            host?: string;
+            /** The TCP port number for the health check request. The default value is 443. Valid values are 1 through 65535. */
+            port?: number;
+            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
+            portName?: string;
+            /**
+             * Specifies how port is selected for health checking, can be one of following values:
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
+             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
+             * named port specified in the Backend Service is used for health checking.
+             *
+             *
+             * If not specified, HTTPS health check follows behavior specified in port and portName fields.
+             */
+            portSpecification?: string;
+            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
+            proxyHeader?: string;
+            /** The request path of the HTTPS health check request. The default value is /. */
+            requestPath?: string;
+            /**
+             * The string to match anywhere in the first 1024 bytes of the response body. If left empty (the default value), the status code determines health. The
+             * response data can only be ASCII.
+             */
+            response?: string;
         }
         interface HttpsHealthCheckList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
@@ -4085,6 +4085,72 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
+        interface InstanceGroupManagersAbandonInstancesRequest {
+            /** The URLs of one or more instances to abandon. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
+            instances?: string[];
+        }
+        interface InstanceGroupManagersCreateInstancesRequest {
+            /** [Required] List of specifications of per-instance configs. */
+            instances?: PerInstanceConfig[];
+        }
+        interface InstanceGroupManagersDeleteInstancesRequest {
+            /** The URLs of one or more instances to delete. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
+            instances?: string[];
+        }
+        interface InstanceGroupManagersListManagedInstancesResponse {
+            /** [Output Only] The list of instances in the managed instance group. */
+            managedInstances?: ManagedInstance[];
+        }
+        interface InstanceGroupManagersRecreateInstancesRequest {
+            /** The URLs of one or more instances to recreate. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
+            instances?: string[];
+        }
+        interface InstanceGroupManagersScopedList {
+            /** [Output Only] The list of managed instance groups that are contained in the specified project and zone. */
+            instanceGroupManagers?: InstanceGroupManager[];
+            /** [Output Only] The warning that replaces the list of managed instance groups when the list is empty. */
+            warning?: {
+                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
+                code?: string;
+                /**
+                 * [Output Only] Metadata about this warning in key: value format. For example:
+                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+                 */
+                data?: Array<{
+                    /**
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
+                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
+                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
+                     * for IP forwarding).
+                     */
+                    key?: string;
+                    /** [Output Only] A warning data value corresponding to the key. */
+                    value?: string;
+                }>;
+                /** [Output Only] A human-readable description of the warning code. */
+                message?: string;
+            };
+        }
+        interface InstanceGroupManagersSetInstanceTemplateRequest {
+            /**
+             * The URL of the instance template that is specified for this managed instance group. The group uses this template to create all new instances in the
+             * managed instance group.
+             */
+            instanceTemplate?: string;
+        }
+        interface InstanceGroupManagersSetTargetPoolsRequest {
+            /**
+             * The fingerprint of the target pools information. Use this optional property to prevent conflicts when multiple users change the target pools settings
+             * concurrently. Obtain the fingerprint with the instanceGroupManagers.get method. Then, include the fingerprint in your request to ensure that you do not
+             * overwrite changes that were applied from another concurrent request.
+             */
+            fingerprint?: string;
+            /**
+             * The list of target pool URLs that instances in this managed instance group belong to. The managed instance group applies these target pools to all of
+             * the instances in the group. Existing instances and new instances in the group all receive these target pool settings.
+             */
+            targetPools?: string[];
+        }
         interface InstanceGroupManagerStatus {
             /**
              * [Output Only] A bit indicating whether the managed instance group is in a stable state. A stable state means that: none of the instances in the managed
@@ -4161,72 +4227,6 @@ declare namespace gapi.client {
              * information.
              */
             targetSize?: FixedOrPercent;
-        }
-        interface InstanceGroupManagersAbandonInstancesRequest {
-            /** The URLs of one or more instances to abandon. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
-            instances?: string[];
-        }
-        interface InstanceGroupManagersCreateInstancesRequest {
-            /** [Required] List of specifications of per-instance configs. */
-            instances?: PerInstanceConfig[];
-        }
-        interface InstanceGroupManagersDeleteInstancesRequest {
-            /** The URLs of one or more instances to delete. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
-            instances?: string[];
-        }
-        interface InstanceGroupManagersListManagedInstancesResponse {
-            /** [Output Only] The list of instances in the managed instance group. */
-            managedInstances?: ManagedInstance[];
-        }
-        interface InstanceGroupManagersRecreateInstancesRequest {
-            /** The URLs of one or more instances to recreate. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
-            instances?: string[];
-        }
-        interface InstanceGroupManagersScopedList {
-            /** [Output Only] The list of managed instance groups that are contained in the specified project and zone. */
-            instanceGroupManagers?: InstanceGroupManager[];
-            /** [Output Only] The warning that replaces the list of managed instance groups when the list is empty. */
-            warning?: {
-                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
-                code?: string;
-                /**
-                 * [Output Only] Metadata about this warning in key: value format. For example:
-                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
-                 */
-                data?: Array<{
-                    /**
-                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
-                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
-                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
-                     * for IP forwarding).
-                     */
-                    key?: string;
-                    /** [Output Only] A warning data value corresponding to the key. */
-                    value?: string;
-                }>;
-                /** [Output Only] A human-readable description of the warning code. */
-                message?: string;
-            };
-        }
-        interface InstanceGroupManagersSetInstanceTemplateRequest {
-            /**
-             * The URL of the instance template that is specified for this managed instance group. The group uses this template to create all new instances in the
-             * managed instance group.
-             */
-            instanceTemplate?: string;
-        }
-        interface InstanceGroupManagersSetTargetPoolsRequest {
-            /**
-             * The fingerprint of the target pools information. Use this optional property to prevent conflicts when multiple users change the target pools settings
-             * concurrently. Obtain the fingerprint with the instanceGroupManagers.get method. Then, include the fingerprint in your request to ensure that you do not
-             * overwrite changes that were applied from another concurrent request.
-             */
-            fingerprint?: string;
-            /**
-             * The list of target pool URLs that instances in this managed instance group belong to. The managed instance group applies these target pools to all of
-             * the instances in the group. Existing instances and new instances in the group all receive these target pool settings.
-             */
-            targetPools?: string[];
         }
         interface InstanceGroupsAddInstancesRequest {
             /** The list of instances to add to the instance group. */
@@ -4460,6 +4460,71 @@ declare namespace gapi.client {
             /** The URL for a specific instance. */
             instance?: string;
         }
+        interface InstancesScopedList {
+            /** [Output Only] A list of instances contained in this scope. */
+            instances?: Instance[];
+            /** [Output Only] Informational warning which replaces the list of instances when the list is empty. */
+            warning?: {
+                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
+                code?: string;
+                /**
+                 * [Output Only] Metadata about this warning in key: value format. For example:
+                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+                 */
+                data?: Array<{
+                    /**
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
+                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
+                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
+                     * for IP forwarding).
+                     */
+                    key?: string;
+                    /** [Output Only] A warning data value corresponding to the key. */
+                    value?: string;
+                }>;
+                /** [Output Only] A human-readable description of the warning code. */
+                message?: string;
+            };
+        }
+        interface InstancesSetLabelsRequest {
+            /**
+             * Fingerprint of the previous set of labels for this resource, used to prevent conflicts. Provide the latest fingerprint value when making a request to
+             * add or change labels.
+             */
+            labelFingerprint?: string;
+            labels?: Record<string, string>;
+        }
+        interface InstancesSetMachineResourcesRequest {
+            /** A list of the type and count of accelerator cards attached to the instance. */
+            guestAccelerators?: AcceleratorConfig[];
+        }
+        interface InstancesSetMachineTypeRequest {
+            /**
+             * Full or partial URL of the machine type resource. See Machine Types for a full list of machine types. For example:
+             * zones/us-central1-f/machineTypes/n1-standard-1
+             */
+            machineType?: string;
+        }
+        interface InstancesSetMinCpuPlatformRequest {
+            /** Minimum cpu/platform this instance should be started at. */
+            minCpuPlatform?: string;
+        }
+        interface InstancesSetServiceAccountRequest {
+            /** Email address of the service account. */
+            email?: string;
+            /** The list of scopes to be made available for this service account. */
+            scopes?: string[];
+        }
+        interface InstancesStartWithEncryptionKeyRequest {
+            /**
+             * Array of disks associated with this instance that are protected with a customer-supplied encryption key.
+             *
+             * In order to start the instance, the disk url and its corresponding key must be provided.
+             *
+             * If the disk is not protected with a customer-supplied encryption key it should not be specified.
+             */
+            disks?: CustomerEncryptionKeyProtectedDisk[];
+        }
         interface InstanceTemplate {
             /** [Output Only] The creation timestamp for this instance template in RFC3339 text format. */
             creationTimestamp?: string;
@@ -4534,71 +4599,6 @@ declare namespace gapi.client {
             namedPorts?: NamedPort[];
             /** [Output Only] The status of the instance. */
             status?: string;
-        }
-        interface InstancesScopedList {
-            /** [Output Only] A list of instances contained in this scope. */
-            instances?: Instance[];
-            /** [Output Only] Informational warning which replaces the list of instances when the list is empty. */
-            warning?: {
-                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
-                code?: string;
-                /**
-                 * [Output Only] Metadata about this warning in key: value format. For example:
-                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
-                 */
-                data?: Array<{
-                    /**
-                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
-                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
-                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
-                     * for IP forwarding).
-                     */
-                    key?: string;
-                    /** [Output Only] A warning data value corresponding to the key. */
-                    value?: string;
-                }>;
-                /** [Output Only] A human-readable description of the warning code. */
-                message?: string;
-            };
-        }
-        interface InstancesSetLabelsRequest {
-            /**
-             * Fingerprint of the previous set of labels for this resource, used to prevent conflicts. Provide the latest fingerprint value when making a request to
-             * add or change labels.
-             */
-            labelFingerprint?: string;
-            labels?: Record<string, string>;
-        }
-        interface InstancesSetMachineResourcesRequest {
-            /** A list of the type and count of accelerator cards attached to the instance. */
-            guestAccelerators?: AcceleratorConfig[];
-        }
-        interface InstancesSetMachineTypeRequest {
-            /**
-             * Full or partial URL of the machine type resource. See Machine Types for a full list of machine types. For example:
-             * zones/us-central1-f/machineTypes/n1-standard-1
-             */
-            machineType?: string;
-        }
-        interface InstancesSetMinCpuPlatformRequest {
-            /** Minimum cpu/platform this instance should be started at. */
-            minCpuPlatform?: string;
-        }
-        interface InstancesSetServiceAccountRequest {
-            /** Email address of the service account. */
-            email?: string;
-            /** The list of scopes to be made available for this service account. */
-            scopes?: string[];
-        }
-        interface InstancesStartWithEncryptionKeyRequest {
-            /**
-             * Array of disks associated with this instance that are protected with a customer-supplied encryption key.
-             *
-             * In order to start the instance, the disk url and its corresponding key must be provided.
-             *
-             * If the disk is not protected with a customer-supplied encryption key it should not be specified.
-             */
-            disks?: CustomerEncryptionKeyProtectedDisk[];
         }
         interface Int64RangeMatch {
             /** The end of the range (exclusive) in signed long integer format. */
@@ -5536,11 +5536,6 @@ declare namespace gapi.client {
         }
         interface Network {
             /**
-             * Deprecated in favor of subnet mode networks. The range of internal addresses that are legal on this network. This range is a CIDR specification, for
-             * example: 192.168.0.0/16. Provided by the client when the network is created.
-             */
-            IPv4Range?: string;
-            /**
              * When set to true, the VPC network is created in "auto" mode. When set to false, the VPC network is created in "custom" mode.
              *
              * An auto mode VPC network starts with one subnet per region. Each subnet has a predetermined range as described in Auto mode VPC network IP ranges.
@@ -5554,6 +5549,11 @@ declare namespace gapi.client {
             gatewayIPv4?: string;
             /** [Output Only] The unique identifier for the resource. This identifier is defined by the server. */
             id?: string;
+            /**
+             * Deprecated in favor of subnet mode networks. The range of internal addresses that are legal on this network. This range is a CIDR specification, for
+             * example: 192.168.0.0/16. Provided by the client when the network is created.
+             */
+            IPv4Range?: string;
             /** [Output Only] Type of the resource. Always compute#network for networks. */
             kind?: string;
             /**
@@ -6730,15 +6730,15 @@ declare namespace gapi.client {
         }
         interface PacketMirroringFilter {
             /**
-             * Protocols that apply as filter on mirrored traffic. If no protocols are specified, all traffic that matches the specified CIDR ranges is mirrored. If
-             * neither cidrRanges nor IPProtocols is specified, all traffic is mirrored.
-             */
-            IPProtocols?: string[];
-            /**
              * IP CIDR ranges that apply as filter on the source (ingress) or destination (egress) IP in the IP header. Only IPv4 is supported. If no ranges are
              * specified, all traffic that matches the specified IPProtocols is mirrored. If neither cidrRanges nor IPProtocols is specified, all traffic is mirrored.
              */
             cidrRanges?: string[];
+            /**
+             * Protocols that apply as filter on mirrored traffic. If no protocols are specified, all traffic that matches the specified CIDR ranges is mirrored. If
+             * neither cidrRanges nor IPProtocols is specified, all traffic is mirrored.
+             */
+            IPProtocols?: string[];
         }
         interface PacketMirroringForwardingRuleInfo {
             /** [Output Only] Unique identifier for the forwarding rule; defined by the server. */
@@ -7127,6 +7127,18 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
+        interface RegionDisksAddResourcePoliciesRequest {
+            /** Resource policies to be added to this disk. */
+            resourcePolicies?: string[];
+        }
+        interface RegionDisksRemoveResourcePoliciesRequest {
+            /** Resource policies to be removed from this disk. */
+            resourcePolicies?: string[];
+        }
+        interface RegionDisksResizeRequest {
+            /** The new size of the regional persistent disk, which is specified in GB. */
+            sizeGb?: string;
+        }
         interface RegionDiskTypeList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -7164,18 +7176,6 @@ declare namespace gapi.client {
                 /** [Output Only] A human-readable description of the warning code. */
                 message?: string;
             };
-        }
-        interface RegionDisksAddResourcePoliciesRequest {
-            /** Resource policies to be added to this disk. */
-            resourcePolicies?: string[];
-        }
-        interface RegionDisksRemoveResourcePoliciesRequest {
-            /** Resource policies to be removed from this disk. */
-            resourcePolicies?: string[];
-        }
-        interface RegionDisksResizeRequest {
-            /** The new size of the regional persistent disk, which is specified in GB. */
-            sizeGb?: string;
         }
         interface RegionInstanceGroupList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
@@ -7975,8 +7975,6 @@ declare namespace gapi.client {
             };
         }
         interface RouterBgp {
-            /** User-specified flag to indicate which mode to use for advertisement. The options are DEFAULT or CUSTOM. */
-            advertiseMode?: string;
             /**
              * User-specified list of prefix groups to advertise in custom mode. This field can only be populated if advertise_mode is CUSTOM and is advertised to all
              * peers of the router. These groups will be advertised in addition to any specified prefixes. Leave this field blank to advertise no custom groups.
@@ -7988,6 +7986,8 @@ declare namespace gapi.client {
              * ranges.
              */
             advertisedIpRanges?: RouterAdvertisedIpRange[];
+            /** User-specified flag to indicate which mode to use for advertisement. The options are DEFAULT or CUSTOM. */
+            advertiseMode?: string;
             /**
              * Local BGP Autonomous System Number (ASN). Must be an RFC6996 private ASN, either 16-bit or 32-bit. The value will be fixed for this router resource.
              * All VPN tunnels that link to this router will have the same local ASN.
@@ -7995,8 +7995,6 @@ declare namespace gapi.client {
             asn?: number;
         }
         interface RouterBgpPeer {
-            /** User-specified flag to indicate which mode to use for advertisement. */
-            advertiseMode?: string;
             /**
              * User-specified list of prefix groups to advertise in custom mode, which can take one of the following options:
              * - ALL_SUBNETS: Advertises all available subnets, including peer VPC subnets.
@@ -8017,6 +8015,8 @@ declare namespace gapi.client {
              * value win.
              */
             advertisedRoutePriority?: number;
+            /** User-specified flag to indicate which mode to use for advertisement. */
+            advertiseMode?: string;
             /** Name of the interface the BGP peer is associated with. */
             interfaceName?: string;
             /** IP address of the interface inside Google Cloud Platform. Only IPv4 is supported. */
@@ -8180,6 +8180,36 @@ declare namespace gapi.client {
              */
             sourceIpRangesToNat?: string[];
         }
+        interface RoutersPreviewResponse {
+            /** Preview of given router. */
+            resource?: Router;
+        }
+        interface RoutersScopedList {
+            /** A list of routers contained in this scope. */
+            routers?: Router[];
+            /** Informational warning which replaces the list of routers when the list is empty. */
+            warning?: {
+                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
+                code?: string;
+                /**
+                 * [Output Only] Metadata about this warning in key: value format. For example:
+                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+                 */
+                data?: Array<{
+                    /**
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
+                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
+                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
+                     * for IP forwarding).
+                     */
+                    key?: string;
+                    /** [Output Only] A warning data value corresponding to the key. */
+                    value?: string;
+                }>;
+                /** [Output Only] A human-readable description of the warning code. */
+                message?: string;
+            };
+        }
         interface RouterStatus {
             /** Best routes for this router's network. */
             bestRoutes?: Route[];
@@ -8238,36 +8268,6 @@ declare namespace gapi.client {
             kind?: string;
             result?: RouterStatus;
         }
-        interface RoutersPreviewResponse {
-            /** Preview of given router. */
-            resource?: Router;
-        }
-        interface RoutersScopedList {
-            /** A list of routers contained in this scope. */
-            routers?: Router[];
-            /** Informational warning which replaces the list of routers when the list is empty. */
-            warning?: {
-                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
-                code?: string;
-                /**
-                 * [Output Only] Metadata about this warning in key: value format. For example:
-                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
-                 */
-                data?: Array<{
-                    /**
-                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
-                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
-                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
-                     * for IP forwarding).
-                     */
-                    key?: string;
-                    /** [Output Only] A warning data value corresponding to the key. */
-                    value?: string;
-                }>;
-                /** [Output Only] A human-readable description of the warning code. */
-                message?: string;
-            };
-        }
         interface Rule {
             /** Required */
             action?: string;
@@ -8286,35 +8286,6 @@ declare namespace gapi.client {
              * 'storage.buckets.&#42;') matches all verbs.
              */
             permissions?: string[];
-        }
-        interface SSLHealthCheck {
-            /** The TCP port number for the health check request. The default value is 443. Valid values are 1 through 65535. */
-            port?: number;
-            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
-            portName?: string;
-            /**
-             * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in port is used for health checking.
-             * USE_NAMED_PORT: The portName is used for health checking.
-             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
-             * named port specified in the Backend Service is used for health checking.
-             *
-             *
-             * If not specified, SSL health check follows behavior specified in port and portName fields.
-             */
-            portSpecification?: string;
-            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
-            proxyHeader?: string;
-            /**
-             * The application data to send once the SSL connection has been established (default value is empty). If both request and response are empty, the
-             * connection establishment alone will indicate health. The request data can only be ASCII.
-             */
-            request?: string;
-            /**
-             * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data
-             * can only be ASCII.
-             */
-            response?: string;
         }
         interface Scheduling {
             /**
@@ -8761,6 +8732,35 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
+        interface SSLHealthCheck {
+            /** The TCP port number for the health check request. The default value is 443. Valid values are 1 through 65535. */
+            port?: number;
+            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
+            portName?: string;
+            /**
+             * Specifies how port is selected for health checking, can be one of following values:
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
+             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
+             * named port specified in the Backend Service is used for health checking.
+             *
+             *
+             * If not specified, SSL health check follows behavior specified in port and portName fields.
+             */
+            portSpecification?: string;
+            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
+            proxyHeader?: string;
+            /**
+             * The application data to send once the SSL connection has been established (default value is empty). If both request and response are empty, the
+             * connection establishment alone will indicate health. The request data can only be ASCII.
+             */
+            request?: string;
+            /**
+             * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data
+             * can only be ASCII.
+             */
+            response?: string;
+        }
         interface SslPoliciesList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -9093,35 +9093,6 @@ declare namespace gapi.client {
         }
         interface SubnetworksSetPrivateIpGoogleAccessRequest {
             privateIpGoogleAccess?: boolean;
-        }
-        interface TCPHealthCheck {
-            /** The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535. */
-            port?: number;
-            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
-            portName?: string;
-            /**
-             * Specifies how port is selected for health checking, can be one of following values:
-             * USE_FIXED_PORT: The port number in port is used for health checking.
-             * USE_NAMED_PORT: The portName is used for health checking.
-             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
-             * named port specified in the Backend Service is used for health checking.
-             *
-             *
-             * If not specified, TCP health check follows behavior specified in port and portName fields.
-             */
-            portSpecification?: string;
-            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
-            proxyHeader?: string;
-            /**
-             * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the
-             * connection establishment alone will indicate health. The request data can only be ASCII.
-             */
-            request?: string;
-            /**
-             * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data
-             * can only be ASCII.
-             */
-            response?: string;
         }
         interface Tags {
             /**
@@ -10013,6 +9984,35 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
+        interface TCPHealthCheck {
+            /** The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535. */
+            port?: number;
+            /** Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence. */
+            portName?: string;
+            /**
+             * Specifies how port is selected for health checking, can be one of following values:
+             * USE_FIXED_PORT: The port number in port is used for health checking.
+             * USE_NAMED_PORT: The portName is used for health checking.
+             * USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or
+             * named port specified in the Backend Service is used for health checking.
+             *
+             *
+             * If not specified, TCP health check follows behavior specified in port and portName fields.
+             */
+            portSpecification?: string;
+            /** Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE. */
+            proxyHeader?: string;
+            /**
+             * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the
+             * connection establishment alone will indicate health. The request data can only be ASCII.
+             */
+            request?: string;
+            /**
+             * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data
+             * can only be ASCII.
+             */
+            response?: string;
+        }
         interface TestFailure {
             actualService?: string;
             expectedService?: string;
@@ -10133,24 +10133,6 @@ declare namespace gapi.client {
         interface UrlMapReference {
             urlMap?: string;
         }
-        interface UrlMapTest {
-            /** Description of this test case. */
-            description?: string;
-            /** Host portion of the URL. */
-            host?: string;
-            /** Path portion of the URL. */
-            path?: string;
-            /** Expected BackendService resource the given URL should be mapped to. */
-            service?: string;
-        }
-        interface UrlMapValidationResult {
-            loadErrors?: string[];
-            /** Whether the given UrlMap can be successfully loaded. If false, 'loadErrors' indicates the reasons. */
-            loadSucceeded?: boolean;
-            testFailures?: TestFailure[];
-            /** If successfully loaded, this field indicates whether the test passed. If false, 'testFailures's indicate the reason of failure. */
-            testPassed?: boolean;
-        }
         interface UrlMapsAggregatedList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -10222,6 +10204,24 @@ declare namespace gapi.client {
         interface UrlMapsValidateResponse {
             result?: UrlMapValidationResult;
         }
+        interface UrlMapTest {
+            /** Description of this test case. */
+            description?: string;
+            /** Host portion of the URL. */
+            host?: string;
+            /** Path portion of the URL. */
+            path?: string;
+            /** Expected BackendService resource the given URL should be mapped to. */
+            service?: string;
+        }
+        interface UrlMapValidationResult {
+            loadErrors?: string[];
+            /** Whether the given UrlMap can be successfully loaded. If false, 'loadErrors' indicates the reasons. */
+            loadSucceeded?: boolean;
+            testFailures?: TestFailure[];
+            /** If successfully loaded, this field indicates whether the test passed. If false, 'testFailures's indicate the reason of failure. */
+            testPassed?: boolean;
+        }
         interface UrlRewrite {
             /**
              * Prior to forwarding the request to the selected service, the request's host header is replaced with contents of hostRewrite.
@@ -10243,15 +10243,6 @@ declare namespace gapi.client {
             secondaryIpRanges?: UsableSubnetworkSecondaryRange[];
             /** Subnetwork URL. */
             subnetwork?: string;
-        }
-        interface UsableSubnetworkSecondaryRange {
-            /** The range of IP addresses belonging to this subnetwork secondary range. */
-            ipCidrRange?: string;
-            /**
-             * The name associated with this subnetwork secondary range, used when adding an alias IP range to a VM instance. The name must be 1-63 characters long,
-             * and comply with RFC1035. The name must be unique within the subnetwork.
-             */
-            rangeName?: string;
         }
         interface UsableSubnetworksAggregatedList {
             /** [Output Only] The unique identifier for the resource. This identifier is defined by the server. */
@@ -10290,6 +10281,15 @@ declare namespace gapi.client {
                 /** [Output Only] A human-readable description of the warning code. */
                 message?: string;
             };
+        }
+        interface UsableSubnetworkSecondaryRange {
+            /** The range of IP addresses belonging to this subnetwork secondary range. */
+            ipCidrRange?: string;
+            /**
+             * The name associated with this subnetwork secondary range, used when adding an alias IP range to a VM instance. The name must be 1-63 characters long,
+             * and comply with RFC1035. The name must be unique within the subnetwork.
+             */
+            rangeName?: string;
         }
         interface UsageExportLocation {
             /**
@@ -10484,6 +10484,35 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
+        interface VpnGatewaysGetStatusResponse {
+            result?: VpnGatewayStatus;
+        }
+        interface VpnGatewaysScopedList {
+            /** [Output Only] A list of VPN gateways contained in this scope. */
+            vpnGateways?: VpnGateway[];
+            /** [Output Only] Informational warning which replaces the list of addresses when the list is empty. */
+            warning?: {
+                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
+                code?: string;
+                /**
+                 * [Output Only] Metadata about this warning in key: value format. For example:
+                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+                 */
+                data?: Array<{
+                    /**
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
+                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
+                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
+                     * for IP forwarding).
+                     */
+                    key?: string;
+                    /** [Output Only] A warning data value corresponding to the key. */
+                    value?: string;
+                }>;
+                /** [Output Only] A human-readable description of the warning code. */
+                message?: string;
+            };
+        }
         interface VpnGatewayStatus {
             /** List of VPN connection for this VpnGateway. */
             vpnConnections?: VpnGatewayStatusVpnConnection[];
@@ -10526,35 +10555,6 @@ declare namespace gapi.client {
             id?: number;
             /** The external IP address for this VPN gateway interface. */
             ipAddress?: string;
-        }
-        interface VpnGatewaysGetStatusResponse {
-            result?: VpnGatewayStatus;
-        }
-        interface VpnGatewaysScopedList {
-            /** [Output Only] A list of VPN gateways contained in this scope. */
-            vpnGateways?: VpnGateway[];
-            /** [Output Only] Informational warning which replaces the list of addresses when the list is empty. */
-            warning?: {
-                /** [Output Only] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response. */
-                code?: string;
-                /**
-                 * [Output Only] Metadata about this warning in key: value format. For example:
-                 * "data": [ { "key": "scope", "value": "zones/us-east1-d" }
-                 */
-                data?: Array<{
-                    /**
-                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
-                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
-                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
-                     * for IP forwarding).
-                     */
-                    key?: string;
-                    /** [Output Only] A warning data value corresponding to the key. */
-                    value?: string;
-                }>;
-                /** [Output Only] A human-readable description of the warning code. */
-                message?: string;
-            };
         }
         interface VpnTunnel {
             /** [Output Only] Creation timestamp in RFC3339 text format. */
@@ -12582,133 +12582,6 @@ declare namespace gapi.client {
             },
             body: BackendService): Request<Operation>;
         }
-        interface DiskTypesResource {
-            /** Retrieves an aggregated list of disk types. */
-            aggregatedList(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
-                 *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
-                 *
-                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
-                 *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
-                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
-                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
-                 */
-                filter?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
-                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
-                 */
-                maxResults?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
-                 *
-                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
-                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
-                 *
-                 * Currently, only sorting by name or creationTimestamp desc is supported.
-                 */
-                orderBy?: string;
-                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<DiskTypeAggregatedList>;
-            /** Returns the specified disk type. Gets a list of available disk types by making a list() request. */
-            get(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Name of the disk type to return. */
-                diskType: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** The name of the zone for this request. */
-                zone: string;
-            }): Request<DiskType>;
-            /** Retrieves a list of disk types available to the specified project. */
-            list(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
-                 *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
-                 *
-                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
-                 *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
-                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
-                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
-                 */
-                filter?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
-                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
-                 */
-                maxResults?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
-                 *
-                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
-                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
-                 *
-                 * Currently, only sorting by name or creationTimestamp desc is supported.
-                 */
-                orderBy?: string;
-                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** The name of the zone for this request. */
-                zone: string;
-            }): Request<DiskTypeList>;
-        }
         interface DisksResource {
             /** Adds existing resource policies to a disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. */
             addResourcePolicies(request: {
@@ -13342,6 +13215,133 @@ declare namespace gapi.client {
                 zone: string;
             },
             body: TestPermissionsRequest): Request<TestPermissionsResponse>;
+        }
+        interface DiskTypesResource {
+            /** Retrieves an aggregated list of disk types. */
+            aggregatedList(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
+                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+                 *
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
+                 *
+                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
+                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 *
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
+                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
+                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+                 */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+                 *
+                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
+                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
+                 * is returned first.
+                 *
+                 * Currently, only sorting by name or creationTimestamp desc is supported.
+                 */
+                orderBy?: string;
+                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<DiskTypeAggregatedList>;
+            /** Returns the specified disk type. Gets a list of available disk types by making a list() request. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Name of the disk type to return. */
+                diskType: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** The name of the zone for this request. */
+                zone: string;
+            }): Request<DiskType>;
+            /** Retrieves a list of disk types available to the specified project. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
+                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+                 *
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
+                 *
+                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
+                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 *
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
+                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
+                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+                 */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+                 *
+                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
+                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
+                 * is returned first.
+                 *
+                 * Currently, only sorting by name or creationTimestamp desc is supported.
+                 */
+                orderBy?: string;
+                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** The name of the zone for this request. */
+                zone: string;
+            }): Request<DiskTypeList>;
         }
         interface ExternalVpnGatewaysResource {
             /** Deletes the specified externalVpnGateway. */
@@ -17620,244 +17620,6 @@ declare namespace gapi.client {
             },
             body: InstanceGroupsSetNamedPortsRequest): Request<Operation>;
         }
-        interface InstanceTemplatesResource {
-            /**
-             * Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that
-             * are already in use by a managed instance group.
-             */
-            delete(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** The name of the instance template to delete. */
-                instanceTemplate: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
-                 * request if it has already been completed.
-                 *
-                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
-                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
-                 * accidentally creating duplicate commitments.
-                 *
-                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<Operation>;
-            /** Returns the specified instance template. Gets a list of available instance templates by making a list() request. */
-            get(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** The name of the instance template. */
-                instanceTemplate: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<InstanceTemplate>;
-            /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Name or id of the resource for this request. */
-                resource: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<Policy>;
-            /**
-             * Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an
-             * existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.
-             */
-            insert(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
-                 * request if it has already been completed.
-                 *
-                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
-                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
-                 * accidentally creating duplicate commitments.
-                 *
-                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: InstanceTemplate;
-            }): Request<Operation>;
-            insert(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
-                 * request if it has already been completed.
-                 *
-                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
-                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
-                 * accidentally creating duplicate commitments.
-                 *
-                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: InstanceTemplate): Request<Operation>;
-            /** Retrieves a list of instance templates that are contained within the specified project. */
-            list(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
-                 *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
-                 *
-                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
-                 *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
-                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
-                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
-                 */
-                filter?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
-                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
-                 */
-                maxResults?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
-                 *
-                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
-                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
-                 *
-                 * Currently, only sorting by name or creationTimestamp desc is supported.
-                 */
-                orderBy?: string;
-                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<InstanceTemplateList>;
-            /** Sets the access control policy on the specified resource. Replaces any existing policy. */
-            setIamPolicy(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Name or id of the resource for this request. */
-                resource: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: GlobalSetPolicyRequest): Request<Policy>;
-            /** Returns permissions that a caller has on the specified resource. */
-            testIamPermissions(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Name or id of the resource for this request. */
-                resource: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: TestPermissionsRequest): Request<TestPermissionsResponse>;
-        }
         interface InstancesResource {
             /** Adds an access config to an instance's network interface. */
             addAccessConfig(request: {
@@ -19738,6 +19500,244 @@ declare namespace gapi.client {
                 zone: string;
             },
             body: ShieldedInstanceConfig): Request<Operation>;
+        }
+        interface InstanceTemplatesResource {
+            /**
+             * Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that
+             * are already in use by a managed instance group.
+             */
+            delete(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** The name of the instance template to delete. */
+                instanceTemplate: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<Operation>;
+            /** Returns the specified instance template. Gets a list of available instance templates by making a list() request. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** The name of the instance template. */
+                instanceTemplate: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<InstanceTemplate>;
+            /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
+            getIamPolicy(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name or id of the resource for this request. */
+                resource: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<Policy>;
+            /**
+             * Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an
+             * existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.
+             */
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: InstanceTemplate;
+            }): Request<Operation>;
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the
+                 * request if it has already been completed.
+                 *
+                 * For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID,
+                 * the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from
+                 * accidentally creating duplicate commitments.
+                 *
+                 * The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: InstanceTemplate): Request<Operation>;
+            /** Retrieves a list of instance templates that are contained within the specified project. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
+                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+                 *
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
+                 *
+                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
+                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 *
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
+                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
+                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+                 */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+                 *
+                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
+                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
+                 * is returned first.
+                 *
+                 * Currently, only sorting by name or creationTimestamp desc is supported.
+                 */
+                orderBy?: string;
+                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<InstanceTemplateList>;
+            /** Sets the access control policy on the specified resource. Replaces any existing policy. */
+            setIamPolicy(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name or id of the resource for this request. */
+                resource: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: GlobalSetPolicyRequest): Request<Policy>;
+            /** Returns permissions that a caller has on the specified resource. */
+            testIamPermissions(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name or id of the resource for this request. */
+                resource: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: TestPermissionsRequest): Request<TestPermissionsResponse>;
         }
         interface InterconnectAttachmentsResource {
             /** Retrieves an aggregated list of interconnect attachments. */
@@ -24708,83 +24708,6 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<CommitmentList>;
         }
-        interface RegionDiskTypesResource {
-            /** Returns the specified regional disk type. Gets a list of available disk types by making a list() request. */
-            get(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Name of the disk type to return. */
-                diskType: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The name of the region for this request. */
-                region: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<DiskType>;
-            /** Retrieves a list of regional disk types available to the specified project. */
-            list(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
-                 *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
-                 *
-                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
-                 *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
-                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
-                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
-                 */
-                filter?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
-                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
-                 */
-                maxResults?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
-                 *
-                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
-                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
-                 *
-                 * Currently, only sorting by name or creationTimestamp desc is supported.
-                 */
-                orderBy?: string;
-                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The name of the region for this request. */
-                region: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<RegionDiskTypeList>;
-        }
         interface RegionDisksResource {
             /** Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. */
             addResourcePolicies(request: {
@@ -25307,6 +25230,83 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: TestPermissionsRequest): Request<TestPermissionsResponse>;
+        }
+        interface RegionDiskTypesResource {
+            /** Returns the specified regional disk type. Gets a list of available disk types by making a list() request. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Name of the disk type to return. */
+                diskType: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. */
+                region: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<DiskType>;
+            /** Retrieves a list of regional disk types available to the specified project. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
+                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+                 *
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
+                 *
+                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
+                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 *
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
+                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
+                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+                 */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+                 *
+                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
+                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
+                 * is returned first.
+                 *
+                 * Currently, only sorting by name or creationTimestamp desc is supported.
+                 */
+                orderBy?: string;
+                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. */
+                region: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<RegionDiskTypeList>;
         }
         interface RegionHealthChecksResource {
             /** Deletes the specified HealthCheck resource. */
@@ -26831,6 +26831,79 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
         }
+        interface RegionsResource {
+            /** Returns the specified Region resource. Gets a list of available regions by making a list() request. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region resource to return. */
+                region: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<Region>;
+            /** Retrieves the list of region resources available to the specified project. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
+                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
+                 *
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
+                 *
+                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
+                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 *
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
+                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
+                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+                 */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+                 *
+                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
+                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
+                 * is returned first.
+                 *
+                 * Currently, only sorting by name or creationTimestamp desc is supported.
+                 */
+                orderBy?: string;
+                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<RegionList>;
+        }
         interface RegionSslCertificatesResource {
             /** Deletes the specified SslCertificate resource in the region. */
             delete(request: {
@@ -27876,79 +27949,6 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: RegionUrlMapsValidateRequest): Request<UrlMapsValidateResponse>;
-        }
-        interface RegionsResource {
-            /** Returns the specified Region resource. Gets a list of available regions by making a list() request. */
-            get(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Name of the region resource to return. */
-                region: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<Region>;
-            /** Retrieves the list of region resources available to the specified project. */
-            list(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <.
-                 *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named example-instance by specifying name != example-instance.
-                 *
-                 * You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
-                 *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
-                 * = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example,
-                 * (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
-                 */
-                filter?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a
-                 * nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
-                 */
-                maxResults?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
-                 *
-                 * You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the
-                 * creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
-                 *
-                 * Currently, only sorting by name or creationTimestamp desc is supported.
-                 */
-                orderBy?: string;
-                /** Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID for this request. */
-                project: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<RegionList>;
         }
         interface ReservationsResource {
             /** Retrieves an aggregated list of reservations. */
@@ -34725,9 +34725,9 @@ declare namespace gapi.client {
 
         const backendServices: BackendServicesResource;
 
-        const diskTypes: DiskTypesResource;
-
         const disks: DisksResource;
+
+        const diskTypes: DiskTypesResource;
 
         const externalVpnGateways: ExternalVpnGatewaysResource;
 
@@ -34753,9 +34753,9 @@ declare namespace gapi.client {
 
         const instanceGroups: InstanceGroupsResource;
 
-        const instanceTemplates: InstanceTemplatesResource;
-
         const instances: InstancesResource;
+
+        const instanceTemplates: InstanceTemplatesResource;
 
         const interconnectAttachments: InterconnectAttachmentsResource;
 
@@ -34789,9 +34789,9 @@ declare namespace gapi.client {
 
         const regionCommitments: RegionCommitmentsResource;
 
-        const regionDiskTypes: RegionDiskTypesResource;
-
         const regionDisks: RegionDisksResource;
+
+        const regionDiskTypes: RegionDiskTypesResource;
 
         const regionHealthChecks: RegionHealthChecksResource;
 
@@ -34801,6 +34801,8 @@ declare namespace gapi.client {
 
         const regionOperations: RegionOperationsResource;
 
+        const regions: RegionsResource;
+
         const regionSslCertificates: RegionSslCertificatesResource;
 
         const regionTargetHttpProxies: RegionTargetHttpProxiesResource;
@@ -34808,8 +34810,6 @@ declare namespace gapi.client {
         const regionTargetHttpsProxies: RegionTargetHttpsProxiesResource;
 
         const regionUrlMaps: RegionUrlMapsResource;
-
-        const regions: RegionsResource;
 
         const reservations: ReservationsResource;
 

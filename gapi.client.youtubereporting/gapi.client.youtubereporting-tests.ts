@@ -40,6 +40,12 @@ gapi.load('client', () => {
             reportTypeId: "Test string",
             systemManaged: true,
         });
+        /** Gets the metadata of a specific report. */
+        await gapi.client.youtubereporting.jobs.reports.get({
+            jobId: "Test string",
+            onBehalfOfContentOwner: "Test string",
+            reportId: "Test string",
+        });
         /**
          * Lists reports created by a specific job.
          * Returns NOT_FOUND if the job does not exist.
@@ -52,18 +58,18 @@ gapi.load('client', () => {
             pageToken: "Test string",
             startTimeAtOrAfter: "Test string",
             startTimeBefore: "Test string",
-        });
-        /** Gets the metadata of a specific report. */
-        await gapi.client.youtubereporting.jobs.reports.get({
-            jobId: "Test string",
-            onBehalfOfContentOwner: "Test string",
-            reportId: "Test string",
         });
         /** Deletes a job. */
         await gapi.client.youtubereporting.jobs.delete({
             jobId: "Test string",
             onBehalfOfContentOwner: "Test string",
         });
+        /** Gets the metadata of a specific report. */
+        await gapi.client.youtubereporting.jobs.reports.get({
+            jobId: "Test string",
+            onBehalfOfContentOwner: "Test string",
+            reportId: "Test string",
+        });
         /**
          * Lists reports created by a specific job.
          * Returns NOT_FOUND if the job does not exist.
@@ -76,18 +82,18 @@ gapi.load('client', () => {
             pageToken: "Test string",
             startTimeAtOrAfter: "Test string",
             startTimeBefore: "Test string",
-        });
-        /** Gets the metadata of a specific report. */
-        await gapi.client.youtubereporting.jobs.reports.get({
-            jobId: "Test string",
-            onBehalfOfContentOwner: "Test string",
-            reportId: "Test string",
         });
         /** Gets a job. */
         await gapi.client.youtubereporting.jobs.get({
             jobId: "Test string",
             onBehalfOfContentOwner: "Test string",
         });
+        /** Gets the metadata of a specific report. */
+        await gapi.client.youtubereporting.jobs.reports.get({
+            jobId: "Test string",
+            onBehalfOfContentOwner: "Test string",
+            reportId: "Test string",
+        });
         /**
          * Lists reports created by a specific job.
          * Returns NOT_FOUND if the job does not exist.
@@ -100,12 +106,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             startTimeAtOrAfter: "Test string",
             startTimeBefore: "Test string",
-        });
-        /** Gets the metadata of a specific report. */
-        await gapi.client.youtubereporting.jobs.reports.get({
-            jobId: "Test string",
-            onBehalfOfContentOwner: "Test string",
-            reportId: "Test string",
         });
         /** Lists jobs. */
         await gapi.client.youtubereporting.jobs.list({
@@ -114,6 +114,12 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /** Gets the metadata of a specific report. */
+        await gapi.client.youtubereporting.jobs.reports.get({
+            jobId: "Test string",
+            onBehalfOfContentOwner: "Test string",
+            reportId: "Test string",
+        });
         /**
          * Lists reports created by a specific job.
          * Returns NOT_FOUND if the job does not exist.
@@ -126,12 +132,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             startTimeAtOrAfter: "Test string",
             startTimeBefore: "Test string",
-        });
-        /** Gets the metadata of a specific report. */
-        await gapi.client.youtubereporting.jobs.reports.get({
-            jobId: "Test string",
-            onBehalfOfContentOwner: "Test string",
-            reportId: "Test string",
         });
         /**
          * Method for media download. Download is supported

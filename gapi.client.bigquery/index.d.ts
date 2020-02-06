@@ -373,12 +373,6 @@ declare namespace gapi.client {
              */
             skipLeadingRows?: string;
         }
-        interface DataSplitResult {
-            /** Table reference of the evaluation data after split. */
-            evaluationTable?: TableReference;
-            /** Table reference of the training data after split. */
-            trainingTable?: TableReference;
-        }
         interface Dataset {
             /**
              * [Optional] An array of objects that define dataset access for one or more entities. You can set this property when inserting or updating a dataset in
@@ -501,6 +495,12 @@ declare namespace gapi.client {
             datasetId?: string;
             /** [Optional] The ID of the project containing this dataset. */
             projectId?: string;
+        }
+        interface DataSplitResult {
+            /** Table reference of the evaluation data after split. */
+            evaluationTable?: TableReference;
+            /** Table reference of the training data after split. */
+            trainingTable?: TableReference;
         }
         interface DestinationTableProperties {
             /**
@@ -1168,6 +1168,11 @@ declare namespace gapi.client {
             query?: JobStatistics2;
             /** [Output-only] Quotas which delayed this job's start time. */
             quotaDeferments?: string[];
+            /**
+             * [Output-only] Name of the primary reservation assigned to this job. Note that this could be different than reservations reported in the reservation
+             * usage field if parent reservations were used to execute this job.
+             */
+            reservation_id?: string;
             /** [Output-only] Job resource usage breakdown by reservation. */
             reservationUsage?: Array<{
                 /** [Output-only] Reservation name or "unreserved" for on-demand resources usage. */
@@ -1175,11 +1180,6 @@ declare namespace gapi.client {
                 /** [Output-only] Slot-milliseconds the job spent in the given reservation. */
                 slotMs?: string;
             }>;
-            /**
-             * [Output-only] Name of the primary reservation assigned to this job. Note that this could be different than reservations reported in the reservation
-             * usage field if parent reservations were used to execute this job.
-             */
-            reservation_id?: string;
             /** [Output-only] Statistics for a child job of a script. */
             scriptStatistics?: ScriptStatistics;
             /**

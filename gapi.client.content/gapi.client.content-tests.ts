@@ -89,8 +89,8 @@ gapi.load('client', () => {
                     force: true,
                     linkRequest: {
                         action: "Test string",
-                        linkType: "Test string",
                         linkedAccountId: "Test string",
+                        linkType: "Test string",
                         services: [
                             "Test string"                        ],
                     },
@@ -164,8 +164,8 @@ gapi.load('client', () => {
             merchantId: "Test string",
         }, {
             action: "Test string",
-            linkType: "Test string",
             linkedAccountId: "Test string",
+            linkType: "Test string",
             services: [
                 "Test string"            ],
         });
@@ -1319,10 +1319,10 @@ gapi.load('client', () => {
                             unit: "Test string",
                             value: 42,
                         },
-                        sizeSystem: "Test string",
-                        sizeType: "Test string",
                         sizes: [
                             "Test string"                        ],
+                        sizeSystem: "Test string",
+                        sizeType: "Test string",
                         source: "Test string",
                         targetCountry: "Test string",
                         taxCategory: "Test string",
@@ -1487,10 +1487,10 @@ gapi.load('client', () => {
                 unit: "Test string",
                 value: 42,
             },
-            sizeSystem: "Test string",
-            sizeType: "Test string",
             sizes: [
                 "Test string"            ],
+            sizeSystem: "Test string",
+            sizeType: "Test string",
             source: "Test string",
             targetCountry: "Test string",
             taxCategory: "Test string",

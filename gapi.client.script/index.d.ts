@@ -435,10 +435,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * Optional field used to limit returned processes to those originating from
                  * projects with a specific deployment ID.
@@ -555,10 +555,10 @@ declare namespace gapi.client {
                  * the specified user access levels.
                  */
                 "scriptProcessFilter.userAccessLevels"?: string | string[];
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListScriptProcessesResponse>;
         }
         interface DeploymentsResource {
@@ -584,10 +584,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: DeploymentConfig;
             }): Request<Deployment>;
@@ -612,10 +612,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: DeploymentConfig): Request<Deployment>;
             /** Deletes a deployment of an Apps Script project. */
@@ -642,10 +642,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<{}>;
             /** Gets a deployment of an Apps Script project. */
             get(request: {
@@ -671,10 +671,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Deployment>;
             /** Lists the deployments of an Apps Script project. */
             list(request: {
@@ -705,10 +705,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListDeploymentsResponse>;
             /** Updates a deployment of an Apps Script project. */
             update(request: {
@@ -734,10 +734,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: UpdateDeploymentRequest;
             }): Request<Deployment>;
@@ -764,10 +764,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: UpdateDeploymentRequest): Request<Deployment>;
         }
@@ -797,10 +797,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Version;
             }): Request<Version>;
@@ -825,10 +825,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Version): Request<Version>;
             /** Gets a version of a script project. */
@@ -853,10 +853,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The version number. */
                 versionNumber: number;
             }): Request<Version>;
@@ -889,10 +889,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListVersionsResponse>;
         }
         interface ProjectsResource {
@@ -919,10 +919,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CreateProjectRequest;
             }): Request<Project>;
@@ -945,10 +945,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CreateProjectRequest): Request<Project>;
             /** Gets a script project's metadata. */
@@ -973,10 +973,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Project>;
             /**
              * Gets the content of the script project, including the code source and
@@ -1003,10 +1003,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * The version number of the project to retrieve. If not provided, the
                  * project's HEAD version is returned.
@@ -1042,10 +1042,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Required field indicating the script to get metrics for. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Metrics>;
             /**
              * Updates the content of the specified script project.
@@ -1075,10 +1075,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Content;
             }): Request<Content>;
@@ -1103,10 +1103,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** The script project's Drive ID. */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Content): Request<Content>;
             deployments: DeploymentsResource;
@@ -1154,10 +1154,10 @@ declare namespace gapi.client {
                  * the project in the script editor and select &#42;&#42;File > Project properties&#42;&#42;.
                  */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: ExecutionRequest;
             }): Request<Operation>;
@@ -1185,10 +1185,10 @@ declare namespace gapi.client {
                  * the project in the script editor and select &#42;&#42;File > Project properties&#42;&#42;.
                  */
                 scriptId: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: ExecutionRequest): Request<Operation>;
         }

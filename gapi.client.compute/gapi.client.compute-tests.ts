@@ -749,29 +749,6 @@ gapi.load('client', () => {
             sessionAffinity: "Test string",
             timeoutSec: 42,
         });
-        /** Retrieves an aggregated list of disk types. */
-        await gapi.client.compute.diskTypes.aggregatedList({
-            filter: "Test string",
-            maxResults: 42,
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-        });
-        /** Returns the specified disk type. Gets a list of available disk types by making a list() request. */
-        await gapi.client.compute.diskTypes.get({
-            diskType: "Test string",
-            project: "Test string",
-            zone: "Test string",
-        });
-        /** Retrieves a list of disk types available to the specified project. */
-        await gapi.client.compute.diskTypes.list({
-            filter: "Test string",
-            maxResults: 42,
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-            zone: "Test string",
-        });
         /** Adds existing resource policies to a disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. */
         await gapi.client.compute.disks.addResourcePolicies({
             disk: "Test string",
@@ -1056,6 +1033,29 @@ gapi.load('client', () => {
             permissions: [
                 "Test string"            ],
         });
+        /** Retrieves an aggregated list of disk types. */
+        await gapi.client.compute.diskTypes.aggregatedList({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+        });
+        /** Returns the specified disk type. Gets a list of available disk types by making a list() request. */
+        await gapi.client.compute.diskTypes.get({
+            diskType: "Test string",
+            project: "Test string",
+            zone: "Test string",
+        });
+        /** Retrieves a list of disk types available to the specified project. */
+        await gapi.client.compute.diskTypes.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            zone: "Test string",
+        });
         /** Deletes the specified externalVpnGateway. */
         await gapi.client.compute.externalVpnGateways.delete({
             externalVpnGateway: "Test string",
@@ -1296,15 +1296,15 @@ gapi.load('client', () => {
             region: "Test string",
             requestId: "Test string",
         }, {
-            IPAddress: "Test string",
-            IPProtocol: "Test string",
-            allPorts: true,
             allowGlobalAccess: true,
+            allPorts: true,
             backendService: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             fingerprint: "Test string",
             id: "Test string",
+            IPAddress: "Test string",
+            IPProtocol: "Test string",
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
@@ -1350,15 +1350,15 @@ gapi.load('client', () => {
             region: "Test string",
             requestId: "Test string",
         }, {
-            IPAddress: "Test string",
-            IPProtocol: "Test string",
-            allPorts: true,
             allowGlobalAccess: true,
+            allPorts: true,
             backendService: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             fingerprint: "Test string",
             id: "Test string",
+            IPAddress: "Test string",
+            IPProtocol: "Test string",
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
@@ -1453,15 +1453,15 @@ gapi.load('client', () => {
             project: "Test string",
             requestId: "Test string",
         }, {
-            IPAddress: "Test string",
-            IPProtocol: "Test string",
-            allPorts: true,
             allowGlobalAccess: true,
+            allPorts: true,
             backendService: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             fingerprint: "Test string",
             id: "Test string",
+            IPAddress: "Test string",
+            IPProtocol: "Test string",
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
@@ -1505,15 +1505,15 @@ gapi.load('client', () => {
             project: "Test string",
             requestId: "Test string",
         }, {
-            IPAddress: "Test string",
-            IPProtocol: "Test string",
-            allPorts: true,
             allowGlobalAccess: true,
+            allPorts: true,
             backendService: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             fingerprint: "Test string",
             id: "Test string",
+            IPAddress: "Test string",
+            IPProtocol: "Test string",
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
@@ -2650,282 +2650,6 @@ gapi.load('client', () => {
                     port: 42,
                 }            ],
         });
-        /**
-         * Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that
-         * are already in use by a managed instance group.
-         */
-        await gapi.client.compute.instanceTemplates.delete({
-            instanceTemplate: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-        });
-        /** Returns the specified instance template. Gets a list of available instance templates by making a list() request. */
-        await gapi.client.compute.instanceTemplates.get({
-            instanceTemplate: "Test string",
-            project: "Test string",
-        });
-        /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-        await gapi.client.compute.instanceTemplates.getIamPolicy({
-            project: "Test string",
-            resource: "Test string",
-        });
-        /**
-         * Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an
-         * existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.
-         */
-        await gapi.client.compute.instanceTemplates.insert({
-            project: "Test string",
-            requestId: "Test string",
-        }, {
-            creationTimestamp: "Test string",
-            description: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            name: "Test string",
-            properties: {
-                canIpForward: true,
-                description: "Test string",
-                disks: [
-                    {
-                        autoDelete: true,
-                        boot: true,
-                        deviceName: "Test string",
-                        diskEncryptionKey: {
-                            kmsKeyName: "Test string",
-                            rawKey: "Test string",
-                            sha256: "Test string",
-                        },
-                        diskSizeGb: "Test string",
-                        guestOsFeatures: [
-                            {
-                                type: "Test string",
-                            }                        ],
-                        index: 42,
-                        initializeParams: {
-                            description: "Test string",
-                            diskName: "Test string",
-                            diskSizeGb: "Test string",
-                            diskType: "Test string",
-                            labels: {
-                                A: "Test string"                            },
-                            resourcePolicies: [
-                                "Test string"                            ],
-                            sourceImage: "Test string",
-                            sourceImageEncryptionKey: {
-                                kmsKeyName: "Test string",
-                                rawKey: "Test string",
-                                sha256: "Test string",
-                            },
-                            sourceSnapshot: "Test string",
-                            sourceSnapshotEncryptionKey: {
-                                kmsKeyName: "Test string",
-                                rawKey: "Test string",
-                                sha256: "Test string",
-                            },
-                        },
-                        interface: "Test string",
-                        kind: "Test string",
-                        licenses: [
-                            "Test string"                        ],
-                        mode: "Test string",
-                        source: "Test string",
-                        type: "Test string",
-                    }                ],
-                guestAccelerators: [
-                    {
-                        acceleratorCount: 42,
-                        acceleratorType: "Test string",
-                    }                ],
-                labels: {
-                    A: "Test string"                },
-                machineType: "Test string",
-                metadata: {
-                    fingerprint: "Test string",
-                    items: [
-                        {
-                            key: "Test string",
-                            value: "Test string",
-                        }                    ],
-                    kind: "Test string",
-                },
-                minCpuPlatform: "Test string",
-                networkInterfaces: [
-                    {
-                        accessConfigs: [
-                            {
-                                kind: "Test string",
-                                name: "Test string",
-                                natIP: "Test string",
-                                networkTier: "Test string",
-                                publicPtrDomainName: "Test string",
-                                setPublicPtr: true,
-                                type: "Test string",
-                            }                        ],
-                        aliasIpRanges: [
-                            {
-                                ipCidrRange: "Test string",
-                                subnetworkRangeName: "Test string",
-                            }                        ],
-                        fingerprint: "Test string",
-                        kind: "Test string",
-                        name: "Test string",
-                        network: "Test string",
-                        networkIP: "Test string",
-                        subnetwork: "Test string",
-                    }                ],
-                reservationAffinity: {
-                    consumeReservationType: "Test string",
-                    key: "Test string",
-                    values: [
-                        "Test string"                    ],
-                },
-                scheduling: {
-                    automaticRestart: true,
-                    nodeAffinities: [
-                        {
-                            key: "Test string",
-                            operator: "Test string",
-                            values: [
-                                "Test string"                            ],
-                        }                    ],
-                    onHostMaintenance: "Test string",
-                    preemptible: true,
-                },
-                serviceAccounts: [
-                    {
-                        email: "Test string",
-                        scopes: [
-                            "Test string"                        ],
-                    }                ],
-                shieldedInstanceConfig: {
-                    enableIntegrityMonitoring: true,
-                    enableSecureBoot: true,
-                    enableVtpm: true,
-                },
-                tags: {
-                    fingerprint: "Test string",
-                    items: [
-                        "Test string"                    ],
-                },
-            },
-            selfLink: "Test string",
-            sourceInstance: "Test string",
-            sourceInstanceParams: {
-                diskConfigs: [
-                    {
-                        autoDelete: true,
-                        customImage: "Test string",
-                        deviceName: "Test string",
-                        instantiateFrom: "Test string",
-                    }                ],
-            },
-        });
-        /** Retrieves a list of instance templates that are contained within the specified project. */
-        await gapi.client.compute.instanceTemplates.list({
-            filter: "Test string",
-            maxResults: 42,
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. */
-        await gapi.client.compute.instanceTemplates.setIamPolicy({
-            project: "Test string",
-            resource: "Test string",
-        }, {
-            bindings: [
-                {
-                    condition: {
-                        description: "Test string",
-                        expression: "Test string",
-                        location: "Test string",
-                        title: "Test string",
-                    },
-                    members: [
-                        "Test string"                    ],
-                    role: "Test string",
-                }            ],
-            etag: "Test string",
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"                                ],
-                                ignoreChildExemptions: true,
-                                logType: "Test string",
-                            }                        ],
-                        exemptedMembers: [
-                            "Test string"                        ],
-                        service: "Test string",
-                    }                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"                        ],
-                        role: "Test string",
-                    }                ],
-                etag: "Test string",
-                iamOwned: true,
-                rules: [
-                    {
-                        action: "Test string",
-                        conditions: [
-                            {
-                                iam: "Test string",
-                                op: "Test string",
-                                svc: "Test string",
-                                sys: "Test string",
-                                values: [
-                                    "Test string"                                ],
-                            }                        ],
-                        description: "Test string",
-                        ins: [
-                            "Test string"                        ],
-                        logConfigs: [
-                            {
-                                cloudAudit: {
-                                    authorizationLoggingOptions: {
-                                        permissionType: "Test string",
-                                    },
-                                    logName: "Test string",
-                                },
-                                counter: {
-                                    customFields: [
-                                        {
-                                            name: "Test string",
-                                            value: "Test string",
-                                        }                                    ],
-                                    field: "Test string",
-                                    metric: "Test string",
-                                },
-                                dataAccess: {
-                                    logMode: "Test string",
-                                },
-                            }                        ],
-                        notIns: [
-                            "Test string"                        ],
-                        permissions: [
-                            "Test string"                        ],
-                    }                ],
-                version: 42,
-            },
-        });
-        /** Returns permissions that a caller has on the specified resource. */
-        await gapi.client.compute.instanceTemplates.testIamPermissions({
-            project: "Test string",
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"            ],
-        });
         /** Adds an access config to an instance's network interface. */
         await gapi.client.compute.instances.addAccessConfig({
             instance: "Test string",
@@ -3585,6 +3309,282 @@ gapi.load('client', () => {
             enableSecureBoot: true,
             enableVtpm: true,
         });
+        /**
+         * Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that
+         * are already in use by a managed instance group.
+         */
+        await gapi.client.compute.instanceTemplates.delete({
+            instanceTemplate: "Test string",
+            project: "Test string",
+            requestId: "Test string",
+        });
+        /** Returns the specified instance template. Gets a list of available instance templates by making a list() request. */
+        await gapi.client.compute.instanceTemplates.get({
+            instanceTemplate: "Test string",
+            project: "Test string",
+        });
+        /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
+        await gapi.client.compute.instanceTemplates.getIamPolicy({
+            project: "Test string",
+            resource: "Test string",
+        });
+        /**
+         * Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an
+         * existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.
+         */
+        await gapi.client.compute.instanceTemplates.insert({
+            project: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            properties: {
+                canIpForward: true,
+                description: "Test string",
+                disks: [
+                    {
+                        autoDelete: true,
+                        boot: true,
+                        deviceName: "Test string",
+                        diskEncryptionKey: {
+                            kmsKeyName: "Test string",
+                            rawKey: "Test string",
+                            sha256: "Test string",
+                        },
+                        diskSizeGb: "Test string",
+                        guestOsFeatures: [
+                            {
+                                type: "Test string",
+                            }                        ],
+                        index: 42,
+                        initializeParams: {
+                            description: "Test string",
+                            diskName: "Test string",
+                            diskSizeGb: "Test string",
+                            diskType: "Test string",
+                            labels: {
+                                A: "Test string"                            },
+                            resourcePolicies: [
+                                "Test string"                            ],
+                            sourceImage: "Test string",
+                            sourceImageEncryptionKey: {
+                                kmsKeyName: "Test string",
+                                rawKey: "Test string",
+                                sha256: "Test string",
+                            },
+                            sourceSnapshot: "Test string",
+                            sourceSnapshotEncryptionKey: {
+                                kmsKeyName: "Test string",
+                                rawKey: "Test string",
+                                sha256: "Test string",
+                            },
+                        },
+                        interface: "Test string",
+                        kind: "Test string",
+                        licenses: [
+                            "Test string"                        ],
+                        mode: "Test string",
+                        source: "Test string",
+                        type: "Test string",
+                    }                ],
+                guestAccelerators: [
+                    {
+                        acceleratorCount: 42,
+                        acceleratorType: "Test string",
+                    }                ],
+                labels: {
+                    A: "Test string"                },
+                machineType: "Test string",
+                metadata: {
+                    fingerprint: "Test string",
+                    items: [
+                        {
+                            key: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                },
+                minCpuPlatform: "Test string",
+                networkInterfaces: [
+                    {
+                        accessConfigs: [
+                            {
+                                kind: "Test string",
+                                name: "Test string",
+                                natIP: "Test string",
+                                networkTier: "Test string",
+                                publicPtrDomainName: "Test string",
+                                setPublicPtr: true,
+                                type: "Test string",
+                            }                        ],
+                        aliasIpRanges: [
+                            {
+                                ipCidrRange: "Test string",
+                                subnetworkRangeName: "Test string",
+                            }                        ],
+                        fingerprint: "Test string",
+                        kind: "Test string",
+                        name: "Test string",
+                        network: "Test string",
+                        networkIP: "Test string",
+                        subnetwork: "Test string",
+                    }                ],
+                reservationAffinity: {
+                    consumeReservationType: "Test string",
+                    key: "Test string",
+                    values: [
+                        "Test string"                    ],
+                },
+                scheduling: {
+                    automaticRestart: true,
+                    nodeAffinities: [
+                        {
+                            key: "Test string",
+                            operator: "Test string",
+                            values: [
+                                "Test string"                            ],
+                        }                    ],
+                    onHostMaintenance: "Test string",
+                    preemptible: true,
+                },
+                serviceAccounts: [
+                    {
+                        email: "Test string",
+                        scopes: [
+                            "Test string"                        ],
+                    }                ],
+                shieldedInstanceConfig: {
+                    enableIntegrityMonitoring: true,
+                    enableSecureBoot: true,
+                    enableVtpm: true,
+                },
+                tags: {
+                    fingerprint: "Test string",
+                    items: [
+                        "Test string"                    ],
+                },
+            },
+            selfLink: "Test string",
+            sourceInstance: "Test string",
+            sourceInstanceParams: {
+                diskConfigs: [
+                    {
+                        autoDelete: true,
+                        customImage: "Test string",
+                        deviceName: "Test string",
+                        instantiateFrom: "Test string",
+                    }                ],
+            },
+        });
+        /** Retrieves a list of instance templates that are contained within the specified project. */
+        await gapi.client.compute.instanceTemplates.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+        });
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. */
+        await gapi.client.compute.instanceTemplates.setIamPolicy({
+            project: "Test string",
+            resource: "Test string",
+        }, {
+            bindings: [
+                {
+                    condition: {
+                        description: "Test string",
+                        expression: "Test string",
+                        location: "Test string",
+                        title: "Test string",
+                    },
+                    members: [
+                        "Test string"                    ],
+                    role: "Test string",
+                }            ],
+            etag: "Test string",
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                ignoreChildExemptions: true,
+                                logType: "Test string",
+                            }                        ],
+                        exemptedMembers: [
+                            "Test string"                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                iamOwned: true,
+                rules: [
+                    {
+                        action: "Test string",
+                        conditions: [
+                            {
+                                iam: "Test string",
+                                op: "Test string",
+                                svc: "Test string",
+                                sys: "Test string",
+                                values: [
+                                    "Test string"                                ],
+                            }                        ],
+                        description: "Test string",
+                        ins: [
+                            "Test string"                        ],
+                        logConfigs: [
+                            {
+                                cloudAudit: {
+                                    authorizationLoggingOptions: {
+                                        permissionType: "Test string",
+                                    },
+                                    logName: "Test string",
+                                },
+                                counter: {
+                                    customFields: [
+                                        {
+                                            name: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                    field: "Test string",
+                                    metric: "Test string",
+                                },
+                                dataAccess: {
+                                    logMode: "Test string",
+                                },
+                            }                        ],
+                        notIns: [
+                            "Test string"                        ],
+                        permissions: [
+                            "Test string"                        ],
+                    }                ],
+                version: 42,
+            },
+        });
+        /** Returns permissions that a caller has on the specified resource. */
+        await gapi.client.compute.instanceTemplates.testIamPermissions({
+            project: "Test string",
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
         /** Retrieves an aggregated list of interconnect attachments. */
         await gapi.client.compute.interconnectAttachments.aggregatedList({
             filter: "Test string",
@@ -4145,12 +4145,12 @@ gapi.load('client', () => {
             project: "Test string",
             requestId: "Test string",
         }, {
-            IPv4Range: "Test string",
             autoCreateSubnetworks: true,
             creationTimestamp: "Test string",
             description: "Test string",
             gatewayIPv4: "Test string",
             id: "Test string",
+            IPv4Range: "Test string",
             kind: "Test string",
             name: "Test string",
             peerings: [
@@ -4197,12 +4197,12 @@ gapi.load('client', () => {
             project: "Test string",
             requestId: "Test string",
         }, {
-            IPv4Range: "Test string",
             autoCreateSubnetworks: true,
             creationTimestamp: "Test string",
             description: "Test string",
             gatewayIPv4: "Test string",
             id: "Test string",
+            IPv4Range: "Test string",
             kind: "Test string",
             name: "Test string",
             peerings: [
@@ -4673,9 +4673,9 @@ gapi.load('client', () => {
             description: "Test string",
             enable: "Test string",
             filter: {
-                IPProtocols: [
-                    "Test string"                ],
                 cidrRanges: [
+                    "Test string"                ],
+                IPProtocols: [
                     "Test string"                ],
             },
             id: "Test string",
@@ -4730,9 +4730,9 @@ gapi.load('client', () => {
             description: "Test string",
             enable: "Test string",
             filter: {
-                IPProtocols: [
-                    "Test string"                ],
                 cidrRanges: [
+                    "Test string"                ],
+                IPProtocols: [
                     "Test string"                ],
             },
             id: "Test string",
@@ -5421,7 +5421,6 @@ gapi.load('client', () => {
                     selfLink: "Test string",
                     specificReservation: {
                         count: "Test string",
-                        inUseCount: "Test string",
                         instanceProperties: {
                             guestAccelerators: [
                                 {
@@ -5436,6 +5435,7 @@ gapi.load('client', () => {
                             machineType: "Test string",
                             minCpuPlatform: "Test string",
                         },
+                        inUseCount: "Test string",
                     },
                     specificReservationRequired: true,
                     status: "Test string",
@@ -5454,21 +5454,6 @@ gapi.load('client', () => {
         });
         /** Retrieves a list of commitments contained within the specified region. */
         await gapi.client.compute.regionCommitments.list({
-            filter: "Test string",
-            maxResults: 42,
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-            region: "Test string",
-        });
-        /** Returns the specified regional disk type. Gets a list of available disk types by making a list() request. */
-        await gapi.client.compute.regionDiskTypes.get({
-            diskType: "Test string",
-            project: "Test string",
-            region: "Test string",
-        });
-        /** Retrieves a list of regional disk types available to the specified project. */
-        await gapi.client.compute.regionDiskTypes.list({
             filter: "Test string",
             maxResults: 42,
             orderBy: "Test string",
@@ -5649,6 +5634,21 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
+        });
+        /** Returns the specified regional disk type. Gets a list of available disk types by making a list() request. */
+        await gapi.client.compute.regionDiskTypes.get({
+            diskType: "Test string",
+            project: "Test string",
+            region: "Test string",
+        });
+        /** Retrieves a list of regional disk types available to the specified project. */
+        await gapi.client.compute.regionDiskTypes.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            region: "Test string",
         });
         /** Deletes the specified HealthCheck resource. */
         await gapi.client.compute.regionHealthChecks.delete({
@@ -6263,6 +6263,19 @@ gapi.load('client', () => {
             operation: "Test string",
             project: "Test string",
             region: "Test string",
+        });
+        /** Returns the specified Region resource. Gets a list of available regions by making a list() request. */
+        await gapi.client.compute.regions.get({
+            project: "Test string",
+            region: "Test string",
+        });
+        /** Retrieves the list of region resources available to the specified project. */
+        await gapi.client.compute.regions.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
         });
         /** Deletes the specified SslCertificate resource in the region. */
         await gapi.client.compute.regionSslCertificates.delete({
@@ -8289,19 +8302,6 @@ gapi.load('client', () => {
                     }                ],
             },
         });
-        /** Returns the specified Region resource. Gets a list of available regions by making a list() request. */
-        await gapi.client.compute.regions.get({
-            project: "Test string",
-            region: "Test string",
-        });
-        /** Retrieves the list of region resources available to the specified project. */
-        await gapi.client.compute.regions.list({
-            filter: "Test string",
-            maxResults: 42,
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-        });
         /** Retrieves an aggregated list of reservations. */
         await gapi.client.compute.reservations.aggregatedList({
             filter: "Test string",
@@ -8344,7 +8344,6 @@ gapi.load('client', () => {
             selfLink: "Test string",
             specificReservation: {
                 count: "Test string",
-                inUseCount: "Test string",
                 instanceProperties: {
                     guestAccelerators: [
                         {
@@ -8359,6 +8358,7 @@ gapi.load('client', () => {
                     machineType: "Test string",
                     minCpuPlatform: "Test string",
                 },
+                inUseCount: "Test string",
             },
             specificReservationRequired: true,
             status: "Test string",
@@ -8710,7 +8710,6 @@ gapi.load('client', () => {
             requestId: "Test string",
         }, {
             bgp: {
-                advertiseMode: "Test string",
                 advertisedGroups: [
                     "Test string"                ],
                 advertisedIpRanges: [
@@ -8718,11 +8717,11 @@ gapi.load('client', () => {
                         description: "Test string",
                         range: "Test string",
                     }                ],
+                advertiseMode: "Test string",
                 asn: 42,
             },
             bgpPeers: [
                 {
-                    advertiseMode: "Test string",
                     advertisedGroups: [
                         "Test string"                    ],
                     advertisedIpRanges: [
@@ -8731,6 +8730,7 @@ gapi.load('client', () => {
                             range: "Test string",
                         }                    ],
                     advertisedRoutePriority: 42,
+                    advertiseMode: "Test string",
                     interfaceName: "Test string",
                     ipAddress: "Test string",
                     managementType: "Test string",
@@ -8802,7 +8802,6 @@ gapi.load('client', () => {
             router: "Test string",
         }, {
             bgp: {
-                advertiseMode: "Test string",
                 advertisedGroups: [
                     "Test string"                ],
                 advertisedIpRanges: [
@@ -8810,11 +8809,11 @@ gapi.load('client', () => {
                         description: "Test string",
                         range: "Test string",
                     }                ],
+                advertiseMode: "Test string",
                 asn: 42,
             },
             bgpPeers: [
                 {
-                    advertiseMode: "Test string",
                     advertisedGroups: [
                         "Test string"                    ],
                     advertisedIpRanges: [
@@ -8823,6 +8822,7 @@ gapi.load('client', () => {
                             range: "Test string",
                         }                    ],
                     advertisedRoutePriority: 42,
+                    advertiseMode: "Test string",
                     interfaceName: "Test string",
                     ipAddress: "Test string",
                     managementType: "Test string",
@@ -8881,7 +8881,6 @@ gapi.load('client', () => {
             router: "Test string",
         }, {
             bgp: {
-                advertiseMode: "Test string",
                 advertisedGroups: [
                     "Test string"                ],
                 advertisedIpRanges: [
@@ -8889,11 +8888,11 @@ gapi.load('client', () => {
                         description: "Test string",
                         range: "Test string",
                     }                ],
+                advertiseMode: "Test string",
                 asn: 42,
             },
             bgpPeers: [
                 {
-                    advertiseMode: "Test string",
                     advertisedGroups: [
                         "Test string"                    ],
                     advertisedIpRanges: [
@@ -8902,6 +8901,7 @@ gapi.load('client', () => {
                             range: "Test string",
                         }                    ],
                     advertisedRoutePriority: 42,
+                    advertiseMode: "Test string",
                     interfaceName: "Test string",
                     ipAddress: "Test string",
                     managementType: "Test string",
@@ -8964,7 +8964,6 @@ gapi.load('client', () => {
             router: "Test string",
         }, {
             bgp: {
-                advertiseMode: "Test string",
                 advertisedGroups: [
                     "Test string"                ],
                 advertisedIpRanges: [
@@ -8972,11 +8971,11 @@ gapi.load('client', () => {
                         description: "Test string",
                         range: "Test string",
                     }                ],
+                advertiseMode: "Test string",
                 asn: 42,
             },
             bgpPeers: [
                 {
-                    advertiseMode: "Test string",
                     advertisedGroups: [
                         "Test string"                    ],
                     advertisedIpRanges: [
@@ -8985,6 +8984,7 @@ gapi.load('client', () => {
                             range: "Test string",
                         }                    ],
                     advertisedRoutePriority: 42,
+                    advertiseMode: "Test string",
                     interfaceName: "Test string",
                     ipAddress: "Test string",
                     managementType: "Test string",

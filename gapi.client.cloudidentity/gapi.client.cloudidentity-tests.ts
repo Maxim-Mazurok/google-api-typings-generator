@@ -47,21 +47,6 @@ gapi.load('client', () => {
             parent: "Test string",
             updateTime: "Test string",
         });
-        /** Deletes a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.delete({
-            name: "Test string",
-        });
-        /** Retrieves a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.get({
-            name: "Test string",
-        });
-        /** Lists Memberships within a Group. */
-        await gapi.client.cloudidentity.groups.memberships.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
         /** Creates a Membership. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -77,6 +62,21 @@ gapi.load('client', () => {
                     name: "Test string",
                 }            ],
             updateTime: "Test string",
+        });
+        /** Deletes a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.delete({
+            name: "Test string",
+        });
+        /** Retrieves a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.get({
+            name: "Test string",
+        });
+        /** Lists Memberships within a Group. */
+        await gapi.client.cloudidentity.groups.memberships.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
         });
         /**
          * Looks up [resource
@@ -92,21 +92,6 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.groups.delete({
             name: "Test string",
         });
-        /** Deletes a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.delete({
-            name: "Test string",
-        });
-        /** Retrieves a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.get({
-            name: "Test string",
-        });
-        /** Lists Memberships within a Group. */
-        await gapi.client.cloudidentity.groups.memberships.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
         /** Creates a Membership. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -122,6 +107,21 @@ gapi.load('client', () => {
                     name: "Test string",
                 }            ],
             updateTime: "Test string",
+        });
+        /** Deletes a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.delete({
+            name: "Test string",
+        });
+        /** Retrieves a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.get({
+            name: "Test string",
+        });
+        /** Lists Memberships within a Group. */
+        await gapi.client.cloudidentity.groups.memberships.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
         });
         /**
          * Looks up [resource
@@ -137,21 +137,6 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.groups.get({
             name: "Test string",
         });
-        /** Deletes a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.delete({
-            name: "Test string",
-        });
-        /** Retrieves a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.get({
-            name: "Test string",
-        });
-        /** Lists Memberships within a Group. */
-        await gapi.client.cloudidentity.groups.memberships.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
         /** Creates a Membership. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -167,6 +152,21 @@ gapi.load('client', () => {
                     name: "Test string",
                 }            ],
             updateTime: "Test string",
+        });
+        /** Deletes a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.delete({
+            name: "Test string",
+        });
+        /** Retrieves a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.get({
+            name: "Test string",
+        });
+        /** Lists Memberships within a Group. */
+        await gapi.client.cloudidentity.groups.memberships.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
         });
         /**
          * Looks up [resource
@@ -185,21 +185,6 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         });
-        /** Deletes a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.delete({
-            name: "Test string",
-        });
-        /** Retrieves a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.get({
-            name: "Test string",
-        });
-        /** Lists Memberships within a Group. */
-        await gapi.client.cloudidentity.groups.memberships.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
         /** Creates a Membership. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -215,6 +200,21 @@ gapi.load('client', () => {
                     name: "Test string",
                 }            ],
             updateTime: "Test string",
+        });
+        /** Deletes a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.delete({
+            name: "Test string",
+        });
+        /** Retrieves a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.get({
+            name: "Test string",
+        });
+        /** Lists Memberships within a Group. */
+        await gapi.client.cloudidentity.groups.memberships.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
         });
         /**
          * Looks up [resource
@@ -235,21 +235,6 @@ gapi.load('client', () => {
             "groupKey.id": "Test string",
             "groupKey.namespace": "Test string",
         });
-        /** Deletes a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.delete({
-            name: "Test string",
-        });
-        /** Retrieves a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.get({
-            name: "Test string",
-        });
-        /** Lists Memberships within a Group. */
-        await gapi.client.cloudidentity.groups.memberships.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
         /** Creates a Membership. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -265,6 +250,21 @@ gapi.load('client', () => {
                     name: "Test string",
                 }            ],
             updateTime: "Test string",
+        });
+        /** Deletes a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.delete({
+            name: "Test string",
+        });
+        /** Retrieves a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.get({
+            name: "Test string",
+        });
+        /** Lists Memberships within a Group. */
+        await gapi.client.cloudidentity.groups.memberships.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
         });
         /**
          * Looks up [resource
@@ -294,21 +294,6 @@ gapi.load('client', () => {
             parent: "Test string",
             updateTime: "Test string",
         });
-        /** Deletes a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.delete({
-            name: "Test string",
-        });
-        /** Retrieves a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.get({
-            name: "Test string",
-        });
-        /** Lists Memberships within a Group. */
-        await gapi.client.cloudidentity.groups.memberships.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
         /** Creates a Membership. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -324,6 +309,21 @@ gapi.load('client', () => {
                     name: "Test string",
                 }            ],
             updateTime: "Test string",
+        });
+        /** Deletes a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.delete({
+            name: "Test string",
+        });
+        /** Retrieves a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.get({
+            name: "Test string",
+        });
+        /** Lists Memberships within a Group. */
+        await gapi.client.cloudidentity.groups.memberships.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
         });
         /**
          * Looks up [resource
@@ -342,21 +342,6 @@ gapi.load('client', () => {
             query: "Test string",
             view: "Test string",
         });
-        /** Deletes a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.delete({
-            name: "Test string",
-        });
-        /** Retrieves a Membership. */
-        await gapi.client.cloudidentity.groups.memberships.get({
-            name: "Test string",
-        });
-        /** Lists Memberships within a Group. */
-        await gapi.client.cloudidentity.groups.memberships.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
         /** Creates a Membership. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -372,6 +357,21 @@ gapi.load('client', () => {
                     name: "Test string",
                 }            ],
             updateTime: "Test string",
+        });
+        /** Deletes a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.delete({
+            name: "Test string",
+        });
+        /** Retrieves a Membership. */
+        await gapi.client.cloudidentity.groups.memberships.get({
+            name: "Test string",
+        });
+        /** Lists Memberships within a Group. */
+        await gapi.client.cloudidentity.groups.memberships.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
         });
         /**
          * Looks up [resource

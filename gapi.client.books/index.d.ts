@@ -110,16 +110,6 @@ declare namespace gapi.client {
             /** Total number of annotations found. This may be greater than the number of notes returned in this response if results have been paginated. */
             totalItems?: number;
         }
-        interface AnnotationsSummary {
-            kind?: string;
-            layers?: Array<{
-                allowedCharacterCount?: number;
-                layerId?: string;
-                limitType?: string;
-                remainingCharacterCount?: number;
-                updated?: string;
-            }>;
-        }
         interface Annotationsdata {
             /** A list of Annotation Data. */
             items?: Annotationdata[];
@@ -129,6 +119,16 @@ declare namespace gapi.client {
             nextPageToken?: string;
             /** The total number of volume annotations found. */
             totalItems?: number;
+        }
+        interface AnnotationsSummary {
+            kind?: string;
+            layers?: Array<{
+                allowedCharacterCount?: number;
+                layerId?: string;
+                limitType?: string;
+                remainingCharacterCount?: number;
+                updated?: string;
+            }>;
         }
         interface BooksAnnotationsRange {
             /** The offset from the ending position. */
@@ -145,9 +145,6 @@ declare namespace gapi.client {
             processingState?: string;
             title?: string;
             volumeId?: string;
-        }
-        interface BooksVolumesRecommendedRateResponse {
-            consistency_token?: string;
         }
         interface Bookshelf {
             /** Whether this bookshelf is PUBLIC or PRIVATE. */
@@ -176,6 +173,9 @@ declare namespace gapi.client {
             items?: Bookshelf[];
             /** Resource type. */
             kind?: string;
+        }
+        interface BooksVolumesRecommendedRateResponse {
+            consistency_token?: string;
         }
         interface Category {
             /** A list of onboarding categories. */
@@ -297,6 +297,12 @@ declare namespace gapi.client {
             kind?: string;
             totalClusters?: number;
         }
+        interface DownloadAccesses {
+            /** A list of download access responses. */
+            downloadAccessList?: DownloadAccessRestriction[];
+            /** Resource type. */
+            kind?: string;
+        }
         interface DownloadAccessRestriction {
             /** If restricted, whether access is granted for this (user, device, volume). */
             deviceAllowed?: boolean;
@@ -325,12 +331,6 @@ declare namespace gapi.client {
             source?: string;
             /** Identifies the volume for which this entry applies. */
             volumeId?: string;
-        }
-        interface DownloadAccesses {
-            /** A list of download access responses. */
-            downloadAccessList?: DownloadAccessRestriction[];
-            /** Resource type. */
-            kind?: string;
         }
         interface FamilyInfo {
             /** Resource type. */
@@ -407,12 +407,12 @@ declare namespace gapi.client {
         interface Layersummary {
             /** The number of annotations for this layer. */
             annotationCount?: number;
-            /** The list of annotation types contained for this layer. */
-            annotationTypes?: string[];
             /** Link to get data for this annotation. */
             annotationsDataLink?: string;
             /** The link to get the annotations for this layer. */
             annotationsLink?: string;
+            /** The list of annotation types contained for this layer. */
+            annotationTypes?: string[];
             /** The content version this resource is for. */
             contentVersion?: string;
             /** The number of data items for this layer. */
@@ -458,8 +458,8 @@ declare namespace gapi.client {
             is_document_mature?: boolean;
             /** Resource type. */
             kind?: string;
-            notificationGroup?: string;
             notification_type?: string;
+            notificationGroup?: string;
             pcampaign_id?: string;
             reason?: string;
             show_notification_settings_action?: boolean;
@@ -635,14 +635,14 @@ declare namespace gapi.client {
                 quoteSharingAllowed?: boolean;
                 /** Whether text-to-speech is permitted for this volume. Values can be ALLOWED, ALLOWED_FOR_ACCESSIBILITY, or NOT_ALLOWED. */
                 textToSpeechPermission?: string;
-                /** For ordered but not yet processed orders, we give a URL that can be used to go to the appropriate Google Wallet page. */
-                viewOrderUrl?: string;
                 /**
                  * The read access of a volume. Possible values are PARTIAL, ALL_PAGES, NO_PAGES or UNKNOWN. This value depends on the country listed above. A value of
                  * PARTIAL means that the publisher has allowed some portion of the volume to be viewed publicly, without purchase. This can apply to eBooks as well as
                  * non-eBooks. Public domain books will always have a value of ALL_PAGES.
                  */
                 viewability?: string;
+                /** For ordered but not yet processed orders, we give a URL that can be used to go to the appropriate Google Wallet page. */
+                viewOrderUrl?: string;
                 /** URL to read this volume on the Google Books site. Link will not allow users to read non-viewable volumes. */
                 webReaderLink?: string;
             };
@@ -871,10 +871,10 @@ declare namespace gapi.client {
                 };
                 /** URL to preview this volume on the Google Books site. */
                 previewLink?: string;
-                /** Type of publication of this volume. Possible values are BOOK or MAGAZINE. */
-                printType?: string;
                 /** Total number of printed pages in generated pdf representation. */
                 printedPageCount?: number;
+                /** Type of publication of this volume. Possible values are BOOK or MAGAZINE. */
+                printType?: string;
                 /** Date of publication. (In LITE projection.) */
                 publishedDate?: string;
                 /** Publisher of this volume. (In LITE projection.) */
@@ -2403,9 +2403,9 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** String to identify the originator of this request. */
                 source?: string;
+                user_library_consistent_read?: boolean;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
-                user_library_consistent_read?: boolean;
                 /** ID of volume to retrieve. */
                 volumeId: string;
             }): Request<Volume>;

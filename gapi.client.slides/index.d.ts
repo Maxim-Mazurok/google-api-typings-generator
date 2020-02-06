@@ -1380,10 +1380,10 @@ declare namespace gapi.client {
              * page element.
              */
             updatePageElementAltText?: UpdatePageElementAltTextRequest;
-            /** Updates the transform of a page element. */
-            updatePageElementTransform?: UpdatePageElementTransformRequest;
             /** Updates the Z-order of page elements. */
             updatePageElementsZOrder?: UpdatePageElementsZOrderRequest;
+            /** Updates the transform of a page element. */
+            updatePageElementTransform?: UpdatePageElementTransformRequest;
             /** Updates the properties of a Page. */
             updatePageProperties?: UpdatePagePropertiesRequest;
             /** Updates the styling of paragraphs within a Shape or Table. */
@@ -2071,14 +2071,6 @@ declare namespace gapi.client {
              */
             title?: string;
         }
-        interface UpdatePageElementTransformRequest {
-            /** The apply mode of the transform update. */
-            applyMode?: string;
-            /** The object ID of the page element to update. */
-            objectId?: string;
-            /** The input transform matrix used to update the page element. */
-            transform?: AffineTransform;
-        }
         interface UpdatePageElementsZOrderRequest {
             /**
              * The Z-order operation to apply on the page elements.
@@ -2093,6 +2085,14 @@ declare namespace gapi.client {
              * All the page elements must be on the same page and must not be grouped.
              */
             pageElementObjectIds?: string[];
+        }
+        interface UpdatePageElementTransformRequest {
+            /** The apply mode of the transform update. */
+            applyMode?: string;
+            /** The object ID of the page element to update. */
+            objectId?: string;
+            /** The input transform matrix used to update the page element. */
+            transform?: AffineTransform;
         }
         interface UpdatePagePropertiesRequest {
             /**
@@ -2454,10 +2454,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): client.Request<Page>;
             /**
              * Generates a thumbnail of the latest version of the specified page in the
@@ -2502,10 +2502,10 @@ declare namespace gapi.client {
                  * image.
                  */
                 "thumbnailProperties.thumbnailSize"?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): client.Request<Thumbnail>;
         }
         interface PresentationsResource {
@@ -2553,10 +2553,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BatchUpdatePresentationRequest;
             }): client.Request<BatchUpdatePresentationResponse>;
@@ -2581,10 +2581,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BatchUpdatePresentationRequest): client.Request<BatchUpdatePresentationResponse>;
             /**
@@ -2613,10 +2613,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Presentation;
             }): client.Request<Presentation>;
@@ -2639,10 +2639,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Presentation): client.Request<Presentation>;
             /** Gets the latest version of the specified presentation. */
@@ -2667,10 +2667,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): client.Request<Presentation>;
             pages: PagesResource;
         }

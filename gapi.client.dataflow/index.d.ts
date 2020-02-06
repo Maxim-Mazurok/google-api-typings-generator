@@ -133,20 +133,6 @@ declare namespace gapi.client {
             /** TableId accessed in the connection. */
             tableId?: string;
         }
-        interface CPUTime {
-            /**
-             * Average CPU utilization rate (% non-idle cpu / second) since previous
-             * sample.
-             */
-            rate?: number;
-            /** Timestamp of the measurement. */
-            timestamp?: string;
-            /**
-             * Total active CPU time across all cores (ie., non-idle) in milliseconds
-             * since start-up.
-             */
-            totalMs?: string;
-        }
         interface ComponentSource {
             /** Dataflow service generated name for this source. */
             name?: string;
@@ -229,8 +215,6 @@ declare namespace gapi.client {
             name?: string;
             /** One of the standard Origins defined above. */
             origin?: string;
-            /** A string containing a more specific namespace of the counter's origin. */
-            originNamespace?: string;
             /**
              * The step name requesting an operation, such as GBK.
              * I.e. the ParDo causing a read/write from shuffle to occur, or a
@@ -242,6 +226,8 @@ declare namespace gapi.client {
              * optimization.
              */
             originalStepName?: string;
+            /** A string containing a more specific namespace of the counter's origin. */
+            originNamespace?: string;
             /** Portion of this counter, either key or value. */
             portion?: string;
             /** ID of a particular worker. */
@@ -293,6 +279,20 @@ declare namespace gapi.client {
             stringList?: StringList;
             /** Counter structured name and metadata. */
             structuredNameAndMetadata?: CounterStructuredNameAndMetadata;
+        }
+        interface CPUTime {
+            /**
+             * Average CPU utilization rate (% non-idle cpu / second) since previous
+             * sample.
+             */
+            rate?: number;
+            /** Timestamp of the measurement. */
+            timestamp?: string;
+            /**
+             * Total active CPU time across all cores (ie., non-idle) in milliseconds
+             * since start-up.
+             */
+            totalMs?: string;
         }
         interface CreateJobFromTemplateRequest {
             /** The runtime environment for the job. */
@@ -708,15 +708,15 @@ declare namespace gapi.client {
              */
             clientRequestId?: string;
             /**
-             * The timestamp when the job was initially created. Immutable and set by the
-             * Cloud Dataflow service.
-             */
-            createTime?: string;
-            /**
              * If this is specified, the job's initial state is populated from the given
              * snapshot.
              */
             createdFromSnapshotId?: string;
+            /**
+             * The timestamp when the job was initially created. Immutable and set by the
+             * Cloud Dataflow service.
+             */
+            createTime?: string;
             /**
              * The current state of the job.
              *
@@ -790,6 +790,11 @@ declare namespace gapi.client {
             /** The ID of the Cloud Platform project that the job belongs to. */
             projectId?: string;
             /**
+             * If another job is an update of this job (and thus, this job is in
+             * `JOB_STATE_UPDATED`), this field contains the ID of that job.
+             */
+            replacedByJobId?: string;
+            /**
              * If this job is an update of an existing job, this field is the job ID
              * of the job it replaced.
              *
@@ -798,11 +803,6 @@ declare namespace gapi.client {
              * transferred to this job.
              */
             replaceJobId?: string;
-            /**
-             * If another job is an update of this job (and thus, this job is in
-             * `JOB_STATE_UPDATED`), this field contains the ID of that job.
-             */
-            replacedByJobId?: string;
             /**
              * The job's requested state.
              *
@@ -881,10 +881,10 @@ declare namespace gapi.client {
             time?: string;
         }
         interface JobMetadata {
-            /** Identification of a BigTable source used in the Dataflow job. */
-            bigTableDetails?: BigTableIODetails[];
             /** Identification of a BigQuery source used in the Dataflow job. */
             bigqueryDetails?: BigQueryIODetails[];
+            /** Identification of a BigTable source used in the Dataflow job. */
+            bigTableDetails?: BigTableIODetails[];
             /** Identification of a Datastore source used in the Dataflow job. */
             datastoreDetails?: DatastoreIODetails[];
             /** Identification of a File source used in the Dataflow job. */
@@ -897,10 +897,10 @@ declare namespace gapi.client {
             spannerDetails?: SpannerIODetails[];
         }
         interface JobMetrics {
-            /** Timestamp as of which metric values are current. */
-            metricTime?: string;
             /** All metrics for this job. */
             metrics?: MetricUpdate[];
+            /** Timestamp as of which metric values are current. */
+            metricTime?: string;
         }
         interface KeyRangeDataDiskAssignment {
             /**
@@ -1005,8 +1005,6 @@ declare namespace gapi.client {
             requestedLeaseDuration?: string;
             /** Untranslated bag-of-bytes WorkRequest from UnifiedWorker. */
             unifiedWorkerRequest?: Record<string, any>;
-            /** Filter for WorkItem type. */
-            workItemTypes?: string[];
             /**
              * Worker capabilities. WorkItems might be limited to workers with specific
              * capabilities.
@@ -1017,6 +1015,8 @@ declare namespace gapi.client {
              * virtual machine running the worker.
              */
             workerId?: string;
+            /** Filter for WorkItem type. */
+            workItemTypes?: string[];
         }
         interface LeaseWorkItemResponse {
             /** Untranslated bag-of-bytes WorkResponse for UnifiedWorker. */
@@ -1190,18 +1190,6 @@ declare namespace gapi.client {
             /** The name of the package. */
             name?: string;
         }
-        interface ParDoInstruction {
-            /** The input. */
-            input?: InstructionInput;
-            /** Information about each of the outputs, if user_fn is a  MultiDoFn. */
-            multiOutputInfos?: MultiOutputInfo[];
-            /** The number of outputs. */
-            numOutputs?: number;
-            /** Zero or more side inputs. */
-            sideInputs?: SideInputInfo[];
-            /** The user function to invoke. */
-            userFn?: Record<string, any>;
-        }
         interface ParallelInstruction {
             /** Additional information for Flatten instructions. */
             flatten?: FlattenInstruction;
@@ -1247,6 +1235,18 @@ declare namespace gapi.client {
             paramType?: string;
             /** Optional. Regexes that the parameter must match. */
             regexes?: string[];
+        }
+        interface ParDoInstruction {
+            /** The input. */
+            input?: InstructionInput;
+            /** Information about each of the outputs, if user_fn is a  MultiDoFn. */
+            multiOutputInfos?: MultiOutputInfo[];
+            /** The number of outputs. */
+            numOutputs?: number;
+            /** Zero or more side inputs. */
+            sideInputs?: SideInputInfo[];
+            /** The user function to invoke. */
+            userFn?: Record<string, any>;
         }
         interface PartialGroupByKeyInstruction {
             /** Describes the input to the partial group-by-key instruction. */
@@ -1337,42 +1337,6 @@ declare namespace gapi.client {
             /** The source to read from. */
             source?: Source;
         }
-        interface ReportWorkItemStatusRequest {
-            /** The current timestamp at the worker. */
-            currentWorkerTime?: string;
-            /**
-             * The [regional endpoint]
-             * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
-             * contains the WorkItem's job.
-             */
-            location?: string;
-            /** Untranslated bag-of-bytes WorkProgressUpdateRequest from UnifiedWorker. */
-            unifiedWorkerRequest?: Record<string, any>;
-            /**
-             * The order is unimportant, except that the order of the
-             * WorkItemServiceState messages in the ReportWorkItemStatusResponse
-             * corresponds to the order of WorkItemStatus messages here.
-             */
-            workItemStatuses?: WorkItemStatus[];
-            /**
-             * The ID of the worker reporting the WorkItem status.  If this
-             * does not match the ID of the worker which the Dataflow service
-             * believes currently has the lease on the WorkItem, the report
-             * will be dropped (with an error response).
-             */
-            workerId?: string;
-        }
-        interface ReportWorkItemStatusResponse {
-            /** Untranslated bag-of-bytes WorkProgressUpdateResponse for UnifiedWorker. */
-            unifiedWorkerResponse?: Record<string, any>;
-            /**
-             * A set of messages indicating the service-side state for each
-             * WorkItem whose status was reported, in the same order as the
-             * WorkItemStatus messages in the ReportWorkItemStatusRequest which
-             * resulting in this response.
-             */
-            workItemServiceStates?: WorkItemServiceState[];
-        }
         interface ReportedParallelism {
             /**
              * Specifies whether the parallelism is infinite. If true, "value" is
@@ -1385,6 +1349,42 @@ declare namespace gapi.client {
             isInfinite?: boolean;
             /** Specifies the level of parallelism in case it is finite. */
             value?: number;
+        }
+        interface ReportWorkItemStatusRequest {
+            /** The current timestamp at the worker. */
+            currentWorkerTime?: string;
+            /**
+             * The [regional endpoint]
+             * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+             * contains the WorkItem's job.
+             */
+            location?: string;
+            /** Untranslated bag-of-bytes WorkProgressUpdateRequest from UnifiedWorker. */
+            unifiedWorkerRequest?: Record<string, any>;
+            /**
+             * The ID of the worker reporting the WorkItem status.  If this
+             * does not match the ID of the worker which the Dataflow service
+             * believes currently has the lease on the WorkItem, the report
+             * will be dropped (with an error response).
+             */
+            workerId?: string;
+            /**
+             * The order is unimportant, except that the order of the
+             * WorkItemServiceState messages in the ReportWorkItemStatusResponse
+             * corresponds to the order of WorkItemStatus messages here.
+             */
+            workItemStatuses?: WorkItemStatus[];
+        }
+        interface ReportWorkItemStatusResponse {
+            /** Untranslated bag-of-bytes WorkProgressUpdateResponse for UnifiedWorker. */
+            unifiedWorkerResponse?: Record<string, any>;
+            /**
+             * A set of messages indicating the service-side state for each
+             * WorkItem whose status was reported, in the same order as the
+             * WorkItemStatus messages in the ReportWorkItemStatusRequest which
+             * resulting in this response.
+             */
+            workItemServiceStates?: WorkItemServiceState[];
         }
         interface ResourceUtilizationReport {
             /** CPU utilization samples. */
@@ -1789,19 +1789,6 @@ declare namespace gapi.client {
              */
             properties?: Record<string, any>;
         }
-        interface StreamLocation {
-            /** The stream is a custom source. */
-            customSourceLocation?: CustomSourceLocation;
-            /** The stream is a pubsub stream. */
-            pubsubLocation?: PubsubLocation;
-            /** The stream is a streaming side input. */
-            sideInputLocation?: StreamingSideInputLocation;
-            /**
-             * The stream is part of another computation within the current
-             * streaming Dataflow job.
-             */
-            streamingStageLocation?: StreamingStageLocation;
-        }
         interface StreamingApplianceSnapshotConfig {
             /** Indicates which endpoint is used to import appliance state. */
             importStateEndpoint?: string;
@@ -1891,6 +1878,19 @@ declare namespace gapi.client {
              * job.
              */
             streamId?: string;
+        }
+        interface StreamLocation {
+            /** The stream is a custom source. */
+            customSourceLocation?: CustomSourceLocation;
+            /** The stream is a pubsub stream. */
+            pubsubLocation?: PubsubLocation;
+            /** The stream is a streaming side input. */
+            sideInputLocation?: StreamingSideInputLocation;
+            /**
+             * The stream is part of another computation within the current
+             * streaming Dataflow job.
+             */
+            streamingStageLocation?: StreamingStageLocation;
         }
         interface StringList {
             /** Elements of the list. */
@@ -2024,163 +2024,6 @@ declare namespace gapi.client {
         interface ValidateResponse {
             /** Will be empty if validation succeeds. */
             errorMessage?: string;
-        }
-        interface WorkItem {
-            /** Work item-specific configuration as an opaque blob. */
-            configuration?: string;
-            /** Identifies this WorkItem. */
-            id?: string;
-            /** The initial index to use when reporting the status of the WorkItem. */
-            initialReportIndex?: string;
-            /** Identifies the workflow job this WorkItem belongs to. */
-            jobId?: string;
-            /** Time when the lease on this Work will expire. */
-            leaseExpireTime?: string;
-            /** Additional information for MapTask WorkItems. */
-            mapTask?: MapTask;
-            /**
-             * Any required packages that need to be fetched in order to execute
-             * this WorkItem.
-             */
-            packages?: Package[];
-            /** Identifies the cloud project this WorkItem belongs to. */
-            projectId?: string;
-            /** Recommended reporting interval. */
-            reportStatusInterval?: string;
-            /** Additional information for SeqMapTask WorkItems. */
-            seqMapTask?: SeqMapTask;
-            /** Additional information for ShellTask WorkItems. */
-            shellTask?: ShellTask;
-            /** Additional information for source operation WorkItems. */
-            sourceOperationTask?: SourceOperationRequest;
-            /** Additional information for StreamingComputationTask WorkItems. */
-            streamingComputationTask?: StreamingComputationTask;
-            /** Additional information for StreamingConfigTask WorkItems. */
-            streamingConfigTask?: StreamingConfigTask;
-            /** Additional information for StreamingSetupTask WorkItems. */
-            streamingSetupTask?: StreamingSetupTask;
-        }
-        interface WorkItemServiceState {
-            /**
-             * Other data returned by the service, specific to the particular
-             * worker harness.
-             */
-            harnessData?: Record<string, any>;
-            /**
-             * A hot key is a symptom of poor data distribution in which there are enough
-             * elements mapped to a single key to impact pipeline performance. When
-             * present, this field includes metadata associated with any hot key.
-             */
-            hotKeyDetection?: HotKeyDetection;
-            /** Time at which the current lease will expire. */
-            leaseExpireTime?: string;
-            /**
-             * The short ids that workers should use in subsequent metric updates.
-             * Workers should strive to use short ids whenever possible, but it is ok
-             * to request the short_id again if a worker lost track of it
-             * (e.g. if the worker is recovering from a crash).
-             * NOTE: it is possible that the response may have short ids for a subset
-             * of the metrics.
-             */
-            metricShortId?: MetricShortId[];
-            /**
-             * The index value to use for the next report sent by the worker.
-             * Note: If the report call fails for whatever reason, the worker should
-             * reuse this index for subsequent report attempts.
-             */
-            nextReportIndex?: string;
-            /** New recommended reporting interval. */
-            reportStatusInterval?: string;
-            /**
-             * The progress point in the WorkItem where the Dataflow service
-             * suggests that the worker truncate the task.
-             */
-            splitRequest?: ApproximateSplitRequest;
-            /** DEPRECATED in favor of split_request. */
-            suggestedStopPoint?: ApproximateProgress;
-            /** Obsolete, always empty. */
-            suggestedStopPosition?: Position;
-        }
-        interface WorkItemStatus {
-            /** True if the WorkItem was completed (successfully or unsuccessfully). */
-            completed?: boolean;
-            /** Worker output counters for this WorkItem. */
-            counterUpdates?: CounterUpdate[];
-            /** See documentation of stop_position. */
-            dynamicSourceSplit?: DynamicSourceSplit;
-            /**
-             * Specifies errors which occurred during processing.  If errors are
-             * provided, and completed = true, then the WorkItem is considered
-             * to have failed.
-             */
-            errors?: Status[];
-            /** DEPRECATED in favor of counter_updates. */
-            metricUpdates?: MetricUpdate[];
-            /** DEPRECATED in favor of reported_progress. */
-            progress?: ApproximateProgress;
-            /**
-             * The report index.  When a WorkItem is leased, the lease will
-             * contain an initial report index.  When a WorkItem's status is
-             * reported to the system, the report should be sent with
-             * that report index, and the response will contain the index the
-             * worker should use for the next report.  Reports received with
-             * unexpected index values will be rejected by the service.
-             *
-             * In order to preserve idempotency, the worker should not alter the
-             * contents of a report, even if the worker must submit the same
-             * report multiple times before getting back a response.  The worker
-             * should not submit a subsequent report until the response for the
-             * previous report had been received from the service.
-             */
-            reportIndex?: string;
-            /** The worker's progress through this WorkItem. */
-            reportedProgress?: ApproximateReportedProgress;
-            /** Amount of time the worker requests for its lease. */
-            requestedLeaseDuration?: string;
-            /** DEPRECATED in favor of dynamic_source_split. */
-            sourceFork?: SourceFork;
-            /**
-             * If the work item represented a SourceOperationRequest, and the work
-             * is completed, contains the result of the operation.
-             */
-            sourceOperationResponse?: SourceOperationResponse;
-            /**
-             * A worker may split an active map task in two parts, "primary" and
-             * "residual", continuing to process the primary part and returning the
-             * residual part into the pool of available work.
-             * This event is called a "dynamic split" and is critical to the dynamic
-             * work rebalancing feature. The two obtained sub-tasks are called
-             * "parts" of the split.
-             * The parts, if concatenated, must represent the same input as would
-             * be read by the current task if the split did not happen.
-             * The exact way in which the original task is decomposed into the two
-             * parts is specified either as a position demarcating them
-             * (stop_position), or explicitly as two DerivedSources, if this
-             * task consumes a user-defined source type (dynamic_source_split).
-             *
-             * The "current" task is adjusted as a result of the split: after a task
-             * with range [A, B) sends a stop_position update at C, its range is
-             * considered to be [A, C), e.g.:
-             * &#42; Progress should be interpreted relative to the new range, e.g.
-             * "75% completed" means "75% of [A, C) completed"
-             * &#42; The worker should interpret proposed_stop_position relative to the
-             * new range, e.g. "split at 68%" should be interpreted as
-             * "split at 68% of [A, C)".
-             * &#42; If the worker chooses to split again using stop_position, only
-             * stop_positions in [A, C) will be accepted.
-             * &#42; Etc.
-             * dynamic_source_split has similar semantics: e.g., if a task with
-             * source S splits using dynamic_source_split into {P, R}
-             * (where P and R must be together equivalent to S), then subsequent
-             * progress and proposed_stop_position should be interpreted relative
-             * to P, and in a potential subsequent dynamic_source_split into {P', R'},
-             * P' and R' must be together equivalent to P, etc.
-             */
-            stopPosition?: Position;
-            /** Total time the worker spent being throttled by external systems. */
-            totalThrottlerWaitTimeSeconds?: number;
-            /** Identifies the WorkItem. */
-            workItemId?: string;
         }
         interface WorkerHealthReport {
             /** A message describing any unusual health reports. */
@@ -2464,6 +2307,163 @@ declare namespace gapi.client {
         // tslint:disable-next-line:no-empty-interface
         interface WorkerShutdownNoticeResponse {
         }
+        interface WorkItem {
+            /** Work item-specific configuration as an opaque blob. */
+            configuration?: string;
+            /** Identifies this WorkItem. */
+            id?: string;
+            /** The initial index to use when reporting the status of the WorkItem. */
+            initialReportIndex?: string;
+            /** Identifies the workflow job this WorkItem belongs to. */
+            jobId?: string;
+            /** Time when the lease on this Work will expire. */
+            leaseExpireTime?: string;
+            /** Additional information for MapTask WorkItems. */
+            mapTask?: MapTask;
+            /**
+             * Any required packages that need to be fetched in order to execute
+             * this WorkItem.
+             */
+            packages?: Package[];
+            /** Identifies the cloud project this WorkItem belongs to. */
+            projectId?: string;
+            /** Recommended reporting interval. */
+            reportStatusInterval?: string;
+            /** Additional information for SeqMapTask WorkItems. */
+            seqMapTask?: SeqMapTask;
+            /** Additional information for ShellTask WorkItems. */
+            shellTask?: ShellTask;
+            /** Additional information for source operation WorkItems. */
+            sourceOperationTask?: SourceOperationRequest;
+            /** Additional information for StreamingComputationTask WorkItems. */
+            streamingComputationTask?: StreamingComputationTask;
+            /** Additional information for StreamingConfigTask WorkItems. */
+            streamingConfigTask?: StreamingConfigTask;
+            /** Additional information for StreamingSetupTask WorkItems. */
+            streamingSetupTask?: StreamingSetupTask;
+        }
+        interface WorkItemServiceState {
+            /**
+             * Other data returned by the service, specific to the particular
+             * worker harness.
+             */
+            harnessData?: Record<string, any>;
+            /**
+             * A hot key is a symptom of poor data distribution in which there are enough
+             * elements mapped to a single key to impact pipeline performance. When
+             * present, this field includes metadata associated with any hot key.
+             */
+            hotKeyDetection?: HotKeyDetection;
+            /** Time at which the current lease will expire. */
+            leaseExpireTime?: string;
+            /**
+             * The short ids that workers should use in subsequent metric updates.
+             * Workers should strive to use short ids whenever possible, but it is ok
+             * to request the short_id again if a worker lost track of it
+             * (e.g. if the worker is recovering from a crash).
+             * NOTE: it is possible that the response may have short ids for a subset
+             * of the metrics.
+             */
+            metricShortId?: MetricShortId[];
+            /**
+             * The index value to use for the next report sent by the worker.
+             * Note: If the report call fails for whatever reason, the worker should
+             * reuse this index for subsequent report attempts.
+             */
+            nextReportIndex?: string;
+            /** New recommended reporting interval. */
+            reportStatusInterval?: string;
+            /**
+             * The progress point in the WorkItem where the Dataflow service
+             * suggests that the worker truncate the task.
+             */
+            splitRequest?: ApproximateSplitRequest;
+            /** DEPRECATED in favor of split_request. */
+            suggestedStopPoint?: ApproximateProgress;
+            /** Obsolete, always empty. */
+            suggestedStopPosition?: Position;
+        }
+        interface WorkItemStatus {
+            /** True if the WorkItem was completed (successfully or unsuccessfully). */
+            completed?: boolean;
+            /** Worker output counters for this WorkItem. */
+            counterUpdates?: CounterUpdate[];
+            /** See documentation of stop_position. */
+            dynamicSourceSplit?: DynamicSourceSplit;
+            /**
+             * Specifies errors which occurred during processing.  If errors are
+             * provided, and completed = true, then the WorkItem is considered
+             * to have failed.
+             */
+            errors?: Status[];
+            /** DEPRECATED in favor of counter_updates. */
+            metricUpdates?: MetricUpdate[];
+            /** DEPRECATED in favor of reported_progress. */
+            progress?: ApproximateProgress;
+            /** The worker's progress through this WorkItem. */
+            reportedProgress?: ApproximateReportedProgress;
+            /**
+             * The report index.  When a WorkItem is leased, the lease will
+             * contain an initial report index.  When a WorkItem's status is
+             * reported to the system, the report should be sent with
+             * that report index, and the response will contain the index the
+             * worker should use for the next report.  Reports received with
+             * unexpected index values will be rejected by the service.
+             *
+             * In order to preserve idempotency, the worker should not alter the
+             * contents of a report, even if the worker must submit the same
+             * report multiple times before getting back a response.  The worker
+             * should not submit a subsequent report until the response for the
+             * previous report had been received from the service.
+             */
+            reportIndex?: string;
+            /** Amount of time the worker requests for its lease. */
+            requestedLeaseDuration?: string;
+            /** DEPRECATED in favor of dynamic_source_split. */
+            sourceFork?: SourceFork;
+            /**
+             * If the work item represented a SourceOperationRequest, and the work
+             * is completed, contains the result of the operation.
+             */
+            sourceOperationResponse?: SourceOperationResponse;
+            /**
+             * A worker may split an active map task in two parts, "primary" and
+             * "residual", continuing to process the primary part and returning the
+             * residual part into the pool of available work.
+             * This event is called a "dynamic split" and is critical to the dynamic
+             * work rebalancing feature. The two obtained sub-tasks are called
+             * "parts" of the split.
+             * The parts, if concatenated, must represent the same input as would
+             * be read by the current task if the split did not happen.
+             * The exact way in which the original task is decomposed into the two
+             * parts is specified either as a position demarcating them
+             * (stop_position), or explicitly as two DerivedSources, if this
+             * task consumes a user-defined source type (dynamic_source_split).
+             *
+             * The "current" task is adjusted as a result of the split: after a task
+             * with range [A, B) sends a stop_position update at C, its range is
+             * considered to be [A, C), e.g.:
+             * &#42; Progress should be interpreted relative to the new range, e.g.
+             * "75% completed" means "75% of [A, C) completed"
+             * &#42; The worker should interpret proposed_stop_position relative to the
+             * new range, e.g. "split at 68%" should be interpreted as
+             * "split at 68% of [A, C)".
+             * &#42; If the worker chooses to split again using stop_position, only
+             * stop_positions in [A, C) will be accepted.
+             * &#42; Etc.
+             * dynamic_source_split has similar semantics: e.g., if a task with
+             * source S splits using dynamic_source_split into {P, R}
+             * (where P and R must be together equivalent to S), then subsequent
+             * progress and proposed_stop_position should be interpreted relative
+             * to P, and in a potential subsequent dynamic_source_split into {P', R'},
+             * P' and R' must be together equivalent to P, etc.
+             */
+            stopPosition?: Position;
+            /** Total time the worker spent being throttled by external systems. */
+            totalThrottlerWaitTimeSeconds?: number;
+            /** Identifies the WorkItem. */
+            workItemId?: string;
+        }
         interface WriteInstruction {
             /** The input. */
             input?: InstructionInput;
@@ -2495,10 +2495,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GetDebugConfigRequest;
             }): Request<GetDebugConfigResponse>;
@@ -2525,10 +2525,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GetDebugConfigRequest): Request<GetDebugConfigResponse>;
             /** Send encoded debug capture data for component. */
@@ -2555,10 +2555,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SendDebugCaptureRequest;
             }): Request<{}>;
@@ -2585,10 +2585,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SendDebugCaptureRequest): Request<{}>;
         }
@@ -2655,10 +2655,10 @@ declare namespace gapi.client {
                  * The default is the job creation time (i.e. beginning of messages).
                  */
                 startTime?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListJobMessagesResponse>;
         }
         interface WorkItemsResource {
@@ -2686,10 +2686,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: LeaseWorkItemRequest;
             }): Request<LeaseWorkItemResponse>;
@@ -2716,10 +2716,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: LeaseWorkItemRequest): Request<LeaseWorkItemResponse>;
             /** Reports the status of dataflow WorkItems leased by a worker. */
@@ -2746,10 +2746,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: ReportWorkItemStatusRequest;
             }): Request<ReportWorkItemStatusResponse>;
@@ -2776,10 +2776,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: ReportWorkItemStatusRequest): Request<ReportWorkItemStatusResponse>;
         }
@@ -2825,10 +2825,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Level of information requested in response. Default is `JOB_VIEW_SUMMARY`. */
                 view?: string;
             }): Request<ListJobsResponse>;
@@ -2870,10 +2870,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Deprecated. This field is now in the Job message. */
                 replaceJobId?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The level of information requested in response. */
                 view?: string;
                 /** Request body */
@@ -2908,10 +2908,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Deprecated. This field is now in the Job message. */
                 replaceJobId?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The level of information requested in response. */
                 view?: string;
             },
@@ -2954,10 +2954,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The level of information requested in response. */
                 view?: string;
             }): Request<Job>;
@@ -3004,10 +3004,10 @@ declare namespace gapi.client {
                  * Default is to return all information about all metrics for the job.
                  */
                 startTime?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<JobMetrics>;
             /**
              * List the jobs of a project.
@@ -3059,10 +3059,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Level of information requested in response. Default is `JOB_VIEW_SUMMARY`. */
                 view?: string;
             }): Request<ListJobsResponse>;
@@ -3104,10 +3104,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Job;
             }): Request<Job>;
@@ -3140,10 +3140,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Job): Request<Job>;
             debug: DebugResource;
@@ -3179,10 +3179,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: LaunchFlexTemplateRequest;
             }): Request<LaunchFlexTemplateResponse>;
@@ -3213,10 +3213,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: LaunchFlexTemplateRequest): Request<LaunchFlexTemplateResponse>;
         }
@@ -3251,10 +3251,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: GetDebugConfigRequest;
             }): Request<GetDebugConfigResponse>;
@@ -3287,10 +3287,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: GetDebugConfigRequest): Request<GetDebugConfigResponse>;
             /** Send encoded debug capture data for component. */
@@ -3323,10 +3323,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SendDebugCaptureRequest;
             }): Request<{}>;
@@ -3359,10 +3359,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SendDebugCaptureRequest): Request<{}>;
         }
@@ -3429,10 +3429,10 @@ declare namespace gapi.client {
                  * The default is the job creation time (i.e. beginning of messages).
                  */
                 startTime?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListJobMessagesResponse>;
         }
         interface WorkItemsResource {
@@ -3466,10 +3466,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: LeaseWorkItemRequest;
             }): Request<LeaseWorkItemResponse>;
@@ -3502,10 +3502,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: LeaseWorkItemRequest): Request<LeaseWorkItemResponse>;
             /** Reports the status of dataflow WorkItems leased by a worker. */
@@ -3538,10 +3538,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: ReportWorkItemStatusRequest;
             }): Request<ReportWorkItemStatusResponse>;
@@ -3574,10 +3574,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: ReportWorkItemStatusRequest): Request<ReportWorkItemStatusResponse>;
         }
@@ -3620,10 +3620,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Deprecated. This field is now in the Job message. */
                 replaceJobId?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The level of information requested in response. */
                 view?: string;
                 /** Request body */
@@ -3658,10 +3658,10 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Deprecated. This field is now in the Job message. */
                 replaceJobId?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The level of information requested in response. */
                 view?: string;
             },
@@ -3704,10 +3704,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The level of information requested in response. */
                 view?: string;
             }): Request<Job>;
@@ -3754,10 +3754,10 @@ declare namespace gapi.client {
                  * Default is to return all information about all metrics for the job.
                  */
                 startTime?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<JobMetrics>;
             /**
              * List the jobs of a project.
@@ -3809,10 +3809,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Level of information requested in response. Default is `JOB_VIEW_SUMMARY`. */
                 view?: string;
             }): Request<ListJobsResponse>;
@@ -3854,10 +3854,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Job;
             }): Request<Job>;
@@ -3890,10 +3890,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Job): Request<Job>;
             debug: DebugResource;
@@ -3936,10 +3936,10 @@ declare namespace gapi.client {
                 query?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ValidateResponse>;
         }
         interface TemplatesResource {
@@ -3971,10 +3971,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CreateJobFromTemplateRequest;
             }): Request<Job>;
@@ -4005,10 +4005,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CreateJobFromTemplateRequest): Request<Job>;
             /** Get the template associated with a template. */
@@ -4045,10 +4045,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The view to retrieve. Defaults to METADATA_ONLY. */
                 view?: string;
             }): Request<GetTemplateResponse>;
@@ -4096,10 +4096,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * If true, the request is validated but not actually executed.
                  * Defaults to false.
@@ -4151,10 +4151,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * If true, the request is validated but not actually executed.
                  * Defaults to false.
@@ -4192,10 +4192,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SendWorkerMessagesRequest;
             }): Request<SendWorkerMessagesResponse>;
@@ -4226,10 +4226,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SendWorkerMessagesRequest): Request<SendWorkerMessagesResponse>;
             flexTemplates: FlexTemplatesResource;
@@ -4260,10 +4260,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: CreateJobFromTemplateRequest;
             }): Request<Job>;
@@ -4288,10 +4288,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: CreateJobFromTemplateRequest): Request<Job>;
             /** Get the template associated with a template. */
@@ -4328,10 +4328,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** The view to retrieve. Defaults to METADATA_ONLY. */
                 view?: string;
             }): Request<GetTemplateResponse>;
@@ -4379,10 +4379,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * If true, the request is validated but not actually executed.
                  * Defaults to false.
@@ -4434,10 +4434,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /**
                  * If true, the request is validated but not actually executed.
                  * Defaults to false.
@@ -4469,10 +4469,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SendWorkerMessagesRequest;
             }): Request<SendWorkerMessagesResponse>;
@@ -4497,10 +4497,10 @@ declare namespace gapi.client {
                 projectId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SendWorkerMessagesRequest): Request<SendWorkerMessagesResponse>;
             jobs: JobsResource;

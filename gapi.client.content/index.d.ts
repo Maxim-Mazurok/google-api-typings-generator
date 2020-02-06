@@ -104,6 +104,98 @@ declare namespace gapi.client {
             /** The merchant account ID, set for individual accounts and subaccounts. */
             merchantId?: string;
         }
+        interface AccountsAuthInfoResponse {
+            /**
+             * The account identifiers corresponding to the authenticated user.
+             * - For an individual account: only the merchant ID is defined
+             * - For an aggregator: only the aggregator ID is defined
+             * - For a subaccount of an MCA: both the merchant ID and the aggregator ID are defined.
+             */
+            accountIdentifiers?: AccountIdentifier[];
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsAuthInfoResponse". */
+            kind?: string;
+        }
+        interface AccountsClaimWebsiteResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsClaimWebsiteResponse". */
+            kind?: string;
+        }
+        interface AccountsCustomBatchRequest {
+            /** The request entries to be processed in the batch. */
+            entries?: AccountsCustomBatchRequestEntry[];
+        }
+        interface AccountsCustomBatchRequestEntry {
+            /** The account to create or update. Only defined if the method is insert or update. */
+            account?: Account;
+            /** The ID of the targeted account. Only defined if the method is not insert. */
+            accountId?: string;
+            /** An entry ID, unique within the batch request. */
+            batchId?: number;
+            /** Whether the account should be deleted if the account has offers. Only applicable if the method is delete. */
+            force?: boolean;
+            /** Details about the link request. */
+            linkRequest?: AccountsCustomBatchRequestEntryLinkRequest;
+            /** The ID of the managing account. */
+            merchantId?: string;
+            /** The method of the batch entry. */
+            method?: string;
+            /** Only applicable if the method is claimwebsite. Indicates whether or not to take the claim from another account in case there is a conflict. */
+            overwrite?: boolean;
+        }
+        interface AccountsCustomBatchRequestEntryLinkRequest {
+            /** Action to perform for this link. The "request" action is only available to select merchants. */
+            action?: string;
+            /** The ID of the linked account. */
+            linkedAccountId?: string;
+            /** Type of the link between the two accounts. */
+            linkType?: string;
+            /** List of provided services. */
+            services?: string[];
+        }
+        interface AccountsCustomBatchResponse {
+            /** The result of the execution of the batch requests. */
+            entries?: AccountsCustomBatchResponseEntry[];
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsCustomBatchResponse". */
+            kind?: string;
+        }
+        interface AccountsCustomBatchResponseEntry {
+            /** The retrieved, created, or updated account. Not defined if the method was delete, claimwebsite or link. */
+            account?: Account;
+            /** The ID of the request entry this entry responds to. */
+            batchId?: number;
+            /** A list of errors defined if and only if the request failed. */
+            errors?: Errors;
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsCustomBatchResponseEntry". */
+            kind?: string;
+        }
+        interface AccountsLinkRequest {
+            /** Action to perform for this link. The "request" action is only available to select merchants. */
+            action?: string;
+            /** The ID of the linked account. */
+            linkedAccountId?: string;
+            /** Type of the link between the two accounts. */
+            linkType?: string;
+            /** List of provided services. */
+            services?: string[];
+        }
+        interface AccountsLinkResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsLinkResponse". */
+            kind?: string;
+        }
+        interface AccountsListLinksResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsListLinksResponse". */
+            kind?: string;
+            /** The list of available links. */
+            links?: LinkedAccount[];
+            /** The token for the retrieval of the next page of links. */
+            nextPageToken?: string;
+        }
+        interface AccountsListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsListResponse". */
+            kind?: string;
+            /** The token for the retrieval of the next page of accounts. */
+            nextPageToken?: string;
+            resources?: Account[];
+        }
         interface AccountStatus {
             /** The ID of the account for which the status is reported. */
             accountId?: string;
@@ -131,6 +223,43 @@ declare namespace gapi.client {
             severity?: string;
             /** Short description of the issue. */
             title?: string;
+        }
+        interface AccountstatusesCustomBatchRequest {
+            /** The request entries to be processed in the batch. */
+            entries?: AccountstatusesCustomBatchRequestEntry[];
+        }
+        interface AccountstatusesCustomBatchRequestEntry {
+            /** The ID of the (sub-)account whose status to get. */
+            accountId?: string;
+            /** An entry ID, unique within the batch request. */
+            batchId?: number;
+            /** If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination. */
+            destinations?: string[];
+            /** The ID of the managing account. */
+            merchantId?: string;
+            /** The method (get). */
+            method?: string;
+        }
+        interface AccountstatusesCustomBatchResponse {
+            /** The result of the execution of the batch requests. */
+            entries?: AccountstatusesCustomBatchResponseEntry[];
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountstatusesCustomBatchResponse". */
+            kind?: string;
+        }
+        interface AccountstatusesCustomBatchResponseEntry {
+            /** The requested account status. Defined if and only if the request was successful. */
+            accountStatus?: AccountStatus;
+            /** The ID of the request entry this entry responds to. */
+            batchId?: number;
+            /** A list of errors defined if and only if the request failed. */
+            errors?: Errors;
+        }
+        interface AccountstatusesListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#accountstatusesListResponse". */
+            kind?: string;
+            /** The token for the retrieval of the next page of account statuses. */
+            nextPageToken?: string;
+            resources?: AccountStatus[];
         }
         interface AccountStatusItemLevelIssue {
             /** The attribute's name, if the issue is caused by a single attribute. */
@@ -180,171 +309,6 @@ declare namespace gapi.client {
             /** Tax rules. Updating the tax rules will enable US taxes (not reversible). Defining no rules is equivalent to not charging tax at all. */
             rules?: AccountTaxTaxRule[];
         }
-        interface AccountTaxTaxRule {
-            /** Country code in which tax is applicable. */
-            country?: string;
-            /** State (or province) is which the tax is applicable, described by its location ID (also called criteria ID). */
-            locationId?: string;
-            /** Explicit tax rate in percent, represented as a floating point number without the percentage character. Must not be negative. */
-            ratePercent?: string;
-            /** If true, shipping charges are also taxed. */
-            shippingTaxed?: boolean;
-            /** Whether the tax rate is taken from a global tax table or specified explicitly. */
-            useGlobalRate?: boolean;
-        }
-        interface AccountUser {
-            /** Whether user is an admin. */
-            admin?: boolean;
-            /** User's email address. */
-            emailAddress?: string;
-            /** Whether user is an order manager. */
-            orderManager?: boolean;
-            /** Whether user can access payment statements. */
-            paymentsAnalyst?: boolean;
-            /** Whether user can manage payment settings. */
-            paymentsManager?: boolean;
-        }
-        interface AccountYouTubeChannelLink {
-            /** Channel ID. */
-            channelId?: string;
-            /**
-             * Status of the link between this Merchant Center account and the YouTube channel. Upon retrieval, it represents the actual status of the link and can be
-             * either active if it was approved in YT Creator Studio or pending if it's pending approval. Upon insertion, it represents the intended status of the
-             * link. Re-uploading a link with status active when it's still pending or with status pending when it's already active will have no effect: the status
-             * will remain unchanged. Re-uploading a link with deprecated status inactive is equivalent to not submitting the link at all and will delete the link if
-             * it was active or cancel the link request if it was pending.
-             */
-            status?: string;
-        }
-        interface AccountsAuthInfoResponse {
-            /**
-             * The account identifiers corresponding to the authenticated user.
-             * - For an individual account: only the merchant ID is defined
-             * - For an aggregator: only the aggregator ID is defined
-             * - For a subaccount of an MCA: both the merchant ID and the aggregator ID are defined.
-             */
-            accountIdentifiers?: AccountIdentifier[];
-            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsAuthInfoResponse". */
-            kind?: string;
-        }
-        interface AccountsClaimWebsiteResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsClaimWebsiteResponse". */
-            kind?: string;
-        }
-        interface AccountsCustomBatchRequest {
-            /** The request entries to be processed in the batch. */
-            entries?: AccountsCustomBatchRequestEntry[];
-        }
-        interface AccountsCustomBatchRequestEntry {
-            /** The account to create or update. Only defined if the method is insert or update. */
-            account?: Account;
-            /** The ID of the targeted account. Only defined if the method is not insert. */
-            accountId?: string;
-            /** An entry ID, unique within the batch request. */
-            batchId?: number;
-            /** Whether the account should be deleted if the account has offers. Only applicable if the method is delete. */
-            force?: boolean;
-            /** Details about the link request. */
-            linkRequest?: AccountsCustomBatchRequestEntryLinkRequest;
-            /** The ID of the managing account. */
-            merchantId?: string;
-            /** The method of the batch entry. */
-            method?: string;
-            /** Only applicable if the method is claimwebsite. Indicates whether or not to take the claim from another account in case there is a conflict. */
-            overwrite?: boolean;
-        }
-        interface AccountsCustomBatchRequestEntryLinkRequest {
-            /** Action to perform for this link. The "request" action is only available to select merchants. */
-            action?: string;
-            /** Type of the link between the two accounts. */
-            linkType?: string;
-            /** The ID of the linked account. */
-            linkedAccountId?: string;
-            /** List of provided services. */
-            services?: string[];
-        }
-        interface AccountsCustomBatchResponse {
-            /** The result of the execution of the batch requests. */
-            entries?: AccountsCustomBatchResponseEntry[];
-            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsCustomBatchResponse". */
-            kind?: string;
-        }
-        interface AccountsCustomBatchResponseEntry {
-            /** The retrieved, created, or updated account. Not defined if the method was delete, claimwebsite or link. */
-            account?: Account;
-            /** The ID of the request entry this entry responds to. */
-            batchId?: number;
-            /** A list of errors defined if and only if the request failed. */
-            errors?: Errors;
-            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsCustomBatchResponseEntry". */
-            kind?: string;
-        }
-        interface AccountsLinkRequest {
-            /** Action to perform for this link. The "request" action is only available to select merchants. */
-            action?: string;
-            /** Type of the link between the two accounts. */
-            linkType?: string;
-            /** The ID of the linked account. */
-            linkedAccountId?: string;
-            /** List of provided services. */
-            services?: string[];
-        }
-        interface AccountsLinkResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsLinkResponse". */
-            kind?: string;
-        }
-        interface AccountsListLinksResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsListLinksResponse". */
-            kind?: string;
-            /** The list of available links. */
-            links?: LinkedAccount[];
-            /** The token for the retrieval of the next page of links. */
-            nextPageToken?: string;
-        }
-        interface AccountsListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#accountsListResponse". */
-            kind?: string;
-            /** The token for the retrieval of the next page of accounts. */
-            nextPageToken?: string;
-            resources?: Account[];
-        }
-        interface AccountstatusesCustomBatchRequest {
-            /** The request entries to be processed in the batch. */
-            entries?: AccountstatusesCustomBatchRequestEntry[];
-        }
-        interface AccountstatusesCustomBatchRequestEntry {
-            /** The ID of the (sub-)account whose status to get. */
-            accountId?: string;
-            /** An entry ID, unique within the batch request. */
-            batchId?: number;
-            /** If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination. */
-            destinations?: string[];
-            /** The ID of the managing account. */
-            merchantId?: string;
-            /** The method (get). */
-            method?: string;
-        }
-        interface AccountstatusesCustomBatchResponse {
-            /** The result of the execution of the batch requests. */
-            entries?: AccountstatusesCustomBatchResponseEntry[];
-            /** Identifies what kind of resource this is. Value: the fixed string "content#accountstatusesCustomBatchResponse". */
-            kind?: string;
-        }
-        interface AccountstatusesCustomBatchResponseEntry {
-            /** The requested account status. Defined if and only if the request was successful. */
-            accountStatus?: AccountStatus;
-            /** The ID of the request entry this entry responds to. */
-            batchId?: number;
-            /** A list of errors defined if and only if the request failed. */
-            errors?: Errors;
-        }
-        interface AccountstatusesListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#accountstatusesListResponse". */
-            kind?: string;
-            /** The token for the retrieval of the next page of account statuses. */
-            nextPageToken?: string;
-            resources?: AccountStatus[];
-        }
         interface AccounttaxCustomBatchRequest {
             /** The request entries to be processed in the batch. */
             entries?: AccounttaxCustomBatchRequestEntry[];
@@ -382,6 +346,42 @@ declare namespace gapi.client {
             /** The token for the retrieval of the next page of account tax settings. */
             nextPageToken?: string;
             resources?: AccountTax[];
+        }
+        interface AccountTaxTaxRule {
+            /** Country code in which tax is applicable. */
+            country?: string;
+            /** State (or province) is which the tax is applicable, described by its location ID (also called criteria ID). */
+            locationId?: string;
+            /** Explicit tax rate in percent, represented as a floating point number without the percentage character. Must not be negative. */
+            ratePercent?: string;
+            /** If true, shipping charges are also taxed. */
+            shippingTaxed?: boolean;
+            /** Whether the tax rate is taken from a global tax table or specified explicitly. */
+            useGlobalRate?: boolean;
+        }
+        interface AccountUser {
+            /** Whether user is an admin. */
+            admin?: boolean;
+            /** User's email address. */
+            emailAddress?: string;
+            /** Whether user is an order manager. */
+            orderManager?: boolean;
+            /** Whether user can access payment statements. */
+            paymentsAnalyst?: boolean;
+            /** Whether user can manage payment settings. */
+            paymentsManager?: boolean;
+        }
+        interface AccountYouTubeChannelLink {
+            /** Channel ID. */
+            channelId?: string;
+            /**
+             * Status of the link between this Merchant Center account and the YouTube channel. Upon retrieval, it represents the actual status of the link and can be
+             * either active if it was approved in YT Creator Studio or pending if it's pending approval. Upon insertion, it represents the intended status of the
+             * link. Re-uploading a link with status active when it's still pending or with status pending when it's already active will have no effect: the status
+             * will remain unchanged. Re-uploading a link with deprecated status inactive is equivalent to not submitting the link at all and will delete the link if
+             * it was active or cancel the link request if it was pending.
+             */
+            status?: string;
         }
         interface Amount {
             /** [required] The pre-tax or post-tax price depending on the location of the order. */
@@ -498,65 +498,6 @@ declare namespace gapi.client {
             /** Specifies how double quotes are interpreted. If not specified, the mode will be auto-detected. Ignored for non-DSV data feeds. */
             quotingMode?: string;
         }
-        interface DatafeedStatus {
-            /** The country for which the status is reported, represented as a  CLDR territory code. */
-            country?: string;
-            /** The ID of the feed for which the status is reported. */
-            datafeedId?: string;
-            /** The list of errors occurring in the feed. */
-            errors?: DatafeedStatusError[];
-            /** The number of items in the feed that were processed. */
-            itemsTotal?: string;
-            /** The number of items in the feed that were valid. */
-            itemsValid?: string;
-            /** Identifies what kind of resource this is. Value: the fixed string "content#datafeedStatus". */
-            kind?: string;
-            /** The two-letter ISO 639-1 language for which the status is reported. */
-            language?: string;
-            /** The last date at which the feed was uploaded. */
-            lastUploadDate?: string;
-            /** The processing status of the feed. */
-            processingStatus?: string;
-            /** The list of errors occurring in the feed. */
-            warnings?: DatafeedStatusError[];
-        }
-        interface DatafeedStatusError {
-            /** The code of the error, e.g., "validation/invalid_value". */
-            code?: string;
-            /** The number of occurrences of the error in the feed. */
-            count?: string;
-            /** A list of example occurrences of the error, grouped by product. */
-            examples?: DatafeedStatusExample[];
-            /** The error message, e.g., "Invalid price". */
-            message?: string;
-        }
-        interface DatafeedStatusExample {
-            /** The ID of the example item. */
-            itemId?: string;
-            /** Line number in the data feed where the example is found. */
-            lineNumber?: string;
-            /** The problematic value. */
-            value?: string;
-        }
-        interface DatafeedTarget {
-            /** The country where the items in the feed will be included in the search index, represented as a  CLDR territory code. */
-            country?: string;
-            /** The list of destinations to exclude for this target (corresponds to unchecked check boxes in Merchant Center). */
-            excludedDestinations?: string[];
-            /**
-             * The list of destinations to include for this target (corresponds to checked check boxes in Merchant Center). Default destinations are always included
-             * unless provided in excludedDestinations.
-             *
-             * List of supported destinations (if available to the account):
-             * - DisplayAds
-             * - Shopping
-             * - ShoppingActions
-             * - SurfacesAcrossGoogle
-             */
-            includedDestinations?: string[];
-            /** The two-letter ISO 639-1 language of the items in the feed. Must be a valid language for targets[].country. */
-            language?: string;
-        }
         interface DatafeedsCustomBatchRequest {
             /** The request entries to be processed in the batch. */
             entries?: DatafeedsCustomBatchRequestEntry[];
@@ -596,6 +537,38 @@ declare namespace gapi.client {
             /** The token for the retrieval of the next page of datafeeds. */
             nextPageToken?: string;
             resources?: Datafeed[];
+        }
+        interface DatafeedStatus {
+            /** The country for which the status is reported, represented as a  CLDR territory code. */
+            country?: string;
+            /** The ID of the feed for which the status is reported. */
+            datafeedId?: string;
+            /** The list of errors occurring in the feed. */
+            errors?: DatafeedStatusError[];
+            /** The number of items in the feed that were processed. */
+            itemsTotal?: string;
+            /** The number of items in the feed that were valid. */
+            itemsValid?: string;
+            /** Identifies what kind of resource this is. Value: the fixed string "content#datafeedStatus". */
+            kind?: string;
+            /** The two-letter ISO 639-1 language for which the status is reported. */
+            language?: string;
+            /** The last date at which the feed was uploaded. */
+            lastUploadDate?: string;
+            /** The processing status of the feed. */
+            processingStatus?: string;
+            /** The list of errors occurring in the feed. */
+            warnings?: DatafeedStatusError[];
+        }
+        interface DatafeedStatusError {
+            /** The code of the error, e.g., "validation/invalid_value". */
+            code?: string;
+            /** The number of occurrences of the error in the feed. */
+            count?: string;
+            /** A list of example occurrences of the error, grouped by product. */
+            examples?: DatafeedStatusExample[];
+            /** The error message, e.g., "Invalid price". */
+            message?: string;
         }
         interface DatafeedstatusesCustomBatchRequest {
             /** The request entries to be processed in the batch. */
@@ -640,6 +613,33 @@ declare namespace gapi.client {
             /** The token for the retrieval of the next page of datafeed statuses. */
             nextPageToken?: string;
             resources?: DatafeedStatus[];
+        }
+        interface DatafeedStatusExample {
+            /** The ID of the example item. */
+            itemId?: string;
+            /** Line number in the data feed where the example is found. */
+            lineNumber?: string;
+            /** The problematic value. */
+            value?: string;
+        }
+        interface DatafeedTarget {
+            /** The country where the items in the feed will be included in the search index, represented as a  CLDR territory code. */
+            country?: string;
+            /** The list of destinations to exclude for this target (corresponds to unchecked check boxes in Merchant Center). */
+            excludedDestinations?: string[];
+            /**
+             * The list of destinations to include for this target (corresponds to checked check boxes in Merchant Center). Default destinations are always included
+             * unless provided in excludedDestinations.
+             *
+             * List of supported destinations (if available to the account):
+             * - DisplayAds
+             * - Shopping
+             * - ShoppingActions
+             * - SurfacesAcrossGoogle
+             */
+            includedDestinations?: string[];
+            /** The two-letter ISO 639-1 language of the items in the feed. Must be a valid language for targets[].country. */
+            language?: string;
         }
         interface DeliveryTime {
             /** Business days cutoff time definition. If not configured the cutoff time will be defaulted to 8AM PST. */
@@ -920,17 +920,17 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "content#liasettingsSetPosDataProviderResponse". */
             kind?: string;
         }
-        interface LinkService {
-            /** Service provided to or by the linked account. */
-            service?: string;
-            /** Status of the link */
-            status?: string;
-        }
         interface LinkedAccount {
             /** The ID of the linked account. */
             linkedAccountId?: string;
             /** List of provided services. */
             services?: LinkService[];
+        }
+        interface LinkService {
+            /** Service provided to or by the linked account. */
+            service?: string;
+            /** Status of the link */
+            status?: string;
         }
         interface LocationIdSet {
             /** A non-empty list of location IDs. They must all be of the same location type (e.g., state). */
@@ -1087,6 +1087,60 @@ declare namespace gapi.client {
             address?: OrderAddress;
             /** The phone number of the person receiving the delivery. */
             phoneNumber?: string;
+        }
+        interface OrderinvoicesCreateChargeInvoiceRequest {
+            /** [required] The ID of the invoice. */
+            invoiceId?: string;
+            /** [required] Invoice summary. */
+            invoiceSummary?: InvoiceSummary;
+            /** [required] Invoice details per line item. */
+            lineItemInvoices?: ShipmentInvoiceLineItemInvoice[];
+            /** [required] The ID of the operation, unique across all operations for a given order. */
+            operationId?: string;
+            /**
+             * [required] ID of the shipment group. It is assigned by the merchant in the shipLineItems method and is used to group multiple line items that have the
+             * same kind of shipping charges.
+             */
+            shipmentGroupId?: string;
+        }
+        interface OrderinvoicesCreateChargeInvoiceResponse {
+            /** The status of the execution. */
+            executionStatus?: string;
+            /** Identifies what kind of resource this is. Value: the fixed string "content#orderinvoicesCreateChargeInvoiceResponse". */
+            kind?: string;
+        }
+        interface OrderinvoicesCreateRefundInvoiceRequest {
+            /** [required] The ID of the invoice. */
+            invoiceId?: string;
+            /** [required] The ID of the operation, unique across all operations for a given order. */
+            operationId?: string;
+            /** Option to create a refund-only invoice. Exactly one of refundOnlyOption or returnOption must be provided. */
+            refundOnlyOption?: OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption;
+            /**
+             * Option to create an invoice for a refund and mark all items within the invoice as returned. Exactly one of refundOnlyOption or returnOption must be
+             * provided.
+             */
+            returnOption?: OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption;
+            /** Invoice details for different shipment groups. */
+            shipmentInvoices?: ShipmentInvoice[];
+        }
+        interface OrderinvoicesCreateRefundInvoiceResponse {
+            /** The status of the execution. */
+            executionStatus?: string;
+            /** Identifies what kind of resource this is. Value: the fixed string "content#orderinvoicesCreateRefundInvoiceResponse". */
+            kind?: string;
+        }
+        interface OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption {
+            /** Optional description of the refund reason. */
+            description?: string;
+            /** [required] Reason for the refund. */
+            reason?: string;
+        }
+        interface OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption {
+            /** Optional description of the return reason. */
+            description?: string;
+            /** [required] Reason for the return. */
+            reason?: string;
         }
         interface OrderLineItem {
             /** Price and tax adjustments applied on the line item. */
@@ -1295,6 +1349,22 @@ declare namespace gapi.client {
             /** The ID of the managing account. */
             merchantId?: string;
         }
+        interface OrderreportsListDisbursementsResponse {
+            /** The list of disbursements. */
+            disbursements?: OrderReportDisbursement[];
+            /** Identifies what kind of resource this is. Value: the fixed string "content#orderreportsListDisbursementsResponse". */
+            kind?: string;
+            /** The token for the retrieval of the next page of disbursements. */
+            nextPageToken?: string;
+        }
+        interface OrderreportsListTransactionsResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#orderreportsListTransactionsResponse". */
+            kind?: string;
+            /** The token for the retrieval of the next page of transactions. */
+            nextPageToken?: string;
+            /** The list of transactions. */
+            transactions?: OrderReportTransaction[];
+        }
         interface OrderReportTransaction {
             /** The disbursement amount. */
             disbursementAmount?: Price;
@@ -1326,144 +1396,6 @@ declare namespace gapi.client {
             reason?: string;
             /** The explanation of the reason. */
             reasonText?: string;
-        }
-        interface OrderShipment {
-            /**
-             * The carrier handling the shipment.
-             *
-             * For supported carriers, Google includes the carrier name and tracking URL in emails to customers. For select supported carriers, Google also
-             * automatically updates the shipment status based on the provided shipment ID. Note: You can also use unsupported carriers, but emails to customers will
-             * not include the carrier name or tracking URL, and there will be no automatic order status updates.
-             * Supported carriers for US are:
-             * - "ups" (United Parcel Service) automatic status updates
-             * - "usps" (United States Postal Service) automatic status updates
-             * - "fedex" (FedEx) automatic status updates
-             * - "dhl" (DHL eCommerce) automatic status updates (US only)
-             * - "ontrac" (OnTrac) automatic status updates
-             * - "dhl express" (DHL Express)
-             * - "deliv" (Deliv)
-             * - "dynamex" (TForce)
-             * - "lasership" (LaserShip)
-             * - "mpx" (Military Parcel Xpress)
-             * - "uds" (United Delivery Service)
-             * - "efw" (Estes Forwarding Worldwide)
-             * - "jd logistics" (JD Logistics)
-             * - "yunexpress" (YunExpress)
-             * - "china post" (China Post)
-             * - "china ems" (China Post Express Mail Service)
-             * - "singapore post" (Singapore Post)
-             * - "pos malaysia" (Pos Malaysia)
-             * - "postnl" (PostNL)
-             * - "ptt" (PTT Turkish Post)
-             * - "eub" (ePacket)
-             * - "chukou1" (Chukou1 Logistics)
-             * Supported carriers for FR are:
-             * - "la poste" (La Poste) automatic status updates
-             * - "colissimo" (Colissimo by La Poste) automatic status updates
-             * - "ups" (United Parcel Service) automatic status updates
-             * - "chronopost" (Chronopost by La Poste)
-             * - "gls" (General Logistics Systems France)
-             * - "dpd" (DPD Group by GeoPost)
-             * - "bpost" (Belgian Post Group)
-             * - "colis prive" (Colis Privé)
-             * - "boxtal" (Boxtal)
-             * - "geodis" (GEODIS)
-             * - "tnt" (TNT)
-             * - "db schenker" (DB Schenker)
-             */
-            carrier?: string;
-            /** Date on which the shipment has been created, in ISO 8601 format. */
-            creationDate?: string;
-            /** Date on which the shipment has been delivered, in ISO 8601 format. Present only if status is delivered */
-            deliveryDate?: string;
-            /** The ID of the shipment. */
-            id?: string;
-            /** The line items that are shipped. */
-            lineItems?: OrderShipmentLineItemShipment[];
-            /** The shipment group ID of the shipment. This is set in shiplineitems request. */
-            shipmentGroupId?: string;
-            /** The status of the shipment. */
-            status?: string;
-            /** The tracking ID for the shipment. */
-            trackingId?: string;
-        }
-        interface OrderShipmentLineItemShipment {
-            /** The ID of the line item that is shipped. This value is assigned by Google when an order is created. Either lineItemId or productId is required. */
-            lineItemId?: string;
-            /** The ID of the product to ship. This is the REST ID used in the products service. Either lineItemId or productId is required. */
-            productId?: string;
-            /** The quantity that is shipped. */
-            quantity?: number;
-        }
-        interface OrderinvoicesCreateChargeInvoiceRequest {
-            /** [required] The ID of the invoice. */
-            invoiceId?: string;
-            /** [required] Invoice summary. */
-            invoiceSummary?: InvoiceSummary;
-            /** [required] Invoice details per line item. */
-            lineItemInvoices?: ShipmentInvoiceLineItemInvoice[];
-            /** [required] The ID of the operation, unique across all operations for a given order. */
-            operationId?: string;
-            /**
-             * [required] ID of the shipment group. It is assigned by the merchant in the shipLineItems method and is used to group multiple line items that have the
-             * same kind of shipping charges.
-             */
-            shipmentGroupId?: string;
-        }
-        interface OrderinvoicesCreateChargeInvoiceResponse {
-            /** The status of the execution. */
-            executionStatus?: string;
-            /** Identifies what kind of resource this is. Value: the fixed string "content#orderinvoicesCreateChargeInvoiceResponse". */
-            kind?: string;
-        }
-        interface OrderinvoicesCreateRefundInvoiceRequest {
-            /** [required] The ID of the invoice. */
-            invoiceId?: string;
-            /** [required] The ID of the operation, unique across all operations for a given order. */
-            operationId?: string;
-            /** Option to create a refund-only invoice. Exactly one of refundOnlyOption or returnOption must be provided. */
-            refundOnlyOption?: OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption;
-            /**
-             * Option to create an invoice for a refund and mark all items within the invoice as returned. Exactly one of refundOnlyOption or returnOption must be
-             * provided.
-             */
-            returnOption?: OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption;
-            /** Invoice details for different shipment groups. */
-            shipmentInvoices?: ShipmentInvoice[];
-        }
-        interface OrderinvoicesCreateRefundInvoiceResponse {
-            /** The status of the execution. */
-            executionStatus?: string;
-            /** Identifies what kind of resource this is. Value: the fixed string "content#orderinvoicesCreateRefundInvoiceResponse". */
-            kind?: string;
-        }
-        interface OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption {
-            /** Optional description of the refund reason. */
-            description?: string;
-            /** [required] Reason for the refund. */
-            reason?: string;
-        }
-        interface OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption {
-            /** Optional description of the return reason. */
-            description?: string;
-            /** [required] Reason for the return. */
-            reason?: string;
-        }
-        interface OrderreportsListDisbursementsResponse {
-            /** The list of disbursements. */
-            disbursements?: OrderReportDisbursement[];
-            /** Identifies what kind of resource this is. Value: the fixed string "content#orderreportsListDisbursementsResponse". */
-            kind?: string;
-            /** The token for the retrieval of the next page of disbursements. */
-            nextPageToken?: string;
-        }
-        interface OrderreportsListTransactionsResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#orderreportsListTransactionsResponse". */
-            kind?: string;
-            /** The token for the retrieval of the next page of transactions. */
-            nextPageToken?: string;
-            /** The list of transactions. */
-            transactions?: OrderReportTransaction[];
         }
         interface OrderreturnsListResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "content#orderreturnsListResponse". */
@@ -1587,6 +1519,74 @@ declare namespace gapi.client {
             kind?: string;
             /** The requested test order template. */
             template?: TestOrder;
+        }
+        interface OrderShipment {
+            /**
+             * The carrier handling the shipment.
+             *
+             * For supported carriers, Google includes the carrier name and tracking URL in emails to customers. For select supported carriers, Google also
+             * automatically updates the shipment status based on the provided shipment ID. Note: You can also use unsupported carriers, but emails to customers will
+             * not include the carrier name or tracking URL, and there will be no automatic order status updates.
+             * Supported carriers for US are:
+             * - "ups" (United Parcel Service) automatic status updates
+             * - "usps" (United States Postal Service) automatic status updates
+             * - "fedex" (FedEx) automatic status updates
+             * - "dhl" (DHL eCommerce) automatic status updates (US only)
+             * - "ontrac" (OnTrac) automatic status updates
+             * - "dhl express" (DHL Express)
+             * - "deliv" (Deliv)
+             * - "dynamex" (TForce)
+             * - "lasership" (LaserShip)
+             * - "mpx" (Military Parcel Xpress)
+             * - "uds" (United Delivery Service)
+             * - "efw" (Estes Forwarding Worldwide)
+             * - "jd logistics" (JD Logistics)
+             * - "yunexpress" (YunExpress)
+             * - "china post" (China Post)
+             * - "china ems" (China Post Express Mail Service)
+             * - "singapore post" (Singapore Post)
+             * - "pos malaysia" (Pos Malaysia)
+             * - "postnl" (PostNL)
+             * - "ptt" (PTT Turkish Post)
+             * - "eub" (ePacket)
+             * - "chukou1" (Chukou1 Logistics)
+             * Supported carriers for FR are:
+             * - "la poste" (La Poste) automatic status updates
+             * - "colissimo" (Colissimo by La Poste) automatic status updates
+             * - "ups" (United Parcel Service) automatic status updates
+             * - "chronopost" (Chronopost by La Poste)
+             * - "gls" (General Logistics Systems France)
+             * - "dpd" (DPD Group by GeoPost)
+             * - "bpost" (Belgian Post Group)
+             * - "colis prive" (Colis Privé)
+             * - "boxtal" (Boxtal)
+             * - "geodis" (GEODIS)
+             * - "tnt" (TNT)
+             * - "db schenker" (DB Schenker)
+             */
+            carrier?: string;
+            /** Date on which the shipment has been created, in ISO 8601 format. */
+            creationDate?: string;
+            /** Date on which the shipment has been delivered, in ISO 8601 format. Present only if status is delivered */
+            deliveryDate?: string;
+            /** The ID of the shipment. */
+            id?: string;
+            /** The line items that are shipped. */
+            lineItems?: OrderShipmentLineItemShipment[];
+            /** The shipment group ID of the shipment. This is set in shiplineitems request. */
+            shipmentGroupId?: string;
+            /** The status of the shipment. */
+            status?: string;
+            /** The tracking ID for the shipment. */
+            trackingId?: string;
+        }
+        interface OrderShipmentLineItemShipment {
+            /** The ID of the line item that is shipped. This value is assigned by Google when an order is created. Either lineItemId or productId is required. */
+            lineItemId?: string;
+            /** The ID of the product to ship. This is the REST ID used in the products service. Either lineItemId or productId is required. */
+            productId?: string;
+            /** The quantity that is shipped. */
+            quantity?: number;
         }
         interface OrdersInStoreRefundLineItemRequest {
             /** The ID of the line item to return. Either lineItemId or productId is required. */
@@ -2136,15 +2136,15 @@ declare namespace gapi.client {
             shippingWeight?: ProductShippingWeight;
             /** Width of the item for shipping. */
             shippingWidth?: ProductShippingDimension;
-            /** System in which the size is specified. Recommended for apparel items. */
-            sizeSystem?: string;
-            /** The cut of the item. Recommended for apparel items. */
-            sizeType?: string;
             /**
              * Size of the item. Only one value is allowed. For variants with different sizes, insert a separate product for each size with the same itemGroupId value
              * (see size definition).
              */
             sizes?: string[];
+            /** System in which the size is specified. Recommended for apparel items. */
+            sizeSystem?: string;
+            /** The cut of the item. Recommended for apparel items. */
+            sizeType?: string;
             /** The source of the offer, i.e., how the offer was created. */
             source?: string;
             /** The CLDR territory code for the item. */
@@ -2169,6 +2169,39 @@ declare namespace gapi.client {
             remittedTaxAmount?: Price;
             /** Tax value. */
             taxAmount?: Price;
+        }
+        interface ProductsCustomBatchRequest {
+            /** The request entries to be processed in the batch. */
+            entries?: ProductsCustomBatchRequestEntry[];
+        }
+        interface ProductsCustomBatchRequestEntry {
+            /** An entry ID, unique within the batch request. */
+            batchId?: number;
+            /** The Content API feed id. */
+            feedId?: string;
+            /** The ID of the managing account. */
+            merchantId?: string;
+            method?: string;
+            /** The product to insert. Only required if the method is insert. */
+            product?: Product;
+            /** The ID of the product to get or delete. Only defined if the method is get or delete. */
+            productId?: string;
+        }
+        interface ProductsCustomBatchResponse {
+            /** The result of the execution of the batch requests. */
+            entries?: ProductsCustomBatchResponseEntry[];
+            /** Identifies what kind of resource this is. Value: the fixed string "content#productsCustomBatchResponse". */
+            kind?: string;
+        }
+        interface ProductsCustomBatchResponseEntry {
+            /** The ID of the request entry this entry responds to. */
+            batchId?: number;
+            /** A list of errors defined if and only if the request failed. */
+            errors?: Errors;
+            /** Identifies what kind of resource this is. Value: the fixed string "content#productsCustomBatchResponseEntry". */
+            kind?: string;
+            /** The inserted product. Only defined if the method is insert and if the request was successful. */
+            product?: Product;
         }
         interface ProductShipping {
             /** The CLDR territory code of the country to which an item will ship. */
@@ -2201,6 +2234,13 @@ declare namespace gapi.client {
             /** The weight of the product used to calculate the shipping cost of the item. */
             value?: number;
         }
+        interface ProductsListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#productsListResponse". */
+            kind?: string;
+            /** The token for the retrieval of the next page of products. */
+            nextPageToken?: string;
+            resources?: Product[];
+        }
         interface ProductStatus {
             /** Date on which the item has been created, in ISO 8601 format. */
             creationDate?: string;
@@ -2225,6 +2265,45 @@ declare namespace gapi.client {
             /** The name of the destination */
             destination?: string;
             status?: string;
+        }
+        interface ProductstatusesCustomBatchRequest {
+            /** The request entries to be processed in the batch. */
+            entries?: ProductstatusesCustomBatchRequestEntry[];
+        }
+        interface ProductstatusesCustomBatchRequestEntry {
+            /** An entry ID, unique within the batch request. */
+            batchId?: number;
+            /** If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination. */
+            destinations?: string[];
+            includeAttributes?: boolean;
+            /** The ID of the managing account. */
+            merchantId?: string;
+            method?: string;
+            /** The ID of the product whose status to get. */
+            productId?: string;
+        }
+        interface ProductstatusesCustomBatchResponse {
+            /** The result of the execution of the batch requests. */
+            entries?: ProductstatusesCustomBatchResponseEntry[];
+            /** Identifies what kind of resource this is. Value: the fixed string "content#productstatusesCustomBatchResponse". */
+            kind?: string;
+        }
+        interface ProductstatusesCustomBatchResponseEntry {
+            /** The ID of the request entry this entry responds to. */
+            batchId?: number;
+            /** A list of errors, if the request failed. */
+            errors?: Errors;
+            /** Identifies what kind of resource this is. Value: the fixed string "content#productstatusesCustomBatchResponseEntry". */
+            kind?: string;
+            /** The requested product status. Only defined if the request was successful. */
+            productStatus?: ProductStatus;
+        }
+        interface ProductstatusesListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#productstatusesListResponse". */
+            kind?: string;
+            /** The token for the retrieval of the next page of products statuses. */
+            nextPageToken?: string;
+            resources?: ProductStatus[];
         }
         interface ProductStatusItemLevelIssue {
             /** The attribute's name, if the issue is caused by a single attribute. */
@@ -2272,85 +2351,6 @@ declare namespace gapi.client {
             unit?: string;
             /** The measure of an item. */
             value?: number;
-        }
-        interface ProductsCustomBatchRequest {
-            /** The request entries to be processed in the batch. */
-            entries?: ProductsCustomBatchRequestEntry[];
-        }
-        interface ProductsCustomBatchRequestEntry {
-            /** An entry ID, unique within the batch request. */
-            batchId?: number;
-            /** The Content API feed id. */
-            feedId?: string;
-            /** The ID of the managing account. */
-            merchantId?: string;
-            method?: string;
-            /** The product to insert. Only required if the method is insert. */
-            product?: Product;
-            /** The ID of the product to get or delete. Only defined if the method is get or delete. */
-            productId?: string;
-        }
-        interface ProductsCustomBatchResponse {
-            /** The result of the execution of the batch requests. */
-            entries?: ProductsCustomBatchResponseEntry[];
-            /** Identifies what kind of resource this is. Value: the fixed string "content#productsCustomBatchResponse". */
-            kind?: string;
-        }
-        interface ProductsCustomBatchResponseEntry {
-            /** The ID of the request entry this entry responds to. */
-            batchId?: number;
-            /** A list of errors defined if and only if the request failed. */
-            errors?: Errors;
-            /** Identifies what kind of resource this is. Value: the fixed string "content#productsCustomBatchResponseEntry". */
-            kind?: string;
-            /** The inserted product. Only defined if the method is insert and if the request was successful. */
-            product?: Product;
-        }
-        interface ProductsListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#productsListResponse". */
-            kind?: string;
-            /** The token for the retrieval of the next page of products. */
-            nextPageToken?: string;
-            resources?: Product[];
-        }
-        interface ProductstatusesCustomBatchRequest {
-            /** The request entries to be processed in the batch. */
-            entries?: ProductstatusesCustomBatchRequestEntry[];
-        }
-        interface ProductstatusesCustomBatchRequestEntry {
-            /** An entry ID, unique within the batch request. */
-            batchId?: number;
-            /** If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination. */
-            destinations?: string[];
-            includeAttributes?: boolean;
-            /** The ID of the managing account. */
-            merchantId?: string;
-            method?: string;
-            /** The ID of the product whose status to get. */
-            productId?: string;
-        }
-        interface ProductstatusesCustomBatchResponse {
-            /** The result of the execution of the batch requests. */
-            entries?: ProductstatusesCustomBatchResponseEntry[];
-            /** Identifies what kind of resource this is. Value: the fixed string "content#productstatusesCustomBatchResponse". */
-            kind?: string;
-        }
-        interface ProductstatusesCustomBatchResponseEntry {
-            /** The ID of the request entry this entry responds to. */
-            batchId?: number;
-            /** A list of errors, if the request failed. */
-            errors?: Errors;
-            /** Identifies what kind of resource this is. Value: the fixed string "content#productstatusesCustomBatchResponseEntry". */
-            kind?: string;
-            /** The requested product status. Only defined if the request was successful. */
-            productStatus?: ProductStatus;
-        }
-        interface ProductstatusesListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#productstatusesListResponse". */
-            kind?: string;
-            /** The token for the retrieval of the next page of products statuses. */
-            nextPageToken?: string;
-            resources?: ProductStatus[];
         }
         interface RateGroup {
             /**
@@ -2448,6 +2448,44 @@ declare namespace gapi.client {
             /** Street-level part of the address. May be up to two lines, each line specified as an array element. */
             streetAddress?: string[];
         }
+        interface ReturnaddressCustomBatchRequest {
+            /** The request entries to be processed in the batch. */
+            entries?: ReturnaddressCustomBatchRequestEntry[];
+        }
+        interface ReturnaddressCustomBatchRequestEntry {
+            /** An entry ID, unique within the batch request. */
+            batchId?: number;
+            /** The Merchant Center account ID. */
+            merchantId?: string;
+            method?: string;
+            /** The return address to submit. Set this only if the method is insert. */
+            returnAddress?: ReturnAddress;
+            /** The return address ID. Set this only if the method is delete or get. */
+            returnAddressId?: string;
+        }
+        interface ReturnaddressCustomBatchResponse {
+            /** The result of the execution of the batch requests. */
+            entries?: ReturnaddressCustomBatchResponseEntry[];
+            /** Identifies what kind of resource this is. Value: the fixed string "content#returnaddressCustomBatchResponse". */
+            kind?: string;
+        }
+        interface ReturnaddressCustomBatchResponseEntry {
+            /** The ID of the request entry to which this entry responds. */
+            batchId?: number;
+            /** A list of errors defined if, and only if, the request failed. */
+            errors?: Errors;
+            /** Identifies what kind of resource this is. Value: the fixed string "content#returnaddressCustomBatchResponseEntry". */
+            kind?: string;
+            /** The retrieved return address. */
+            returnAddress?: ReturnAddress;
+        }
+        interface ReturnaddressListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#returnaddressListResponse". */
+            kind?: string;
+            /** The token for the retrieval of the next page of addresses. */
+            nextPageToken?: string;
+            resources?: ReturnAddress[];
+        }
         interface ReturnPolicy {
             /** The country of sale where the return policy is applicable. */
             country?: string;
@@ -2465,6 +2503,42 @@ declare namespace gapi.client {
             returnPolicyId?: string;
             /** An optional list of seasonal overrides. */
             seasonalOverrides?: ReturnPolicySeasonalOverride[];
+        }
+        interface ReturnpolicyCustomBatchRequest {
+            /** The request entries to be processed in the batch. */
+            entries?: ReturnpolicyCustomBatchRequestEntry[];
+        }
+        interface ReturnpolicyCustomBatchRequestEntry {
+            /** An entry ID, unique within the batch request. */
+            batchId?: number;
+            /** The Merchant Center account ID. */
+            merchantId?: string;
+            method?: string;
+            /** The return policy to submit. Set this only if the method is insert. */
+            returnPolicy?: ReturnPolicy;
+            /** The return policy ID. Set this only if the method is delete or get. */
+            returnPolicyId?: string;
+        }
+        interface ReturnpolicyCustomBatchResponse {
+            /** The result of the execution of the batch requests. */
+            entries?: ReturnpolicyCustomBatchResponseEntry[];
+            /** Identifies what kind of resource this is. Value: the fixed string "content#returnpolicyCustomBatchResponse". */
+            kind?: string;
+        }
+        interface ReturnpolicyCustomBatchResponseEntry {
+            /** The ID of the request entry to which this entry responds. */
+            batchId?: number;
+            /** A list of errors defined if, and only if, the request failed. */
+            errors?: Errors;
+            /** Identifies what kind of resource this is. Value: the fixed string "content#returnpolicyCustomBatchResponseEntry". */
+            kind?: string;
+            /** The retrieved return policy. */
+            returnPolicy?: ReturnPolicy;
+        }
+        interface ReturnpolicyListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "content#returnpolicyListResponse". */
+            kind?: string;
+            resources?: ReturnPolicy[];
         }
         interface ReturnPolicyPolicy {
             /**
@@ -2504,80 +2578,6 @@ declare namespace gapi.client {
             shipmentTrackingInfos?: ShipmentTrackingInfo[];
             shippingDate?: string;
             state?: string;
-        }
-        interface ReturnaddressCustomBatchRequest {
-            /** The request entries to be processed in the batch. */
-            entries?: ReturnaddressCustomBatchRequestEntry[];
-        }
-        interface ReturnaddressCustomBatchRequestEntry {
-            /** An entry ID, unique within the batch request. */
-            batchId?: number;
-            /** The Merchant Center account ID. */
-            merchantId?: string;
-            method?: string;
-            /** The return address to submit. Set this only if the method is insert. */
-            returnAddress?: ReturnAddress;
-            /** The return address ID. Set this only if the method is delete or get. */
-            returnAddressId?: string;
-        }
-        interface ReturnaddressCustomBatchResponse {
-            /** The result of the execution of the batch requests. */
-            entries?: ReturnaddressCustomBatchResponseEntry[];
-            /** Identifies what kind of resource this is. Value: the fixed string "content#returnaddressCustomBatchResponse". */
-            kind?: string;
-        }
-        interface ReturnaddressCustomBatchResponseEntry {
-            /** The ID of the request entry to which this entry responds. */
-            batchId?: number;
-            /** A list of errors defined if, and only if, the request failed. */
-            errors?: Errors;
-            /** Identifies what kind of resource this is. Value: the fixed string "content#returnaddressCustomBatchResponseEntry". */
-            kind?: string;
-            /** The retrieved return address. */
-            returnAddress?: ReturnAddress;
-        }
-        interface ReturnaddressListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#returnaddressListResponse". */
-            kind?: string;
-            /** The token for the retrieval of the next page of addresses. */
-            nextPageToken?: string;
-            resources?: ReturnAddress[];
-        }
-        interface ReturnpolicyCustomBatchRequest {
-            /** The request entries to be processed in the batch. */
-            entries?: ReturnpolicyCustomBatchRequestEntry[];
-        }
-        interface ReturnpolicyCustomBatchRequestEntry {
-            /** An entry ID, unique within the batch request. */
-            batchId?: number;
-            /** The Merchant Center account ID. */
-            merchantId?: string;
-            method?: string;
-            /** The return policy to submit. Set this only if the method is insert. */
-            returnPolicy?: ReturnPolicy;
-            /** The return policy ID. Set this only if the method is delete or get. */
-            returnPolicyId?: string;
-        }
-        interface ReturnpolicyCustomBatchResponse {
-            /** The result of the execution of the batch requests. */
-            entries?: ReturnpolicyCustomBatchResponseEntry[];
-            /** Identifies what kind of resource this is. Value: the fixed string "content#returnpolicyCustomBatchResponse". */
-            kind?: string;
-        }
-        interface ReturnpolicyCustomBatchResponseEntry {
-            /** The ID of the request entry to which this entry responds. */
-            batchId?: number;
-            /** A list of errors defined if, and only if, the request failed. */
-            errors?: Errors;
-            /** Identifies what kind of resource this is. Value: the fixed string "content#returnpolicyCustomBatchResponseEntry". */
-            kind?: string;
-            /** The retrieved return policy. */
-            returnPolicy?: ReturnPolicy;
-        }
-        interface ReturnpolicyListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "content#returnpolicyListResponse". */
-            kind?: string;
-            resources?: ReturnPolicy[];
         }
         interface Row {
             /**

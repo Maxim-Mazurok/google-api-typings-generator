@@ -12,10 +12,10 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** View and manage your data across Google Cloud Platform services */
-            'https://www.googleapis.com/auth/cloud-platform',
             /** Use Stackdriver Debugger */
             'https://www.googleapis.com/auth/cloud_debugger',
+            /** View and manage your data across Google Cloud Platform services */
+            'https://www.googleapis.com/auth/cloud-platform',
         ];
         const immediate = false;
         gapi.auth.authorize({ client_id, scope, immediate }, authResult => {

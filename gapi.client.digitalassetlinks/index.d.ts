@@ -396,10 +396,10 @@ declare namespace gapi.client {
                  * REQUIRED
                  */
                 "target.web.site"?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<CheckResponse>;
         }
         interface StatementsResource {
@@ -525,10 +525,10 @@ declare namespace gapi.client {
                  * REQUIRED
                  */
                 "source.web.site"?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<ListResponse>;
         }
 

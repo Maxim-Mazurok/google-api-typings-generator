@@ -422,14 +422,14 @@ gapi.load('client', () => {
                     startTime: "Test string",
                 },
                 crashSafeReplicationEnabled: true,
-                dataDiskSizeGb: "Test string",
-                dataDiskType: "Test string",
                 databaseFlags: [
                     {
                         name: "Test string",
                         value: "Test string",
                     }                ],
                 databaseReplicationEnabled: true,
+                dataDiskSizeGb: "Test string",
+                dataDiskType: "Test string",
                 ipConfiguration: {
                     authorizedNetworks: [
                         {
@@ -588,14 +588,14 @@ gapi.load('client', () => {
                     startTime: "Test string",
                 },
                 crashSafeReplicationEnabled: true,
-                dataDiskSizeGb: "Test string",
-                dataDiskType: "Test string",
                 databaseFlags: [
                     {
                         name: "Test string",
                         value: "Test string",
                     }                ],
                 databaseReplicationEnabled: true,
+                dataDiskSizeGb: "Test string",
+                dataDiskType: "Test string",
                 ipConfiguration: {
                     authorizedNetworks: [
                         {
@@ -802,14 +802,14 @@ gapi.load('client', () => {
                     startTime: "Test string",
                 },
                 crashSafeReplicationEnabled: true,
-                dataDiskSizeGb: "Test string",
-                dataDiskType: "Test string",
                 databaseFlags: [
                     {
                         name: "Test string",
                         value: "Test string",
                     }                ],
                 databaseReplicationEnabled: true,
+                dataDiskSizeGb: "Test string",
+                dataDiskType: "Test string",
                 ipConfiguration: {
                     authorizedNetworks: [
                         {

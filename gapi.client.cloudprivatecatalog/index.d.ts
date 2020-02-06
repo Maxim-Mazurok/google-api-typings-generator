@@ -265,10 +265,10 @@ declare namespace gapi.client {
                  * &#42; `organizations/{organization_id}`
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogV1beta1SearchCatalogsResponse>;
         }
         interface ProductsResource {
@@ -318,10 +318,10 @@ declare namespace gapi.client {
                  * SearchCatalogsRequest.resource for details.
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogV1beta1SearchProductsResponse>;
         }
         interface VersionsResource {
@@ -371,10 +371,10 @@ declare namespace gapi.client {
                  * SearchCatalogsRequest.resource for details.
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogV1beta1SearchVersionsResponse>;
         }
         interface FoldersResource {
@@ -428,10 +428,10 @@ declare namespace gapi.client {
                  * &#42; `organizations/{organization_id}`
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogV1beta1SearchCatalogsResponse>;
         }
         interface ProductsResource {
@@ -481,10 +481,10 @@ declare namespace gapi.client {
                  * SearchCatalogsRequest.resource for details.
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogV1beta1SearchProductsResponse>;
         }
         interface VersionsResource {
@@ -534,10 +534,10 @@ declare namespace gapi.client {
                  * SearchCatalogsRequest.resource for details.
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogV1beta1SearchVersionsResponse>;
         }
         interface OrganizationsResource {
@@ -591,10 +591,10 @@ declare namespace gapi.client {
                  * &#42; `organizations/{organization_id}`
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogV1beta1SearchCatalogsResponse>;
         }
         interface ProductsResource {
@@ -644,10 +644,10 @@ declare namespace gapi.client {
                  * SearchCatalogsRequest.resource for details.
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogV1beta1SearchProductsResponse>;
         }
         interface VersionsResource {
@@ -697,10 +697,10 @@ declare namespace gapi.client {
                  * SearchCatalogsRequest.resource for details.
                  */
                 resource: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogV1beta1SearchVersionsResponse>;
         }
         interface ProjectsResource {

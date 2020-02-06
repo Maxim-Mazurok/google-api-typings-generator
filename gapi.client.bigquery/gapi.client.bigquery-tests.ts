@@ -643,12 +643,12 @@ gapi.load('client', () => {
                 },
                 quotaDeferments: [
                     "Test string"                ],
+                reservation_id: "Test string",
                 reservationUsage: [
                     {
                         name: "Test string",
                         slotMs: "Test string",
                     }                ],
-                reservation_id: "Test string",
                 scriptStatistics: {
                     evaluationKind: "Test string",
                     stackFrames: [

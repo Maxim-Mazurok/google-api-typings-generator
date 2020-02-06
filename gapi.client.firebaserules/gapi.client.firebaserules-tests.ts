@@ -93,6 +93,80 @@ gapi.load('client', () => {
             },
         });
         /**
+         * Create a `Release`.
+         *
+         * Release names should reflect the developer's deployment practices. For
+         * example, the release name may include the environment name, application
+         * name, application version, or any other name meaningful to the developer.
+         * Once a `Release` refers to a `Ruleset`, the rules can be enforced by
+         * Firebase Rules-enabled services.
+         *
+         * More than one `Release` may be 'live' concurrently. Consider the following
+         * three `Release` names for `projects/foo` and the `Ruleset` to which they
+         * refer.
+         *
+         * Release Name                    | Ruleset Name
+         * --------------------------------|-------------
+         * projects/foo/releases/prod      | projects/foo/rulesets/uuid123
+         * projects/foo/releases/prod/beta | projects/foo/rulesets/uuid123
+         * projects/foo/releases/prod/v23  | projects/foo/rulesets/uuid456
+         *
+         * The table reflects the `Ruleset` rollout in progress. The `prod` and
+         * `prod/beta` releases refer to the same `Ruleset`. However, `prod/v23`
+         * refers to a new `Ruleset`. The `Ruleset` reference for a `Release` may be
+         * updated using the UpdateRelease method.
+         */
+        await gapi.client.firebaserules.projects.releases.create({
+            name: "Test string",
+        }, {
+            createTime: "Test string",
+            name: "Test string",
+            rulesetName: "Test string",
+            updateTime: "Test string",
+        });
+        /** Delete a `Release` by resource name. */
+        await gapi.client.firebaserules.projects.releases.delete({
+            name: "Test string",
+        });
+        /** Get a `Release` by name. */
+        await gapi.client.firebaserules.projects.releases.get({
+            name: "Test string",
+        });
+        /** Get the `Release` executable to use when enforcing rules. */
+        await gapi.client.firebaserules.projects.releases.getExecutable({
+            executableVersion: "Test string",
+            name: "Test string",
+        });
+        /**
+         * List the `Release` values for a project. This list may optionally be
+         * filtered by `Release` name, `Ruleset` name, `TestSuite` name, or any
+         * combination thereof.
+         */
+        await gapi.client.firebaserules.projects.releases.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Update a `Release` via PATCH.
+         *
+         * Only updates to the `ruleset_name` and `test_suite_name` fields will be
+         * honored. `Release` rename is not supported. To create a `Release` use the
+         * CreateRelease method.
+         */
+        await gapi.client.firebaserules.projects.releases.patch({
+            name: "Test string",
+        }, {
+            release: {
+                createTime: "Test string",
+                name: "Test string",
+                rulesetName: "Test string",
+                updateTime: "Test string",
+            },
+            updateMask: "Test string",
+        });
+        /**
          * Create a `Ruleset` from `Source`.
          *
          * The `Ruleset` is given a unique generated name which is returned to the
@@ -142,80 +216,6 @@ gapi.load('client', () => {
             name: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-        });
-        /** Get the `Release` executable to use when enforcing rules. */
-        await gapi.client.firebaserules.projects.releases.getExecutable({
-            executableVersion: "Test string",
-            name: "Test string",
-        });
-        /** Delete a `Release` by resource name. */
-        await gapi.client.firebaserules.projects.releases.delete({
-            name: "Test string",
-        });
-        /**
-         * List the `Release` values for a project. This list may optionally be
-         * filtered by `Release` name, `Ruleset` name, `TestSuite` name, or any
-         * combination thereof.
-         */
-        await gapi.client.firebaserules.projects.releases.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Create a `Release`.
-         *
-         * Release names should reflect the developer's deployment practices. For
-         * example, the release name may include the environment name, application
-         * name, application version, or any other name meaningful to the developer.
-         * Once a `Release` refers to a `Ruleset`, the rules can be enforced by
-         * Firebase Rules-enabled services.
-         *
-         * More than one `Release` may be 'live' concurrently. Consider the following
-         * three `Release` names for `projects/foo` and the `Ruleset` to which they
-         * refer.
-         *
-         * Release Name                    | Ruleset Name
-         * --------------------------------|-------------
-         * projects/foo/releases/prod      | projects/foo/rulesets/uuid123
-         * projects/foo/releases/prod/beta | projects/foo/rulesets/uuid123
-         * projects/foo/releases/prod/v23  | projects/foo/rulesets/uuid456
-         *
-         * The table reflects the `Ruleset` rollout in progress. The `prod` and
-         * `prod/beta` releases refer to the same `Ruleset`. However, `prod/v23`
-         * refers to a new `Ruleset`. The `Ruleset` reference for a `Release` may be
-         * updated using the UpdateRelease method.
-         */
-        await gapi.client.firebaserules.projects.releases.create({
-            name: "Test string",
-        }, {
-            createTime: "Test string",
-            name: "Test string",
-            rulesetName: "Test string",
-            updateTime: "Test string",
-        });
-        /**
-         * Update a `Release` via PATCH.
-         *
-         * Only updates to the `ruleset_name` and `test_suite_name` fields will be
-         * honored. `Release` rename is not supported. To create a `Release` use the
-         * CreateRelease method.
-         */
-        await gapi.client.firebaserules.projects.releases.patch({
-            name: "Test string",
-        }, {
-            release: {
-                createTime: "Test string",
-                name: "Test string",
-                rulesetName: "Test string",
-                updateTime: "Test string",
-            },
-            updateMask: "Test string",
-        });
-        /** Get a `Release` by name. */
-        await gapi.client.firebaserules.projects.releases.get({
-            name: "Test string",
         });
     }
 });

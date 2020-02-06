@@ -181,6 +181,14 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountPermissionsListResponse". */
             kind?: string;
         }
+        interface AccountsListResponse {
+            /** Account collection. */
+            accounts?: Account[];
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountsListResponse". */
+            kind?: string;
+            /** Pagination token to be used for the next list operation. */
+            nextPageToken?: string;
+        }
         interface AccountUserProfile {
             /** Account ID of the user profile. This is a read-only field that can be left blank. */
             accountId?: string;
@@ -241,14 +249,6 @@ declare namespace gapi.client {
             /** Account user profile collection. */
             accountUserProfiles?: AccountUserProfile[];
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountUserProfilesListResponse". */
-            kind?: string;
-            /** Pagination token to be used for the next list operation. */
-            nextPageToken?: string;
-        }
-        interface AccountsListResponse {
-            /** Account collection. */
-            accounts?: Account[];
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountsListResponse". */
             kind?: string;
             /** Pagination token to be used for the next list operation. */
             nextPageToken?: string;
@@ -399,6 +399,14 @@ declare namespace gapi.client {
              */
             overrideClickThroughUrl?: boolean;
         }
+        interface AdsListResponse {
+            /** Ad collection. */
+            ads?: Ad[];
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#adsListResponse". */
+            kind?: string;
+            /** Pagination token to be used for the next list operation. */
+            nextPageToken?: string;
+        }
         interface AdSlot {
             /** Comment for this ad slot. */
             comment?: string;
@@ -420,14 +428,6 @@ declare namespace gapi.client {
             primary?: boolean;
             /** Width of this ad slot. */
             width?: string;
-        }
-        interface AdsListResponse {
-            /** Ad collection. */
-            ads?: Ad[];
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#adsListResponse". */
-            kind?: string;
-            /** Pagination token to be used for the next list operation. */
-            nextPageToken?: string;
         }
         interface Advertiser {
             /** Account ID of this advertiser.This is a read-only field that can be left blank. */
@@ -894,14 +894,6 @@ declare namespace gapi.client {
             /** A description of the error. */
             message?: string;
         }
-        interface ConversionStatus {
-            /** The original conversion that was inserted or updated. */
-            conversion?: Conversion;
-            /** A list of errors related to this conversion. */
-            errors?: ConversionError[];
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#conversionStatus". */
-            kind?: string;
-        }
         interface ConversionsBatchInsertRequest {
             /** The set of conversions to insert. */
             conversions?: Conversion[];
@@ -937,6 +929,14 @@ declare namespace gapi.client {
             /** The update status of each conversion. Statuses are returned in the same order that conversions are updated. */
             status?: ConversionStatus[];
         }
+        interface ConversionStatus {
+            /** The original conversion that was inserted or updated. */
+            conversion?: Conversion;
+            /** A list of errors related to this conversion. */
+            errors?: ConversionError[];
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#conversionStatus". */
+            kind?: string;
+        }
         interface CountriesListResponse {
             /** Country collection. */
             countries?: Country[];
@@ -960,6 +960,11 @@ declare namespace gapi.client {
             accountId?: string;
             /** Whether the creative is active. Applicable to all creative types. */
             active?: boolean;
+            /**
+             * Additional sizes associated with a responsive creative. When inserting or updating a creative either the size ID field or size width and height fields
+             * can be used. Applicable to DISPLAY creatives when the primary asset type is HTML_IMAGE.
+             */
+            additionalSizes?: Size[];
             /** Ad parameters user for VPAID creative. This is a read-only field. Applicable to the following creative types: all VPAID. */
             adParameters?: string;
             /**
@@ -968,11 +973,6 @@ declare namespace gapi.client {
              * RICH_MEDIA, and all VPAID.
              */
             adTagKeys?: string[];
-            /**
-             * Additional sizes associated with a responsive creative. When inserting or updating a creative either the size ID field or size width and height fields
-             * can be used. Applicable to DISPLAY creatives when the primary asset type is HTML_IMAGE.
-             */
-            additionalSizes?: Size[];
             /** Advertiser ID of this creative. This is a required field. Applicable to all creative types. */
             advertiserId?: string;
             /**
@@ -1055,10 +1055,10 @@ declare namespace gapi.client {
              * Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, all RICH_MEDIA, and all VPAID.
              */
             counterCustomEvents?: CreativeCustomEvent[];
-            /** Required if dynamicAssetSelection is true. */
-            creativeAssetSelection?: CreativeAssetSelection;
             /** Assets associated with a creative. Applicable to all but the following creative types: INTERNAL_REDIRECT, INTERSTITIAL_INTERNAL_REDIRECT, and REDIRECT */
             creativeAssets?: CreativeAsset[];
+            /** Required if dynamicAssetSelection is true. */
+            creativeAssetSelection?: CreativeAssetSelection;
             /** Creative field assignments for this creative. Applicable to all creative types. */
             creativeFieldAssignments?: CreativeFieldAssignment[];
             /**
@@ -1581,6 +1581,14 @@ declare namespace gapi.client {
             /** ID of the creative field value. */
             creativeFieldValueId?: string;
         }
+        interface CreativeFieldsListResponse {
+            /** Creative field collection. */
+            creativeFields?: CreativeField[];
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#creativeFieldsListResponse". */
+            kind?: string;
+            /** Pagination token to be used for the next list operation. */
+            nextPageToken?: string;
+        }
         interface CreativeFieldValue {
             /** ID of this creative field value. This is a read-only, auto-generated field. */
             id?: string;
@@ -1593,14 +1601,6 @@ declare namespace gapi.client {
             /** Creative field value collection. */
             creativeFieldValues?: CreativeFieldValue[];
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#creativeFieldValuesListResponse". */
-            kind?: string;
-            /** Pagination token to be used for the next list operation. */
-            nextPageToken?: string;
-        }
-        interface CreativeFieldsListResponse {
-            /** Creative field collection. */
-            creativeFields?: CreativeField[];
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#creativeFieldsListResponse". */
             kind?: string;
             /** Pagination token to be used for the next list operation. */
             nextPageToken?: string;
@@ -1738,14 +1738,6 @@ declare namespace gapi.client {
             /** The mobile device ID. This field is mutually exclusive with matchId, and at least one of the two fields is required. */
             mobileDeviceId?: string;
         }
-        interface CustomEventStatus {
-            /** The original custom event that was inserted. */
-            customEvent?: CustomEvent;
-            /** A list of errors related to this custom event. */
-            errors?: CustomEventError[];
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#customEventStatus". */
-            kind?: string;
-        }
         interface CustomEventsBatchInsertRequest {
             /** The set of custom events to insert. */
             customEvents?: CustomEvent[];
@@ -1759,6 +1751,14 @@ declare namespace gapi.client {
             kind?: string;
             /** The insert status of each custom event. Statuses are returned in the same order that conversions are inserted. */
             status?: CustomEventStatus[];
+        }
+        interface CustomEventStatus {
+            /** The original custom event that was inserted. */
+            customEvent?: CustomEvent;
+            /** A list of errors related to this custom event. */
+            errors?: CustomEventError[];
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#customEventStatus". */
+            kind?: string;
         }
         interface CustomFloodlightVariable {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#customFloodlightVariable". */
@@ -1805,20 +1805,6 @@ declare namespace gapi.client {
             timePercent?: number;
             /** The percentage of video that must be on screen for the Custom Viewability Metric to count an impression. */
             viewabilityPercent?: number;
-        }
-        interface DV3Ids {
-            /** Campaign ID for DV360. */
-            dvCampaignId?: string;
-            /** Creative ID for DV360. */
-            dvCreativeId?: string;
-            /** Insertion Order ID for DV360. */
-            dvInsertionOrderId?: string;
-            /** Line Item ID for DV360. */
-            dvLineItemId?: string;
-            /** Site ID for DV360. */
-            dvSiteId?: string;
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#dV3Ids". */
-            kind?: string;
         }
         interface DateRange {
             /** The end date of the date range, inclusive. A string of the format: "yyyy-MM-dd". */
@@ -1894,10 +1880,10 @@ declare namespace gapi.client {
             dfpNetworkName?: string;
             /** Whether this directory site accepts programmatic placements. */
             programmaticPlacementAccepted?: boolean;
-            /** Whether this directory site accepts publisher-paid tags. */
-            pubPaidPlacementAccepted?: boolean;
             /** Whether this directory site is available only via Publisher Portal. */
             publisherPortalOnly?: boolean;
+            /** Whether this directory site accepts publisher-paid tags. */
+            pubPaidPlacementAccepted?: boolean;
         }
         interface Dimension {
             /** The kind of resource this is, in this case dfareporting#dimension. */
@@ -2008,6 +1994,20 @@ declare namespace gapi.client {
             kind?: string;
             /** Pagination token to be used for the next list operation. */
             nextPageToken?: string;
+        }
+        interface DV3Ids {
+            /** Campaign ID for DV360. */
+            dvCampaignId?: string;
+            /** Creative ID for DV360. */
+            dvCreativeId?: string;
+            /** Insertion Order ID for DV360. */
+            dvInsertionOrderId?: string;
+            /** Line Item ID for DV360. */
+            dvLineItemId?: string;
+            /** Site ID for DV360. */
+            dvSiteId?: string;
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#dV3Ids". */
+            kind?: string;
         }
         interface DynamicTargetingKey {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#dynamicTargetingKey". */
@@ -2511,17 +2511,17 @@ declare namespace gapi.client {
             /** Name of this language. */
             name?: string;
         }
+        interface LanguagesListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#languagesListResponse". */
+            kind?: string;
+            /** Language collection. */
+            languages?: Language[];
+        }
         interface LanguageTargeting {
             /**
              * Languages that this ad targets. For each language only languageId is required. The other fields are populated automatically when the ad is inserted or
              * updated.
              */
-            languages?: Language[];
-        }
-        interface LanguagesListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#languagesListResponse". */
-            kind?: string;
-            /** Language collection. */
             languages?: Language[];
         }
         interface LastModifiedInfo {
@@ -2696,6 +2696,12 @@ declare namespace gapi.client {
             /** Name of this operating system. */
             name?: string;
         }
+        interface OperatingSystemsListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#operatingSystemsListResponse". */
+            kind?: string;
+            /** Operating system collection. */
+            operatingSystems?: OperatingSystem[];
+        }
         interface OperatingSystemVersion {
             /** ID of this operating system version. */
             id?: string;
@@ -2715,12 +2721,6 @@ declare namespace gapi.client {
             kind?: string;
             /** Operating system version collection. */
             operatingSystemVersions?: OperatingSystemVersion[];
-        }
-        interface OperatingSystemsListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#operatingSystemsListResponse". */
-            kind?: string;
-            /** Operating system collection. */
-            operatingSystems?: OperatingSystem[];
         }
         interface OptimizationActivity {
             /** Floodlight activity ID of this optimization activity. This is a required field. */
@@ -3071,6 +3071,20 @@ declare namespace gapi.client {
             /** Placement group collection. */
             placementGroups?: PlacementGroup[];
         }
+        interface PlacementsGenerateTagsResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#placementsGenerateTagsResponse". */
+            kind?: string;
+            /** Set of generated tags for the specified placements. */
+            placementTags?: PlacementTag[];
+        }
+        interface PlacementsListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#placementsListResponse". */
+            kind?: string;
+            /** Pagination token to be used for the next list operation. */
+            nextPageToken?: string;
+            /** Placement collection. */
+            placements?: Placement[];
+        }
         interface PlacementStrategiesListResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#placementStrategiesListResponse". */
             kind?: string;
@@ -3097,20 +3111,6 @@ declare namespace gapi.client {
             placementId?: string;
             /** Tags generated for this placement. */
             tagDatas?: TagData[];
-        }
-        interface PlacementsGenerateTagsResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#placementsGenerateTagsResponse". */
-            kind?: string;
-            /** Set of generated tags for the specified placements. */
-            placementTags?: PlacementTag[];
-        }
-        interface PlacementsListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#placementsListResponse". */
-            kind?: string;
-            /** Pagination token to be used for the next list operation. */
-            nextPageToken?: string;
-            /** Placement collection. */
-            placements?: Placement[];
         }
         interface PlatformType {
             /** ID of this platform type. */
@@ -3785,6 +3785,14 @@ declare namespace gapi.client {
             /** Whether the user can skip creatives served to this site. This will act as default for new placements created under this site. */
             skippable?: boolean;
         }
+        interface SitesListResponse {
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#sitesListResponse". */
+            kind?: string;
+            /** Pagination token to be used for the next list operation. */
+            nextPageToken?: string;
+            /** Site collection. */
+            sites?: Site[];
+        }
         interface SiteTranscodeSetting {
             /** Whitelist of video formats to be served to this site template. Set this list to null or empty to serve all video formats. */
             enabledVideoFormats?: number[];
@@ -3802,14 +3810,6 @@ declare namespace gapi.client {
             skippableSettings?: SiteSkippableSetting;
             /** Settings for the transcodes of video creatives served to this site. This will act as default for new placements created under this site. */
             transcodeSettings?: SiteTranscodeSetting;
-        }
-        interface SitesListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#sitesListResponse". */
-            kind?: string;
-            /** Pagination token to be used for the next list operation. */
-            nextPageToken?: string;
-            /** Site collection. */
-            sites?: Site[];
         }
         interface Size {
             /** Height of this size. Acceptable values are 0 to 32767, inclusive. */
@@ -3901,12 +3901,6 @@ declare namespace gapi.client {
             /** Whether image tags are enabled. */
             imageTagEnabled?: boolean;
         }
-        interface TargetWindow {
-            /** User-entered value. */
-            customHtml?: string;
-            /** Type of browser window for which the backup image of the flash creative can be displayed. */
-            targetWindowOption?: string;
-        }
         interface TargetableRemarketingList {
             /** Account ID of this remarketing list. This is a read-only, auto-generated field that is only returned in GET requests. */
             accountId?: string;
@@ -3977,6 +3971,12 @@ declare namespace gapi.client {
             /** Targeting template collection. */
             targetingTemplates?: TargetingTemplate[];
         }
+        interface TargetWindow {
+            /** User-entered value. */
+            customHtml?: string;
+            /** Type of browser window for which the backup image of the flash creative can be displayed. */
+            targetWindowOption?: string;
+        }
         interface TechnologyTargeting {
             /**
              * Browsers that this ad targets. For each browser either set browserVersionId or dartId along with the version numbers. If both are specified, only
@@ -3994,17 +3994,17 @@ declare namespace gapi.client {
              */
             mobileCarriers?: MobileCarrier[];
             /**
-             * Operating system versions that this ad targets. To target all versions, use operatingSystems. For each operating system version, only id is required.
-             * The other fields are populated automatically when the ad is inserted or updated. If targeting an operating system version, do not set targeting for the
-             * corresponding operating system in operatingSystems.
-             */
-            operatingSystemVersions?: OperatingSystemVersion[];
-            /**
              * Operating systems that this ad targets. To target specific versions, use operatingSystemVersions. For each operating system only dartId is required.
              * The other fields are populated automatically when the ad is inserted or updated. If targeting an operating system, do not set targeting for operating
              * system versions for the same operating system.
              */
             operatingSystems?: OperatingSystem[];
+            /**
+             * Operating system versions that this ad targets. To target all versions, use operatingSystems. For each operating system version, only id is required.
+             * The other fields are populated automatically when the ad is inserted or updated. If targeting an operating system version, do not set targeting for the
+             * corresponding operating system in operatingSystems.
+             */
+            operatingSystemVersions?: OperatingSystemVersion[];
             /**
              * Platform types that this ad targets. For example, desktop, mobile, or tablet. For each platform type, only id is required, and the other fields are
              * populated automatically when the ad is inserted or updated.
@@ -4289,6 +4289,150 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AccountPermissionsListResponse>;
         }
+        interface AccountsResource {
+            /** Gets one account by ID. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Account ID. */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<Account>;
+            /** Retrieves the list of accounts, possibly filtered. This method supports paging. */
+            list(request: {
+                /** Select only active accounts. Don't set this field to select both active and non-active accounts. */
+                active?: boolean;
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Select only accounts with these IDs. */
+                ids?: string | string[];
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Maximum number of results to return. */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Value of the nextPageToken from the previous result page. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * Allows searching for objects by name or ID. Wildcards (&#42;) are allowed. For example, "account&#42;2015" will return objects with names like "account June
+                 * 2015", "account April 2015", or simply "account 2015". Most of the searches also add wildcards implicitly at the start and the end of the search
+                 * string. For example, a search string of "account" will match objects with name "my account", "account 2015", or simply "account".
+                 */
+                searchString?: string;
+                /** Field by which to sort the list. */
+                sortField?: string;
+                /** Order of sorted results. */
+                sortOrder?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<AccountsListResponse>;
+            /** Updates an existing account. This method supports patch semantics. */
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Account ID. */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: Account;
+            }): Request<Account>;
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Account ID. */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: Account): Request<Account>;
+            /** Updates an existing account. */
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: Account;
+            }): Request<Account>;
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: Account): Request<Account>;
+        }
         interface AccountUserProfilesResource {
             /** Gets one account user profile by ID. */
             get(request: {
@@ -4477,150 +4621,6 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: AccountUserProfile): Request<AccountUserProfile>;
-        }
-        interface AccountsResource {
-            /** Gets one account by ID. */
-            get(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Account ID. */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<Account>;
-            /** Retrieves the list of accounts, possibly filtered. This method supports paging. */
-            list(request: {
-                /** Select only active accounts. Don't set this field to select both active and non-active accounts. */
-                active?: boolean;
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Select only accounts with these IDs. */
-                ids?: string | string[];
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** Maximum number of results to return. */
-                maxResults?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Value of the nextPageToken from the previous result page. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * Allows searching for objects by name or ID. Wildcards (&#42;) are allowed. For example, "account&#42;2015" will return objects with names like "account June
-                 * 2015", "account April 2015", or simply "account 2015". Most of the searches also add wildcards implicitly at the start and the end of the search
-                 * string. For example, a search string of "account" will match objects with name "my account", "account 2015", or simply "account".
-                 */
-                searchString?: string;
-                /** Field by which to sort the list. */
-                sortField?: string;
-                /** Order of sorted results. */
-                sortOrder?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<AccountsListResponse>;
-            /** Updates an existing account. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Account ID. */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: Account;
-            }): Request<Account>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Account ID. */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: Account): Request<Account>;
-            /** Updates an existing account. */
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: Account;
-            }): Request<Account>;
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: Account): Request<Account>;
         }
         interface AdsResource {
             /** Gets one ad by ID. */
@@ -6242,6 +6242,212 @@ declare namespace gapi.client {
             },
             body: CreativeAssetMetadata): Request<CreativeAssetMetadata>;
         }
+        interface CreativeFieldsResource {
+            /** Deletes an existing creative field. */
+            delete(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Creative Field ID */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<void>;
+            /** Gets one creative field by ID. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Creative Field ID */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<CreativeField>;
+            /** Inserts a new creative field. */
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: CreativeField;
+            }): Request<CreativeField>;
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: CreativeField): Request<CreativeField>;
+            /** Retrieves a list of creative fields, possibly filtered. This method supports paging. */
+            list(request: {
+                /** Select only creative fields that belong to these advertisers. */
+                advertiserIds?: string | string[];
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Select only creative fields with these IDs. */
+                ids?: string | string[];
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Maximum number of results to return. */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Value of the nextPageToken from the previous result page. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * Allows searching for creative fields by name or ID. Wildcards (&#42;) are allowed. For example, "creativefield&#42;2015" will return creative fields with names
+                 * like "creativefield June 2015", "creativefield April 2015", or simply "creativefield 2015". Most of the searches also add wild-cards implicitly at the
+                 * start and the end of the search string. For example, a search string of "creativefield" will match creative fields with the name "my creativefield",
+                 * "creativefield 2015", or simply "creativefield".
+                 */
+                searchString?: string;
+                /** Field by which to sort the list. */
+                sortField?: string;
+                /** Order of sorted results. */
+                sortOrder?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<CreativeFieldsListResponse>;
+            /** Updates an existing creative field. This method supports patch semantics. */
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Creative Field ID */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: CreativeField;
+            }): Request<CreativeField>;
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Creative Field ID */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: CreativeField): Request<CreativeField>;
+            /** Updates an existing creative field. */
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: CreativeField;
+            }): Request<CreativeField>;
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: CreativeField): Request<CreativeField>;
+        }
         interface CreativeFieldValuesResource {
             /** Deletes an existing creative field value. */
             delete(request: {
@@ -6458,212 +6664,6 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: CreativeFieldValue): Request<CreativeFieldValue>;
-        }
-        interface CreativeFieldsResource {
-            /** Deletes an existing creative field. */
-            delete(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Creative Field ID */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<void>;
-            /** Gets one creative field by ID. */
-            get(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Creative Field ID */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<CreativeField>;
-            /** Inserts a new creative field. */
-            insert(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: CreativeField;
-            }): Request<CreativeField>;
-            insert(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: CreativeField): Request<CreativeField>;
-            /** Retrieves a list of creative fields, possibly filtered. This method supports paging. */
-            list(request: {
-                /** Select only creative fields that belong to these advertisers. */
-                advertiserIds?: string | string[];
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Select only creative fields with these IDs. */
-                ids?: string | string[];
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** Maximum number of results to return. */
-                maxResults?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Value of the nextPageToken from the previous result page. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * Allows searching for creative fields by name or ID. Wildcards (&#42;) are allowed. For example, "creativefield&#42;2015" will return creative fields with names
-                 * like "creativefield June 2015", "creativefield April 2015", or simply "creativefield 2015". Most of the searches also add wild-cards implicitly at the
-                 * start and the end of the search string. For example, a search string of "creativefield" will match creative fields with the name "my creativefield",
-                 * "creativefield 2015", or simply "creativefield".
-                 */
-                searchString?: string;
-                /** Field by which to sort the list. */
-                sortField?: string;
-                /** Order of sorted results. */
-                sortOrder?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<CreativeFieldsListResponse>;
-            /** Updates an existing creative field. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Creative Field ID */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: CreativeField;
-            }): Request<CreativeField>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Creative Field ID */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: CreativeField): Request<CreativeField>;
-            /** Updates an existing creative field. */
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: CreativeField;
-            }): Request<CreativeField>;
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: CreativeField): Request<CreativeField>;
         }
         interface CreativeGroupsResource {
             /** Gets one creative group by ID. */
@@ -8401,48 +8401,6 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<MobileCarriersListResponse>;
         }
-        interface OperatingSystemVersionsResource {
-            /** Gets one operating system version by ID. */
-            get(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Operating system version ID. */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<OperatingSystemVersion>;
-            /** Retrieves a list of operating system versions. */
-            list(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<OperatingSystemVersionsListResponse>;
-        }
         interface OperatingSystemsResource {
             /** Gets one operating system by DART ID. */
             get(request: {
@@ -8484,6 +8442,48 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<OperatingSystemsListResponse>;
+        }
+        interface OperatingSystemVersionsResource {
+            /** Gets one operating system version by ID. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Operating system version ID. */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<OperatingSystemVersion>;
+            /** Retrieves a list of operating system versions. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<OperatingSystemVersionsListResponse>;
         }
         interface OrderDocumentsResource {
             /** Gets one order document by ID. */
@@ -8831,210 +8831,6 @@ declare namespace gapi.client {
             },
             body: PlacementGroup): Request<PlacementGroup>;
         }
-        interface PlacementStrategiesResource {
-            /** Deletes an existing placement strategy. */
-            delete(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Placement strategy ID. */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<void>;
-            /** Gets one placement strategy by ID. */
-            get(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Placement strategy ID. */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<PlacementStrategy>;
-            /** Inserts a new placement strategy. */
-            insert(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: PlacementStrategy;
-            }): Request<PlacementStrategy>;
-            insert(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: PlacementStrategy): Request<PlacementStrategy>;
-            /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
-            list(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Select only placement strategies with these IDs. */
-                ids?: string | string[];
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** Maximum number of results to return. */
-                maxResults?: number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Value of the nextPageToken from the previous result page. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * Allows searching for objects by name or ID. Wildcards (&#42;) are allowed. For example, "placementstrategy&#42;2015" will return objects with names like
-                 * "placementstrategy June 2015", "placementstrategy April 2015", or simply "placementstrategy 2015". Most of the searches also add wildcards implicitly
-                 * at the start and the end of the search string. For example, a search string of "placementstrategy" will match objects with name "my placementstrategy",
-                 * "placementstrategy 2015", or simply "placementstrategy".
-                 */
-                searchString?: string;
-                /** Field by which to sort the list. */
-                sortField?: string;
-                /** Order of sorted results. */
-                sortOrder?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<PlacementStrategiesListResponse>;
-            /** Updates an existing placement strategy. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Placement strategy ID. */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: PlacementStrategy;
-            }): Request<PlacementStrategy>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Placement strategy ID. */
-                id: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: PlacementStrategy): Request<PlacementStrategy>;
-            /** Updates an existing placement strategy. */
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: PlacementStrategy;
-            }): Request<PlacementStrategy>;
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: PlacementStrategy): Request<PlacementStrategy>;
-        }
         interface PlacementsResource {
             /** Generates tags for a placement. */
             generatetags(request: {
@@ -9283,6 +9079,210 @@ declare namespace gapi.client {
             },
             body: Placement): Request<Placement>;
         }
+        interface PlacementStrategiesResource {
+            /** Deletes an existing placement strategy. */
+            delete(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Placement strategy ID. */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<void>;
+            /** Gets one placement strategy by ID. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Placement strategy ID. */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<PlacementStrategy>;
+            /** Inserts a new placement strategy. */
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: PlacementStrategy;
+            }): Request<PlacementStrategy>;
+            insert(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: PlacementStrategy): Request<PlacementStrategy>;
+            /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
+            list(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Select only placement strategies with these IDs. */
+                ids?: string | string[];
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Maximum number of results to return. */
+                maxResults?: number;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Value of the nextPageToken from the previous result page. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * Allows searching for objects by name or ID. Wildcards (&#42;) are allowed. For example, "placementstrategy&#42;2015" will return objects with names like
+                 * "placementstrategy June 2015", "placementstrategy April 2015", or simply "placementstrategy 2015". Most of the searches also add wildcards implicitly
+                 * at the start and the end of the search string. For example, a search string of "placementstrategy" will match objects with name "my placementstrategy",
+                 * "placementstrategy 2015", or simply "placementstrategy".
+                 */
+                searchString?: string;
+                /** Field by which to sort the list. */
+                sortField?: string;
+                /** Order of sorted results. */
+                sortOrder?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<PlacementStrategiesListResponse>;
+            /** Updates an existing placement strategy. This method supports patch semantics. */
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Placement strategy ID. */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: PlacementStrategy;
+            }): Request<PlacementStrategy>;
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Placement strategy ID. */
+                id: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: PlacementStrategy): Request<PlacementStrategy>;
+            /** Updates an existing placement strategy. */
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: PlacementStrategy;
+            }): Request<PlacementStrategy>;
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: PlacementStrategy): Request<PlacementStrategy>;
+        }
         interface PlatformTypesResource {
             /** Gets one platform type by ID. */
             get(request: {
@@ -9447,113 +9447,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<RegionsListResponse>;
-        }
-        interface RemarketingListSharesResource {
-            /** Gets one remarketing list share by remarketing list ID. */
-            get(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Remarketing list ID. */
-                remarketingListId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            }): Request<RemarketingListShare>;
-            /** Updates an existing remarketing list share. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Remarketing list ID. */
-                remarketingListId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: RemarketingListShare;
-            }): Request<RemarketingListShare>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Remarketing list ID. */
-                remarketingListId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: RemarketingListShare): Request<RemarketingListShare>;
-            /** Updates an existing remarketing list share. */
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: RemarketingListShare;
-            }): Request<RemarketingListShare>;
-            update(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** User profile ID associated with this request. */
-                profileId: string;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: RemarketingListShare): Request<RemarketingListShare>;
         }
         interface RemarketingListsResource {
             /** Gets one remarketing list by ID. */
@@ -9741,6 +9634,113 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: RemarketingList): Request<RemarketingList>;
+        }
+        interface RemarketingListSharesResource {
+            /** Gets one remarketing list share by remarketing list ID. */
+            get(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Remarketing list ID. */
+                remarketingListId: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            }): Request<RemarketingListShare>;
+            /** Updates an existing remarketing list share. This method supports patch semantics. */
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Remarketing list ID. */
+                remarketingListId: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: RemarketingListShare;
+            }): Request<RemarketingListShare>;
+            patch(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Remarketing list ID. */
+                remarketingListId: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: RemarketingListShare): Request<RemarketingListShare>;
+            /** Updates an existing remarketing list share. */
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: RemarketingListShare;
+            }): Request<RemarketingListShare>;
+            update(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** User profile ID associated with this request. */
+                profileId: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: RemarketingListShare): Request<RemarketingListShare>;
         }
         interface CompatibleFieldsResource {
             /**
@@ -11123,9 +11123,9 @@ declare namespace gapi.client {
 
         const accountPermissions: AccountPermissionsResource;
 
-        const accountUserProfiles: AccountUserProfilesResource;
-
         const accounts: AccountsResource;
+
+        const accountUserProfiles: AccountUserProfilesResource;
 
         const ads: AdsResource;
 
@@ -11155,9 +11155,9 @@ declare namespace gapi.client {
 
         const creativeAssets: CreativeAssetsResource;
 
-        const creativeFieldValues: CreativeFieldValuesResource;
-
         const creativeFields: CreativeFieldsResource;
+
+        const creativeFieldValues: CreativeFieldValuesResource;
 
         const creativeGroups: CreativeGroupsResource;
 
@@ -11191,9 +11191,9 @@ declare namespace gapi.client {
 
         const mobileCarriers: MobileCarriersResource;
 
-        const operatingSystemVersions: OperatingSystemVersionsResource;
-
         const operatingSystems: OperatingSystemsResource;
+
+        const operatingSystemVersions: OperatingSystemVersionsResource;
 
         const orderDocuments: OrderDocumentsResource;
 
@@ -11201,9 +11201,9 @@ declare namespace gapi.client {
 
         const placementGroups: PlacementGroupsResource;
 
-        const placementStrategies: PlacementStrategiesResource;
-
         const placements: PlacementsResource;
+
+        const placementStrategies: PlacementStrategiesResource;
 
         const platformTypes: PlatformTypesResource;
 
@@ -11213,9 +11213,9 @@ declare namespace gapi.client {
 
         const regions: RegionsResource;
 
-        const remarketingListShares: RemarketingListSharesResource;
-
         const remarketingLists: RemarketingListsResource;
+
+        const remarketingListShares: RemarketingListSharesResource;
 
         const reports: ReportsResource;
 

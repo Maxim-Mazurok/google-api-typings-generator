@@ -225,10 +225,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
-                /** The site's URL, including protocol. For example: http://www.example.com/ */
-                siteUrl: string;
                 /** A URL of a site's sitemap index. For example: http://www.example.com/sitemapindex.xml */
                 sitemapIndex?: string;
+                /** The site's URL, including protocol. For example: http://www.example.com/ */
+                siteUrl: string;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<SitemapsListResponse>;

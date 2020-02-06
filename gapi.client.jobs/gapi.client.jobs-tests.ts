@@ -43,6 +43,32 @@ gapi.load('client', () => {
             scope: "Test string",
             type: "Test string",
         });
+        /**
+         * Report events issued when end user interacts with customer's application
+         * that uses Cloud Talent Solution. You may inspect the created events in
+         * [self service
+         * tools](https://console.cloud.google.com/talent-solution/overview).
+         * [Learn
+         * more](https://cloud.google.com/talent-solution/docs/management-tools)
+         * about self service tools.
+         */
+        await gapi.client.jobs.projects.clientEvents.create({
+            parent: "Test string",
+        }, {
+            clientEvent: {
+                createTime: "Test string",
+                eventId: "Test string",
+                extraInfo: {
+                    A: "Test string"                },
+                jobEvent: {
+                    jobs: [
+                        "Test string"                    ],
+                    type: "Test string",
+                },
+                parentEventId: "Test string",
+                requestId: "Test string",
+            },
+        });
         /** Creates a new company entity. */
         await gapi.client.jobs.projects.companies.create({
             parent: "Test string",
@@ -99,6 +125,13 @@ gapi.load('client', () => {
         await gapi.client.jobs.projects.companies.get({
             name: "Test string",
         });
+        /** Lists all companies associated with the service account. */
+        await gapi.client.jobs.projects.companies.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            requireOpenJobs: true,
+        });
         /**
          * Updates specified company. Company names can't be updated. To update a
          * company name, delete the company and all jobs associated with it, and only
@@ -148,56 +181,6 @@ gapi.load('client', () => {
                 websiteUri: "Test string",
             },
             updateMask: "Test string",
-        });
-        /** Lists all companies associated with the service account. */
-        await gapi.client.jobs.projects.companies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            requireOpenJobs: true,
-        });
-        /**
-         * Report events issued when end user interacts with customer's application
-         * that uses Cloud Talent Solution. You may inspect the created events in
-         * [self service
-         * tools](https://console.cloud.google.com/talent-solution/overview).
-         * [Learn
-         * more](https://cloud.google.com/talent-solution/docs/management-tools)
-         * about self service tools.
-         */
-        await gapi.client.jobs.projects.clientEvents.create({
-            parent: "Test string",
-        }, {
-            clientEvent: {
-                createTime: "Test string",
-                eventId: "Test string",
-                extraInfo: {
-                    A: "Test string"                },
-                jobEvent: {
-                    jobs: [
-                        "Test string"                    ],
-                    type: "Test string",
-                },
-                parentEventId: "Test string",
-                requestId: "Test string",
-            },
-        });
-        /**
-         * Deletes the specified job.
-         *
-         * Typically, the job becomes unsearchable within 10 seconds, but it may take
-         * up to 5 minutes.
-         */
-        await gapi.client.jobs.projects.jobs.delete({
-            name: "Test string",
-        });
-        /** Lists jobs by filter. */
-        await gapi.client.jobs.projects.jobs.list({
-            filter: "Test string",
-            jobView: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Deletes a list of Jobs by filter. */
         await gapi.client.jobs.projects.jobs.batchDelete({
@@ -344,122 +327,28 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Searches for jobs using the provided SearchJobsRequest.
+         * Deletes the specified job.
          *
-         * This call constrains the visibility of jobs
-         * present in the database, and only returns jobs that the caller has
-         * permission to search against.
+         * Typically, the job becomes unsearchable within 10 seconds, but it may take
+         * up to 5 minutes.
          */
-        await gapi.client.jobs.projects.jobs.search({
-            parent: "Test string",
-        }, {
-            disableKeywordMatch: true,
-            diversificationLevel: "Test string",
-            enableBroadening: true,
-            histogramFacets: {
-                compensationHistogramFacets: [
-                    {
-                        bucketingOption: {
-                            bucketBounds: [
-                                42                            ],
-                            requiresMinMax: true,
-                        },
-                        type: "Test string",
-                    }                ],
-                customAttributeHistogramFacets: [
-                    {
-                        key: "Test string",
-                        longValueHistogramBucketingOption: {
-                            bucketBounds: [
-                                42                            ],
-                            requiresMinMax: true,
-                        },
-                        stringValueHistogram: true,
-                    }                ],
-                simpleHistogramFacets: [
-                    "Test string"                ],
-            },
-            jobQuery: {
-                commuteFilter: {
-                    allowImpreciseAddresses: true,
-                    commuteMethod: "Test string",
-                    departureTime: {
-                        hours: 42,
-                        minutes: 42,
-                        nanos: 42,
-                        seconds: 42,
-                    },
-                    roadTraffic: "Test string",
-                    startCoordinates: {
-                        latitude: 42,
-                        longitude: 42,
-                    },
-                    travelDuration: "Test string",
-                },
-                companyDisplayNames: [
-                    "Test string"                ],
-                companyNames: [
-                    "Test string"                ],
-                compensationFilter: {
-                    includeJobsWithUnspecifiedCompensationRange: true,
-                    range: {
-                        maxCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                        minCompensation: {
-                            currencyCode: "Test string",
-                            nanos: 42,
-                            units: "Test string",
-                        },
-                    },
-                    type: "Test string",
-                    units: [
-                        "Test string"                    ],
-                },
-                customAttributeFilter: "Test string",
-                disableSpellCheck: true,
-                employmentTypes: [
-                    "Test string"                ],
-                jobCategories: [
-                    "Test string"                ],
-                languageCodes: [
-                    "Test string"                ],
-                locationFilters: [
-                    {
-                        address: "Test string",
-                        distanceInMiles: 42,
-                        latLng: {
-                            latitude: 42,
-                            longitude: 42,
-                        },
-                        regionCode: "Test string",
-                        telecommutePreference: "Test string",
-                    }                ],
-                publishTimeRange: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                },
-                query: "Test string",
-                queryLanguageCode: "Test string",
-            },
+        await gapi.client.jobs.projects.jobs.delete({
+            name: "Test string",
+        });
+        /**
+         * Retrieves the specified job, whose status is OPEN or recently EXPIRED
+         * within the last 90 days.
+         */
+        await gapi.client.jobs.projects.jobs.get({
+            name: "Test string",
+        });
+        /** Lists jobs by filter. */
+        await gapi.client.jobs.projects.jobs.list({
+            filter: "Test string",
             jobView: "Test string",
-            offset: 42,
-            orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
-            requestMetadata: {
-                deviceInfo: {
-                    deviceType: "Test string",
-                    id: "Test string",
-                },
-                domain: "Test string",
-                sessionId: "Test string",
-                userId: "Test string",
-            },
-            requirePreciseResultSize: true,
-            searchMode: "Test string",
+            parent: "Test string",
         });
         /**
          * Updates specified job.
@@ -601,11 +490,122 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Retrieves the specified job, whose status is OPEN or recently EXPIRED
-         * within the last 90 days.
+         * Searches for jobs using the provided SearchJobsRequest.
+         *
+         * This call constrains the visibility of jobs
+         * present in the database, and only returns jobs that the caller has
+         * permission to search against.
          */
-        await gapi.client.jobs.projects.jobs.get({
-            name: "Test string",
+        await gapi.client.jobs.projects.jobs.search({
+            parent: "Test string",
+        }, {
+            disableKeywordMatch: true,
+            diversificationLevel: "Test string",
+            enableBroadening: true,
+            histogramFacets: {
+                compensationHistogramFacets: [
+                    {
+                        bucketingOption: {
+                            bucketBounds: [
+                                42                            ],
+                            requiresMinMax: true,
+                        },
+                        type: "Test string",
+                    }                ],
+                customAttributeHistogramFacets: [
+                    {
+                        key: "Test string",
+                        longValueHistogramBucketingOption: {
+                            bucketBounds: [
+                                42                            ],
+                            requiresMinMax: true,
+                        },
+                        stringValueHistogram: true,
+                    }                ],
+                simpleHistogramFacets: [
+                    "Test string"                ],
+            },
+            jobQuery: {
+                commuteFilter: {
+                    allowImpreciseAddresses: true,
+                    commuteMethod: "Test string",
+                    departureTime: {
+                        hours: 42,
+                        minutes: 42,
+                        nanos: 42,
+                        seconds: 42,
+                    },
+                    roadTraffic: "Test string",
+                    startCoordinates: {
+                        latitude: 42,
+                        longitude: 42,
+                    },
+                    travelDuration: "Test string",
+                },
+                companyDisplayNames: [
+                    "Test string"                ],
+                companyNames: [
+                    "Test string"                ],
+                compensationFilter: {
+                    includeJobsWithUnspecifiedCompensationRange: true,
+                    range: {
+                        maxCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                        minCompensation: {
+                            currencyCode: "Test string",
+                            nanos: 42,
+                            units: "Test string",
+                        },
+                    },
+                    type: "Test string",
+                    units: [
+                        "Test string"                    ],
+                },
+                customAttributeFilter: "Test string",
+                disableSpellCheck: true,
+                employmentTypes: [
+                    "Test string"                ],
+                jobCategories: [
+                    "Test string"                ],
+                languageCodes: [
+                    "Test string"                ],
+                locationFilters: [
+                    {
+                        address: "Test string",
+                        distanceInMiles: 42,
+                        latLng: {
+                            latitude: 42,
+                            longitude: 42,
+                        },
+                        regionCode: "Test string",
+                        telecommutePreference: "Test string",
+                    }                ],
+                publishTimeRange: {
+                    endTime: "Test string",
+                    startTime: "Test string",
+                },
+                query: "Test string",
+                queryLanguageCode: "Test string",
+            },
+            jobView: "Test string",
+            offset: 42,
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            requestMetadata: {
+                deviceInfo: {
+                    deviceType: "Test string",
+                    id: "Test string",
+                },
+                domain: "Test string",
+                sessionId: "Test string",
+                userId: "Test string",
+            },
+            requirePreciseResultSize: true,
+            searchMode: "Test string",
         });
         /**
          * Searches for jobs using the provided SearchJobsRequest.

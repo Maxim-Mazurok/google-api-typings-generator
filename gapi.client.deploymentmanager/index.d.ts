@@ -128,22 +128,6 @@ declare namespace gapi.client {
             key?: string;
             value?: string;
         }
-        interface DeploymentUpdate {
-            /** Output only. An optional user-provided description of the deployment after the current update has been applied. */
-            description?: string;
-            /**
-             * Output only. Map of labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63
-             * characters long and must conform to the following regular expression: [a-z]([-a-z0-9]&#42;[a-z0-9])? Label values must be between 0 and 63 characters long
-             * and must conform to the regular expression ([a-z]([-a-z0-9]&#42;[a-z0-9])?)?
-             */
-            labels?: DeploymentUpdateLabelEntry[];
-            /** Output only. URL of the manifest representing the update configuration of this deployment. */
-            manifest?: string;
-        }
-        interface DeploymentUpdateLabelEntry {
-            key?: string;
-            value?: string;
-        }
         interface DeploymentsCancelPreviewRequest {
             /**
              * Specifies a fingerprint for cancelPreview() requests. A fingerprint is a randomly generated value that must be provided in cancelPreview() requests to
@@ -171,6 +155,22 @@ declare namespace gapi.client {
              * value, perform a get() request on the deployment.
              */
             fingerprint?: string;
+        }
+        interface DeploymentUpdate {
+            /** Output only. An optional user-provided description of the deployment after the current update has been applied. */
+            description?: string;
+            /**
+             * Output only. Map of labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63
+             * characters long and must conform to the following regular expression: [a-z]([-a-z0-9]&#42;[a-z0-9])? Label values must be between 0 and 63 characters long
+             * and must conform to the regular expression ([a-z]([-a-z0-9]&#42;[a-z0-9])?)?
+             */
+            labels?: DeploymentUpdateLabelEntry[];
+            /** Output only. URL of the manifest representing the update configuration of this deployment. */
+            manifest?: string;
+        }
+        interface DeploymentUpdateLabelEntry {
+            key?: string;
+            value?: string;
         }
         interface Expr {
             /** An optional description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
@@ -433,6 +433,12 @@ declare namespace gapi.client {
             /** The GCP IAM Policy to set on the resource. */
             gcpIamPolicy?: string;
         }
+        interface ResourcesListResponse {
+            /** A token used to continue a truncated list request. */
+            nextPageToken?: string;
+            /** Resources contained in this list response. */
+            resources?: Resource[];
+        }
         interface ResourceUpdate {
             /** The Access Control Policy to set on this resource after updating the resource itself. */
             accessControl?: ResourceAccessControl;
@@ -480,12 +486,6 @@ declare namespace gapi.client {
                 /** [Output Only] A human-readable description of the warning code. */
                 message?: string;
             }>;
-        }
-        interface ResourcesListResponse {
-            /** A token used to continue a truncated list request. */
-            nextPageToken?: string;
-            /** Resources contained in this list response. */
-            resources?: Resource[];
         }
         interface Rule {
             /** Required */

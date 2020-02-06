@@ -934,6 +934,13 @@ declare namespace gapi.client {
              * only applicable to First Generation instances.
              */
             crashSafeReplicationEnabled?: boolean;
+            /** The database flags passed to the instance at startup. */
+            databaseFlags?: DatabaseFlags[];
+            /**
+             * Configuration specific to read replica instances. Indicates whether
+             * replication is enabled or not.
+             */
+            databaseReplicationEnabled?: boolean;
             /**
              * The size of data disk, in GB. The data disk size minimum is 10GB. Not used
              * for First Generation instances.
@@ -944,13 +951,6 @@ declare namespace gapi.client {
              * <code>PD_HDD</code>. Not used for First Generation instances.
              */
             dataDiskType?: string;
-            /** The database flags passed to the instance at startup. */
-            databaseFlags?: DatabaseFlags[];
-            /**
-             * Configuration specific to read replica instances. Indicates whether
-             * replication is enabled or not.
-             */
-            databaseReplicationEnabled?: boolean;
             /**
              * The settings for IP Management. This allows to enable or disable the
              * instance IP and manage which external networks can connect to the instance.
@@ -1115,10 +1115,10 @@ declare namespace gapi.client {
         interface Tier {
             /** The maximum disk size of this tier in bytes. */
             DiskQuota?: string;
-            /** The maximum RAM usage of this tier in bytes. */
-            RAM?: string;
             /** This is always <code>sql#tier</code>. */
             kind?: string;
+            /** The maximum RAM usage of this tier in bytes. */
+            RAM?: string;
             /** The applicable regions for this tier. */
             region?: string[];
             /**
@@ -1227,10 +1227,10 @@ declare namespace gapi.client {
                  * projects/{project}/locations/{location}/instances/{instance}/backupRuns/{backupRun}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /** Retrieves a resource containing information about a backup run. */
             get(request: {
@@ -1264,10 +1264,10 @@ declare namespace gapi.client {
                  * projects/{project}/locations/{location}/instances/{instance}/backupRuns/{backupRun}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<BackupRun>;
             /**
              * Creates a new backup run on demand. This method is applicable only to
@@ -1301,10 +1301,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: BackupRun;
             }): Request<Operation>;
@@ -1336,10 +1336,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: BackupRun): Request<Operation>;
             /**
@@ -1381,10 +1381,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<BackupRunsListResponse>;
         }
         interface DatabasesResource {
@@ -1420,10 +1420,10 @@ declare namespace gapi.client {
                  * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /**
              * Retrieves a resource containing information about a database inside a Cloud
@@ -1460,10 +1460,10 @@ declare namespace gapi.client {
                  * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Database>;
             /**
              * Inserts a resource containing information about a database inside a Cloud
@@ -1497,10 +1497,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Database;
             }): Request<Operation>;
@@ -1532,10 +1532,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Database): Request<Operation>;
             /** Lists databases in the specified Cloud SQL instance. */
@@ -1567,10 +1567,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<DatabasesListResponse>;
             /**
              * Partially updates a resource containing information about a database inside
@@ -1612,10 +1612,10 @@ declare namespace gapi.client {
                  * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Database;
             }): Request<Operation>;
@@ -1650,10 +1650,10 @@ declare namespace gapi.client {
                  * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Database): Request<Operation>;
             /**
@@ -1691,10 +1691,10 @@ declare namespace gapi.client {
                  * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: Database;
             }): Request<Operation>;
@@ -1729,10 +1729,10 @@ declare namespace gapi.client {
                  * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: Database): Request<Operation>;
         }
@@ -1762,10 +1762,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<FlagsListResponse>;
         }
         interface InstancesResource {
@@ -1804,10 +1804,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /** Creates a Cloud SQL instance as a clone of the source instance. */
             clone(request: {
@@ -1841,10 +1841,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: InstancesCloneRequest;
             }): Request<Operation>;
@@ -1879,10 +1879,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: InstancesCloneRequest): Request<Operation>;
             /** Deletes a Cloud SQL instance. */
@@ -1914,10 +1914,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/instances/{instance}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /**
              * Demotes the stand-alone instance to be a Cloud SQL read replica for an
@@ -1951,10 +1951,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: InstancesDemoteMasterRequest;
             }): Request<Operation>;
@@ -1986,10 +1986,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: InstancesDemoteMasterRequest): Request<Operation>;
             /**
@@ -2024,10 +2024,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: InstancesExportRequest;
             }): Request<Operation>;
@@ -2059,10 +2059,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: InstancesExportRequest): Request<Operation>;
             /** Failover the instance to its failover replica instance. */
@@ -2095,10 +2095,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: InstancesFailoverRequest;
             }): Request<Operation>;
@@ -2131,10 +2131,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: InstancesFailoverRequest): Request<Operation>;
             /** Retrieves a resource containing information about a Cloud SQL instance. */
@@ -2166,10 +2166,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/instances/{instance}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<DatabaseInstance>;
             /**
              * Imports data into a Cloud SQL instance from a SQL dump  or CSV file in
@@ -2203,10 +2203,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: InstancesImportRequest;
             }): Request<Operation>;
@@ -2238,10 +2238,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: InstancesImportRequest): Request<Operation>;
             /** Creates a new Cloud SQL instance. */
@@ -2274,10 +2274,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: DatabaseInstance;
             }): Request<Operation>;
@@ -2310,10 +2310,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: DatabaseInstance): Request<Operation>;
             /** Lists instances under a given project. */
@@ -2362,10 +2362,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<InstancesListResponse>;
             /**
              * Lists all of the trusted Certificate Authorities (CAs) for the specified
@@ -2402,10 +2402,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<InstancesListServerCasResponse>;
             /**
              * Updates settings of a Cloud SQL instance.
@@ -2439,10 +2439,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/instances/{instance}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: DatabaseInstance;
             }): Request<Operation>;
@@ -2474,10 +2474,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/instances/{instance}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: DatabaseInstance): Request<Operation>;
             /** Promotes the read replica instance to be a stand-alone Cloud SQL instance. */
@@ -2509,10 +2509,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /**
              * Deletes all client certificates and generates a new server SSL certificate
@@ -2546,10 +2546,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /** Restarts a Cloud SQL instance. */
             restart(request: {
@@ -2580,10 +2580,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /** Restores a backup of a Cloud SQL instance. */
             restoreBackup(request: {
@@ -2615,10 +2615,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: InstancesRestoreBackupRequest;
             }): Request<Operation>;
@@ -2651,10 +2651,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: InstancesRestoreBackupRequest): Request<Operation>;
             /**
@@ -2689,10 +2689,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: InstancesRotateServerCaRequest;
             }): Request<Operation>;
@@ -2724,10 +2724,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: InstancesRotateServerCaRequest): Request<Operation>;
             /** Starts the replication in the read replica instance. */
@@ -2760,10 +2760,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /** Stops the replication in the read replica instance. */
             stopReplica(request: {
@@ -2795,10 +2795,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /** Truncate MySQL general and slow query log tables */
             truncateLog(request: {
@@ -2829,10 +2829,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: InstancesTruncateLogRequest;
             }): Request<Operation>;
@@ -2864,10 +2864,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: InstancesTruncateLogRequest): Request<Operation>;
             /** Updates settings of a Cloud SQL instance. */
@@ -2899,10 +2899,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/instances/{instance}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: DatabaseInstance;
             }): Request<Operation>;
@@ -2934,10 +2934,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/instances/{instance}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: DatabaseInstance): Request<Operation>;
         }
@@ -2971,10 +2971,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/operations/{operation}
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /**
              * Lists all instance operations that have been performed on the given Cloud
@@ -3017,10 +3017,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<OperationsListResponse>;
         }
         interface InstancesResource {
@@ -3054,10 +3054,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SqlInstancesRescheduleMaintenanceRequestBody;
             }): Request<Operation>;
@@ -3090,10 +3090,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SqlInstancesRescheduleMaintenanceRequestBody): Request<Operation>;
         }
@@ -3128,10 +3128,10 @@ declare namespace gapi.client {
                 project?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SqlInstancesRescheduleMaintenanceRequestBody;
             }): Request<Operation>;
@@ -3164,10 +3164,10 @@ declare namespace gapi.client {
                 project?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SqlInstancesRescheduleMaintenanceRequestBody): Request<Operation>;
         }
@@ -3213,10 +3213,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SslCertsCreateEphemeralRequest;
             }): Request<SslCert>;
@@ -3248,10 +3248,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SslCertsCreateEphemeralRequest): Request<SslCert>;
             /**
@@ -3289,10 +3289,10 @@ declare namespace gapi.client {
                 resourceName?: string;
                 /** Sha1 FingerPrint. */
                 sha1Fingerprint: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /**
              * Retrieves a particular SSL certificate.  Does not include the private key
@@ -3330,10 +3330,10 @@ declare namespace gapi.client {
                 resourceName?: string;
                 /** Sha1 FingerPrint. */
                 sha1Fingerprint: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<SslCert>;
             /**
              * Creates an SSL certificate and returns it along with the private key and
@@ -3368,10 +3368,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: SslCertsInsertRequest;
             }): Request<SslCertsInsertResponse>;
@@ -3403,10 +3403,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: SslCertsInsertRequest): Request<SslCertsInsertResponse>;
             /** Lists all of the current SSL certificates for the instance. */
@@ -3438,10 +3438,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<SslCertsListResponse>;
         }
         interface TiersResource {
@@ -3471,10 +3471,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<TiersListResponse>;
         }
         interface UsersResource {
@@ -3511,10 +3511,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/instances/{instance}/users
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<Operation>;
             /** Creates a new user in a Cloud SQL instance. */
             insert(request: {
@@ -3545,10 +3545,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: User;
             }): Request<Operation>;
@@ -3580,10 +3580,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: User): Request<Operation>;
             /** Lists users in the specified Cloud SQL instance. */
@@ -3615,10 +3615,10 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             }): Request<UsersListResponse>;
             /** Updates an existing user in a Cloud SQL instance. */
             update(request: {
@@ -3653,10 +3653,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/instances/{instance}/users
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
                 /** Request body */
                 resource: User;
             }): Request<Operation>;
@@ -3692,10 +3692,10 @@ declare namespace gapi.client {
                  * Format: projects/{project}/locations/{location}/instances/{instance}/users
                  */
                 resourceName?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
             },
             body: User): Request<Operation>;
         }
