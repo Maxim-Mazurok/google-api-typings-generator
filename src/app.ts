@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as _ from 'lodash';
 import * as path from 'path';
 import * as request from 'request';
+// tslint:disable-next-line:ban-ts-ignore
 // @ts-ignore
 import * as sortObject from 'deep-sort-object';
 import { parseVersion } from './utils';
