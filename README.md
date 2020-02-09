@@ -75,6 +75,16 @@ Unit tests for this generator project are written with [Jasmine](https://jasmine
 npm run test
 ```
 
+### Fixing formatting
+
+This project leverages [Google's TypeScript Style (gts)](https://github.com/google/gts) to standardize formatting.
+
+To invoke the automatic code fixer, run:
+
+```sh
+npm run fix
+```
+
 ## Details
 
 ### Resource VS Body
