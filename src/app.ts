@@ -599,7 +599,7 @@ export class App {
 
   private request(url: string): Promise<gapi.client.discovery.DirectoryList> {
     return new Promise((resolve, reject) => {
-      request(url, (error, response, body) => {
+      request(url, { gzip: true }, (error, response, body) => {
         if (!error && response.statusCode === 200) {
           try {
             const api = JSON.parse(body) as gapi.client.discovery.DirectoryList;
