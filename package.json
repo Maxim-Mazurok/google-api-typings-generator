@@ -10,7 +10,7 @@
     "dtslint": "dtslint",
     "lint": "ts-node bin/lint.ts ./types",
     "start": "ts-node -T src/cli.ts --out ./types",
-    "test": "mocha tests/tests.ts --require ts-node/register",
+    "test": "mocha",
     "check": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",

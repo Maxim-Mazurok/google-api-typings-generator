@@ -3,8 +3,10 @@ import * as fs from 'fs';
 import * as _ from 'lodash';
 import * as path from 'path';
 import * as request from 'request';
+// tslint:disable-next-line:ban-ts-ignore
 // @ts-ignore
 import * as sortObject from 'deep-sort-object';
+import { parseVersion } from './utils';
 
 const typesMap: {[key: string]: string} = {
   'integer': 'number',
@@ -112,17 +114,6 @@ function formatPropertyName(name: string) {
     return `"${name}"`;
   }
   return name;
-}
-
-function convertVersion(version: string) {
-  const m = version.match(/v(\d+)?\.?(\d+)?/);
-
-  if (m) {
-    const [full, major, minor] = m;
-    return `${major || 0}.${minor || 0}`;
-  } else {
-    return '0.0';
-  }
 }
 
 function ensureDirectoryExists(directory: string) {
@@ -429,21 +420,6 @@ export class App {
     console.log();
   }
 
-  static parseVersion(version: string) {
-    let major, minor, patch;
-    const match = version.match(/v(\d+)?(?:\.(\d+))?(.*)?/);
-
-    if (match) {
-      major = match[1] || 0;
-      minor = match[2];
-      patch = match[3];
-
-      return `${major}${minor ? '.' + minor : ''}${patch ? '-' + patch : ''}`;
-    }
-
-    throw new Error(`Unable to parse invalid version: ${version}`)
-  }
-
   static parseOutPath(dir: string) {
     if (!fs.existsSync(dir)) {
       throw new Error(`Directory not found: ${dir}`);
@@ -548,7 +524,7 @@ export class App {
     const stream = fs.createWriteStream(path.join(destinationDirectory, 'index.d.ts'));
     const writer = new TypescriptTextWriter(new IndentedTextWriter(new StreamWriter(stream)));
 
-    writer.writeLine(`// Type definitions for non-npm package ${api.title} ${api.version} ${convertVersion(checkExists(api.version))}`);
+    writer.writeLine(`// Type definitions for non-npm package ${api.title} ${api.version} ${parseVersion(checkExists(api.version))}`);
     writer.writeLine(`// Project: ${api.documentationLink}`);
     writer.writeLine(`// Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>`);
     writer.writeLine(`// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped`);
@@ -623,7 +599,7 @@ export class App {
 
   private request(url: string): Promise<gapi.client.discovery.DirectoryList> {
     return new Promise((resolve, reject) => {
-      request(url, (error, response, body) => {
+      request(url, { gzip: true }, (error, response, body) => {
         if (!error && response.statusCode === 200) {
           try {
             const api = JSON.parse(body) as gapi.client.discovery.DirectoryList;
