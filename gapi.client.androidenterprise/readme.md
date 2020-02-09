@@ -73,11 +73,6 @@ Retrieves the IDs of all of a user's devices.
 await gapi.client.devices.list({ enterpriseId: "enterpriseId", userId: "userId",  }); 
     
 /* 
-Updates the device policy. This method supports patch semantics.  
-*/
-await gapi.client.devices.patch({ deviceId: "deviceId", enterpriseId: "enterpriseId", userId: "userId",  }); 
-    
-/* 
 Sets whether a device's access to Google services is enabled or disabled. The device state takes effect only if enforcing EMM policies on Android devices is enabled in the Google Admin Console. Otherwise, the device state is ignored and all devices are allowed access to Google services. This is only supported for Google-managed users.  
 */
 await gapi.client.devices.setState({ deviceId: "deviceId", enterpriseId: "enterpriseId", userId: "userId",  }); 
@@ -183,11 +178,6 @@ Lists all entitlements for the specified user. Only the ID is set.
 await gapi.client.entitlements.list({ enterpriseId: "enterpriseId", userId: "userId",  }); 
     
 /* 
-Adds or updates an entitlement to an app for a user. This method supports patch semantics.  
-*/
-await gapi.client.entitlements.patch({ enterpriseId: "enterpriseId", entitlementId: "entitlementId", userId: "userId",  }); 
-    
-/* 
 Adds or updates an entitlement to an app for a user.  
 */
 await gapi.client.entitlements.update({ enterpriseId: "enterpriseId", entitlementId: "entitlementId", userId: "userId",  }); 
@@ -223,11 +213,6 @@ Retrieves the details of all apps installed on the specified device.
 await gapi.client.installs.list({ deviceId: "deviceId", enterpriseId: "enterpriseId", userId: "userId",  }); 
     
 /* 
-Requests to install the latest version of an app to a device. If the app is already installed, then it is updated to the latest version if necessary. This method supports patch semantics.  
-*/
-await gapi.client.installs.patch({ deviceId: "deviceId", enterpriseId: "enterpriseId", installId: "installId", userId: "userId",  }); 
-    
-/* 
 Requests to install the latest version of an app to a device. If the app is already installed, then it is updated to the latest version if necessary.  
 */
 await gapi.client.installs.update({ deviceId: "deviceId", enterpriseId: "enterpriseId", installId: "installId", userId: "userId",  }); 
@@ -248,11 +233,6 @@ Lists all the per-device managed configurations for the specified device. Only t
 await gapi.client.managedconfigurationsfordevice.list({ deviceId: "deviceId", enterpriseId: "enterpriseId", userId: "userId",  }); 
     
 /* 
-Adds or updates a per-device managed configuration for an app for the specified device. This method supports patch semantics.  
-*/
-await gapi.client.managedconfigurationsfordevice.patch({ deviceId: "deviceId", enterpriseId: "enterpriseId", managedConfigurationForDeviceId: "managedConfigurationForDeviceId", userId: "userId",  }); 
-    
-/* 
 Adds or updates a per-device managed configuration for an app for the specified device.  
 */
 await gapi.client.managedconfigurationsfordevice.update({ deviceId: "deviceId", enterpriseId: "enterpriseId", managedConfigurationForDeviceId: "managedConfigurationForDeviceId", userId: "userId",  }); 
@@ -271,11 +251,6 @@ await gapi.client.managedconfigurationsforuser.get({ enterpriseId: "enterpriseId
 Lists all the per-user managed configurations for the specified user. Only the ID is set.  
 */
 await gapi.client.managedconfigurationsforuser.list({ enterpriseId: "enterpriseId", userId: "userId",  }); 
-    
-/* 
-Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can apply managed configurations by passing a list of managed properties. This method supports patch semantics.  
-*/
-await gapi.client.managedconfigurationsforuser.patch({ enterpriseId: "enterpriseId", managedConfigurationForUserId: "managedConfigurationForUserId", userId: "userId",  }); 
     
 /* 
 Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can apply managed configurations by passing a list of managed properties.  
@@ -369,11 +344,6 @@ Retrieves the details of all clusters on the specified page.
 await gapi.client.storelayoutclusters.list({ enterpriseId: "enterpriseId", pageId: "pageId",  }); 
     
 /* 
-Updates a cluster. This method supports patch semantics.  
-*/
-await gapi.client.storelayoutclusters.patch({ clusterId: "clusterId", enterpriseId: "enterpriseId", pageId: "pageId",  }); 
-    
-/* 
 Updates a cluster.  
 */
 await gapi.client.storelayoutclusters.update({ clusterId: "clusterId", enterpriseId: "enterpriseId", pageId: "pageId",  }); 
@@ -397,11 +367,6 @@ await gapi.client.storelayoutpages.insert({ enterpriseId: "enterpriseId",  });
 Retrieves the details of all pages in the store.  
 */
 await gapi.client.storelayoutpages.list({ enterpriseId: "enterpriseId",  }); 
-    
-/* 
-Updates the content of a store page. This method supports patch semantics.  
-*/
-await gapi.client.storelayoutpages.patch({ enterpriseId: "enterpriseId", pageId: "pageId",  }); 
     
 /* 
 Updates the content of a store page.  
@@ -453,13 +418,6 @@ Looks up a user by primary email address. This is only supported for Google-mana
 await gapi.client.users.list({ email: "email", enterpriseId: "enterpriseId",  }); 
     
 /* 
-Updates the details of an EMM-managed user.
-
-Can be used with EMM-managed users only (not Google managed users). Pass the new details in the Users resource in the request body. Only the displayName field can be changed. Other fields must either be unset or have the currently active value. This method supports patch semantics.  
-*/
-await gapi.client.users.patch({ enterpriseId: "enterpriseId", userId: "userId",  }); 
-    
-/* 
 Revokes access to all devices currently provisioned to the user. The user will no longer be able to use the managed Play store on any of their managed devices.
 
 This call only works with EMM-managed accounts.  
@@ -502,11 +460,6 @@ await gapi.client.webapps.insert({ enterpriseId: "enterpriseId",  });
 Retrieves the details of all web apps for a given enterprise.  
 */
 await gapi.client.webapps.list({ enterpriseId: "enterpriseId",  }); 
-    
-/* 
-Updates an existing web app. This method supports patch semantics.  
-*/
-await gapi.client.webapps.patch({ enterpriseId: "enterpriseId", webAppId: "webAppId",  }); 
     
 /* 
 Updates an existing web app.  

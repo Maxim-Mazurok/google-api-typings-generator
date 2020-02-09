@@ -307,7 +307,7 @@ declare namespace gapi.client {
         interface SpansResource {
             /**
              * Creates a new span.
-             * In this case, writing traces is not consider an active developer
+             * In this case, writing traces is not considered an active developer
              * method since traces are machine generated.
              */
             createSpan(request: {
@@ -386,7 +386,7 @@ declare namespace gapi.client {
             /**
              * Sends new spans to new or existing traces. You cannot update
              * existing spans.
-             * In this case, writing traces is not consider an active developer
+             * In this case, writing traces is not considered an active developer
              * method since traces are machine generated.
              */
             batchWrite(request: {

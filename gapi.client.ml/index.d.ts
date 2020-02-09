@@ -580,7 +580,7 @@ declare namespace gapi.client {
              * Required. Fully qualified BigQuery table name in the following format:
              * "<var>project_id</var>.<var>dataset_name</var>.<var>table_name</var>"
              *
-             * The specifcied table must already exist, and the "Cloud ML Service Agent"
+             * The specified table must already exist, and the "Cloud ML Service Agent"
              * for your project must have permission to write to it. The table must have
              * the following [schema](/bigquery/docs/schemas):
              *
@@ -609,6 +609,33 @@ declare namespace gapi.client {
              * Shapley values.
              */
             numPaths?: number;
+        }
+        interface GoogleCloudMlV1__Scheduling {
+            /**
+             * Optional. The maximum job running time, expressed in seconds. By default
+             * there is no limit.
+             *
+             * If the training job is still running after this duration, AI Platform
+             * Training cancels it.
+             *
+             * For example, if you want to ensure your job runs for no more than 2 hours,
+             * set this field to `7200s` (2 hours &#42; 60 minutes / hour &#42; 60 seconds /
+             * minute).
+             *
+             * If you submit your training job using the `gcloud` tool, you can [provide
+             * this field in a `config.yaml`
+             * file](/ml-engine/docs/training-jobs#formatting_your_configuration_parameters).
+             * For example:
+             *
+             * ```yaml
+             * trainingInput:
+             * ...
+             * scheduling:
+             * maxRunningTime: 7200s
+             * ...
+             * ```
+             */
+            maxRunningTime?: string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudMlV1__SetDefaultVersionRequest {
@@ -787,6 +814,8 @@ declare namespace gapi.client {
              * and parameter servers.
              */
             scaleTier?: string;
+            /** Optional. Scheduling options for a training job. */
+            scheduling?: GoogleCloudMlV1__Scheduling;
             /**
              * Optional. Use 'chief' instead of 'master' in TF_CONFIG when Custom
              * Container is used and evaluator is not specified.
@@ -1355,25 +1384,22 @@ declare namespace gapi.client {
         }
         interface GoogleType__Expr {
             /**
-             * An optional description of the expression. This is a longer text which
+             * Optional. Description of the expression. This is a longer text which
              * describes the expression, e.g. when hovered over it in a UI.
              */
             description?: string;
             /**
-             * Textual representation of an expression in
-             * Common Expression Language syntax.
-             *
-             * The application context of the containing message determines which
-             * well-known feature set of CEL is supported.
+             * Textual representation of an expression in Common Expression Language
+             * syntax.
              */
             expression?: string;
             /**
-             * An optional string indicating the location of the expression for error
+             * Optional. String indicating the location of the expression for error
              * reporting, e.g. a file name and a position in the file.
              */
             location?: string;
             /**
-             * An optional title for the expression, i.e. a short string describing
+             * Optional. Title for the expression, i.e. a short string describing
              * its purpose. This can be used e.g. in UIs which allow to enter the
              * expression.
              */

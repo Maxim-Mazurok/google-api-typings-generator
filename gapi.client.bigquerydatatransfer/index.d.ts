@@ -130,6 +130,10 @@ declare namespace gapi.client {
             /** Regular expression which can be used for parameter validation. */
             validationRegex?: string;
         }
+        interface EmailPreferences {
+            /** If true, email notifications will be sent on transfer run failures. */
+            enableFailureEmail?: boolean;
+        }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
@@ -316,6 +320,11 @@ declare namespace gapi.client {
             /** User specified display name for the data transfer. */
             displayName?: string;
             /**
+             * Email notifications will be sent according to these preferences
+             * to the email address of the user who owns this transfer config.
+             */
+            emailPreferences?: EmailPreferences;
+            /**
              * The resource name of the transfer config.
              * Transfer config names have the form of
              * `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
@@ -327,6 +336,11 @@ declare namespace gapi.client {
             name?: string;
             /** Output only. Next time when data transfer will run. */
             nextRunTime?: string;
+            /**
+             * Pub/Sub topic where notifications will be sent after transfer runs
+             * associated with this transfer config finish.
+             */
+            notificationPubsubTopic?: string;
             /** Data transfer specific parameters. */
             params?: Record<string, any>;
             /**
@@ -367,6 +381,12 @@ declare namespace gapi.client {
             /** Output only. The BigQuery target dataset id. */
             destinationDatasetId?: string;
             /**
+             * Output only. Email notifications will be sent according to these
+             * preferences to the email address of the user who owns the transfer config
+             * this run was derived from.
+             */
+            emailPreferences?: EmailPreferences;
+            /**
              * Output only. Time when transfer run ended.
              * Parameter ignored by server for input requests.
              */
@@ -380,6 +400,11 @@ declare namespace gapi.client {
              * The name is ignored when creating a transfer run.
              */
             name?: string;
+            /**
+             * Output only. Pub/Sub topic where a notification will be sent after this
+             * transfer run finishes
+             */
+            notificationPubsubTopic?: string;
             /** Output only. Data transfer specific parameters. */
             params?: Record<string, any>;
             /**

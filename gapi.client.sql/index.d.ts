@@ -756,10 +756,16 @@ declare namespace gapi.client {
              * is encoded in the client's certificate.
              */
             clientKey?: string;
+            /** The dump file to create the Cloud SQL replica. */
+            dumpFilePath?: string;
             /** The host and port of the on-premises instance in host:port format */
             hostPort?: string;
             /** This is always <code>sql#onPremisesConfiguration</code>. */
             kind?: string;
+            /** The password for connecting to on-premises instance. */
+            password?: string;
+            /** The username for connecting to on-premises instance. */
+            username?: string;
         }
         interface Operation {
             /**
@@ -874,7 +880,9 @@ declare namespace gapi.client {
             rescheduleType?: string;
             /**
              * Optional. Timestamp when the maintenance shall be rescheduled to if
-             * reschedule_type=SPECIFIC_TIME.
+             * reschedule_type=SPECIFIC_TIME, in <a
+             * href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+             * example <code>2012-11-15T16:19:00.094Z</code>.
              */
             scheduleTime?: string;
         }
@@ -1017,9 +1025,23 @@ declare namespace gapi.client {
              */
             userLabels?: Record<string, string>;
         }
+        interface SqlExternalSyncSettingError {
+            /** Additional information about the error encountered. */
+            detail?: string;
+            /** This is always <code>sql#migrationSettingError</code>. */
+            kind?: string;
+            /** Identifies the specific error that occurred. */
+            type?: string;
+        }
         interface SqlInstancesRescheduleMaintenanceRequestBody {
             /** Required. The type of the reschedule the user wants. */
             reschedule?: Reschedule;
+        }
+        interface SqlInstancesVerifyExternalSyncSettingsResponse {
+            /** List of migration violations. */
+            errors?: SqlExternalSyncSettingError[];
+            /** This is always <code>sql#migrationSettingErrorList</code>. */
+            kind?: string;
         }
         interface SqlScheduledMaintenance {
             canDefer?: boolean;
@@ -3096,6 +3118,82 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: SqlInstancesRescheduleMaintenanceRequestBody): Request<Operation>;
+            /** Start External master migration. */
+            startExternalSync(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Cloud SQL instance ID. This does not include the project ID. */
+                instance: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The parent resource where Cloud SQL starts this database instance
+                 * external sync. Format:
+                 * projects/{project}/locations/{location}/instances/{instance}
+                 */
+                parent?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** ID of the project that contains the first generation instance. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** External sync mode */
+                syncMode?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<Operation>;
+            /** Verify External master external sync settings. */
+            verifyExternalSyncSettings(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Cloud SQL instance ID. This does not include the project ID. */
+                instance: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The parent resource where Cloud SQL verifies this database instance
+                 * external sync settings. Format:
+                 * projects/{project}/locations/{location}/instances/{instance}
+                 */
+                parent?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID of the project that contains the instance. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** External sync mode */
+                syncMode?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Flag to enable verifying connection only */
+                verifyConnectionOnly?: boolean;
+            }): Request<SqlInstancesVerifyExternalSyncSettingsResponse>;
         }
         interface InstancesResource {
             /** Reschedules the maintenance on the given instance. */
@@ -3170,6 +3268,82 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: SqlInstancesRescheduleMaintenanceRequestBody): Request<Operation>;
+            /** Start External master migration. */
+            startExternalSync(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Cloud SQL instance ID. This does not include the project ID. */
+                instance?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The parent resource where Cloud SQL starts this database instance
+                 * external sync. Format:
+                 * projects/{project}/locations/{location}/instances/{instance}
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** ID of the project that contains the first generation instance. */
+                project?: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** External sync mode */
+                syncMode?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<Operation>;
+            /** Verify External master external sync settings. */
+            verifyExternalSyncSettings(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Cloud SQL instance ID. This does not include the project ID. */
+                instance?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The parent resource where Cloud SQL verifies this database instance
+                 * external sync settings. Format:
+                 * projects/{project}/locations/{location}/instances/{instance}
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID of the project that contains the instance. */
+                project?: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** External sync mode */
+                syncMode?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Flag to enable verifying connection only */
+                verifyConnectionOnly?: boolean;
+            }): Request<SqlInstancesVerifyExternalSyncSettingsResponse>;
         }
         interface LocationsResource {
             instances: InstancesResource;

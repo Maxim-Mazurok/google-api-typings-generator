@@ -95,11 +95,6 @@ Cancels a transfer. Use the get method to check whether the cancellation succeed
 await gapi.client.transferOperations.cancel({ name: "name",  }); 
     
 /* 
-This method is not supported and the server returns `UNIMPLEMENTED`.  
-*/
-await gapi.client.transferOperations.delete({ name: "name",  }); 
-    
-/* 
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.  

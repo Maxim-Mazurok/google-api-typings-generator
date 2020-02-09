@@ -92,6 +92,12 @@ declare namespace gapi.client {
              * will be used.
              */
             authorizedNetwork?: string;
+            /**
+             * Optional. The connect mode of Redis instance.
+             * If not provided, default one will be used.
+             * Current default: DIRECT_PEERING.
+             */
+            connectMode?: string;
             /** Output only. The time the instance was created. */
             createTime?: string;
             /**

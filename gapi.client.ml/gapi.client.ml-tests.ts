@@ -136,6 +136,9 @@ gapi.load('client', () => {
                 region: "Test string",
                 runtimeVersion: "Test string",
                 scaleTier: "Test string",
+                scheduling: {
+                    maxRunningTime: "Test string",
+                },
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -303,6 +306,9 @@ gapi.load('client', () => {
                 region: "Test string",
                 runtimeVersion: "Test string",
                 scaleTier: "Test string",
+                scheduling: {
+                    maxRunningTime: "Test string",
+                },
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -2060,6 +2066,9 @@ gapi.load('client', () => {
                 region: "Test string",
                 runtimeVersion: "Test string",
                 scaleTier: "Test string",
+                scheduling: {
+                    maxRunningTime: "Test string",
+                },
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -2227,6 +2236,9 @@ gapi.load('client', () => {
                 region: "Test string",
                 runtimeVersion: "Test string",
                 scaleTier: "Test string",
+                scheduling: {
+                    maxRunningTime: "Test string",
+                },
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -3991,6 +4003,9 @@ gapi.load('client', () => {
                 region: "Test string",
                 runtimeVersion: "Test string",
                 scaleTier: "Test string",
+                scheduling: {
+                    maxRunningTime: "Test string",
+                },
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -4158,6 +4173,9 @@ gapi.load('client', () => {
                 region: "Test string",
                 runtimeVersion: "Test string",
                 scaleTier: "Test string",
+                scheduling: {
+                    maxRunningTime: "Test string",
+                },
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {

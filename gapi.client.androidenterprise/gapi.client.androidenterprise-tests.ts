@@ -57,90 +57,6 @@ gapi.load('client', () => {
             enterpriseId: "Test string",
             userId: "Test string",
         });
-        /** Updates the device policy. This method supports patch semantics. */
-        await gapi.client.androidenterprise.devices.patch({
-            deviceId: "Test string",
-            enterpriseId: "Test string",
-            updateMask: "Test string",
-            userId: "Test string",
-        }, {
-            androidId: "Test string",
-            kind: "Test string",
-            managementType: "Test string",
-            policy: {
-                autoUpdatePolicy: "Test string",
-                deviceReportPolicy: "Test string",
-                maintenanceWindow: {
-                    durationMs: "Test string",
-                    startTimeAfterMidnightMs: "Test string",
-                },
-                productAvailabilityPolicy: "Test string",
-                productPolicy: [
-                    {
-                        autoInstallPolicy: {
-                            autoInstallConstraint: [
-                                {
-                                    chargingStateConstraint: "Test string",
-                                    deviceIdleStateConstraint: "Test string",
-                                    networkTypeConstraint: "Test string",
-                                }                            ],
-                            autoInstallMode: "Test string",
-                            autoInstallPriority: 42,
-                            minimumVersionCode: 42,
-                        },
-                        managedConfiguration: {
-                            configurationVariables: {
-                                kind: "Test string",
-                                mcmId: "Test string",
-                                variableSet: [
-                                    {
-                                        kind: "Test string",
-                                        placeholder: "Test string",
-                                        userValue: "Test string",
-                                    }                                ],
-                            },
-                            kind: "Test string",
-                            managedProperty: [
-                                {
-                                    key: "Test string",
-                                    valueBool: true,
-                                    valueBundle: {
-                                        managedProperty: undefined,
-                                    },
-                                    valueBundleArray: [
-                                        {
-                                            managedProperty: undefined,
-                                        }                                    ],
-                                    valueInteger: 42,
-                                    valueString: "Test string",
-                                    valueStringArray: [
-                                        "Test string"                                    ],
-                                }                            ],
-                            productId: "Test string",
-                        },
-                        productId: "Test string",
-                        trackIds: [
-                            "Test string"                        ],
-                        tracks: [
-                            "Test string"                        ],
-                    }                ],
-            },
-            report: {
-                appState: [
-                    {
-                        keyedAppState: [
-                            {
-                                data: "Test string",
-                                key: "Test string",
-                                message: "Test string",
-                                severity: "Test string",
-                                stateTimestampMillis: "Test string",
-                            }                        ],
-                        packageName: "Test string",
-                    }                ],
-                lastUpdatedTimestampMillis: "Test string",
-            },
-        });
         /**
          * Sets whether a device's access to Google services is enabled or disabled. The device state takes effect only if enforcing EMM policies on Android
          * devices is enabled in the Google Admin Console. Otherwise, the device state is ignored and all devices are allowed access to Google services. This is
@@ -385,17 +301,6 @@ gapi.load('client', () => {
             enterpriseId: "Test string",
             userId: "Test string",
         });
-        /** Adds or updates an entitlement to an app for a user. This method supports patch semantics. */
-        await gapi.client.androidenterprise.entitlements.patch({
-            enterpriseId: "Test string",
-            entitlementId: "Test string",
-            install: true,
-            userId: "Test string",
-        }, {
-            kind: "Test string",
-            productId: "Test string",
-            reason: "Test string",
-        });
         /** Adds or updates an entitlement to an app for a user. */
         await gapi.client.androidenterprise.entitlements.update({
             enterpriseId: "Test string",
@@ -441,21 +346,6 @@ gapi.load('client', () => {
             enterpriseId: "Test string",
             userId: "Test string",
         });
-        /**
-         * Requests to install the latest version of an app to a device. If the app is already installed, then it is updated to the latest version if necessary.
-         * This method supports patch semantics.
-         */
-        await gapi.client.androidenterprise.installs.patch({
-            deviceId: "Test string",
-            enterpriseId: "Test string",
-            installId: "Test string",
-            userId: "Test string",
-        }, {
-            installState: "Test string",
-            kind: "Test string",
-            productId: "Test string",
-            versionCode: 42,
-        });
         /** Requests to install the latest version of an app to a device. If the app is already installed, then it is updated to the latest version if necessary. */
         await gapi.client.androidenterprise.installs.update({
             deviceId: "Test string",
@@ -487,42 +377,6 @@ gapi.load('client', () => {
             deviceId: "Test string",
             enterpriseId: "Test string",
             userId: "Test string",
-        });
-        /** Adds or updates a per-device managed configuration for an app for the specified device. This method supports patch semantics. */
-        await gapi.client.androidenterprise.managedconfigurationsfordevice.patch({
-            deviceId: "Test string",
-            enterpriseId: "Test string",
-            managedConfigurationForDeviceId: "Test string",
-            userId: "Test string",
-        }, {
-            configurationVariables: {
-                kind: "Test string",
-                mcmId: "Test string",
-                variableSet: [
-                    {
-                        kind: "Test string",
-                        placeholder: "Test string",
-                        userValue: "Test string",
-                    }                ],
-            },
-            kind: "Test string",
-            managedProperty: [
-                {
-                    key: "Test string",
-                    valueBool: true,
-                    valueBundle: {
-                        managedProperty: undefined,
-                    },
-                    valueBundleArray: [
-                        {
-                            managedProperty: undefined,
-                        }                    ],
-                    valueInteger: 42,
-                    valueString: "Test string",
-                    valueStringArray: [
-                        "Test string"                    ],
-                }            ],
-            productId: "Test string",
         });
         /** Adds or updates a per-device managed configuration for an app for the specified device. */
         await gapi.client.androidenterprise.managedconfigurationsfordevice.update({
@@ -576,45 +430,6 @@ gapi.load('client', () => {
         await gapi.client.androidenterprise.managedconfigurationsforuser.list({
             enterpriseId: "Test string",
             userId: "Test string",
-        });
-        /**
-         * Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply
-         * managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can
-         * apply managed configurations by passing a list of managed properties. This method supports patch semantics.
-         */
-        await gapi.client.androidenterprise.managedconfigurationsforuser.patch({
-            enterpriseId: "Test string",
-            managedConfigurationForUserId: "Test string",
-            userId: "Test string",
-        }, {
-            configurationVariables: {
-                kind: "Test string",
-                mcmId: "Test string",
-                variableSet: [
-                    {
-                        kind: "Test string",
-                        placeholder: "Test string",
-                        userValue: "Test string",
-                    }                ],
-            },
-            kind: "Test string",
-            managedProperty: [
-                {
-                    key: "Test string",
-                    valueBool: true,
-                    valueBundle: {
-                        managedProperty: undefined,
-                    },
-                    valueBundleArray: [
-                        {
-                            managedProperty: undefined,
-                        }                    ],
-                    valueInteger: 42,
-                    valueString: "Test string",
-                    valueStringArray: [
-                        "Test string"                    ],
-                }            ],
-            productId: "Test string",
         });
         /**
          * Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply
@@ -793,23 +608,6 @@ gapi.load('client', () => {
             enterpriseId: "Test string",
             pageId: "Test string",
         });
-        /** Updates a cluster. This method supports patch semantics. */
-        await gapi.client.androidenterprise.storelayoutclusters.patch({
-            clusterId: "Test string",
-            enterpriseId: "Test string",
-            pageId: "Test string",
-        }, {
-            id: "Test string",
-            kind: "Test string",
-            name: [
-                {
-                    locale: "Test string",
-                    text: "Test string",
-                }            ],
-            orderInPage: "Test string",
-            productId: [
-                "Test string"            ],
-        });
         /** Updates a cluster. */
         await gapi.client.androidenterprise.storelayoutclusters.update({
             clusterId: "Test string",
@@ -854,21 +652,6 @@ gapi.load('client', () => {
         /** Retrieves the details of all pages in the store. */
         await gapi.client.androidenterprise.storelayoutpages.list({
             enterpriseId: "Test string",
-        });
-        /** Updates the content of a store page. This method supports patch semantics. */
-        await gapi.client.androidenterprise.storelayoutpages.patch({
-            enterpriseId: "Test string",
-            pageId: "Test string",
-        }, {
-            id: "Test string",
-            kind: "Test string",
-            link: [
-                "Test string"            ],
-            name: [
-                {
-                    locale: "Test string",
-                    text: "Test string",
-                }            ],
         });
         /** Updates the content of a store page. */
         await gapi.client.androidenterprise.storelayoutpages.update({
@@ -947,24 +730,6 @@ gapi.load('client', () => {
         await gapi.client.androidenterprise.users.list({
             email: "Test string",
             enterpriseId: "Test string",
-        });
-        /**
-         * Updates the details of an EMM-managed user.
-         *
-         * Can be used with EMM-managed users only (not Google managed users). Pass the new details in the Users resource in the request body. Only the
-         * displayName field can be changed. Other fields must either be unset or have the currently active value. This method supports patch semantics.
-         */
-        await gapi.client.androidenterprise.users.patch({
-            enterpriseId: "Test string",
-            userId: "Test string",
-        }, {
-            accountIdentifier: "Test string",
-            accountType: "Test string",
-            displayName: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            managementType: "Test string",
-            primaryEmail: "Test string",
         });
         /**
          * Revokes access to all devices currently provisioned to the user. The user will no longer be able to use the managed Play store on any of their managed
@@ -1048,22 +813,6 @@ gapi.load('client', () => {
         /** Retrieves the details of all web apps for a given enterprise. */
         await gapi.client.androidenterprise.webapps.list({
             enterpriseId: "Test string",
-        });
-        /** Updates an existing web app. This method supports patch semantics. */
-        await gapi.client.androidenterprise.webapps.patch({
-            enterpriseId: "Test string",
-            webAppId: "Test string",
-        }, {
-            displayMode: "Test string",
-            icons: [
-                {
-                    imageData: "Test string",
-                }            ],
-            isPublished: true,
-            startUrl: "Test string",
-            title: "Test string",
-            versionCode: "Test string",
-            webAppId: "Test string",
         });
         /** Updates an existing web app. */
         await gapi.client.androidenterprise.webapps.update({

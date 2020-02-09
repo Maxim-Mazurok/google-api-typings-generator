@@ -187,10 +187,6 @@ gapi.load('client', () => {
         await gapi.client.storagetransfer.transferOperations.cancel({
             name: "Test string",
         });
-        /** This method is not supported and the server returns `UNIMPLEMENTED`. */
-        await gapi.client.storagetransfer.transferOperations.delete({
-            name: "Test string",
-        });
         /**
          * Gets the latest state of a long-running operation.  Clients can use this
          * method to poll the operation result at intervals as recommended by the API

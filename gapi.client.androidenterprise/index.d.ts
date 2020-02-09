@@ -1009,66 +1009,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<DevicesListResponse>;
-            /** Updates the device policy. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the device. */
-                deviceId: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * Mask that identifies which fields to update. If not set, all modifiable fields will be modified.
-                 *
-                 * When set in a query parameter, this field should be specified as updateMask=<field1>,<field2>,...
-                 */
-                updateMask?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: Device;
-            }): Request<Device>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the device. */
-                deviceId: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /**
-                 * Mask that identifies which fields to update. If not set, all modifiable fields will be modified.
-                 *
-                 * When set in a query parameter, this field should be specified as updateMask=<field1>,<field2>,...
-                 */
-                updateMask?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: Device): Request<Device>;
             /**
              * Sets whether a device's access to Google services is enabled or disabled. The device state takes effect only if enforcing EMM policies on Android
              * devices is enabled in the Google Admin Console. Otherwise, the device state is ignored and all devices are allowed access to Google services. This is
@@ -1652,64 +1592,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<EntitlementsListResponse>;
-            /** Adds or updates an entitlement to an app for a user. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm". */
-                entitlementId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /**
-                 * Set to true to also install the product on all the user's devices where possible. Failure to install on one or more devices will not prevent this
-                 * operation from returning successfully, as long as the entitlement was successfully assigned to the user.
-                 */
-                install?: boolean;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: Entitlement;
-            }): Request<Entitlement>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm". */
-                entitlementId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /**
-                 * Set to true to also install the product on all the user's devices where possible. Failure to install on one or more devices will not prevent this
-                 * operation from returning successfully, as long as the entitlement was successfully assigned to the user.
-                 */
-                install?: boolean;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: Entitlement): Request<Entitlement>;
             /** Adds or updates an entitlement to an app for a user. */
             update(request: {
                 /** Data format for the response. */
@@ -1908,61 +1790,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<InstallsListResponse>;
-            /**
-             * Requests to install the latest version of an app to a device. If the app is already installed, then it is updated to the latest version if necessary.
-             * This method supports patch semantics.
-             */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The Android ID of the device. */
-                deviceId: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** The ID of the product represented by the install, e.g. "app:com.google.android.gm". */
-                installId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: Install;
-            }): Request<Install>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The Android ID of the device. */
-                deviceId: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** The ID of the product represented by the install, e.g. "app:com.google.android.gm". */
-                installId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: Install): Request<Install>;
             /** Requests to install the latest version of an app to a device. If the app is already installed, then it is updated to the latest version if necessary. */
             update(request: {
                 /** Data format for the response. */
@@ -2090,58 +1917,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<ManagedConfigurationsForDeviceListResponse>;
-            /** Adds or updates a per-device managed configuration for an app for the specified device. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The Android ID of the device. */
-                deviceId: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm". */
-                managedConfigurationForDeviceId: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: ManagedConfiguration;
-            }): Request<ManagedConfiguration>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The Android ID of the device. */
-                deviceId: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm". */
-                managedConfigurationForDeviceId: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: ManagedConfiguration): Request<ManagedConfiguration>;
             /** Adds or updates a per-device managed configuration for an app for the specified device. */
             update(request: {
                 /** Data format for the response. */
@@ -2263,58 +2038,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<ManagedConfigurationsForUserListResponse>;
-            /**
-             * Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply
-             * managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can
-             * apply managed configurations by passing a list of managed properties. This method supports patch semantics.
-             */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm". */
-                managedConfigurationForUserId: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: ManagedConfiguration;
-            }): Request<ManagedConfiguration>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** The ID of the managed configuration (a product ID), e.g. "app:com.google.android.gm". */
-                managedConfigurationForUserId: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: ManagedConfiguration): Request<ManagedConfiguration>;
             /**
              * Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply
              * managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can
@@ -2834,54 +2557,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<StoreLayoutClustersListResponse>;
-            /** Updates a cluster. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the cluster. */
-                clusterId: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the page. */
-                pageId: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: StoreCluster;
-            }): Request<StoreCluster>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the cluster. */
-                clusterId: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the page. */
-                pageId: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: StoreCluster): Request<StoreCluster>;
             /** Updates a cluster. */
             update(request: {
                 /** Data format for the response. */
@@ -3033,50 +2708,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<StoreLayoutPagesListResponse>;
-            /** Updates the content of a store page. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the page. */
-                pageId: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: StorePage;
-            }): Request<StorePage>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the page. */
-                pageId: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: StorePage): Request<StorePage>;
             /** Updates the content of a store page. */
             update(request: {
                 /** Data format for the response. */
@@ -3310,55 +2941,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<UsersListResponse>;
-            /**
-             * Updates the details of an EMM-managed user.
-             *
-             * Can be used with EMM-managed users only (not Google managed users). Pass the new details in the Users resource in the request body. Only the
-             * displayName field can be changed. Other fields must either be unset or have the currently active value. This method supports patch semantics.
-             */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** Request body */
-                resource: User;
-            }): Request<User>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** The ID of the user. */
-                userId: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-            },
-            body: User): Request<User>;
             /**
              * Revokes access to all devices currently provisioned to the user. The user will no longer be able to use the managed Play store on any of their managed
              * devices.
@@ -3605,50 +3187,6 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<WebAppsListResponse>;
-            /** Updates an existing web app. This method supports patch semantics. */
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** The ID of the web app. */
-                webAppId: string;
-                /** Request body */
-                resource: WebApp;
-            }): Request<WebApp>;
-            patch(request: {
-                /** Data format for the response. */
-                alt?: string;
-                /** The ID of the enterprise. */
-                enterpriseId: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-                quotaUser?: string;
-                /** Deprecated. Please use quotaUser instead. */
-                userIp?: string;
-                /** The ID of the web app. */
-                webAppId: string;
-            },
-            body: WebApp): Request<WebApp>;
             /** Updates an existing web app. */
             update(request: {
                 /** Data format for the response. */

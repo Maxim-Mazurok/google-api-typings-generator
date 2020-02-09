@@ -197,7 +197,12 @@ declare namespace gapi.client {
              */
             gcsFilesetSpec?: GoogleCloudDatacatalogV1beta1GcsFilesetSpec;
             /**
-             * Output only. The resource this metadata entry refers to.
+             * Output only. This field indicates the entry's source system that Data Catalog
+             * integrates with, such as BigQuery or Cloud Pub/Sub.
+             */
+            integratedSystem?: string;
+            /**
+             * The resource this metadata entry refers to.
              *
              * For Google Cloud Platform resources, `linked_resource` is the [full name of
              * the
@@ -205,6 +210,10 @@ declare namespace gapi.client {
              * For example, the `linked_resource` for a table resource from BigQuery is:
              *
              * &#42; //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId
+             *
+             * Output only when Entry is of type in the EntryType enum. For entries with
+             * user_specified_type, this field is optional and defaults to an empty
+             * string.
              */
             linkedResource?: string;
             /**
@@ -219,12 +228,38 @@ declare namespace gapi.client {
             /** Schema of the entry. An entry might not have any schema attached to it. */
             schema?: GoogleCloudDatacatalogV1beta1Schema;
             /**
-             * Output only. Timestamps about the underlying Google Cloud Platform
-             * resource, not about this Data Catalog Entry.
+             * Output only. Timestamps about the underlying resource, not about this Data Catalog
+             * entry. Output only when Entry is of type in the EntryType enum. For entries
+             * with user_specified_type, this field is optional and defaults to an empty
+             * timestamp.
              */
             sourceSystemTimestamps?: GoogleCloudDatacatalogV1beta1SystemTimestamps;
-            /** The type of the entry. */
+            /**
+             * The type of the entry.
+             * Only used for Entries with types in the EntryType enum.
+             */
             type?: string;
+            /**
+             * This field indicates the entry's source system that Data Catalog does not
+             * integrate with. `user_specified_system` strings must begin with a letter
+             * or underscore and can only contain letters, numbers, and underscores; are
+             * case insensitive; must be at least 1 character and at most 64 characters
+             * long.
+             */
+            userSpecifiedSystem?: string;
+            /**
+             * Entry type if it does not fit any of the input-allowed values listed in
+             * `EntryType` enum above. When creating an entry, users should check the
+             * enum values first, if nothing matches the entry to be created, then
+             * provide a custom value, for example "my_special_type".
+             * `user_specified_type` strings must begin with a letter or underscore and
+             * can only contain letters, numbers, and underscores; are case insensitive;
+             * must be at least 1 character and at most 64 characters long.
+             *
+             * Currently, only FILESET enum value is allowed. All other entries created
+             * through Data Catalog must use `user_specified_type`.
+             */
+            userSpecifiedType?: string;
         }
         interface GoogleCloudDatacatalogV1beta1EntryGroup {
             /** Output only. Timestamps about this EntryGroup. Default value is empty timestamps. */
@@ -331,6 +366,24 @@ declare namespace gapi.client {
             /** Required. Taxonomies to be imported. */
             taxonomies?: GoogleCloudDatacatalogV1beta1SerializedTaxonomy[];
         }
+        interface GoogleCloudDatacatalogV1beta1ListEntriesResponse {
+            /** Entry details. */
+            entries?: GoogleCloudDatacatalogV1beta1Entry[];
+            /**
+             * Token to retrieve the next page of results. It is set to empty if no items
+             * remain in results.
+             */
+            nextPageToken?: string;
+        }
+        interface GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse {
+            /** EntryGroup details. */
+            entryGroups?: GoogleCloudDatacatalogV1beta1EntryGroup[];
+            /**
+             * Token to retrieve the next page of results. It is set to empty if no items
+             * remain in results.
+             */
+            nextPageToken?: string;
+        }
         interface GoogleCloudDatacatalogV1beta1ListPolicyTagsResponse {
             /**
              * Token used to retrieve the next page of results, or empty if there are no
@@ -406,9 +459,7 @@ declare namespace gapi.client {
              * Specifies the ordering of results, currently supported case-sensitive
              * choices are:
              *
-             * &#42; `relevance`, only supports desecending
-             * &#42; `last_access_timestamp [asc|desc]`, defaults to descending if not
-             * specified
+             * &#42; `relevance`, only supports descending
              * &#42; `last_modified_timestamp [asc|desc]`, defaults to descending if not
              * specified
              *
@@ -1113,11 +1164,14 @@ declare namespace gapi.client {
         }
         interface EntriesResource {
             /**
-             * Alpha feature.
-             * Creates an entry. Currently only entries of 'FILESET' type can be created.
+             * Creates an entry. Only entries of 'FILESET' type or user-specified type can
+             * be created.
+             *
              * The user should enable the Data Catalog API in the project identified by
              * the `parent` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
+             *
+             * A maximum of 100,000 entries may be created per entry group.
              */
             create(request: {
                 /** V1 error format. */
@@ -1193,7 +1247,6 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1Entry): Request<GoogleCloudDatacatalogV1beta1Entry>;
             /**
-             * Alpha feature.
              * Deletes an existing entry. Only entries created through
              * CreateEntry
              * method can be deleted.
@@ -1316,6 +1369,55 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
+            /** Lists entries. */
+            list(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The maximum number of items to return. Default is 10. Max limit is 1000.
+                 * Throws an invalid argument for `page_size > 1000`.
+                 */
+                pageSize?: number;
+                /**
+                 * Token that specifies which page is requested. If empty, the first page is
+                 * returned.
+                 */
+                pageToken?: string;
+                /**
+                 * Required. The name of the entry group that contains the entries, which can
+                 * be provided in URL format. Example:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * The fields to return for each Entry. If not set or empty, all
+                 * fields are returned.
+                 * For example, setting read_mask to contain only one path "name" will cause
+                 * ListEntries to return a list of Entries with only "name" field.
+                 */
+                readMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<GoogleCloudDatacatalogV1beta1ListEntriesResponse>;
             /**
              * Updates an existing entry.
              * The user should enable the Data Catalog API in the project identified by
@@ -1471,11 +1573,14 @@ declare namespace gapi.client {
         }
         interface EntryGroupsResource {
             /**
-             * Alpha feature.
              * Creates an EntryGroup.
+             *
              * The user should enable the Data Catalog API in the project identified by
              * the `parent` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
+             *
+             * A maximum of 10,000 entry groups may be created per organization across all
+             * locations.
              */
             create(request: {
                 /** V1 error format. */
@@ -1559,7 +1664,6 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1EntryGroup): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             /**
-             * Alpha feature.
              * Deletes an EntryGroup. Only entry groups that do not contain entries can be
              * deleted. The user should enable the Data Catalog API in the project
              * identified by the `name` parameter (see [Data Catalog Resource Project]
@@ -1596,10 +1700,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Alpha feature.
-             * Gets an EntryGroup.
-             */
+            /** Gets an EntryGroup. */
             get(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1680,6 +1781,133 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
+            /** Lists entry groups. */
+            list(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Optional. The maximum number of items to return. Default is 10. Max limit is 1000.
+                 * Throws an invalid argument for `page_size > 1000`.
+                 */
+                pageSize?: number;
+                /**
+                 * Optional. Token that specifies which page is requested. If empty, the first page is
+                 * returned.
+                 */
+                pageToken?: string;
+                /**
+                 * Required. The name of the location that contains the entry groups, which can be
+                 * provided in URL format. Example:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse>;
+            /**
+             * Updates an EntryGroup. The user should enable the Data Catalog API in the
+             * project identified by the `entry_group.name` parameter (see [Data Catalog
+             * Resource Project] (/data-catalog/docs/concepts/resource-project) for more
+             * information).
+             */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The resource name of the entry group in URL format. Example:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+                 *
+                 * Note that this EntryGroup and its child resources may not actually be
+                 * stored in the location in this name.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * The fields to update on the entry group. If absent or empty, all modifiable
+                 * fields are updated.
+                 */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudDatacatalogV1beta1EntryGroup;
+            }): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The resource name of the entry group in URL format. Example:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+                 *
+                 * Note that this EntryGroup and its child resources may not actually be
+                 * stored in the location in this name.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * The fields to update on the entry group. If absent or empty, all modifiable
+                 * fields are updated.
+                 */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: GoogleCloudDatacatalogV1beta1EntryGroup): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             /**
              * Sets the access control policy for a resource. Replaces any existing
              * policy.
@@ -1799,12 +2027,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project this template is in. Example:
+                 * Required. The name of the project and the template location
+                 * [region](/compute/docs/regions-zones/#available).
+                 * NOTE: Currently, only the `us-central1 region` is supported.
                  *
-                 * &#42; projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
+                 * Example:
                  *
-                 * Note that this TagTemplateField may not actually be stored in the location
-                 * in this name.
+                 * &#42; projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1842,12 +2071,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project this template is in. Example:
+                 * Required. The name of the project and the template location
+                 * [region](/compute/docs/regions-zones/#available).
+                 * NOTE: Currently, only the `us-central1 region` is supported.
                  *
-                 * &#42; projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
+                 * Example:
                  *
-                 * Note that this TagTemplateField may not actually be stored in the location
-                 * in this name.
+                 * &#42; projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2106,13 +2336,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project and the location this template is in.
+                 * Required. The name of the project and the template location
+                 * [region](/compute/docs/regions-zones/#available).
+                 * NOTE: Currently, only the `us-central1 region` is supported.
+                 *
                  * Example:
                  *
-                 * &#42; projects/{project_id}/locations/{location}
-                 *
-                 * TagTemplate and its child resources may not actually be stored in the
-                 * location in this name.
+                 * &#42; projects/{project_id}/locations/us-central1
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2144,13 +2374,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project and the location this template is in.
+                 * Required. The name of the project and the template location
+                 * [region](/compute/docs/regions-zones/#available).
+                 * NOTE: Currently, only the `us-central1 region` is supported.
+                 *
                  * Example:
                  *
-                 * &#42; projects/{project_id}/locations/{location}
-                 *
-                 * TagTemplate and its child resources may not actually be stored in the
-                 * location in this name.
+                 * &#42; projects/{project_id}/locations/us-central1
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */

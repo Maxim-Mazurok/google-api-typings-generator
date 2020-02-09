@@ -74,8 +74,11 @@ declare namespace gapi.client {
         }
         interface GooglePrivacyDlpV2BigQueryKey {
             /**
-             * Absolute number of the row from the beginning of the table at the time
-             * of scanning.
+             * Row number inferred at the time the table was scanned. This value is
+             * nondeterministic, cannot be queried, and may be null for inspection
+             * jobs. To locate findings within a table, specify
+             * `inspect_job.storage_config.big_query_options.identifying_fields` in
+             * `CreateDlpJobRequest`.
              */
             rowNumber?: string;
             /** Complete BigQuery table reference. */
@@ -88,8 +91,11 @@ declare namespace gapi.client {
              */
             excludedFields?: GooglePrivacyDlpV2FieldId[];
             /**
-             * References to fields uniquely identifying rows within the table.
-             * Nested fields in the format, like `person.birthdate.year`, are allowed.
+             * Table fields that may uniquely identify a row within the table. When
+             * `actions.saveFindings.outputConfig.table` is specified, the values of
+             * columns specified here are available in the output table under
+             * `location.content_locations.record_location.record_key.id_values`. Nested
+             * fields such as `person.birthdate.year` are allowed.
              */
             identifyingFields?: GooglePrivacyDlpV2FieldId[];
             /**
@@ -1779,7 +1785,7 @@ declare namespace gapi.client {
             datastoreKey?: GooglePrivacyDlpV2DatastoreKey;
             /**
              * Values of identifying columns in the given row. Order of values matches
-             * the order of field identifiers specified in the scanning request.
+             * the order of `identifying_fields` specified in the scanning request.
              */
             idValues?: string[];
         }
