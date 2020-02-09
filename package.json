@@ -13,7 +13,7 @@
     "test": "mocha",
     "check": "gts check",
     "clean": "gts clean",
-    "compile": "tsc -p .",
+    "compile": "tsc",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
