@@ -8,3 +8,15 @@ export function parseVersion(version: string) {
 
   return matches ? `${matches[1] || 0}.${matches[2] || 0}` : '0.0';
 }
+
+/**
+ * Returns the capitalized name of the TypeScript interface for the specified resource.
+ */
+export function getResourceTypeName(resourceName: string) {
+  resourceName = resourceName
+    .split('-')
+    .map(x => `${x[0].toUpperCase()}${x.substring(1)}`)
+    .join('');
+
+  return `${resourceName[0].toUpperCase()}${resourceName.substring(1)}Resource`;
+}
