@@ -1,15 +1,15 @@
 import 'jasmine';
 import * as _ from 'lodash';
 import * as assert from 'assert';
-import {getResourceTypeName, parseVersion} from '../src/utils';
+import { getResourceTypeName, parseVersion } from '../src/utils';
 
 describe('parseVersion', () => {
   const expectations = {
-    'v1': '1.0',
+    v1: '1.0',
     'v1.2': '1.2',
     'v1.2beta3': '1.2',
-    'vm_beta': '0.0',
-    'invalid': '0.0',
+    vm_beta: '0.0',
+    invalid: '0.0',
   };
 
   _.forEach(expectations, (expected, given) => {
@@ -21,8 +21,8 @@ describe('parseVersion', () => {
 
 describe('getResourceTypeName', () => {
   const expectations = {
-    'marketplaceprivateauction': 'MarketplaceprivateauctionResource',
-    'marketplacePrivateAuction': 'MarketplacePrivateAuctionResource',
+    marketplaceprivateauction: 'MarketplaceprivateauctionResource',
+    marketplacePrivateAuction: 'MarketplacePrivateAuctionResource',
     'marketplace-privateauction': 'MarketplacePrivateauctionResource',
     'marketplace-private-auction': 'MarketplacePrivateAuctionResource',
   };

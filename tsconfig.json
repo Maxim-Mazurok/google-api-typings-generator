@@ -3,10 +3,10 @@
   "compilerOptions": {
     "declaration": false,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "."
   },
   "include": [
     "src/**/*.ts",
-    "test/**/*.ts"
+    "tests/**/*.ts"
   ]
 }

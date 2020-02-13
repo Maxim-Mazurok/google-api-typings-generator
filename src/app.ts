@@ -8,7 +8,6 @@ import * as request from 'request';
 import * as sortObject from 'deep-sort-object';
 import { getResourceTypeName, parseVersion } from './utils';
 import JsonSchema = gapi.client.discovery.JsonSchema;
-import RestMethod = gapi.client.discovery.RestMethod;
 import RestResource = gapi.client.discovery.RestResource;
 import RestDescription = gapi.client.discovery.RestDescription;
 
