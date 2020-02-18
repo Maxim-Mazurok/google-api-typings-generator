@@ -46,8 +46,8 @@ declare namespace gapi.client {
             language?: string;
             /**
              * Sets the maximum number of entries that the client is willing to have
-             * in the local database. This should be a power of 2 between 2&#42;&#42;10 and
-             * 2&#42;&#42;20. If zero, no database size limit is set.
+             * in the local database for the specified list. This should be a power of
+             * 2 between 2&#42;&#42;10 and 2&#42;&#42;20. If zero, no database size limit is set.
              */
             maxDatabaseEntries?: number;
             /**

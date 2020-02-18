@@ -324,6 +324,27 @@ declare namespace gapi.client {
             /** The takeout request ID. */
             takeoutRequestId?: string;
         }
+        interface DriveFile {
+            /** Abuse type of the file. */
+            abuseType?: string;
+            /** The ID of the file. */
+            id?: string;
+            /** The name of the file. */
+            name?: string;
+            /**
+             * The number of recent downloads of the file. This is available for the
+             * following alert types:
+             *
+             * &#42;Drive malware sharing detected
+             */
+            numRecentDownload?: string;
+            /** The email address of the file owner. */
+            owner?: string;
+        }
+        interface DriveFileWarning {
+            /** List of files in the alert. */
+            files?: DriveFile[];
+        }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }

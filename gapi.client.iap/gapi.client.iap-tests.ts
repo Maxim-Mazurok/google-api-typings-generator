@@ -100,6 +100,7 @@ gapi.load('client', () => {
                         "Test string"                    ],
                 },
                 oauthSettings: {
+                    clientId: "Test string",
                     loginHint: "Test string",
                 },
             },

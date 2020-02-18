@@ -53,6 +53,11 @@ gapi.load('client', () => {
             custom: {
             },
             displayName: "Test string",
+            meshIstio: {
+                meshUid: "Test string",
+                serviceName: "Test string",
+                serviceNamespace: "Test string",
+            },
             name: "Test string",
             telemetry: {
                 resourceName: "Test string",
@@ -865,6 +870,11 @@ gapi.load('client', () => {
             custom: {
             },
             displayName: "Test string",
+            meshIstio: {
+                meshUid: "Test string",
+                serviceName: "Test string",
+                serviceNamespace: "Test string",
+            },
             name: "Test string",
             telemetry: {
                 resourceName: "Test string",

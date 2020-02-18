@@ -61,8 +61,8 @@ declare namespace gapi.client {
             combiner?: string;
             /**
              * A list of conditions for the policy. The conditions are combined by AND or OR according to the combiner field. If the combined conditions evaluate to
-             * true, then an incident is created. A policy can have from one to six conditions. If |condition_time_series_uery_language| is present, it must be the
-             * only |condition|.
+             * true, then an incident is created. A policy can have from one to six conditions. If condition_time_series_query_language is present, it must be the
+             * only condition.
              */
             conditions?: Condition[];
             /** A read-only record of the creation of the alerting policy. If provided in a call to create or update, this field will be ignored. */
@@ -87,8 +87,8 @@ declare namespace gapi.client {
             /** A read-only record of the most recent change to the alerting policy. If provided in a call to create or update, this field will be ignored. */
             mutationRecord?: MutationRecord;
             /**
-             * Required if the policy exists. The resource name for this policy. The syntax is:
-             * projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+             * Required if the policy exists. The resource name for this policy. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
              * [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the
              * name field in the alerting policy passed as part of the request.
              */
@@ -96,8 +96,8 @@ declare namespace gapi.client {
             /**
              * Identifies the notification channels to which notifications should be sent when incidents are opened or closed or when new violations occur on an
              * already opened incident. Each element of this array corresponds to the name field in each of the NotificationChannel objects that are returned from the
-             * ListNotificationChannels method. The syntax of the entries in this field is:
-             * projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
+             * ListNotificationChannels method. The format of the entries in this field is:
+             * projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
              */
             notificationChannels?: string[];
             /**
@@ -228,8 +228,8 @@ declare namespace gapi.client {
              */
             displayName?: string;
             /**
-             * Required if the condition exists. The unique resource name for this condition. Its syntax is:
-             * projects/[PROJECT_ID]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]
+             * Required if the condition exists. The unique resource name for this condition. Its format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]
              * [CONDITION_ID] is assigned by Stackdriver Monitoring when the condition is created as part of a new or updated alerting policy.When calling the
              * alertPolicies.create method, do not include the name field in the conditions of the requested alerting policy. Stackdriver Monitoring creates the
              * condition identifiers and includes them in the new policy.When calling the alertPolicies.update method to update a policy, including a condition name
@@ -432,13 +432,16 @@ declare namespace gapi.client {
             /** If true, the members of this group are considered to be a cluster. The system can perform additional analysis on groups that are clusters. */
             isCluster?: boolean;
             /**
-             * Output only. The name of this group. The format is "projects/{project_id_or_number}/groups/{group_id}". When creating a group, this field is ignored
-             * and a new name is created consisting of the project specified in the call to CreateGroup and a unique {group_id} that is generated automatically.
+             * Output only. The name of this group. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+             * When creating a group, this field is ignored and a new name is created consisting of the project specified in the call to CreateGroup and a unique
+             * [GROUP_ID] that is generated automatically.
              */
             name?: string;
             /**
-             * The name of the group's parent, if it has one. The format is "projects/{project_id_or_number}/groups/{group_id}". For groups with no parent, parentName
-             * is the empty string, "".
+             * The name of the group's parent, if it has one. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+             * For groups with no parent, parent_name is the empty string, "".
              */
             parentName?: string;
         }
@@ -485,8 +488,9 @@ declare namespace gapi.client {
             /** The GCP zone the Uptime check should egress from. Only respected for internal Uptime checks, where internal_network is specified. */
             gcpZone?: string;
             /**
-             * A unique resource name for this InternalChecker. The format is:projects/[PROJECT_ID]/internalCheckers/[INTERNAL_CHECKER_ID].[PROJECT_ID] is the
-             * Stackdriver Workspace project for the Uptime check config associated with the internal checker.
+             * A unique resource name for this InternalChecker. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/internalCheckers/[INTERNAL_CHECKER_ID]
+             * [PROJECT_ID_OR_NUMBER] is the Stackdriver Workspace project for the Uptime check config associated with the internal checker.
              */
             name?: string;
             /** The GCP VPC network (https://cloud.google.com/vpc/docs/vpc) where the internal resource lives (ex: "default"). */
@@ -527,7 +531,7 @@ declare namespace gapi.client {
             alertPolicies?: AlertPolicy[];
             /**
              * If there might be more results than were returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * pageToken in the next call to this method.
+             * page_token in the next call to this method.
              */
             nextPageToken?: string;
         }
@@ -536,7 +540,7 @@ declare namespace gapi.client {
             members?: MonitoredResource[];
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * pageToken in the next call to this method.
+             * page_token in the next call to this method.
              */
             nextPageToken?: string;
             /** The total number of elements matching this request. */
@@ -547,7 +551,7 @@ declare namespace gapi.client {
             group?: Group[];
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * pageToken in the next call to this method.
+             * page_token in the next call to this method.
              */
             nextPageToken?: string;
         }
@@ -556,14 +560,14 @@ declare namespace gapi.client {
             metricDescriptors?: MetricDescriptor[];
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * pageToken in the next call to this method.
+             * page_token in the next call to this method.
              */
             nextPageToken?: string;
         }
         interface ListMonitoredResourceDescriptorsResponse {
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * pageToken in the next call to this method.
+             * page_token in the next call to this method.
              */
             nextPageToken?: string;
             /** The monitored resource descriptors that are available to this project and that match filter, if present. */
@@ -590,7 +594,7 @@ declare namespace gapi.client {
         interface ListServiceLevelObjectivesResponse {
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * pageToken in the next call to this method.
+             * page_token in the next call to this method.
              */
             nextPageToken?: string;
             /** The ServiceLevelObjectives matching the specified filter. */
@@ -599,7 +603,7 @@ declare namespace gapi.client {
         interface ListServicesResponse {
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * pageToken in the next call to this method.
+             * page_token in the next call to this method.
              */
             nextPageToken?: string;
             /** The Services matching the specified filter. */
@@ -610,7 +614,7 @@ declare namespace gapi.client {
             executionErrors?: Status[];
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * pageToken in the next call to this method.
+             * page_token in the next call to this method.
              */
             nextPageToken?: string;
             /** One or more time series that match the filter included in the request. */
@@ -637,6 +641,14 @@ declare namespace gapi.client {
             nextPageToken?: string;
             /** The returned list of IP addresses (including region and location) that the checkers run from. */
             uptimeCheckIps?: UptimeCheckIp[];
+        }
+        interface MeshIstio {
+            /** Identifier for the mesh in which this Istio service is defined. Corresponds to the mesh_uid metric label in Istio metrics. */
+            meshUid?: string;
+            /** The name of the Istio service underlying this service. Corresponds to the destination_service_name metric label in Istio metrics. */
+            serviceName?: string;
+            /** The namespace of the Istio service underlying this service. Corresponds to the destination_service_namespace metric label in Istio metrics. */
+            serviceNamespace?: string;
         }
         interface Metric {
             /** The set of label values that uniquely identify this metric. All labels listed in the MetricDescriptor must be assigned values. */
@@ -919,8 +931,8 @@ declare namespace gapi.client {
              */
             labels?: Record<string, string>;
             /**
-             * The full REST resource name for this channel. The syntax is:
-             * projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
+             * The full REST resource name for this channel. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
              * The [CHANNEL_ID] is automatically assigned by the server on creation.
              */
             name?: string;
@@ -959,8 +971,8 @@ declare namespace gapi.client {
             /** The product launch stage for channels of this type. */
             launchStage?: string;
             /**
-             * The full REST resource name for this descriptor. The syntax is:
-             * projects/[PROJECT_ID]/notificationChannelDescriptors/[TYPE]
+             * The full REST resource name for this descriptor. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[TYPE]
              * In the above, [TYPE] is the value of the type field.
              */
             name?: string;
@@ -1014,7 +1026,7 @@ declare namespace gapi.client {
             goodTotalRatio?: TimeSeriesRatio;
         }
         interface ResourceGroup {
-            /** The group of resources being monitored. Should be only the [GROUP_ID], and not the full-path projects/[PROJECT_ID]/groups/[GROUP_ID]. */
+            /** The group of resources being monitored. Should be only the [GROUP_ID], and not the full-path projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]. */
             groupId?: string;
             /** The resource type of the group members. */
             resourceType?: string;
@@ -1033,7 +1045,12 @@ declare namespace gapi.client {
             custom?: any;
             /** Name used for UI elements listing this Service. */
             displayName?: string;
-            /** Resource name for this Service. Of the form projects/{project_id}/services/{service_id}. */
+            /** Type used for Istio services scoped to an Istio mesh. */
+            meshIstio?: MeshIstio;
+            /**
+             * Resource name for this Service. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID}
+             */
             name?: string;
             /** Configuration for how to query telemetry on a Service. */
             telemetry?: Telemetry;
@@ -1053,7 +1070,10 @@ declare namespace gapi.client {
             displayName?: string;
             /** The fraction of service that must be good in order for this objective to be met. 0 < goal <= 0.999. */
             goal?: number;
-            /** Resource name for this ServiceLevelObjective. Of the form projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}. */
+            /**
+             * Resource name for this ServiceLevelObjective. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+             */
             name?: string;
             /** A rolling time period, semantically "in the past <rolling_period>". Must be an integer multiple of 1 day no larger than 30 days. */
             rollingPeriod?: string;
@@ -1069,9 +1089,9 @@ declare namespace gapi.client {
         }
         interface SpanContext {
             /**
-             * The resource name of the span in the following format:
-             * projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]
-             * TRACE_ID is a unique identifier for a trace within a project; it is a 32-character hexadecimal encoding of a 16-byte array.SPAN_ID is a unique
+             * The resource name of the span. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]
+             * [TRACE_ID] is a unique identifier for a trace within a project; it is a 32-character hexadecimal encoding of a 16-byte array.[SPAN_ID] is a unique
              * identifier for a span within a trace; it is a 16-character hexadecimal encoding of an 8-byte array.
              */
             spanName?: string;
@@ -1219,8 +1239,10 @@ declare namespace gapi.client {
              */
             monitoredResource?: MonitoredResource;
             /**
-             * A unique resource name for this Uptime check configuration. The format is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field should
-             * be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the response.
+             * A unique resource name for this Uptime check configuration. The format is:
+             * projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+             * This field should be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the
+             * response.
              */
             name?: string;
             /**
@@ -1296,9 +1318,11 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project in which to create the alerting policy. The format is projects/[PROJECT_ID].Note that this field names the parent container in
-                 * which the alerting policy will be written, not the name of the created policy. The alerting policy that is returned will have a name that contains a
-                 * normalized representation of this name as a prefix but adds a suffix of the form /alertPolicies/[POLICY_ID], identifying the policy in the container.
+                 * Required. The project in which to create the alerting policy. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 * Note that this field names the parent container in which the alerting policy will be written, not the name of the created policy. The alerting policy
+                 * that is returned will have a name that contains a normalized representation of this name as a prefix but adds a suffix of the form
+                 * /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1328,9 +1352,11 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project in which to create the alerting policy. The format is projects/[PROJECT_ID].Note that this field names the parent container in
-                 * which the alerting policy will be written, not the name of the created policy. The alerting policy that is returned will have a name that contains a
-                 * normalized representation of this name as a prefix but adds a suffix of the form /alertPolicies/[POLICY_ID], identifying the policy in the container.
+                 * Required. The project in which to create the alerting policy. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 * Note that this field names the parent container in which the alerting policy will be written, not the name of the created policy. The alerting policy
+                 * that is returned will have a name that contains a normalized representation of this name as a prefix but adds a suffix of the form
+                 * /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1361,7 +1387,7 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The alerting policy to delete. The format is:
-                 * projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+                 * projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
                  * For more information, see AlertPolicy.
                  */
                 name: string;
@@ -1391,8 +1417,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The alerting policy to retrieve. The format is
-                 * projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+                 * Required. The alerting policy to retrieve. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1426,8 +1452,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project whose alert policies are to be listed. The format is
-                 * projects/[PROJECT_ID]
+                 * Required. The project whose alert policies are to be listed. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
                  * Note that this field names the parent container in which the alerting policies to be listed are stored. To retrieve a single alerting policy by name,
                  * use the GetAlertPolicy operation, instead.
                  */
@@ -1473,8 +1499,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required if the policy exists. The resource name for this policy. The syntax is:
-                 * projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+                 * Required if the policy exists. The resource name for this policy. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
                  * [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the
                  * name field in the alerting policy passed as part of the request.
                  */
@@ -1518,8 +1544,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required if the policy exists. The resource name for this policy. The syntax is:
-                 * projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+                 * Required if the policy exists. The resource name for this policy. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
                  * [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the
                  * name field in the alerting policy passed as part of the request.
                  */
@@ -1567,7 +1593,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The project in which to create the time series. The format is "projects/PROJECT_ID_OR_NUMBER". */
+                /**
+                 * The project in which to create the time series. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1595,7 +1624,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The project in which to create the time series. The format is "projects/PROJECT_ID_OR_NUMBER". */
+                /**
+                 * The project in which to create the time series. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1626,7 +1658,7 @@ declare namespace gapi.client {
                 /**
                  * An optional list filter describing the members to be returned. The filter may reference the type, labels, and metadata of monitored resources that
                  * comprise the group. For example, to return only resources representing Compute Engine VM instances, use this filter:
-                 * resource.type = "gce_instance"
+                 * `resource.type = "gce_instance"`
                  */
                 filter?: string;
                 /** Required. The end of the time interval. */
@@ -1635,15 +1667,18 @@ declare namespace gapi.client {
                 "interval.startTime"?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The group whose members are listed. The format is "projects/{project_id_or_number}/groups/{group_id}". */
+                /**
+                 * Required. The group whose members are listed. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /** A positive number that is the maximum number of results to return. */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return additional results from the previous method call.
+                 * If this field is not empty then it must contain the next_page_token value returned by a previous call to this method. Using this field causes the
+                 * method to return additional results from the previous method call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1671,7 +1706,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project in which to create the group. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project in which to create the group. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1701,7 +1739,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project in which to create the group. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project in which to create the group. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1731,7 +1772,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The group to delete. The format is "projects/{project_id_or_number}/groups/{group_id}". */
+                /**
+                 * Required. The group to delete. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1763,7 +1807,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The group to retrieve. The format is "projects/{project_id_or_number}/groups/{group_id}". */
+                /**
+                 * Required. The group to retrieve. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1785,36 +1832,43 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * A group name: "projects/{project_id_or_number}/groups/{group_id}". Returns groups that are ancestors of the specified group. The groups are returned in
-                 * order, starting with the immediate parent and ending with the most distant ancestor. If the specified group has no immediate parent, the results are
-                 * empty.
+                 * A group name. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                 * Returns groups that are ancestors of the specified group. The groups are returned in order, starting with the immediate parent and ending with the most
+                 * distant ancestor. If the specified group has no immediate parent, the results are empty.
                  */
                 ancestorsOfGroup?: string;
                 /** JSONP */
                 callback?: string;
                 /**
-                 * A group name: "projects/{project_id_or_number}/groups/{group_id}". Returns groups whose parentName field contains the group name. If no groups have
-                 * this parent, the results are empty.
+                 * A group name. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                 * Returns groups whose parent_name field contains the group name. If no groups have this parent, the results are empty.
                  */
                 childrenOfGroup?: string;
                 /**
-                 * A group name: "projects/{project_id_or_number}/groups/{group_id}". Returns the descendants of the specified group. This is a superset of the results
-                 * returned by the childrenOfGroup filter, and includes children-of-children, and so forth.
+                 * A group name. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                 * Returns the descendants of the specified group. This is a superset of the results returned by the children_of_group filter, and includes
+                 * children-of-children, and so forth.
                  */
                 descendantsOfGroup?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project whose groups are to be listed. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project whose groups are to be listed. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /** A positive number that is the maximum number of results to return. */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return additional results from the previous method call.
+                 * If this field is not empty then it must contain the next_page_token value returned by a previous call to this method. Using this field causes the
+                 * method to return additional results from the previous method call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1841,8 +1895,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The name of this group. The format is "projects/{project_id_or_number}/groups/{group_id}". When creating a group, this field is ignored
-                 * and a new name is created consisting of the project specified in the call to CreateGroup and a unique {group_id} that is generated automatically.
+                 * Output only. The name of this group. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                 * When creating a group, this field is ignored and a new name is created consisting of the project specified in the call to CreateGroup and a unique
+                 * [GROUP_ID] that is generated automatically.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1874,8 +1930,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The name of this group. The format is "projects/{project_id_or_number}/groups/{group_id}". When creating a group, this field is ignored
-                 * and a new name is created consisting of the project specified in the call to CreateGroup and a unique {group_id} that is generated automatically.
+                 * Output only. The name of this group. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+                 * When creating a group, this field is ignored and a new name is created consisting of the project specified in the call to CreateGroup and a unique
+                 * [GROUP_ID] that is generated automatically.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1909,7 +1967,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project on which to execute the request. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1937,7 +1998,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project on which to execute the request. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1966,8 +2030,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The metric descriptor on which to execute the request. The format is "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An
-                 * example of {metric_id} is: "custom.googleapis.com/my_test_metric".
+                 * Required. The metric descriptor on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+                 * An example of [METRIC_ID] is: "custom.googleapis.com/my_test_metric".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1996,8 +2061,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The metric descriptor on which to execute the request. The format is "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An
-                 * example value of {metric_id} is "compute.googleapis.com/instance/disk/read_bytes_count".
+                 * Required. The metric descriptor on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+                 * An example value of [METRIC_ID] is "compute.googleapis.com/instance/disk/read_bytes_count".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2031,7 +2097,10 @@ declare namespace gapi.client {
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project on which to execute the request. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2068,8 +2137,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The monitored resource descriptor to get. The format is "projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}". The
-                 * {resource_type} is a predefined type, such as cloudsql_database.
+                 * Required. The monitored resource descriptor to get. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE]
+                 * The [RESOURCE_TYPE] is a predefined type, such as cloudsql_database.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2103,7 +2173,10 @@ declare namespace gapi.client {
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project on which to execute the request. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2139,7 +2212,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The channel type for which to execute the request. The format is projects/[PROJECT_ID]/notificationChannelDescriptors/{channel_type}. */
+                /**
+                 * Required. The channel type for which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2168,7 +2244,7 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The REST resource name of the parent from which to retrieve the notification channel descriptors. The expected syntax is:
-                 * projects/[PROJECT_ID]
+                 * projects/[PROJECT_ID_OR_NUMBER]
                  * Note that this names the parent container in which to look for the descriptors; to retrieve a single descriptor by name, use the
                  * GetNotificationChannelDescriptor operation, instead.
                  */
@@ -2206,9 +2282,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The project on which to execute the request. The format is:
-                 * projects/[PROJECT_ID]
-                 * Note that this names the container into which the channel will be written. This does not name the newly created channel. The resulting channel's name
-                 * will have a normalized version of this field as a prefix, but will add /notificationChannels/[CHANNEL_ID] to identify the channel.
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 * This names the container into which the channel will be written, this does not name the newly created channel. The resulting channel's name will have a
+                 * normalized version of this field as a prefix, but will add /notificationChannels/[CHANNEL_ID] to identify the channel.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2239,9 +2315,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The project on which to execute the request. The format is:
-                 * projects/[PROJECT_ID]
-                 * Note that this names the container into which the channel will be written. This does not name the newly created channel. The resulting channel's name
-                 * will have a normalized version of this field as a prefix, but will add /notificationChannels/[CHANNEL_ID] to identify the channel.
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 * This names the container into which the channel will be written, this does not name the newly created channel. The resulting channel's name will have a
+                 * normalized version of this field as a prefix, but will add /notificationChannels/[CHANNEL_ID] to identify the channel.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2275,7 +2351,10 @@ declare namespace gapi.client {
                 force?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The channel for which to execute the request. The format is projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]. */
+                /**
+                 * Required. The channel for which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2306,7 +2385,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The channel for which to execute the request. The format is projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]. */
+                /**
+                 * Required. The channel for which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2411,9 +2493,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project on which to execute the request. The format is projects/[PROJECT_ID]. That is, this names the container in which to look for the
-                 * notification channels; it does not name a specific channel. To query a specific channel by REST resource name, use the GetNotificationChannel
-                 * operation.
+                 * Required. The project on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 * This names the container in which to look for the notification channels; it does not name a specific channel. To query a specific channel by REST
+                 * resource name, use the GetNotificationChannel operation.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2451,8 +2534,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The full REST resource name for this channel. The syntax is:
-                 * projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
+                 * The full REST resource name for this channel. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
                  * The [CHANNEL_ID] is automatically assigned by the server on creation.
                  */
                 name: string;
@@ -2485,8 +2568,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The full REST resource name for this channel. The syntax is:
-                 * projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
+                 * The full REST resource name for this channel. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
                  * The [CHANNEL_ID] is automatically assigned by the server on creation.
                  */
                 name: string;
@@ -2635,7 +2718,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project on which to execute the request. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2663,7 +2749,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project on which to execute the request. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2736,7 +2825,10 @@ declare namespace gapi.client {
                 "interval.startTime"?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project on which to execute the request. The format is "projects/{project_id_or_number}". */
+                /**
+                 * Required. The project on which to execute the request. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2782,7 +2874,10 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The project in which to create the Uptime check. The format  is projects/[PROJECT_ID]. */
+                /**
+                 * Required. The project in which to create the Uptime check. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2810,7 +2905,10 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The project in which to create the Uptime check. The format  is projects/[PROJECT_ID]. */
+                /**
+                 * Required. The project in which to create the Uptime check. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2839,7 +2937,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The Uptime check configuration to delete. The format  is projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID]. */
+                /**
+                 * Required. The Uptime check configuration to delete. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2866,7 +2967,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The Uptime check configuration to retrieve. The format  is projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID]. */
+                /**
+                 * Required. The Uptime check configuration to retrieve. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2905,7 +3009,10 @@ declare namespace gapi.client {
                  * to return more results from the previous method call.
                  */
                 pageToken?: string;
-                /** Required. The project whose Uptime check configurations are listed. The format  is projects/[PROJECT_ID]. */
+                /**
+                 * Required. The project whose Uptime check configurations are listed. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2934,8 +3041,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * A unique resource name for this Uptime check configuration. The format is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field should
-                 * be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the response.
+                 * A unique resource name for this Uptime check configuration. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+                 * This field should be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the
+                 * response.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2970,8 +3079,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * A unique resource name for this Uptime check configuration. The format is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field should
-                 * be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the response.
+                 * A unique resource name for this Uptime check configuration. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+                 * This field should be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the
+                 * response.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3020,7 +3131,10 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Resource name of the parent Service. Of the form projects/{project_id}/services/{service_id}. */
+                /**
+                 * Required. Resource name of the parent Service. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -3028,7 +3142,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * Optional. The ServiceLevelObjective id to use for this ServiceLevelObjective. If omitted, an id will be generated instead. Must match the pattern
-                 * a-z0-9-+
+                 * [a-z0-9\-]+
                  */
                 serviceLevelObjectiveId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3053,7 +3167,10 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Resource name of the parent Service. Of the form projects/{project_id}/services/{service_id}. */
+                /**
+                 * Required. Resource name of the parent Service. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -3061,7 +3178,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * Optional. The ServiceLevelObjective id to use for this ServiceLevelObjective. If omitted, an id will be generated instead. Must match the pattern
-                 * a-z0-9-+
+                 * [a-z0-9\-]+
                  */
                 serviceLevelObjectiveId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3085,8 +3202,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. Resource name of the ServiceLevelObjective to delete. Of the form
-                 * projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+                 * Required. Resource name of the ServiceLevelObjective to delete. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3114,7 +3231,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the ServiceLevelObjective to get. Of the form projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}. */
+                /**
+                 * Required. Resource name of the ServiceLevelObjective to get. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3157,7 +3277,10 @@ declare namespace gapi.client {
                  * to return additional results from the previous method call.
                  */
                 pageToken?: string;
-                /** Required. Resource name of the parent Service. Of the form projects/{project_id}/services/{service_id}. */
+                /**
+                 * Required. Resource name of the parent Service. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -3187,7 +3310,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Resource name for this ServiceLevelObjective. Of the form projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}. */
+                /**
+                 * Resource name for this ServiceLevelObjective. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3217,7 +3343,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Resource name for this ServiceLevelObjective. Of the form projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}. */
+                /**
+                 * Resource name for this ServiceLevelObjective. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3251,13 +3380,16 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Resource name of the parent workspace. Of the form projects/{project_id}. */
+                /**
+                 * Required. Resource name of the parent workspace. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Optional. The Service id to use for this Service. If omitted, an id will be generated instead. Must match the pattern a-z0-9-+ */
+                /** Optional. The Service id to use for this Service. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\-]+ */
                 serviceId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -3281,13 +3413,16 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Resource name of the parent workspace. Of the form projects/{project_id}. */
+                /**
+                 * Required. Resource name of the parent workspace. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Optional. The Service id to use for this Service. If omitted, an id will be generated instead. Must match the pattern a-z0-9-+ */
+                /** Optional. The Service id to use for this Service. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\-]+ */
                 serviceId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -3309,7 +3444,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the Service to delete. Of the form projects/{project_id}/services/{service_id}. */
+                /**
+                 * Required. Resource name of the Service to delete. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3336,7 +3474,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the Service. Of the form projects/{project_id}/services/{service_id}. */
+                /**
+                 * Required. Resource name of the Service. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3386,8 +3527,9 @@ declare namespace gapi.client {
                  */
                 pageToken?: string;
                 /**
-                 * Required. Resource name of the parent containing the listed services, either a project or Stackdriver Account (workspace).One of the forms:
-                 * "projects/{project_id}" "workspaces/{host_project_id}"
+                 * Required. Resource name of the parent containing the listed services, either a project or Stackdriver Account (workspace). The formats are:
+                 * projects/[PROJECT_ID_OR_NUMBER]
+                 * workspaces/[HOST_PROJECT_ID]
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3413,7 +3555,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Resource name for this Service. Of the form projects/{project_id}/services/{service_id}. */
+                /**
+                 * Resource name for this Service. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID}
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3443,7 +3588,10 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Resource name for this Service. Of the form projects/{project_id}/services/{service_id}. */
+                /**
+                 * Resource name for this Service. The format is:
+                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID}
+                 */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

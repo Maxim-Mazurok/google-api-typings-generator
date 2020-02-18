@@ -294,25 +294,22 @@ declare namespace gapi.client {
         }
         interface Expr {
             /**
-             * An optional description of the expression. This is a longer text which
+             * Optional. Description of the expression. This is a longer text which
              * describes the expression, e.g. when hovered over it in a UI.
              */
             description?: string;
             /**
-             * Textual representation of an expression in
-             * Common Expression Language syntax.
-             *
-             * The application context of the containing message determines which
-             * well-known feature set of CEL is supported.
+             * Textual representation of an expression in Common Expression Language
+             * syntax.
              */
             expression?: string;
             /**
-             * An optional string indicating the location of the expression for error
+             * Optional. String indicating the location of the expression for error
              * reporting, e.g. a file name and a position in the file.
              */
             location?: string;
             /**
-             * An optional title for the expression, i.e. a short string describing
+             * Optional. Title for the expression, i.e. a short string describing
              * its purpose. This can be used e.g. in UIs which allow to enter the
              * expression.
              */
@@ -1162,6 +1159,77 @@ declare namespace gapi.client {
             },
             body: AppProfile): Request<Operation>;
         }
+        interface BackupsResource {
+            /**
+             * Gets the access control policy for a Table or Backup resource.
+             * Returns an empty policy if the resource exists but does not have a policy
+             * set.
+             */
+            getIamPolicy(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * REQUIRED: The resource for which the policy is being requested.
+                 * See the operation documentation for the appropriate value for this field.
+                 */
+                resource: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: GetIamPolicyRequest): Request<Policy>;
+            /**
+             * Sets the access control policy on a Table or Backup resource.
+             * Replaces any existing policy.
+             */
+            setIamPolicy(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * REQUIRED: The resource for which the policy is being specified.
+                 * See the operation documentation for the appropriate value for this field.
+                 */
+                resource: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: SetIamPolicyRequest): Request<Policy>;
+        }
         interface ClustersResource {
             /** Creates a cluster within an instance. */
             create(request: {
@@ -1397,6 +1465,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: Cluster): Request<Operation>;
+            backups: BackupsResource;
         }
         interface TablesResource {
             /**
@@ -1738,8 +1807,9 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<Table>;
             /**
-             * Gets the access control policy for a table resource. Returns an empty
-             * policy if an table exists but does not have a policy set.
+             * Gets the access control policy for a Table or Backup resource.
+             * Returns an empty policy if the resource exists but does not have a policy
+             * set.
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -1890,8 +1960,8 @@ declare namespace gapi.client {
             },
             body: ModifyColumnFamiliesRequest): Request<Table>;
             /**
-             * Sets the access control policy on a table resource. Replaces any existing
-             * policy.
+             * Sets the access control policy on a Table or Backup resource.
+             * Replaces any existing policy.
              */
             setIamPolicy(request: {
                 /** V1 error format. */

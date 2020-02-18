@@ -1243,12 +1243,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the backupRun to delete.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/backupRuns/{backupRun}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1280,12 +1274,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Name of the resource backupRun.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/backupRuns/{backupRun}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1312,11 +1300,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL should create this backupRun.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -1347,11 +1330,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL should create this backupRun.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -1392,11 +1370,6 @@ declare namespace gapi.client {
                  * results to view.
                  */
                 pageToken?: string;
-                /**
-                 * The parent, which owns this collection of backupRuns.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -1436,12 +1409,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the database to delete.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1476,12 +1443,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Name of the resource database.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1508,11 +1469,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL should add this database.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -1543,11 +1499,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL should add this database.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -1578,11 +1529,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent, which owns this collection of databases.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -1628,12 +1574,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the database for Cloud SQL to update.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1666,12 +1606,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the database for Cloud SQL to update.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1707,12 +1641,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the database for Cloud SQL to update.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1745,12 +1673,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the database for Cloud SQL to update.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/databases/{database}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1815,11 +1737,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL should add this server CA.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -1852,11 +1769,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL should clone this instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the source as well as the clone Cloud SQL instance. */
@@ -1890,11 +1802,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL should clone this instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the source as well as the clone Cloud SQL instance. */
@@ -1931,11 +1838,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of database instance to delete.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -1962,11 +1864,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL demotes this master database instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the instance. */
@@ -1997,11 +1894,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL demotes this master database instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the instance. */
@@ -2035,11 +1927,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL exports this database instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance to be exported. */
@@ -2070,11 +1957,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL exports this database instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance to be exported. */
@@ -2105,12 +1987,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL sends this database instance during a
-                 * failover. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the read replica. */
@@ -2141,12 +2017,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL sends this database instance during a
-                 * failover. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the read replica. */
@@ -2183,11 +2053,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Name of the resource database instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2214,11 +2079,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL imports this database instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -2249,11 +2109,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL imports this database instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -2282,11 +2137,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL creates this database instance.
-                 * Format: projects/{project}/locations/{location}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
@@ -2318,11 +2168,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL creates this database instance.
-                 * Format: projects/{project}/locations/{location}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
@@ -2373,11 +2218,6 @@ declare namespace gapi.client {
                  * results to view.
                  */
                 pageToken?: string;
-                /**
-                 * The parent, which owns this collection of database instances.
-                 * Format: projects/{project}/locations/{location}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project for which to list Cloud SQL instances. */
@@ -2413,11 +2253,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent, which owns this collection of server CAs.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -2456,11 +2291,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the database instance for Cloud SQL to update.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2491,11 +2321,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the database instance for Cloud SQL to update.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2520,11 +2345,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL promotes this replica database
-                 * instance. Format: projects/{project}/locations/{location}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the read replica. */
@@ -2591,11 +2411,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL restarts this database instance.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance to be restarted. */
@@ -2625,12 +2440,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL restores this database instance from
-                 * backup. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -2661,12 +2470,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL restores this database instance from
-                 * backup. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -2700,11 +2503,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL rotates these server CAs.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -2735,11 +2533,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL rotates these server CAs.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -2770,12 +2563,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL starts this database instance
-                 * replication. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the read replica. */
@@ -2805,12 +2592,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL stops this database instance
-                 * replication. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the read replica. */
@@ -2840,11 +2621,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL truncates this log.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the Cloud SQL project. */
@@ -2875,11 +2651,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL truncates this log.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the Cloud SQL project. */
@@ -2916,11 +2687,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the database instance for Cloud SQL to update.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2951,11 +2717,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the database instance for Cloud SQL to update.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -2988,11 +2749,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the operation for Cloud SQL to get.
-                 * Format: projects/{project}/locations/{location}/operations/{operation}
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -3026,13 +2782,6 @@ declare namespace gapi.client {
                  * results to view.
                  */
                 pageToken?: string;
-                /**
-                 * Indirect parent. The direct parent should combine with the instance name,
-                 * which owns this collection of operations.
-                 * Format:
-                 * projects/{project}/locations/{location}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -3064,12 +2813,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL reshedule this database instance's
-                 * maintenance. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the instance. */
@@ -3100,12 +2843,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL reshedule this database instance's
-                 * maintenance. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the instance. */
@@ -3136,12 +2873,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL starts this database instance
-                 * external sync. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** ID of the project that contains the first generation instance. */
@@ -3173,12 +2904,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL verifies this database instance
-                 * external sync settings. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -3194,163 +2919,9 @@ declare namespace gapi.client {
                 /** Flag to enable verifying connection only */
                 verifyConnectionOnly?: boolean;
             }): Request<SqlInstancesVerifyExternalSyncSettingsResponse>;
-        }
-        interface InstancesResource {
-            /** Reschedules the maintenance on the given instance. */
-            rescheduleMaintenance(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Cloud SQL instance ID. This does not include the project ID. */
-                instance?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL reshedule this database instance's
-                 * maintenance. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** ID of the project that contains the instance. */
-                project?: string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: SqlInstancesRescheduleMaintenanceRequestBody;
-            }): Request<Operation>;
-            rescheduleMaintenance(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Cloud SQL instance ID. This does not include the project ID. */
-                instance?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL reshedule this database instance's
-                 * maintenance. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** ID of the project that contains the instance. */
-                project?: string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: SqlInstancesRescheduleMaintenanceRequestBody): Request<Operation>;
-            /** Start External master migration. */
-            startExternalSync(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Cloud SQL instance ID. This does not include the project ID. */
-                instance?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL starts this database instance
-                 * external sync. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** ID of the project that contains the first generation instance. */
-                project?: string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** External sync mode */
-                syncMode?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<Operation>;
-            /** Verify External master external sync settings. */
-            verifyExternalSyncSettings(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Cloud SQL instance ID. This does not include the project ID. */
-                instance?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL verifies this database instance
-                 * external sync settings. Format:
-                 * projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Project ID of the project that contains the instance. */
-                project?: string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** External sync mode */
-                syncMode?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Flag to enable verifying connection only */
-                verifyConnectionOnly?: boolean;
-            }): Request<SqlInstancesVerifyExternalSyncSettingsResponse>;
-        }
-        interface LocationsResource {
-            instances: InstancesResource;
         }
         interface ProjectsResource {
             instances: InstancesResource;
-            locations: LocationsResource;
         }
         interface SslCertsResource {
             /**
@@ -3376,11 +2947,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL creates this ephemeral certificate.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the Cloud SQL project. */
@@ -3411,11 +2977,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL creates this ephemeral certificate.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the Cloud SQL project. */
@@ -3455,12 +3016,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of SSL certificate to delete.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/sslCerts/{sslCert}
-                 */
-                resourceName?: string;
                 /** Sha1 FingerPrint. */
                 sha1Fingerprint: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3496,12 +3051,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Name of the resource ssl certificate.
-                 * Format:
-                 * projects/{project}/locations/{location}/instances/{instance}/sslCerts/{sslCert}
-                 */
-                resourceName?: string;
                 /** Sha1 FingerPrint. */
                 sha1Fingerprint: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3531,11 +3080,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL creates this SSL certificate.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -3566,11 +3110,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL creates this SSL certificate.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -3601,11 +3140,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent, which owns this collection of SSL certificates.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -3680,11 +3214,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the user to delete.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}/users
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -3708,11 +3237,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL creates this user.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -3743,11 +3267,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent resource where Cloud SQL creates this user.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -3778,11 +3297,6 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The parent, which owns this collection of users.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}
-                 */
-                parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Project ID of the project that contains the instance. */
@@ -3822,11 +3336,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the user for Cloud SQL to update.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}/users
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
@@ -3861,11 +3370,6 @@ declare namespace gapi.client {
                 project: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The name of the user for Cloud SQL to update.
-                 * Format: projects/{project}/locations/{location}/instances/{instance}/users
-                 */
-                resourceName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */

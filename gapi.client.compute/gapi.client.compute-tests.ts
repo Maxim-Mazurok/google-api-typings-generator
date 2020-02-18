@@ -2219,6 +2219,17 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
+        /** Apply changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions. */
+        await gapi.client.compute.instanceGroupManagers.applyUpdatesToInstances({
+            instanceGroupManager: "Test string",
+            project: "Test string",
+            zone: "Test string",
+        }, {
+            instances: [
+                "Test string"            ],
+            minimalAction: "Test string",
+            mostDisruptiveAllowedAction: "Test string",
+        });
         /**
          * Creates instances with per-instance configs in this managed instance group. Instances are created using the current instance template. The create
          * instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately
@@ -5882,6 +5893,17 @@ gapi.load('client', () => {
         }, {
             instances: [
                 "Test string"            ],
+        });
+        /** Apply updates to selected instances the managed instance group. */
+        await gapi.client.compute.regionInstanceGroupManagers.applyUpdatesToInstances({
+            instanceGroupManager: "Test string",
+            project: "Test string",
+            region: "Test string",
+        }, {
+            instances: [
+                "Test string"            ],
+            minimalAction: "Test string",
+            mostDisruptiveAllowedAction: "Test string",
         });
         /**
          * Creates instances with per-instance configs in this regional managed instance group. Instances are created using the current instance template. The

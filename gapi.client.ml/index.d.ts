@@ -612,8 +612,9 @@ declare namespace gapi.client {
         }
         interface GoogleCloudMlV1__Scheduling {
             /**
-             * Optional. The maximum job running time, expressed in seconds. By default
-             * there is no limit.
+             * Optional. The maximum job running time, expressed in seconds. The field can
+             * contain up to nine fractional digits, terminated by `s`. By default there
+             * is no limit to the running time.
              *
              * If the training job is still running after this duration, AI Platform
              * Training cancels it.
@@ -624,7 +625,7 @@ declare namespace gapi.client {
              *
              * If you submit your training job using the `gcloud` tool, you can [provide
              * this field in a `config.yaml`
-             * file](/ml-engine/docs/training-jobs#formatting_your_configuration_parameters).
+             * file](/ai-platform/training/docs/training-jobs#formatting_your_configuration_parameters).
              * For example:
              *
              * ```yaml

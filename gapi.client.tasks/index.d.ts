@@ -142,7 +142,10 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<TaskList>;
-            /** Creates a new task list and adds it to the authenticated user's task lists. */
+            /**
+             * Creates a new task list and adds it to the authenticated user's task lists. Fails with HTTP code 403 or 429 after reaching the storage limit of 2,000
+             * lists.
+             */
             insert(request: {
                 /** Data format for the response. */
                 alt?: string;
@@ -345,7 +348,7 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<Task>;
-            /** Creates a new task on the specified task list. */
+            /** Creates a new task on the specified task list. Fails with HTTP code 403 or 429 after reaching the storage limit of 100,000 tasks per account. */
             insert(request: {
                 /** Data format for the response. */
                 alt?: string;

@@ -39,6 +39,9 @@ declare namespace gapi.client {
             /**
              * The resource name of the environment, in the form:
              * "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+             *
+             * EnvironmentId must start with a lowercase letter followed by up to 63
+             * lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
              */
             name?: string;
             /** The current state of the environment. */

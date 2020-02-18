@@ -491,6 +491,12 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
+                 * The update mask applies to the settings. Only the top level fields of
+                 * AccessApprovalSettings (notification_emails & enrolled_services) are
+                 * supported. For each field, if it is included, the currently stored value
+                 * will be entirely overwritten with the value of the field passed in this
+                 * request.
+                 *
                  * For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  * If this field is left unset, only the notification_emails field will be
@@ -533,6 +539,12 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
+                 * The update mask applies to the settings. Only the top level fields of
+                 * AccessApprovalSettings (notification_emails & enrolled_services) are
+                 * supported. For each field, if it is included, the currently stored value
+                 * will be entirely overwritten with the value of the field passed in this
+                 * request.
+                 *
                  * For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  * If this field is left unset, only the notification_emails field will be
@@ -849,6 +861,12 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
+                 * The update mask applies to the settings. Only the top level fields of
+                 * AccessApprovalSettings (notification_emails & enrolled_services) are
+                 * supported. For each field, if it is included, the currently stored value
+                 * will be entirely overwritten with the value of the field passed in this
+                 * request.
+                 *
                  * For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  * If this field is left unset, only the notification_emails field will be
@@ -891,6 +909,12 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
+                 * The update mask applies to the settings. Only the top level fields of
+                 * AccessApprovalSettings (notification_emails & enrolled_services) are
+                 * supported. For each field, if it is included, the currently stored value
+                 * will be entirely overwritten with the value of the field passed in this
+                 * request.
+                 *
                  * For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  * If this field is left unset, only the notification_emails field will be
@@ -1207,6 +1231,12 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
+                 * The update mask applies to the settings. Only the top level fields of
+                 * AccessApprovalSettings (notification_emails & enrolled_services) are
+                 * supported. For each field, if it is included, the currently stored value
+                 * will be entirely overwritten with the value of the field passed in this
+                 * request.
+                 *
                  * For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  * If this field is left unset, only the notification_emails field will be
@@ -1249,6 +1279,12 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
+                 * The update mask applies to the settings. Only the top level fields of
+                 * AccessApprovalSettings (notification_emails & enrolled_services) are
+                 * supported. For each field, if it is included, the currently stored value
+                 * will be entirely overwritten with the value of the field passed in this
+                 * request.
+                 *
                  * For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  * If this field is left unset, only the notification_emails field will be

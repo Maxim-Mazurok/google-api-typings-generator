@@ -54,7 +54,7 @@ declare namespace gapi.client {
             stateMetadata?: Record<string, string>;
         }
         interface GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest {
-            /** Required. Fingerprint of the Recommendation. Provides optimistic locking. */
+            /** Fingerprint of the Recommendation. Provides optimistic locking. */
             etag?: string;
             /**
              * State properties to include with this state. Overwrites any existing

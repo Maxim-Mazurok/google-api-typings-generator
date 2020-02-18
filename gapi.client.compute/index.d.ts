@@ -3012,14 +3012,16 @@ declare namespace gapi.client {
              * - 0.25 will not match.
              * - -3someString will not match.
              * Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set.
+             * Note that rangeMatch is not supported for Loadbalancers that have their loadBalancingScheme set to EXTERNAL.
              */
             rangeMatch?: Int64RangeMatch;
             /**
-             * The value of the header must match the regualar expression specified in regexMatch. For regular expression grammar, please see:
+             * The value of the header must match the regular expression specified in regexMatch. For regular expression grammar, please see:
              * en.cppreference.com/w/cpp/regex/ecmascript
              * For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the
              * RFC2616 Host header's port specifier.
              * Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set.
+             * Note that regexMatch only applies to Loadbalancers that have their loadBalancingScheme set to INTERNAL_SELF_MANAGED.
              */
             regexMatch?: string;
             /**
@@ -3164,6 +3166,7 @@ declare namespace gapi.client {
              * The queryParameterMatch matches if the value of the parameter matches the regular expression specified by regexMatch. For the regular expression
              * grammar, please see en.cppreference.com/w/cpp/regex/ecmascript
              * Only one of presentMatch, exactMatch or regexMatch must be set.
+             * Note that regexMatch only applies when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
              */
             regexMatch?: string;
         }
@@ -3353,6 +3356,7 @@ declare namespace gapi.client {
              * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query
              * parameters and anchor supplied with the original URL. For regular expression grammar please see en.cppreference.com/w/cpp/regex/ecmascript
              * Only one of prefixMatch, fullPathMatch or regexMatch must be specified.
+             * Note that regexMatch only applies to Loadbalancers that have their loadBalancingScheme set to INTERNAL_SELF_MANAGED.
              */
             regexMatch?: string;
         }
@@ -4088,6 +4092,31 @@ declare namespace gapi.client {
         interface InstanceGroupManagersAbandonInstancesRequest {
             /** The URLs of one or more instances to abandon. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
             instances?: string[];
+        }
+        interface InstanceGroupManagersApplyUpdatesRequest {
+            /**
+             * The list of URLs of one or more instances for which you want to apply updates. Each URL can be a full URL or a partial URL, such as
+             * zones/[ZONE]/instances/[INSTANCE_NAME].
+             */
+            instances?: string[];
+            /**
+             * The minimal action that you want to perform on each instance during the update:
+             * - REPLACE: At minimum, delete the instance and create it again.
+             * - RESTART: Stop the instance and start it again.
+             * - REFRESH: Do not stop the instance.
+             * - NONE: Do not disrupt the instance at all.  By default, the minimum action is NONE. If your update requires a more disruptive action than you set with
+             * this flag, the necessary action is performed to execute the update.
+             */
+            minimalAction?: string;
+            /**
+             * The most disruptive action that you want to perform on each instance during the update:
+             * - REPLACE: Delete the instance and create it again.
+             * - RESTART: Stop the instance and start it again.
+             * - REFRESH: Do not stop the instance.
+             * - NONE: Do not disrupt the instance at all.  By default, the most disruptive allowed action is REPLACE. If your update requires a more disruptive
+             * action than you set with this flag, the update request will fail.
+             */
+            mostDisruptiveAllowedAction?: string;
         }
         interface InstanceGroupManagersCreateInstancesRequest {
             /** [Required] List of specifications of per-instance configs. */
@@ -6892,8 +6921,7 @@ declare namespace gapi.client {
             /**
              * The list of HTTP route rules. Use this list instead of pathRules when advanced route matching and routing actions are desired. routeRules are evaluated
              * in order of priority, from the lowest to highest number.
-             * Within a given pathMatcher, only one of pathRules or routeRules must be set.
-             * routeRules are not supported in UrlMaps intended for External Load balancers.
+             * Within a given pathMatcher, you can set only one of pathRules or routeRules.
              */
             routeRules?: HttpRouteRule[];
         }
@@ -7259,6 +7287,31 @@ declare namespace gapi.client {
         interface RegionInstanceGroupManagersAbandonInstancesRequest {
             /** The URLs of one or more instances to abandon. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
             instances?: string[];
+        }
+        interface RegionInstanceGroupManagersApplyUpdatesRequest {
+            /**
+             * The list of URLs of one or more instances for which you want to apply updates. Each URL can be a full URL or a partial URL, such as
+             * zones/[ZONE]/instances/[INSTANCE_NAME].
+             */
+            instances?: string[];
+            /**
+             * The minimal action that you want to perform on each instance during the update:
+             * - REPLACE: At minimum, delete the instance and create it again.
+             * - RESTART: Stop the instance and start it again.
+             * - REFRESH: Do not stop the instance.
+             * - NONE: Do not disrupt the instance at all.  By default, the minimum action is NONE. If your update requires a more disruptive action than you set with
+             * this flag, the necessary action is performed to execute the update.
+             */
+            minimalAction?: string;
+            /**
+             * The most disruptive action that you want to perform on each instance during the update:
+             * - REPLACE: Delete the instance and create it again.
+             * - RESTART: Stop the instance and start it again.
+             * - REFRESH: Do not stop the instance.
+             * - NONE: Do not disrupt the instance at all.  By default, the most disruptive allowed action is REPLACE. If your update requires a more disruptive
+             * action than you set with this flag, the update request will fail.
+             */
+            mostDisruptiveAllowedAction?: string;
         }
         interface RegionInstanceGroupManagersCreateInstancesRequest {
             /** [Required] List of specifications of per-instance configs. */
@@ -16313,6 +16366,54 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<InstanceGroupManagerAggregatedList>;
+            /** Apply changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions. */
+            applyUpdatesToInstances(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** The name of the managed instance group, should conform to RFC1035. */
+                instanceGroupManager: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** The name of the zone where the managed instance group is located. Should conform to RFC1035. */
+                zone: string;
+                /** Request body */
+                resource: InstanceGroupManagersApplyUpdatesRequest;
+            }): Request<Operation>;
+            applyUpdatesToInstances(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** The name of the managed instance group, should conform to RFC1035. */
+                instanceGroupManager: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** The name of the zone where the managed instance group is located. Should conform to RFC1035. */
+                zone: string;
+            },
+            body: InstanceGroupManagersApplyUpdatesRequest): Request<Operation>;
             /**
              * Creates instances with per-instance configs in this managed instance group. Instances are created using the current instance template. The create
              * instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately
@@ -25709,6 +25810,54 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: RegionInstanceGroupManagersAbandonInstancesRequest): Request<Operation>;
+            /** Apply updates to selected instances the managed instance group. */
+            applyUpdatesToInstances(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** The name of the managed instance group, should conform to RFC1035. */
+                instanceGroupManager: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region scoping this request, should conform to RFC1035. */
+                region: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+                /** Request body */
+                resource: RegionInstanceGroupManagersApplyUpdatesRequest;
+            }): Request<Operation>;
+            applyUpdatesToInstances(request: {
+                /** Data format for the response. */
+                alt?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** The name of the managed instance group, should conform to RFC1035. */
+                instanceGroupManager: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+                quotaUser?: string;
+                /** Name of the region scoping this request, should conform to RFC1035. */
+                region: string;
+                /** Deprecated. Please use quotaUser instead. */
+                userIp?: string;
+            },
+            body: RegionInstanceGroupManagersApplyUpdatesRequest): Request<Operation>;
             /**
              * Creates instances with per-instance configs in this regional managed instance group. Instances are created using the current instance template. The
              * create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must

@@ -2047,6 +2047,17 @@ declare namespace gapi.client {
              * Unsetting this property results in a 400 bad request error.
              */
             marginTop?: Dimension;
+            /**
+             * The page number from which to start counting the number of pages for this
+             * section. If unset, page numbering continues from the previous section.
+             * If the value is unset in the first
+             * SectionBreak, refer to DocumentStyle's
+             * page_number_start.
+             *
+             * When updating this property, setting a concrete value is required.
+             * Unsetting this property results in a 400 bad request error.
+             */
+            pageNumberStart?: number;
             /** Output only. The type of section. */
             sectionType?: string;
             /**

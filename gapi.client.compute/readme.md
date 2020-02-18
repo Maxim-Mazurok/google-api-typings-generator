@@ -653,6 +653,11 @@ Retrieves the list of managed instance groups and groups them by zone.
 await gapi.client.instanceGroupManagers.aggregatedList({ project: "project",  }); 
     
 /* 
+Apply changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions.  
+*/
+await gapi.client.instanceGroupManagers.applyUpdatesToInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  }); 
+    
+/* 
 Creates instances with per-instance configs in this managed instance group. Instances are created using the current instance template. The create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the listmanagedinstances method.  
 */
 await gapi.client.instanceGroupManagers.createInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  }); 
@@ -1615,6 +1620,11 @@ If the group is part of a backend service that has enabled connection draining, 
 You can specify a maximum of 1000 instances with this method per request.  
 */
 await gapi.client.regionInstanceGroupManagers.abandonInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  }); 
+    
+/* 
+Apply updates to selected instances the managed instance group.  
+*/
+await gapi.client.regionInstanceGroupManagers.applyUpdatesToInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  }); 
     
 /* 
 Creates instances with per-instance configs in this regional managed instance group. Instances are created using the current instance template. The create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the listmanagedinstances method.  

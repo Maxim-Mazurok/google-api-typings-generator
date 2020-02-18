@@ -66,7 +66,7 @@ Returns the authenticated user's specified task list.
 await gapi.client.tasklists.get({ tasklist: "tasklist",  }); 
     
 /* 
-Creates a new task list and adds it to the authenticated user's task lists.  
+Creates a new task list and adds it to the authenticated user's task lists. Fails with HTTP code 403 or 429 after reaching the storage limit of 2,000 lists.  
 */
 await gapi.client.tasklists.insert({  }); 
     
@@ -101,7 +101,7 @@ Returns the specified task.
 await gapi.client.tasks.get({ task: "task", tasklist: "tasklist",  }); 
     
 /* 
-Creates a new task on the specified task list.  
+Creates a new task on the specified task list. Fails with HTTP code 403 or 429 after reaching the storage limit of 100,000 tasks per account.  
 */
 await gapi.client.tasks.insert({ tasklist: "tasklist",  }); 
     

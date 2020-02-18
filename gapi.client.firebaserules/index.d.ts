@@ -195,6 +195,10 @@ declare namespace gapi.client {
         interface SourcePosition {
             /** First column on the source line associated with the source fragment. */
             column?: number;
+            /** Start position relative to the beginning of the file. */
+            currentOffset?: number;
+            /** End position relative to the beginning of the file. */
+            endOffset?: number;
             /** Name of the `File`. */
             fileName?: string;
             /** Line number of the source fragment. 1-based. */
