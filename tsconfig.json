@@ -3,10 +3,14 @@
   "compilerOptions": {
     "declaration": false,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": ".",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ],
+    "esModuleInterop": true
   },
   "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
+    "src/**/*"
   ]
 }

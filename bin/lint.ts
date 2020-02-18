@@ -1,8 +1,6 @@
 import { readdirSync } from 'fs';
 import { join } from 'path';
-// tslint:disable-next-line:ban-ts-ignore
-// @ts-ignore
-import * as runAll from 'npm-run-all';
+import runAll from 'npm-run-all';
 import ErrnoException = NodeJS.ErrnoException;
 
 const MAX_PARALLEL = Number(process.env.GAPI_MAX_PARALLEL) || 1;
