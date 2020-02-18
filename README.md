@@ -12,37 +12,54 @@ using [Google API discovery](https://developers.google.com/discovery/) service.
 
 ### Generating types
 
-First of all, you may run `nvm i` (if [installed](https://github.com/nvm-sh/nvm#install--update-script))
+1. Use the supported Node version via [Node Version Manager](https://github.com/nvm-sh/nvm):
 
-Install dependecies:
+    ```sh
+    nvm install
+    ```
+
+2. Install dependencies:
+
+    ```sh
+    npm install
+    ```
+
+3. Generate type definitions for:
+
+    1. all discovered Google APIs:
+
+        ```sh
+        npm start
+        ```
+
+        _Some APIs are disabled or not fully developed yet, so some expected errors might be output._
+
+    2. one service by name:
+
+        ```sh
+        npm start -- --service sheets
+        ```
+
+        where `sheets` is the name of the [Google Sheets](https://developers.google.com/sheets/) service.
+
+        _The full list of APIs can be found [here](https://www.googleapis.com/discovery/v1/apis)._
+
+    3. one service by URL:
+
+        ```sh
+        npm start -- --url https://sheets.googleapis.com/\\\$discovery/rest?version=v4
+        ```
+
+       _Note the intentional escaping of `$discovery`._
+
+### Compiling project
+
 ```sh
-npm install
+npm run compile
 ```
 
-Run program:
 ```sh
-npm start
-```
-This will generate typings for **all** available Google APIs.
-
-**Note** that some APIs are disabled or not fully developed yet,
-so you might see some errors in the output, that's probably fine.
-
-If you only want to generate types for **one** service (i.e., Google Sheets)
-use the following command:
-```sh
-npx ts-node -T src/cli.ts --out ./types --service sheets
-```
-where "sheets" is the name of the service. You can find all names
-[here](https://www.googleapis.com/discovery/v1/apis)
-
-Alternatively, you can compile the project first:
-```sh
-npx tsc
-```
-and then run it using node:
-```sh
-node dist/cli.js --out ./types -s sheets
+node dist/cli.js --out ./types
 ```
 
 ### Running tests
@@ -73,6 +90,16 @@ Unit tests for this generator project are written with [Jasmine](https://jasmine
 
 ```
 npm run test
+```
+
+### Fixing formatting
+
+This project leverages [Google's TypeScript Style (gts)](https://github.com/google/gts) to standardize formatting.
+
+To invoke the automatic code fixer, run:
+
+```sh
+npm run fix
 ```
 
 ## Details
