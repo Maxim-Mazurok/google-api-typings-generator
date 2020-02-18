@@ -1,10 +1,9 @@
-import * as doT from 'dot';
-import * as fs from 'fs';
-import * as _ from 'lodash';
-import * as path from 'path';
-import * as request from 'request';
-// @ts-ignore
-import * as sortObject from 'deep-sort-object';
+import doT from 'dot';
+import fs from 'fs';
+import _ from 'lodash';
+import path from 'path';
+import request from 'request';
+import sortObject from 'deep-sort-object';
 
 const typesMap: {[key: string]: string} = {
   'integer': 'number',
@@ -623,7 +622,7 @@ export class App {
 
   private request(url: string): Promise<gapi.client.discovery.DirectoryList> {
     return new Promise((resolve, reject) => {
-      request(url, (error, response, body) => {
+      request(url, {gzip: true}, (error, response, body) => {
         if (!error && response.statusCode === 200) {
           try {
             const api = JSON.parse(body) as gapi.client.discovery.DirectoryList;
@@ -894,7 +893,12 @@ export class App {
         || associatedApis.sort((a, b) => checkExists(a.version) > checkExists(b.version) ? 1 : -1)[0];
 
       if (preferredApi) {
-        await this.processService(checkExists(preferredApi.discoveryRestUrl), checkExists(preferredApi.preferred));
+        try {
+          await this.processService(checkExists(preferredApi.discoveryRestUrl), checkExists(preferredApi.preferred));
+        } catch (e) {
+          console.error(e);
+          throw Error(`Error processing service: ${preferredApi.discoveryRestUrl}`);
+        }
       } else {
         console.warn(`Can't find preferred API for ${apiKey}`);
       }

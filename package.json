@@ -9,8 +9,8 @@
   "scripts": {
     "dtslint": "dtslint",
     "lint": "ts-node bin/lint.ts ./types",
-    "start": "ts-node -T src/cli.ts --out ./types",
-    "test": "mocha tests/tests.ts --require ts-node/register",
+    "start": "ts-node src/cli.ts --out ./types",
+    "test": "mocha --require ts-node/register --recursive tests/**/*.spec.ts",
     "check": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",
