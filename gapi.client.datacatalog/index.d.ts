@@ -1068,8 +1068,14 @@ declare namespace gapi.client {
                  */
                 pageToken?: string;
                 /**
-                 * Required. The name of the Data Catalog resource to list the tags of. The
-                 * resource could be an Entry.
+                 * Required. The name of the Data Catalog resource to list the tags of. The resource
+                 * could be an Entry or an
+                 * EntryGroup.
+                 *
+                 * Examples:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1167,7 +1173,7 @@ declare namespace gapi.client {
              * Creates an entry. Only entries of 'FILESET' type or user-specified type can
              * be created.
              *
-             * The user should enable the Data Catalog API in the project identified by
+             * Users should enable the Data Catalog API in the project identified by
              * the `parent` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              *
@@ -1250,7 +1256,7 @@ declare namespace gapi.client {
              * Deletes an existing entry. Only entries created through
              * CreateEntry
              * method can be deleted.
-             * The user should enable the Data Catalog API in the project identified by
+             * Users should enable the Data Catalog API in the project identified by
              * the `name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
@@ -1302,11 +1308,6 @@ declare namespace gapi.client {
                  * Required. The name of the entry. Example:
                  *
                  * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
-                 *
-                 * Entry groups are logical groupings of entries. Currently, users cannot
-                 * create/modify entry groups. They are created by Data Catalog; they include
-                 * `@bigquery` for all BigQuery entries, and `@pubsub` for all Cloud Pub/Sub
-                 * entries.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1420,7 +1421,7 @@ declare namespace gapi.client {
             }): Request<GoogleCloudDatacatalogV1beta1ListEntriesResponse>;
             /**
              * Updates an existing entry.
-             * The user should enable the Data Catalog API in the project identified by
+             * Users should enable the Data Catalog API in the project identified by
              * the `entry.name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
@@ -1465,6 +1466,14 @@ declare namespace gapi.client {
                  * &#42; `description`
                  * &#42; `gcs_fileset_spec`
                  * &#42; `gcs_fileset_spec.file_patterns`
+                 * &#42; For entries with `user_specified_type`
+                 * &#42; `schema`
+                 * &#42; `display_name`
+                 * &#42; `description`
+                 * &#42; user_specified_type
+                 * &#42; user_specified_system
+                 * &#42; linked_resource
+                 * &#42; source_system_timestamps
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1515,6 +1524,14 @@ declare namespace gapi.client {
                  * &#42; `description`
                  * &#42; `gcs_fileset_spec`
                  * &#42; `gcs_fileset_spec.file_patterns`
+                 * &#42; For entries with `user_specified_type`
+                 * &#42; `schema`
+                 * &#42; `display_name`
+                 * &#42; `description`
+                 * &#42; user_specified_type
+                 * &#42; user_specified_system
+                 * &#42; linked_resource
+                 * &#42; source_system_timestamps
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1571,16 +1588,250 @@ declare namespace gapi.client {
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             tags: TagsResource;
         }
+        interface TagsResource {
+            /**
+             * Creates a tag on an Entry.
+             * Note: The project identified by the `parent` parameter for the
+             * [tag](/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
+             * and the
+             * [tag
+             * template](/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
+             * used to create the tag must be from the same organization.
+             */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Required. The name of the resource to attach this tag to. Tags can be attached to
+                 * Entries. Example:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
+                 *
+                 * Note that this Tag and its child resources may not actually be stored in
+                 * the location in this name.
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudDatacatalogV1beta1Tag;
+            }): Request<GoogleCloudDatacatalogV1beta1Tag>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Required. The name of the resource to attach this tag to. Tags can be attached to
+                 * Entries. Example:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
+                 *
+                 * Note that this Tag and its child resources may not actually be stored in
+                 * the location in this name.
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: GoogleCloudDatacatalogV1beta1Tag): Request<GoogleCloudDatacatalogV1beta1Tag>;
+            /** Deletes a tag. */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The name of the tag to delete. Example:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<{}>;
+            /** Lists the tags on an Entry. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The maximum number of tags to return. Default is 10. Max limit is 1000. */
+                pageSize?: number;
+                /**
+                 * Token that specifies which page is requested. If empty, the first page is
+                 * returned.
+                 */
+                pageToken?: string;
+                /**
+                 * Required. The name of the Data Catalog resource to list the tags of. The resource
+                 * could be an Entry or an
+                 * EntryGroup.
+                 *
+                 * Examples:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+                 * &#42; projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
+                 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<GoogleCloudDatacatalogV1beta1ListTagsResponse>;
+            /** Updates an existing tag. */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The resource name of the tag in URL format. Example:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
+                 *
+                 * where `tag_id` is a system-generated identifier.
+                 * Note that this Tag may not actually be stored in the location in this name.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * The fields to update on the Tag. If absent or empty, all modifiable fields
+                 * are updated. Currently the only modifiable field is the field `fields`.
+                 */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudDatacatalogV1beta1Tag;
+            }): Request<GoogleCloudDatacatalogV1beta1Tag>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * The resource name of the tag in URL format. Example:
+                 *
+                 * &#42; projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
+                 *
+                 * where `tag_id` is a system-generated identifier.
+                 * Note that this Tag may not actually be stored in the location in this name.
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * The fields to update on the Tag. If absent or empty, all modifiable fields
+                 * are updated. Currently the only modifiable field is the field `fields`.
+                 */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: GoogleCloudDatacatalogV1beta1Tag): Request<GoogleCloudDatacatalogV1beta1Tag>;
+        }
         interface EntryGroupsResource {
             /**
-             * Creates an EntryGroup.
-             *
-             * The user should enable the Data Catalog API in the project identified by
-             * the `parent` parameter (see [Data Catalog Resource Project]
-             * (/data-catalog/docs/concepts/resource-project) for more information).
-             *
              * A maximum of 10,000 entry groups may be created per organization across all
              * locations.
+             *
+             * Users should enable the Data Catalog API in the project identified by
+             * the `parent` parameter (see [Data Catalog Resource Project]
+             * (/data-catalog/docs/concepts/resource-project) for more information).
              */
             create(request: {
                 /** V1 error format. */
@@ -1665,7 +1916,7 @@ declare namespace gapi.client {
             body: GoogleCloudDatacatalogV1beta1EntryGroup): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             /**
              * Deletes an EntryGroup. Only entry groups that do not contain entries can be
-             * deleted. The user should enable the Data Catalog API in the project
+             * deleted. Users should enable the Data Catalog API in the project
              * identified by the `name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
@@ -2002,6 +2253,7 @@ declare namespace gapi.client {
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             entries: EntriesResource;
+            tags: TagsResource;
         }
         interface FieldsResource {
             /**
@@ -2100,7 +2352,7 @@ declare namespace gapi.client {
             body: GoogleCloudDatacatalogV1beta1TagTemplateField): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
             /**
              * Deletes a field in a tag template and all uses of that field.
-             * The user should enable the Data Catalog API in the project identified by
+             * Users should enable the Data Catalog API in the project identified by
              * the `name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
@@ -2142,7 +2394,7 @@ declare namespace gapi.client {
             }): Request<{}>;
             /**
              * Updates a field in a tag template. This method cannot be used to update the
-             * field type. The user should enable the Data Catalog API in the project
+             * field type. Users should enable the Data Catalog API in the project
              * identified by the `name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
@@ -2397,7 +2649,7 @@ declare namespace gapi.client {
             body: GoogleCloudDatacatalogV1beta1TagTemplate): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
             /**
              * Deletes a tag template and all tags using the template.
-             * The user should enable the Data Catalog API in the project identified by
+             * Users should enable the Data Catalog API in the project identified by
              * the `name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
@@ -2521,7 +2773,7 @@ declare namespace gapi.client {
              * Updates a tag template. This method cannot be used to update the fields of
              * a template. The tag template fields are represented as separate resources
              * and should be updated using their own create/update/delete methods.
-             * The user should enable the Data Catalog API in the project identified by
+             * Users should enable the Data Catalog API in the project identified by
              * the `tag_template.name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
