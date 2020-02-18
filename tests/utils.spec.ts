@@ -1,6 +1,6 @@
 import 'jasmine';
-import * as _ from 'lodash';
-import * as assert from 'assert';
+import _ from 'lodash';
+import assert from 'assert';
 import { parseVersion } from '../src/utils';
 
 describe('parseVersion', () => {

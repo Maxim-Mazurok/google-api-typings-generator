@@ -1082,19 +1082,21 @@ export class App {
             checkExists(a.version) > checkExists(b.version) ? 1 : -1
           )[0];
 
-      if (preferredApi) {
-        try {
-          await this.processService(
-            checkExists(preferredApi.discoveryRestUrl),
-            checkExists(preferredApi.preferred)
-          );
-        } catch (e) {
-          console.error(e);
-          throw Error(`Error processing service: ${preferredApi.discoveryRestUrl}`);
+        if (preferredApi) {
+          try {
+            await this.processService(
+              checkExists(preferredApi.discoveryRestUrl),
+              checkExists(preferredApi.preferred)
+            );
+          } catch (e) {
+            console.error(e);
+            throw Error(
+              `Error processing service: ${preferredApi.discoveryRestUrl}`
+            );
+          }
+        } else {
+          console.warn(`Can't find preferred API for ${apiKey}`);
         }
-      } else {
-        console.warn(`Can't find preferred API for ${apiKey}`);
-      }
 
         if (allVersions) {
           for (const api of associatedApis.filter(x => x !== preferredApi)) {
