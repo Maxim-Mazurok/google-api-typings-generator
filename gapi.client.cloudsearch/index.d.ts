@@ -1947,7 +1947,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin account to execute.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2144,7 +2144,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin account to execute.
              */
-            listForunmappedidentity(request: {
+            listForunmappedidentity(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2194,7 +2194,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin account to execute.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2253,7 +2253,7 @@ declare namespace gapi.client {
              * to execute. The service account used is the one whitelisted in the
              * corresponding data source.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2380,7 +2380,7 @@ declare namespace gapi.client {
              * This API requires an admin or service account to execute.  The service
              * account used is the one whitelisted in the corresponding data source.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2500,7 +2500,7 @@ declare namespace gapi.client {
              * This API requires an admin or service account to execute. The service
              * account used is the one whitelisted in the corresponding data source.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2880,7 +2880,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin or service account to execute.
              */
-            deleteSchema(request: {
+            deleteSchema(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2919,7 +2919,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin or service account to execute.
              */
-            getSchema(request: {
+            getSchema(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3119,7 +3119,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3152,7 +3152,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3393,7 +3393,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin account to execute.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3432,7 +3432,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin account to execute.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3471,7 +3471,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin account to execute.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3639,7 +3639,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin account to execute.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3678,7 +3678,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin account to execute.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3717,7 +3717,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires an admin account to execute.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3897,7 +3897,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3948,7 +3948,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4000,7 +4000,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4051,7 +4051,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4104,7 +4104,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
              */
-            getIndex(request: {
+            getIndex(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4145,7 +4145,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
              */
-            getQuery(request: {
+            getQuery(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4187,7 +4187,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
              */
-            getSession(request: {
+            getSession(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4228,7 +4228,7 @@ declare namespace gapi.client {
              *
              * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
              */
-            getUser(request: {
+            getUser(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

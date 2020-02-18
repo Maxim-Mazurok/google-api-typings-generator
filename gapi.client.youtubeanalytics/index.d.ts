@@ -258,7 +258,7 @@ declare namespace gapi.client {
         }
         interface GroupItemsResource {
             /** Removes an item from a group. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -382,7 +382,7 @@ declare namespace gapi.client {
             },
             body: GroupItem): Request<GroupItem>;
             /** Returns a collection of group items that match the API request parameters. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -428,7 +428,7 @@ declare namespace gapi.client {
         }
         interface GroupsResource {
             /** Deletes a group. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -556,7 +556,7 @@ declare namespace gapi.client {
              * example, you can retrieve all groups that the authenticated user owns,
              * or you can retrieve one or more groups by their unique IDs.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -699,7 +699,7 @@ declare namespace gapi.client {
         }
         interface ReportsResource {
             /** Retrieve your YouTube Analytics reports. */
-            query(request: {
+            query(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

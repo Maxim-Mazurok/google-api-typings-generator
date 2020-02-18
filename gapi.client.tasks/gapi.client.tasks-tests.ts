@@ -41,7 +41,7 @@ gapi.load('client', () => {
          * Creates a new task list and adds it to the authenticated user's task lists. Fails with HTTP code 403 or 429 after reaching the storage limit of 2,000
          * lists.
          */
-        await gapi.client.tasks.tasklists.insert(, {
+        await gapi.client.tasks.tasklists.insert({} , {
             etag: "Test string",
             id: "Test string",
             kind: "Test string",

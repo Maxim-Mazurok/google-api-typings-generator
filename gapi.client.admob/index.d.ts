@@ -443,7 +443,7 @@ declare namespace gapi.client {
         }
         interface AccountsResource {
             /** Gets information about the specified AdMob publisher account. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -476,7 +476,7 @@ declare namespace gapi.client {
              * Lists the AdMob publisher account accessible with the client credential.
              * Currently, all credentials have access to at most one AdMob account.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

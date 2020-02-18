@@ -224,7 +224,7 @@ declare namespace gapi.client {
              * Search Catalog resources that consumers have access to, within the
              * scope of the consumer cloud resource hierarchy context.
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -276,7 +276,7 @@ declare namespace gapi.client {
              * Search Product resources that consumers have access to, within the
              * scope of the consumer cloud resource hierarchy context.
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -329,7 +329,7 @@ declare namespace gapi.client {
              * Search Version resources that consumers have access to, within the
              * scope of the consumer cloud resource hierarchy context.
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -387,7 +387,7 @@ declare namespace gapi.client {
              * Search Catalog resources that consumers have access to, within the
              * scope of the consumer cloud resource hierarchy context.
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -439,7 +439,7 @@ declare namespace gapi.client {
              * Search Product resources that consumers have access to, within the
              * scope of the consumer cloud resource hierarchy context.
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -492,7 +492,7 @@ declare namespace gapi.client {
              * Search Version resources that consumers have access to, within the
              * scope of the consumer cloud resource hierarchy context.
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -550,7 +550,7 @@ declare namespace gapi.client {
              * Search Catalog resources that consumers have access to, within the
              * scope of the consumer cloud resource hierarchy context.
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -602,7 +602,7 @@ declare namespace gapi.client {
              * Search Product resources that consumers have access to, within the
              * scope of the consumer cloud resource hierarchy context.
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -655,7 +655,7 @@ declare namespace gapi.client {
              * Search Version resources that consumers have access to, within the
              * scope of the consumer cloud resource hierarchy context.
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

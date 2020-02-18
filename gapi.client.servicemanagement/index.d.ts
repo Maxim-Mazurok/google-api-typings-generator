@@ -1815,7 +1815,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1842,7 +1842,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Lists service operations that match the specified filter in the request. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1972,7 +1972,7 @@ declare namespace gapi.client {
             },
             body: Service): Request<Service>;
             /** Gets a service configuration (version) for a managed service. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2017,7 +2017,7 @@ declare namespace gapi.client {
              * Lists the history of the service configuration for a managed service,
              * from the newest to the oldest.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2321,7 +2321,7 @@ declare namespace gapi.client {
             },
             body: Rollout): Request<Operation>;
             /** Gets a service configuration rollout. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2356,7 +2356,7 @@ declare namespace gapi.client {
              * Lists the history of the service configuration rollouts for a managed
              * service, from the newest to the oldest.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2470,7 +2470,7 @@ declare namespace gapi.client {
              *
              * Operation<response: google.protobuf.Empty>
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2704,7 +2704,7 @@ declare namespace gapi.client {
              * Gets a managed service. Authentication is required unless the service is
              * public.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2734,7 +2734,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ManagedService>;
             /** Gets a service configuration (version) for a managed service. */
-            getConfig(request: {
+            getConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2821,7 +2821,7 @@ declare namespace gapi.client {
              * services enabled on the consumer. The `consumer_id` must have the format
              * of "project:{PROJECT-ID}".
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2948,7 +2948,7 @@ declare namespace gapi.client {
              *
              * Operation<response: UndeleteServiceResponse>
              */
-            undelete(request: {
+            undelete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

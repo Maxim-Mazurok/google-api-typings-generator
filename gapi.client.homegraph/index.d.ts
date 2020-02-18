@@ -238,7 +238,7 @@ declare namespace gapi.client {
              * Note: Special characters (except "/") in `agent_user_id` must be
              * URL-encoded.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

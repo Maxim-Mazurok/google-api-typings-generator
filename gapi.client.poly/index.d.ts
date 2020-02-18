@@ -278,7 +278,7 @@ declare namespace gapi.client {
              * the currently authenticated user (via OAuth token) is the author of the
              * asset.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -309,7 +309,7 @@ declare namespace gapi.client {
              * of PUBLIC and published under the
              * CC-By license.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -388,7 +388,7 @@ declare namespace gapi.client {
              * All Rights Reserved for the
              * currently-authenticated user.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -455,7 +455,7 @@ declare namespace gapi.client {
              * the currently-authenticated user, is supported. May include assets with an
              * access level of UNLISTED.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

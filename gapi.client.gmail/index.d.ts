@@ -563,7 +563,7 @@ declare namespace gapi.client {
             },
             body: Draft): Request<Draft>;
             /** Immediately and permanently deletes the specified draft. Does not simply trash it. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -584,7 +584,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the specified draft. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -607,7 +607,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Draft>;
             /** Lists the drafts in the user's mailbox. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -723,7 +723,7 @@ declare namespace gapi.client {
         }
         interface HistoryResource {
             /** Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing historyId). */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -800,7 +800,7 @@ declare namespace gapi.client {
             },
             body: Label): Request<Label>;
             /** Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -821,7 +821,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the specified label. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -842,7 +842,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Label>;
             /** Lists all labels in the user's mailbox. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -951,7 +951,7 @@ declare namespace gapi.client {
         }
         interface AttachmentsResource {
             /** Gets the specified message attachment. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1056,7 +1056,7 @@ declare namespace gapi.client {
             },
             body: BatchModifyMessagesRequest): Request<void>;
             /** Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer messages.trash instead. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1077,7 +1077,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the specified message. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1209,7 +1209,7 @@ declare namespace gapi.client {
             },
             body: Message): Request<Message>;
             /** Lists the messages in the user's mailbox. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1325,7 +1325,7 @@ declare namespace gapi.client {
             },
             body: Message): Request<Message>;
             /** Moves the specified message to the trash. */
-            trash(request: {
+            trash(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1346,7 +1346,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Message>;
             /** Removes the specified message from the trash. */
-            untrash(request: {
+            untrash(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1428,7 +1428,7 @@ declare namespace gapi.client {
              *
              * This method is only available to service account clients that have been delegated domain-wide authority.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The email address of the user to be removed as a delegate. */
@@ -1455,7 +1455,7 @@ declare namespace gapi.client {
              *
              * This method is only available to service account clients that have been delegated domain-wide authority.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The email address of the user whose delegate relationship is to be retrieved. */
@@ -1480,7 +1480,7 @@ declare namespace gapi.client {
              *
              * This method is only available to service account clients that have been delegated domain-wide authority.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1541,7 +1541,7 @@ declare namespace gapi.client {
             },
             body: Filter): Request<Filter>;
             /** Deletes a filter. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1562,7 +1562,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a filter. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1583,7 +1583,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Filter>;
             /** Lists the message filters of a Gmail user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1653,7 +1653,7 @@ declare namespace gapi.client {
              *
              * This method is only available to service account clients that have been delegated domain-wide authority.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1674,7 +1674,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the specified forwarding address. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1695,7 +1695,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ForwardingAddress>;
             /** Lists the forwarding addresses for the specified account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1716,7 +1716,7 @@ declare namespace gapi.client {
         }
         interface SmimeInfoResource {
             /** Deletes the specified S/MIME config for the specified send-as alias. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1739,7 +1739,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the specified S/MIME config for the specified send-as alias. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1806,7 +1806,7 @@ declare namespace gapi.client {
             },
             body: SmimeInfo): Request<SmimeInfo>;
             /** Lists S/MIME configs for the specified send-as alias. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1827,7 +1827,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ListSmimeInfoResponse>;
             /** Sets the default S/MIME config for the specified send-as alias. */
-            setDefault(request: {
+            setDefault(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1903,7 +1903,7 @@ declare namespace gapi.client {
              *
              * This method is only available to service account clients that have been delegated domain-wide authority.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1924,7 +1924,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1948,7 +1948,7 @@ declare namespace gapi.client {
              * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
              * "from" aliases.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2068,7 +2068,7 @@ declare namespace gapi.client {
              *
              * This method is only available to service account clients that have been delegated domain-wide authority.
              */
-            verify(request: {
+            verify(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2092,7 +2092,7 @@ declare namespace gapi.client {
         }
         interface SettingsResource {
             /** Gets the auto-forwarding setting for the specified account. */
-            getAutoForwarding(request: {
+            getAutoForwarding(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2111,7 +2111,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AutoForwarding>;
             /** Gets IMAP settings. */
-            getImap(request: {
+            getImap(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2130,7 +2130,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ImapSettings>;
             /** Gets language settings. */
-            getLanguage(request: {
+            getLanguage(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2149,7 +2149,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LanguageSettings>;
             /** Gets POP settings. */
-            getPop(request: {
+            getPop(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2168,7 +2168,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PopSettings>;
             /** Gets vacation responder settings. */
-            getVacation(request: {
+            getVacation(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2403,7 +2403,7 @@ declare namespace gapi.client {
         }
         interface ThreadsResource {
             /** Immediately and permanently deletes the specified thread. This operation cannot be undone. Prefer threads.trash instead. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2424,7 +2424,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the specified thread. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2449,7 +2449,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Thread>;
             /** Lists the threads in the user's mailbox. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2525,7 +2525,7 @@ declare namespace gapi.client {
             },
             body: ModifyThreadRequest): Request<Thread>;
             /** Moves the specified thread to the trash. */
-            trash(request: {
+            trash(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2546,7 +2546,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Thread>;
             /** Removes the specified thread from the trash. */
-            untrash(request: {
+            untrash(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2569,7 +2569,7 @@ declare namespace gapi.client {
         }
         interface UsersResource {
             /** Gets the current user's Gmail profile. */
-            getProfile(request: {
+            getProfile(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2588,7 +2588,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Profile>;
             /** Stop receiving push notifications for the given user mailbox. */
-            stop(request: {
+            stop(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

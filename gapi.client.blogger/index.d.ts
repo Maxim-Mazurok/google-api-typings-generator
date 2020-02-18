@@ -358,7 +358,7 @@ declare namespace gapi.client {
         }
         interface BlogsResource {
             /** Gets one blog by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the blog to get. */
@@ -381,7 +381,7 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<Blog>;
             /** Retrieve a Blog by URL. */
-            getByUrl(request: {
+            getByUrl(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -402,7 +402,7 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<Blog>;
             /** Retrieves a list of blogs, possibly filtered. */
-            listByUser(request: {
+            listByUser(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Whether the response is a list of blogs with per-user information instead of just blogs. */
@@ -434,7 +434,7 @@ declare namespace gapi.client {
         }
         interface BlogUserInfosResource {
             /** Gets one blog and user info pair by blogId and userId. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the blog to get. */
@@ -459,7 +459,7 @@ declare namespace gapi.client {
         }
         interface CommentsResource {
             /** Marks a comment as not spam. */
-            approve(request: {
+            approve(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the Blog. */
@@ -482,7 +482,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Comment>;
             /** Delete a comment by ID. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the Blog. */
@@ -505,7 +505,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets one comment by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog to containing the comment. */
@@ -533,7 +533,7 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<Comment>;
             /** Retrieves the comments for a post, possibly filtered. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog to fetch comments from. */
@@ -567,7 +567,7 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<CommentList>;
             /** Retrieves the comments for a blog, across all posts, possibly filtered. */
-            listByBlog(request: {
+            listByBlog(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog to fetch comments from. */
@@ -597,7 +597,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<CommentList>;
             /** Marks a comment as spam. */
-            markAsSpam(request: {
+            markAsSpam(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the Blog. */
@@ -620,7 +620,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Comment>;
             /** Removes the content of a comment. */
-            removeContent(request: {
+            removeContent(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the Blog. */
@@ -645,7 +645,7 @@ declare namespace gapi.client {
         }
         interface PagesResource {
             /** Delete a page by ID. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the Blog. */
@@ -666,7 +666,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets one blog page by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog containing the page. */
@@ -732,7 +732,7 @@ declare namespace gapi.client {
             },
             body: Page): Request<Page>;
             /** Retrieves the pages for a blog, optionally including non-LIVE statuses. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog to fetch Pages from. */
@@ -812,7 +812,7 @@ declare namespace gapi.client {
             },
             body: Page): Request<Page>;
             /** Publishes a draft page. */
-            publish(request: {
+            publish(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the blog. */
@@ -833,7 +833,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Page>;
             /** Revert a published or scheduled page to draft state. */
-            revert(request: {
+            revert(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the blog. */
@@ -908,7 +908,7 @@ declare namespace gapi.client {
         }
         interface PageViewsResource {
             /** Retrieve pageview stats for a Blog. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the blog to get. */
@@ -930,7 +930,7 @@ declare namespace gapi.client {
         }
         interface PostsResource {
             /** Delete a post by ID. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the Blog. */
@@ -951,7 +951,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Get a post by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog to fetch the post from. */
@@ -983,7 +983,7 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<Post>;
             /** Retrieve a Post by Path. */
-            getByPath(request: {
+            getByPath(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog to fetch the post from. */
@@ -1060,7 +1060,7 @@ declare namespace gapi.client {
             },
             body: Post): Request<Post>;
             /** Retrieves a list of posts, possibly filtered. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog to fetch posts from. */
@@ -1166,7 +1166,7 @@ declare namespace gapi.client {
             },
             body: Post): Request<Post>;
             /** Publishes a draft post, optionally at the specific time of the given publishDate parameter. */
-            publish(request: {
+            publish(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the Blog. */
@@ -1192,7 +1192,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Post>;
             /** Revert a published or scheduled post to draft state. */
-            revert(request: {
+            revert(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the Blog. */
@@ -1213,7 +1213,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Post>;
             /** Search for a post. */
-            search(request: {
+            search(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog to fetch the post from. */
@@ -1310,7 +1310,7 @@ declare namespace gapi.client {
              * Gets one post and user info pair, by post ID and user ID. The post user info contains per-user information about the post, such as access rights,
              * specific to the user.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the blog. */
@@ -1338,7 +1338,7 @@ declare namespace gapi.client {
              * Retrieves a list of post and post user info pairs, possibly filtered. The post user info contains per-user information about the post, such as access
              * rights, specific to the user.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ID of the blog to fetch posts from. */
@@ -1378,7 +1378,7 @@ declare namespace gapi.client {
         }
         interface UsersResource {
             /** Gets one user by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

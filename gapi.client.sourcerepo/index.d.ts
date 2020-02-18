@@ -442,7 +442,7 @@ declare namespace gapi.client {
             },
             body: Repo): Request<Repo>;
             /** Deletes a repo. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -472,7 +472,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns information about a repo. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -506,7 +506,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -550,7 +550,7 @@ declare namespace gapi.client {
              * Returns all repos belonging to a project. The sizes of the repos are
              * not set by ListRepos.  To get the size of a repo, use GetRepo.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -790,7 +790,7 @@ declare namespace gapi.client {
         }
         interface ProjectsResource {
             /** Returns the Cloud Source Repositories configuration of the project. */
-            getConfig(request: {
+            getConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

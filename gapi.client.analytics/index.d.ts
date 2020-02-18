@@ -1735,7 +1735,7 @@ declare namespace gapi.client {
         }
         interface GaResource {
             /** Returns Analytics data for a view (profile). */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'. */
@@ -1786,7 +1786,7 @@ declare namespace gapi.client {
         }
         interface McfResource {
             /** Returns Analytics Multi-Channel Funnels data for a view (profile). */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** A comma-separated list of Multi-Channel Funnels dimensions. E.g., 'mcf:source,mcf:medium'. */
@@ -1831,7 +1831,7 @@ declare namespace gapi.client {
         }
         interface RealtimeResource {
             /** Returns real time data for a view (profile). */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** A comma-separated list of real time dimensions. E.g., 'rt:medium,rt:city'. */
@@ -1867,7 +1867,7 @@ declare namespace gapi.client {
         }
         interface AccountsResource {
             /** Lists all accounts to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1890,7 +1890,7 @@ declare namespace gapi.client {
         }
         interface AccountSummariesResource {
             /** Lists account summaries (lightweight tree comprised of accounts/properties/profiles) to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1913,7 +1913,7 @@ declare namespace gapi.client {
         }
         interface AccountUserLinksResource {
             /** Removes a user from the given account. */
-            delete(request: {
+            delete(request?: {
                 /** Account ID to delete the user link for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -1974,7 +1974,7 @@ declare namespace gapi.client {
             },
             body: EntityUserLink): Request<EntityUserLink>;
             /** Lists account-user links for a given account. */
-            list(request: {
+            list(request?: {
                 /** Account ID to retrieve the user links for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2081,7 +2081,7 @@ declare namespace gapi.client {
         }
         interface CustomDataSourcesResource {
             /** List custom data sources to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Account Id for the custom data sources to retrieve. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2108,7 +2108,7 @@ declare namespace gapi.client {
         }
         interface CustomDimensionsResource {
             /** Get a custom dimension to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** Account ID for the custom dimension to retrieve. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2175,7 +2175,7 @@ declare namespace gapi.client {
             },
             body: CustomDimension): Request<CustomDimension>;
             /** Lists custom dimensions to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Account ID for the custom dimensions to retrieve. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2306,7 +2306,7 @@ declare namespace gapi.client {
         }
         interface CustomMetricsResource {
             /** Get a custom metric to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** Account ID for the custom metric to retrieve. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2373,7 +2373,7 @@ declare namespace gapi.client {
             },
             body: CustomMetric): Request<CustomMetric>;
             /** Lists custom metrics to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Account ID for the custom metrics to retrieve. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2504,7 +2504,7 @@ declare namespace gapi.client {
         }
         interface ExperimentsResource {
             /** Delete an experiment. */
-            delete(request: {
+            delete(request?: {
                 /** Account ID to which the experiment belongs */
                 accountId: string;
                 /** Data format for the response. */
@@ -2529,7 +2529,7 @@ declare namespace gapi.client {
                 webPropertyId: string;
             }): Request<void>;
             /** Returns an experiment to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** Account ID to retrieve the experiment for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2602,7 +2602,7 @@ declare namespace gapi.client {
             },
             body: Experiment): Request<Experiment>;
             /** Lists experiments to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Account ID to retrieve experiments for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2735,7 +2735,7 @@ declare namespace gapi.client {
         }
         interface FiltersResource {
             /** Delete a filter. */
-            delete(request: {
+            delete(request?: {
                 /** Account ID to delete the filter for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2756,7 +2756,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Filter>;
             /** Returns filters to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** Account ID to retrieve filters for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2817,7 +2817,7 @@ declare namespace gapi.client {
             },
             body: Filter): Request<Filter>;
             /** Lists all filters for an account */
-            list(request: {
+            list(request?: {
                 /** Account ID to retrieve filters for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2930,7 +2930,7 @@ declare namespace gapi.client {
         }
         interface GoalsResource {
             /** Gets a goal to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** Account ID to retrieve the goal for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3003,7 +3003,7 @@ declare namespace gapi.client {
             },
             body: Goal): Request<Goal>;
             /** Lists goals to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Account ID to retrieve goals for. Can either be a specific account ID or '~all', which refers to all the accounts that user has access to. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3142,7 +3142,7 @@ declare namespace gapi.client {
         }
         interface ProfileFilterLinksResource {
             /** Delete a profile filter link. */
-            delete(request: {
+            delete(request?: {
                 /** Account ID to which the profile filter link belongs. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3167,7 +3167,7 @@ declare namespace gapi.client {
                 webPropertyId: string;
             }): Request<void>;
             /** Returns a single profile filter link. */
-            get(request: {
+            get(request?: {
                 /** Account ID to retrieve profile filter link for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3240,7 +3240,7 @@ declare namespace gapi.client {
             },
             body: ProfileFilterLink): Request<ProfileFilterLink>;
             /** Lists all profile filter links for a profile. */
-            list(request: {
+            list(request?: {
                 /** Account ID to retrieve profile filter links for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3376,7 +3376,7 @@ declare namespace gapi.client {
         }
         interface ProfilesResource {
             /** Deletes a view (profile). */
-            delete(request: {
+            delete(request?: {
                 /** Account ID to delete the view (profile) for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3399,7 +3399,7 @@ declare namespace gapi.client {
                 webPropertyId: string;
             }): Request<void>;
             /** Gets a view (profile) to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** Account ID to retrieve the view (profile) for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3466,7 +3466,7 @@ declare namespace gapi.client {
             },
             body: Profile): Request<Profile>;
             /** Lists views (profiles) to which the user has access. */
-            list(request: {
+            list(request?: {
                 /**
                  * Account ID for the view (profiles) to retrieve. Can either be a specific account ID or '~all', which refers to all the accounts to which the user has
                  * access.
@@ -3595,7 +3595,7 @@ declare namespace gapi.client {
         }
         interface ProfileUserLinksResource {
             /** Removes a user from the given view (profile). */
-            delete(request: {
+            delete(request?: {
                 /** Account ID to delete the user link for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3668,7 +3668,7 @@ declare namespace gapi.client {
             },
             body: EntityUserLink): Request<EntityUserLink>;
             /** Lists profile-user links for a given view (profile). */
-            list(request: {
+            list(request?: {
                 /** Account ID which the given view (profile) belongs to. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3755,7 +3755,7 @@ declare namespace gapi.client {
         }
         interface RemarketingAudienceResource {
             /** Delete a remarketing audience. */
-            delete(request: {
+            delete(request?: {
                 /** Account ID to which the remarketing audience belongs. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3778,7 +3778,7 @@ declare namespace gapi.client {
                 webPropertyId: string;
             }): Request<void>;
             /** Gets a remarketing audience to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** The account ID of the remarketing audience to retrieve. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3845,7 +3845,7 @@ declare namespace gapi.client {
             },
             body: RemarketingAudience): Request<RemarketingAudience>;
             /** Lists remarketing audiences to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** The account ID of the remarketing audiences to retrieve. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3969,7 +3969,7 @@ declare namespace gapi.client {
         }
         interface SegmentsResource {
             /** Lists segments to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3992,7 +3992,7 @@ declare namespace gapi.client {
         }
         interface UnsampledReportsResource {
             /** Deletes an unsampled report. */
-            delete(request: {
+            delete(request?: {
                 /** Account ID to delete the unsampled report for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4017,7 +4017,7 @@ declare namespace gapi.client {
                 webPropertyId: string;
             }): Request<void>;
             /** Returns a single unsampled report. */
-            get(request: {
+            get(request?: {
                 /** Account ID to retrieve unsampled report for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4090,7 +4090,7 @@ declare namespace gapi.client {
             },
             body: UnsampledReport): Request<UnsampledReport>;
             /** Lists unsampled reports to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Account ID to retrieve unsampled reports for. Must be a specific account ID, ~all is not supported. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4167,7 +4167,7 @@ declare namespace gapi.client {
             },
             body: AnalyticsDataimportDeleteUploadDataRequest): Request<void>;
             /** List uploads to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** Account Id for the upload to retrieve. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4192,7 +4192,7 @@ declare namespace gapi.client {
                 webPropertyId: string;
             }): Request<Upload>;
             /** List uploads to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Account Id for the uploads to retrieve. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4219,7 +4219,7 @@ declare namespace gapi.client {
                 webPropertyId: string;
             }): Request<Uploads>;
             /** Upload data for a custom data source. */
-            uploadData(request: {
+            uploadData(request?: {
                 /** Account Id associated with the upload. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4244,7 +4244,7 @@ declare namespace gapi.client {
         }
         interface WebpropertiesResource {
             /** Gets a web property to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** Account ID to retrieve the web property for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4308,7 +4308,7 @@ declare namespace gapi.client {
             },
             body: Webproperty): Request<Webproperty>;
             /** Lists web properties to which the user has access. */
-            list(request: {
+            list(request?: {
                 /** Account ID to retrieve web properties for. Can either be a specific account ID or '~all', which refers to all the accounts that user has access to. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4421,7 +4421,7 @@ declare namespace gapi.client {
         }
         interface WebPropertyAdWordsLinksResource {
             /** Deletes a web property-Google Ads link. */
-            delete(request: {
+            delete(request?: {
                 /** ID of the account which the given web property belongs to. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4444,7 +4444,7 @@ declare namespace gapi.client {
                 webPropertyId: string;
             }): Request<void>;
             /** Returns a web property-Google Ads link to which the user has access. */
-            get(request: {
+            get(request?: {
                 /** ID of the account which the given web property belongs to. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4511,7 +4511,7 @@ declare namespace gapi.client {
             },
             body: EntityAdWordsLink): Request<EntityAdWordsLink>;
             /** Lists webProperty-Google Ads links for a given web property. */
-            list(request: {
+            list(request?: {
                 /** ID of the account which the given web property belongs to. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4634,7 +4634,7 @@ declare namespace gapi.client {
         }
         interface WebpropertyUserLinksResource {
             /** Removes a user from the given web property. */
-            delete(request: {
+            delete(request?: {
                 /** Account ID to delete the user link for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4701,7 +4701,7 @@ declare namespace gapi.client {
             },
             body: EntityUserLink): Request<EntityUserLink>;
             /** Lists webProperty-user links for a given web property. */
-            list(request: {
+            list(request?: {
                 /** Account ID which the given web property belongs to. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4801,7 +4801,7 @@ declare namespace gapi.client {
         }
         interface ColumnsResource {
             /** Lists all columns for a report type */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

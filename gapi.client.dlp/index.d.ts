@@ -2316,7 +2316,7 @@ declare namespace gapi.client {
              * supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
              * learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2363,7 +2363,7 @@ declare namespace gapi.client {
              * supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
              * learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2480,7 +2480,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2515,7 +2515,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2550,7 +2550,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2750,7 +2750,7 @@ declare namespace gapi.client {
              * Deletes an InspectTemplate.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2784,7 +2784,7 @@ declare namespace gapi.client {
              * Gets an InspectTemplate.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2818,7 +2818,7 @@ declare namespace gapi.client {
              * Lists InspectTemplates.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3029,7 +3029,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3064,7 +3064,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3099,7 +3099,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3309,7 +3309,7 @@ declare namespace gapi.client {
              * Deletes an InspectTemplate.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3343,7 +3343,7 @@ declare namespace gapi.client {
              * Gets an InspectTemplate.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3377,7 +3377,7 @@ declare namespace gapi.client {
              * Lists InspectTemplates.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3587,7 +3587,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3622,7 +3622,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3657,7 +3657,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3865,7 +3865,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3900,7 +3900,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3935,7 +3935,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4339,7 +4339,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4374,7 +4374,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4409,7 +4409,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4672,7 +4672,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/inspecting-storage and
              * https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4703,7 +4703,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/inspecting-storage and
              * https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4734,7 +4734,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/inspecting-storage and
              * https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4957,7 +4957,7 @@ declare namespace gapi.client {
              * Deletes an InspectTemplate.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4991,7 +4991,7 @@ declare namespace gapi.client {
              * Gets an InspectTemplate.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5025,7 +5025,7 @@ declare namespace gapi.client {
              * Lists InspectTemplates.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5283,7 +5283,7 @@ declare namespace gapi.client {
              * Deletes a job trigger.
              * See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5316,7 +5316,7 @@ declare namespace gapi.client {
              * Gets a job trigger.
              * See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5349,7 +5349,7 @@ declare namespace gapi.client {
              * Lists job triggers.
              * See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5806,7 +5806,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5841,7 +5841,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5876,7 +5876,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
              * more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6149,7 +6149,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/inspecting-storage and
              * https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6180,7 +6180,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/inspecting-storage and
              * https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6211,7 +6211,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/inspecting-storage and
              * https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6454,7 +6454,7 @@ declare namespace gapi.client {
              * Deletes an InspectTemplate.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6488,7 +6488,7 @@ declare namespace gapi.client {
              * Gets an InspectTemplate.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6522,7 +6522,7 @@ declare namespace gapi.client {
              * Lists InspectTemplates.
              * See https://cloud.google.com/dlp/docs/creating-templates to learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6790,7 +6790,7 @@ declare namespace gapi.client {
              * Deletes a job trigger.
              * See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6823,7 +6823,7 @@ declare namespace gapi.client {
              * Gets a job trigger.
              * See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6856,7 +6856,7 @@ declare namespace gapi.client {
              * Lists job triggers.
              * See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -7088,7 +7088,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -7123,7 +7123,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -7158,7 +7158,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -7370,7 +7370,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -7405,7 +7405,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -7440,7 +7440,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
              * learn more.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

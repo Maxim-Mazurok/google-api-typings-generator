@@ -620,7 +620,7 @@ declare namespace gapi.client {
              * Lists the last few versions of the device configuration in descending
              * order (i.e.: newest first).
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -662,7 +662,7 @@ declare namespace gapi.client {
              * Lists the last few versions of the device state in descending order (i.e.:
              * newest first).
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -765,7 +765,7 @@ declare namespace gapi.client {
             },
             body: Device): Request<Device>;
             /** Deletes a device. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -796,7 +796,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets details about a device. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -832,7 +832,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Device>;
             /** List devices in a device registry. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1143,7 +1143,7 @@ declare namespace gapi.client {
         }
         interface DevicesResource {
             /** List devices in a device registry. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1455,7 +1455,7 @@ declare namespace gapi.client {
             },
             body: DeviceRegistry): Request<DeviceRegistry>;
             /** Deletes a device registry configuration. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1485,7 +1485,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a device registry configuration. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1550,7 +1550,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists device registries. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

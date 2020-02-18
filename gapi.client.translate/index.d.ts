@@ -623,7 +623,7 @@ declare namespace gapi.client {
              * if the glossary isn't created yet.
              * Returns NOT_FOUND, if the glossary doesn't exist.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -653,7 +653,7 @@ declare namespace gapi.client {
              * Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
              * exist.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -683,7 +683,7 @@ declare namespace gapi.client {
              * Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
              * exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -802,7 +802,7 @@ declare namespace gapi.client {
              * operation. If the server doesn't support this method, it returns
              * `google.rpc.Code.UNIMPLEMENTED`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -833,7 +833,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -871,7 +871,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1136,7 +1136,7 @@ declare namespace gapi.client {
             },
             body: DetectLanguageRequest): Request<DetectLanguageResponse>;
             /** Gets information about a location. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1163,7 +1163,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Location>;
             /** Returns a list of supported languages for translation. */
-            getSupportedLanguages(request: {
+            getSupportedLanguages(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1227,7 +1227,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SupportedLanguages>;
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1430,7 +1430,7 @@ declare namespace gapi.client {
             },
             body: DetectLanguageRequest): Request<DetectLanguageResponse>;
             /** Returns a list of supported languages for translation. */
-            getSupportedLanguages(request: {
+            getSupportedLanguages(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

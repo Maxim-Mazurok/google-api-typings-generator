@@ -1169,7 +1169,7 @@ declare namespace gapi.client {
         }
         interface FieldsResource {
             /** Gets the metadata and configuration for a Field. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1206,7 +1206,7 @@ declare namespace gapi.client {
              * FirestoreAdmin.ListFields with the filter set to
              * `indexConfig.usesAncestorConfig:false`.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1454,7 +1454,7 @@ declare namespace gapi.client {
             },
             body: GoogleFirestoreAdminV1Index): Request<GoogleLongrunningOperation>;
             /** Deletes a composite index. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1484,7 +1484,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a composite index. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1514,7 +1514,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleFirestoreAdminV1Index>;
             /** Lists composite indexes. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1841,7 +1841,7 @@ declare namespace gapi.client {
             },
             body: Document): Request<Document>;
             /** Deletes a document. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1881,7 +1881,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a single document. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1923,7 +1923,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Document>;
             /** Lists documents. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2490,7 +2490,7 @@ declare namespace gapi.client {
              * operation. If the server doesn't support this method, it returns
              * `google.rpc.Code.UNIMPLEMENTED`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2521,7 +2521,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2559,7 +2559,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2738,7 +2738,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Gets information about a location. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2765,7 +2765,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

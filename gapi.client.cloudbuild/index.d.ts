@@ -777,7 +777,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -815,7 +815,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -977,7 +977,7 @@ declare namespace gapi.client {
              * The `Build` that is returned includes its status (such as `SUCCESS`,
              * `FAILURE`, or `WORKING`), and timing information.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1011,7 +1011,7 @@ declare namespace gapi.client {
              * Previously requested builds may still be in-progress, or may have finished
              * successfully or unsuccessfully.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1198,7 +1198,7 @@ declare namespace gapi.client {
              *
              * This API is experimental.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1231,7 +1231,7 @@ declare namespace gapi.client {
              *
              * This API is experimental.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1264,7 +1264,7 @@ declare namespace gapi.client {
              *
              * This API is experimental.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

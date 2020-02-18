@@ -1372,7 +1372,7 @@ declare namespace gapi.client {
             },
             body: AlertPolicy): Request<AlertPolicy>;
             /** Deletes an alerting policy. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1403,7 +1403,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a single alerting policy. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1433,7 +1433,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<AlertPolicy>;
             /** Lists the existing alerting policies for the project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1644,7 +1644,7 @@ declare namespace gapi.client {
         }
         interface MembersResource {
             /** Lists the monitored resources that are members of a group. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1759,7 +1759,7 @@ declare namespace gapi.client {
             },
             body: Group): Request<Group>;
             /** Deletes an existing group. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1794,7 +1794,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a single group. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1824,7 +1824,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Group>;
             /** Lists the existing groups. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2016,7 +2016,7 @@ declare namespace gapi.client {
             },
             body: MetricDescriptor): Request<MetricDescriptor>;
             /** Deletes a metric descriptor. Only user-created custom metrics can be deleted. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2047,7 +2047,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a single metric descriptor. This method does not require a Stackdriver account. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2078,7 +2078,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<MetricDescriptor>;
             /** Lists metric descriptors that match a filter. This method does not require a Stackdriver account. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2123,7 +2123,7 @@ declare namespace gapi.client {
         }
         interface MonitoredResourceDescriptorsResource {
             /** Gets a single monitored resource descriptor. This method does not require a Stackdriver account. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2154,7 +2154,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<MonitoredResourceDescriptor>;
             /** Lists monitored resource descriptors that match a filter. This method does not require a Stackdriver account. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2199,7 +2199,7 @@ declare namespace gapi.client {
         }
         interface NotificationChannelDescriptorsResource {
             /** Gets a single channel descriptor. The descriptor indicates which fields are expected / permitted for a notification channel of the given type. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2229,7 +2229,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<NotificationChannelDescriptor>;
             /** Lists the descriptors for supported channel types. The use of descriptors makes it possible for new channel types to be dynamically added. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2333,7 +2333,7 @@ declare namespace gapi.client {
             },
             body: NotificationChannel): Request<NotificationChannel>;
             /** Deletes a notification channel. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2372,7 +2372,7 @@ declare namespace gapi.client {
              * may truncate or omit passwords, API keys, or other private key matter and thus the response may not be 100% identical to the information that was
              * supplied in the call to the create method.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2474,7 +2474,7 @@ declare namespace gapi.client {
             },
             body: GetNotificationChannelVerificationCodeRequest): Request<GetNotificationChannelVerificationCodeResponse>;
             /** Lists the notification channels that have been created for the project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2767,7 +2767,7 @@ declare namespace gapi.client {
             },
             body: CreateTimeSeriesRequest): Request<{}>;
             /** Lists time series that match a filter. This method does not require a Stackdriver account. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2924,7 +2924,7 @@ declare namespace gapi.client {
              * Deletes an Uptime check configuration. Note that this method will fail if the Uptime check configuration is referenced by an alert policy or other
              * dependent configs that would be rendered invalid by the deletion.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2954,7 +2954,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a single Uptime check configuration. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2984,7 +2984,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<UptimeCheckConfig>;
             /** Lists the existing valid Uptime check configurations for the project (leaving out any invalid configurations). */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3188,7 +3188,7 @@ declare namespace gapi.client {
             },
             body: ServiceLevelObjective): Request<ServiceLevelObjective>;
             /** Delete the given ServiceLevelObjective. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3218,7 +3218,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Get a ServiceLevelObjective by name. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3253,7 +3253,7 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<ServiceLevelObjective>;
             /** List the ServiceLevelObjectives for the given Service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3431,7 +3431,7 @@ declare namespace gapi.client {
             },
             body: Service): Request<Service>;
             /** Soft delete this Service. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3461,7 +3461,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Get the named Service. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3491,7 +3491,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Service>;
             /** List Services for this workspace. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3611,7 +3611,7 @@ declare namespace gapi.client {
         }
         interface UptimeCheckIpsResource {
             /** Returns the list of IP addresses that checkers run from */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

@@ -75,7 +75,7 @@ declare namespace gapi.client {
         }
         interface ProjectsResource {
             /** Deletes a POSIX account. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -108,7 +108,7 @@ declare namespace gapi.client {
         }
         interface SshPublicKeysResource {
             /** Deletes an SSH public key. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -139,7 +139,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Retrieves an SSH public key. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -246,7 +246,7 @@ declare namespace gapi.client {
              * Retrieves the profile information used for logging in to a virtual machine
              * on Google Compute Engine.
              */
-            getLoginProfile(request: {
+            getLoginProfile(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

@@ -173,7 +173,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Removes a push token for the current user and application. Removing a non-existent push token will report success. */
-        await gapi.client.games.pushtokens.remove(, {
+        await gapi.client.games.pushtokens.remove({} , {
             ios: {
                 apns_device_token: "Test string",
                 apns_environment: "Test string",
@@ -181,7 +181,7 @@ gapi.load('client', () => {
             kind: "Test string",
         });
         /** Registers a push token for the current user and application. */
-        await gapi.client.games.pushtokens.update(, {
+        await gapi.client.games.pushtokens.update({} , {
             clientRevision: "Test string",
             id: {
                 ios: {

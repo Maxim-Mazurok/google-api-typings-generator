@@ -466,7 +466,7 @@ declare namespace gapi.client {
         }
         interface ContactsResource {
             /** Deletes a contact. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -485,7 +485,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a single contact by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -540,7 +540,7 @@ declare namespace gapi.client {
             },
             body: Contact): Request<Contact>;
             /** Retrieves a list of contacts for the authenticated user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -639,7 +639,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Gets a single location by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -658,7 +658,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Location>;
             /** Retrieves a list of locations for the user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -677,7 +677,7 @@ declare namespace gapi.client {
         }
         interface SettingsResource {
             /** Gets a single setting by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -702,7 +702,7 @@ declare namespace gapi.client {
         }
         interface SubscriptionsResource {
             /** Deletes a subscription. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -757,7 +757,7 @@ declare namespace gapi.client {
             },
             body: Subscription): Request<Subscription>;
             /** Retrieves a list of subscriptions for the authenticated user and service. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -816,7 +816,7 @@ declare namespace gapi.client {
         }
         interface AttachmentsResource {
             /** Deletes an attachment from a timeline item. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the attachment. */
@@ -837,7 +837,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves an attachment on a timeline item by item ID and attachment ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the attachment. */
@@ -858,7 +858,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Attachment>;
             /** Adds a new attachment to a timeline item. */
-            insert(request: {
+            insert(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -877,7 +877,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Attachment>;
             /** Returns a list of attachments for a timeline item. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -898,7 +898,7 @@ declare namespace gapi.client {
         }
         interface TimelineResource {
             /** Deletes a timeline item. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -917,7 +917,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a single timeline item by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -972,7 +972,7 @@ declare namespace gapi.client {
             },
             body: TimelineItem): Request<TimelineItem>;
             /** Retrieves a list of timeline items for the authenticated user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** If provided, only items with the given bundleId will be returned. */

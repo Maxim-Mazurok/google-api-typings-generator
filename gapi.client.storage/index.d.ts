@@ -642,7 +642,7 @@ declare namespace gapi.client {
         }
         interface BucketAccessControlsResource {
             /** Permanently deletes the ACL entry for the specified entity on the specified bucket. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -667,7 +667,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<void>;
             /** Returns the ACL entry for the specified entity on the specified bucket. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -740,7 +740,7 @@ declare namespace gapi.client {
             },
             body: BucketAccessControl): Request<BucketAccessControl>;
             /** Retrieves ACL entries on the specified bucket. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -869,7 +869,7 @@ declare namespace gapi.client {
         }
         interface BucketsResource {
             /** Permanently deletes an empty bucket. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -896,7 +896,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<void>;
             /** Returns metadata for the specified bucket. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -925,7 +925,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<Bucket>;
             /** Returns an IAM policy for the specified bucket. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -1013,7 +1013,7 @@ declare namespace gapi.client {
             },
             body: Bucket): Request<Bucket>;
             /** Retrieves a list of buckets for a given project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1044,7 +1044,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<Buckets>;
             /** Locks retention policy on a bucket. */
-            lockRetentionPolicy(request: {
+            lockRetentionPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -1185,7 +1185,7 @@ declare namespace gapi.client {
             },
             body: Policy): Request<Policy>;
             /** Tests a set of permissions on the given bucket to see which, if any, are held by the caller. */
-            testIamPermissions(request: {
+            testIamPermissions(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -1318,7 +1318,7 @@ declare namespace gapi.client {
         }
         interface DefaultObjectAccessControlsResource {
             /** Permanently deletes the default object ACL entry for the specified entity on the specified bucket. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -1343,7 +1343,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<void>;
             /** Returns the default object ACL entry for the specified entity on the specified bucket. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -1416,7 +1416,7 @@ declare namespace gapi.client {
             },
             body: ObjectAccessControl): Request<ObjectAccessControl>;
             /** Retrieves default object ACL entries on the specified bucket. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -1549,7 +1549,7 @@ declare namespace gapi.client {
         }
         interface NotificationsResource {
             /** Permanently deletes a notification subscription. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The parent bucket of the notification. */
@@ -1574,7 +1574,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<void>;
             /** View a notification configuration. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The parent bucket of the notification. */
@@ -1647,7 +1647,7 @@ declare namespace gapi.client {
             },
             body: Notification): Request<Notification>;
             /** Retrieves a list of notification subscriptions for a given bucket. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a Google Cloud Storage bucket. */
@@ -1672,7 +1672,7 @@ declare namespace gapi.client {
         }
         interface ObjectAccessControlsResource {
             /** Permanently deletes the ACL entry for the specified entity on the specified object. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -1701,7 +1701,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<void>;
             /** Returns the ACL entry for the specified entity on the specified object. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -1786,7 +1786,7 @@ declare namespace gapi.client {
             },
             body: ObjectAccessControl): Request<ObjectAccessControl>;
             /** Retrieves ACL entries on the specified object. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of a bucket. */
@@ -2137,7 +2137,7 @@ declare namespace gapi.client {
             },
             body: Object): Request<Object>;
             /** Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the bucket in which the object resides. */
@@ -2178,7 +2178,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<void>;
             /** Retrieves an object or its metadata. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the bucket in which the object resides. */
@@ -2221,7 +2221,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<Object>;
             /** Returns an IAM policy for the specified object. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the bucket in which the object resides. */
@@ -2362,7 +2362,7 @@ declare namespace gapi.client {
             },
             body: Object): Request<Object>;
             /** Retrieves a list of objects matching the criteria. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the bucket in which to look for objects. */
@@ -2712,7 +2712,7 @@ declare namespace gapi.client {
             },
             body: Policy): Request<Policy>;
             /** Tests a set of permissions on the given object to see which, if any, are held by the caller. */
-            testIamPermissions(request: {
+            testIamPermissions(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the bucket in which the object resides. */
@@ -2925,7 +2925,7 @@ declare namespace gapi.client {
         }
         interface HmacKeysResource {
             /** Creates a new HMAC key for the specified service account. */
-            create(request: {
+            create(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2948,7 +2948,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<HmacKey>;
             /** Deletes an HMAC key. */
-            delete(request: {
+            delete(request?: {
                 /** Name of the HMAC key to be deleted. */
                 accessId: string;
                 /** Data format for the response. */
@@ -2971,7 +2971,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<void>;
             /** Retrieves an HMAC key's metadata */
-            get(request: {
+            get(request?: {
                 /** Name of the HMAC key. */
                 accessId: string;
                 /** Data format for the response. */
@@ -2994,7 +2994,7 @@ declare namespace gapi.client {
                 userProject?: string;
             }): Request<HmacKeyMetadata>;
             /** Retrieves a list of HMAC keys matching the criteria. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3077,7 +3077,7 @@ declare namespace gapi.client {
         }
         interface ServiceAccountResource {
             /** Get the email address of this project's Google Cloud Storage service account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

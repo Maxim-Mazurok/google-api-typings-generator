@@ -93,7 +93,7 @@ gapi.load('client', () => {
             type: "Test string",
         });
         /** Stop watching resources through this channel */
-        await gapi.client.drive.channels.stop(, {
+        await gapi.client.drive.channels.stop({} , {
             address: "Test string",
             expiration: "Test string",
             id: "Test string",

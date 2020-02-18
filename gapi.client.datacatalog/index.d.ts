@@ -880,7 +880,7 @@ declare namespace gapi.client {
              * the resource name from the source Google Cloud Platform service to get the
              * Data Catalog Entry.
              */
-            lookup(request: {
+            lookup(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1014,7 +1014,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1Tag): Request<GoogleCloudDatacatalogV1beta1Tag>;
             /** Deletes a tag. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1045,7 +1045,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Lists the tags on an Entry. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1254,7 +1254,7 @@ declare namespace gapi.client {
              * the `name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1285,7 +1285,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets an entry. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1370,7 +1370,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists entries. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1669,7 +1669,7 @@ declare namespace gapi.client {
              * identified by the `name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1701,7 +1701,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets an EntryGroup. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1782,7 +1782,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists entry groups. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2104,7 +2104,7 @@ declare namespace gapi.client {
              * the `name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2401,7 +2401,7 @@ declare namespace gapi.client {
              * the `name` parameter (see [Data Catalog Resource Project]
              * (/data-catalog/docs/concepts/resource-project) for more information).
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2438,7 +2438,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a tag template. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2767,7 +2767,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1PolicyTag): Request<GoogleCloudDatacatalogV1beta1PolicyTag>;
             /** Deletes a policy tag. Also deletes all of its descendant policy tags. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2797,7 +2797,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a policy tag. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2855,7 +2855,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists all policy tags in a taxonomy. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3100,7 +3100,7 @@ declare namespace gapi.client {
              * Deletes a taxonomy. This operation will also delete all
              * policy tags in this taxonomy along with their associated policies.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3135,7 +3135,7 @@ declare namespace gapi.client {
              * This method generates SerializedTaxonomy protos with nested policy tags
              * that can be used as an input for future ImportTaxonomies calls.
              */
-            export(request: {
+            export(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3169,7 +3169,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudDatacatalogV1beta1ExportTaxonomiesResponse>;
             /** Gets a taxonomy. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3298,7 +3298,7 @@ declare namespace gapi.client {
              * Lists all taxonomies in a project in a particular location that the caller
              * has permission to view.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

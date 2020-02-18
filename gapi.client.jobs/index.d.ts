@@ -1802,7 +1802,7 @@ declare namespace gapi.client {
              * Deletes specified company.
              * Prerequisite: The company has no jobs associated with it.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1834,7 +1834,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Retrieves specified company. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1866,7 +1866,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Company>;
             /** Lists all companies associated with the service account. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2134,7 +2134,7 @@ declare namespace gapi.client {
              * Typically, the job becomes unsearchable within 10 seconds, but it may take
              * up to 5 minutes.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2169,7 +2169,7 @@ declare namespace gapi.client {
              * Retrieves the specified job, whose status is OPEN or recently EXPIRED
              * within the last 90 days.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2201,7 +2201,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Job>;
             /** Lists jobs by filter. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2504,7 +2504,7 @@ declare namespace gapi.client {
              * Completes the specified prefix with keyword suggestions.
              * Intended for use by a job search auto-complete search box.
              */
-            complete(request: {
+            complete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

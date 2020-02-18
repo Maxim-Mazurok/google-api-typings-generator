@@ -58,7 +58,7 @@ declare namespace gapi.client {
         }
         interface LicenseAssignmentsResource {
             /** Revoke a license. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -86,7 +86,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Get a specific user's license by product SKU. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -158,7 +158,7 @@ declare namespace gapi.client {
             },
             body: LicenseAssignmentInsert): Request<LicenseAssignment>;
             /** List all users assigned licenses for a specific product SKU. */
-            listForProduct(request: {
+            listForProduct(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -192,7 +192,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LicenseAssignmentList>;
             /** List all users assigned licenses for a specific product SKU. */
-            listForProductAndSku(request: {
+            listForProductAndSku(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**

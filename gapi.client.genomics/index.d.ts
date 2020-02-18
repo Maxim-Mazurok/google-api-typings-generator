@@ -299,7 +299,7 @@ declare namespace gapi.client {
              *
              * &#42; `genomics.operations.get`
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -331,7 +331,7 @@ declare namespace gapi.client {
              *
              * &#42; `genomics.operations.list`
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

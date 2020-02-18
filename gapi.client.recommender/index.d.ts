@@ -252,7 +252,7 @@ declare namespace gapi.client {
              * Gets the requested recommendation. Requires the recommender.&#42;.get
              * IAM permission for the specified recommender.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -282,7 +282,7 @@ declare namespace gapi.client {
              * Lists recommendations for a Cloud project. Requires the recommender.&#42;.list
              * IAM permission for the specified recommender.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

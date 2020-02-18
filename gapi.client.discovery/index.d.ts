@@ -268,7 +268,7 @@ declare namespace gapi.client {
         }
         interface ApisResource {
             /** Retrieve the description of a particular version of an api. */
-            getRest(request: {
+            getRest(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The name of the API. */
@@ -289,7 +289,7 @@ declare namespace gapi.client {
                 version: string;
             }): Request<RestDescription>;
             /** Retrieve the list of APIs supported at this endpoint. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

@@ -1214,7 +1214,7 @@ declare namespace gapi.client {
         }
         interface BackupRunsResource {
             /** Deletes the backup taken by a backup run. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1249,7 +1249,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Retrieves a resource containing information about a backup run. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1346,7 +1346,7 @@ declare namespace gapi.client {
              * Lists all backup runs associated with a given instance and configuration in
              * the reverse chronological order of the backup initiation time.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1384,7 +1384,7 @@ declare namespace gapi.client {
         }
         interface DatabasesResource {
             /** Deletes a database from a Cloud SQL instance. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1418,7 +1418,7 @@ declare namespace gapi.client {
              * Retrieves a resource containing information about a database inside a Cloud
              * SQL instance.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1512,7 +1512,7 @@ declare namespace gapi.client {
             },
             body: Database): Request<Operation>;
             /** Lists databases in the specified Cloud SQL instance. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1682,7 +1682,7 @@ declare namespace gapi.client {
         }
         interface FlagsResource {
             /** List all available database flags for Cloud SQL instances. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1720,7 +1720,7 @@ declare namespace gapi.client {
              * operation replaces that version. There cannot be more than one CA version
              * waiting to be rotated in.
              */
-            addServerCa(request: {
+            addServerCa(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1815,7 +1815,7 @@ declare namespace gapi.client {
             },
             body: InstancesCloneRequest): Request<Operation>;
             /** Deletes a Cloud SQL instance. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2030,7 +2030,7 @@ declare namespace gapi.client {
             },
             body: InstancesFailoverRequest): Request<Operation>;
             /** Retrieves a resource containing information about a Cloud SQL instance. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2184,7 +2184,7 @@ declare namespace gapi.client {
             },
             body: DatabaseInstance): Request<Operation>;
             /** Lists instances under a given project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2236,7 +2236,7 @@ declare namespace gapi.client {
              * yet used to sign a certificate, and a CA used to sign a certificate that
              * has previously rotated out.
              */
-            listServerCas(request: {
+            listServerCas(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2328,7 +2328,7 @@ declare namespace gapi.client {
             },
             body: DatabaseInstance): Request<Operation>;
             /** Promotes the read replica instance to be a stand-alone Cloud SQL instance. */
-            promoteReplica(request: {
+            promoteReplica(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2360,7 +2360,7 @@ declare namespace gapi.client {
              * Deletes all client certificates and generates a new server SSL certificate
              * for the instance.
              */
-            resetSslConfig(request: {
+            resetSslConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2394,7 +2394,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Restarts a Cloud SQL instance. */
-            restart(request: {
+            restart(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2546,7 +2546,7 @@ declare namespace gapi.client {
             },
             body: InstancesRotateServerCaRequest): Request<Operation>;
             /** Starts the replication in the read replica instance. */
-            startReplica(request: {
+            startReplica(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2575,7 +2575,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Stops the replication in the read replica instance. */
-            stopReplica(request: {
+            stopReplica(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2726,7 +2726,7 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /** Retrieves an instance operation that has been performed on an instance. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2758,7 +2758,7 @@ declare namespace gapi.client {
              * Lists all instance operations that have been performed on the given Cloud
              * SQL instance in the reverse chronological order of the start time.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2856,7 +2856,7 @@ declare namespace gapi.client {
             },
             body: SqlInstancesRescheduleMaintenanceRequestBody): Request<Operation>;
             /** Start External master migration. */
-            startExternalSync(request: {
+            startExternalSync(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2887,7 +2887,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Verify External master external sync settings. */
-            verifyExternalSyncSettings(request: {
+            verifyExternalSyncSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2993,7 +2993,7 @@ declare namespace gapi.client {
              * Deletes the SSL certificate. For First Generation instances, the
              * certificate remains valid until the instance is restarted.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3028,7 +3028,7 @@ declare namespace gapi.client {
              * (required for usage).  The private key must be saved from the response to
              * initial creation.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3123,7 +3123,7 @@ declare namespace gapi.client {
             },
             body: SslCertsInsertRequest): Request<SslCertsInsertResponse>;
             /** Lists all of the current SSL certificates for the instance. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3158,7 +3158,7 @@ declare namespace gapi.client {
              * db-n1-standard-1. For related information, see <a
              * href="/sql/pricing">Pricing</a>.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3187,7 +3187,7 @@ declare namespace gapi.client {
         }
         interface UsersResource {
             /** Deletes a user from a Cloud SQL instance. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3280,7 +3280,7 @@ declare namespace gapi.client {
             },
             body: User): Request<Operation>;
             /** Lists users in the specified Cloud SQL instance. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

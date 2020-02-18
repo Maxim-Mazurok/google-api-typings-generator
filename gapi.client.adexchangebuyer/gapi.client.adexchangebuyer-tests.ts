@@ -125,7 +125,7 @@ gapi.load('client', () => {
             buyerCreativeId: "Test string",
         });
         /** Submit a new creative. */
-        await gapi.client.adexchangebuyer.creatives.insert(, {
+        await gapi.client.adexchangebuyer.creatives.insert({} , {
             accountId: 42,
             adChoicesDestinationUrl: "Test string",
             adTechnologyProviders: {
@@ -1079,7 +1079,7 @@ gapi.load('client', () => {
             proposalId: "Test string",
         });
         /** Create the given list of proposals */
-        await gapi.client.adexchangebuyer.proposals.insert(, {
+        await gapi.client.adexchangebuyer.proposals.insert({} , {
             proposals: [
                 {
                     billedBuyer: {

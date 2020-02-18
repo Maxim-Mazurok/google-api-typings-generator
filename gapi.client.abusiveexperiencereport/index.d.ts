@@ -59,7 +59,7 @@ declare namespace gapi.client {
         }
         interface SitesResource {
             /** Gets a site's Abusive Experience Report summary. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -93,7 +93,7 @@ declare namespace gapi.client {
         }
         interface ViolatingSitesResource {
             /** Lists sites that are failing in the Abusive Experience Report. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

@@ -3309,7 +3309,7 @@ declare namespace gapi.client {
              * The caller must specify the spreadsheet ID and the developer metadata's
              * unique metadataId.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3718,7 +3718,7 @@ declare namespace gapi.client {
              * Returns one or more ranges of values from a spreadsheet.
              * The caller must specify the spreadsheet ID and one or more ranges.
              */
-            batchGet(request: {
+            batchGet(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4019,7 +4019,7 @@ declare namespace gapi.client {
              * Returns a range of values from a spreadsheet.
              * The caller must specify the spreadsheet ID and a range.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4333,7 +4333,7 @@ declare namespace gapi.client {
              * return only the portions of the spreadsheet that intersect the requested
              * ranges. Ranges are specified using A1 notation.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

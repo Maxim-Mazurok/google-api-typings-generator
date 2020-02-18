@@ -877,7 +877,7 @@ declare namespace gapi.client {
             },
             body: LogExclusion): Request<LogExclusion>;
             /** Deletes an exclusion. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -911,7 +911,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the description of an exclusion. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -945,7 +945,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogExclusion>;
             /** Lists all the exclusions in a parent resource. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1075,7 +1075,7 @@ declare namespace gapi.client {
              * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
              * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1110,7 +1110,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1244,7 +1244,7 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
             /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1278,7 +1278,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a sink. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1312,7 +1312,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogSink>;
             /** Lists sinks. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1758,7 +1758,7 @@ declare namespace gapi.client {
             },
             body: LogExclusion): Request<LogExclusion>;
             /** Deletes an exclusion. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1792,7 +1792,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the description of an exclusion. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1826,7 +1826,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogExclusion>;
             /** Lists all the exclusions in a parent resource. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2026,7 +2026,7 @@ declare namespace gapi.client {
             },
             body: LogExclusion): Request<LogExclusion>;
             /** Deletes an exclusion. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2060,7 +2060,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the description of an exclusion. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2094,7 +2094,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogExclusion>;
             /** Lists all the exclusions in a parent resource. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2224,7 +2224,7 @@ declare namespace gapi.client {
              * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
              * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2259,7 +2259,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2393,7 +2393,7 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
             /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2427,7 +2427,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a sink. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2461,7 +2461,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogSink>;
             /** Lists sinks. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2724,7 +2724,7 @@ declare namespace gapi.client {
              * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
              * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2759,7 +2759,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2804,7 +2804,7 @@ declare namespace gapi.client {
         }
         interface MonitoredResourceDescriptorsResource {
             /** Lists the descriptors for monitored resource types used by Logging. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2914,7 +2914,7 @@ declare namespace gapi.client {
             },
             body: LogExclusion): Request<LogExclusion>;
             /** Deletes an exclusion. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2948,7 +2948,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the description of an exclusion. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2982,7 +2982,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogExclusion>;
             /** Lists all the exclusions in a parent resource. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3112,7 +3112,7 @@ declare namespace gapi.client {
              * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
              * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3147,7 +3147,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3281,7 +3281,7 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
             /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3315,7 +3315,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a sink. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3349,7 +3349,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogSink>;
             /** Lists sinks. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3607,7 +3607,7 @@ declare namespace gapi.client {
              * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once
              * configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router for more information.
              */
-            getCmekSettings(request: {
+            getCmekSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3807,7 +3807,7 @@ declare namespace gapi.client {
             },
             body: LogExclusion): Request<LogExclusion>;
             /** Deletes an exclusion. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3841,7 +3841,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the description of an exclusion. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3875,7 +3875,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogExclusion>;
             /** Lists all the exclusions in a parent resource. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4005,7 +4005,7 @@ declare namespace gapi.client {
              * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
              * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4040,7 +4040,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4149,7 +4149,7 @@ declare namespace gapi.client {
             },
             body: LogMetric): Request<LogMetric>;
             /** Deletes a logs-based metric. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4179,7 +4179,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a logs-based metric. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4209,7 +4209,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogMetric>;
             /** Lists logs-based metrics. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4406,7 +4406,7 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
             /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4440,7 +4440,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a sink. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4474,7 +4474,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogSink>;
             /** Lists sinks. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4824,7 +4824,7 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
             /** Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4858,7 +4858,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a sink. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4892,7 +4892,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LogSink>;
             /** Lists sinks. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5045,7 +5045,7 @@ declare namespace gapi.client {
              * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once
              * configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router for more information.
              */
-            getCmekSettings(request: {
+            getCmekSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

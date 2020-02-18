@@ -199,7 +199,7 @@ declare namespace gapi.client {
         }
         interface VoicesResource {
             /** Returns a list of Voice supported for synthesis. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

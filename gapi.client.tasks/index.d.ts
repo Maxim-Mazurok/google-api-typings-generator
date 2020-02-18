@@ -105,7 +105,7 @@ declare namespace gapi.client {
         }
         interface TasklistsResource {
             /** Deletes the authenticated user's specified task list. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -124,7 +124,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns the authenticated user's specified task list. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -182,7 +182,7 @@ declare namespace gapi.client {
             },
             body: TaskList): Request<TaskList>;
             /** Returns all the authenticated user's task lists. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -288,7 +288,7 @@ declare namespace gapi.client {
              * Clears all completed tasks from the specified task list. The affected tasks will be marked as 'hidden' and no longer be returned by default when
              * retrieving all tasks for a task list.
              */
-            clear(request: {
+            clear(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -307,7 +307,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Deletes the specified task from the task list. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -328,7 +328,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns the specified task. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -397,7 +397,7 @@ declare namespace gapi.client {
             },
             body: Task): Request<Task>;
             /** Returns all tasks in the specified task list. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by completion date. */
@@ -442,7 +442,7 @@ declare namespace gapi.client {
              * Moves the specified task to another position in the task list. This can include putting it as a child task under a new parent and/or move it to a
              * different position among its sibling tasks.
              */
-            move(request: {
+            move(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

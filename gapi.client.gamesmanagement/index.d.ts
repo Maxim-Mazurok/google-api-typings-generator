@@ -165,7 +165,7 @@ declare namespace gapi.client {
              * Resets the achievement with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your
              * application.
              */
-            reset(request: {
+            reset(request?: {
                 /** The ID of the achievement used by this method. */
                 achievementId: string;
                 /** Data format for the response. */
@@ -187,7 +187,7 @@ declare namespace gapi.client {
              * Resets all achievements for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for
              * your application.
              */
-            resetAll(request: {
+            resetAll(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -204,7 +204,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AchievementResetAllResponse>;
             /** Resets all draft achievements for all players. This method is only available to user accounts for your developer console. */
-            resetAllForAllPlayers(request: {
+            resetAllForAllPlayers(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -224,7 +224,7 @@ declare namespace gapi.client {
              * Resets the achievement with the given ID for all players. This method is only available to user accounts for your developer console. Only draft
              * achievements can be reset.
              */
-            resetForAllPlayers(request: {
+            resetForAllPlayers(request?: {
                 /** The ID of the achievement used by this method. */
                 achievementId: string;
                 /** Data format for the response. */
@@ -284,7 +284,7 @@ declare namespace gapi.client {
         }
         interface ApplicationsResource {
             /** Get the list of players hidden from the given application. This method is only available to user accounts for your developer console. */
-            listHidden(request: {
+            listHidden(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The application ID from the Google Play developer console. */
@@ -315,7 +315,7 @@ declare namespace gapi.client {
              * Resets all player progress on the event with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester
              * accounts for your application.
              */
-            reset(request: {
+            reset(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the event. */
@@ -337,7 +337,7 @@ declare namespace gapi.client {
              * Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your
              * application.
              */
-            resetAll(request: {
+            resetAll(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -354,7 +354,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Resets all draft events for all players. This method is only available to user accounts for your developer console. */
-            resetAllForAllPlayers(request: {
+            resetAllForAllPlayers(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -374,7 +374,7 @@ declare namespace gapi.client {
              * Resets the event with the given ID for all players. This method is only available to user accounts for your developer console. Only draft events can be
              * reset.
              */
-            resetForAllPlayers(request: {
+            resetForAllPlayers(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the event. */
@@ -434,7 +434,7 @@ declare namespace gapi.client {
         }
         interface PlayersResource {
             /** Hide the given player's leaderboard scores from the given application. This method is only available to user accounts for your developer console. */
-            hide(request: {
+            hide(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The application ID from the Google Play developer console. */
@@ -455,7 +455,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Unhide the given player's leaderboard scores from the given application. This method is only available to user accounts for your developer console. */
-            unhide(request: {
+            unhide(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The application ID from the Google Play developer console. */
@@ -481,7 +481,7 @@ declare namespace gapi.client {
              * Reset all rooms for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your
              * application.
              */
-            reset(request: {
+            reset(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -501,7 +501,7 @@ declare namespace gapi.client {
              * Deletes rooms where the only room participants are from whitelisted tester accounts for your application. This method is only available to user
              * accounts for your developer console.
              */
-            resetForAllPlayers(request: {
+            resetForAllPlayers(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -523,7 +523,7 @@ declare namespace gapi.client {
              * Resets scores for the leaderboard with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester
              * accounts for your application.
              */
-            reset(request: {
+            reset(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -545,7 +545,7 @@ declare namespace gapi.client {
              * Resets all scores for all leaderboards for the currently authenticated players. This method is only accessible to whitelisted tester accounts for your
              * application.
              */
-            resetAll(request: {
+            resetAll(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -562,7 +562,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PlayerScoreResetAllResponse>;
             /** Resets scores for all draft leaderboards for all players. This method is only available to user accounts for your developer console. */
-            resetAllForAllPlayers(request: {
+            resetAllForAllPlayers(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -582,7 +582,7 @@ declare namespace gapi.client {
              * Resets scores for the leaderboard with the given ID for all players. This method is only available to user accounts for your developer console. Only
              * draft leaderboards can be reset.
              */
-            resetForAllPlayers(request: {
+            resetForAllPlayers(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -642,7 +642,7 @@ declare namespace gapi.client {
         }
         interface TurnBasedMatchesResource {
             /** Reset all turn-based match data for a user. This method is only accessible to whitelisted tester accounts for your application. */
-            reset(request: {
+            reset(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -662,7 +662,7 @@ declare namespace gapi.client {
              * Deletes turn-based matches where the only match participants are from whitelisted tester accounts for your application. This method is only available
              * to user accounts for your developer console.
              */
-            resetForAllPlayers(request: {
+            resetForAllPlayers(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

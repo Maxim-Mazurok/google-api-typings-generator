@@ -205,7 +205,7 @@ declare namespace gapi.client {
         }
         interface ClaimsResource {
             /** Search through fact-checked claims. */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -320,7 +320,7 @@ declare namespace gapi.client {
             },
             body: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage): Request<GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage>;
             /** Delete all `ClaimReview` markup on a page. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -347,7 +347,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Get all `ClaimReview` markup on a page. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -377,7 +377,7 @@ declare namespace gapi.client {
              * List the `ClaimReview` markup pages for a specific URL or for an
              * organization.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

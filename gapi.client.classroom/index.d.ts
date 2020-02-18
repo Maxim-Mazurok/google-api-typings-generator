@@ -1247,7 +1247,7 @@ declare namespace gapi.client {
              * requesting user or course (for example, if a user not in a domain
              * attempts to delete a domain-scoped alias).
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1291,7 +1291,7 @@ declare namespace gapi.client {
              * course or for access errors.
              * &#42; `NOT_FOUND` if the course does not exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1432,7 +1432,7 @@ declare namespace gapi.client {
              * deleted.
              * &#42; `NOT_FOUND` if no course exists with the requested ID.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1477,7 +1477,7 @@ declare namespace gapi.client {
              * &#42; `INVALID_ARGUMENT` if the request is malformed.
              * &#42; `NOT_FOUND` if the requested course or announcement does not exist.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1522,7 +1522,7 @@ declare namespace gapi.client {
              * &#42; `INVALID_ARGUMENT` if the request is malformed.
              * &#42; `NOT_FOUND` if the requested course does not exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1785,7 +1785,7 @@ declare namespace gapi.client {
              * &#42; `NOT_FOUND` if the requested course, course work, or student submission
              * does not exist.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1835,7 +1835,7 @@ declare namespace gapi.client {
              * &#42; `INVALID_ARGUMENT` if the request is malformed.
              * &#42; `NOT_FOUND` if the requested course does not exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2496,7 +2496,7 @@ declare namespace gapi.client {
              * deleted.
              * &#42; `NOT_FOUND` if no course exists with the requested ID.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2541,7 +2541,7 @@ declare namespace gapi.client {
              * &#42; `INVALID_ARGUMENT` if the request is malformed.
              * &#42; `NOT_FOUND` if the requested course or course work does not exist.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2586,7 +2586,7 @@ declare namespace gapi.client {
              * &#42; `INVALID_ARGUMENT` if the request is malformed.
              * &#42; `NOT_FOUND` if the requested course does not exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2966,7 +2966,7 @@ declare namespace gapi.client {
              * &#42; `NOT_FOUND` if no student of this course has the requested ID or if the
              * course does not exist.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3015,7 +3015,7 @@ declare namespace gapi.client {
              * &#42; `NOT_FOUND` if no student of this course has the requested ID or if the
              * course does not exist.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3063,7 +3063,7 @@ declare namespace gapi.client {
              * &#42; `NOT_FOUND` if the course does not exist.
              * &#42; `PERMISSION_DENIED` for access errors.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3203,7 +3203,7 @@ declare namespace gapi.client {
              * &#42; `FAILED_PRECONDITION` if the requested ID belongs to the primary teacher
              * of this course.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3252,7 +3252,7 @@ declare namespace gapi.client {
              * &#42; `NOT_FOUND` if no teacher of this course has the requested ID or if the
              * course does not exist.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3300,7 +3300,7 @@ declare namespace gapi.client {
              * &#42; `NOT_FOUND` if the course does not exist.
              * &#42; `PERMISSION_DENIED` for access errors.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3433,7 +3433,7 @@ declare namespace gapi.client {
              * deleted.
              * &#42; `NOT_FOUND` if no course or topic exists with the requested ID.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3475,7 +3475,7 @@ declare namespace gapi.client {
              * &#42; `INVALID_ARGUMENT` if the request is malformed.
              * &#42; `NOT_FOUND` if the requested course or topic does not exist.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3513,7 +3513,7 @@ declare namespace gapi.client {
              * &#42; `INVALID_ARGUMENT` if the request is malformed.
              * &#42; `NOT_FOUND` if the requested course does not exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3744,7 +3744,7 @@ declare namespace gapi.client {
              * requested course or for access errors.
              * &#42; `NOT_FOUND` if no course exists with the requested ID.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3783,7 +3783,7 @@ declare namespace gapi.client {
              * requested course or for access errors.
              * &#42; `NOT_FOUND` if no course exists with the requested ID.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3824,7 +3824,7 @@ declare namespace gapi.client {
              * &#42; `INVALID_ARGUMENT` if the query argument is malformed.
              * &#42; `NOT_FOUND` if any users specified in the query arguments do not exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4106,7 +4106,7 @@ declare namespace gapi.client {
              * &#42; UserGroupsMembershipLimitReached
              * &#42; `NOT_FOUND` if no invitation exists with the requested ID.
              */
-            accept(request: {
+            accept(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4206,7 +4206,7 @@ declare namespace gapi.client {
              * requested invitation or for access errors.
              * &#42; `NOT_FOUND` if no invitation exists with the requested ID.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4241,7 +4241,7 @@ declare namespace gapi.client {
              * requested invitation or for access errors.
              * &#42; `NOT_FOUND` if no invitation exists with the requested ID.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4278,7 +4278,7 @@ declare namespace gapi.client {
              *
              * &#42; `PERMISSION_DENIED` for access errors.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4422,7 +4422,7 @@ declare namespace gapi.client {
              * Deletes a `Registration`, causing Classroom to stop sending notifications
              * for that `Registration`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4553,7 +4553,7 @@ declare namespace gapi.client {
              * `invitation_id`. May also be returned if the student exists, but the
              * requesting user does not have access to see that student.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4599,7 +4599,7 @@ declare namespace gapi.client {
              * &#42; `NOT_FOUND` if a `student_id` is specified, and its format can be
              * recognized, but Classroom has no record of that student.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4787,7 +4787,7 @@ declare namespace gapi.client {
              * the requested `student_id`, but no `Guardian` record exists for that
              * student with the provided `guardian_id`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4838,7 +4838,7 @@ declare namespace gapi.client {
              * the requested `student_id`, but no `Guardian` record exists for that
              * student that matches the provided `guardian_id`.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4894,7 +4894,7 @@ declare namespace gapi.client {
              * &#42; `NOT_FOUND` if a `student_id` is specified, and its format can be
              * recognized, but Classroom has no record of that student.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4963,7 +4963,7 @@ declare namespace gapi.client {
              * this user profile, if no profile exists with the requested ID, or for
              * access errors.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

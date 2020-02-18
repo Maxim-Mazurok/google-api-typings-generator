@@ -1336,7 +1336,7 @@ declare namespace gapi.client {
              *
              * &#42; `NOT_FOUND`: The requested `ActionResult` is not in the cache.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1928,7 +1928,7 @@ declare namespace gapi.client {
              *
              * &#42; `NOT_FOUND`: The requested tree root is not present in the CAS.
              */
-            getTree(request: {
+            getTree(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2063,7 +2063,7 @@ declare namespace gapi.client {
              * &#42; Execution only endpoints should return ExecutionCapabilities.
              * &#42; CAS + Action Cache only endpoints should return CacheCapabilities.
              */
-            getCapabilities(request: {
+            getCapabilities(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

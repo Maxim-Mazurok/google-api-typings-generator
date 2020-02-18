@@ -25,7 +25,7 @@ declare namespace gapi.client {
         }
         interface ArchiveResource {
             /** Inserts a new mail into the archive of the Google group. */
-            insert(request: {
+            insert(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

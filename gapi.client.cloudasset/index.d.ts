@@ -983,7 +983,7 @@ declare namespace gapi.client {
             },
             body: CreateFeedRequest): Request<Feed>;
             /** Deletes an asset feed. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1015,7 +1015,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets details about an asset feed. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1047,7 +1047,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Feed>;
             /** Lists all asset feeds in a parent project/folder/organization. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1156,7 +1156,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1193,7 +1193,7 @@ declare namespace gapi.client {
              * If a specified asset does not exist, this API returns an INVALID_ARGUMENT
              * error.
              */
-            batchGetAssetsHistory(request: {
+            batchGetAssetsHistory(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

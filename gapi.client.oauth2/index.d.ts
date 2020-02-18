@@ -72,7 +72,7 @@ declare namespace gapi.client {
             verified_email?: boolean;
         }
         interface MeResource {
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -93,7 +93,7 @@ declare namespace gapi.client {
             me: MeResource;
         }
         interface UserinfoResource {
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

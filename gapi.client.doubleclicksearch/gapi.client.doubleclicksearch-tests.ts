@@ -42,7 +42,7 @@ gapi.load('client', () => {
             startRow: 42,
         });
         /** Inserts a batch of new conversions into DoubleClick Search. */
-        await gapi.client.doubleclicksearch.conversion.insert(, {
+        await gapi.client.doubleclicksearch.conversion.insert({} , {
             conversion: [
                 {
                     adGroupId: "Test string",
@@ -146,7 +146,7 @@ gapi.load('client', () => {
             kind: "Test string",
         });
         /** Updates a batch of conversions in DoubleClick Search. */
-        await gapi.client.doubleclicksearch.conversion.update(, {
+        await gapi.client.doubleclicksearch.conversion.update({} , {
             conversion: [
                 {
                     adGroupId: "Test string",
@@ -194,7 +194,7 @@ gapi.load('client', () => {
             kind: "Test string",
         });
         /** Updates the availabilities of a batch of floodlight activities in DoubleClick Search. */
-        await gapi.client.doubleclicksearch.conversion.updateAvailability(, {
+        await gapi.client.doubleclicksearch.conversion.updateAvailability({} , {
             availabilities: [
                 {
                     advertiserId: "Test string",
@@ -206,7 +206,7 @@ gapi.load('client', () => {
                 }            ],
         });
         /** Generates and returns a report immediately. */
-        await gapi.client.doubleclicksearch.reports.generate(, {
+        await gapi.client.doubleclicksearch.reports.generate({} , {
             columns: [
                 {
                     columnName: "Test string",
@@ -289,7 +289,7 @@ gapi.load('client', () => {
             reportId: "Test string",
         });
         /** Inserts a report request into the reporting system. */
-        await gapi.client.doubleclicksearch.reports.request(, {
+        await gapi.client.doubleclicksearch.reports.request({} , {
             columns: [
                 {
                     columnName: "Test string",

@@ -135,7 +135,7 @@ declare namespace gapi.client {
              * Returns metadata about the search performed, metadata about the custom search engine used for the search, and the search results. Uses a small set of
              * url patterns.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Turns off the translation between zh-CN and zh-TW. */
@@ -222,7 +222,7 @@ declare namespace gapi.client {
         }
         interface CseResource {
             /** Returns metadata about the search performed, metadata about the custom search engine used for the search, and the search results. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Turns off the translation between zh-CN and zh-TW. */

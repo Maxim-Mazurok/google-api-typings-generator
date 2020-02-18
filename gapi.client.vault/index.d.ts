@@ -557,7 +557,7 @@ declare namespace gapi.client {
             },
             body: Export): Request<Export>;
             /** Deletes an Export. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -586,7 +586,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets an Export. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -615,7 +615,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Export>;
             /** Lists Exports. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -715,7 +715,7 @@ declare namespace gapi.client {
              * Removes a HeldAccount from a hold. If this request leaves the hold with
              * no held accounts, the hold will not apply to any accounts.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -751,7 +751,7 @@ declare namespace gapi.client {
              * <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>
              * to enumerate its members.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -902,7 +902,7 @@ declare namespace gapi.client {
             },
             body: Hold): Request<Hold>;
             /** Removes a hold by ID. This will release any HeldAccounts on this Hold. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -931,7 +931,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a hold by ID. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -965,7 +965,7 @@ declare namespace gapi.client {
              * Lists holds within a matter. An empty page token in ListHoldsResponse
              * denotes no more holds to list.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1197,7 +1197,7 @@ declare namespace gapi.client {
             },
             body: SavedQuery): Request<SavedQuery>;
             /** Deletes a saved query by Id. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1229,7 +1229,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Retrieves a saved query by Id. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1264,7 +1264,7 @@ declare namespace gapi.client {
              * Lists saved queries within a matter. An empty page token in
              * ListSavedQueriesResponse denotes no more saved queries to list.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1471,7 +1471,7 @@ declare namespace gapi.client {
             },
             body: Matter): Request<Matter>;
             /** Deletes the specified matter. Returns matter with updated state. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1498,7 +1498,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Matter>;
             /** Gets the specified matter. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1527,7 +1527,7 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<Matter>;
             /** Lists matters the user has access to. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1805,7 +1805,7 @@ declare namespace gapi.client {
              * operation. If the server doesn't support this method, it returns
              * `google.rpc.Code.UNIMPLEMENTED`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

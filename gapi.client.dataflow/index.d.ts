@@ -2602,7 +2602,7 @@ declare namespace gapi.client {
              * `projects.jobs.messages.list` is not recommended, as you can only request
              * the status of jobs that are running in `us-central1`.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2785,7 +2785,7 @@ declare namespace gapi.client {
         }
         interface JobsResource {
             /** List the jobs of a project across all regions. */
-            aggregated(request: {
+            aggregated(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2925,7 +2925,7 @@ declare namespace gapi.client {
              * `projects.jobs.get` is not recommended, as you can only get the state of
              * jobs that are running in `us-central1`.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2970,7 +2970,7 @@ declare namespace gapi.client {
              * `projects.jobs.getMetrics` is not recommended, as you can only request the
              * status of jobs that are running in `us-central1`.
              */
-            getMetrics(request: {
+            getMetrics(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3019,7 +3019,7 @@ declare namespace gapi.client {
              * `projects.jobs.list` is not recommended, as you can only get the list of
              * jobs that are running in `us-central1`.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3376,7 +3376,7 @@ declare namespace gapi.client {
              * `projects.jobs.messages.list` is not recommended, as you can only request
              * the status of jobs that are running in `us-central1`.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3675,7 +3675,7 @@ declare namespace gapi.client {
              * `projects.jobs.get` is not recommended, as you can only get the state of
              * jobs that are running in `us-central1`.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3720,7 +3720,7 @@ declare namespace gapi.client {
              * `projects.jobs.getMetrics` is not recommended, as you can only request the
              * status of jobs that are running in `us-central1`.
              */
-            getMetrics(request: {
+            getMetrics(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3769,7 +3769,7 @@ declare namespace gapi.client {
              * `projects.jobs.list` is not recommended, as you can only get the list of
              * jobs that are running in `us-central1`.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3907,7 +3907,7 @@ declare namespace gapi.client {
              * schema information from DataCatalog, will validate that the query
              * analyzes properly as well.
              */
-            validate(request: {
+            validate(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4012,7 +4012,7 @@ declare namespace gapi.client {
             },
             body: CreateJobFromTemplateRequest): Request<Job>;
             /** Get the template associated with a template. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4295,7 +4295,7 @@ declare namespace gapi.client {
             },
             body: CreateJobFromTemplateRequest): Request<Job>;
             /** Get the template associated with a template. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

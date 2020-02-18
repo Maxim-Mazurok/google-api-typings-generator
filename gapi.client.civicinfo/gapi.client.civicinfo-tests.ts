@@ -21,7 +21,7 @@ gapi.load('client', () => {
             },
         });
         /** List of available elections to query. */
-        await gapi.client.civicinfo.elections.electionQuery(, {
+        await gapi.client.civicinfo.elections.electionQuery({} , {
             contextParams: {
                 clientProfile: "Test string",
             },

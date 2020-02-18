@@ -1049,7 +1049,7 @@ declare namespace gapi.client {
              * get all occurrences referencing your `Note` across all your customer
              * projects.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1165,7 +1165,7 @@ declare namespace gapi.client {
             },
             body: Note): Request<Note>;
             /** Deletes the given `Note` from the system. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1195,7 +1195,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns the requested `Note`. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1268,7 +1268,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists all `Notes` for a given project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1532,7 +1532,7 @@ declare namespace gapi.client {
              * Deletes the given `Occurrence` from the system. Use this when
              * an `Occurrence` is no longer applicable for the given resource.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1562,7 +1562,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns the requested `Occurrence`. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1635,7 +1635,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Gets the `Note` attached to the given `Occurrence`. */
-            getNotes(request: {
+            getNotes(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1665,7 +1665,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Note>;
             /** Gets a summary of the number and severity of occurrences. */
-            getVulnerabilitySummary(request: {
+            getVulnerabilitySummary(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1694,7 +1694,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GetVulnzOccurrencesSummaryResponse>;
             /** Lists active `Occurrences` for a given project matching the filters. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2011,7 +2011,7 @@ declare namespace gapi.client {
         }
         interface ScanConfigsResource {
             /** Gets a specific scan configuration for a project. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2041,7 +2041,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ScanConfig>;
             /** Lists scan configurations for a project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2152,7 +2152,7 @@ declare namespace gapi.client {
              * get all occurrences referencing your `Note` across all your customer
              * projects.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2268,7 +2268,7 @@ declare namespace gapi.client {
             },
             body: Note): Request<Note>;
             /** Deletes the given `Note` from the system. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2298,7 +2298,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns the requested `Note`. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2371,7 +2371,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists all `Notes` for a given project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

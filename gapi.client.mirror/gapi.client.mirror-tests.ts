@@ -58,7 +58,7 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /** Inserts a new contact. */
-        await gapi.client.mirror.contacts.insert(, {
+        await gapi.client.mirror.contacts.insert({} , {
             acceptCommands: [
                 {
                     type: "Test string",
@@ -141,7 +141,7 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /** Creates a new subscription. */
-        await gapi.client.mirror.subscriptions.insert(, {
+        await gapi.client.mirror.subscriptions.insert({} , {
             callbackUrl: "Test string",
             collection: "Test string",
             id: "Test string",
@@ -237,7 +237,7 @@ gapi.load('client', () => {
             itemId: "Test string",
         });
         /** Inserts a new item into the timeline. */
-        await gapi.client.mirror.timeline.insert(, {
+        await gapi.client.mirror.timeline.insert({} , {
             attachments: [
                 {
                     contentType: "Test string",

@@ -483,7 +483,7 @@ declare namespace gapi.client {
         }
         interface GroupsResource {
             /** Gets one resource by id. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

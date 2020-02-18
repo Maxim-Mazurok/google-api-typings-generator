@@ -34,7 +34,7 @@ declare namespace gapi.client {
              * A list of matched entities will be returned in response, which will be in
              * JSON-LD format and compatible with http://schema.org
              */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

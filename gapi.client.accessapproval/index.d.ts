@@ -319,7 +319,7 @@ declare namespace gapi.client {
             },
             body: DismissApprovalRequestMessage): Request<ApprovalRequest>;
             /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -350,7 +350,7 @@ declare namespace gapi.client {
              * Approval requests can be filtered by state (pending, active, dismissed).
              * The order is reverse chronological.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -405,7 +405,7 @@ declare namespace gapi.client {
              * hierarchy, then Access Approval will still be enabled at this level as
              * the settings are inherited.
              */
-            deleteAccessApprovalSettings(request: {
+            deleteAccessApprovalSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -432,7 +432,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the settings associated with a project, folder, or organization. */
-            getAccessApprovalSettings(request: {
+            getAccessApprovalSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -689,7 +689,7 @@ declare namespace gapi.client {
             },
             body: DismissApprovalRequestMessage): Request<ApprovalRequest>;
             /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -720,7 +720,7 @@ declare namespace gapi.client {
              * Approval requests can be filtered by state (pending, active, dismissed).
              * The order is reverse chronological.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -775,7 +775,7 @@ declare namespace gapi.client {
              * hierarchy, then Access Approval will still be enabled at this level as
              * the settings are inherited.
              */
-            deleteAccessApprovalSettings(request: {
+            deleteAccessApprovalSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -802,7 +802,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the settings associated with a project, folder, or organization. */
-            getAccessApprovalSettings(request: {
+            getAccessApprovalSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1059,7 +1059,7 @@ declare namespace gapi.client {
             },
             body: DismissApprovalRequestMessage): Request<ApprovalRequest>;
             /** Gets an approval request. Returns NOT_FOUND if the request does not exist. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1090,7 +1090,7 @@ declare namespace gapi.client {
              * Approval requests can be filtered by state (pending, active, dismissed).
              * The order is reverse chronological.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1145,7 +1145,7 @@ declare namespace gapi.client {
              * hierarchy, then Access Approval will still be enabled at this level as
              * the settings are inherited.
              */
-            deleteAccessApprovalSettings(request: {
+            deleteAccessApprovalSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1172,7 +1172,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the settings associated with a project, folder, or organization. */
-            getAccessApprovalSettings(request: {
+            getAccessApprovalSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

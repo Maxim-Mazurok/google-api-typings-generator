@@ -1210,7 +1210,7 @@ declare namespace gapi.client {
             },
             body: AutoscalingPolicy): Request<AutoscalingPolicy>;
             /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1243,7 +1243,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Retrieves autoscaling policy. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1304,7 +1304,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists autoscaling policies in the project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1539,7 +1539,7 @@ declare namespace gapi.client {
             },
             body: WorkflowTemplate): Request<WorkflowTemplate>;
             /** Deletes a workflow template. It does not cancel in-progress workflows. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1577,7 +1577,7 @@ declare namespace gapi.client {
                 version?: number;
             }): Request<{}>;
             /** Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1802,7 +1802,7 @@ declare namespace gapi.client {
             },
             body: WorkflowTemplate): Request<Operation>;
             /** Lists workflows that match the specified filter in the request. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2040,7 +2040,7 @@ declare namespace gapi.client {
             },
             body: AutoscalingPolicy): Request<AutoscalingPolicy>;
             /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2073,7 +2073,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Retrieves autoscaling policy. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2134,7 +2134,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists autoscaling policies in the project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2377,7 +2377,7 @@ declare namespace gapi.client {
             },
             body: Cluster): Request<Operation>;
             /** Deletes a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2484,7 +2484,7 @@ declare namespace gapi.client {
             },
             body: DiagnoseClusterRequest): Request<Operation>;
             /** Gets the resource representation for a cluster in a project. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2543,7 +2543,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists all regions/{region}/clusters in a project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2858,7 +2858,7 @@ declare namespace gapi.client {
             },
             body: CancelJobRequest): Request<Job>;
             /** Deletes the job from the project. If the job is active, the delete fails, and the response returns FAILED_PRECONDITION. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2889,7 +2889,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the resource representation for a job in a project. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2948,7 +2948,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists regions/{region}/jobs in a project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3198,7 +3198,7 @@ declare namespace gapi.client {
              * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
              * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
              */
-            cancel(request: {
+            cancel(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3228,7 +3228,7 @@ declare namespace gapi.client {
              * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
              * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3258,7 +3258,7 @@ declare namespace gapi.client {
              * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3319,7 +3319,7 @@ declare namespace gapi.client {
              * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
              * id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3483,7 +3483,7 @@ declare namespace gapi.client {
             },
             body: WorkflowTemplate): Request<WorkflowTemplate>;
             /** Deletes a workflow template. It does not cancel in-progress workflows. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3521,7 +3521,7 @@ declare namespace gapi.client {
                 version?: number;
             }): Request<{}>;
             /** Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3746,7 +3746,7 @@ declare namespace gapi.client {
             },
             body: WorkflowTemplate): Request<Operation>;
             /** Lists workflows that match the specified filter in the request. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

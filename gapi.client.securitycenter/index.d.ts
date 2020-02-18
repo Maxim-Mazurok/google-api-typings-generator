@@ -1110,7 +1110,7 @@ declare namespace gapi.client {
             },
             body: GroupAssetsRequest): Request<GroupAssetsResponse>;
             /** Lists an organization's assets. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1452,7 +1452,7 @@ declare namespace gapi.client {
              * an Operation.error value with a google.rpc.Status.code of 1,
              * corresponding to `Code.CANCELLED`.
              */
-            cancel(request: {
+            cancel(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1484,7 +1484,7 @@ declare namespace gapi.client {
              * operation. If the server doesn't support this method, it returns
              * `google.rpc.Code.UNIMPLEMENTED`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1515,7 +1515,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1553,7 +1553,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1742,7 +1742,7 @@ declare namespace gapi.client {
              * To list across all sources provide a `-` as the source id.
              * Example: /v1/organizations/{organization_id}/sources/-/findings
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2206,7 +2206,7 @@ declare namespace gapi.client {
             },
             body: Source): Request<Source>;
             /** Gets a source. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2267,7 +2267,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists all sources belonging to an organization. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2451,7 +2451,7 @@ declare namespace gapi.client {
         }
         interface OrganizationsResource {
             /** Gets the settings for an organization. */
-            getOrganizationSettings(request: {
+            getOrganizationSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

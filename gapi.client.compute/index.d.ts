@@ -10944,7 +10944,7 @@ declare namespace gapi.client {
         }
         interface AcceleratorTypesResource {
             /** Retrieves an aggregated list of accelerator types. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10994,7 +10994,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AcceleratorTypeAggregatedList>;
             /** Returns the specified accelerator type. */
-            get(request: {
+            get(request?: {
                 /** Name of the accelerator type to return. */
                 acceleratorType: string;
                 /** Data format for the response. */
@@ -11017,7 +11017,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<AcceleratorType>;
             /** Retrieves a list of accelerator types available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -11071,7 +11071,7 @@ declare namespace gapi.client {
         }
         interface AddressesResource {
             /** Retrieves an aggregated list of addresses. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -11121,7 +11121,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AddressAggregatedList>;
             /** Deletes the specified address resource. */
-            delete(request: {
+            delete(request?: {
                 /** Name of the address resource to delete. */
                 address: string;
                 /** Data format for the response. */
@@ -11155,7 +11155,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified address resource. */
-            get(request: {
+            get(request?: {
                 /** Name of the address resource to return. */
                 address: string;
                 /** Data format for the response. */
@@ -11244,7 +11244,7 @@ declare namespace gapi.client {
             },
             body: Address): Request<Operation>;
             /** Retrieves a list of addresses contained within the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -11298,7 +11298,7 @@ declare namespace gapi.client {
         }
         interface AutoscalersResource {
             /** Retrieves an aggregated list of autoscalers. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -11348,7 +11348,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AutoscalerAggregatedList>;
             /** Deletes the specified autoscaler. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the autoscaler to delete. */
@@ -11382,7 +11382,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Returns the specified autoscaler resource. Gets a list of available autoscalers by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the autoscaler to return. */
@@ -11471,7 +11471,7 @@ declare namespace gapi.client {
             },
             body: Autoscaler): Request<Operation>;
             /** Retrieves a list of autoscalers contained within the specified zone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -11734,7 +11734,7 @@ declare namespace gapi.client {
             },
             body: SignedUrlKey): Request<Operation>;
             /** Deletes the specified BackendBucket resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the BackendBucket resource to delete. */
@@ -11766,7 +11766,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Deletes a key for validating requests with signed URLs for this backend bucket. */
-            deleteSignedUrlKey(request: {
+            deleteSignedUrlKey(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the BackendBucket resource to which the Signed URL Key should be added. The name should conform to RFC1035. */
@@ -11800,7 +11800,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified BackendBucket resource. Gets a list of available backend buckets by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the BackendBucket resource to return. */
@@ -11883,7 +11883,7 @@ declare namespace gapi.client {
             },
             body: BackendBucket): Request<Operation>;
             /** Retrieves the list of BackendBucket resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -12136,7 +12136,7 @@ declare namespace gapi.client {
             },
             body: SignedUrlKey): Request<Operation>;
             /** Retrieves the list of all BackendService resources, regional and global, available to the specified project. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -12186,7 +12186,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<BackendServiceAggregatedList>;
             /** Deletes the specified BackendService resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the BackendService resource to delete. */
@@ -12218,7 +12218,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Deletes a key for validating requests with signed URLs for this backend service. */
-            deleteSignedUrlKey(request: {
+            deleteSignedUrlKey(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the BackendService resource to which the Signed URL Key should be added. The name should conform to RFC1035. */
@@ -12252,7 +12252,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified BackendService resource. Gets a list of available backend services. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the BackendService resource to return. */
@@ -12380,7 +12380,7 @@ declare namespace gapi.client {
             },
             body: BackendService): Request<Operation>;
             /** Retrieves the list of BackendService resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -12707,7 +12707,7 @@ declare namespace gapi.client {
             },
             body: DisksAddResourcePoliciesRequest): Request<Operation>;
             /** Retrieves an aggregated list of persistent disks. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -12840,7 +12840,7 @@ declare namespace gapi.client {
              * Deletes the specified persistent disk. Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete any
              * snapshots previously made from the disk. You must separately delete snapshots.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the persistent disk to delete. */
@@ -12874,7 +12874,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Returns a specified persistent disk. Gets a list of available persistent disks by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the persistent disk to return. */
@@ -12897,7 +12897,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Disk>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -12994,7 +12994,7 @@ declare namespace gapi.client {
             },
             body: Disk): Request<Operation>;
             /** Retrieves a list of persistent disks contained within the specified zone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -13271,7 +13271,7 @@ declare namespace gapi.client {
         }
         interface DiskTypesResource {
             /** Retrieves an aggregated list of disk types. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -13321,7 +13321,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<DiskTypeAggregatedList>;
             /** Returns the specified disk type. Gets a list of available disk types by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the disk type to return. */
@@ -13344,7 +13344,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<DiskType>;
             /** Retrieves a list of disk types available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -13398,7 +13398,7 @@ declare namespace gapi.client {
         }
         interface ExternalVpnGatewaysResource {
             /** Deletes the specified externalVpnGateway. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the externalVpnGateways to delete. */
@@ -13430,7 +13430,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified externalVpnGateway. Get a list of available externalVpnGateways by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the externalVpnGateway to return. */
@@ -13513,7 +13513,7 @@ declare namespace gapi.client {
             },
             body: ExternalVpnGateway): Request<Operation>;
             /** Retrieves the list of ExternalVpnGateway available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -13609,7 +13609,7 @@ declare namespace gapi.client {
         }
         interface FirewallsResource {
             /** Deletes the specified firewall. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -13641,7 +13641,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified firewall. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -13724,7 +13724,7 @@ declare namespace gapi.client {
             },
             body: Firewall): Request<Operation>;
             /** Retrieves the list of firewall rules available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -13914,7 +13914,7 @@ declare namespace gapi.client {
         }
         interface ForwardingRulesResource {
             /** Retrieves an aggregated list of forwarding rules. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -13964,7 +13964,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ForwardingRuleAggregatedList>;
             /** Deletes the specified ForwardingRule resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -13998,7 +13998,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified ForwardingRule resource. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14087,7 +14087,7 @@ declare namespace gapi.client {
             },
             body: ForwardingRule): Request<Operation>;
             /** Retrieves a list of ForwardingRule resources available to the specified project and region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14284,7 +14284,7 @@ declare namespace gapi.client {
         }
         interface GlobalAddressesResource {
             /** Deletes the specified address resource. */
-            delete(request: {
+            delete(request?: {
                 /** Name of the address resource to delete. */
                 address: string;
                 /** Data format for the response. */
@@ -14316,7 +14316,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified address resource. Gets a list of available addresses by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Name of the address resource to return. */
                 address: string;
                 /** Data format for the response. */
@@ -14399,7 +14399,7 @@ declare namespace gapi.client {
             },
             body: Address): Request<Operation>;
             /** Retrieves a list of global addresses. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14451,7 +14451,7 @@ declare namespace gapi.client {
         }
         interface GlobalForwardingRulesResource {
             /** Deletes the specified GlobalForwardingRule resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14483,7 +14483,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified GlobalForwardingRule resource. Gets a list of available forwarding rules by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14566,7 +14566,7 @@ declare namespace gapi.client {
             },
             body: ForwardingRule): Request<Operation>;
             /** Retrieves a list of GlobalForwardingRule resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14753,7 +14753,7 @@ declare namespace gapi.client {
         }
         interface GlobalOperationsResource {
             /** Retrieves an aggregated list of all operations. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14803,7 +14803,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<OperationAggregatedList>;
             /** Deletes the specified Operations resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14824,7 +14824,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves the specified Operations resource. Gets a list of operations by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14845,7 +14845,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Retrieves a list of Operation resources contained within the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14905,7 +14905,7 @@ declare namespace gapi.client {
              * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
              * operation is not DONE.
              */
-            wait(request: {
+            wait(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14928,7 +14928,7 @@ declare namespace gapi.client {
         }
         interface HealthChecksResource {
             /** Retrieves the list of all HealthCheck resources, regional and global, available to the specified project. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -14978,7 +14978,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<HealthChecksAggregatedList>;
             /** Deletes the specified HealthCheck resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15010,7 +15010,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified HealthCheck resource. Gets a list of available health checks by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15093,7 +15093,7 @@ declare namespace gapi.client {
             },
             body: HealthCheck): Request<Operation>;
             /** Retrieves the list of HealthCheck resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15280,7 +15280,7 @@ declare namespace gapi.client {
         }
         interface HttpHealthChecksResource {
             /** Deletes the specified HttpHealthCheck resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15312,7 +15312,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified HttpHealthCheck resource. Gets a list of available HTTP health checks by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15395,7 +15395,7 @@ declare namespace gapi.client {
             },
             body: HttpHealthCheck): Request<Operation>;
             /** Retrieves the list of HttpHealthCheck resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15582,7 +15582,7 @@ declare namespace gapi.client {
         }
         interface HttpsHealthChecksResource {
             /** Deletes the specified HttpsHealthCheck resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15614,7 +15614,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified HttpsHealthCheck resource. Gets a list of available HTTPS health checks by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15697,7 +15697,7 @@ declare namespace gapi.client {
             },
             body: HttpsHealthCheck): Request<Operation>;
             /** Retrieves the list of HttpsHealthCheck resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15884,7 +15884,7 @@ declare namespace gapi.client {
         }
         interface ImagesResource {
             /** Deletes the specified image. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -15986,7 +15986,7 @@ declare namespace gapi.client {
             },
             body: DeprecationStatus): Request<Operation>;
             /** Returns the specified image. Gets a list of available images by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -16007,7 +16007,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Image>;
             /** Returns the latest image that is part of an image family and is not deprecated. */
-            getFromFamily(request: {
+            getFromFamily(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the image family to search for. */
@@ -16028,7 +16028,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Image>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -16119,7 +16119,7 @@ declare namespace gapi.client {
              * does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of
              * publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -16317,7 +16317,7 @@ declare namespace gapi.client {
             },
             body: InstanceGroupManagersAbandonInstancesRequest): Request<Operation>;
             /** Retrieves the list of managed instance groups and groups them by zone. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -16490,7 +16490,7 @@ declare namespace gapi.client {
              * Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service.
              * Read  Deleting an instance group for more information.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -16604,7 +16604,7 @@ declare namespace gapi.client {
             },
             body: InstanceGroupManagersDeleteInstancesRequest): Request<Operation>;
             /** Returns all of the details about the specified managed instance group. Gets a list of available managed instance groups by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -16699,7 +16699,7 @@ declare namespace gapi.client {
             },
             body: InstanceGroupManager): Request<Operation>;
             /** Retrieves a list of managed instance groups that are contained within the specified project and zone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -16755,7 +16755,7 @@ declare namespace gapi.client {
              * instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous
              * action failed, the list displays the errors for that failed action.
              */
-            listManagedInstances(request: {
+            listManagedInstances(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -16977,7 +16977,7 @@ declare namespace gapi.client {
              * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
              * elapsed before the VM instance is removed or deleted.
              */
-            resize(request: {
+            resize(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -17238,7 +17238,7 @@ declare namespace gapi.client {
             },
             body: InstanceGroupsAddInstancesRequest): Request<Operation>;
             /** Retrieves the list of instance groups and sorts them by zone. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -17291,7 +17291,7 @@ declare namespace gapi.client {
              * Deletes the specified instance group. The instances in the group are not deleted. Note that instance group must not belong to a backend service. Read
              * Deleting an instance group for more information.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -17325,7 +17325,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Returns the specified instance group. Gets a list of available instance groups by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -17414,7 +17414,7 @@ declare namespace gapi.client {
             },
             body: InstanceGroup): Request<Operation>;
             /** Retrieves the list of instance groups that are located in the specified project and zone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -17797,7 +17797,7 @@ declare namespace gapi.client {
             },
             body: AccessConfig): Request<Operation>;
             /** Retrieves aggregated list of all of the instances in your project across all regions and zones. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -17924,7 +17924,7 @@ declare namespace gapi.client {
             },
             body: AttachedDisk): Request<Operation>;
             /** Deletes the specified Instance resource. For more information, see Stopping or Deleting an Instance. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -17958,7 +17958,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Deletes an access config from an instance's network interface. */
-            deleteAccessConfig(request: {
+            deleteAccessConfig(request?: {
                 /** The name of the access config to delete. */
                 accessConfig: string;
                 /** Data format for the response. */
@@ -17996,7 +17996,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Detaches a disk from an instance. */
-            detachDisk(request: {
+            detachDisk(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The device name of the disk to detach. Make a get() request on the instance to view currently attached disks and device names. */
@@ -18032,7 +18032,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Returns the specified Instance resource. Gets a list of available instances by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -18055,7 +18055,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Instance>;
             /** Returns the specified guest attributes entry. */
-            getGuestAttributes(request: {
+            getGuestAttributes(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -18082,7 +18082,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<GuestAttributes>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -18105,7 +18105,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Policy>;
             /** Returns the last 1 MB of serial port output from the specified instance. */
-            getSerialPortOutput(request: {
+            getSerialPortOutput(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -18135,7 +18135,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<SerialPortOutput>;
             /** Returns the Shielded Instance Identity of an instance */
-            getShieldedInstanceIdentity(request: {
+            getShieldedInstanceIdentity(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -18242,7 +18242,7 @@ declare namespace gapi.client {
             },
             body: Instance): Request<Operation>;
             /** Retrieves the list of instances contained within the specified zone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -18294,7 +18294,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<InstanceList>;
             /** Retrieves the list of referrers to instances contained within the specified zone. For more information, read Viewing Referrers to VM Instances. */
-            listReferrers(request: {
+            listReferrers(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -18348,7 +18348,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<InstanceListReferrers>;
             /** Performs a reset on the instance. This is a hard reset the VM does not do a graceful shutdown. For more information, see Resetting an instance. */
-            reset(request: {
+            reset(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -18382,7 +18382,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Sets deletion protection on the instance. */
-            setDeletionProtection(request: {
+            setDeletionProtection(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Whether the resource should be protected against deletion. */
@@ -18418,7 +18418,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Sets the auto-delete flag for a disk attached to an instance. */
-            setDiskAutoDelete(request: {
+            setDiskAutoDelete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Whether to auto-delete the disk when the instance is deleted. */
@@ -19116,7 +19116,7 @@ declare namespace gapi.client {
             },
             body: Tags): Request<Operation>;
             /** Simulates a maintenance event on the instance. */
-            simulateMaintenanceEvent(request: {
+            simulateMaintenanceEvent(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -19139,7 +19139,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Starts an instance that was stopped using the instances().stop method. For more information, see Restart an instance. */
-            start(request: {
+            start(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -19247,7 +19247,7 @@ declare namespace gapi.client {
              * charges while they are stopped. However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged
              * until they are deleted. For more information, see Stopping an instance.
              */
-            stop(request: {
+            stop(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -19607,7 +19607,7 @@ declare namespace gapi.client {
              * Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that
              * are already in use by a managed instance group.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -19639,7 +19639,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified instance template. Gets a list of available instance templates by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -19660,7 +19660,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<InstanceTemplate>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -19746,7 +19746,7 @@ declare namespace gapi.client {
             },
             body: InstanceTemplate): Request<Operation>;
             /** Retrieves a list of instance templates that are contained within the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -19842,7 +19842,7 @@ declare namespace gapi.client {
         }
         interface InterconnectAttachmentsResource {
             /** Retrieves an aggregated list of interconnect attachments. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -19892,7 +19892,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<InterconnectAttachmentAggregatedList>;
             /** Deletes the specified interconnect attachment. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -19926,7 +19926,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified interconnect attachment. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20019,7 +20019,7 @@ declare namespace gapi.client {
             },
             body: InterconnectAttachment): Request<Operation>;
             /** Retrieves the list of interconnect attachments contained within the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20146,7 +20146,7 @@ declare namespace gapi.client {
         }
         interface InterconnectLocationsResource {
             /** Returns the details for the specified interconnect location. Gets a list of available interconnect locations by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20167,7 +20167,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<InterconnectLocation>;
             /** Retrieves the list of interconnect locations available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20219,7 +20219,7 @@ declare namespace gapi.client {
         }
         interface InterconnectsResource {
             /** Deletes the specified interconnect. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20251,7 +20251,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified interconnect. Get a list of available interconnects by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20272,7 +20272,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Interconnect>;
             /** Returns the interconnectDiagnostics for the specified interconnect. */
-            getDiagnostics(request: {
+            getDiagnostics(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20355,7 +20355,7 @@ declare namespace gapi.client {
             },
             body: Interconnect): Request<Operation>;
             /** Retrieves the list of interconnect available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20476,7 +20476,7 @@ declare namespace gapi.client {
         }
         interface LicenseCodesResource {
             /** Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20521,7 +20521,7 @@ declare namespace gapi.client {
         }
         interface LicensesResource {
             /** Deletes the specified license. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20553,7 +20553,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified License resource. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20574,7 +20574,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<License>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20661,7 +20661,7 @@ declare namespace gapi.client {
              * licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a
              * request to the respective image project, such as debian-cloud or windows-cloud.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20757,7 +20757,7 @@ declare namespace gapi.client {
         }
         interface MachineTypesResource {
             /** Retrieves an aggregated list of machine types. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20807,7 +20807,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<MachineTypeAggregatedList>;
             /** Returns the specified machine type. Gets a list of available machine types by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20830,7 +20830,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<MachineType>;
             /** Retrieves a list of machine types available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -20884,7 +20884,7 @@ declare namespace gapi.client {
         }
         interface NetworkEndpointGroupsResource {
             /** Retrieves the list of network endpoint groups and sorts them by zone. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -21007,7 +21007,7 @@ declare namespace gapi.client {
              * Deletes the specified network endpoint group. The network endpoints in the NEG and the VM instances they belong to are not terminated when the NEG is
              * deleted. Note that the NEG cannot be deleted if there are backend services referencing it.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -21111,7 +21111,7 @@ declare namespace gapi.client {
             },
             body: NetworkEndpointGroupsDetachEndpointsRequest): Request<Operation>;
             /** Returns the specified network endpoint group. Gets a list of available network endpoint groups by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -21200,7 +21200,7 @@ declare namespace gapi.client {
             },
             body: NetworkEndpointGroup): Request<Operation>;
             /** Retrieves the list of network endpoint groups that are located in the specified project and zone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -21454,7 +21454,7 @@ declare namespace gapi.client {
             },
             body: NetworksAddPeeringRequest): Request<Operation>;
             /** Deletes the specified network. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -21486,7 +21486,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified network. Gets a list of available networks by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -21569,7 +21569,7 @@ declare namespace gapi.client {
             },
             body: Network): Request<Operation>;
             /** Retrieves the list of networks available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -21619,7 +21619,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<NetworkList>;
             /** Lists the peering routes exchanged over peering connection. */
-            listPeeringRoutes(request: {
+            listPeeringRoutes(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The direction of the exchanged routes. */
@@ -21809,7 +21809,7 @@ declare namespace gapi.client {
             },
             body: NetworksRemovePeeringRequest): Request<Operation>;
             /** Switches the network mode from auto subnet mode to custom subnet mode. */
-            switchToCustomMode(request: {
+            switchToCustomMode(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -21982,7 +21982,7 @@ declare namespace gapi.client {
             },
             body: NodeGroupsAddNodesRequest): Request<Operation>;
             /** Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes for more details about each group. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22032,7 +22032,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<NodeGroupAggregatedList>;
             /** Deletes the specified NodeGroup resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22139,7 +22139,7 @@ declare namespace gapi.client {
              * Returns the specified NodeGroup. Get a list of available NodeGroups by making a list() request. Note: the "nodes" field should not be used. Use
              * nodeGroups.listNodes instead.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22162,7 +22162,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<NodeGroup>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22255,7 +22255,7 @@ declare namespace gapi.client {
             },
             body: NodeGroup): Request<Operation>;
             /** Retrieves a list of node groups available to the specified project. Note: use nodeGroups.listNodes for more details about each group. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22307,7 +22307,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<NodeGroupList>;
             /** Lists nodes in the node group. */
-            listNodes(request: {
+            listNodes(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22481,7 +22481,7 @@ declare namespace gapi.client {
         }
         interface NodeTemplatesResource {
             /** Retrieves an aggregated list of node templates. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22531,7 +22531,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<NodeTemplateAggregatedList>;
             /** Deletes the specified NodeTemplate resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22565,7 +22565,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified node template. Gets a list of available node templates by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22588,7 +22588,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<NodeTemplate>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22677,7 +22677,7 @@ declare namespace gapi.client {
             },
             body: NodeTemplate): Request<Operation>;
             /** Retrieves a list of node templates available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22779,7 +22779,7 @@ declare namespace gapi.client {
         }
         interface NodeTypesResource {
             /** Retrieves an aggregated list of node types. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22829,7 +22829,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<NodeTypeAggregatedList>;
             /** Returns the specified node type. Gets a list of available node types by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22852,7 +22852,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<NodeType>;
             /** Retrieves a list of node types available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22906,7 +22906,7 @@ declare namespace gapi.client {
         }
         interface PacketMirroringsResource {
             /** Retrieves an aggregated list of packetMirrorings. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22956,7 +22956,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PacketMirroringAggregatedList>;
             /** Deletes the specified PacketMirroring resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -22990,7 +22990,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified PacketMirroring resource. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -23079,7 +23079,7 @@ declare namespace gapi.client {
             },
             body: PacketMirroring): Request<Operation>;
             /** Retrieves a list of PacketMirroring resources available to the specified project and region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -23230,7 +23230,7 @@ declare namespace gapi.client {
         }
         interface ProjectsResource {
             /** Disable this project as a shared VPC host project. */
-            disableXpnHost(request: {
+            disableXpnHost(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -23322,7 +23322,7 @@ declare namespace gapi.client {
             },
             body: ProjectsDisableXpnResourceRequest): Request<Operation>;
             /** Enable this project as a shared VPC host project. */
-            enableXpnHost(request: {
+            enableXpnHost(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -23417,7 +23417,7 @@ declare namespace gapi.client {
             },
             body: ProjectsEnableXpnResourceRequest): Request<Operation>;
             /** Returns the specified Project resource. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -23436,7 +23436,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Project>;
             /** Gets the shared VPC host project that this project links to. May be empty if no link exists. */
-            getXpnHost(request: {
+            getXpnHost(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -23455,7 +23455,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Project>;
             /** Gets service resources (a.k.a service project) associated with this host project. */
-            getXpnResources(request: {
+            getXpnResources(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -23925,7 +23925,7 @@ declare namespace gapi.client {
         }
         interface RegionAutoscalersResource {
             /** Deletes the specified autoscaler. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the autoscaler to delete. */
@@ -23959,7 +23959,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified autoscaler. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the autoscaler to return. */
@@ -24048,7 +24048,7 @@ declare namespace gapi.client {
             },
             body: Autoscaler): Request<Operation>;
             /** Retrieves a list of autoscalers contained within the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -24245,7 +24245,7 @@ declare namespace gapi.client {
         }
         interface RegionBackendServicesResource {
             /** Deletes the specified regional BackendService resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the BackendService resource to delete. */
@@ -24279,7 +24279,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified regional BackendService resource. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the BackendService resource to return. */
@@ -24417,7 +24417,7 @@ declare namespace gapi.client {
             },
             body: BackendService): Request<Operation>;
             /** Retrieves the list of regional BackendService resources available to the specified project in the given region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -24618,7 +24618,7 @@ declare namespace gapi.client {
         }
         interface RegionCommitmentsResource {
             /** Retrieves an aggregated list of commitments. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -24668,7 +24668,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<CommitmentAggregatedList>;
             /** Returns the specified commitment resource. Gets a list of available commitments by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the commitment to return. */
@@ -24757,7 +24757,7 @@ declare namespace gapi.client {
             },
             body: Commitment): Request<Operation>;
             /** Retrieves a list of commitments contained within the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -24954,7 +24954,7 @@ declare namespace gapi.client {
              * Deletes the specified regional persistent disk. Deleting a regional disk removes all the replicas of its data permanently and is irreversible. However,
              * deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the regional persistent disk to delete. */
@@ -24988,7 +24988,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns a specified regional persistent disk. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the regional persistent disk to return. */
@@ -25081,7 +25081,7 @@ declare namespace gapi.client {
             },
             body: Disk): Request<Operation>;
             /** Retrieves the list of persistent disks contained within the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -25334,7 +25334,7 @@ declare namespace gapi.client {
         }
         interface RegionDiskTypesResource {
             /** Returns the specified regional disk type. Gets a list of available disk types by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Name of the disk type to return. */
@@ -25357,7 +25357,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<DiskType>;
             /** Retrieves a list of regional disk types available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -25411,7 +25411,7 @@ declare namespace gapi.client {
         }
         interface RegionHealthChecksResource {
             /** Deletes the specified HealthCheck resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -25445,7 +25445,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified HealthCheck resource. Gets a list of available health checks by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -25534,7 +25534,7 @@ declare namespace gapi.client {
             },
             body: HealthCheck): Request<Operation>;
             /** Retrieves the list of HealthCheck resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -25931,7 +25931,7 @@ declare namespace gapi.client {
             },
             body: RegionInstanceGroupManagersCreateInstancesRequest): Request<Operation>;
             /** Deletes the specified managed instance group and all of the instances in that group. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26045,7 +26045,7 @@ declare namespace gapi.client {
             },
             body: RegionInstanceGroupManagersDeleteInstancesRequest): Request<Operation>;
             /** Returns all of the details about the specified managed instance group. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26140,7 +26140,7 @@ declare namespace gapi.client {
             },
             body: InstanceGroupManager): Request<Operation>;
             /** Retrieves the list of managed instance groups that are contained within the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26195,7 +26195,7 @@ declare namespace gapi.client {
              * Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group
              * has scheduled for its instances.
              */
-            listManagedInstances(request: {
+            listManagedInstances(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26411,7 +26411,7 @@ declare namespace gapi.client {
              * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
              * elapsed before the VM instance is removed or deleted.
              */
-            resize(request: {
+            resize(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26589,7 +26589,7 @@ declare namespace gapi.client {
         }
         interface RegionInstanceGroupsResource {
             /** Returns the specified instance group resource. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26612,7 +26612,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<InstanceGroup>;
             /** Retrieves the list of instance group resources contained within the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26849,7 +26849,7 @@ declare namespace gapi.client {
         }
         interface RegionOperationsResource {
             /** Deletes the specified region-specific Operations resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26872,7 +26872,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves the specified region-specific Operations resource. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26895,7 +26895,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Retrieves a list of Operation resources contained within the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26957,7 +26957,7 @@ declare namespace gapi.client {
              * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
              * operation is not DONE.
              */
-            wait(request: {
+            wait(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -26982,7 +26982,7 @@ declare namespace gapi.client {
         }
         interface RegionsResource {
             /** Returns the specified Region resource. Gets a list of available regions by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27003,7 +27003,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Region>;
             /** Retrieves the list of region resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27055,7 +27055,7 @@ declare namespace gapi.client {
         }
         interface RegionSslCertificatesResource {
             /** Deletes the specified SslCertificate resource in the region. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27089,7 +27089,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified SslCertificate resource in the specified region. Get a list of available SSL certificates by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27178,7 +27178,7 @@ declare namespace gapi.client {
             },
             body: SslCertificate): Request<Operation>;
             /** Retrieves the list of SslCertificate resources available to the specified project in the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27232,7 +27232,7 @@ declare namespace gapi.client {
         }
         interface RegionTargetHttpProxiesResource {
             /** Deletes the specified TargetHttpProxy resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27266,7 +27266,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified TargetHttpProxy resource in the specified region. Gets a list of available target HTTP proxies by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27355,7 +27355,7 @@ declare namespace gapi.client {
             },
             body: TargetHttpProxy): Request<Operation>;
             /** Retrieves the list of TargetHttpProxy resources available to the specified project in the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27479,7 +27479,7 @@ declare namespace gapi.client {
         }
         interface RegionTargetHttpsProxiesResource {
             /** Deletes the specified TargetHttpsProxy resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27513,7 +27513,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified TargetHttpsProxy resource in the specified region. Gets a list of available target HTTP proxies by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27602,7 +27602,7 @@ declare namespace gapi.client {
             },
             body: TargetHttpsProxy): Request<Operation>;
             /** Retrieves the list of TargetHttpsProxy resources available to the specified project in the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27796,7 +27796,7 @@ declare namespace gapi.client {
         }
         interface RegionUrlMapsResource {
             /** Deletes the specified UrlMap resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27821,7 +27821,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified UrlMap resource. Gets a list of available URL maps by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -27892,7 +27892,7 @@ declare namespace gapi.client {
             },
             body: UrlMap): Request<Operation>;
             /** Retrieves the list of UrlMap resources available to the specified project in the specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28101,7 +28101,7 @@ declare namespace gapi.client {
         }
         interface ReservationsResource {
             /** Retrieves an aggregated list of reservations. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28151,7 +28151,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ReservationAggregatedList>;
             /** Deletes the specified reservation. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28185,7 +28185,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Retrieves information about the specified reservation. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28208,7 +28208,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Reservation>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28297,7 +28297,7 @@ declare namespace gapi.client {
             },
             body: Reservation): Request<Operation>;
             /** A list of all the reservations that have been configured for the specified project in specified zone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28469,7 +28469,7 @@ declare namespace gapi.client {
         }
         interface ResourcePoliciesResource {
             /** Retrieves an aggregated list of resource policies. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28519,7 +28519,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ResourcePolicyAggregatedList>;
             /** Deletes the specified resource policy. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28553,7 +28553,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Retrieves all information of the specified resource policy. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28576,7 +28576,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ResourcePolicy>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28665,7 +28665,7 @@ declare namespace gapi.client {
             },
             body: ResourcePolicy): Request<Operation>;
             /** A list all the resource policies that have been configured for the specified project in specified region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28767,7 +28767,7 @@ declare namespace gapi.client {
         }
         interface RoutersResource {
             /** Retrieves an aggregated list of routers. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28817,7 +28817,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<RouterAggregatedList>;
             /** Deletes the specified Router resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28851,7 +28851,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified Router resource. Gets a list of available routers by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28874,7 +28874,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Router>;
             /** Retrieves runtime Nat mapping information of VM endpoints. */
-            getNatMappingInfo(request: {
+            getNatMappingInfo(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -28928,7 +28928,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<VmEndpointNatMappingsList>;
             /** Retrieves runtime information of the specified router. */
-            getRouterStatus(request: {
+            getRouterStatus(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29017,7 +29017,7 @@ declare namespace gapi.client {
             },
             body: Router): Request<Operation>;
             /** Retrieves a list of Router resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29265,7 +29265,7 @@ declare namespace gapi.client {
         }
         interface RoutesResource {
             /** Deletes the specified Route resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29297,7 +29297,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified Route resource. Gets a list of available routes by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29380,7 +29380,7 @@ declare namespace gapi.client {
             },
             body: Route): Request<Operation>;
             /** Retrieves the list of Route resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29476,7 +29476,7 @@ declare namespace gapi.client {
             },
             body: SecurityPolicyRule): Request<Operation>;
             /** Deletes the specified policy. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29508,7 +29508,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** List all of the ordered rules present in a single specified policy. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29529,7 +29529,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<SecurityPolicy>;
             /** Gets a rule at the specified priority. */
-            getRule(request: {
+            getRule(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29614,7 +29614,7 @@ declare namespace gapi.client {
             },
             body: SecurityPolicy): Request<Operation>;
             /** List all the policies that have been configured for the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29778,7 +29778,7 @@ declare namespace gapi.client {
             },
             body: SecurityPolicyRule): Request<Operation>;
             /** Deletes a rule at the specified priority. */
-            removeRule(request: {
+            removeRule(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29808,7 +29808,7 @@ declare namespace gapi.client {
              *
              * For more information, see Deleting snapshots.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29840,7 +29840,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified Snapshot resource. Gets a list of available snapshots by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29861,7 +29861,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Snapshot>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -29882,7 +29882,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Policy>;
             /** Retrieves the list of Snapshot resources contained within the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30000,7 +30000,7 @@ declare namespace gapi.client {
         }
         interface SslCertificatesResource {
             /** Retrieves the list of all SslCertificate resources, regional and global, available to the specified project. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30050,7 +30050,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<SslCertificateAggregatedList>;
             /** Deletes the specified SslCertificate resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30082,7 +30082,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified SslCertificate resource. Gets a list of available SSL certificates by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30165,7 +30165,7 @@ declare namespace gapi.client {
             },
             body: SslCertificate): Request<Operation>;
             /** Retrieves the list of SslCertificate resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30217,7 +30217,7 @@ declare namespace gapi.client {
         }
         interface SslPoliciesResource {
             /** Deletes the specified SSL policy. The SSL policy resource can be deleted only if it is not in use by any TargetHttpsProxy or TargetSslProxy resources. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30249,7 +30249,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Lists all of the ordered rules present in a single specified policy. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30332,7 +30332,7 @@ declare namespace gapi.client {
             },
             body: SslPolicy): Request<Operation>;
             /** Lists all the SSL policies that have been configured for the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30382,7 +30382,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<SslPoliciesList>;
             /** Lists all features that can be specified in the SSL policy when using custom profile. */
-            listAvailableFeatures(request: {
+            listAvailableFeatures(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30500,7 +30500,7 @@ declare namespace gapi.client {
         }
         interface SubnetworksResource {
             /** Retrieves an aggregated list of subnetworks. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30550,7 +30550,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<SubnetworkAggregatedList>;
             /** Deletes the specified subnetwork. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30654,7 +30654,7 @@ declare namespace gapi.client {
             },
             body: SubnetworksExpandIpCidrRangeRequest): Request<Operation>;
             /** Returns the specified subnetwork. Gets a list of available subnetworks list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30677,7 +30677,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Subnetwork>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30766,7 +30766,7 @@ declare namespace gapi.client {
             },
             body: Subnetwork): Request<Operation>;
             /** Retrieves a list of subnetworks available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -30821,7 +30821,7 @@ declare namespace gapi.client {
              * Retrieves an aggregated list of all usable subnetworks in the project. The list contains all of the subnetworks in the project and the subnetworks that
              * were shared by a Shared VPC host project.
              */
-            listUsable(request: {
+            listUsable(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31078,7 +31078,7 @@ declare namespace gapi.client {
         }
         interface TargetHttpProxiesResource {
             /** Retrieves the list of all TargetHttpProxy resources, regional and global, available to the specified project. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31128,7 +31128,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TargetHttpProxyAggregatedList>;
             /** Deletes the specified TargetHttpProxy resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31160,7 +31160,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified TargetHttpProxy resource. Gets a list of available target HTTP proxies by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31243,7 +31243,7 @@ declare namespace gapi.client {
             },
             body: TargetHttpProxy): Request<Operation>;
             /** Retrieves the list of TargetHttpProxy resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31361,7 +31361,7 @@ declare namespace gapi.client {
         }
         interface TargetHttpsProxiesResource {
             /** Retrieves the list of all TargetHttpsProxy resources, regional and global, available to the specified project. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31411,7 +31411,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TargetHttpsProxyAggregatedList>;
             /** Deletes the specified TargetHttpsProxy resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31443,7 +31443,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified TargetHttpsProxy resource. Gets a list of available target HTTPS proxies by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31526,7 +31526,7 @@ declare namespace gapi.client {
             },
             body: TargetHttpsProxy): Request<Operation>;
             /** Retrieves the list of TargetHttpsProxy resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31845,7 +31845,7 @@ declare namespace gapi.client {
         }
         interface TargetInstancesResource {
             /** Retrieves an aggregated list of target instances. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31895,7 +31895,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TargetInstanceAggregatedList>;
             /** Deletes the specified TargetInstance resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -31929,7 +31929,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Returns the specified TargetInstance resource. Gets a list of available target instances by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -32018,7 +32018,7 @@ declare namespace gapi.client {
             },
             body: TargetInstance): Request<Operation>;
             /** Retrieves a list of TargetInstance resources available to the specified project and zone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -32212,7 +32212,7 @@ declare namespace gapi.client {
             },
             body: TargetPoolsAddInstanceRequest): Request<Operation>;
             /** Retrieves an aggregated list of target pools. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -32262,7 +32262,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TargetPoolAggregatedList>;
             /** Deletes the specified target pool. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -32296,7 +32296,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified target pool. Gets a list of available target pools by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -32433,7 +32433,7 @@ declare namespace gapi.client {
             },
             body: TargetPool): Request<Operation>;
             /** Retrieves a list of target pools available to the specified project and region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -32701,7 +32701,7 @@ declare namespace gapi.client {
         }
         interface TargetSslProxiesResource {
             /** Deletes the specified TargetSslProxy resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -32733,7 +32733,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified TargetSslProxy resource. Gets a list of available target SSL proxies by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -32816,7 +32816,7 @@ declare namespace gapi.client {
             },
             body: TargetSslProxy): Request<Operation>;
             /** Retrieves the list of TargetSslProxy resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33135,7 +33135,7 @@ declare namespace gapi.client {
         }
         interface TargetTcpProxiesResource {
             /** Deletes the specified TargetTcpProxy resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33167,7 +33167,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified TargetTcpProxy resource. Gets a list of available target TCP proxies by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33250,7 +33250,7 @@ declare namespace gapi.client {
             },
             body: TargetTcpProxy): Request<Operation>;
             /** Retrieves the list of TargetTcpProxy resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33434,7 +33434,7 @@ declare namespace gapi.client {
         }
         interface TargetVpnGatewaysResource {
             /** Retrieves an aggregated list of target VPN gateways. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33484,7 +33484,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TargetVpnGatewayAggregatedList>;
             /** Deletes the specified target VPN gateway. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33518,7 +33518,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified target VPN gateway. Gets a list of available target VPN gateways by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33607,7 +33607,7 @@ declare namespace gapi.client {
             },
             body: TargetVpnGateway): Request<Operation>;
             /** Retrieves a list of target VPN gateways available to the specified project and region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33661,7 +33661,7 @@ declare namespace gapi.client {
         }
         interface UrlMapsResource {
             /** Retrieves the list of all UrlMap resources, regional and global, available to the specified project. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33711,7 +33711,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<UrlMapsAggregatedList>;
             /** Deletes the specified UrlMap resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33743,7 +33743,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Returns the specified UrlMap resource. Gets a list of available URL maps by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -33892,7 +33892,7 @@ declare namespace gapi.client {
             },
             body: CacheInvalidationRule): Request<Operation>;
             /** Retrieves the list of UrlMap resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34123,7 +34123,7 @@ declare namespace gapi.client {
         }
         interface VpnGatewaysResource {
             /** Retrieves an aggregated list of VPN gateways. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34173,7 +34173,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<VpnGatewayAggregatedList>;
             /** Deletes the specified VPN gateway. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34207,7 +34207,7 @@ declare namespace gapi.client {
                 vpnGateway: string;
             }): Request<Operation>;
             /** Returns the specified VPN gateway. Gets a list of available VPN gateways by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34230,7 +34230,7 @@ declare namespace gapi.client {
                 vpnGateway: string;
             }): Request<VpnGateway>;
             /** Returns the status for the specified VPN gateway. */
-            getStatus(request: {
+            getStatus(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34319,7 +34319,7 @@ declare namespace gapi.client {
             },
             body: VpnGateway): Request<Operation>;
             /** Retrieves a list of VPN gateways available to the specified project and region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34432,7 +34432,7 @@ declare namespace gapi.client {
         }
         interface VpnTunnelsResource {
             /** Retrieves an aggregated list of VPN tunnels. */
-            aggregatedList(request: {
+            aggregatedList(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34482,7 +34482,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<VpnTunnelAggregatedList>;
             /** Deletes the specified VpnTunnel resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34516,7 +34516,7 @@ declare namespace gapi.client {
                 vpnTunnel: string;
             }): Request<Operation>;
             /** Returns the specified VpnTunnel resource. Gets a list of available VPN tunnels by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34605,7 +34605,7 @@ declare namespace gapi.client {
             },
             body: VpnTunnel): Request<Operation>;
             /** Retrieves a list of VpnTunnel resources contained in the specified project and region. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34659,7 +34659,7 @@ declare namespace gapi.client {
         }
         interface ZoneOperationsResource {
             /** Deletes the specified zone-specific Operations resource. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34682,7 +34682,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<void>;
             /** Retrieves the specified zone-specific Operations resource. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34705,7 +34705,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Retrieves a list of Operation resources contained within the specified zone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34767,7 +34767,7 @@ declare namespace gapi.client {
              * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
              * operation is not DONE.
              */
-            wait(request: {
+            wait(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34792,7 +34792,7 @@ declare namespace gapi.client {
         }
         interface ZonesResource {
             /** Returns the specified Zone resource. Gets a list of available zones by making a list() request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -34813,7 +34813,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Zone>;
             /** Retrieves the list of Zone resources available to the specified project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

@@ -2043,7 +2043,7 @@ declare namespace gapi.client {
         }
         interface AuthorizeddomainsResource {
             /** List authorized domains. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2076,7 +2076,7 @@ declare namespace gapi.client {
         }
         interface ConfigurationsResource {
             /** Get information about a configuration. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2107,7 +2107,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Configuration>;
             /** List configurations. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2231,7 +2231,7 @@ declare namespace gapi.client {
             },
             body: DomainMapping): Request<DomainMapping>;
             /** Delete a domain mapping. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2273,7 +2273,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Status>;
             /** Get information about a domain mapping. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2304,7 +2304,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<DomainMapping>;
             /** List domain mappings. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2364,7 +2364,7 @@ declare namespace gapi.client {
         }
         interface RevisionsResource {
             /** Delete a revision. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2406,7 +2406,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Status>;
             /** Get information about a revision. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2437,7 +2437,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Revision>;
             /** List revisions. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2497,7 +2497,7 @@ declare namespace gapi.client {
         }
         interface RoutesResource {
             /** Get information about a route. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2528,7 +2528,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Route>;
             /** List routes. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2656,7 +2656,7 @@ declare namespace gapi.client {
              * This will cause the Service to stop serving traffic and will delete the
              * child entities like Routes, Configurations and Revisions.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2698,7 +2698,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Status>;
             /** Get information about a service. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2729,7 +2729,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Service>;
             /** List services. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2870,7 +2870,7 @@ declare namespace gapi.client {
         }
         interface AuthorizeddomainsResource {
             /** List authorized domains. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2903,7 +2903,7 @@ declare namespace gapi.client {
         }
         interface ConfigurationsResource {
             /** Get information about a configuration. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2934,7 +2934,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Configuration>;
             /** List configurations. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3058,7 +3058,7 @@ declare namespace gapi.client {
             },
             body: DomainMapping): Request<DomainMapping>;
             /** Delete a domain mapping. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3100,7 +3100,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Status>;
             /** Get information about a domain mapping. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3131,7 +3131,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<DomainMapping>;
             /** List domain mappings. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3191,7 +3191,7 @@ declare namespace gapi.client {
         }
         interface RevisionsResource {
             /** Delete a revision. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3233,7 +3233,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Status>;
             /** Get information about a revision. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3264,7 +3264,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Revision>;
             /** List revisions. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3324,7 +3324,7 @@ declare namespace gapi.client {
         }
         interface RoutesResource {
             /** Get information about a route. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3355,7 +3355,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Route>;
             /** List routes. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3483,7 +3483,7 @@ declare namespace gapi.client {
              * This will cause the Service to stop serving traffic and will delete the
              * child entities like Routes, Configurations and Revisions.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3525,7 +3525,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Status>;
             /** Get information about a service. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3559,7 +3559,7 @@ declare namespace gapi.client {
              * Get the IAM Access Control policy currently in effect for the given
              * Cloud Run service. This result does not include any inherited policies.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3600,7 +3600,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** List services. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3802,7 +3802,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

@@ -277,7 +277,7 @@ declare namespace gapi.client {
         }
         interface ReportsResource {
             /** Gets the metadata of a specific report. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -314,7 +314,7 @@ declare namespace gapi.client {
              * Lists reports created by a specific job.
              * Returns NOT_FOUND if the job does not exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -434,7 +434,7 @@ declare namespace gapi.client {
             },
             body: Job): Request<Job>;
             /** Deletes a job. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -466,7 +466,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a job. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -498,7 +498,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Job>;
             /** Lists jobs. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -552,7 +552,7 @@ declare namespace gapi.client {
              * Method for media download. Download is supported
              * on the URI `/v1/media/{+name}?alt=media`.
              */
-            download(request: {
+            download(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -581,7 +581,7 @@ declare namespace gapi.client {
         }
         interface ReportTypesResource {
             /** Lists report types. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

@@ -375,7 +375,7 @@ declare namespace gapi.client {
         }
         interface DataPointChangesResource {
             /** Queries for user's data point changes for a particular data source. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The data stream ID of the data source that created the dataset. */
@@ -410,7 +410,7 @@ declare namespace gapi.client {
              * com.google.activity.segment), and a data point straddles either end point of the dataset, only the overlapping portion of the data point will be
              * deleted.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The client's current time in milliseconds since epoch. */
@@ -444,7 +444,7 @@ declare namespace gapi.client {
              * end time. Specifically, any data point whose start time is less than or equal to the dataset end time and whose end time is greater than or equal to
              * the dataset start time.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -606,7 +606,7 @@ declare namespace gapi.client {
             },
             body: DataSource): Request<DataSource>;
             /** Deletes the specified data source. The request will fail if the data source contains any data points. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The data stream ID of the data source to delete. */
@@ -627,7 +627,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<DataSource>;
             /** Returns the specified data source. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The data stream ID of the data source to retrieve. */
@@ -651,7 +651,7 @@ declare namespace gapi.client {
              * Lists all data sources that are visible to the developer, using the OAuth scopes provided. The list is not exhaustive; the user may have private data
              * sources that are only visible to other developers, or calls using other scopes.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The names of data types to include in the list. If not specified, all data sources will be returned. */
@@ -725,7 +725,7 @@ declare namespace gapi.client {
         }
         interface SessionsResource {
             /** Deletes a session specified by the given session ID. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The client's current time in milliseconds since epoch. */
@@ -748,7 +748,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Lists sessions previously created. */
-            list(request: {
+            list(request?: {
                 /** If non-empty, only sessions with these activity types should be returned. */
                 activityType?: number | number[];
                 /** Data format for the response. */

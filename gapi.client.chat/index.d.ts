@@ -338,7 +338,7 @@ declare namespace gapi.client {
         }
         interface MembersResource {
             /** Returns a membership. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -370,7 +370,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Membership>;
             /** Lists human memberships in a space. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -498,7 +498,7 @@ declare namespace gapi.client {
             },
             body: Message): Request<Message>;
             /** Deletes a message. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -530,7 +530,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns a message. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -646,7 +646,7 @@ declare namespace gapi.client {
         }
         interface SpacesResource {
             /** Returns a space. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -677,7 +677,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Space>;
             /** Lists spaces the caller is a member of. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

@@ -295,7 +295,7 @@ declare namespace gapi.client {
              * PageSpeed scores, a list of suggestions to make that page faster, and other
              * information.
              */
-            runpagespeed(request: {
+            runpagespeed(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

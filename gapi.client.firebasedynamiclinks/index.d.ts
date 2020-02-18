@@ -599,7 +599,7 @@ declare namespace gapi.client {
              * duration. Metrics include number of clicks, redirects, installs,
              * app first opens, and app reopens.
              */
-            getLinkStats(request: {
+            getLinkStats(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

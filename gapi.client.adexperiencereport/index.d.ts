@@ -73,7 +73,7 @@ declare namespace gapi.client {
         }
         interface SitesResource {
             /** Gets a site's Ad Experience Report summary. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -110,7 +110,7 @@ declare namespace gapi.client {
              * Lists sites that are failing in the Ad Experience Report on at least one
              * platform.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

@@ -381,7 +381,7 @@ declare namespace gapi.client {
         }
         interface CrawledUrlsResource {
             /** List CrawledUrls under a given ScanRun. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -426,7 +426,7 @@ declare namespace gapi.client {
         }
         interface FindingsResource {
             /** Gets a Finding. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -457,7 +457,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Finding>;
             /** List Findings under a given ScanRun. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -509,7 +509,7 @@ declare namespace gapi.client {
         }
         interface FindingTypeStatsResource {
             /** List all FindingTypeStats under a given ScanRun. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -542,7 +542,7 @@ declare namespace gapi.client {
         }
         interface ScanRunsResource {
             /** Gets a ScanRun. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -576,7 +576,7 @@ declare namespace gapi.client {
              * Lists ScanRuns under a given ScanConfig, in descending order of ScanRun
              * stop time.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -749,7 +749,7 @@ declare namespace gapi.client {
             },
             body: ScanConfig): Request<ScanConfig>;
             /** Deletes an existing ScanConfig and its child resources. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -779,7 +779,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a ScanConfig. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -809,7 +809,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ScanConfig>;
             /** Lists ScanConfigs under a given project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

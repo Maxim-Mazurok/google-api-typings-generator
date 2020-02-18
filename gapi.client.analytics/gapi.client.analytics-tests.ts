@@ -40,7 +40,7 @@ gapi.load('client', () => {
 
     async function run() {
         /** Creates an account ticket. */
-        await gapi.client.analytics.provisioning.createAccountTicket(, {
+        await gapi.client.analytics.provisioning.createAccountTicket({} , {
             account: {
                 childLink: {
                     href: "Test string",
@@ -130,7 +130,7 @@ gapi.load('client', () => {
             },
         });
         /** Provision account. */
-        await gapi.client.analytics.provisioning.createAccountTree(, {
+        await gapi.client.analytics.provisioning.createAccountTree({} , {
             accountName: "Test string",
             kind: "Test string",
             profileName: "Test string",

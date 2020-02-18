@@ -594,7 +594,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -632,7 +632,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -807,7 +807,7 @@ declare namespace gapi.client {
              * given function is used by some trigger, the trigger will be updated to
              * remove this function.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -990,7 +990,7 @@ declare namespace gapi.client {
             },
             body: GenerateUploadUrlRequest): Request<GenerateUploadUrlResponse>;
             /** Returns a function with the given name from the requested project. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1021,7 +1021,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the function exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1062,7 +1062,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Returns a list of functions that belong to the requested project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1243,7 +1243,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

@@ -1000,7 +1000,7 @@ declare namespace gapi.client {
              * Get a list of contact groups owned by the authenticated user by specifying
              * a list of contact group resource names.
              */
-            batchGet(request: {
+            batchGet(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1087,7 +1087,7 @@ declare namespace gapi.client {
              * Delete an existing contact group owned by the authenticated user by
              * specifying a contact group resource name.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1119,7 +1119,7 @@ declare namespace gapi.client {
              * Get a specific contact group owned by the authenticated user by specifying
              * a contact group resource name.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1154,7 +1154,7 @@ declare namespace gapi.client {
              * List all contact groups owned by the authenticated user. Members of the
              * contact groups are not populated.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1268,7 +1268,7 @@ declare namespace gapi.client {
              *
              * The request throws a 400 error if 'personFields' is not specified.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1415,7 +1415,7 @@ declare namespace gapi.client {
             },
             body: Person): Request<Person>;
             /** Delete a contact person. Any non-contact data will not be deleted. */
-            deleteContact(request: {
+            deleteContact(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1442,7 +1442,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Delete a contact's photo. */
-            deleteContactPhoto(request: {
+            deleteContactPhoto(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1510,7 +1510,7 @@ declare namespace gapi.client {
              *
              * The request throws a 400 error if 'personFields' is not specified.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1593,7 +1593,7 @@ declare namespace gapi.client {
              *
              * The request throws a 400 error if 'personFields' is not specified.
              */
-            getBatchGet(request: {
+            getBatchGet(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

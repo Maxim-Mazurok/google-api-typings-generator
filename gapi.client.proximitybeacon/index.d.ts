@@ -480,7 +480,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
              * Developers Console project.
              */
-            batchDelete(request: {
+            batchDelete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -646,7 +646,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
              * Developers Console project.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -699,7 +699,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;viewer&#42;&#42;, &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in
              * the Google Developers Console project.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -760,7 +760,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;viewer&#42;&#42;, &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in
              * the Google Developers Console project.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -820,7 +820,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
              * Developers Console project.
              */
-            activate(request: {
+            activate(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -872,7 +872,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
              * Developers Console project.
              */
-            deactivate(request: {
+            deactivate(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -924,7 +924,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
              * Developers Console project.
              */
-            decommission(request: {
+            decommission(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -975,7 +975,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in the Google
              * Developers Console project.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1029,7 +1029,7 @@ declare namespace gapi.client {
              * beacon's stable Eddystone-UID. Clients not authorized to resolve the
              * beacon's ephemeral Eddystone-EID broadcast will receive an error.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1080,7 +1080,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;viewer&#42;&#42;, &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in
              * the Google Developers Console project.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1375,7 +1375,7 @@ declare namespace gapi.client {
              * signed-in user with &#42;&#42;viewer&#42;&#42;, &#42;&#42;Is owner&#42;&#42; or &#42;&#42;Can edit&#42;&#42; permissions in
              * the Google Developers Console project.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1494,7 +1494,7 @@ declare namespace gapi.client {
              * prepared to refresh this key when they encounter an error registering an
              * Eddystone-EID beacon.
              */
-            getEidparams(request: {
+            getEidparams(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

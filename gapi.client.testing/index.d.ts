@@ -1038,7 +1038,7 @@ declare namespace gapi.client {
              * - INVALID_ARGUMENT - if the request is malformed
              * - NOT_FOUND - if the Test Matrix does not exist
              */
-            cancel(request: {
+            cancel(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1159,7 +1159,7 @@ declare namespace gapi.client {
              * - INVALID_ARGUMENT - if the request is malformed
              * - NOT_FOUND - if the Test Matrix does not exist
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1201,7 +1201,7 @@ declare namespace gapi.client {
              * - NOT_FOUND - if the environment type does not exist
              * - INTERNAL - if an internal error occurred
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

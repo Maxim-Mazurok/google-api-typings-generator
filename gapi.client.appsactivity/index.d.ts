@@ -125,7 +125,7 @@ declare namespace gapi.client {
              * acted on, e.g. Drive files a user can see. An activity is a record of past events. Multiple events may be merged if they are similar. A request is
              * scoped to activities from a given Google service using the source parameter.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Identifies the Drive folder containing the items for which to return activities. */

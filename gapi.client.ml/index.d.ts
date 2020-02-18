@@ -1520,7 +1520,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudMlV1__Job): Request<GoogleCloudMlV1__Job>;
             /** Describes a job. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1551,7 +1551,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1597,7 +1597,7 @@ declare namespace gapi.client {
              * If there are no jobs that match the request parameters, the list
              * request returns an empty response body: {}.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1835,7 +1835,7 @@ declare namespace gapi.client {
              * Get the complete list of CMLE capabilities in a location, along with their
              * location-specific properties.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1862,7 +1862,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudMlV1__Location>;
             /** List all locations that provides at least one type of CMLE capability. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1982,7 +1982,7 @@ declare namespace gapi.client {
              * Note: You cannot delete the version that is set as the default version
              * of the model unless it is the only remaining version.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2020,7 +2020,7 @@ declare namespace gapi.client {
              * to get the same information that this method returns for all of the
              * versions of a model.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2056,7 +2056,7 @@ declare namespace gapi.client {
              * If there are no versions that match the request parameters, the list
              * request returns an empty response body: {}.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2346,7 +2346,7 @@ declare namespace gapi.client {
              * versions by calling
              * projects.models.versions.delete.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2377,7 +2377,7 @@ declare namespace gapi.client {
              * set), and the default version (if at least one version of the model has
              * been deployed).
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2408,7 +2408,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2457,7 +2457,7 @@ declare namespace gapi.client {
              * If there are no models that match the request parameters, the list request
              * returns an empty response body: {}.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2687,7 +2687,7 @@ declare namespace gapi.client {
              * an Operation.error value with a google.rpc.Status.code of 1,
              * corresponding to `Code.CANCELLED`.
              */
-            cancel(request: {
+            cancel(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2718,7 +2718,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2756,7 +2756,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2864,7 +2864,7 @@ declare namespace gapi.client {
              * the Google Cloud Storage location where you put your model training code
              * for training the model with Google Cloud Machine Learning.
              */
-            getConfig(request: {
+            getConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

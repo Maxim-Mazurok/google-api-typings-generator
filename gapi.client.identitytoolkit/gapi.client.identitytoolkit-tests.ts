@@ -30,7 +30,7 @@ gapi.load('client', () => {
 
     async function run() {
         /** Creates the URI used by the IdP to authenticate the user. */
-        await gapi.client.identitytoolkit.relyingparty.createAuthUri(, {
+        await gapi.client.identitytoolkit.relyingparty.createAuthUri({} , {
             appId: "Test string",
             authFlowType: "Test string",
             clientId: "Test string",
@@ -50,26 +50,26 @@ gapi.load('client', () => {
             tenantProjectNumber: "Test string",
         });
         /** Delete user account. */
-        await gapi.client.identitytoolkit.relyingparty.deleteAccount(, {
+        await gapi.client.identitytoolkit.relyingparty.deleteAccount({} , {
             delegatedProjectNumber: "Test string",
             idToken: "Test string",
             localId: "Test string",
         });
         /** Batch download user accounts. */
-        await gapi.client.identitytoolkit.relyingparty.downloadAccount(, {
+        await gapi.client.identitytoolkit.relyingparty.downloadAccount({} , {
             delegatedProjectNumber: "Test string",
             maxResults: 42,
             nextPageToken: "Test string",
             targetProjectId: "Test string",
         });
         /** Reset password for a user. */
-        await gapi.client.identitytoolkit.relyingparty.emailLinkSignin(, {
+        await gapi.client.identitytoolkit.relyingparty.emailLinkSignin({} , {
             email: "Test string",
             idToken: "Test string",
             oobCode: "Test string",
         });
         /** Returns the account info. */
-        await gapi.client.identitytoolkit.relyingparty.getAccountInfo(, {
+        await gapi.client.identitytoolkit.relyingparty.getAccountInfo({} , {
             delegatedProjectNumber: "Test string",
             email: [
                 "Test string"            ],
@@ -80,7 +80,7 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /** Get a code for user action confirmation. */
-        await gapi.client.identitytoolkit.relyingparty.getOobConfirmationCode(, {
+        await gapi.client.identitytoolkit.relyingparty.getOobConfirmationCode({} , {
             androidInstallApp: true,
             androidMinimumVersion: "Test string",
             androidPackageName: "Test string",
@@ -107,21 +107,21 @@ gapi.load('client', () => {
         /** Get recaptcha secure param. */
         await gapi.client.identitytoolkit.relyingparty.getRecaptchaParam();
         /** Reset password for a user. */
-        await gapi.client.identitytoolkit.relyingparty.resetPassword(, {
+        await gapi.client.identitytoolkit.relyingparty.resetPassword({} , {
             email: "Test string",
             newPassword: "Test string",
             oldPassword: "Test string",
             oobCode: "Test string",
         });
         /** Send SMS verification code. */
-        await gapi.client.identitytoolkit.relyingparty.sendVerificationCode(, {
+        await gapi.client.identitytoolkit.relyingparty.sendVerificationCode({} , {
             iosReceipt: "Test string",
             iosSecret: "Test string",
             phoneNumber: "Test string",
             recaptchaToken: "Test string",
         });
         /** Set account info for a user. */
-        await gapi.client.identitytoolkit.relyingparty.setAccountInfo(, {
+        await gapi.client.identitytoolkit.relyingparty.setAccountInfo({} , {
             captchaChallenge: "Test string",
             captchaResponse: "Test string",
             createdAt: "Test string",
@@ -150,7 +150,7 @@ gapi.load('client', () => {
             validSince: "Test string",
         });
         /** Set project configuration. */
-        await gapi.client.identitytoolkit.relyingparty.setProjectConfig(, {
+        await gapi.client.identitytoolkit.relyingparty.setProjectConfig({} , {
             allowPasswordUser: true,
             apiKey: "Test string",
             authorizedDomains: [
@@ -202,12 +202,12 @@ gapi.load('client', () => {
             },
         });
         /** Sign out user. */
-        await gapi.client.identitytoolkit.relyingparty.signOutUser(, {
+        await gapi.client.identitytoolkit.relyingparty.signOutUser({} , {
             instanceId: "Test string",
             localId: "Test string",
         });
         /** Signup new user. */
-        await gapi.client.identitytoolkit.relyingparty.signupNewUser(, {
+        await gapi.client.identitytoolkit.relyingparty.signupNewUser({} , {
             captchaChallenge: "Test string",
             captchaResponse: "Test string",
             disabled: true,
@@ -224,7 +224,7 @@ gapi.load('client', () => {
             tenantProjectNumber: "Test string",
         });
         /** Batch upload existing user accounts. */
-        await gapi.client.identitytoolkit.relyingparty.uploadAccount(, {
+        await gapi.client.identitytoolkit.relyingparty.uploadAccount({} , {
             allowOverwrite: true,
             blockSize: 42,
             cpuMemCost: 42,
@@ -272,7 +272,7 @@ gapi.load('client', () => {
                 }            ],
         });
         /** Verifies the assertion returned by the IdP. */
-        await gapi.client.identitytoolkit.relyingparty.verifyAssertion(, {
+        await gapi.client.identitytoolkit.relyingparty.verifyAssertion({} , {
             autoCreate: true,
             delegatedProjectNumber: "Test string",
             idToken: "Test string",
@@ -288,14 +288,14 @@ gapi.load('client', () => {
             tenantProjectNumber: "Test string",
         });
         /** Verifies the developer asserted ID token. */
-        await gapi.client.identitytoolkit.relyingparty.verifyCustomToken(, {
+        await gapi.client.identitytoolkit.relyingparty.verifyCustomToken({} , {
             delegatedProjectNumber: "Test string",
             instanceId: "Test string",
             returnSecureToken: true,
             token: "Test string",
         });
         /** Verifies the user entered password. */
-        await gapi.client.identitytoolkit.relyingparty.verifyPassword(, {
+        await gapi.client.identitytoolkit.relyingparty.verifyPassword({} , {
             captchaChallenge: "Test string",
             captchaResponse: "Test string",
             delegatedProjectNumber: "Test string",
@@ -309,7 +309,7 @@ gapi.load('client', () => {
             tenantProjectNumber: "Test string",
         });
         /** Verifies ownership of a phone number and creates/updates the user account accordingly. */
-        await gapi.client.identitytoolkit.relyingparty.verifyPhoneNumber(, {
+        await gapi.client.identitytoolkit.relyingparty.verifyPhoneNumber({} , {
             code: "Test string",
             idToken: "Test string",
             operation: "Test string",

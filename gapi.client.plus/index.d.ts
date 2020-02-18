@@ -618,7 +618,7 @@ declare namespace gapi.client {
         }
         interface ActivitiesResource {
             /** Shut down. See https://developers.google.com/+/api-shutdown for more details. */
-            get(request: {
+            get(request?: {
                 /** The ID of the activity to get. */
                 activityId: string;
                 /** Data format for the response. */
@@ -637,7 +637,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Activity>;
             /** Shut down. See https://developers.google.com/+/api-shutdown for more details. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The collection of activities to list. */
@@ -668,7 +668,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ActivityFeed>;
             /** Shut down. See https://developers.google.com/+/api-shutdown for more details. */
-            search(request: {
+            search(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -703,7 +703,7 @@ declare namespace gapi.client {
         }
         interface CommentsResource {
             /** Shut down. See https://developers.google.com/+/api-shutdown for more details. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the comment to get. */
@@ -722,7 +722,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Comment>;
             /** Shut down. See https://developers.google.com/+/api-shutdown for more details. */
-            list(request: {
+            list(request?: {
                 /** The ID of the activity to get comments for. */
                 activityId: string;
                 /** Data format for the response. */
@@ -755,7 +755,7 @@ declare namespace gapi.client {
         }
         interface PeopleResource {
             /** Get a person's profile. If your app uses scope https://www.googleapis.com/auth/plus.login, this method is guaranteed to return ageRange and language. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -774,7 +774,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Person>;
             /** List all of the people in the specified collection. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The collection of people to list. */
@@ -807,7 +807,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PeopleFeed>;
             /** Shut down. See https://developers.google.com/+/api-shutdown for more details. */
-            listByActivity(request: {
+            listByActivity(request?: {
                 /** The ID of the activity to get the list of people for. */
                 activityId: string;
                 /** Data format for the response. */
@@ -838,7 +838,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PeopleFeed>;
             /** Shut down. See https://developers.google.com/+/api-shutdown for more details. */
-            search(request: {
+            search(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

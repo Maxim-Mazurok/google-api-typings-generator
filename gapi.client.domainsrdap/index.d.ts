@@ -84,7 +84,7 @@ declare namespace gapi.client {
              * The RDAP API recognizes this command from the RDAP specification but
              * does not support it. The response is a formatted 501 error.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -112,7 +112,7 @@ declare namespace gapi.client {
         }
         interface DomainResource {
             /** Look up RDAP information for a domain by name. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -144,7 +144,7 @@ declare namespace gapi.client {
              * The RDAP API recognizes this command from the RDAP specification but
              * does not support it. The response is a formatted 501 error.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -175,7 +175,7 @@ declare namespace gapi.client {
              * The RDAP API recognizes this command from the RDAP specification but
              * does not support it. The response is a formatted 501 error.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -207,7 +207,7 @@ declare namespace gapi.client {
              * The RDAP API recognizes this command from the RDAP specification but
              * does not support it. The response is a formatted 501 error.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -238,7 +238,7 @@ declare namespace gapi.client {
              * The RDAP API recognizes this command from the RDAP specification but
              * does not support it. The response is a formatted 501 error.
              */
-            getDomains(request: {
+            getDomains(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -266,7 +266,7 @@ declare namespace gapi.client {
              * The RDAP API recognizes this command from the RDAP specification but
              * does not support it. The response is a formatted 501 error.
              */
-            getEntities(request: {
+            getEntities(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -291,7 +291,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<RdapResponse>;
             /** Get help information for the RDAP API, including links to documentation. */
-            getHelp(request: {
+            getHelp(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -319,7 +319,7 @@ declare namespace gapi.client {
              * The RDAP API recognizes this command from the RDAP specification but
              * does not support it. The response is a formatted 501 error.
              */
-            getIp(request: {
+            getIp(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -347,7 +347,7 @@ declare namespace gapi.client {
              * The RDAP API recognizes this command from the RDAP specification but
              * does not support it. The response is a formatted 501 error.
              */
-            getNameservers(request: {
+            getNameservers(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

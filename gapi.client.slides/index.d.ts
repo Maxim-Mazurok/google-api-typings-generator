@@ -2431,7 +2431,7 @@ declare namespace gapi.client {
         }
         interface PagesResource {
             /** Gets the latest version of the specified page in the presentation. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2466,7 +2466,7 @@ declare namespace gapi.client {
              * This request counts as an [expensive read request](/slides/limits) for
              * quota purposes.
              */
-            getThumbnail(request: {
+            getThumbnail(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2646,7 +2646,7 @@ declare namespace gapi.client {
             },
             body: Presentation): client.Request<Presentation>;
             /** Gets the latest version of the specified presentation. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

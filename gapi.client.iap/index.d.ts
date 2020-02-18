@@ -382,7 +382,7 @@ declare namespace gapi.client {
              * obsolete clients, managing the number of clients in a given project, and
              * cleaning up after tests. Requires that the client is owned by IAP.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -416,7 +416,7 @@ declare namespace gapi.client {
              * Retrieves an Identity Aware Proxy (IAP) OAuth client.
              * Requires that the client is owned by IAP.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -447,7 +447,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<IdentityAwareProxyClient>;
             /** Lists the existing clients for the brand. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -632,7 +632,7 @@ declare namespace gapi.client {
             },
             body: Brand): Request<Brand>;
             /** Retrieves the OAuth brand of the project. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -662,7 +662,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Brand>;
             /** Lists the existing brands for the project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -734,7 +734,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Gets the IAP settings on a particular IAP protected resource. */
-            getIapSettings(request: {
+            getIapSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

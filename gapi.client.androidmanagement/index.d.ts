@@ -1153,7 +1153,7 @@ declare namespace gapi.client {
         }
         interface ApplicationsResource {
             /** Gets info about an application. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1192,7 +1192,7 @@ declare namespace gapi.client {
              * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
              * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
              */
-            cancel(request: {
+            cancel(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1222,7 +1222,7 @@ declare namespace gapi.client {
              * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
              * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1252,7 +1252,7 @@ declare namespace gapi.client {
              * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1285,7 +1285,7 @@ declare namespace gapi.client {
              * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
              * id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1320,7 +1320,7 @@ declare namespace gapi.client {
         }
         interface DevicesResource {
             /** Deletes a device. This operation wipes the device. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1354,7 +1354,7 @@ declare namespace gapi.client {
                 wipeReasonMessage?: string;
             }): Request<{}>;
             /** Gets a device. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1440,7 +1440,7 @@ declare namespace gapi.client {
             },
             body: Command): Request<Operation>;
             /** Lists devices for a given enterprise. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1590,7 +1590,7 @@ declare namespace gapi.client {
             },
             body: EnrollmentToken): Request<EnrollmentToken>;
             /** Deletes an enrollment token. This operation invalidates the token, preventing its future use. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1619,7 +1619,7 @@ declare namespace gapi.client {
         }
         interface PoliciesResource {
             /** Deletes a policy. This operation is only permitted if no devices are currently referencing the policy. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1646,7 +1646,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a policy. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1673,7 +1673,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists policies for a given enterprise. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1822,7 +1822,7 @@ declare namespace gapi.client {
             },
             body: WebApp): Request<WebApp>;
             /** Deletes a web app. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1849,7 +1849,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a web app. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1876,7 +1876,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<WebApp>;
             /** Lists web apps for a given enterprise. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2091,7 +2091,7 @@ declare namespace gapi.client {
             },
             body: Enterprise): Request<Enterprise>;
             /** Gets an enterprise. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2186,7 +2186,7 @@ declare namespace gapi.client {
         }
         interface SignupUrlsResource {
             /** Creates an enterprise signup URL. */
-            create(request: {
+            create(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

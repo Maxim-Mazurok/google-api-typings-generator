@@ -1303,7 +1303,7 @@ declare namespace gapi.client {
             },
             body: Environment): Request<Environment>;
             /** Deletes a GTM Environment. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1334,7 +1334,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a GTM Environment. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1365,7 +1365,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Environment>;
             /** Lists all GTM Environments of a GTM Container. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1537,7 +1537,7 @@ declare namespace gapi.client {
         }
         interface Version_headersResource {
             /** Gets the latest container version header */
-            latest(request: {
+            latest(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1567,7 +1567,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ContainerVersionHeader>;
             /** Lists all Container Versions of a GTM Container. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1603,7 +1603,7 @@ declare namespace gapi.client {
         }
         interface VersionsResource {
             /** Deletes a Container Version. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1634,7 +1634,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a Container Version. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1670,7 +1670,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ContainerVersion>;
             /** Gets the live (i.e. published) container version */
-            live(request: {
+            live(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1700,7 +1700,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ContainerVersion>;
             /** Publishes a Container Version. */
-            publish(request: {
+            publish(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1739,7 +1739,7 @@ declare namespace gapi.client {
              * Sets the latest version used for synchronization of workspaces when
              * detecting conflicts and errors.
              */
-            set_latest(request: {
+            set_latest(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1770,7 +1770,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ContainerVersion>;
             /** Undeletes a Container Version. */
-            undelete(request: {
+            undelete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1877,7 +1877,7 @@ declare namespace gapi.client {
         }
         interface Built_in_variablesResource {
             /** Creates one or more GTM Built-In Variables. */
-            create(request: {
+            create(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1910,7 +1910,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<CreateBuiltInVariableResponse>;
             /** Deletes one or more GTM Built-In Variables. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1943,7 +1943,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Lists all the enabled Built-In Variables of a GTM Container. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1976,7 +1976,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListEnabledBuiltInVariablesResponse>;
             /** Reverts changes to a GTM Built-In Variables in a GTM Workspace. */
-            revert(request: {
+            revert(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2075,7 +2075,7 @@ declare namespace gapi.client {
             },
             body: Folder): Request<Folder>;
             /** Deletes a GTM Folder. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2106,7 +2106,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** List all entities in a GTM Folder. */
-            entities(request: {
+            entities(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2139,7 +2139,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<FolderEntities>;
             /** Gets a GTM Folder. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2170,7 +2170,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Folder>;
             /** Lists all GTM Folders of a Container. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2279,7 +2279,7 @@ declare namespace gapi.client {
             },
             body: Folder): Request<void>;
             /** Reverts changes to a GTM Folder in a GTM Workspace. */
-            revert(request: {
+            revert(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2455,7 +2455,7 @@ declare namespace gapi.client {
             },
             body: Tag): Request<Tag>;
             /** Deletes a GTM Tag. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2486,7 +2486,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a GTM Tag. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2517,7 +2517,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Tag>;
             /** Lists all GTM Tags of a Container. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2550,7 +2550,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListTagsResponse>;
             /** Reverts changes to a GTM Tag in a GTM Workspace. */
-            revert(request: {
+            revert(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2726,7 +2726,7 @@ declare namespace gapi.client {
             },
             body: CustomTemplate): Request<CustomTemplate>;
             /** Deletes a GTM Template. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2757,7 +2757,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a GTM Template. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2788,7 +2788,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<CustomTemplate>;
             /** Lists all GTM Templates of a GTM container workspace. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2821,7 +2821,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListTemplatesResponse>;
             /** Reverts changes to a GTM Template in a GTM Workspace. */
-            revert(request: {
+            revert(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2997,7 +2997,7 @@ declare namespace gapi.client {
             },
             body: Trigger): Request<Trigger>;
             /** Deletes a GTM Trigger. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3028,7 +3028,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a GTM Trigger. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3059,7 +3059,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Trigger>;
             /** Lists all GTM Triggers of a Container. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3092,7 +3092,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListTriggersResponse>;
             /** Reverts changes to a GTM Trigger in a GTM Workspace. */
-            revert(request: {
+            revert(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3268,7 +3268,7 @@ declare namespace gapi.client {
             },
             body: Variable): Request<Variable>;
             /** Deletes a GTM Variable. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3299,7 +3299,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a GTM Variable. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3330,7 +3330,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Variable>;
             /** Lists all GTM Variables of a Container. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3363,7 +3363,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListVariablesResponse>;
             /** Reverts changes to a GTM Variable in a GTM Workspace. */
-            revert(request: {
+            revert(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3539,7 +3539,7 @@ declare namespace gapi.client {
             },
             body: Zone): Request<Zone>;
             /** Deletes a GTM Zone. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3570,7 +3570,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a GTM Zone. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3601,7 +3601,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Zone>;
             /** Lists all GTM Zones of a GTM container workspace. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3634,7 +3634,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListZonesResponse>;
             /** Reverts changes to a GTM Zone in a GTM Workspace. */
-            revert(request: {
+            revert(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3876,7 +3876,7 @@ declare namespace gapi.client {
             },
             body: CreateContainerVersionRequestVersionOptions): Request<CreateContainerVersionResponse>;
             /** Deletes a Workspace. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3907,7 +3907,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a Workspace. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3938,7 +3938,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Workspace>;
             /** Finds conflicting and modified entities in the workspace. */
-            getStatus(request: {
+            getStatus(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3969,7 +3969,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GetWorkspaceStatusResponse>;
             /** Lists all Workspaces that belong to a GTM Container. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4004,7 +4004,7 @@ declare namespace gapi.client {
              * Quick previews a workspace by creating a fake container version from all
              * entities in the provided workspace.
              */
-            quick_preview(request: {
+            quick_preview(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4116,7 +4116,7 @@ declare namespace gapi.client {
              * unmodified workspace entities and displaying conflicts for modified
              * entities.
              */
-            sync(request: {
+            sync(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4292,7 +4292,7 @@ declare namespace gapi.client {
             },
             body: Container): Request<Container>;
             /** Deletes a Container. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4322,7 +4322,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a Container. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4352,7 +4352,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Container>;
             /** Lists all Containers that belongs to a GTM Account. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4527,7 +4527,7 @@ declare namespace gapi.client {
              * Removes a user from the account, revoking access to it and all of its
              * containers.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4557,7 +4557,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /** Gets a user's Account & Container access. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4590,7 +4590,7 @@ declare namespace gapi.client {
              * List all users that have access to the account along with Account and
              * Container user access granted to each of them.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4686,7 +4686,7 @@ declare namespace gapi.client {
         }
         interface AccountsResource {
             /** Gets a GTM Account. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4716,7 +4716,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Account>;
             /** Lists all GTM Accounts that a user has access to. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

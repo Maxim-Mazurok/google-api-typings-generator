@@ -326,7 +326,7 @@ declare namespace gapi.client {
             userId?: string;
         }
         interface EncodedFullHashesResource {
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -361,7 +361,7 @@ declare namespace gapi.client {
             }): Request<FindFullHashesResponse>;
         }
         interface EncodedUpdatesResource {
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -508,7 +508,7 @@ declare namespace gapi.client {
         }
         interface ThreatListsResource {
             /** Lists the Safe Browsing threat lists available for download. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

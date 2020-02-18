@@ -38,7 +38,7 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /** Get a verification token for placing on a website or domain. */
-        await gapi.client.siteverification.webResource.getToken(, {
+        await gapi.client.siteverification.webResource.getToken({} , {
             site: {
                 identifier: "Test string",
                 type: "Test string",

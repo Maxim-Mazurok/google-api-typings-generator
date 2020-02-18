@@ -170,7 +170,7 @@ declare namespace gapi.client {
         }
         interface SitemapsResource {
             /** Deletes a sitemap from this site. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml */
@@ -191,7 +191,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves information about a specific sitemap. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The URL of the actual sitemap. For example: http://www.example.com/sitemap.xml */
@@ -212,7 +212,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<WmxSitemap>;
             /** Lists the sitemaps-entries submitted for this site, or included in the sitemap index file (if sitemapIndex is specified in the request). */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -233,7 +233,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<SitemapsListResponse>;
             /** Submits a sitemap for a site. */
-            submit(request: {
+            submit(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The URL of the sitemap to add. For example: http://www.example.com/sitemap.xml */
@@ -256,7 +256,7 @@ declare namespace gapi.client {
         }
         interface SitesResource {
             /** Adds a site to the set of the user's sites in Search Console. */
-            add(request: {
+            add(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -275,7 +275,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Removes a site from the set of the user's Search Console sites. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -297,7 +297,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves information about specific site. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -319,7 +319,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<WmxSite>;
             /** Lists the user's Search Console sites. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

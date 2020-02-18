@@ -1376,7 +1376,7 @@ declare namespace gapi.client {
         }
         interface AchievementDefinitionsResource {
             /** Lists all the achievement definitions for your application. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1404,7 +1404,7 @@ declare namespace gapi.client {
         }
         interface AchievementsResource {
             /** Increments the steps of the achievement with the given ID for the currently authenticated player. */
-            increment(request: {
+            increment(request?: {
                 /** The ID of the achievement used by this method. */
                 achievementId: string;
                 /** Data format for the response. */
@@ -1430,7 +1430,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AchievementIncrementResponse>;
             /** Lists the progress for all your application's achievements for the currently authenticated player. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1460,7 +1460,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PlayerAchievementListResponse>;
             /** Sets the state of the achievement with the given ID to REVEALED for the currently authenticated player. */
-            reveal(request: {
+            reveal(request?: {
                 /** The ID of the achievement used by this method. */
                 achievementId: string;
                 /** Data format for the response. */
@@ -1482,7 +1482,7 @@ declare namespace gapi.client {
              * Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps
              * that the player already gained for the achievement, the achievement is not modified.
              */
-            setStepsAtLeast(request: {
+            setStepsAtLeast(request?: {
                 /** The ID of the achievement used by this method. */
                 achievementId: string;
                 /** Data format for the response. */
@@ -1503,7 +1503,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AchievementSetStepsAtLeastResponse>;
             /** Unlocks this achievement for the currently authenticated player. */
-            unlock(request: {
+            unlock(request?: {
                 /** The ID of the achievement used by this method. */
                 achievementId: string;
                 /** Data format for the response. */
@@ -1569,7 +1569,7 @@ declare namespace gapi.client {
              * Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified platformType, the returned
              * response will not include any instance data.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The application ID from the Google Play developer console. */
@@ -1592,7 +1592,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Application>;
             /** Indicate that the the currently authenticated user is playing your application. */
-            played(request: {
+            played(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Override used only by built-in games in Play Games application. */
@@ -1611,7 +1611,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for. */
-            verify(request: {
+            verify(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The application ID from the Google Play developer console. */
@@ -1632,7 +1632,7 @@ declare namespace gapi.client {
         }
         interface EventsResource {
             /** Returns a list showing the current progress on events in this application for the currently authenticated user. */
-            listByPlayer(request: {
+            listByPlayer(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1658,7 +1658,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PlayerEventListResponse>;
             /** Returns a list of the event definitions in this application. */
-            listDefinitions(request: {
+            listDefinitions(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1726,7 +1726,7 @@ declare namespace gapi.client {
         }
         interface LeaderboardsResource {
             /** Retrieves the metadata of the leaderboard with the given ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1747,7 +1747,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Leaderboard>;
             /** Lists all the leaderboard metadata for your application. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1775,7 +1775,7 @@ declare namespace gapi.client {
         }
         interface MetagameResource {
             /** Return the metagame configuration data for the calling application. */
-            getMetagameConfig(request: {
+            getMetagameConfig(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1792,7 +1792,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<MetagameConfig>;
             /** List play data aggregated per category for the player corresponding to playerId. */
-            listCategoriesByPlayer(request: {
+            listCategoriesByPlayer(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The collection of categories for which data will be returned. */
@@ -1824,7 +1824,7 @@ declare namespace gapi.client {
         }
         interface PlayersResource {
             /** Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set playerId to me. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1845,7 +1845,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Player>;
             /** Get the collection of players for the currently authenticated user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Collection of players being retrieved */
@@ -1949,7 +1949,7 @@ declare namespace gapi.client {
         }
         interface RevisionsResource {
             /** Checks whether the games client is out of date. */
-            check(request: {
+            check(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -2017,7 +2017,7 @@ declare namespace gapi.client {
             },
             body: RoomCreateRequest): Request<Room>;
             /** Decline an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported. */
-            decline(request: {
+            decline(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2038,7 +2038,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Room>;
             /** Dismiss an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported. */
-            dismiss(request: {
+            dismiss(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2057,7 +2057,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Get the data for a room. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2166,7 +2166,7 @@ declare namespace gapi.client {
             },
             body: RoomLeaveRequest): Request<Room>;
             /** Returns invitations to join rooms. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2242,7 +2242,7 @@ declare namespace gapi.client {
              * ALL to retrieve data for all leaderboards in a given time span.
              * NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2276,7 +2276,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PlayerLeaderboardScoreListResponse>;
             /** Lists the scores in a leaderboard, starting from the top. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The collection of scores you're requesting. */
@@ -2308,7 +2308,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LeaderboardScores>;
             /** Lists the scores in a leaderboard around (and including) a player's score. */
-            listWindow(request: {
+            listWindow(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The collection of scores you're requesting. */
@@ -2347,7 +2347,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LeaderboardScores>;
             /** Submits a score to the specified leaderboard. */
-            submit(request: {
+            submit(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2421,7 +2421,7 @@ declare namespace gapi.client {
         }
         interface SnapshotsResource {
             /** Retrieves the metadata for a given snapshot ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2442,7 +2442,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Snapshot>;
             /** Retrieves a list of snapshots created by your application for the player corresponding to the player ID. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2472,7 +2472,7 @@ declare namespace gapi.client {
         }
         interface TurnBasedMatchesResource {
             /** Cancel a turn-based match. */
-            cancel(request: {
+            cancel(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2531,7 +2531,7 @@ declare namespace gapi.client {
             },
             body: TurnBasedMatchCreateRequest): Request<TurnBasedMatch>;
             /** Decline an invitation to play a turn-based match. */
-            decline(request: {
+            decline(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2552,7 +2552,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TurnBasedMatch>;
             /** Dismiss a turn-based match from the match list. The match will no longer show up in the list and will not generate notifications. */
-            dismiss(request: {
+            dismiss(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2618,7 +2618,7 @@ declare namespace gapi.client {
             },
             body: TurnBasedMatchResults): Request<TurnBasedMatch>;
             /** Get the data for a turn-based match. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2641,7 +2641,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TurnBasedMatch>;
             /** Join a turn-based match. */
-            join(request: {
+            join(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2662,7 +2662,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TurnBasedMatch>;
             /** Leave a turn-based match when it is not the current player's turn, without canceling the match. */
-            leave(request: {
+            leave(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2683,7 +2683,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TurnBasedMatch>;
             /** Leave a turn-based match during the current player's turn, without canceling the match. */
-            leaveTurn(request: {
+            leaveTurn(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2711,7 +2711,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TurnBasedMatch>;
             /** Returns turn-based matches the player is or was involved in. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2748,7 +2748,7 @@ declare namespace gapi.client {
              * Create a rematch of a match that was previously completed, with the same participants. This can be called by only one player on a match still in their
              * list; the player must have called Finish first. Returns the newly created match; it will be the caller's turn.
              */
-            rematch(request: {
+            rematch(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2777,7 +2777,7 @@ declare namespace gapi.client {
              * Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches
              * that should be removed from the local cache will have a status of MATCH_DELETED.
              */
-            sync(request: {
+            sync(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

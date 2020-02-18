@@ -695,7 +695,7 @@ declare namespace gapi.client {
              *
              * &#42; `lifesciences.operations.get`
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -727,7 +727,7 @@ declare namespace gapi.client {
              *
              * &#42; `lifesciences.operations.list`
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -850,7 +850,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Gets information about a location. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -877,7 +877,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

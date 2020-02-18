@@ -1721,7 +1721,7 @@ declare namespace gapi.client {
             },
             body: ClientUserInvitation): Request<ClientUserInvitation>;
             /** Retrieves an existing client user invitation. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1758,7 +1758,7 @@ declare namespace gapi.client {
              * Lists all the client users invitations for a client
              * with a given account ID.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1810,7 +1810,7 @@ declare namespace gapi.client {
         }
         interface UsersResource {
             /** Retrieves an existing client user. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1847,7 +1847,7 @@ declare namespace gapi.client {
              * Lists all the known client users for a specified
              * sponsor buyer account ID.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2036,7 +2036,7 @@ declare namespace gapi.client {
             },
             body: Client): Request<Client>;
             /** Gets a client buyer with a given client account ID. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2065,7 +2065,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Client>;
             /** Lists all the clients for the current sponsor buyer. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2242,7 +2242,7 @@ declare namespace gapi.client {
             },
             body: AddDealAssociationRequest): Request<{}>;
             /** List all creative-deal associations. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2443,7 +2443,7 @@ declare namespace gapi.client {
             },
             body: Creative): Request<Creative>;
             /** Gets a creative. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2472,7 +2472,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Creative>;
             /** Lists creatives. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2766,7 +2766,7 @@ declare namespace gapi.client {
              * A filter expression (PQL query) may be specified to filter the results.
              * The notes will not be returned.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2814,7 +2814,7 @@ declare namespace gapi.client {
         }
         interface ProductsResource {
             /** Gets the requested product by ID. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2846,7 +2846,7 @@ declare namespace gapi.client {
              * List all products visible to the buyer (optionally filtered by the
              * specified PQL query).
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3214,7 +3214,7 @@ declare namespace gapi.client {
              * Gets a proposal given its ID. The proposal is returned at its head
              * revision.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3250,7 +3250,7 @@ declare namespace gapi.client {
              * A Bidder account can only see its child seats' proposals by specifying
              * the ChildSeat's accountId in the request path.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3513,7 +3513,7 @@ declare namespace gapi.client {
         }
         interface PublisherProfilesResource {
             /** Gets the requested publisher profile by id. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3542,7 +3542,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<PublisherProfile>;
             /** List all publisher profiles visible to the buyer */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3583,7 +3583,7 @@ declare namespace gapi.client {
         }
         interface BidMetricsResource {
             /** Lists all metrics that are measured in terms of number of bids. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3640,7 +3640,7 @@ declare namespace gapi.client {
              * List all errors that occurred in bid responses, with the number of bid
              * responses affected for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3697,7 +3697,7 @@ declare namespace gapi.client {
              * List all reasons for which bid responses were considered to have no
              * applicable bids, with the number of bid responses affected for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3754,7 +3754,7 @@ declare namespace gapi.client {
              * List all reasons that caused a bid request not to be sent for an
              * impression, with the number of bid requests not sent for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3811,7 +3811,7 @@ declare namespace gapi.client {
              * List all creatives associated with a specific reason for which bids were
              * filtered, with the number of bids filtered for each creative.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3875,7 +3875,7 @@ declare namespace gapi.client {
              * List all details associated with a specific reason for which bids were
              * filtered, with the number of bids filtered for each detail.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3939,7 +3939,7 @@ declare namespace gapi.client {
              * List all reasons for which bids were filtered, with the number of bids
              * filtered for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3995,7 +3995,7 @@ declare namespace gapi.client {
         }
         interface ImpressionMetricsResource {
             /** Lists all metrics that are measured in terms of number of impressions. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4052,7 +4052,7 @@ declare namespace gapi.client {
              * List all reasons for which bids lost in the auction, with the number of
              * bids that lost for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4109,7 +4109,7 @@ declare namespace gapi.client {
              * List all reasons for which winning bids were not billable, with the number
              * of bids not billed for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4256,7 +4256,7 @@ declare namespace gapi.client {
              * Deletes the requested filter set from the account with the given account
              * ID.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4298,7 +4298,7 @@ declare namespace gapi.client {
              * Retrieves the requested filter set for the account with the given account
              * ID.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4337,7 +4337,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<FilterSet>;
             /** Lists all filter sets for the account with the given account ID. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4402,7 +4402,7 @@ declare namespace gapi.client {
         }
         interface BidMetricsResource {
             /** Lists all metrics that are measured in terms of number of bids. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4459,7 +4459,7 @@ declare namespace gapi.client {
              * List all errors that occurred in bid responses, with the number of bid
              * responses affected for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4516,7 +4516,7 @@ declare namespace gapi.client {
              * List all reasons for which bid responses were considered to have no
              * applicable bids, with the number of bid responses affected for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4573,7 +4573,7 @@ declare namespace gapi.client {
              * List all reasons that caused a bid request not to be sent for an
              * impression, with the number of bid requests not sent for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4630,7 +4630,7 @@ declare namespace gapi.client {
              * List all creatives associated with a specific reason for which bids were
              * filtered, with the number of bids filtered for each creative.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4694,7 +4694,7 @@ declare namespace gapi.client {
              * List all details associated with a specific reason for which bids were
              * filtered, with the number of bids filtered for each detail.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4758,7 +4758,7 @@ declare namespace gapi.client {
              * List all reasons for which bids were filtered, with the number of bids
              * filtered for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4814,7 +4814,7 @@ declare namespace gapi.client {
         }
         interface ImpressionMetricsResource {
             /** Lists all metrics that are measured in terms of number of impressions. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4871,7 +4871,7 @@ declare namespace gapi.client {
              * List all reasons for which bids lost in the auction, with the number of
              * bids that lost for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4928,7 +4928,7 @@ declare namespace gapi.client {
              * List all reasons for which winning bids were not billable, with the number
              * of bids not billed for each reason.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5075,7 +5075,7 @@ declare namespace gapi.client {
              * Deletes the requested filter set from the account with the given account
              * ID.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5117,7 +5117,7 @@ declare namespace gapi.client {
              * Retrieves the requested filter set for the account with the given account
              * ID.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5156,7 +5156,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<FilterSet>;
             /** Lists all filter sets for the account with the given account ID. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

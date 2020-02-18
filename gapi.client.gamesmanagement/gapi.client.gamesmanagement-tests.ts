@@ -52,7 +52,7 @@ gapi.load('client', () => {
          * Resets achievements with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft
          * achievements may be reset.
          */
-        await gapi.client.gamesmanagement.achievements.resetMultipleForAllPlayers(, {
+        await gapi.client.gamesmanagement.achievements.resetMultipleForAllPlayers({} , {
             achievement_ids: [
                 "Test string"            ],
             kind: "Test string",
@@ -88,7 +88,7 @@ gapi.load('client', () => {
          * Resets events with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft events may be
          * reset.
          */
-        await gapi.client.gamesmanagement.events.resetMultipleForAllPlayers(, {
+        await gapi.client.gamesmanagement.events.resetMultipleForAllPlayers({} , {
             event_ids: [
                 "Test string"            ],
             kind: "Test string",
@@ -138,7 +138,7 @@ gapi.load('client', () => {
          * Resets scores for the leaderboards with the given IDs for all players. This method is only available to user accounts for your developer console. Only
          * draft leaderboards may be reset.
          */
-        await gapi.client.gamesmanagement.scores.resetMultipleForAllPlayers(, {
+        await gapi.client.gamesmanagement.scores.resetMultipleForAllPlayers({} , {
             kind: "Test string",
             leaderboard_ids: [
                 "Test string"            ],

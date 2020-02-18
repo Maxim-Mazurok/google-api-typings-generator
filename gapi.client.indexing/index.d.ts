@@ -50,7 +50,7 @@ declare namespace gapi.client {
              * URLs that were previously seen in successful Indexing API notifications.
              * Includes the latest `UrlNotification` received via this API.
              */
-            getMetadata(request: {
+            getMetadata(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

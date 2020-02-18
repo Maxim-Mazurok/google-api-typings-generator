@@ -943,7 +943,7 @@ declare namespace gapi.client {
         }
         interface AboutResource {
             /** Gets information about the user, the user's Drive, and system capabilities. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -962,7 +962,7 @@ declare namespace gapi.client {
         }
         interface ChangesResource {
             /** Gets the starting pageToken for listing future changes. */
-            getStartPageToken(request: {
+            getStartPageToken(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the shared drive for which the starting pageToken for listing future changes from that shared drive will be returned. */
@@ -990,7 +990,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<StartPageToken>;
             /** Lists the changes for a user or shared drive. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1249,7 +1249,7 @@ declare namespace gapi.client {
             },
             body: Comment): Request<Comment>;
             /** Deletes a comment. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the comment. */
@@ -1270,7 +1270,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a comment by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the comment. */
@@ -1293,7 +1293,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Comment>;
             /** Lists a file's comments. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1414,7 +1414,7 @@ declare namespace gapi.client {
             },
             body: Drive): Request<Drive>;
             /** Permanently deletes a shared drive for which the user is an organizer. The shared drive cannot contain any untrashed items. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the shared drive. */
@@ -1433,7 +1433,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a shared drive's metadata by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the shared drive. */
@@ -1457,7 +1457,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Drive>;
             /** Hides a shared drive from the default view. */
-            hide(request: {
+            hide(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the shared drive. */
@@ -1476,7 +1476,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Drive>;
             /** Lists the user's shared drives. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1504,7 +1504,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<DriveList>;
             /** Restores a shared drive to the default view. */
-            unhide(request: {
+            unhide(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the shared drive. */
@@ -1734,7 +1734,7 @@ declare namespace gapi.client {
              * Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive the user must be an organizer on the
              * parent. If the target is a folder, all descendants owned by the user are also deleted.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1760,7 +1760,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Permanently deletes all of the user's trashed files. */
-            emptyTrash(request: {
+            emptyTrash(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1777,7 +1777,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Exports a Google Doc to the requested MIME type and returns the exported content. Please note that the exported content is limited to 10MB. */
-            export(request: {
+            export(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1798,7 +1798,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Generates a set of file IDs which can be provided in create or copy requests. */
-            generateIds(request: {
+            generateIds(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The number of IDs to return. */
@@ -1819,7 +1819,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<GeneratedIds>;
             /** Gets a file's metadata or content by ID. */
-            get(request: {
+            get(request?: {
                 /** Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media. */
                 acknowledgeAbuse?: boolean;
                 /** Data format for the response. */
@@ -1847,7 +1847,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<File>;
             /** Lists or searches files. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -2132,7 +2132,7 @@ declare namespace gapi.client {
             },
             body: Permission): Request<Permission>;
             /** Deletes a permission. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2165,7 +2165,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a permission by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2198,7 +2198,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Permission>;
             /** Lists a file's or shared drive's permissions. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2364,7 +2364,7 @@ declare namespace gapi.client {
             },
             body: Reply): Request<Reply>;
             /** Deletes a reply. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the comment. */
@@ -2387,7 +2387,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a reply by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the comment. */
@@ -2412,7 +2412,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Reply>;
             /** Lists a comment's replies. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the comment. */
@@ -2492,7 +2492,7 @@ declare namespace gapi.client {
              * Permanently deletes a file version. You can only delete revisions for files with binary content in Google Drive, like images or videos. Revisions for
              * other files, like Google Docs or Sheets, and the last remaining file version can't be deleted.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2513,7 +2513,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a revision's metadata or content by ID. */
-            get(request: {
+            get(request?: {
                 /** Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media. */
                 acknowledgeAbuse?: boolean;
                 /** Data format for the response. */
@@ -2536,7 +2536,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Revision>;
             /** Lists a file's revisions. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2653,7 +2653,7 @@ declare namespace gapi.client {
             },
             body: TeamDrive): Request<TeamDrive>;
             /** Deprecated use drives.delete instead. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2672,7 +2672,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Deprecated use drives.get instead. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2696,7 +2696,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TeamDrive>;
             /** Deprecated use drives.list instead. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

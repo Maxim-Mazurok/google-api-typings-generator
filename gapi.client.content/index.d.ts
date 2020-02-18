@@ -2848,7 +2848,7 @@ declare namespace gapi.client {
         }
         interface AccountsResource {
             /** Returns information about the authenticated user. */
-            authinfo(request: {
+            authinfo(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2865,7 +2865,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AccountsAuthInfoResponse>;
             /** Claims the website of a Merchant Center sub-account. */
-            claimwebsite(request: {
+            claimwebsite(request?: {
                 /** The ID of the account whose website is claimed. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2930,7 +2930,7 @@ declare namespace gapi.client {
             },
             body: AccountsCustomBatchRequest): Request<AccountsCustomBatchResponse>;
             /** Deletes a Merchant Center sub-account. */
-            delete(request: {
+            delete(request?: {
                 /** The ID of the account. */
                 accountId: string;
                 /** Data format for the response. */
@@ -2953,7 +2953,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves a Merchant Center account. */
-            get(request: {
+            get(request?: {
                 /** The ID of the account. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3067,7 +3067,7 @@ declare namespace gapi.client {
             },
             body: AccountsLinkRequest): Request<AccountsLinkResponse>;
             /** Lists the sub-accounts in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3090,7 +3090,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AccountsListResponse>;
             /** Returns the list of accounts linked to your Merchant Center account. */
-            listlinks(request: {
+            listlinks(request?: {
                 /** The ID of the account for which to list links. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3206,7 +3206,7 @@ declare namespace gapi.client {
             },
             body: AccountstatusesCustomBatchRequest): Request<AccountstatusesCustomBatchResponse>;
             /** Retrieves the status of a Merchant Center account. No itemLevelIssues are returned for multi-client accounts. */
-            get(request: {
+            get(request?: {
                 /** The ID of the account. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3232,7 +3232,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AccountStatus>;
             /** Lists the statuses of the sub-accounts in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination. */
@@ -3295,7 +3295,7 @@ declare namespace gapi.client {
             },
             body: AccounttaxCustomBatchRequest): Request<AccounttaxCustomBatchResponse>;
             /** Retrieves the tax settings of the account. */
-            get(request: {
+            get(request?: {
                 /** The ID of the account for which to get/update account tax settings. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3319,7 +3319,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AccountTax>;
             /** Lists the tax settings of the sub-accounts in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3430,7 +3430,7 @@ declare namespace gapi.client {
             },
             body: DatafeedsCustomBatchRequest): Request<DatafeedsCustomBatchResponse>;
             /** Deletes a datafeed configuration from your Merchant Center account. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the datafeed. */
@@ -3451,7 +3451,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Invokes a fetch for the datafeed in your Merchant Center account. */
-            fetchnow(request: {
+            fetchnow(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the datafeed to be fetched. */
@@ -3472,7 +3472,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<DatafeedsFetchNowResponse>;
             /** Retrieves a datafeed configuration from your Merchant Center account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the datafeed. */
@@ -3533,7 +3533,7 @@ declare namespace gapi.client {
             },
             body: Datafeed): Request<Datafeed>;
             /** Lists the configurations for datafeeds in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3638,7 +3638,7 @@ declare namespace gapi.client {
             },
             body: DatafeedstatusesCustomBatchRequest): Request<DatafeedstatusesCustomBatchResponse>;
             /** Retrieves the status of a datafeed from your Merchant Center account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -3669,7 +3669,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<DatafeedStatus>;
             /** Lists the statuses of the datafeeds in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3730,7 +3730,7 @@ declare namespace gapi.client {
             },
             body: LiasettingsCustomBatchRequest): Request<LiasettingsCustomBatchResponse>;
             /** Retrieves the LIA settings of the account. */
-            get(request: {
+            get(request?: {
                 /** The ID of the account for which to get or update LIA settings. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3754,7 +3754,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LiaSettings>;
             /** Retrieves the list of accessible Google My Business accounts. */
-            getaccessiblegmbaccounts(request: {
+            getaccessiblegmbaccounts(request?: {
                 /** The ID of the account for which to retrieve accessible Google My Business accounts. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3778,7 +3778,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LiasettingsGetAccessibleGmbAccountsResponse>;
             /** Lists the LIA settings of the sub-accounts in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3801,7 +3801,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LiasettingsListResponse>;
             /** Retrieves the list of POS data providers that have active settings for the all eiligible countries. */
-            listposdataproviders(request: {
+            listposdataproviders(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3818,7 +3818,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LiasettingsListPosDataProvidersResponse>;
             /** Requests access to a specified Google My Business account. */
-            requestgmbaccess(request: {
+            requestgmbaccess(request?: {
                 /** The ID of the account for which GMB access is requested. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3844,7 +3844,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LiasettingsRequestGmbAccessResponse>;
             /** Requests inventory validation for the specified country. */
-            requestinventoryverification(request: {
+            requestinventoryverification(request?: {
                 /** The ID of the account that manages the order. This cannot be a multi-client account. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3870,7 +3870,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LiasettingsRequestInventoryVerificationResponse>;
             /** Sets the inventory verification contract for the specified country. */
-            setinventoryverificationcontact(request: {
+            setinventoryverificationcontact(request?: {
                 /** The ID of the account that manages the order. This cannot be a multi-client account. */
                 accountId: string;
                 /** Data format for the response. */
@@ -3902,7 +3902,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LiasettingsSetInventoryVerificationContactResponse>;
             /** Sets the POS data provider for the specified country. */
-            setposdataprovider(request: {
+            setposdataprovider(request?: {
                 /** The ID of the account for which to retrieve accessible Google My Business accounts. */
                 accountId: string;
                 /** Data format for the response. */
@@ -4077,7 +4077,7 @@ declare namespace gapi.client {
         }
         interface OrderreportsResource {
             /** Retrieves a report for disbursements from your Merchant Center account. */
-            listdisbursements(request: {
+            listdisbursements(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The last date which disbursements occurred. In ISO 8601 format. Default: current date. */
@@ -4104,7 +4104,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<OrderreportsListDisbursementsResponse>;
             /** Retrieves a list of transactions for a disbursement from your Merchant Center account. */
-            listtransactions(request: {
+            listtransactions(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The Google-provided ID of the disbursement (found in Wallet). */
@@ -4135,7 +4135,7 @@ declare namespace gapi.client {
         }
         interface OrderreturnsResource {
             /** Retrieves an order return from your Merchant Center account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4156,7 +4156,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<MerchantOrderReturn>;
             /** Lists order returns in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Obtains order returns created before this date (inclusively), in ISO 8601 format. */
@@ -4234,7 +4234,7 @@ declare namespace gapi.client {
             },
             body: OrdersAcknowledgeRequest): Request<OrdersAcknowledgeResponse>;
             /** Sandbox only. Moves a test order from state "inProgress" to state "pendingShipment". */
-            advancetestorder(request: {
+            advancetestorder(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4471,7 +4471,7 @@ declare namespace gapi.client {
             },
             body: OrdersCreateTestReturnRequest): Request<OrdersCreateTestReturnResponse>;
             /** Retrieves an order from your Merchant Center account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4492,7 +4492,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Order>;
             /** Retrieves an order using merchant order ID. */
-            getbymerchantorderid(request: {
+            getbymerchantorderid(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4513,7 +4513,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<OrdersGetByMerchantOrderIdResponse>;
             /** Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox. */
-            gettestordertemplate(request: {
+            gettestordertemplate(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The country of the template to retrieve. Defaults to US. */
@@ -4586,7 +4586,7 @@ declare namespace gapi.client {
             },
             body: OrdersInStoreRefundLineItemRequest): Request<OrdersInStoreRefundLineItemResponse>;
             /** Lists the orders in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /**
                  * Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that
                  * have not been acknowledged.
@@ -4985,7 +4985,7 @@ declare namespace gapi.client {
             },
             body: PosCustomBatchRequest): Request<PosCustomBatchResponse>;
             /** Deletes a store for the given merchant. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5008,7 +5008,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves information about the given store. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5119,7 +5119,7 @@ declare namespace gapi.client {
             },
             body: PosInventoryRequest): Request<PosInventoryResponse>;
             /** Lists the stores of the target merchant. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5222,7 +5222,7 @@ declare namespace gapi.client {
             },
             body: ProductsCustomBatchRequest): Request<ProductsCustomBatchResponse>;
             /** Deletes a product from your Merchant Center account. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The Content API Supplemental Feed ID. */
@@ -5245,7 +5245,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves a product from your Merchant Center account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5313,7 +5313,7 @@ declare namespace gapi.client {
             },
             body: Product): Request<Product>;
             /** Lists the products in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5374,7 +5374,7 @@ declare namespace gapi.client {
             },
             body: ProductstatusesCustomBatchRequest): Request<ProductstatusesCustomBatchResponse>;
             /** Gets the status of a product from your Merchant Center account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination. */
@@ -5397,7 +5397,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ProductStatus>;
             /** Lists the statuses of the products in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination. */
@@ -5545,7 +5545,7 @@ declare namespace gapi.client {
             },
             body: ReturnaddressCustomBatchRequest): Request<ReturnaddressCustomBatchResponse>;
             /** Deletes a return address for the given Merchant Center account. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5566,7 +5566,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a return address of the Merchant Center account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5627,7 +5627,7 @@ declare namespace gapi.client {
             },
             body: ReturnAddress): Request<ReturnAddress>;
             /** Lists the return addresses of the Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** List only return addresses applicable to the given country of sale. When omitted, all return addresses are listed. */
@@ -5690,7 +5690,7 @@ declare namespace gapi.client {
             },
             body: ReturnpolicyCustomBatchRequest): Request<ReturnpolicyCustomBatchResponse>;
             /** Deletes a return policy for the given Merchant Center account. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5711,7 +5711,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a return policy of the Merchant Center account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5772,7 +5772,7 @@ declare namespace gapi.client {
             },
             body: ReturnPolicy): Request<ReturnPolicy>;
             /** Lists the return policies of the Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5829,7 +5829,7 @@ declare namespace gapi.client {
             },
             body: ShippingsettingsCustomBatchRequest): Request<ShippingsettingsCustomBatchResponse>;
             /** Retrieves the shipping settings of the account. */
-            get(request: {
+            get(request?: {
                 /** The ID of the account for which to get/update shipping settings. */
                 accountId: string;
                 /** Data format for the response. */
@@ -5853,7 +5853,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ShippingSettings>;
             /** Retrieves supported carriers and carrier services for an account. */
-            getsupportedcarriers(request: {
+            getsupportedcarriers(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5872,7 +5872,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ShippingsettingsGetSupportedCarriersResponse>;
             /** Retrieves supported holidays for an account. */
-            getsupportedholidays(request: {
+            getsupportedholidays(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5891,7 +5891,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ShippingsettingsGetSupportedHolidaysResponse>;
             /** Retrieves supported pickup services for an account. */
-            getsupportedpickupservices(request: {
+            getsupportedpickupservices(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5910,7 +5910,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ShippingsettingsGetSupportedPickupServicesResponse>;
             /** Lists the shipping settings of the sub-accounts in your Merchant Center account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

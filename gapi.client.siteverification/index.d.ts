@@ -57,7 +57,7 @@ declare namespace gapi.client {
         }
         interface WebResourceResource {
             /** Relinquish ownership of a website or domain. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -76,7 +76,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Get the most current data for a website or domain. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -171,7 +171,7 @@ declare namespace gapi.client {
             },
             body: SiteVerificationWebResourceResource): Request<SiteVerificationWebResourceResource>;
             /** Get the list of your verified websites and domains. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

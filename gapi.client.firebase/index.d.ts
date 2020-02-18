@@ -683,7 +683,7 @@ declare namespace gapi.client {
              * that prevent Firebase resources from being added.</p></li>
              * </ol>
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -729,7 +729,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -826,7 +826,7 @@ declare namespace gapi.client {
             },
             body: ShaCertificate): Request<ShaCertificate>;
             /** Removes a SHA certificate from the specified AndroidApp. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -862,7 +862,7 @@ declare namespace gapi.client {
              * Returns the list of SHA-1 and SHA-256 certificates for the specified
              * AndroidApp.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -965,7 +965,7 @@ declare namespace gapi.client {
             },
             body: AndroidApp): Request<Operation>;
             /** Gets the AndroidApp identified by the specified resource name. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1001,7 +1001,7 @@ declare namespace gapi.client {
              * Gets the configuration artifact associated with the specified
              * AndroidApp.
              */
-            getConfig(request: {
+            getConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1040,7 +1040,7 @@ declare namespace gapi.client {
              * consistent view of the Apps when additional requests are made with a
              * `pageToken`.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1183,7 +1183,7 @@ declare namespace gapi.client {
              * must be at minimum a Viewer of the project. Calls without a specified
              * project do not require any specific project permissions.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1406,7 +1406,7 @@ declare namespace gapi.client {
             },
             body: IosApp): Request<Operation>;
             /** Gets the IosApp identified by the specified resource name. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1439,7 +1439,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<IosApp>;
             /** Gets the configuration artifact associated with the specified IosApp. */
-            getConfig(request: {
+            getConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1478,7 +1478,7 @@ declare namespace gapi.client {
              * consistent view of the Apps when additional requests are made with a
              * `pageToken`.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1668,7 +1668,7 @@ declare namespace gapi.client {
             },
             body: WebApp): Request<Operation>;
             /** Gets the WebApp identified by the specified resource name. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1701,7 +1701,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<WebApp>;
             /** Gets the configuration artifact associated with the specified WebApp. */
-            getConfig(request: {
+            getConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1740,7 +1740,7 @@ declare namespace gapi.client {
              * consistent view of the Apps when additional requests are made with a
              * `pageToken`.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2077,7 +2077,7 @@ declare namespace gapi.client {
             },
             body: AddGoogleAnalyticsRequest): Request<Operation>;
             /** Gets the FirebaseProject identified by the specified resource name. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2113,7 +2113,7 @@ declare namespace gapi.client {
              * [initializeApp](https://firebase.google.com/docs/admin/setup#initialize_the_sdk)
              * command.
              */
-            getAdminSdkConfig(request: {
+            getAdminSdkConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2149,7 +2149,7 @@ declare namespace gapi.client {
              * <br>If the `FirebaseProject` is not yet linked to Google Analytics, then
              * the response to `GetAnalyticsDetails` is NOT_FOUND.
              */
-            getAnalyticsDetails(request: {
+            getAnalyticsDetails(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2194,7 +2194,7 @@ declare namespace gapi.client {
              * GetFirebaseProject
              * for consistent reads as well as for additional Project details.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2406,7 +2406,7 @@ declare namespace gapi.client {
              * platform-specific service, but some tool use-cases require a summary of all
              * known Apps (such as for App selector interfaces).
              */
-            searchApps(request: {
+            searchApps(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

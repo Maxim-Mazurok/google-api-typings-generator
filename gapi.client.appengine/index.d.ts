@@ -976,7 +976,7 @@ declare namespace gapi.client {
             },
             body: AuthorizedCertificate): Request<AuthorizedCertificate>;
             /** Deletes the specified SSL certificate. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1005,7 +1005,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the specified SSL certificate. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1036,7 +1036,7 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<AuthorizedCertificate>;
             /** Lists all SSL certificates the user is authorized to administer. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1138,7 +1138,7 @@ declare namespace gapi.client {
         }
         interface AuthorizedDomainsResource {
             /** Lists all domains the user is authorized to administer. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1234,7 +1234,7 @@ declare namespace gapi.client {
             },
             body: DomainMapping): Request<Operation>;
             /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1263,7 +1263,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Gets the specified domain mapping. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1292,7 +1292,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<DomainMapping>;
             /** Lists the domain mappings on an application. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1507,7 +1507,7 @@ declare namespace gapi.client {
             },
             body: FirewallRule): Request<FirewallRule>;
             /** Deletes the specified firewall rule. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1536,7 +1536,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the specified firewall rule. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1565,7 +1565,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<FirewallRule>;
             /** Lists the firewall rules of an application. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1670,7 +1670,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Gets information about a location. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1699,7 +1699,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1737,7 +1737,7 @@ declare namespace gapi.client {
              * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1772,7 +1772,7 @@ declare namespace gapi.client {
              * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
              * id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1885,7 +1885,7 @@ declare namespace gapi.client {
              * billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the
              * apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1918,7 +1918,7 @@ declare namespace gapi.client {
                 versionsId: string;
             }): Request<Operation>;
             /** Gets instance information. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1954,7 +1954,7 @@ declare namespace gapi.client {
              * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
              * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2051,7 +2051,7 @@ declare namespace gapi.client {
             },
             body: Version): Request<Operation>;
             /** Deletes an existing Version resource. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2082,7 +2082,7 @@ declare namespace gapi.client {
                 versionsId: string;
             }): Request<Operation>;
             /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2115,7 +2115,7 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<Version>;
             /** Lists the versions of a service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2251,7 +2251,7 @@ declare namespace gapi.client {
         }
         interface ServicesResource {
             /** Deletes the specified service and all enclosed versions. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2280,7 +2280,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Gets the current configuration of the specified service. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2309,7 +2309,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Service>;
             /** Lists all the services in the application. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2484,7 +2484,7 @@ declare namespace gapi.client {
             },
             body: Application): Request<Operation>;
             /** Gets information about an application. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

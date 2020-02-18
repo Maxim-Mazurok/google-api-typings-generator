@@ -43,7 +43,7 @@ declare namespace gapi.client {
         }
         interface WebfontsResource {
             /** Retrieves the list of fonts currently served by the Google Fonts Developer API */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

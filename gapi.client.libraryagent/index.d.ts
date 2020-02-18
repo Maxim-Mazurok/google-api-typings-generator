@@ -72,7 +72,7 @@ declare namespace gapi.client {
              * Returns quota exceeded error if the amount of books borrowed exceeds
              * allocation quota in any dimensions.
              */
-            borrow(request: {
+            borrow(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -99,7 +99,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleExampleLibraryagentV1Book>;
             /** Gets a book. Returns NOT_FOUND if the book does not exist. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -130,7 +130,7 @@ declare namespace gapi.client {
              * created books will not necessarily be added to the end of this list.
              * Returns NOT_FOUND if the shelf does not exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -174,7 +174,7 @@ declare namespace gapi.client {
              * Returns error if the book does not belong to the library
              * or the users didn't borrow before.
              */
-            return(request: {
+            return(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -203,7 +203,7 @@ declare namespace gapi.client {
         }
         interface ShelvesResource {
             /** Gets a shelf. Returns NOT_FOUND if the shelf does not exist. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -233,7 +233,7 @@ declare namespace gapi.client {
              * Lists shelves. The order is unspecified but deterministic. Newly created
              * shelves will not necessarily be added to the end of this list.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

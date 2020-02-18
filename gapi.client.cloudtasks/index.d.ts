@@ -1100,7 +1100,7 @@ declare namespace gapi.client {
              * cannot be deleted if it has executed successfully or permanently
              * failed.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1130,7 +1130,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a task. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1185,7 +1185,7 @@ declare namespace gapi.client {
              * The tasks may be returned in any order. The ordering may change at any
              * time.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1439,7 +1439,7 @@ declare namespace gapi.client {
              * queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
              * this method.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1469,7 +1469,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a queue. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1544,7 +1544,7 @@ declare namespace gapi.client {
              *
              * Queues are returned in lexicographical order.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2033,7 +2033,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Gets information about a location. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2060,7 +2060,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

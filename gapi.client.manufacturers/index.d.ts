@@ -328,7 +328,7 @@ declare namespace gapi.client {
         }
         interface ProductsResource {
             /** Deletes the product from a Manufacturer Center account. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -380,7 +380,7 @@ declare namespace gapi.client {
              * available once the product has been processed, other issues may take days
              * to appear.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -429,7 +429,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Product>;
             /** Lists all the products in a Manufacturer Center account. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

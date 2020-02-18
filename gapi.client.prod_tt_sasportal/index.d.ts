@@ -616,7 +616,7 @@ declare namespace gapi.client {
             },
             body: SasPortalCreateSignedDeviceRequest): Request<SasPortalDevice>;
             /** Deletes a device. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -643,7 +643,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets details about a device. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -670,7 +670,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SasPortalDevice>;
             /** Lists devices under a node or customer. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -996,7 +996,7 @@ declare namespace gapi.client {
             },
             body: SasPortalNode): Request<SasPortalNode>;
             /** Deletes a node. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1023,7 +1023,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns a requested node. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1050,7 +1050,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SasPortalNode>;
             /** Lists nodes. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1208,7 +1208,7 @@ declare namespace gapi.client {
         }
         interface CustomersResource {
             /** Returns a requested customer. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1235,7 +1235,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SasPortalCustomer>;
             /** Returns a list of requested customers. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1611,7 +1611,7 @@ declare namespace gapi.client {
             },
             body: SasPortalCreateSignedDeviceRequest): Request<SasPortalDevice>;
             /** Deletes a device. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1638,7 +1638,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets details about a device. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1665,7 +1665,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SasPortalDevice>;
             /** Lists devices under a node or customer. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1991,7 +1991,7 @@ declare namespace gapi.client {
             },
             body: SasPortalNode): Request<SasPortalNode>;
             /** Deletes a node. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2018,7 +2018,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns a requested node. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2045,7 +2045,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SasPortalNode>;
             /** Lists nodes. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

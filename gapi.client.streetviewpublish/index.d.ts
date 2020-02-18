@@ -399,7 +399,7 @@ declare namespace gapi.client {
              * create the requested photo.
              * &#42; google.rpc.Code.NOT_FOUND if the photo ID does not exist.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -438,7 +438,7 @@ declare namespace gapi.client {
              * &#42; google.rpc.Code.UNAVAILABLE if the requested
              * Photo is still being indexed.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -771,7 +771,7 @@ declare namespace gapi.client {
              * GetPhoto
              * for specific failures that can occur per photo.
              */
-            batchGet(request: {
+            batchGet(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -907,7 +907,7 @@ declare namespace gapi.client {
              * <aside class="note"><b>Note:</b> Recently created photos that are still
              * being indexed are not returned in the response.</aside>
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

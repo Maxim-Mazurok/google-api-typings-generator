@@ -1493,7 +1493,7 @@ declare namespace gapi.client {
         }
         interface InstanceConfigsResource {
             /** Gets information about a particular instance configuration. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1523,7 +1523,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<InstanceConfig>;
             /** Lists the supported instance configurations for a given project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1578,7 +1578,7 @@ declare namespace gapi.client {
              * an Operation.error value with a google.rpc.Status.code of 1,
              * corresponding to `Code.CANCELLED`.
              */
-            cancel(request: {
+            cancel(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1610,7 +1610,7 @@ declare namespace gapi.client {
              * operation. If the server doesn't support this method, it returns
              * `google.rpc.Code.UNIMPLEMENTED`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1641,7 +1641,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1679,7 +1679,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1841,7 +1841,7 @@ declare namespace gapi.client {
              * an Operation.error value with a google.rpc.Status.code of 1,
              * corresponding to `Code.CANCELLED`.
              */
-            cancel(request: {
+            cancel(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1873,7 +1873,7 @@ declare namespace gapi.client {
              * operation. If the server doesn't support this method, it returns
              * `google.rpc.Code.UNIMPLEMENTED`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1904,7 +1904,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1942,7 +1942,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2244,7 +2244,7 @@ declare namespace gapi.client {
              * asynchronously trigger cancellation of any operations that are running with
              * this session.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2473,7 +2473,7 @@ declare namespace gapi.client {
              * This is mainly useful for determining whether a session is still
              * alive.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2500,7 +2500,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Session>;
             /** Lists all sessions in a given database. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2959,7 +2959,7 @@ declare namespace gapi.client {
             },
             body: CreateDatabaseRequest): Request<Operation>;
             /** Drops (aka deletes) a Cloud Spanner database. */
-            dropDatabase(request: {
+            dropDatabase(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2986,7 +2986,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the state of a Cloud Spanner database. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3020,7 +3020,7 @@ declare namespace gapi.client {
              * DDL statements. This method does not show pending schema updates, those may
              * be queried using the Operations API.
              */
-            getDdl(request: {
+            getDdl(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3085,7 +3085,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists Cloud Spanner databases. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3280,7 +3280,7 @@ declare namespace gapi.client {
              * an Operation.error value with a google.rpc.Status.code of 1,
              * corresponding to `Code.CANCELLED`.
              */
-            cancel(request: {
+            cancel(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3312,7 +3312,7 @@ declare namespace gapi.client {
              * operation. If the server doesn't support this method, it returns
              * `google.rpc.Code.UNIMPLEMENTED`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3343,7 +3343,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3381,7 +3381,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3525,7 +3525,7 @@ declare namespace gapi.client {
              * irrevocably disappear from the API. All data in the databases
              * is permanently deleted.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3555,7 +3555,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets information about a particular instance. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3628,7 +3628,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists all instances in the given project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

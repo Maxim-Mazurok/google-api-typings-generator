@@ -337,7 +337,7 @@ declare namespace gapi.client {
             },
             body: Connection): Request<Connection>;
             /** Deletes connection and associated credential. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -367,7 +367,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns specified connection. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -432,7 +432,7 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Returns a list of connections in the given project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

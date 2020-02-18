@@ -490,7 +490,7 @@ declare namespace gapi.client {
              * account is created and owned by Storage Transfer Service and can
              * only be used by Storage Transfer Service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -574,7 +574,7 @@ declare namespace gapi.client {
             },
             body: TransferJob): Request<TransferJob>;
             /** Gets a transfer job. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -606,7 +606,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<TransferJob>;
             /** Lists transfer jobs. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -711,7 +711,7 @@ declare namespace gapi.client {
         }
         interface TransferOperationsResource {
             /** Cancels a transfer. Use the get method to check whether the cancellation succeeded or whether the operation completed despite cancellation. */
-            cancel(request: {
+            cancel(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -742,7 +742,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -769,7 +769,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Lists transfer operations. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

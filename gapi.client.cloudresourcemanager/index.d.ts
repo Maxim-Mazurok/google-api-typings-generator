@@ -506,7 +506,7 @@ declare namespace gapi.client {
              * The caller must have `resourcemanager.folders.delete` permission on the
              * identified folder.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -542,7 +542,7 @@ declare namespace gapi.client {
              * The caller must have `resourcemanager.folders.get` permission on the
              * identified folder.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -617,7 +617,7 @@ declare namespace gapi.client {
              * The caller must have `resourcemanager.folders.list` permission on the
              * identified parent.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1043,7 +1043,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

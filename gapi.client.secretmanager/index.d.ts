@@ -361,7 +361,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Gets information about a location. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -388,7 +388,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -428,7 +428,7 @@ declare namespace gapi.client {
              * `projects/&#42;/secrets/&#42;/versions/latest` is an alias to the `latest`
              * SecretVersion.
              */
-            access(request: {
+            access(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -665,7 +665,7 @@ declare namespace gapi.client {
              * `projects/&#42;/secrets/&#42;/versions/latest` is an alias to the `latest`
              * SecretVersion.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -700,7 +700,7 @@ declare namespace gapi.client {
              * Lists SecretVersions. This call does not return secret
              * data.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -875,7 +875,7 @@ declare namespace gapi.client {
             },
             body: Secret): Request<Secret>;
             /** Deletes a Secret. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -905,7 +905,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets metadata for a given Secret. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -935,7 +935,7 @@ declare namespace gapi.client {
              * Gets the access control policy for a secret.
              * Returns empty policy if the secret exists and does not have a policy set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -976,7 +976,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists Secrets. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

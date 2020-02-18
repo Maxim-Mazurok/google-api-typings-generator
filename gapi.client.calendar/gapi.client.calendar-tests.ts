@@ -281,7 +281,7 @@ gapi.load('client', () => {
             calendarId: "Test string",
         });
         /** Creates a secondary calendar. */
-        await gapi.client.calendar.calendars.insert(, {
+        await gapi.client.calendar.calendars.insert({} , {
             conferenceProperties: {
                 allowedConferenceSolutionTypes: [
                     "Test string"                ],
@@ -327,7 +327,7 @@ gapi.load('client', () => {
             timeZone: "Test string",
         });
         /** Stop watching resources through this channel */
-        await gapi.client.calendar.channels.stop(, {
+        await gapi.client.calendar.channels.stop({} , {
             address: "Test string",
             expiration: "Test string",
             id: "Test string",
@@ -1062,7 +1062,7 @@ gapi.load('client', () => {
             type: "Test string",
         });
         /** Returns free/busy information for a set of calendars. */
-        await gapi.client.calendar.freebusy.query(, {
+        await gapi.client.calendar.freebusy.query({} , {
             calendarExpansionMax: 42,
             groupExpansionMax: 42,
             items: [

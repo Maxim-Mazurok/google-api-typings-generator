@@ -2699,7 +2699,7 @@ declare namespace gapi.client {
              * Returns a list of channel activity events that match the request criteria. For example, you can retrieve events associated with a particular channel,
              * events associated with the user's subscriptions and Google+ friends, or the YouTube home page feed, which is customized for each user.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The channelId parameter specifies a unique YouTube channel ID. The API will then return a list of that channel's activities. */
@@ -2756,7 +2756,7 @@ declare namespace gapi.client {
         }
         interface CaptionsResource {
             /** Deletes a specified caption track. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2792,7 +2792,7 @@ declare namespace gapi.client {
              * Downloads a caption track. The caption track is returned in its original format unless the request specifies a value for the tfmt parameter and in its
              * original language unless the request specifies a value for the tlang parameter.
              */
-            download(request: {
+            download(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2917,7 +2917,7 @@ declare namespace gapi.client {
              * Returns a list of caption tracks that are associated with a specified video. Note that the API response does not contain the actual captions and that
              * the captions.download method provides the ability to retrieve a caption track.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3119,7 +3119,7 @@ declare namespace gapi.client {
         }
         interface ChannelsResource {
             /** Returns a collection of zero or more channel resources that match the request criteria. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The categoryId parameter specifies a YouTube guide category, thereby requesting YouTube channels associated with that category. */
@@ -3259,7 +3259,7 @@ declare namespace gapi.client {
         }
         interface ChannelSectionsResource {
             /** Deletes a channelSection. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3386,7 +3386,7 @@ declare namespace gapi.client {
             },
             body: ChannelSection): Request<ChannelSection>;
             /** Returns channelSection resources that match the API request criteria. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The channelId parameter specifies a YouTube channel ID. The API will only return that channel's channelSections. */
@@ -3507,7 +3507,7 @@ declare namespace gapi.client {
         }
         interface CommentsResource {
             /** Deletes a comment. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3572,7 +3572,7 @@ declare namespace gapi.client {
             },
             body: Comment): Request<Comment>;
             /** Returns a list of comments that match the API request parameters. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3617,7 +3617,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<CommentListResponse>;
             /** Expresses the caller's opinion that one or more comments should be flagged as spam. */
-            markAsSpam(request: {
+            markAsSpam(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3639,7 +3639,7 @@ declare namespace gapi.client {
              * Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the
              * comments.
              */
-            setModerationStatus(request: {
+            setModerationStatus(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -3761,7 +3761,7 @@ declare namespace gapi.client {
             },
             body: CommentThread): Request<CommentThread>;
             /** Returns a list of comment threads that match the API request parameters. */
-            list(request: {
+            list(request?: {
                 /**
                  * The allThreadsRelatedToChannelId parameter instructs the API to return all comment threads associated with the specified channel. The response can
                  * include comments about the channel or about the channel's videos.
@@ -3875,7 +3875,7 @@ declare namespace gapi.client {
         }
         interface GuideCategoriesResource {
             /** Returns a list of categories that can be associated with YouTube channels. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3908,7 +3908,7 @@ declare namespace gapi.client {
         }
         interface I18nLanguagesResource {
             /** Returns a list of application languages that the YouTube website supports. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3931,7 +3931,7 @@ declare namespace gapi.client {
         }
         interface I18nRegionsResource {
             /** Returns a list of content regions that the YouTube website supports. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -3957,7 +3957,7 @@ declare namespace gapi.client {
              * Binds a YouTube broadcast to a stream or removes an existing binding between a broadcast and a stream. A broadcast can only be bound to one video
              * stream, though a video stream may be bound to more than one broadcast.
              */
-            bind(request: {
+            bind(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4009,7 +4009,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<LiveBroadcast>;
             /** Controls the settings for a slate that can be displayed in the broadcast stream. */
-            control(request: {
+            control(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The displaySlate parameter specifies whether the slate is being enabled or disabled. */
@@ -4073,7 +4073,7 @@ declare namespace gapi.client {
                 walltime?: string;
             }): Request<LiveBroadcast>;
             /** Deletes a broadcast. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4211,7 +4211,7 @@ declare namespace gapi.client {
             },
             body: LiveBroadcast): Request<LiveBroadcast>;
             /** Returns a list of YouTube broadcasts that match the API request parameters. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The broadcastStatus parameter filters the API response to only include broadcasts with the specified status. */
@@ -4284,7 +4284,7 @@ declare namespace gapi.client {
              * broadcast's status to testing, YouTube starts to transmit video to that broadcast's monitor stream. Before calling this method, you should confirm that
              * the value of the status.streamStatus property for the stream bound to your broadcast is active.
              */
-            transition(request: {
+            transition(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -4446,7 +4446,7 @@ declare namespace gapi.client {
         }
         interface LiveChatBansResource {
             /** Removes a chat ban. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4513,7 +4513,7 @@ declare namespace gapi.client {
         }
         interface LiveChatMessagesResource {
             /** Deletes a chat message. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4578,7 +4578,7 @@ declare namespace gapi.client {
             },
             body: LiveChatMessage): Request<LiveChatMessage>;
             /** Lists live chat messages for a specific chat. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4618,7 +4618,7 @@ declare namespace gapi.client {
         }
         interface LiveChatModeratorsResource {
             /** Removes a chat moderator. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4683,7 +4683,7 @@ declare namespace gapi.client {
             },
             body: LiveChatModerator): Request<LiveChatModerator>;
             /** Lists moderators for a live chat. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4713,7 +4713,7 @@ declare namespace gapi.client {
         }
         interface LiveStreamsResource {
             /** Deletes a video stream. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4851,7 +4851,7 @@ declare namespace gapi.client {
             },
             body: LiveStream): Request<LiveStream>;
             /** Returns a list of video streams that match the API request parameters. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5017,7 +5017,7 @@ declare namespace gapi.client {
         }
         interface MembersResource {
             /** Lists members for a channel. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5057,7 +5057,7 @@ declare namespace gapi.client {
         }
         interface MembershipsLevelsResource {
             /** Lists pricing levels for a channel. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5078,7 +5078,7 @@ declare namespace gapi.client {
         }
         interface PlaylistItemsResource {
             /** Deletes a playlist item. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5176,7 +5176,7 @@ declare namespace gapi.client {
              * Returns a collection of playlist items that match the API request parameters. You can retrieve all of the playlist items in a specified playlist or
              * retrieve one or more playlist items by their unique IDs.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5304,7 +5304,7 @@ declare namespace gapi.client {
         }
         interface PlaylistsResource {
             /** Deletes a playlist. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5430,7 +5430,7 @@ declare namespace gapi.client {
              * Returns a collection of playlists that match the API request parameters. For example, you can retrieve all playlists that the authenticated user owns,
              * or you can retrieve one or more playlists by their unique IDs.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** This value indicates that the API should only return the specified channel's playlists. */
@@ -5573,7 +5573,7 @@ declare namespace gapi.client {
              * Returns a collection of search results that match the query parameters specified in the API request. By default, a search result set identifies
              * matching video, channel, and playlist resources, but you can also configure queries to only retrieve a specific type of resource.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The channelId parameter indicates that the API response should only contain resources created by the channel */
@@ -5754,7 +5754,7 @@ declare namespace gapi.client {
         }
         interface SponsorsResource {
             /** Lists sponsors for a channel. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5784,7 +5784,7 @@ declare namespace gapi.client {
         }
         interface SubscriptionsResource {
             /** Deletes a subscription. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5852,7 +5852,7 @@ declare namespace gapi.client {
             },
             body: Subscription): Request<Subscription>;
             /** Returns subscription resources that match the API request criteria. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The channelId parameter specifies a YouTube channel ID. The API will only return that channel's subscriptions. */
@@ -5929,7 +5929,7 @@ declare namespace gapi.client {
         }
         interface SuperChatEventsResource {
             /** Lists Super Chat events for a channel. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5965,7 +5965,7 @@ declare namespace gapi.client {
         }
         interface ThumbnailsResource {
             /** Uploads a custom video thumbnail to YouTube and sets it for a video. */
-            set(request: {
+            set(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5995,7 +5995,7 @@ declare namespace gapi.client {
         }
         interface VideoAbuseReportReasonsResource {
             /** Returns a list of abuse reasons that can be used for reporting abusive videos. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6018,7 +6018,7 @@ declare namespace gapi.client {
         }
         interface VideoCategoriesResource {
             /** Returns a list of categories that can be associated with YouTube videos. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6048,7 +6048,7 @@ declare namespace gapi.client {
         }
         interface VideosResource {
             /** Deletes a YouTube video. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6076,7 +6076,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves the ratings that the authorized user gave to a list of specified videos. */
-            getRating(request: {
+            getRating(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6227,7 +6227,7 @@ declare namespace gapi.client {
             },
             body: Video): Request<Video>;
             /** Returns a list of videos that match the API request parameters. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The chart parameter identifies the chart that you want to retrieve. */
@@ -6315,7 +6315,7 @@ declare namespace gapi.client {
                 videoCategoryId?: string;
             }): Request<VideoListResponse>;
             /** Add a like or dislike rating to a video or remove a rating from a video. */
-            rate(request: {
+            rate(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6532,7 +6532,7 @@ declare namespace gapi.client {
             },
             body: InvideoBranding): Request<void>;
             /** Deletes a channel's watermark image. */
-            unset(request: {
+            unset(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The channelId parameter specifies the YouTube channel ID for which the watermark is being unset. */

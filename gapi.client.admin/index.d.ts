@@ -223,7 +223,7 @@ declare namespace gapi.client {
              * For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters,
              * see the activity parameters reference guides.
              */
-            list(request: {
+            list(request?: {
                 /**
                  * The Internet Protocol (IP) Address of host where the event was performed. This is an additional way to filter a report's summary using the IP address
                  * of the user whose activity is being reported. This IP address may or may not reflect the user's physical location. For example, the IP address can be
@@ -574,7 +574,7 @@ declare namespace gapi.client {
              * Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage
              * Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The unique ID of the customer to retrieve data for. */
@@ -618,7 +618,7 @@ declare namespace gapi.client {
              * Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the
              * Entities Usage Report guide. For more information about the entities report's parameters, see the Entities Usage parameters reference guides.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The unique ID of the customer to retrieve data for. */
@@ -690,7 +690,7 @@ declare namespace gapi.client {
              * Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage
              * Report guide. For more information about the user report's parameters, see the Users Usage parameters reference guides.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The unique ID of the customer to retrieve data for. */

@@ -586,7 +586,7 @@ declare namespace gapi.client {
             },
             body: DeploymentsCancelPreviewRequest): Request<Operation>;
             /** Deletes a deployment and all of the resources in the deployment. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Sets the policy to use for deleting resources. */
@@ -609,7 +609,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Gets information about a specific deployment. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The name of the deployment for this request. */
@@ -630,7 +630,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Deployment>;
             /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -709,7 +709,7 @@ declare namespace gapi.client {
             },
             body: Deployment): Request<Operation>;
             /** Lists all deployments for a given project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -985,7 +985,7 @@ declare namespace gapi.client {
         }
         interface ManifestsResource {
             /** Gets information about a specific manifest. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The name of the deployment for this request. */
@@ -1008,7 +1008,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Manifest>;
             /** Lists all manifests for a given deployment. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The name of the deployment for this request. */
@@ -1062,7 +1062,7 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /** Gets information about a specific operation. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1083,7 +1083,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Lists all operations for a project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1135,7 +1135,7 @@ declare namespace gapi.client {
         }
         interface ResourcesResource {
             /** Gets information about a single resource. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The name of the deployment for this request. */
@@ -1158,7 +1158,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Resource>;
             /** Lists all resources in a given deployment. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The name of the deployment for this request. */
@@ -1212,7 +1212,7 @@ declare namespace gapi.client {
         }
         interface TypesResource {
             /** Lists all resource types for Deployment Manager. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

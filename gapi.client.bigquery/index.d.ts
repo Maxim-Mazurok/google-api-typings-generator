@@ -2143,7 +2143,7 @@ declare namespace gapi.client {
              * Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables, either manually or by specifying
              * deleteContents. Immediately after deletion, you can create another dataset with the same name.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Dataset ID of dataset being deleted */
@@ -2166,7 +2166,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns the dataset specified by datasetID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Dataset ID of the requested dataset */
@@ -2227,7 +2227,7 @@ declare namespace gapi.client {
             },
             body: Dataset): Request<Dataset>;
             /** Lists all datasets in the specified project to which you have been granted the READER dataset role. */
-            list(request: {
+            list(request?: {
                 /** Whether to list all datasets, including hidden ones */
                 all?: boolean;
                 /** Data format for the response. */
@@ -2356,7 +2356,7 @@ declare namespace gapi.client {
              * Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed
              * successfully. Cancelled jobs may still incur costs.
              */
-            cancel(request: {
+            cancel(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2385,7 +2385,7 @@ declare namespace gapi.client {
              * Returns information about a specific job. Job information is available for a six month period after creation. Requires that you're the person who ran
              * the job, or have the Is Owner project role.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2411,7 +2411,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Job>;
             /** Retrieves the results of a query job. */
-            getQueryResults(request: {
+            getQueryResults(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2491,7 +2491,7 @@ declare namespace gapi.client {
              * Lists all jobs that you started in the specified project. Job information is available for a six month period after creation. The job list is sorted in
              * reverse chronological order, by job creation time. Requires the Can View project role, or the Is Owner project role if you set the allUsers property.
              */
-            list(request: {
+            list(request?: {
                 /** Whether to display jobs owned by all users in the project. Default false */
                 allUsers?: boolean;
                 /** Data format for the response. */
@@ -2568,7 +2568,7 @@ declare namespace gapi.client {
         }
         interface ModelsResource {
             /** Deletes the model specified by modelId from the dataset. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Required. Dataset ID of the model to delete. */
@@ -2591,7 +2591,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the specified model resource by model ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Required. Dataset ID of the requested model. */
@@ -2617,7 +2617,7 @@ declare namespace gapi.client {
              * Lists all models in the specified dataset. Requires the READER dataset
              * role.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Required. Dataset ID of the models to list. */
@@ -2698,7 +2698,7 @@ declare namespace gapi.client {
         }
         interface ProjectsResource {
             /** Returns the email address of the service account for your project used for interactions with Google Cloud KMS. */
-            getServiceAccount(request: {
+            getServiceAccount(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2717,7 +2717,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<GetServiceAccountResponse>;
             /** Lists all projects to which you have been granted any project role. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2740,7 +2740,7 @@ declare namespace gapi.client {
         }
         interface RoutinesResource {
             /** Deletes the routine specified by routineId from the dataset. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Required. Dataset ID of the routine to delete */
@@ -2763,7 +2763,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the specified routine resource by routine ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Required. Dataset ID of the requested routine */
@@ -2838,7 +2838,7 @@ declare namespace gapi.client {
              * Lists all routines in the specified dataset. Requires the READER dataset
              * role.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Required. Dataset ID of the routines to list */
@@ -2985,7 +2985,7 @@ declare namespace gapi.client {
             },
             body: TableDataInsertAllRequest): Request<TableDataInsertAllResponse>;
             /** Retrieves table data from a specified set of rows. Requires the READER dataset role. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Dataset ID of the table to read */
@@ -3018,7 +3018,7 @@ declare namespace gapi.client {
         }
         interface TablesResource {
             /** Deletes the table specified by tableId from the dataset. If the table contains data, all the data will be deleted. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Dataset ID of the table to delete */
@@ -3044,7 +3044,7 @@ declare namespace gapi.client {
              * Gets the specified table resource by table ID. This method does not return the data in the table, it only returns the table resource, which describes
              * the structure of this table.
              */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Dataset ID of the requested table */
@@ -3113,7 +3113,7 @@ declare namespace gapi.client {
             },
             body: Table): Request<Table>;
             /** Lists all tables in the specified dataset. Requires the READER dataset role. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Dataset ID of the tables to list */

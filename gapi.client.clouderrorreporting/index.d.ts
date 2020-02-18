@@ -304,7 +304,7 @@ declare namespace gapi.client {
         }
         interface EventsResource {
             /** Lists the specified events. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -443,7 +443,7 @@ declare namespace gapi.client {
         }
         interface GroupsResource {
             /** Get the specified group. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -546,7 +546,7 @@ declare namespace gapi.client {
         }
         interface GroupStatsResource {
             /** Lists the specified groups. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -632,7 +632,7 @@ declare namespace gapi.client {
         }
         interface ProjectsResource {
             /** Deletes all error events of a given project. */
-            deleteEvents(request: {
+            deleteEvents(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

@@ -224,7 +224,7 @@ declare namespace gapi.client {
              * design
              * specification](https://github.com/google/digitalassetlinks/blob/master/well-known/details.md).
              */
-            check(request: {
+            check(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -422,7 +422,7 @@ declare namespace gapi.client {
              * device, the feature would make it easy to navigate to the corresponding web
              * site or Google+ profile.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

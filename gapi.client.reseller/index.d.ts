@@ -276,7 +276,7 @@ declare namespace gapi.client {
         }
         interface CustomersResource {
             /** Get a customer account. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -440,7 +440,7 @@ declare namespace gapi.client {
         }
         interface ResellernotifyResource {
             /** Returns all the details of the watch corresponding to the reseller. */
-            getwatchdetails(request: {
+            getwatchdetails(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -457,7 +457,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ResellernotifyGetwatchdetailsResponse>;
             /** Registers a Reseller for receiving notifications. */
-            register(request: {
+            register(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -476,7 +476,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ResellernotifyResource>;
             /** Unregisters a Reseller for receiving notifications. */
-            unregister(request: {
+            unregister(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -497,7 +497,7 @@ declare namespace gapi.client {
         }
         interface SubscriptionsResource {
             /** Activates a subscription previously suspended by the reseller */
-            activate(request: {
+            activate(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -702,7 +702,7 @@ declare namespace gapi.client {
             },
             body: Seats): Request<Subscription>;
             /** Cancel, suspend, or transfer a subscription to direct. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -732,7 +732,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Get a specific subscription. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -821,7 +821,7 @@ declare namespace gapi.client {
              * List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's
              * transferable subscriptions.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -864,7 +864,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Subscriptions>;
             /** Immediately move a 30-day free trial subscription to a paid service subscription. */
-            startPaidService(request: {
+            startPaidService(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -892,7 +892,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Subscription>;
             /** Suspends an active subscription. */
-            suspend(request: {
+            suspend(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**

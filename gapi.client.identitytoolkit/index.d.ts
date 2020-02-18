@@ -997,7 +997,7 @@ declare namespace gapi.client {
             },
             body: Relyingparty): Request<GetOobConfirmationCodeResponse>;
             /** Get project configuration. */
-            getProjectConfig(request: {
+            getProjectConfig(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Delegated GCP project number of the request. */
@@ -1018,7 +1018,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<IdentitytoolkitRelyingpartyGetProjectConfigResponse>;
             /** Get token signing public key. */
-            getPublicKeys(request: {
+            getPublicKeys(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1035,7 +1035,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<{}>;
             /** Get recaptcha secure param. */
-            getRecaptchaParam(request: {
+            getRecaptchaParam(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

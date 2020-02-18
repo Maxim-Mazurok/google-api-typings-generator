@@ -241,7 +241,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
             /** Deletes a budget. Returns successfully if already deleted. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -271,7 +271,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns a budget. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -301,7 +301,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
             /** Returns a list of budgets for a billing account. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

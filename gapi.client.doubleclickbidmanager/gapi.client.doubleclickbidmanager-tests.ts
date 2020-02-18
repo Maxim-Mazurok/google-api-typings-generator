@@ -28,7 +28,7 @@ gapi.load('client', () => {
 
     async function run() {
         /** Retrieves line items in CSV format. TrueView line items are not supported. */
-        await gapi.client.doubleclickbidmanager.lineitems.downloadlineitems(, {
+        await gapi.client.doubleclickbidmanager.lineitems.downloadlineitems({} , {
             fileSpec: "Test string",
             filterIds: [
                 "Test string"            ],
@@ -36,13 +36,13 @@ gapi.load('client', () => {
             format: "Test string",
         });
         /** Uploads line items in CSV format. TrueView line items are not supported. */
-        await gapi.client.doubleclickbidmanager.lineitems.uploadlineitems(, {
+        await gapi.client.doubleclickbidmanager.lineitems.uploadlineitems({} , {
             dryRun: true,
             format: "Test string",
             lineItems: "Test string",
         });
         /** Creates a query. */
-        await gapi.client.doubleclickbidmanager.queries.createquery(, {
+        await gapi.client.doubleclickbidmanager.queries.createquery({} , {
             kind: "Test string",
             metadata: {
                 dataRange: "Test string",
@@ -115,7 +115,7 @@ gapi.load('client', () => {
             queryId: "Test string",
         });
         /** Retrieves entities in SDF format. */
-        await gapi.client.doubleclickbidmanager.sdf.download(, {
+        await gapi.client.doubleclickbidmanager.sdf.download({} , {
             fileTypes: [
                 "Test string"            ],
             filterIds: [

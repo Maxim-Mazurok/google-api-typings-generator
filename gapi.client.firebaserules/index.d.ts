@@ -435,7 +435,7 @@ declare namespace gapi.client {
             },
             body: Release): Request<Release>;
             /** Delete a `Release` by resource name. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -466,7 +466,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Get a `Release` by name. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -497,7 +497,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Release>;
             /** Get the `Release` executable to use when enforcing rules. */
-            getExecutable(request: {
+            getExecutable(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -537,7 +537,7 @@ declare namespace gapi.client {
              * filtered by `Release` name, `Ruleset` name, `TestSuite` name, or any
              * combination thereof.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -752,7 +752,7 @@ declare namespace gapi.client {
              *
              * If the `Ruleset` is referenced by a `Release` the operation will fail.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -783,7 +783,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Get a `Ruleset` by name including the full `Source` contents. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -820,7 +820,7 @@ declare namespace gapi.client {
              * The full `Source` contents of a `Ruleset` may be retrieved with
              * GetRuleset.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

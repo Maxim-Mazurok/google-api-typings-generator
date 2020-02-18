@@ -422,7 +422,7 @@ declare namespace gapi.client {
              * Deletes an attestor. Returns NOT_FOUND if the
              * attestor does not exist.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -455,7 +455,7 @@ declare namespace gapi.client {
              * Gets an attestor.
              * Returns NOT_FOUND if the attestor does not exist.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -489,7 +489,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -533,7 +533,7 @@ declare namespace gapi.client {
              * Lists attestors.
              * Returns INVALID_ARGUMENT if the project does not exist.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -720,7 +720,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -846,7 +846,7 @@ declare namespace gapi.client {
              * Gets the policy for this project. Returns a default
              * policy if the project does not have one.
              */
-            getPolicy(request: {
+            getPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

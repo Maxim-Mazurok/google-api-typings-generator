@@ -934,7 +934,7 @@ declare namespace gapi.client {
             },
             body: DestroyCryptoKeyVersionRequest): Request<CryptoKeyVersion>;
             /** Returns metadata for a given CryptoKeyVersion. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -966,7 +966,7 @@ declare namespace gapi.client {
              * ASYMMETRIC_SIGN or
              * ASYMMETRIC_DECRYPT.
              */
-            getPublicKey(request: {
+            getPublicKey(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1064,7 +1064,7 @@ declare namespace gapi.client {
             },
             body: ImportCryptoKeyVersionRequest): Request<CryptoKeyVersion>;
             /** Lists CryptoKeyVersions. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1497,7 +1497,7 @@ declare namespace gapi.client {
              * Returns metadata for a given CryptoKey, as well as its
              * primary CryptoKeyVersion.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1528,7 +1528,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1569,7 +1569,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists CryptoKeys. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1907,7 +1907,7 @@ declare namespace gapi.client {
             },
             body: ImportJob): Request<ImportJob>;
             /** Returns metadata for a given ImportJob. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1938,7 +1938,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1979,7 +1979,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists ImportJobs. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2184,7 +2184,7 @@ declare namespace gapi.client {
             },
             body: KeyRing): Request<KeyRing>;
             /** Returns metadata for a given KeyRing. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2215,7 +2215,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2256,7 +2256,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists KeyRings. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2391,7 +2391,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Gets information about a location. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2418,7 +2418,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

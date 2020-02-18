@@ -600,7 +600,7 @@ declare namespace gapi.client {
              * Deletes an unused configuration. The API call fails if the customer has
              * devices with the configuration applied.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -631,7 +631,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the details of a configuration. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -661,7 +661,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Configuration>;
             /** Lists a customer's configurations. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -837,7 +837,7 @@ declare namespace gapi.client {
             },
             body: CustomerApplyConfigurationRequest): Request<{}>;
             /** Gets the details of a device. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -867,7 +867,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Device>;
             /** Lists a customer's devices. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1039,7 +1039,7 @@ declare namespace gapi.client {
              * Lists the DPCs (device policy controllers) that support zero-touch
              * enrollment.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1071,7 +1071,7 @@ declare namespace gapi.client {
         }
         interface CustomersResource {
             /** Lists the user's customer accounts. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1112,7 +1112,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1213,7 +1213,7 @@ declare namespace gapi.client {
              * `partnerId` argument. This list includes customers that the reseller
              * created and customers that enrolled themselves using the portal.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1485,7 +1485,7 @@ declare namespace gapi.client {
             },
             body: FindDevicesByOwnerRequest): Request<FindDevicesByOwnerResponse>;
             /** Gets a device. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1757,7 +1757,7 @@ declare namespace gapi.client {
         }
         interface CustomersResource {
             /** Lists the customers of the vendor. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1793,7 +1793,7 @@ declare namespace gapi.client {
         }
         interface VendorsResource {
             /** Lists the vendors of the partner. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

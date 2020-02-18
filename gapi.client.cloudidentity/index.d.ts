@@ -472,7 +472,7 @@ declare namespace gapi.client {
             },
             body: Membership): Request<Operation>;
             /** Deletes a Membership. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -506,7 +506,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Retrieves a Membership. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -540,7 +540,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Membership>;
             /** Lists Memberships within a Group. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -586,7 +586,7 @@ declare namespace gapi.client {
              * name](https://cloud.google.com/apis/design/resource_names) of a Membership
              * within a Group by member's EntityKey.
              */
-            lookup(request: {
+            lookup(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -687,7 +687,7 @@ declare namespace gapi.client {
             },
             body: Group): Request<Operation>;
             /** Deletes a Group. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -718,7 +718,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /** Retrieves a Group. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -749,7 +749,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Group>;
             /** Lists groups within a customer or a domain. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -789,7 +789,7 @@ declare namespace gapi.client {
              * name](https://cloud.google.com/apis/design/resource_names) of a Group by
              * its EntityKey.
              */
-            lookup(request: {
+            lookup(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -900,7 +900,7 @@ declare namespace gapi.client {
             },
             body: Group): Request<Operation>;
             /** Searches for Groups. */
-            search(request: {
+            search(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

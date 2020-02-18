@@ -1082,7 +1082,7 @@ declare namespace gapi.client {
         }
         interface AccountsResource {
             /** Gets one account by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1101,7 +1101,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Account>;
             /** Retrieves the authenticated user's list of accounts. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1208,7 +1208,7 @@ declare namespace gapi.client {
         }
         interface BillingInfoResource {
             /** Returns the billing information for one account specified by account ID. */
-            get(request: {
+            get(request?: {
                 /** The account id. */
                 accountId: number;
                 /** Data format for the response. */
@@ -1227,7 +1227,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<BillingInfo>;
             /** Retrieves a list of billing information for all accounts of the authenticated user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1246,7 +1246,7 @@ declare namespace gapi.client {
         }
         interface BudgetResource {
             /** Returns the budget information for the adgroup specified by the accountId and billingId. */
-            get(request: {
+            get(request?: {
                 /** The account id to get the budget information for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -1360,7 +1360,7 @@ declare namespace gapi.client {
         }
         interface CreativesResource {
             /** Add a deal id association for the creative. */
-            addDeal(request: {
+            addDeal(request?: {
                 /** The id for the account that will serve this creative. */
                 accountId: number;
                 /** Data format for the response. */
@@ -1383,7 +1383,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets the status for a single creative. A creative will be available 30-40 minutes after submission. */
-            get(request: {
+            get(request?: {
                 /** The id for the account that will serve this creative. */
                 accountId: number;
                 /** Data format for the response. */
@@ -1440,7 +1440,7 @@ declare namespace gapi.client {
             },
             body: Creative): Request<Creative>;
             /** Retrieves a list of the authenticated user's active creatives. A creative will be available 30-40 minutes after submission. */
-            list(request: {
+            list(request?: {
                 /** When specified, only creatives for the given account ids are returned. */
                 accountId?: number | number[];
                 /** Data format for the response. */
@@ -1472,7 +1472,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<CreativesList>;
             /** Lists the external deal ids associated with the creative. */
-            listDeals(request: {
+            listDeals(request?: {
                 /** The id for the account that will serve this creative. */
                 accountId: number;
                 /** Data format for the response. */
@@ -1493,7 +1493,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<CreativeDealIds>;
             /** Remove a deal id associated with the creative. */
-            removeDeal(request: {
+            removeDeal(request?: {
                 /** The id for the account that will serve this creative. */
                 accountId: number;
                 /** Data format for the response. */
@@ -1598,7 +1598,7 @@ declare namespace gapi.client {
             },
             body: AddOrderDealsRequest): Request<AddOrderDealsResponse>;
             /** List all the deals for a given proposal */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1701,7 +1701,7 @@ declare namespace gapi.client {
             },
             body: AddOrderNotesRequest): Request<AddOrderNotesResponse>;
             /** Get all the notes associated with a proposal */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1769,7 +1769,7 @@ declare namespace gapi.client {
         }
         interface PerformanceReportResource {
             /** Retrieves the authenticated user's list of performance metrics. */
-            list(request: {
+            list(request?: {
                 /** The account id to get the reports. */
                 accountId: string;
                 /** Data format for the response. */
@@ -1801,7 +1801,7 @@ declare namespace gapi.client {
         }
         interface PretargetingConfigResource {
             /** Deletes an existing pretargeting config. */
-            delete(request: {
+            delete(request?: {
                 /** The account id to delete the pretargeting config for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -1822,7 +1822,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets a specific pretargeting configuration */
-            get(request: {
+            get(request?: {
                 /** The account id to get the pretargeting config for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -1883,7 +1883,7 @@ declare namespace gapi.client {
             },
             body: PretargetingConfig): Request<PretargetingConfig>;
             /** Retrieves a list of the authenticated user's pretargeting configurations. */
-            list(request: {
+            list(request?: {
                 /** The account id to get the pretargeting configs for. */
                 accountId: string;
                 /** Data format for the response. */
@@ -1992,7 +1992,7 @@ declare namespace gapi.client {
         }
         interface ProductsResource {
             /** Gets the requested product by id. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2011,7 +2011,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Product>;
             /** Gets the requested product. */
-            search(request: {
+            search(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2032,7 +2032,7 @@ declare namespace gapi.client {
         }
         interface ProposalsResource {
             /** Get a proposal given its id */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2141,7 +2141,7 @@ declare namespace gapi.client {
             },
             body: Proposal): Request<Proposal>;
             /** Search for proposals using pql query */
-            search(request: {
+            search(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2160,7 +2160,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<GetOrdersResponse>;
             /** Update the given proposal to indicate that setup has been completed. */
-            setupcomplete(request: {
+            setupcomplete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2235,7 +2235,7 @@ declare namespace gapi.client {
         }
         interface PubprofilesResource {
             /** Gets the requested publisher profile(s) by publisher accountId. */
-            list(request: {
+            list(request?: {
                 /** The accountId of the publisher to get profiles for. */
                 accountId: number;
                 /** Data format for the response. */

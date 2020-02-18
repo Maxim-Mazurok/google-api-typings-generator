@@ -770,7 +770,7 @@ declare namespace gapi.client {
              * created with the same name, but the new one has no association with the old
              * snapshot or its subscription, unless the same subscription is specified.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -806,7 +806,7 @@ declare namespace gapi.client {
              * is, you can set the acknowledgment state of messages in an existing
              * subscription to the state captured by a snapshot.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -840,7 +840,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -888,7 +888,7 @@ declare namespace gapi.client {
              * acknowledgment state of messages in an existing subscription to the state
              * captured by a snapshot.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1226,7 +1226,7 @@ declare namespace gapi.client {
              * the same name, but the new one has no association with the old
              * subscription or its topic unless the same topic is specified.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1256,7 +1256,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the configuration details of a subscription. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1290,7 +1290,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1331,7 +1331,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists matching subscriptions. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1794,7 +1794,7 @@ declare namespace gapi.client {
              * acknowledgment state of messages in an existing subscription to the state
              * captured by a snapshot.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1834,7 +1834,7 @@ declare namespace gapi.client {
         }
         interface SubscriptionsResource {
             /** Lists the names of the subscriptions on this topic. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1954,7 +1954,7 @@ declare namespace gapi.client {
              * configuration or subscriptions. Existing subscriptions to this topic are
              * not deleted, but their `topic` field is set to `_deleted-topic_`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1984,7 +1984,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the configuration of a topic. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2018,7 +2018,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2059,7 +2059,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists matching topics. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

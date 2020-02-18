@@ -712,7 +712,7 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: ApksAddExternallyHostedRequest): Request<ApksAddExternallyHostedResponse>;
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -732,7 +732,7 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<ApksListResponse>;
-            upload(request: {
+            upload(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -754,7 +754,7 @@ declare namespace gapi.client {
             }): Request<Apk>;
         }
         interface BundlesResource {
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -779,7 +779,7 @@ declare namespace gapi.client {
              * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
              * for an example in java.
              */
-            upload(request: {
+            upload(request?: {
                 /**
                  * Must be set to true if the bundle installation may trigger a warning on user devices (for example, if installation size may be over a threshold,
                  * typically 100 MB).
@@ -807,7 +807,7 @@ declare namespace gapi.client {
         }
         interface DeobfuscationfilesResource {
             /** Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced. */
-            upload(request: {
+            upload(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The version code of the APK whose deobfuscation file is being uploaded. */
@@ -833,7 +833,7 @@ declare namespace gapi.client {
         }
         interface DetailsResource {
             /** Fetches app details for this edit. This includes the default language and developer support contact information. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -944,7 +944,7 @@ declare namespace gapi.client {
         }
         interface ExpansionfilesResource {
             /** Fetches the Expansion File configuration for the APK specified. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The version code of the APK whose Expansion File configuration is being read or modified. */
@@ -1071,7 +1071,7 @@ declare namespace gapi.client {
             },
             body: ExpansionFile): Request<ExpansionFile>;
             /** Uploads and attaches a new Expansion File to the APK specified. */
-            upload(request: {
+            upload(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The version code of the APK whose Expansion File configuration is being read or modified. */
@@ -1097,7 +1097,7 @@ declare namespace gapi.client {
         }
         interface ImagesResource {
             /** Deletes the image (specified by id) from the edit. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1126,7 +1126,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Deletes all images for the specified language and image type. */
-            deleteall(request: {
+            deleteall(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1153,7 +1153,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ImagesDeleteAllResponse>;
             /** Lists all images for the specified language and image type. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1180,7 +1180,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ImagesListResponse>;
             /** Uploads a new image and adds it to the list of images for the specified language and image type. */
-            upload(request: {
+            upload(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1209,7 +1209,7 @@ declare namespace gapi.client {
         }
         interface ListingsResource {
             /** Deletes the specified localized store listing from an edit. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1232,7 +1232,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Deletes all localized listings from an edit. */
-            deleteall(request: {
+            deleteall(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1253,7 +1253,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Fetches information about a localized store listing. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1276,7 +1276,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Listing>;
             /** Returns all of the localized store listings attached to this edit. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1394,7 +1394,7 @@ declare namespace gapi.client {
             body: Listing): Request<Listing>;
         }
         interface TestersResource {
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1513,7 +1513,7 @@ declare namespace gapi.client {
         }
         interface TracksResource {
             /** Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1536,7 +1536,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Track>;
             /** Lists all the track configurations for this edit. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1655,7 +1655,7 @@ declare namespace gapi.client {
         }
         interface EditsResource {
             /** Commits/applies the changes made in this edit back to the app. */
-            commit(request: {
+            commit(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1679,7 +1679,7 @@ declare namespace gapi.client {
              * Deletes an edit for an app. Creating a new edit will automatically delete any of your previous edits so this method need only be called if you want to
              * preemptively abandon an edit.
              */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1700,7 +1700,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns information about the edit specified. Calls will fail if the edit is no long active (e.g. has been deleted, superseded or expired). */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1761,7 +1761,7 @@ declare namespace gapi.client {
             },
             body: AppEdit): Request<AppEdit>;
             /** Checks that the edit can be successfully committed. The edit's changes are not applied to the live app. */
-            validate(request: {
+            validate(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Unique identifier for this edit. */
@@ -1793,7 +1793,7 @@ declare namespace gapi.client {
         }
         interface InappproductsResource {
             /** Delete an in-app product for an app. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1814,7 +1814,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns information about the in-app product specified. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1884,7 +1884,7 @@ declare namespace gapi.client {
             },
             body: InAppProduct): Request<InAppProduct>;
             /** List all the in-app products for an Android app, both subscriptions and managed in-app products.. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2020,7 +2020,7 @@ declare namespace gapi.client {
              * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
              * for an example in java.
              */
-            uploadapk(request: {
+            uploadapk(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2043,7 +2043,7 @@ declare namespace gapi.client {
              * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
              * for an example in java.
              */
-            uploadbundle(request: {
+            uploadbundle(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2064,7 +2064,7 @@ declare namespace gapi.client {
         }
         interface OrdersResource {
             /** Refund a user's subscription or in-app purchase order. */
-            refund(request: {
+            refund(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2140,7 +2140,7 @@ declare namespace gapi.client {
             },
             body: ProductPurchasesAcknowledgeRequest): Request<void>;
             /** Checks the purchase and consumption status of an inapp item. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2213,7 +2213,7 @@ declare namespace gapi.client {
             },
             body: SubscriptionPurchasesAcknowledgeRequest): Request<void>;
             /** Cancels a user's subscription purchase. The subscription remains valid until its expiration time. */
-            cancel(request: {
+            cancel(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2284,7 +2284,7 @@ declare namespace gapi.client {
             },
             body: SubscriptionPurchasesDeferRequest): Request<SubscriptionPurchasesDeferResponse>;
             /** Checks whether a user's subscription purchase is valid and returns its expiry time. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2307,7 +2307,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<SubscriptionPurchase>;
             /** Refunds a user's subscription purchase, but the subscription remains valid until its expiration time and it will continue to recur. */
-            refund(request: {
+            refund(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2330,7 +2330,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Refunds and immediately revokes a user's subscription purchase. Access to the subscription will be terminated immediately and it will stop recurring. */
-            revoke(request: {
+            revoke(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2355,7 +2355,7 @@ declare namespace gapi.client {
         }
         interface VoidedpurchasesResource {
             /** Lists the purchases that were canceled, refunded or charged-back. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -2404,7 +2404,7 @@ declare namespace gapi.client {
         }
         interface ReviewsResource {
             /** Returns a single review. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2425,7 +2425,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Review>;
             /** Returns a list of reviews. Only reviews from last week will be returned. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2536,7 +2536,7 @@ declare namespace gapi.client {
             },
             body: SystemApkVariantsCreateRequest): Request<Variant>;
             /** Download a previously created APK which is suitable for inclusion in a system image. */
-            download(request: {
+            download(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2558,7 +2558,7 @@ declare namespace gapi.client {
                 versionCode: string;
             }): Request<void>;
             /** Returns a previously created system APK variant. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2581,7 +2581,7 @@ declare namespace gapi.client {
                 versionCode: string;
             }): Request<Variant>;
             /** Returns the list of previously created system APK variants. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

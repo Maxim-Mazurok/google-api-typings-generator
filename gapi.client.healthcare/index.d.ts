@@ -1183,7 +1183,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1305,7 +1305,7 @@ declare namespace gapi.client {
              * SOP Instance UID and frame numbers. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
              */
-            retrieveFrames(request: {
+            retrieveFrames(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1345,7 +1345,7 @@ declare namespace gapi.client {
              * Type. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
              */
-            retrieveRendered(request: {
+            retrieveRendered(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1386,7 +1386,7 @@ declare namespace gapi.client {
              * and SOP Instance UID. Delete requests are equivalent to the GET requests
              * specified in the Retrieve transaction.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1425,7 +1425,7 @@ declare namespace gapi.client {
              * and SOP Instance UID. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
              */
-            retrieveInstance(request: {
+            retrieveInstance(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1465,7 +1465,7 @@ declare namespace gapi.client {
              * removed. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
              */
-            retrieveMetadata(request: {
+            retrieveMetadata(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1504,7 +1504,7 @@ declare namespace gapi.client {
              * series, and SOP Instance UID in an acceptable Rendered Media Type. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
              */
-            retrieveRendered(request: {
+            retrieveRendered(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1546,7 +1546,7 @@ declare namespace gapi.client {
              * Delete requests are equivalent to the GET requests specified in the
              * Retrieve transaction.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1585,7 +1585,7 @@ declare namespace gapi.client {
              * series, presented as metadata with the bulk data removed. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
              */
-            retrieveMetadata(request: {
+            retrieveMetadata(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1623,7 +1623,7 @@ declare namespace gapi.client {
              * RetrieveSeries returns all instances within the given study and series. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
              */
-            retrieveSeries(request: {
+            retrieveSeries(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1661,7 +1661,7 @@ declare namespace gapi.client {
              * SearchForInstances returns a list of matching instances. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
              */
-            searchForInstances(request: {
+            searchForInstances(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1703,7 +1703,7 @@ declare namespace gapi.client {
              * DeleteStudy deletes all instances within the given study. Delete requests
              * are equivalent to the GET requests specified in the Retrieve transaction.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1735,7 +1735,7 @@ declare namespace gapi.client {
              * presented as metadata with the bulk data removed. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
              */
-            retrieveMetadata(request: {
+            retrieveMetadata(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1773,7 +1773,7 @@ declare namespace gapi.client {
              * RetrieveStudy returns all instances within the given study. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
              */
-            retrieveStudy(request: {
+            retrieveStudy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1811,7 +1811,7 @@ declare namespace gapi.client {
              * SearchForInstances returns a list of matching instances. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
              */
-            searchForInstances(request: {
+            searchForInstances(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1850,7 +1850,7 @@ declare namespace gapi.client {
              * SearchForSeries returns a list of matching series. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
              */
-            searchForSeries(request: {
+            searchForSeries(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2107,7 +2107,7 @@ declare namespace gapi.client {
              * Deletes the specified DICOM store and removes all images that are contained
              * within it.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2203,7 +2203,7 @@ declare namespace gapi.client {
             },
             body: ExportDicomDataRequest): Request<Operation>;
             /** Gets the specified DICOM store. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2234,7 +2234,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2348,7 +2348,7 @@ declare namespace gapi.client {
             },
             body: ImportDicomDataRequest): Request<Operation>;
             /** Lists the DICOM stores in the given dataset. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2465,7 +2465,7 @@ declare namespace gapi.client {
              * SearchForInstances returns a list of matching instances. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
              */
-            searchForInstances(request: {
+            searchForInstances(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2504,7 +2504,7 @@ declare namespace gapi.client {
              * SearchForSeries returns a list of matching series. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
              */
-            searchForSeries(request: {
+            searchForSeries(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2542,7 +2542,7 @@ declare namespace gapi.client {
              * SearchForStudies returns a list of matching studies. See
              * http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
              */
-            searchForStudies(request: {
+            searchForStudies(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2746,7 +2746,7 @@ declare namespace gapi.client {
              * On success, the response body will contain a JSON-encoded representation
              * of a `CapabilityStatement` resource.
              */
-            capabilities(request: {
+            capabilities(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2791,7 +2791,7 @@ declare namespace gapi.client {
              * and related methods, unless they are removed by the
              * purge method.
              */
-            conditionalDelete(request: {
+            conditionalDelete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3145,7 +3145,7 @@ declare namespace gapi.client {
              * and related methods, unless they are removed by the
              * purge method.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3274,7 +3274,7 @@ declare namespace gapi.client {
              * request cannot be mapped to a valid API method on a FHIR store, a generic
              * GCP error might be returned instead.
              */
-            history(request: {
+            history(request?: {
                 /**
                  * Only include resource versions that were current at some point during the
                  * time period specified in the date time value. The date parameter format is
@@ -3371,7 +3371,7 @@ declare namespace gapi.client {
              * request cannot be mapped to a valid API method on a FHIR store, a generic
              * GCP error might be returned instead.
              */
-            "Observation-lastn"(request: {
+            "Observation-lastn"(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3482,7 +3482,7 @@ declare namespace gapi.client {
              * request cannot be mapped to a valid API method on a FHIR store, a generic
              * GCP error might be returned instead.
              */
-            "Patient-everything"(request: {
+            "Patient-everything"(request?: {
                 /** Maximum number of resources in a page. Defaults to 100. */
                 _count?: number;
                 /**
@@ -3552,7 +3552,7 @@ declare namespace gapi.client {
              * request cannot be mapped to a valid API method on a FHIR store, a generic
              * GCP error might be returned instead.
              */
-            read(request: {
+            read(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3585,7 +3585,7 @@ declare namespace gapi.client {
              *
              * This is not a FHIR standard operation.
              */
-            "Resource-purge"(request: {
+            "Resource-purge"(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3823,7 +3823,7 @@ declare namespace gapi.client {
              * request cannot be mapped to a valid API method on a FHIR store, a generic
              * GCP error might be returned instead.
              */
-            vread(request: {
+            vread(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3992,7 +3992,7 @@ declare namespace gapi.client {
             },
             body: DeidentifyFhirStoreRequest): Request<Operation>;
             /** Deletes the specified FHIR store and removes all resources within it. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4099,7 +4099,7 @@ declare namespace gapi.client {
             },
             body: ExportResourcesRequest): Request<Operation>;
             /** Gets the configuration of the specified FHIR store. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4130,7 +4130,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4306,7 +4306,7 @@ declare namespace gapi.client {
             },
             body: ImportResourcesRequest): Request<Operation>;
             /** Lists the FHIR stores in the given dataset. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4561,7 +4561,7 @@ declare namespace gapi.client {
             },
             body: CreateMessageRequest): Request<Message>;
             /** Deletes an HL7v2 message. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4588,7 +4588,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets an HL7v2 message. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4686,7 +4686,7 @@ declare namespace gapi.client {
              * delay between the time a message is created and when it can be found
              * through a filter.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4929,7 +4929,7 @@ declare namespace gapi.client {
              * Deletes the specified HL7v2 store and removes all messages that are
              * contained within it.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4956,7 +4956,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets the specified HL7v2 store. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4987,7 +4987,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5028,7 +5028,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists the HL7v2 stores in the given dataset. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5224,7 +5224,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5262,7 +5262,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5456,7 +5456,7 @@ declare namespace gapi.client {
              * Deleting a dataset does not affect the sources from which the dataset was
              * imported (if any).
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5486,7 +5486,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets any metadata associated with a dataset. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5520,7 +5520,7 @@ declare namespace gapi.client {
              * Returns an empty policy if the resource exists and does not have a policy
              * set.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5561,7 +5561,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists the health datasets in the current project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5754,7 +5754,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Gets information about a location. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5781,7 +5781,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

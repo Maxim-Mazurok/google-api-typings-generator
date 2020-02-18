@@ -4184,7 +4184,7 @@ declare namespace gapi.client {
         }
         interface AccountActiveAdSummariesResource {
             /** Gets the account's active ad summary by account ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4207,7 +4207,7 @@ declare namespace gapi.client {
         }
         interface AccountPermissionGroupsResource {
             /** Gets one account permission group by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4228,7 +4228,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AccountPermissionGroup>;
             /** Retrieves the list of account permission groups. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4249,7 +4249,7 @@ declare namespace gapi.client {
         }
         interface AccountPermissionsResource {
             /** Gets one account permission by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4270,7 +4270,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AccountPermission>;
             /** Retrieves the list of account permissions. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4291,7 +4291,7 @@ declare namespace gapi.client {
         }
         interface AccountsResource {
             /** Gets one account by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4312,7 +4312,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Account>;
             /** Retrieves the list of accounts, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only active accounts. Don't set this field to select both active and non-active accounts. */
                 active?: boolean;
                 /** Data format for the response. */
@@ -4435,7 +4435,7 @@ declare namespace gapi.client {
         }
         interface AccountUserProfilesResource {
             /** Gets one account user profile by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4496,7 +4496,7 @@ declare namespace gapi.client {
             },
             body: AccountUserProfile): Request<AccountUserProfile>;
             /** Retrieves a list of account user profiles, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only active user profiles. */
                 active?: boolean;
                 /** Data format for the response. */
@@ -4624,7 +4624,7 @@ declare namespace gapi.client {
         }
         interface AdsResource {
             /** Gets one ad by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4685,7 +4685,7 @@ declare namespace gapi.client {
             },
             body: Ad): Request<Ad>;
             /** Retrieves a list of ads, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only active ads. */
                 active?: boolean;
                 /** Select only ads with this advertiser ID. */
@@ -4847,7 +4847,7 @@ declare namespace gapi.client {
         }
         interface AdvertiserGroupsResource {
             /** Deletes an existing advertiser group. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4868,7 +4868,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets one advertiser group by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4929,7 +4929,7 @@ declare namespace gapi.client {
             },
             body: AdvertiserGroup): Request<AdvertiserGroup>;
             /** Retrieves a list of advertiser groups, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5051,7 +5051,7 @@ declare namespace gapi.client {
         }
         interface AdvertiserLandingPagesResource {
             /** Gets one landing page by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5112,7 +5112,7 @@ declare namespace gapi.client {
             },
             body: LandingPage): Request<LandingPage>;
             /** Retrieves a list of landing pages. */
-            list(request: {
+            list(request?: {
                 /** Select only landing pages that belong to these advertisers. */
                 advertiserIds?: string | string[];
                 /** Data format for the response. */
@@ -5242,7 +5242,7 @@ declare namespace gapi.client {
         }
         interface AdvertisersResource {
             /** Gets one advertiser by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5303,7 +5303,7 @@ declare namespace gapi.client {
             },
             body: Advertiser): Request<Advertiser>;
             /** Retrieves a list of advertisers, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only advertisers with these advertiser group IDs. */
                 advertiserGroupIds?: string | string[];
                 /** Data format for the response. */
@@ -5436,7 +5436,7 @@ declare namespace gapi.client {
         }
         interface BrowsersResource {
             /** Retrieves a list of browsers. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5504,7 +5504,7 @@ declare namespace gapi.client {
             },
             body: CampaignCreativeAssociation): Request<CampaignCreativeAssociation>;
             /** Retrieves the list of creative IDs associated with the specified campaign. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Campaign ID in this association. */
@@ -5533,7 +5533,7 @@ declare namespace gapi.client {
         }
         interface CampaignsResource {
             /** Gets one campaign by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5594,7 +5594,7 @@ declare namespace gapi.client {
             },
             body: Campaign): Request<Campaign>;
             /** Retrieves a list of campaigns, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only campaigns whose advertisers belong to these advertiser groups. */
                 advertiserGroupIds?: string | string[];
                 /** Select only campaigns that belong to these advertisers. */
@@ -5729,7 +5729,7 @@ declare namespace gapi.client {
         }
         interface ChangeLogsResource {
             /** Gets one change log by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5750,7 +5750,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ChangeLog>;
             /** Retrieves a list of change logs. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only change logs with the specified action. */
                 action?: string;
                 /** Data format for the response. */
@@ -5799,7 +5799,7 @@ declare namespace gapi.client {
         }
         interface CitiesResource {
             /** Retrieves a list of cities, possibly filtered. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Select only cities from these countries. */
@@ -5828,7 +5828,7 @@ declare namespace gapi.client {
         }
         interface ConnectionTypesResource {
             /** Gets one connection type by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5849,7 +5849,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ConnectionType>;
             /** Retrieves a list of connection types. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5870,7 +5870,7 @@ declare namespace gapi.client {
         }
         interface ContentCategoriesResource {
             /** Deletes an existing content category. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5891,7 +5891,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets one content category by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -5952,7 +5952,7 @@ declare namespace gapi.client {
             },
             body: ContentCategory): Request<ContentCategory>;
             /** Retrieves a list of content categories, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6156,7 +6156,7 @@ declare namespace gapi.client {
         }
         interface CountriesResource {
             /** Gets one country by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Country DART ID. */
@@ -6177,7 +6177,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Country>;
             /** Retrieves a list of countries. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6244,7 +6244,7 @@ declare namespace gapi.client {
         }
         interface CreativeFieldsResource {
             /** Deletes an existing creative field. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6265,7 +6265,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets one creative field by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6326,7 +6326,7 @@ declare namespace gapi.client {
             },
             body: CreativeField): Request<CreativeField>;
             /** Retrieves a list of creative fields, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only creative fields that belong to these advertisers. */
                 advertiserIds?: string | string[];
                 /** Data format for the response. */
@@ -6450,7 +6450,7 @@ declare namespace gapi.client {
         }
         interface CreativeFieldValuesResource {
             /** Deletes an existing creative field value. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Creative field ID for this creative field value. */
@@ -6473,7 +6473,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets one creative field value by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Creative field ID for this creative field value. */
@@ -6540,7 +6540,7 @@ declare namespace gapi.client {
             },
             body: CreativeFieldValue): Request<CreativeFieldValue>;
             /** Retrieves a list of creative field values, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Creative field ID for this creative field value. */
@@ -6667,7 +6667,7 @@ declare namespace gapi.client {
         }
         interface CreativeGroupsResource {
             /** Gets one creative group by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6728,7 +6728,7 @@ declare namespace gapi.client {
             },
             body: CreativeGroup): Request<CreativeGroup>;
             /** Retrieves a list of creative groups, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only creative groups that belong to these advertisers. */
                 advertiserIds?: string | string[];
                 /** Data format for the response. */
@@ -6854,7 +6854,7 @@ declare namespace gapi.client {
         }
         interface CreativesResource {
             /** Gets one creative by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -6915,7 +6915,7 @@ declare namespace gapi.client {
             },
             body: Creative): Request<Creative>;
             /** Retrieves a list of creatives, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only active creatives. Leave blank to select active and inactive creatives. */
                 active?: boolean;
                 /** Select only creatives with this advertiser ID. */
@@ -7148,7 +7148,7 @@ declare namespace gapi.client {
         }
         interface DirectorySitesResource {
             /** Gets one directory site by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7209,7 +7209,7 @@ declare namespace gapi.client {
             },
             body: DirectorySite): Request<DirectorySite>;
             /** Retrieves a list of directory sites, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** This search filter is no longer supported and will have no effect on the results returned. */
                 acceptsInStreamVideoPlacements?: boolean;
                 /** This search filter is no longer supported and will have no effect on the results returned. */
@@ -7257,7 +7257,7 @@ declare namespace gapi.client {
         }
         interface DynamicTargetingKeysResource {
             /** Deletes an existing dynamic targeting key. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7328,7 +7328,7 @@ declare namespace gapi.client {
             },
             body: DynamicTargetingKey): Request<DynamicTargetingKey>;
             /** Retrieves a list of dynamic targeting keys. */
-            list(request: {
+            list(request?: {
                 /** Select only dynamic targeting keys whose object has this advertiser ID. */
                 advertiserId?: string;
                 /** Data format for the response. */
@@ -7357,7 +7357,7 @@ declare namespace gapi.client {
         }
         interface EventTagsResource {
             /** Deletes an existing event tag. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7378,7 +7378,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets one event tag by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7439,7 +7439,7 @@ declare namespace gapi.client {
             },
             body: EventTag): Request<EventTag>;
             /** Retrieves a list of event tags, possibly filtered. */
-            list(request: {
+            list(request?: {
                 /** Select only event tags that belong to this ad. */
                 adId?: string;
                 /** Select only event tags that belong to this advertiser. */
@@ -7579,7 +7579,7 @@ declare namespace gapi.client {
         }
         interface FilesResource {
             /** Retrieves a report file by its report ID and file ID. This method supports media download. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7600,7 +7600,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<File>;
             /** Lists files for a user profile. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7631,7 +7631,7 @@ declare namespace gapi.client {
         }
         interface FloodlightActivitiesResource {
             /** Deletes an existing floodlight activity. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7652,7 +7652,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Generates a tag for a floodlight activity. */
-            generatetag(request: {
+            generatetag(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7673,7 +7673,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<FloodlightActivitiesGenerateTagResponse>;
             /** Gets one floodlight activity by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7734,7 +7734,7 @@ declare namespace gapi.client {
             },
             body: FloodlightActivity): Request<FloodlightActivity>;
             /** Retrieves a list of floodlight activities, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /**
                  * Select only floodlight activities for the specified advertiser ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty
                  * result.
@@ -7876,7 +7876,7 @@ declare namespace gapi.client {
         }
         interface FloodlightActivityGroupsResource {
             /** Gets one floodlight activity group by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -7937,7 +7937,7 @@ declare namespace gapi.client {
             },
             body: FloodlightActivityGroup): Request<FloodlightActivityGroup>;
             /** Retrieves a list of floodlight activity groups, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /**
                  * Select only floodlight activity groups with the specified advertiser ID. Must specify either advertiserId or floodlightConfigurationId for a non-empty
                  * result.
@@ -8071,7 +8071,7 @@ declare namespace gapi.client {
         }
         interface FloodlightConfigurationsResource {
             /** Gets one floodlight configuration by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8092,7 +8092,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<FloodlightConfiguration>;
             /** Retrieves a list of floodlight configurations, possibly filtered. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8199,7 +8199,7 @@ declare namespace gapi.client {
         }
         interface InventoryItemsResource {
             /** Gets one inventory item by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8222,7 +8222,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<InventoryItem>;
             /** Retrieves a list of inventory items, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8263,7 +8263,7 @@ declare namespace gapi.client {
         }
         interface LanguagesResource {
             /** Retrieves a list of languages. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8284,7 +8284,7 @@ declare namespace gapi.client {
         }
         interface MetrosResource {
             /** Retrieves a list of metros. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8305,7 +8305,7 @@ declare namespace gapi.client {
         }
         interface MobileAppsResource {
             /** Gets one mobile app by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8326,7 +8326,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<MobileApp>;
             /** Retrieves list of available mobile apps. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Select only apps from these directories. */
@@ -8361,7 +8361,7 @@ declare namespace gapi.client {
         }
         interface MobileCarriersResource {
             /** Gets one mobile carrier by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8382,7 +8382,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<MobileCarrier>;
             /** Retrieves a list of mobile carriers. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8403,7 +8403,7 @@ declare namespace gapi.client {
         }
         interface OperatingSystemsResource {
             /** Gets one operating system by DART ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Operating system DART ID. */
@@ -8424,7 +8424,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<OperatingSystem>;
             /** Retrieves a list of operating systems. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8445,7 +8445,7 @@ declare namespace gapi.client {
         }
         interface OperatingSystemVersionsResource {
             /** Gets one operating system version by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8466,7 +8466,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<OperatingSystemVersion>;
             /** Retrieves a list of operating system versions. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8487,7 +8487,7 @@ declare namespace gapi.client {
         }
         interface OrderDocumentsResource {
             /** Gets one order document by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8510,7 +8510,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<OrderDocument>;
             /** Retrieves a list of order documents, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Select only order documents that have been approved by at least one user. */
@@ -8556,7 +8556,7 @@ declare namespace gapi.client {
         }
         interface OrdersResource {
             /** Gets one order by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8579,7 +8579,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Order>;
             /** Retrieves a list of orders, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8620,7 +8620,7 @@ declare namespace gapi.client {
         }
         interface PlacementGroupsResource {
             /** Gets one placement group by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8681,7 +8681,7 @@ declare namespace gapi.client {
             },
             body: PlacementGroup): Request<PlacementGroup>;
             /** Retrieves a list of placement groups, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only placement groups that belong to these advertisers. */
                 advertiserIds?: string | string[];
                 /** Data format for the response. */
@@ -8833,7 +8833,7 @@ declare namespace gapi.client {
         }
         interface PlacementsResource {
             /** Generates tags for a placement. */
-            generatetags(request: {
+            generatetags(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Generate placements belonging to this campaign. This is a required field. */
@@ -8862,7 +8862,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PlacementsGenerateTagsResponse>;
             /** Gets one placement by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -8923,7 +8923,7 @@ declare namespace gapi.client {
             },
             body: Placement): Request<Placement>;
             /** Retrieves a list of placements, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only placements that belong to these advertisers. */
                 advertiserIds?: string | string[];
                 /** Data format for the response. */
@@ -9081,7 +9081,7 @@ declare namespace gapi.client {
         }
         interface PlacementStrategiesResource {
             /** Deletes an existing placement strategy. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9102,7 +9102,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets one placement strategy by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9163,7 +9163,7 @@ declare namespace gapi.client {
             },
             body: PlacementStrategy): Request<PlacementStrategy>;
             /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9285,7 +9285,7 @@ declare namespace gapi.client {
         }
         interface PlatformTypesResource {
             /** Gets one platform type by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9306,7 +9306,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PlatformType>;
             /** Retrieves a list of platform types. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9327,7 +9327,7 @@ declare namespace gapi.client {
         }
         interface PostalCodesResource {
             /** Gets one postal code by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Postal code ID. */
@@ -9348,7 +9348,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<PostalCode>;
             /** Retrieves a list of postal codes. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9369,7 +9369,7 @@ declare namespace gapi.client {
         }
         interface ProjectsResource {
             /** Gets one project by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9390,7 +9390,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Project>;
             /** Retrieves a list of projects, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only projects with these advertiser IDs. */
                 advertiserIds?: string | string[];
                 /** Data format for the response. */
@@ -9429,7 +9429,7 @@ declare namespace gapi.client {
         }
         interface RegionsResource {
             /** Retrieves a list of regions. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9450,7 +9450,7 @@ declare namespace gapi.client {
         }
         interface RemarketingListsResource {
             /** Gets one remarketing list by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9511,7 +9511,7 @@ declare namespace gapi.client {
             },
             body: RemarketingList): Request<RemarketingList>;
             /** Retrieves a list of remarketing lists, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only active or only inactive remarketing lists. */
                 active?: boolean;
                 /** Select only remarketing lists owned by this advertiser. */
@@ -9637,7 +9637,7 @@ declare namespace gapi.client {
         }
         interface RemarketingListSharesResource {
             /** Gets one remarketing list share by remarketing list ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9789,7 +9789,7 @@ declare namespace gapi.client {
         }
         interface FilesResource {
             /** Retrieves a report file. This method supports media download. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9812,7 +9812,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<File>;
             /** Lists files for a report. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9843,7 +9843,7 @@ declare namespace gapi.client {
         }
         interface ReportsResource {
             /** Deletes a report by its ID. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9864,7 +9864,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves a report by its ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9925,7 +9925,7 @@ declare namespace gapi.client {
             },
             body: Report): Request<Report>;
             /** Retrieves list of reports. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -9954,7 +9954,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ReportList>;
             /** Runs a report. */
-            run(request: {
+            run(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10025,7 +10025,7 @@ declare namespace gapi.client {
         }
         interface SitesResource {
             /** Gets one site by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10086,7 +10086,7 @@ declare namespace gapi.client {
             },
             body: Site): Request<Site>;
             /** Retrieves a list of sites, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** This search filter is no longer supported and will have no effect on the results returned. */
                 acceptsInStreamVideoPlacements?: boolean;
                 /** This search filter is no longer supported and will have no effect on the results returned. */
@@ -10225,7 +10225,7 @@ declare namespace gapi.client {
         }
         interface SizesResource {
             /** Gets one size by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10289,7 +10289,7 @@ declare namespace gapi.client {
              * Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to
              * this, the list of sizes returned by this method may differ from the list seen in the Trafficking UI.
              */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10318,7 +10318,7 @@ declare namespace gapi.client {
         }
         interface SubaccountsResource {
             /** Gets one subaccount by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10379,7 +10379,7 @@ declare namespace gapi.client {
             },
             body: Subaccount): Request<Subaccount>;
             /** Gets a list of subaccounts, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10500,7 +10500,7 @@ declare namespace gapi.client {
         }
         interface TargetableRemarketingListsResource {
             /** Gets one remarketing list by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10521,7 +10521,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<TargetableRemarketingList>;
             /** Retrieves a list of targetable remarketing lists, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only active or only inactive targetable remarketing lists. */
                 active?: boolean;
                 /** Select only targetable remarketing lists targetable by these advertisers. */
@@ -10561,7 +10561,7 @@ declare namespace gapi.client {
         }
         interface TargetingTemplatesResource {
             /** Gets one targeting template by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10622,7 +10622,7 @@ declare namespace gapi.client {
             },
             body: TargetingTemplate): Request<TargetingTemplate>;
             /** Retrieves a list of targeting templates, optionally filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only targeting templates with this advertiser ID. */
                 advertiserId?: string;
                 /** Data format for the response. */
@@ -10745,7 +10745,7 @@ declare namespace gapi.client {
         }
         interface UserProfilesResource {
             /** Gets one user profile by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10764,7 +10764,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<UserProfile>;
             /** Retrieves list of user profiles for a user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10783,7 +10783,7 @@ declare namespace gapi.client {
         }
         interface UserRolePermissionGroupsResource {
             /** Gets one user role permission group by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10804,7 +10804,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<UserRolePermissionGroup>;
             /** Gets a list of all supported user role permission groups. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10825,7 +10825,7 @@ declare namespace gapi.client {
         }
         interface UserRolePermissionsResource {
             /** Gets one user role permission by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10846,7 +10846,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<UserRolePermission>;
             /** Gets a list of user role permissions, possibly filtered. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10869,7 +10869,7 @@ declare namespace gapi.client {
         }
         interface UserRolesResource {
             /** Deletes an existing user role. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10890,7 +10890,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Gets one user role by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -10951,7 +10951,7 @@ declare namespace gapi.client {
             },
             body: UserRole): Request<UserRole>;
             /** Retrieves a list of user roles, possibly filtered. This method supports paging. */
-            list(request: {
+            list(request?: {
                 /** Select only account level user roles not associated with any specific subaccount. */
                 accountUserRoleOnly?: boolean;
                 /** Data format for the response. */
@@ -11076,7 +11076,7 @@ declare namespace gapi.client {
         }
         interface VideoFormatsResource {
             /** Gets one video format by ID. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -11097,7 +11097,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<VideoFormat>;
             /** Lists available video formats. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

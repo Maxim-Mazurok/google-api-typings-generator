@@ -497,7 +497,7 @@ declare namespace gapi.client {
             },
             body: Change): Request<Change>;
             /** Fetch the representation of an existing Change. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The identifier of the requested change, from a previous ResourceRecordSetsChangeResponse. */
@@ -525,7 +525,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Change>;
             /** Enumerate Changes to a ResourceRecordSet collection. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -556,7 +556,7 @@ declare namespace gapi.client {
         }
         interface DnsKeysResource {
             /** Fetch the representation of an existing DnsKey. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -589,7 +589,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<DnsKey>;
             /** Enumerate DnsKeys to a ResourceRecordSet collection. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -621,7 +621,7 @@ declare namespace gapi.client {
         }
         interface ManagedZoneOperationsResource {
             /** Fetch the representation of an existing Operation. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -649,7 +649,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Operation>;
             /** Enumerate Operations for the given ManagedZone. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -728,7 +728,7 @@ declare namespace gapi.client {
             },
             body: ManagedZone): Request<ManagedZone>;
             /** Delete a previously created ManagedZone. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -754,7 +754,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Fetch the representation of an existing ManagedZone. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -780,7 +780,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ManagedZone>;
             /** Enumerate ManagedZones that have been created but not yet deleted. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Restricts the list to return only zones with this domain name. */
@@ -965,7 +965,7 @@ declare namespace gapi.client {
             },
             body: Policy): Request<Policy>;
             /** Delete a previously created Policy. Will fail if the policy is still being referenced by a network. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -991,7 +991,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Fetch the representation of an existing Policy. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1017,7 +1017,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Policy>;
             /** Enumerate all Policies associated with a project. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1150,7 +1150,7 @@ declare namespace gapi.client {
         }
         interface ProjectsResource {
             /** Fetch the representation of an existing Project. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1176,7 +1176,7 @@ declare namespace gapi.client {
         }
         interface ResourceRecordSetsResource {
             /** Enumerate ResourceRecordSets that have been created but not yet deleted. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

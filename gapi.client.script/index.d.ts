@@ -406,7 +406,7 @@ declare namespace gapi.client {
              * List information about processes made by or on behalf of a user,
              * such as process type and current status.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -489,7 +489,7 @@ declare namespace gapi.client {
              * List information about a script's executed processes, such as process type
              * and current status.
              */
-            listScriptProcesses(request: {
+            listScriptProcesses(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -619,7 +619,7 @@ declare namespace gapi.client {
             },
             body: DeploymentConfig): Request<Deployment>;
             /** Deletes a deployment of an Apps Script project. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -648,7 +648,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a deployment of an Apps Script project. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -677,7 +677,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Deployment>;
             /** Lists the deployments of an Apps Script project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -832,7 +832,7 @@ declare namespace gapi.client {
             },
             body: Version): Request<Version>;
             /** Gets a version of a script project. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -861,7 +861,7 @@ declare namespace gapi.client {
                 versionNumber: number;
             }): Request<Version>;
             /** List the versions of a script project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -952,7 +952,7 @@ declare namespace gapi.client {
             },
             body: CreateProjectRequest): Request<Project>;
             /** Gets a script project's metadata. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -982,7 +982,7 @@ declare namespace gapi.client {
              * Gets the content of the script project, including the code source and
              * metadata for each script file.
              */
-            getContent(request: {
+            getContent(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1017,7 +1017,7 @@ declare namespace gapi.client {
              * Get metrics data for scripts, such as number of executions and
              * active users.
              */
-            getMetrics(request: {
+            getMetrics(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

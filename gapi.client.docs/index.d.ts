@@ -3015,7 +3015,7 @@ declare namespace gapi.client {
             },
             body: Document): client.Request<Document>;
             /** Gets the latest version of the specified document. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

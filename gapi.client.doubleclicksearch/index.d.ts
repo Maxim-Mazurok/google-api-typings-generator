@@ -328,7 +328,7 @@ declare namespace gapi.client {
         }
         interface ConversionResource {
             /** Retrieves a list of conversions from a DoubleClick Search engine account. */
-            get(request: {
+            get(request?: {
                 /** Numeric ID of the ad group. */
                 adGroupId?: string;
                 /** Numeric ID of the ad. */
@@ -577,7 +577,7 @@ declare namespace gapi.client {
             },
             body: ReportRequest): Request<Report>;
             /** Polls for the status of a report request. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -596,7 +596,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Report>;
             /** Downloads a report file encoded in UTF-8. */
-            getFile(request: {
+            getFile(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -655,7 +655,7 @@ declare namespace gapi.client {
         }
         interface SavedColumnsResource {
             /** Retrieve the list of saved columns for a specified advertiser. */
-            list(request: {
+            list(request?: {
                 /** DS ID of the advertiser. */
                 advertiserId: string;
                 /** DS ID of the agency. */

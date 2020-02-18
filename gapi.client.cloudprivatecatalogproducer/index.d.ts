@@ -637,7 +637,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudPrivatecatalogproducerV1beta1CreateAssociationRequest): Request<GoogleCloudPrivatecatalogproducerV1beta1Association>;
             /** Deletes the given Association. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -664,7 +664,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns the requested Association resource. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -691,7 +691,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogproducerV1beta1Association>;
             /** Lists all Association resources under a catalog. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -851,7 +851,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudPrivatecatalogproducerV1beta1Version): Request<GoogleLongrunningOperation>;
             /** Hard deletes a Version. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -878,7 +878,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns the requested Version resource. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -908,7 +908,7 @@ declare namespace gapi.client {
              * Lists Version resources that the producer has access to, within the
              * scope of the parent Product.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1131,7 +1131,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudPrivatecatalogproducerV1beta1Product): Request<GoogleCloudPrivatecatalogproducerV1beta1Product>;
             /** Hard deletes a Product. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1158,7 +1158,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns the requested Product resource. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1188,7 +1188,7 @@ declare namespace gapi.client {
              * Lists Product resources that the producer has access to, within the
              * scope of the parent catalog.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1364,7 +1364,7 @@ declare namespace gapi.client {
              * can be recovered by the PrivateCatalogProducer.UndeleteCatalog
              * method.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1397,7 +1397,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogproducerV1beta1Catalog>;
             /** Returns the requested Catalog resource. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1424,7 +1424,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudPrivatecatalogproducerV1beta1Catalog>;
             /** Gets IAM policy for the specified Catalog. */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1468,7 +1468,7 @@ declare namespace gapi.client {
              * Lists Catalog resources that the producer has access to, within the
              * scope of the parent resource.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1769,7 +1769,7 @@ declare namespace gapi.client {
              * operation. If the server doesn't support this method, it returns
              * `google.rpc.Code.UNIMPLEMENTED`.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1800,7 +1800,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1838,7 +1838,7 @@ declare namespace gapi.client {
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

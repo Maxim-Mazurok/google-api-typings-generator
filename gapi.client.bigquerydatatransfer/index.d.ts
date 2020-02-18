@@ -510,7 +510,7 @@ declare namespace gapi.client {
              * Retrieves a supported data source and returns its settings,
              * which can be used for UI rendering.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -544,7 +544,7 @@ declare namespace gapi.client {
              * Lists supported data sources and returns their settings,
              * which can be used for UI rendering.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -661,7 +661,7 @@ declare namespace gapi.client {
              * Retrieves a supported data source and returns its settings,
              * which can be used for UI rendering.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -695,7 +695,7 @@ declare namespace gapi.client {
              * Lists supported data sources and returns their settings,
              * which can be used for UI rendering.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -738,7 +738,7 @@ declare namespace gapi.client {
         }
         interface TransferLogsResource {
             /** Returns user facing log messages for the data transfer run. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -786,7 +786,7 @@ declare namespace gapi.client {
         }
         interface RunsResource {
             /** Deletes the specified transfer run. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -817,7 +817,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns information about the particular transfer run. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -848,7 +848,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<TransferRun>;
             /** Returns information about running and completed jobs. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1036,7 +1036,7 @@ declare namespace gapi.client {
              * Deletes a data transfer configuration,
              * including any associated transfer runs and logs.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1067,7 +1067,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns information about a data transfer config. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1098,7 +1098,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<TransferConfig>;
             /** Returns information about all data transfers in the project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1434,7 +1434,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Gets information about a location. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1461,7 +1461,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1498,7 +1498,7 @@ declare namespace gapi.client {
         }
         interface TransferLogsResource {
             /** Returns user facing log messages for the data transfer run. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1546,7 +1546,7 @@ declare namespace gapi.client {
         }
         interface RunsResource {
             /** Deletes the specified transfer run. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1577,7 +1577,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns information about the particular transfer run. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1608,7 +1608,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<TransferRun>;
             /** Returns information about running and completed jobs. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1796,7 +1796,7 @@ declare namespace gapi.client {
              * Deletes a data transfer configuration,
              * including any associated transfer runs and logs.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1827,7 +1827,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Returns information about a data transfer config. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1858,7 +1858,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<TransferConfig>;
             /** Returns information about all data transfers in the project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

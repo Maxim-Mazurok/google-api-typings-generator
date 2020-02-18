@@ -239,7 +239,7 @@ declare namespace gapi.client {
         }
         interface AdclientsResource {
             /** Get information about one of the ad clients in the specified publisher's AdSense account. */
-            get(request: {
+            get(request?: {
                 /** Account which contains the ad client. */
                 accountId: string;
                 /** Ad client to get. */
@@ -260,7 +260,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AdClient>;
             /** List all hosted ad clients in the specified hosted account. */
-            list(request: {
+            list(request?: {
                 /** Account for which to list ad clients. */
                 accountId: string;
                 /** Data format for the response. */
@@ -288,7 +288,7 @@ declare namespace gapi.client {
         }
         interface AdunitsResource {
             /** Delete the specified ad unit from the specified publisher AdSense account. */
-            delete(request: {
+            delete(request?: {
                 /** Account which contains the ad unit. */
                 accountId: string;
                 /** Ad client for which to get ad unit. */
@@ -311,7 +311,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AdUnit>;
             /** Get the specified host ad unit in this AdSense account. */
-            get(request: {
+            get(request?: {
                 /** Account which contains the ad unit. */
                 accountId: string;
                 /** Ad client for which to get ad unit. */
@@ -334,7 +334,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AdUnit>;
             /** Get ad code for the specified ad unit, attaching the specified host custom channels. */
-            getAdCode(request: {
+            getAdCode(request?: {
                 /** Account which contains the ad client. */
                 accountId: string;
                 /** Ad client with contains the ad unit. */
@@ -403,7 +403,7 @@ declare namespace gapi.client {
             },
             body: AdUnit): Request<AdUnit>;
             /** List all ad units in the specified publisher's AdSense account. */
-            list(request: {
+            list(request?: {
                 /** Account which contains the ad client. */
                 accountId: string;
                 /** Ad client for which to list ad units. */
@@ -530,7 +530,7 @@ declare namespace gapi.client {
              * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
              * specify "alt=csv" as a query parameter.
              */
-            generate(request: {
+            generate(request?: {
                 /** Hosted account upon which to report. */
                 accountId: string;
                 /** Data format for the response. */
@@ -572,7 +572,7 @@ declare namespace gapi.client {
         }
         interface AccountsResource {
             /** Get information about the selected associated AdSense account. */
-            get(request: {
+            get(request?: {
                 /** Account to get information about. */
                 accountId: string;
                 /** Data format for the response. */
@@ -591,7 +591,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Account>;
             /** List hosted accounts associated with this AdSense account by ad client id. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -615,7 +615,7 @@ declare namespace gapi.client {
         }
         interface AdclientsResource {
             /** Get information about one of the ad clients in the Host AdSense account. */
-            get(request: {
+            get(request?: {
                 /** Ad client to get. */
                 adClientId: string;
                 /** Data format for the response. */
@@ -634,7 +634,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<AdClient>;
             /** List all host ad clients in this AdSense account. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -660,7 +660,7 @@ declare namespace gapi.client {
         }
         interface AssociationsessionsResource {
             /** Create an association session for initiating an association with an AdSense user. */
-            start(request: {
+            start(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -685,7 +685,7 @@ declare namespace gapi.client {
                 websiteUrl: string;
             }): Request<AssociationSession>;
             /** Verify an association session after the association callback returns from AdSense signup. */
-            verify(request: {
+            verify(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -706,7 +706,7 @@ declare namespace gapi.client {
         }
         interface CustomchannelsResource {
             /** Delete a specific custom channel from the host AdSense account. */
-            delete(request: {
+            delete(request?: {
                 /** Ad client from which to delete the custom channel. */
                 adClientId: string;
                 /** Data format for the response. */
@@ -727,7 +727,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<CustomChannel>;
             /** Get a specific custom channel from the host AdSense account. */
-            get(request: {
+            get(request?: {
                 /** Ad client from which to get the custom channel. */
                 adClientId: string;
                 /** Data format for the response. */
@@ -788,7 +788,7 @@ declare namespace gapi.client {
             },
             body: CustomChannel): Request<CustomChannel>;
             /** List all host custom channels in this AdSense account. */
-            list(request: {
+            list(request?: {
                 /** Ad client for which to list custom channels. */
                 adClientId: string;
                 /** Data format for the response. */
@@ -903,7 +903,7 @@ declare namespace gapi.client {
              * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
              * specify "alt=csv" as a query parameter.
              */
-            generate(request: {
+            generate(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Dimensions to base the report on. */
@@ -943,7 +943,7 @@ declare namespace gapi.client {
         }
         interface UrlchannelsResource {
             /** Delete a URL channel from the host AdSense account. */
-            delete(request: {
+            delete(request?: {
                 /** Ad client from which to delete the URL channel. */
                 adClientId: string;
                 /** Data format for the response. */
@@ -1004,7 +1004,7 @@ declare namespace gapi.client {
             },
             body: UrlChannel): Request<UrlChannel>;
             /** List all host URL channels in the host AdSense account. */
-            list(request: {
+            list(request?: {
                 /** Ad client for which to list URL channels. */
                 adClientId: string;
                 /** Data format for the response. */

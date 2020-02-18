@@ -467,7 +467,7 @@ declare namespace gapi.client {
              * until the controller removes them from the active list to avoid
              * setting those breakpoints again.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -650,7 +650,7 @@ declare namespace gapi.client {
         }
         interface BreakpointsResource {
             /** Deletes the breakpoint from the debuggee. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -684,7 +684,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets breakpoint information. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -718,7 +718,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GetBreakpointResponse>;
             /** Lists all breakpoints for the debuggee. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -843,7 +843,7 @@ declare namespace gapi.client {
         }
         interface DebuggeesResource {
             /** Lists all the debuggees that the user has access to. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

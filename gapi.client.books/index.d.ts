@@ -984,7 +984,7 @@ declare namespace gapi.client {
         }
         interface VolumesResource {
             /** Retrieves volumes in a specific bookshelf for the specified user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1015,7 +1015,7 @@ declare namespace gapi.client {
         }
         interface BookshelvesResource {
             /** Retrieves metadata for a specific bookshelf for the specified user. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1038,7 +1038,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Bookshelf>;
             /** Retrieves a list of public bookshelves for the specified user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1061,7 +1061,7 @@ declare namespace gapi.client {
             volumes: VolumesResource;
         }
         interface CloudloadingResource {
-            addBook(request: {
+            addBook(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** A drive document id. The upload_client_token must not be set. */
@@ -1085,7 +1085,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<BooksCloudloadingResource>;
             /** Remove the book and its contents */
-            deleteBook(request: {
+            deleteBook(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1141,7 +1141,7 @@ declare namespace gapi.client {
         }
         interface DictionaryResource {
             /** Returns a list of offline dictionary metadata available */
-            listOfflineMetadata(request: {
+            listOfflineMetadata(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The device/version ID from which to request the data. */
@@ -1162,7 +1162,7 @@ declare namespace gapi.client {
         }
         interface FamilysharingResource {
             /** Gets information regarding the family that the user is part of. */
-            getFamilyInfo(request: {
+            getFamilyInfo(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1181,7 +1181,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<FamilyInfo>;
             /** Initiates sharing of the content with the user's family. Empty response indicates success. */
-            share(request: {
+            share(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The docid to share. */
@@ -1204,7 +1204,7 @@ declare namespace gapi.client {
                 volumeId?: string;
             }): Request<void>;
             /** Initiates revoking content that has already been shared with the user's family. Empty response indicates success. */
-            unshare(request: {
+            unshare(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The docid to unshare. */
@@ -1229,7 +1229,7 @@ declare namespace gapi.client {
         }
         interface AnnotationDataResource {
             /** Gets the annotation data. */
-            get(request: {
+            get(request?: {
                 /** For the dictionary layer. Whether or not to allow web definitions. */
                 allowWebDefinitions?: boolean;
                 /** Data format for the response. */
@@ -1266,7 +1266,7 @@ declare namespace gapi.client {
                 w?: number;
             }): Request<Annotationdata>;
             /** Gets the annotation data for a volume and layer. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The list of Annotation Data Ids to retrieve. Pagination is ignored if this is set. */
@@ -1311,7 +1311,7 @@ declare namespace gapi.client {
         }
         interface VolumeAnnotationsResource {
             /** Gets the volume annotation. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID of the volume annotation to retrieve. */
@@ -1338,7 +1338,7 @@ declare namespace gapi.client {
                 volumeId: string;
             }): Request<Volumeannotation>;
             /** Gets the volume annotations for a volume and layer. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The content version for the requested volume. */
@@ -1387,7 +1387,7 @@ declare namespace gapi.client {
         }
         interface LayersResource {
             /** Gets the layer summary for a volume. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The content version for the requested volume. */
@@ -1412,7 +1412,7 @@ declare namespace gapi.client {
                 volumeId: string;
             }): Request<Layersummary>;
             /** List the layer summaries for a volume. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The content version for the requested volume. */
@@ -1443,7 +1443,7 @@ declare namespace gapi.client {
         }
         interface MyconfigResource {
             /** Gets the current settings for the user. */
-            getUserSettings(request: {
+            getUserSettings(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1460,7 +1460,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Usersettings>;
             /** Release downloaded content access restriction. */
-            releaseDownloadAccess(request: {
+            releaseDownloadAccess(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The device/version ID from which to release the restriction. */
@@ -1485,7 +1485,7 @@ declare namespace gapi.client {
                 volumeIds: string | string[];
             }): Request<DownloadAccesses>;
             /** Request concurrent and download access restrictions. */
-            requestAccess(request: {
+            requestAccess(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The device/version ID from which to request the restrictions. */
@@ -1514,7 +1514,7 @@ declare namespace gapi.client {
                 volumeId: string;
             }): Request<RequestAccess>;
             /** Request downloaded content access for specified volumes on the My eBooks shelf. */
-            syncVolumeLicenses(request: {
+            syncVolumeLicenses(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The device/version ID from which to release the restriction. */
@@ -1588,7 +1588,7 @@ declare namespace gapi.client {
         }
         interface AnnotationsResource {
             /** Deletes an annotation. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The ID for the annotation to delete. */
@@ -1661,7 +1661,7 @@ declare namespace gapi.client {
             },
             body: Annotation): Request<Annotation>;
             /** Retrieves a list of annotations, possibly filtered. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** The content version for the requested volume. */
@@ -1698,7 +1698,7 @@ declare namespace gapi.client {
                 volumeId?: string;
             }): Request<Annotations>;
             /** Gets the summary of specified layers. */
-            summary(request: {
+            summary(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1765,7 +1765,7 @@ declare namespace gapi.client {
         }
         interface VolumesResource {
             /** Gets volume information for volumes on a bookshelf. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ISO-3166-1 code to override the IP-based location. */
@@ -1800,7 +1800,7 @@ declare namespace gapi.client {
         }
         interface BookshelvesResource {
             /** Adds a volume to a bookshelf. */
-            addVolume(request: {
+            addVolume(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1825,7 +1825,7 @@ declare namespace gapi.client {
                 volumeId: string;
             }): Request<void>;
             /** Clears all volumes from a bookshelf. */
-            clearVolumes(request: {
+            clearVolumes(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1846,7 +1846,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves metadata for a specific bookshelf belonging to the authenticated user. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1867,7 +1867,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Bookshelf>;
             /** Retrieves a list of bookshelves belonging to the authenticated user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1886,7 +1886,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Bookshelves>;
             /** Moves a volume within a bookshelf. */
-            moveVolume(request: {
+            moveVolume(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1911,7 +1911,7 @@ declare namespace gapi.client {
                 volumePosition: number;
             }): Request<void>;
             /** Removes a volume from a bookshelf. */
-            removeVolume(request: {
+            removeVolume(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1939,7 +1939,7 @@ declare namespace gapi.client {
         }
         interface ReadingpositionsResource {
             /** Retrieves my reading position information for a volume. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Volume content version for which this reading position is requested. */
@@ -1962,7 +1962,7 @@ declare namespace gapi.client {
                 volumeId: string;
             }): Request<ReadingPosition>;
             /** Sets my reading position information for a volume. */
-            setPosition(request: {
+            setPosition(request?: {
                 /** Action that caused this reading position to be set. */
                 action?: string;
                 /** Data format for the response. */
@@ -2000,7 +2000,7 @@ declare namespace gapi.client {
         }
         interface NotificationResource {
             /** Returns notification details for a given notification id. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2025,7 +2025,7 @@ declare namespace gapi.client {
         }
         interface OnboardingResource {
             /** List categories for onboarding experience. */
-            listCategories(request: {
+            listCategories(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2044,7 +2044,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Category>;
             /** List available volumes under categories for onboarding experience. */
-            listCategoryVolumes(request: {
+            listCategoryVolumes(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** List of category ids requested. */
@@ -2073,7 +2073,7 @@ declare namespace gapi.client {
         }
         interface PersonalizedstreamResource {
             /** Returns a stream of personalized book clusters */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2097,7 +2097,7 @@ declare namespace gapi.client {
             }): Request<Discoveryclusters>;
         }
         interface PromoofferResource {
-            accept(request: {
+            accept(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** device android_id */
@@ -2128,7 +2128,7 @@ declare namespace gapi.client {
                 /** Volume id to exercise the offer */
                 volumeId?: string;
             }): Request<void>;
-            dismiss(request: {
+            dismiss(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** device android_id */
@@ -2159,7 +2159,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns a list of promo offers available to the user */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** device android_id */
@@ -2190,7 +2190,7 @@ declare namespace gapi.client {
         }
         interface MembershipResource {
             /** Returns Series membership data given the series id. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2215,7 +2215,7 @@ declare namespace gapi.client {
         }
         interface SeriesResource {
             /** Returns Series metadata for the given series ids. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2237,7 +2237,7 @@ declare namespace gapi.client {
         }
         interface AssociatedResource {
             /** Return a list of associated books. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Association type. */
@@ -2266,7 +2266,7 @@ declare namespace gapi.client {
         }
         interface MybooksResource {
             /** Return a list of books in My Library. */
-            list(request: {
+            list(request?: {
                 /** How the book was acquired */
                 acquireMethod?: string | string[];
                 /** Data format for the response. */
@@ -2299,7 +2299,7 @@ declare namespace gapi.client {
         }
         interface RecommendedResource {
             /** Return a list of recommended books for the current user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2322,7 +2322,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Volumes>;
             /** Rate a recommended book for the current user. */
-            rate(request: {
+            rate(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2349,7 +2349,7 @@ declare namespace gapi.client {
         }
         interface UseruploadedResource {
             /** Return a list of books uploaded by the current user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2380,7 +2380,7 @@ declare namespace gapi.client {
         }
         interface VolumesResource {
             /** Gets volume information for a single volume. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** ISO-3166-1 code to override the IP-based location. */
@@ -2410,7 +2410,7 @@ declare namespace gapi.client {
                 volumeId: string;
             }): Request<Volume>;
             /** Performs a book search. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Restrict to volumes by download availability. */

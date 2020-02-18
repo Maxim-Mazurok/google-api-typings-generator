@@ -495,7 +495,7 @@ declare namespace gapi.client {
              * permission, which is often given to billing account
              * [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -605,7 +605,7 @@ declare namespace gapi.client {
              * must be a [viewer of the billing
              * account](https://cloud.google.com/billing/docs/how-to/billing-access).
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -640,7 +640,7 @@ declare namespace gapi.client {
              * account, which is often given to billing account
              * [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -685,7 +685,7 @@ declare namespace gapi.client {
              * permission to
              * [view](https://cloud.google.com/billing/docs/how-to/billing-access).
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -883,7 +883,7 @@ declare namespace gapi.client {
              * project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
              * ).
              */
-            getBillingInfo(request: {
+            getBillingInfo(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1009,7 +1009,7 @@ declare namespace gapi.client {
         }
         interface SkusResource {
             /** Lists all publicly available SKUs for a given cloud service. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1073,7 +1073,7 @@ declare namespace gapi.client {
         }
         interface ServicesResource {
             /** Lists all public cloud services. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

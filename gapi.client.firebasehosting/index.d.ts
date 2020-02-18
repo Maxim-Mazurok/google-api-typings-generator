@@ -446,7 +446,7 @@ declare namespace gapi.client {
              * method to poll the operation result at intervals as recommended by the API
              * service.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -540,7 +540,7 @@ declare namespace gapi.client {
             },
             body: Domain): Request<Domain>;
             /** Deletes the existing domain mapping on the specified site. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -567,7 +567,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /** Gets a domain mapping on the specified site. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -594,7 +594,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Domain>;
             /** Lists the domains for the specified site. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -780,7 +780,7 @@ declare namespace gapi.client {
             },
             body: Release): Request<Release>;
             /** Lists the releases that have been created on the specified site. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -816,7 +816,7 @@ declare namespace gapi.client {
         }
         interface FilesResource {
             /** Lists the remaining files to be uploaded for the specified version. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1004,7 +1004,7 @@ declare namespace gapi.client {
             },
             body: Version): Request<Version>;
             /** Deletes the specified version. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1037,7 +1037,7 @@ declare namespace gapi.client {
              * Lists the versions that have been created on the specified site.
              * Will include filtering in the future.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1237,7 +1237,7 @@ declare namespace gapi.client {
         }
         interface SitesResource {
             /** Gets the Hosting metadata for a specific site. */
-            getConfig(request: {
+            getConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

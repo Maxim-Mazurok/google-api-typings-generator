@@ -2021,7 +2021,7 @@ declare namespace gapi.client {
         }
         interface UsableSubnetworksResource {
             /** Lists subnetworks that are usable for creating clusters in a project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2139,7 +2139,7 @@ declare namespace gapi.client {
             },
             body: CreateNodePoolRequest): Request<Operation>;
             /** Deletes a node pool from a cluster. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2193,7 +2193,7 @@ declare namespace gapi.client {
                 zone?: string;
             }): Request<Operation>;
             /** Retrieves the requested node pool. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2247,7 +2247,7 @@ declare namespace gapi.client {
                 zone?: string;
             }): Request<NodePool>;
             /** Lists the node pools for a cluster. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2628,7 +2628,7 @@ declare namespace gapi.client {
              * This API is not yet intended for general use, and is not available for all
              * clusters.
              */
-            "getOpenid-configuration"(request: {
+            "getOpenid-configuration"(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2808,7 +2808,7 @@ declare namespace gapi.client {
              * such as load balancer resources, are not deleted if they weren't present
              * when the cluster was initially created.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2856,7 +2856,7 @@ declare namespace gapi.client {
                 zone?: string;
             }): Request<Operation>;
             /** Gets the details of a specific cluster. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2909,7 +2909,7 @@ declare namespace gapi.client {
              * This API is not yet intended for general use, and is not available for all
              * clusters.
              */
-            getJwks(request: {
+            getJwks(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2942,7 +2942,7 @@ declare namespace gapi.client {
              * Lists all clusters owned by a project in either the specified zone or all
              * zones.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3807,7 +3807,7 @@ declare namespace gapi.client {
             },
             body: CancelOperationRequest): Request<{}>;
             /** Gets the specified operation. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3855,7 +3855,7 @@ declare namespace gapi.client {
                 zone?: string;
             }): Request<Operation>;
             /** Lists all operations in a project in a specific zone or all zones. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -3900,7 +3900,7 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /** Returns configuration info about the Google Kubernetes Engine service. */
-            getServerConfig(request: {
+            getServerConfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4132,7 +4132,7 @@ declare namespace gapi.client {
             },
             body: CreateNodePoolRequest): Request<Operation>;
             /** Deletes a node pool from a cluster. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4186,7 +4186,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Retrieves the requested node pool. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4240,7 +4240,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<NodePool>;
             /** Lists the node pools for a cluster. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -4963,7 +4963,7 @@ declare namespace gapi.client {
              * such as load balancer resources, are not deleted if they weren't present
              * when the cluster was initially created.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5011,7 +5011,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Gets the details of a specific cluster. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -5150,7 +5150,7 @@ declare namespace gapi.client {
              * Lists all clusters owned by a project in either the specified zone or all
              * zones.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6162,7 +6162,7 @@ declare namespace gapi.client {
             },
             body: CancelOperationRequest): Request<{}>;
             /** Gets the specified operation. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6210,7 +6210,7 @@ declare namespace gapi.client {
                 zone: string;
             }): Request<Operation>;
             /** Lists all operations in a project in a specific zone or all zones. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -6255,7 +6255,7 @@ declare namespace gapi.client {
         }
         interface ZonesResource {
             /** Returns configuration info about the Google Kubernetes Engine service. */
-            getServerconfig(request: {
+            getServerconfig(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

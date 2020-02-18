@@ -663,7 +663,7 @@ declare namespace gapi.client {
              * Lists all the feedback for an alert. Attempting to list feedbacks for
              * a non-existent alert returns `NOT_FOUND` error.
              */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -819,7 +819,7 @@ declare namespace gapi.client {
              * already been marked for deletion. Attempting to mark a nonexistent alert
              * for deletion results in a `NOT_FOUND` error.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -855,7 +855,7 @@ declare namespace gapi.client {
              * Gets the specified alert. Attempting to get a nonexistent alert returns
              * `NOT_FOUND` error.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -891,7 +891,7 @@ declare namespace gapi.client {
              * Returns the metadata of an alert. Attempting to get metadata for
              * a non-existent alert returns `NOT_FOUND` error.
              */
-            getMetadata(request: {
+            getMetadata(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -924,7 +924,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<AlertMetadata>;
             /** Lists the alerts. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1049,7 +1049,7 @@ declare namespace gapi.client {
         }
         interface V1beta1Resource {
             /** Returns customer-level settings. */
-            getSettings(request: {
+            getSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */

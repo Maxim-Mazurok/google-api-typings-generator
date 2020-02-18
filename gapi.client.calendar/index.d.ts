@@ -824,7 +824,7 @@ declare namespace gapi.client {
         }
         interface AclResource {
             /** Deletes an access control rule. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -848,7 +848,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns an access control rule. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -922,7 +922,7 @@ declare namespace gapi.client {
             },
             body: AclRule): Request<AclRule>;
             /** Returns the rules in the access control list for the calendar. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1166,7 +1166,7 @@ declare namespace gapi.client {
         }
         interface CalendarListResource {
             /** Removes a calendar from the user's calendar list. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1188,7 +1188,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns a calendar from the user's calendar list. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1256,7 +1256,7 @@ declare namespace gapi.client {
             },
             body: CalendarListEntry): Request<CalendarListEntry>;
             /** Returns the calendars on the user's calendar list. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1498,7 +1498,7 @@ declare namespace gapi.client {
         }
         interface CalendarsResource {
             /** Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account. */
-            clear(request: {
+            clear(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1520,7 +1520,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1542,7 +1542,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns metadata for a calendar. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1732,7 +1732,7 @@ declare namespace gapi.client {
         }
         interface ColorsResource {
             /** Returns the color definitions for calendars and events. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1751,7 +1751,7 @@ declare namespace gapi.client {
         }
         interface EventsResource {
             /** Deletes an event. */
-            delete(request: {
+            delete(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1784,7 +1784,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Returns an event. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -1972,7 +1972,7 @@ declare namespace gapi.client {
             },
             body: Event): Request<Event>;
             /** Returns instances of the specified recurring event. */
-            instances(request: {
+            instances(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -2029,7 +2029,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Events>;
             /** Returns events on the specified calendar. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -2137,7 +2137,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Events>;
             /** Moves an event to another calendar, i.e. changes an event's organizer. */
-            move(request: {
+            move(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Calendar identifier of the source calendar where the event currently is on. */
@@ -2273,7 +2273,7 @@ declare namespace gapi.client {
             },
             body: Event): Request<Event>;
             /** Creates an event based on a simple text string. */
-            quickAdd(request: {
+            quickAdd(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
@@ -2668,7 +2668,7 @@ declare namespace gapi.client {
         }
         interface SettingsResource {
             /** Returns a single user setting. */
-            get(request: {
+            get(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2687,7 +2687,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Setting>;
             /** Returns all user settings for the authenticated user. */
-            list(request: {
+            list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

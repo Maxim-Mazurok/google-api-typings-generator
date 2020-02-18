@@ -364,7 +364,7 @@ declare namespace gapi.client {
             },
             body: Query): Request<Query>;
             /** Deletes a stored query as well as the associated stored reports. */
-            deletequery(request: {
+            deletequery(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -383,7 +383,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<void>;
             /** Retrieves a stored query. */
-            getquery(request: {
+            getquery(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -402,7 +402,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<Query>;
             /** Retrieves stored queries. */
-            listqueries(request: {
+            listqueries(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -465,7 +465,7 @@ declare namespace gapi.client {
         }
         interface ReportsResource {
             /** Retrieves stored reports. */
-            listreports(request: {
+            listreports(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /** Selector specifying which fields to include in a partial response. */

@@ -853,7 +853,7 @@ declare namespace gapi.client {
              * within 7 days. After 7 days the Role is deleted and all Bindings associated
              * with the role are removed.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -903,7 +903,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Role>;
             /** Gets a Role definition. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -958,7 +958,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Role>;
             /** Lists the Roles defined on a resource. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1394,7 +1394,7 @@ declare namespace gapi.client {
              * within 7 days. After 7 days the Role is deleted and all Bindings associated
              * with the role are removed.
              */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1444,7 +1444,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Role>;
             /** Gets a Role definition. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1499,7 +1499,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Role>;
             /** Lists the Roles defined on a resource. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1840,7 +1840,7 @@ declare namespace gapi.client {
             },
             body: CreateServiceAccountKeyRequest): Request<ServiceAccountKey>;
             /** Deletes a ServiceAccountKey. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1876,7 +1876,7 @@ declare namespace gapi.client {
              * Gets the ServiceAccountKey
              * by key id.
              */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -1915,7 +1915,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ServiceAccountKey>;
             /** Lists ServiceAccountKeys. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2095,7 +2095,7 @@ declare namespace gapi.client {
             },
             body: CreateServiceAccountRequest): Request<ServiceAccount>;
             /** Deletes a ServiceAccount. */
-            delete(request: {
+            delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2294,7 +2294,7 @@ declare namespace gapi.client {
             },
             body: EnableServiceAccountRequest): Request<{}>;
             /** Gets a ServiceAccount. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2343,7 +2343,7 @@ declare namespace gapi.client {
              * [projects.getIamPolicy](/resource-manager/reference/rest/v1/projects/getIamPolicy)
              * method.
              */
-            getIamPolicy(request: {
+            getIamPolicy(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2384,7 +2384,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /** Lists ServiceAccounts for a project. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2907,7 +2907,7 @@ declare namespace gapi.client {
         }
         interface RolesResource {
             /** Gets a Role definition. */
-            get(request: {
+            get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
@@ -2962,7 +2962,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Role>;
             /** Lists the Roles defined on a resource. */
-            list(request: {
+            list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
