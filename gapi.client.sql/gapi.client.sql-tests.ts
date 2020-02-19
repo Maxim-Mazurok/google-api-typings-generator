@@ -34,12 +34,14 @@ gapi.load('client', () => {
             id: "Test string",
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         });
         /** Retrieves a resource containing information about a backup run. */
         await gapi.client.sql.backupRuns.get({
             id: "Test string",
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         });
         /**
          * Creates a new backup run on demand. This method is applicable only to
@@ -47,6 +49,7 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.backupRuns.insert({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             description: "Test string",
@@ -83,6 +86,7 @@ gapi.load('client', () => {
             instance: "Test string",
             maxResults: 42,
             pageToken: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /** Deletes a database from a Cloud SQL instance. */
@@ -90,6 +94,7 @@ gapi.load('client', () => {
             database: "Test string",
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         });
         /**
          * Retrieves a resource containing information about a database inside a Cloud
@@ -99,6 +104,7 @@ gapi.load('client', () => {
             database: "Test string",
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         });
         /**
          * Inserts a resource containing information about a database inside a Cloud
@@ -106,6 +112,7 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.databases.insert({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             charset: "Test string",
@@ -124,6 +131,7 @@ gapi.load('client', () => {
         /** Lists databases in the specified Cloud SQL instance. */
         await gapi.client.sql.databases.list({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /**
@@ -139,6 +147,7 @@ gapi.load('client', () => {
             database: "Test string",
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         }, {
             charset: "Test string",
             collation: "Test string",
@@ -161,6 +170,7 @@ gapi.load('client', () => {
             database: "Test string",
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         }, {
             charset: "Test string",
             collation: "Test string",
@@ -188,11 +198,13 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.instances.addServerCa({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /** Creates a Cloud SQL instance as a clone of the source instance. */
         await gapi.client.sql.instances.clone({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             cloneContext: {
@@ -211,6 +223,7 @@ gapi.load('client', () => {
         await gapi.client.sql.instances.delete({
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         });
         /**
          * Demotes the stand-alone instance to be a Cloud SQL read replica for an
@@ -218,6 +231,7 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.instances.demoteMaster({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             demoteMasterContext: {
@@ -243,6 +257,7 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.instances.export({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             exportContext: {
@@ -267,6 +282,7 @@ gapi.load('client', () => {
         /** Failover the instance to its failover replica instance. */
         await gapi.client.sql.instances.failover({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             failoverContext: {
@@ -278,6 +294,7 @@ gapi.load('client', () => {
         await gapi.client.sql.instances.get({
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         });
         /**
          * Imports data into a Cloud SQL instance from a SQL dump  or CSV file in
@@ -285,6 +302,7 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.instances.import({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             importContext: {
@@ -309,6 +327,7 @@ gapi.load('client', () => {
         });
         /** Creates a new Cloud SQL instance. */
         await gapi.client.sql.instances.insert({
+            parent: "Test string",
             project: "Test string",
         }, {
             backendType: "Test string",
@@ -456,6 +475,7 @@ gapi.load('client', () => {
             filter: "Test string",
             maxResults: 42,
             pageToken: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /**
@@ -467,6 +487,7 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.instances.listServerCas({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /**
@@ -476,6 +497,7 @@ gapi.load('client', () => {
         await gapi.client.sql.instances.patch({
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         }, {
             backendType: "Test string",
             connectionName: "Test string",
@@ -620,6 +642,7 @@ gapi.load('client', () => {
         /** Promotes the read replica instance to be a stand-alone Cloud SQL instance. */
         await gapi.client.sql.instances.promoteReplica({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /**
@@ -634,11 +657,13 @@ gapi.load('client', () => {
         /** Restarts a Cloud SQL instance. */
         await gapi.client.sql.instances.restart({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /** Restores a backup of a Cloud SQL instance. */
         await gapi.client.sql.instances.restoreBackup({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             restoreBackupContext: {
@@ -654,6 +679,7 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.instances.rotateServerCa({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             rotateServerCaContext: {
@@ -664,16 +690,19 @@ gapi.load('client', () => {
         /** Starts the replication in the read replica instance. */
         await gapi.client.sql.instances.startReplica({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /** Stops the replication in the read replica instance. */
         await gapi.client.sql.instances.stopReplica({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /** Truncate MySQL general and slow query log tables */
         await gapi.client.sql.instances.truncateLog({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             truncateLogContext: {
@@ -685,6 +714,7 @@ gapi.load('client', () => {
         await gapi.client.sql.instances.update({
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         }, {
             backendType: "Test string",
             connectionName: "Test string",
@@ -830,6 +860,7 @@ gapi.load('client', () => {
         await gapi.client.sql.operations.get({
             operation: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         });
         /**
          * Lists all instance operations that have been performed on the given Cloud
@@ -839,6 +870,7 @@ gapi.load('client', () => {
             instance: "Test string",
             maxResults: 42,
             pageToken: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /**
@@ -849,6 +881,7 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.sslCerts.createEphemeral({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             public_key: "Test string",
@@ -860,6 +893,7 @@ gapi.load('client', () => {
         await gapi.client.sql.sslCerts.delete({
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
             sha1Fingerprint: "Test string",
         });
         /**
@@ -870,6 +904,7 @@ gapi.load('client', () => {
         await gapi.client.sql.sslCerts.get({
             instance: "Test string",
             project: "Test string",
+            resourceName: "Test string",
             sha1Fingerprint: "Test string",
         });
         /**
@@ -879,6 +914,7 @@ gapi.load('client', () => {
          */
         await gapi.client.sql.sslCerts.insert({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             commonName: "Test string",
@@ -886,6 +922,7 @@ gapi.load('client', () => {
         /** Lists all of the current SSL certificates for the instance. */
         await gapi.client.sql.sslCerts.list({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /**
@@ -902,10 +939,12 @@ gapi.load('client', () => {
             instance: "Test string",
             name: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         });
         /** Creates a new user in a Cloud SQL instance. */
         await gapi.client.sql.users.insert({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         }, {
             etag: "Test string",
@@ -924,6 +963,7 @@ gapi.load('client', () => {
         /** Lists users in the specified Cloud SQL instance. */
         await gapi.client.sql.users.list({
             instance: "Test string",
+            parent: "Test string",
             project: "Test string",
         });
         /** Updates an existing user in a Cloud SQL instance. */
@@ -932,6 +972,7 @@ gapi.load('client', () => {
             instance: "Test string",
             name: "Test string",
             project: "Test string",
+            resourceName: "Test string",
         }, {
             etag: "Test string",
             host: "Test string",
