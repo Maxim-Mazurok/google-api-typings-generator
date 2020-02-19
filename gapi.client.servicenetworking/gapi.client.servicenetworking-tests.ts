@@ -98,7 +98,6 @@ gapi.load('client', () => {
             consumerNetwork: "Test string",
             description: "Test string",
             ipPrefixLength: 42,
-            privateIpv6GoogleAccess: "Test string",
             region: "Test string",
             requestedAddress: "Test string",
             subnetwork: "Test string",
@@ -324,8 +323,6 @@ gapi.load('client', () => {
             },
             rangeReservation: {
                 ipPrefixLength: 42,
-                secondaryRangeIpPrefixLengths: [
-                    42                ],
             },
             validateNetwork: true,
         });
