@@ -628,6 +628,7 @@ export class App {
       `// In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator`
     );
     writer.writeLine(`// Generated from: ${url}`);
+    writer.writeLine(`// Revision: ${api.revision}`);
     writer.writeLine();
     writer.referenceTypes('gapi.client');
 
