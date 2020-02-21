@@ -44,6 +44,7 @@ gapi.load('client', () => {
                         type: "Test string",
                         user: {
                             displayName: "Test string",
+                            domainId: "Test string",
                             name: "Test string",
                             type: "Test string",
                         },
@@ -204,6 +205,7 @@ gapi.load('client', () => {
             previewText: "Test string",
             sender: {
                 displayName: "Test string",
+                domainId: "Test string",
                 name: "Test string",
                 type: "Test string",
             },
@@ -243,6 +245,7 @@ gapi.load('client', () => {
                         type: "Test string",
                         user: {
                             displayName: "Test string",
+                            domainId: "Test string",
                             name: "Test string",
                             type: "Test string",
                         },
@@ -403,6 +406,7 @@ gapi.load('client', () => {
             previewText: "Test string",
             sender: {
                 displayName: "Test string",
+                domainId: "Test string",
                 name: "Test string",
                 type: "Test string",
             },
@@ -449,6 +453,7 @@ gapi.load('client', () => {
                         type: "Test string",
                         user: {
                             displayName: "Test string",
+                            domainId: "Test string",
                             name: "Test string",
                             type: "Test string",
                         },
@@ -609,6 +614,7 @@ gapi.load('client', () => {
             previewText: "Test string",
             sender: {
                 displayName: "Test string",
+                domainId: "Test string",
                 name: "Test string",
                 type: "Test string",
             },
@@ -648,6 +654,7 @@ gapi.load('client', () => {
                         type: "Test string",
                         user: {
                             displayName: "Test string",
+                            domainId: "Test string",
                             name: "Test string",
                             type: "Test string",
                         },
@@ -808,6 +815,7 @@ gapi.load('client', () => {
             previewText: "Test string",
             sender: {
                 displayName: "Test string",
+                domainId: "Test string",
                 name: "Test string",
                 type: "Test string",
             },

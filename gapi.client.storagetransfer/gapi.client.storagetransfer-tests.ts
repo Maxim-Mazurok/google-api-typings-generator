@@ -116,8 +116,11 @@ gapi.load('client', () => {
          * transfer operations that are running already. Updating a job's schedule
          * is not allowed.
          *
-         * Note: The job's `status` field can be modified using this RPC (for example,
-         * to set a job's status to `DELETED`, `DISABLED`, or `ENABLED`).
+         * &#42;&#42;Note:&#42;&#42; The job's status field can be modified
+         * using this RPC (for example, to set a job's status to
+         * DELETED,
+         * DISABLED, or
+         * ENABLED).
          */
         await gapi.client.storagetransfer.transferJobs.patch({
             jobName: "Test string",

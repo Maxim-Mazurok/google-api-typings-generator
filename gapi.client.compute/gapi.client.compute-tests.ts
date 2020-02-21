@@ -489,7 +489,12 @@ gapi.load('client', () => {
             kind: "Test string",
             loadBalancingScheme: "Test string",
             localityLbPolicy: "Test string",
+            logConfig: {
+                enable: true,
+                sampleRate: 42,
+            },
             name: "Test string",
+            network: "Test string",
             outlierDetection: {
                 baseEjectionTime: {
                     nanos: 42,
@@ -605,7 +610,12 @@ gapi.load('client', () => {
             kind: "Test string",
             loadBalancingScheme: "Test string",
             localityLbPolicy: "Test string",
+            logConfig: {
+                enable: true,
+                sampleRate: 42,
+            },
             name: "Test string",
+            network: "Test string",
             outlierDetection: {
                 baseEjectionTime: {
                     nanos: 42,
@@ -720,7 +730,12 @@ gapi.load('client', () => {
             kind: "Test string",
             loadBalancingScheme: "Test string",
             localityLbPolicy: "Test string",
+            logConfig: {
+                enable: true,
+                sampleRate: 42,
+            },
             name: "Test string",
+            network: "Test string",
             outlierDetection: {
                 baseEjectionTime: {
                     nanos: 42,
@@ -5138,7 +5153,12 @@ gapi.load('client', () => {
             kind: "Test string",
             loadBalancingScheme: "Test string",
             localityLbPolicy: "Test string",
+            logConfig: {
+                enable: true,
+                sampleRate: 42,
+            },
             name: "Test string",
+            network: "Test string",
             outlierDetection: {
                 baseEjectionTime: {
                     nanos: 42,
@@ -5256,7 +5276,12 @@ gapi.load('client', () => {
             kind: "Test string",
             loadBalancingScheme: "Test string",
             localityLbPolicy: "Test string",
+            logConfig: {
+                enable: true,
+                sampleRate: 42,
+            },
             name: "Test string",
+            network: "Test string",
             outlierDetection: {
                 baseEjectionTime: {
                     nanos: 42,
@@ -5364,7 +5389,12 @@ gapi.load('client', () => {
             kind: "Test string",
             loadBalancingScheme: "Test string",
             localityLbPolicy: "Test string",
+            logConfig: {
+                enable: true,
+                sampleRate: 42,
+            },
             name: "Test string",
+            network: "Test string",
             outlierDetection: {
                 baseEjectionTime: {
                     nanos: 42,
@@ -9124,6 +9154,12 @@ gapi.load('client', () => {
                     srcIpRanges: [
                         "Test string"                    ],
                 },
+                expr: {
+                    description: "Test string",
+                    expression: "Test string",
+                    location: "Test string",
+                    title: "Test string",
+                },
                 versionedExpr: "Test string",
             },
             preview: true,
@@ -9167,6 +9203,12 @@ gapi.load('client', () => {
                             srcIpRanges: [
                                 "Test string"                            ],
                         },
+                        expr: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
                         versionedExpr: "Test string",
                     },
                     preview: true,
@@ -9204,6 +9246,12 @@ gapi.load('client', () => {
                             srcIpRanges: [
                                 "Test string"                            ],
                         },
+                        expr: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
                         versionedExpr: "Test string",
                     },
                     preview: true,
@@ -9224,6 +9272,12 @@ gapi.load('client', () => {
                 config: {
                     srcIpRanges: [
                         "Test string"                    ],
+                },
+                expr: {
+                    description: "Test string",
+                    expression: "Test string",
+                    location: "Test string",
+                    title: "Test string",
                 },
                 versionedExpr: "Test string",
             },
