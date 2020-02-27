@@ -1,9 +1,9 @@
-name: CI
+name: CI Test
 
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,11 +16,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and lint
+    - name: npm install and test
       run: |
         npm ci
-        npm start
-        npm run lint
+        npm test
       env:
         CI: true
-        GAPI_MAX_PARALLEL: 3
