@@ -4,7 +4,10 @@ import _ from 'lodash';
 import path from 'path';
 import request from 'request';
 import sortObject from 'deep-sort-object';
-import { parseVersion } from './utils';
+import { getResourceTypeName, parseVersion } from './utils';
+import JsonSchema = gapi.client.discovery.JsonSchema;
+import RestResource = gapi.client.discovery.RestResource;
+import RestDescription = gapi.client.discovery.RestDescription;
 
 const typesMap: { [key: string]: string } = {
   integer: 'number',
@@ -254,6 +257,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     parameters: Array<{
       parameter: string;
       type: string | TypescriptWriterCallback;
+      required: boolean;
     }>,
     returnType: string,
     singleLine = false
@@ -261,7 +265,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     this.writer.startIndentedLine(`${name}(`);
 
     _.forEach(parameters, (parameter, index) => {
-      this.write(parameter.parameter + ': ');
+      this.write(`${parameter.parameter}${parameter.required ? '' : '?'}: `);
       this.write(parameter.type);
 
       if (index + 1 < parameters.length) {
@@ -278,7 +282,6 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     this.writer.write(`): ${returnType};`);
 
     this.endLine();
-    //this.writer.writeLine(`${name}(${parameters.map(p => p.parameter + ": " + p.type).join(", ")}): ${returnType};`);
   }
 
   writeLine(chunk = '') {
@@ -416,7 +419,7 @@ function loadTemplate(name: string) {
   } else if (fs.existsSync(path.join('..', name))) {
     filename = path.join('..', name);
   } else {
-    throw Error(`Can\'t find ${name} file template`);
+    throw Error(`Can't find ${name} file template`);
   }
 
   doT.templateSettings.strip = false;
@@ -460,25 +463,45 @@ export class App {
     return dir;
   }
 
-  private static getResourceTypeName(resourceName: string) {
-    resourceName = resourceName
-      .split('-')
-      .map(x => `${x[0].toUpperCase()}${x.substring(1)}`)
-      .join('');
-    return (
-      resourceName[0].toUpperCase() + resourceName.substring(1) + 'Resource'
-    );
+  /**
+   * Creates a callback that writes request parameters.
+   */
+  private static createRequestParameterWriterCallback(
+    parameters: Record<string, JsonSchema>,
+    schemas: Record<string, JsonSchema>,
+    ref?: string
+  ) {
+    return function requestParameterWriterCallback(
+      writer: TypescriptTextWriter
+    ) {
+      writer.anonymousType(() => {
+        _.forEach(parameters, (data, key) => {
+          if (data.description) {
+            writer.comment(formatComment(data.description));
+          }
+
+          writer.property(key, getType(data, schemas), Boolean(data.required));
+        });
+
+        if (ref) {
+          writer.comment('Request body');
+          writer.property('resource', ref, true);
+        }
+      });
+    };
   }
 
-  // writes specified resource definition
+  /**
+   * Writes specified resource definition.
+   */
   private writeResources(
     out: TypescriptTextWriter,
-    resources: Record<string, gapi.client.discovery.RestResource>,
-    parameters: Record<string, gapi.client.discovery.JsonSchema> = {},
-    schemas: Record<string, gapi.client.discovery.JsonSchema>
+    resources: Record<string, RestResource>,
+    parameters: Record<string, JsonSchema> = {},
+    schemas: Record<string, JsonSchema>
   ) {
     _.forEach(resources, (resource, resourceName) => {
-      const resourceInterfaceName = App.getResourceTypeName(resourceName);
+      const resourceInterfaceName = getResourceTypeName(resourceName);
 
       if (resource.resources) {
         this.writeResources(out, resource.resources, parameters, schemas);
@@ -489,73 +512,49 @@ export class App {
           if (method.description) {
             out.comment(formatComment(method.description));
           }
-          const requestParameters: Record<
-            string,
-            gapi.client.discovery.JsonSchema
-          > = sortObject({ ...parameters, ...method.parameters });
-          const hasRequestRef = method.request && method.request['$ref'];
-          if (
-            !(requestParameters.hasOwnProperty('resource') && hasRequestRef)
-          ) {
-            // no resource param and no body at the same time -> generate x(request)
+
+          const requestRef = method.request?.$ref;
+          const requestParameters: Record<string, JsonSchema> = sortObject({
+            ...parameters,
+            ...method.parameters,
+          });
+
+          if (!requestParameters.resource || !requestRef) {
+            // generate method(request)
             out.method(
               formatPropertyName(checkExists(getName(method.id))),
               [
                 {
                   parameter: 'request',
-                  type: (writer: TypescriptTextWriter) => {
-                    writer.anonymousType(() => {
-                      _.forEach(requestParameters, (data, key) => {
-                        if (data.description) {
-                          writer.comment(formatComment(data.description));
-                        }
-                        writer.property(
-                          key,
-                          getType(data, schemas),
-                          data.required || false
-                        );
-                      });
-
-                      if (method.request && method.request['$ref']) {
-                        writer.comment('Request body');
-                        writer.property(
-                          'resource',
-                          method.request['$ref'],
-                          true
-                        );
-                      }
-                    });
-                  },
+                  type: App.createRequestParameterWriterCallback(
+                    requestParameters,
+                    schemas,
+                    requestRef
+                  ),
+                  required: Boolean(requestRef),
                 },
               ],
               getMethodReturn(method, schemas)
             );
           }
-          if (method.request && method.request['$ref']) {
-            // has body -> generate x(request, body)
+
+          if (requestRef) {
+            // generate method(request, body)
             out.method(
               formatPropertyName(checkExists(getName(method.id))),
               [
                 {
                   parameter: 'request',
-                  type: (writer: TypescriptTextWriter) => {
-                    writer.anonymousType(() => {
-                      _.forEach(requestParameters, (data, key) => {
-                        if (data.description) {
-                          writer.comment(formatComment(data.description));
-                        }
-                        writer.property(
-                          key,
-                          getType(data, schemas),
-                          data.required || false
-                        );
-                      });
-                    });
-                  },
+                  type: App.createRequestParameterWriterCallback(
+                    requestParameters,
+                    schemas
+                  ),
+                  required: true,
                 },
                 {
                   parameter: 'body',
-                  type: method.request['$ref'],
+                  type: requestRef,
+                  required: true,
                 },
               ],
               getMethodReturn(method, schemas)
@@ -565,7 +564,7 @@ export class App {
 
         if (resource.resources) {
           _.forEach(resource.resources, (_, childResourceName) => {
-            const childResourceInterfaceName = App.getResourceTypeName(
+            const childResourceInterfaceName = getResourceTypeName(
               childResourceName
             );
             out.property(childResourceName, childResourceInterfaceName);
@@ -629,6 +628,7 @@ export class App {
       `// In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator`
     );
     writer.writeLine(`// Generated from: ${url}`);
+    writer.writeLine(`// Revision: ${api.revision}`);
     writer.writeLine();
     writer.referenceTypes('gapi.client');
 
@@ -639,8 +639,8 @@ export class App {
       writer.method(
         `function load`,
         [
-          { parameter: `name`, type: `"${api.name}"` },
-          { parameter: `version`, type: `"${api.version}"` },
+          { parameter: `name`, type: `"${api.name}"`, required: true },
+          { parameter: `version`, type: `"${api.version}"`, required: true },
         ],
         'PromiseLike<void>',
         true
@@ -649,9 +649,9 @@ export class App {
       writer.method(
         `function load`,
         [
-          { parameter: `name`, type: `"${api.name}"` },
-          { parameter: `version`, type: `"${api.version}"` },
-          { parameter: `callback`, type: `() => any` },
+          { parameter: `name`, type: `"${api.name}"`, required: true },
+          { parameter: `version`, type: `"${api.version}"`, required: true },
+          { parameter: `callback`, type: `() => any`, required: true },
         ],
         'void',
         true
@@ -698,9 +698,7 @@ export class App {
             if (resourceName !== 'debugger') {
               writer.endLine();
               writer.writeLine(
-                `const ${resourceName}: ${App.getResourceTypeName(
-                  resourceName
-                )};`
+                `const ${resourceName}: ${getResourceTypeName(resourceName)};`
               );
             }
           });
@@ -928,7 +926,7 @@ export class App {
 
   private writeResourceTests(
     scope: TypescriptTextWriter,
-    api: gapi.client.discovery.RestDescription,
+    api: RestDescription,
     ancestors: string,
     resourceName: string,
     resource: gapi.client.discovery.RestResource
@@ -936,17 +934,23 @@ export class App {
     _.forEach(resource.methods, (method, methodName) => {
       scope.comment(method.description);
       scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`);
-      const params:
-        | Record<string, gapi.client.discovery.JsonSchema>
-        | undefined = resource.methods![methodName].parameters;
+
+      const params: Record<string, JsonSchema> | undefined = method.parameters;
+      const ref = method.request?.$ref;
+
       if (params) {
         scope.scope(() => {
           this.writeProperties(scope, api, params);
         });
       }
-      const ref = method.request?.$ref;
-      if (ref != null) {
+
+      if (ref) {
+        if (!params) {
+          scope.write(`{} `);
+        }
+
         scope.write(`, `);
+
         this.writeSchemaRef(scope, api, ref);
       }
 
