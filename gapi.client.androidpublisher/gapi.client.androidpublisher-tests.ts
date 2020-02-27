@@ -241,6 +241,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -249,6 +255,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -278,6 +290,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -288,11 +311,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -301,6 +345,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,
@@ -324,6 +380,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -334,11 +401,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -347,6 +435,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,
@@ -572,6 +672,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -580,6 +686,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -609,6 +721,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -619,11 +742,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -632,6 +776,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,
@@ -655,6 +811,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -665,11 +832,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -678,6 +866,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,
@@ -900,6 +1100,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -908,6 +1114,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -937,6 +1149,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -947,11 +1170,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -960,6 +1204,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,
@@ -983,6 +1239,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -993,11 +1260,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -1006,6 +1294,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,
@@ -1230,6 +1530,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -1238,6 +1544,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -1267,6 +1579,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -1277,11 +1600,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -1290,6 +1634,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,
@@ -1313,6 +1669,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -1323,11 +1690,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -1336,6 +1724,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,
@@ -1558,6 +1958,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -1566,6 +1972,12 @@ gapi.load('client', () => {
             packageName: "Test string",
             track: "Test string",
         }, {
+            autoEnrolledAndroidGroups: [
+                "Test string"            ],
+            autoEnrolledGoogleGroups: [
+                "Test string"            ],
+            excludedGoogleGroups: [
+                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
@@ -1595,6 +2007,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -1605,11 +2028,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -1618,6 +2062,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,
@@ -1641,6 +2097,17 @@ gapi.load('client', () => {
                                     end: "Test string",
                                     start: "Test string",
                                 }                            ],
+                            stratifiedSamplings: [
+                                {
+                                    modRanges: [
+                                        {
+                                            end: "Test string",
+                                            start: "Test string",
+                                        }                                    ],
+                                    stratum: {
+                                        brand: "Test string",
+                                    },
+                                }                            ],
                             versionCodes: [
                                 "Test string"                            ],
                         }                    ],
@@ -1651,11 +2118,32 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
+                    pinnedVersions: [
+                        {
+                            targetings: [
+                                {
+                                    countryCodes: [
+                                        "Test string"                                    ],
+                                    devices: [
+                                        {
+                                            brand: "Test string",
+                                            device: "Test string",
+                                            product: "Test string",
+                                        }                                    ],
+                                    phoneskyVersions: [
+                                        "Test string"                                    ],
+                                    sdkVersions: [
+                                        42                                    ],
+                                }                            ],
+                            versionCodes: [
+                                "Test string"                            ],
+                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
+                    rollbackEnabled: true,
                     sampling: {
                         modRanges: [
                             {
@@ -1664,6 +2152,18 @@ gapi.load('client', () => {
                             }                        ],
                         modulus: "Test string",
                         salt: 42,
+                        stratifiedSamplings: [
+                            {
+                                modRanges: [
+                                    {
+                                        end: "Test string",
+                                        start: "Test string",
+                                    }                                ],
+                                stratum: {
+                                    brand: "Test string",
+                                },
+                            }                        ],
+                        useAndroidId: true,
                     },
                     status: "Test string",
                     userFraction: 42,

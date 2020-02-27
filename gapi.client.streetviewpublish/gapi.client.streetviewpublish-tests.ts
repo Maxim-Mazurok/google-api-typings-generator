@@ -131,7 +131,7 @@ gapi.load('client', () => {
          * https://support.google.com/maps/answer/7012050?hl=en&ref_topic=6275604,
          * the photo must meet the following requirements:
          *
-         * &#42; Photo Sphere XMP metadata must be included in the photo medadata. See
+         * &#42; Photo Sphere XMP metadata must be included in the photo metadata. See
          * https://developers.google.com/streetview/spherical-metadata for the
          * required fields.
          * &#42; The pixel size of the photo must meet the size requirements listed in

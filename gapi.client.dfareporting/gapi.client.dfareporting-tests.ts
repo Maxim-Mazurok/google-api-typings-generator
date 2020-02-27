@@ -3498,7 +3498,6 @@ gapi.load('client', () => {
         await gapi.client.dfareporting.directorySites.insert({
             profileId: "Test string",
         }, {
-            active: true,
             id: "Test string",
             idDimensionValue: {
                 dimensionName: "Test string",

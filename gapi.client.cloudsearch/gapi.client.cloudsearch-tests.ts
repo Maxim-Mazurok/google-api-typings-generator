@@ -87,6 +87,10 @@ gapi.load('client', () => {
          * that you have indexed from a third party.
          *
          * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
+         * A service account can't perform Query API requests directly; to use a
+         * service account to perform queries, set up [G Suite domain-wide delegation
+         * of
+         * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
          */
         await gapi.client.cloudsearch.query.search({
         }, {
@@ -153,6 +157,10 @@ gapi.load('client', () => {
          * Returns list of sources that user can use for Search and Suggest APIs.
          *
          * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
+         * A service account can't perform Query API requests directly; to use a
+         * service account to perform queries, set up [G Suite domain-wide delegation
+         * of
+         * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
          */
         await gapi.client.cloudsearch.query.sources.list({
             pageToken: "Test string",
@@ -165,6 +173,10 @@ gapi.load('client', () => {
          * Provides suggestions for autocompleting the query.
          *
          * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
+         * A service account can't perform Query API requests directly; to use a
+         * service account to perform queries, set up [G Suite domain-wide delegation
+         * of
+         * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
          */
         await gapi.client.cloudsearch.query.suggest({
         }, {
@@ -214,6 +226,10 @@ gapi.load('client', () => {
          * Returns list of sources that user can use for Search and Suggest APIs.
          *
          * &#42;&#42;Note:&#42;&#42; This API requires a standard end user account to execute.
+         * A service account can't perform Query API requests directly; to use a
+         * service account to perform queries, set up [G Suite domain-wide delegation
+         * of
+         * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
          */
         await gapi.client.cloudsearch.query.sources.list({
             pageToken: "Test string",

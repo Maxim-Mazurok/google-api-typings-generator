@@ -564,6 +564,11 @@ gapi.load('client', () => {
                             }                        ],
                         poolArgs: {
                             A: 42                        },
+                        sdkHarnessContainerImages: [
+                            {
+                                containerImage: "Test string",
+                                useSingleCorePerContainer: true,
+                            }                        ],
                         subnetwork: "Test string",
                         taskrunnerSettings: {
                             alsologtostderr: true,
@@ -2504,6 +2509,11 @@ gapi.load('client', () => {
                             }                        ],
                         poolArgs: {
                             A: 42                        },
+                        sdkHarnessContainerImages: [
+                            {
+                                containerImage: "Test string",
+                                useSingleCorePerContainer: true,
+                            }                        ],
                         subnetwork: "Test string",
                         taskrunnerSettings: {
                             alsologtostderr: true,
@@ -3249,6 +3259,11 @@ gapi.load('client', () => {
                             }                        ],
                         poolArgs: {
                             A: 42                        },
+                        sdkHarnessContainerImages: [
+                            {
+                                containerImage: "Test string",
+                                useSingleCorePerContainer: true,
+                            }                        ],
                         subnetwork: "Test string",
                         taskrunnerSettings: {
                             alsologtostderr: true,
@@ -5205,6 +5220,11 @@ gapi.load('client', () => {
                             }                        ],
                         poolArgs: {
                             A: 42                        },
+                        sdkHarnessContainerImages: [
+                            {
+                                containerImage: "Test string",
+                                useSingleCorePerContainer: true,
+                            }                        ],
                         subnetwork: "Test string",
                         taskrunnerSettings: {
                             alsologtostderr: true,

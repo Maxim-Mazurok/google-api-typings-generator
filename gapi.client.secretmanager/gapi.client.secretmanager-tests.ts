@@ -5,7 +5,7 @@
 **/
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('secretmanager', 'v1beta1', () => {
+    gapi.client.load('secretmanager', 'v1', () => {
         /** now we can use gapi.client.secretmanager */
 
         /** don't forget to authenticate your client before sending any request to resources: */

@@ -1,5 +1,5 @@
-# TypeScript typings for Secret Manager API v1beta1
-Stores and manages access to application secrets. Provides convenience while improving security.
+# TypeScript typings for Secret Manager API v1
+Stores API keys, passwords, certificates, and other sensitive data. Provides convenience while improving security.
 
 For detailed description please check [documentation](https://cloud.google.com/secret-manager/).
 
@@ -7,7 +7,7 @@ For detailed description please check [documentation](https://cloud.google.com/s
 
 Install typings for Secret Manager API:
 ```
-npm install @types/gapi.client.secretmanager@v1beta1 --save-dev
+npm install @types/gapi.client.secretmanager@v1 --save-dev
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ gapi.load("client", () => {
 
 Then load api client wrapper:
 ```typescript
-gapi.client.load('secretmanager', 'v1beta1', () => {
+gapi.client.load('secretmanager', 'v1', () => {
     // now we can use gapi.client.secretmanager
     // ... 
 });
