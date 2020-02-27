@@ -1,8 +1,8 @@
-name: Build
+name: Build Cron
 
 on:
-  push:
-    branches: [master]
+  schedule:
+    - cron:  '0 * * * *'
 
 jobs:
   generate:
@@ -18,10 +18,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install and build
+    - name: npm install, build and lint
       run: |
         npm ci
         npm start
+        npm run lint
       env:
         CI: true
     - name: Deploy
