@@ -1,6 +1,8 @@
-name: Build on PR
+name: Build Cron and PR
 
 on:
+  schedule:
+    - cron:  '*/15 * * * *'
   push:
     branches: [master]
 
@@ -18,10 +20,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install and build
+    - name: npm install, build and lint
       run: |
         npm ci
         npm start
+        npm run lint
       env:
         CI: true
     - name: Deploy
