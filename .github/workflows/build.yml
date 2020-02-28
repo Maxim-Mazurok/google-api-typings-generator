@@ -1,4 +1,4 @@
-name: Build Cron and PR
+name: Build
 
 on:
   schedule:
