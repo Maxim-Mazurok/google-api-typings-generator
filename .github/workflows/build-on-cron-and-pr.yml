@@ -1,8 +1,10 @@
-name: Build Cron
+name: Build Cron and PR
 
 on:
   schedule:
-    - cron:  '0 * * * *'
+    - cron:  '*/15 * * * *'
+  push:
+    branches: [master]
 
 jobs:
   generate:
