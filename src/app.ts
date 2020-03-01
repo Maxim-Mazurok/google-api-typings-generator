@@ -9,6 +9,8 @@ import JsonSchema = gapi.client.discovery.JsonSchema;
 import RestResource = gapi.client.discovery.RestResource;
 import RestDescription = gapi.client.discovery.RestDescription;
 
+export const typingsPrefix = 'gapi.client.';
+
 const typesMap: { [key: string]: string } = {
   integer: 'number',
   object: 'any',
@@ -576,9 +578,9 @@ export class App {
 
   private static getTypingsName(api: string, version: string | null) {
     if (version == null) {
-      return `gapi.client.${api}`;
+      return `${typingsPrefix}${api}`;
     } else {
-      return path.join(`gapi.client.${api}`, version);
+      return path.join(`${typingsPrefix}${api}`, version);
     }
   }
 
