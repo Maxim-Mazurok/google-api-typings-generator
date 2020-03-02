@@ -1,11 +1,11 @@
-# TypeScript typings for Stackdriver Trace API v2
-Sends application trace data to Stackdriver Trace for viewing. Trace data is collected for all App Engine applications by default. Trace data from other applications can be provided using this API. This library is used to interact with the Trace API directly. If you are looking to instrument your application for Stackdriver Trace, we recommend using OpenCensus.
+# TypeScript typings for Cloud Trace API v2
+Sends application trace data to Cloud Trace for viewing. Trace data is collected for all App Engine applications by default. Trace data from other applications can be provided using this API. This library is used to interact with the Trace API directly. If you are looking to instrument your application for Cloud Trace, we recommend using OpenCensus.
 
 For detailed description please check [documentation](https://cloud.google.com/trace).
 
 ## Installing
 
-Install typings for Stackdriver Trace API:
+Install typings for Cloud Trace API:
 ```
 npm install @types/gapi.client.cloudtrace@v2 --save-dev
 ```
@@ -52,7 +52,7 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Stackdriver Trace API resources:
+After that you can use Cloud Trace API resources:
 
 ```typescript
 ```
