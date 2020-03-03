@@ -98,21 +98,8 @@ declare namespace gapi.client {
              * for more information.
              */
             configCompleteRedirectUrl?: string;
-            /** The type of dialog event we have received. */
-            dialogEventType?: string;
             /** The timestamp indicating when the event was dispatched. */
             eventTime?: string;
-            /**
-             * The list of form inputs we will supply to the bot. These are just the
-             * inputs from the dialog that are populated by the user. This will only be
-             * populated for CARD_CLICKED events.
-             */
-            formInputs?: FormInput[];
-            /**
-             * Whether or not this event is related to dialogs request, submit or cancel.
-             * This will be set to true when we want a request/submit/cancel event.
-             */
-            isDialogEvent?: boolean;
             /** The message that triggered the event, if applicable. */
             message?: Message;
             /** The room or DM in which the event occurred. */
@@ -146,12 +133,6 @@ declare namespace gapi.client {
             actionMethodName?: string;
             /** List of action parameters. */
             parameters?: ActionParameter[];
-        }
-        interface FormInput {
-            /** The name of the editable widget. */
-            name?: string;
-            /** Value entered by user. */
-            value?: string;
         }
         interface Image {
             /**
