@@ -1,10 +1,10 @@
-# TypeScript typings for Stackdriver Logging API v2
-Writes log entries and manages your Stackdriver Logging configuration. The table entries below are presented in alphabetical order, not in order of common use. For explanations of the concepts found in the table entries, read the <a href=https://cloud.google.com/logging/docs>Stackdriver Logging documentation</a>.
+# TypeScript typings for Cloud Logging API v2
+Writes log entries and manages your Cloud Logging configuration. The table entries below are presented in alphabetical order, not in order of common use. For explanations of the concepts found in the table entries, read the <a href=https://cloud.google.com/logging/docs>Cloud Logging documentation</a>.
 For detailed description please check [documentation](https://cloud.google.com/logging/docs/).
 
 ## Installing
 
-Install typings for Stackdriver Logging API:
+Install typings for Cloud Logging API:
 ```
 npm install @types/gapi.client.logging@v2 --save-dev
 ```
@@ -60,7 +60,7 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Stackdriver Logging API resources:
+After that you can use Cloud Logging API resources:
 
 ```typescript 
     
