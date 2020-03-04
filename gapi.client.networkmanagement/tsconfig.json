@@ -19,6 +19,6 @@
     },
     "files": [
         "index.d.ts",
-        "gapi.client.gamesconfiguration-tests.ts"
+        "gapi.client.networkmanagement-tests.ts"
     ]
 }
