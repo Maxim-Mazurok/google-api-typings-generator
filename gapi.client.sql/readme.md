@@ -101,7 +101,12 @@ await gapi.client.databases.list({ instance: "instance", project: "project",  })
     
 /* 
 Partially updates a resource containing information about a database inside
-a Cloud SQL instance. This method supports patch semantics.  
+a Cloud SQL instance. This method supports patch semantics.
+<aside
+class="caution"><strong>Caution:</strong> This is not a partial update, so
+you must include values for all the settings that you want to retain. For
+partial updates, use <a
+href="/sql/docs/db_path/admin-api/rest/v1beta4/instances/update">update</a>.</aside>  
 */
 await gapi.client.databases.patch({ database: "database", instance: "instance", project: "project",  }); 
     
@@ -126,8 +131,7 @@ waiting to be rotated in.
 await gapi.client.instances.addServerCa({ instance: "instance", project: "project",  }); 
     
 /* 
-Creates a Cloud SQL instance as a clone of the source instance. Using this
-operation might cause your instance to restart.  
+Creates a Cloud SQL instance as a clone of the source instance.  
 */
 await gapi.client.instances.clone({ instance: "instance", project: "project",  }); 
     
@@ -149,8 +153,7 @@ dump or CSV file.
 await gapi.client.instances.export({ instance: "instance", project: "project",  }); 
     
 /* 
-Failover the instance to its failover replica instance. Using this
-operation might cause your instance to restart.  
+Failover the instance to its failover replica instance.  
 */
 await gapi.client.instances.failover({ instance: "instance", project: "project",  }); 
     
@@ -191,8 +194,7 @@ This method supports patch semantics.
 await gapi.client.instances.patch({ instance: "instance", project: "project",  }); 
     
 /* 
-Promotes the read replica instance to be a stand-alone Cloud SQL instance.
-Using this operation might cause your instance to restart.  
+Promotes the read replica instance to be a stand-alone Cloud SQL instance.  
 */
 await gapi.client.instances.promoteReplica({ instance: "instance", project: "project",  }); 
     
@@ -208,8 +210,7 @@ Restarts a Cloud SQL instance.
 await gapi.client.instances.restart({ instance: "instance", project: "project",  }); 
     
 /* 
-Restores a backup of a Cloud SQL instance. Using this operation might cause
-your instance to restart.  
+Restores a backup of a Cloud SQL instance.  
 */
 await gapi.client.instances.restoreBackup({ instance: "instance", project: "project",  }); 
     
@@ -235,8 +236,7 @@ Truncate MySQL general and slow query log tables
 await gapi.client.instances.truncateLog({ instance: "instance", project: "project",  }); 
     
 /* 
-Updates settings of a Cloud SQL instance. Using this operation might cause
-your instance to restart.  
+Updates settings of a Cloud SQL instance.  
 */
 await gapi.client.instances.update({ instance: "instance", project: "project",  }); 
     
