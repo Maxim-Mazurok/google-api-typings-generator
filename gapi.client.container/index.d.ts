@@ -398,11 +398,6 @@ declare namespace gapi.client {
             /** Cluster-level Vertical Pod Autoscaling configuration. */
             verticalPodAutoscaling?: VerticalPodAutoscaling;
             /**
-             * Configuration for the use of Kubernetes Service Accounts in GCP IAM
-             * policies.
-             */
-            workloadIdentityConfig?: WorkloadIdentityConfig;
-            /**
              * [Output only] The name of the Google Compute Engine
              * [zone](/compute/docs/zones#available) in which the cluster
              * resides.
@@ -524,8 +519,6 @@ declare namespace gapi.client {
             desiredShieldedNodes?: ShieldedNodes;
             /** Cluster-level Vertical Pod Autoscaling configuration. */
             desiredVerticalPodAutoscaling?: VerticalPodAutoscaling;
-            /** Configuration for Workload Identity. */
-            desiredWorkloadIdentityConfig?: WorkloadIdentityConfig;
         }
         interface CompleteIPRotationRequest {
             /**
@@ -959,16 +952,6 @@ declare namespace gapi.client {
             /** Constraint enforced on the max num of pods per node. */
             maxPodsPerNode?: string;
         }
-        interface Metric {
-            /** For metrics with floating point value. */
-            doubleValue?: number;
-            /** For metrics with integer value. */
-            intValue?: string;
-            /** Required. Metric name, e.g., "nodes total", "percent done". */
-            name?: string;
-            /** For metrics with custom values (ratios, visual progress, etc.). */
-            stringValue?: string;
-        }
         interface NetworkConfig {
             /**
              * Whether Intra-node visibility is enabled for this cluster.
@@ -1152,8 +1135,6 @@ declare namespace gapi.client {
              * https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
              */
             taints?: NodeTaint[];
-            /** The workload metadata configuration for this node. */
-            workloadMetadataConfig?: WorkloadMetadataConfig;
         }
         interface NodeManagement {
             /**
@@ -1272,8 +1253,6 @@ declare namespace gapi.client {
             nodepoolConditions?: StatusCondition[];
             /** The operation type. */
             operationType?: string;
-            /** Output only. [Output only] Progress information for an operation. */
-            progress?: OperationProgress;
             /** Server-defined URL for the resource. */
             selfLink?: string;
             /**
@@ -1283,7 +1262,7 @@ declare namespace gapi.client {
             startTime?: string;
             /** The current status of the operation. */
             status?: string;
-            /** Output only. If an error has occurred, a textual description of the error. */
+            /** If an error has occurred, a textual description of the error. */
             statusMessage?: string;
             /** Server-defined URL for the target of the operation. */
             targetLink?: string;
@@ -1294,29 +1273,6 @@ declare namespace gapi.client {
              * This field is deprecated, use location instead.
              */
             zone?: string;
-        }
-        interface OperationProgress {
-            /**
-             * Progress metric bundle, for example:
-             * metrics: [{name: "nodes done",     int_value: 15},
-             * {name: "nodes total",    int_value: 32}]
-             * or
-             * metrics: [{name: "progress",       double_value: 0.56},
-             * {name: "progress scale", double_value: 1.0}]
-             */
-            metrics?: Metric[];
-            /**
-             * A non-parameterized string describing an operation stage.
-             * Unset for single-stage operations.
-             */
-            name?: string;
-            /** Substages of an operation or a stage. */
-            stages?: OperationProgress[];
-            /**
-             * Status of an operation stage.
-             * Unset for single-stage operations.
-             */
-            status?: string;
         }
         interface PrivateClusterConfig {
             /** Whether the master's internal IP address is used as the cluster endpoint. */
@@ -1378,11 +1334,7 @@ declare namespace gapi.client {
         interface ReservationAffinity {
             /** Corresponds to the type of reservation consumption. */
             consumeReservationType?: string;
-            /**
-             * Corresponds to the label key of a reservation resource. To target a
-             * SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
-             * the key and specify the name of your reservation as its value.
-             */
+            /** Corresponds to the label key of reservation resource. */
             key?: string;
             /** Corresponds to the label value(s) of reservation resource(s). */
             values?: string[];
@@ -2009,8 +1961,6 @@ declare namespace gapi.client {
             projectId?: string;
             /** Upgrade settings control disruption and speed of the upgrade. */
             upgradeSettings?: UpgradeSettings;
-            /** The desired workload metadata config for the node pool. */
-            workloadMetadataConfig?: WorkloadMetadataConfig;
             /**
              * Required. Deprecated. The name of the Google Compute Engine
              * [zone](/compute/docs/zones#available) in which the cluster
@@ -2069,17 +2019,6 @@ declare namespace gapi.client {
         interface VerticalPodAutoscaling {
             /** Enables vertical pod autoscaling. */
             enabled?: boolean;
-        }
-        interface WorkloadIdentityConfig {
-            /** The workload pool to attach all Kubernetes service accounts to. */
-            workloadPool?: string;
-        }
-        interface WorkloadMetadataConfig {
-            /**
-             * Mode is the configuration for how to expose metadata to workloads running
-             * on the node pool.
-             */
-            mode?: string;
         }
         interface UsableSubnetworksResource {
             /** Lists subnetworks that are usable for creating clusters in a project. */
