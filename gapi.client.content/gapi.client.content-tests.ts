@@ -1514,10 +1514,7 @@ gapi.load('client', () => {
                 value: 42,
             },
         });
-        /**
-         * Lists the products in your Merchant Center account. The response might contain fewer items than specified by maxResults. Rely on nextPageToken to
-         * determine if there are more items to be requested.
-         */
+        /** Lists the products in your Merchant Center account. */
         await gapi.client.content.products.list({
             maxResults: 42,
             merchantId: "Test string",
@@ -1548,19 +1545,6 @@ gapi.load('client', () => {
             maxResults: 42,
             merchantId: "Test string",
             pageToken: "Test string",
-        });
-        /** Retrieves a Merchant Center account's pubsub notification settings. */
-        await gapi.client.content.pubsubnotificationsettings.get({
-            merchantId: "Test string",
-        });
-        /** Register a Merchant Center account for pubsub notifications. Note that cloud topic name should not be provided as part of the request. */
-        await gapi.client.content.pubsubnotificationsettings.update({
-            merchantId: "Test string",
-        }, {
-            cloudTopicName: "Test string",
-            kind: "Test string",
-            registeredEvents: [
-                "Test string"            ],
         });
         /** Updates regional inventory for multiple products or regions in a single request. */
         await gapi.client.content.regionalinventory.custombatch({} , {
