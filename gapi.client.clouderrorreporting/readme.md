@@ -1,11 +1,11 @@
-# TypeScript typings for Stackdriver Error Reporting API v1beta1
+# TypeScript typings for Error Reporting API v1beta1
 Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors.
 
 For detailed description please check [documentation](https://cloud.google.com/error-reporting/).
 
 ## Installing
 
-Install typings for Stackdriver Error Reporting API:
+Install typings for Error Reporting API:
 ```
 npm install @types/gapi.client.clouderrorreporting@v1beta1 --save-dev
 ```
@@ -49,7 +49,7 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Stackdriver Error Reporting API resources:
+After that you can use Error Reporting API resources:
 
 ```typescript 
     
