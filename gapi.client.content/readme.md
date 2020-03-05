@@ -419,7 +419,7 @@ Uploads a product to your Merchant Center account. If an item with the same chan
 await gapi.client.products.insert({ merchantId: "merchantId",  }); 
     
 /* 
-Lists the products in your Merchant Center account. The response might contain fewer items than specified by maxResults. Rely on nextPageToken to determine if there are more items to be requested.  
+Lists the products in your Merchant Center account.  
 */
 await gapi.client.products.list({ merchantId: "merchantId",  }); 
     
@@ -437,16 +437,6 @@ await gapi.client.productstatuses.get({ merchantId: "merchantId", productId: "pr
 Lists the statuses of the products in your Merchant Center account.  
 */
 await gapi.client.productstatuses.list({ merchantId: "merchantId",  }); 
-    
-/* 
-Retrieves a Merchant Center account's pubsub notification settings.  
-*/
-await gapi.client.pubsubnotificationsettings.get({ merchantId: "merchantId",  }); 
-    
-/* 
-Register a Merchant Center account for pubsub notifications. Note that cloud topic name should not be provided as part of the request.  
-*/
-await gapi.client.pubsubnotificationsettings.update({ merchantId: "merchantId",  }); 
     
 /* 
 Updates regional inventory for multiple products or regions in a single request.  
