@@ -1,13 +1,12 @@
-# TypeScript typings for Error Reporting API v1beta1
-Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors.
-
-For detailed description please check [documentation](https://cloud.google.com/error-reporting/).
+# TypeScript typings for Network Management API v1beta1
+The Network Management API provides a collection of network performance monitoring and diagnostic capabilities.
+For detailed description please check [documentation](https://cloud.google.com/).
 
 ## Installing
 
-Install typings for Error Reporting API:
+Install typings for Network Management API:
 ```
-npm install @types/gapi.client.clouderrorreporting@v1beta1 --save-dev
+npm install @types/gapi.client.networkmanagement@v1beta1 --save-dev
 ```
 
 ## Usage
@@ -22,8 +21,8 @@ gapi.load("client", () => {
 
 Then load api client wrapper:
 ```typescript
-gapi.client.load('clouderrorreporting', 'v1beta1', () => {
-    // now we can use gapi.client.clouderrorreporting
+gapi.client.load('networkmanagement', 'v1beta1', () => {
+    // now we can use gapi.client.networkmanagement
     // ... 
 });
 ```
@@ -49,12 +48,7 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Error Reporting API resources:
+After that you can use Network Management API resources:
 
-```typescript 
-    
-/* 
-Deletes all error events of a given project.  
-*/
-await gapi.client.projects.deleteEvents({ projectName: "projectName",  });
+```typescript
 ```
