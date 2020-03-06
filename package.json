@@ -20,7 +20,7 @@
     "posttest": "npm run check"
   },
   "engines": {
-    "npm": "6.14.0"
+    "npm": "6.14.2"
   },
   "devDependencies": {
     "@types/commander": "^2.12.2",
