@@ -1,13 +1,12 @@
-# TypeScript typings for Cloud Debugger API v2
-Examines the call stack and variables of a running application without stopping or slowing it down.
-
-For detailed description please check [documentation](https://cloud.google.com/debugger).
+# TypeScript typings for Network Management API v1beta1
+The Network Management API provides a collection of network performance monitoring and diagnostic capabilities.
+For detailed description please check [documentation](https://cloud.google.com/).
 
 ## Installing
 
-Install typings for Cloud Debugger API:
+Install typings for Network Management API:
 ```
-npm install @types/gapi.client.clouddebugger@v2 --save-dev
+npm install @types/gapi.client.networkmanagement@v1beta1 --save-dev
 ```
 
 ## Usage
@@ -22,8 +21,8 @@ gapi.load("client", () => {
 
 Then load api client wrapper:
 ```typescript
-gapi.client.load('clouddebugger', 'v2', () => {
-    // now we can use gapi.client.clouddebugger
+gapi.client.load('networkmanagement', 'v1beta1', () => {
+    // now we can use gapi.client.networkmanagement
     // ... 
 });
 ```
@@ -34,9 +33,6 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
     scope = [     
-        // Use Stackdriver Debugger
-        'https://www.googleapis.com/auth/cloud_debugger',
-    
         // View and manage your data across Google Cloud Platform services
         'https://www.googleapis.com/auth/cloud-platform',
     ],
@@ -52,7 +48,7 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Cloud Debugger API resources:
+After that you can use Network Management API resources:
 
 ```typescript
 ```
