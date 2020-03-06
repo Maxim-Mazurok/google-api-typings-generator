@@ -115,6 +115,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -679,6 +685,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -1244,6 +1256,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -1810,6 +1828,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -2383,6 +2407,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -2943,6 +2973,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -3502,6 +3538,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -4067,6 +4109,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -4637,6 +4685,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -5227,6 +5281,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -5795,6 +5855,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
@@ -6359,6 +6425,12 @@ gapi.load('client', () => {
                         id: "Test string",
                         issuer: "Test string",
                         jwksUri: "Test string",
+                        jwtLocations: [
+                            {
+                                header: "Test string",
+                                query: "Test string",
+                                valuePrefix: "Test string",
+                            }                        ],
                     }                ],
                 rules: [
                     {
