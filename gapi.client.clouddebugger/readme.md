@@ -1,11 +1,11 @@
-# TypeScript typings for Cloud Debugger API v2
+# TypeScript typings for Stackdriver Debugger API v2
 Examines the call stack and variables of a running application without stopping or slowing it down.
 
 For detailed description please check [documentation](https://cloud.google.com/debugger).
 
 ## Installing
 
-Install typings for Cloud Debugger API:
+Install typings for Stackdriver Debugger API:
 ```
 npm install @types/gapi.client.clouddebugger@v2 --save-dev
 ```
@@ -52,7 +52,7 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Cloud Debugger API resources:
+After that you can use Stackdriver Debugger API resources:
 
 ```typescript
 ```
