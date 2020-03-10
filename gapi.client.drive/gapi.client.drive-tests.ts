@@ -333,7 +333,6 @@ gapi.load('client', () => {
         });
         /** Creates a copy of a file and applies any requested updates with patch semantics. */
         await gapi.client.drive.files.copy({
-            enforceSingleParent: true,
             fileId: "Test string",
             ignoreDefaultVisibility: true,
             keepRevisionForever: true,
@@ -345,7 +344,6 @@ gapi.load('client', () => {
                 A: "Test string"            },
             capabilities: {
                 canAddChildren: true,
-                canAddMyDriveParent: true,
                 canChangeCopyRequiresWriterPermission: true,
                 canChangeViewersCanCopyContent: true,
                 canComment: true,
@@ -370,7 +368,6 @@ gapi.load('client', () => {
                 canReadRevisions: true,
                 canReadTeamDrive: true,
                 canRemoveChildren: true,
-                canRemoveMyDriveParent: true,
                 canRename: true,
                 canShare: true,
                 canTrash: true,
@@ -530,7 +527,6 @@ gapi.load('client', () => {
         });
         /** Creates a new file. */
         await gapi.client.drive.files.create({
-            enforceSingleParent: true,
             ignoreDefaultVisibility: true,
             keepRevisionForever: true,
             ocrLanguage: "Test string",
@@ -542,7 +538,6 @@ gapi.load('client', () => {
                 A: "Test string"            },
             capabilities: {
                 canAddChildren: true,
-                canAddMyDriveParent: true,
                 canChangeCopyRequiresWriterPermission: true,
                 canChangeViewersCanCopyContent: true,
                 canComment: true,
@@ -567,7 +562,6 @@ gapi.load('client', () => {
                 canReadRevisions: true,
                 canReadTeamDrive: true,
                 canRemoveChildren: true,
-                canRemoveMyDriveParent: true,
                 canRename: true,
                 canShare: true,
                 canTrash: true,
@@ -772,7 +766,6 @@ gapi.load('client', () => {
         /** Updates a file's metadata and/or content with patch semantics. */
         await gapi.client.drive.files.update({
             addParents: "Test string",
-            enforceSingleParent: true,
             fileId: "Test string",
             keepRevisionForever: true,
             ocrLanguage: "Test string",
@@ -785,7 +778,6 @@ gapi.load('client', () => {
                 A: "Test string"            },
             capabilities: {
                 canAddChildren: true,
-                canAddMyDriveParent: true,
                 canChangeCopyRequiresWriterPermission: true,
                 canChangeViewersCanCopyContent: true,
                 canComment: true,
@@ -810,7 +802,6 @@ gapi.load('client', () => {
                 canReadRevisions: true,
                 canReadTeamDrive: true,
                 canRemoveChildren: true,
-                canRemoveMyDriveParent: true,
                 canRename: true,
                 canShare: true,
                 canTrash: true,
@@ -990,9 +981,7 @@ gapi.load('client', () => {
         /** Creates a permission for a file or shared drive. */
         await gapi.client.drive.permissions.create({
             emailMessage: "Test string",
-            enforceSingleParent: true,
             fileId: "Test string",
-            moveToNewOwnersRoot: true,
             sendNotificationEmail: true,
             supportsAllDrives: true,
             supportsTeamDrives: true,
