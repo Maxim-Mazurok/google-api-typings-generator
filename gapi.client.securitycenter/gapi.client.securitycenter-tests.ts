@@ -78,6 +78,46 @@ gapi.load('client', () => {
                 A: "Test string"            },
             name: "Test string",
         });
+        /** Creates a notification config. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.create({
+            configId: "Test string",
+            parent: "Test string",
+        }, {
+            description: "Test string",
+            name: "Test string",
+            pubsubTopic: "Test string",
+            serviceAccount: "Test string",
+            streamingConfig: {
+                filter: "Test string",
+            },
+        });
+        /** Deletes a notification config. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.delete({
+            name: "Test string",
+        });
+        /** Gets a notification config. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.get({
+            name: "Test string",
+        });
+        /** Lists notification configs. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a notification config. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            description: "Test string",
+            name: "Test string",
+            pubsubTopic: "Test string",
+            serviceAccount: "Test string",
+            streamingConfig: {
+                filter: "Test string",
+            },
+        });
         /**
          * Starts asynchronous cancellation on a long-running operation.  The server
          * makes a best effort to cancel the operation, but success is not
@@ -947,6 +987,46 @@ gapi.load('client', () => {
             marks: {
                 A: "Test string"            },
             name: "Test string",
+        });
+        /** Creates a notification config. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.create({
+            configId: "Test string",
+            parent: "Test string",
+        }, {
+            description: "Test string",
+            name: "Test string",
+            pubsubTopic: "Test string",
+            serviceAccount: "Test string",
+            streamingConfig: {
+                filter: "Test string",
+            },
+        });
+        /** Deletes a notification config. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.delete({
+            name: "Test string",
+        });
+        /** Gets a notification config. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.get({
+            name: "Test string",
+        });
+        /** Lists notification configs. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a notification config. */
+        await gapi.client.securitycenter.organizations.notificationConfigs.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            description: "Test string",
+            name: "Test string",
+            pubsubTopic: "Test string",
+            serviceAccount: "Test string",
+            streamingConfig: {
+                filter: "Test string",
+            },
         });
         /**
          * Starts asynchronous cancellation on a long-running operation.  The server
