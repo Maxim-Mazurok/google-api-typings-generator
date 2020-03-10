@@ -448,491 +448,6 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.operations.get({
             name: "Test string",
         });
-        /** Creates a study. */
-        await gapi.client.ml.projects.locations.studies.create({
-            parent: "Test string",
-            studyId: "Test string",
-        }, {
-            createTime: "Test string",
-            inactiveReason: "Test string",
-            name: "Test string",
-            state: "Test string",
-            studyConfig: {
-                algorithm: "Test string",
-                automatedStoppingConfig: {
-                    decayCurveStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                    medianAutomatedStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                },
-                metrics: [
-                    {
-                        goal: "Test string",
-                        metric: "Test string",
-                    }                ],
-                parameters: [
-                    {
-                        categoricalValueSpec: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        childParameterSpecs: undefined,
-                        discreteValueSpec: {
-                            values: [
-                                42                            ],
-                        },
-                        doubleValueSpec: {
-                            maxValue: 42,
-                            minValue: 42,
-                        },
-                        integerValueSpec: {
-                            maxValue: "Test string",
-                            minValue: "Test string",
-                        },
-                        parameter: "Test string",
-                        parentCategoricalValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        parentDiscreteValues: {
-                            values: [
-                                42                            ],
-                        },
-                        parentIntValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        scaleType: "Test string",
-                        type: "Test string",
-                    }                ],
-            },
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Deletes a study. */
-        await gapi.client.ml.projects.locations.studies.delete({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Gets a study. */
-        await gapi.client.ml.projects.locations.studies.get({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Lists all the studies in a region for an associated project. */
-        await gapi.client.ml.projects.locations.studies.list({
-            parent: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
         /** List all locations that provides at least one type of CMLE capability. */
         await gapi.client.ml.projects.locations.list({
             pageSize: 42,
@@ -961,491 +476,6 @@ gapi.load('client', () => {
          */
         await gapi.client.ml.projects.locations.operations.get({
             name: "Test string",
-        });
-        /** Creates a study. */
-        await gapi.client.ml.projects.locations.studies.create({
-            parent: "Test string",
-            studyId: "Test string",
-        }, {
-            createTime: "Test string",
-            inactiveReason: "Test string",
-            name: "Test string",
-            state: "Test string",
-            studyConfig: {
-                algorithm: "Test string",
-                automatedStoppingConfig: {
-                    decayCurveStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                    medianAutomatedStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                },
-                metrics: [
-                    {
-                        goal: "Test string",
-                        metric: "Test string",
-                    }                ],
-                parameters: [
-                    {
-                        categoricalValueSpec: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        childParameterSpecs: undefined,
-                        discreteValueSpec: {
-                            values: [
-                                42                            ],
-                        },
-                        doubleValueSpec: {
-                            maxValue: 42,
-                            minValue: 42,
-                        },
-                        integerValueSpec: {
-                            maxValue: "Test string",
-                            minValue: "Test string",
-                        },
-                        parameter: "Test string",
-                        parentCategoricalValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        parentDiscreteValues: {
-                            values: [
-                                42                            ],
-                        },
-                        parentIntValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        scaleType: "Test string",
-                        type: "Test string",
-                    }                ],
-            },
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Deletes a study. */
-        await gapi.client.ml.projects.locations.studies.delete({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Gets a study. */
-        await gapi.client.ml.projects.locations.studies.get({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Lists all the studies in a region for an associated project. */
-        await gapi.client.ml.projects.locations.studies.list({
-            parent: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
         });
         /**
          * Creates a model which will later contain one or more versions.
@@ -1476,9 +506,6 @@ gapi.load('client', () => {
                     },
                     sampledShapleyAttribution: {
                         numPaths: 42,
-                    },
-                    xraiAttribution: {
-                        numIntegralSteps: 42,
                     },
                 },
                 framework: "Test string",
@@ -1544,9 +571,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -1638,9 +662,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -1721,9 +742,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -1814,9 +832,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -1895,9 +910,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -1988,9 +1000,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -2070,9 +1079,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -2163,9 +1169,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -2251,9 +1254,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -2344,9 +1344,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -2415,9 +1412,6 @@ gapi.load('client', () => {
                     sampledShapleyAttribution: {
                         numPaths: 42,
                     },
-                    xraiAttribution: {
-                        numIntegralSteps: 42,
-                    },
                 },
                 framework: "Test string",
                 isDefault: true,
@@ -2482,9 +1476,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -2576,9 +1567,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -2686,9 +1674,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -2779,9 +1764,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -2867,9 +1849,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -2960,9 +1939,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -3454,491 +2430,6 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.operations.get({
             name: "Test string",
         });
-        /** Creates a study. */
-        await gapi.client.ml.projects.locations.studies.create({
-            parent: "Test string",
-            studyId: "Test string",
-        }, {
-            createTime: "Test string",
-            inactiveReason: "Test string",
-            name: "Test string",
-            state: "Test string",
-            studyConfig: {
-                algorithm: "Test string",
-                automatedStoppingConfig: {
-                    decayCurveStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                    medianAutomatedStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                },
-                metrics: [
-                    {
-                        goal: "Test string",
-                        metric: "Test string",
-                    }                ],
-                parameters: [
-                    {
-                        categoricalValueSpec: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        childParameterSpecs: undefined,
-                        discreteValueSpec: {
-                            values: [
-                                42                            ],
-                        },
-                        doubleValueSpec: {
-                            maxValue: 42,
-                            minValue: 42,
-                        },
-                        integerValueSpec: {
-                            maxValue: "Test string",
-                            minValue: "Test string",
-                        },
-                        parameter: "Test string",
-                        parentCategoricalValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        parentDiscreteValues: {
-                            values: [
-                                42                            ],
-                        },
-                        parentIntValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        scaleType: "Test string",
-                        type: "Test string",
-                    }                ],
-            },
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Deletes a study. */
-        await gapi.client.ml.projects.locations.studies.delete({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Gets a study. */
-        await gapi.client.ml.projects.locations.studies.get({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Lists all the studies in a region for an associated project. */
-        await gapi.client.ml.projects.locations.studies.list({
-            parent: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
         /** List all locations that provides at least one type of CMLE capability. */
         await gapi.client.ml.projects.locations.list({
             pageSize: 42,
@@ -3967,491 +2458,6 @@ gapi.load('client', () => {
          */
         await gapi.client.ml.projects.locations.operations.get({
             name: "Test string",
-        });
-        /** Creates a study. */
-        await gapi.client.ml.projects.locations.studies.create({
-            parent: "Test string",
-            studyId: "Test string",
-        }, {
-            createTime: "Test string",
-            inactiveReason: "Test string",
-            name: "Test string",
-            state: "Test string",
-            studyConfig: {
-                algorithm: "Test string",
-                automatedStoppingConfig: {
-                    decayCurveStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                    medianAutomatedStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                },
-                metrics: [
-                    {
-                        goal: "Test string",
-                        metric: "Test string",
-                    }                ],
-                parameters: [
-                    {
-                        categoricalValueSpec: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        childParameterSpecs: undefined,
-                        discreteValueSpec: {
-                            values: [
-                                42                            ],
-                        },
-                        doubleValueSpec: {
-                            maxValue: 42,
-                            minValue: 42,
-                        },
-                        integerValueSpec: {
-                            maxValue: "Test string",
-                            minValue: "Test string",
-                        },
-                        parameter: "Test string",
-                        parentCategoricalValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        parentDiscreteValues: {
-                            values: [
-                                42                            ],
-                        },
-                        parentIntValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        scaleType: "Test string",
-                        type: "Test string",
-                    }                ],
-            },
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Deletes a study. */
-        await gapi.client.ml.projects.locations.studies.delete({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Gets a study. */
-        await gapi.client.ml.projects.locations.studies.get({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Lists all the studies in a region for an associated project. */
-        await gapi.client.ml.projects.locations.studies.list({
-            parent: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
         });
         /**
          * Creates a model which will later contain one or more versions.
@@ -4482,9 +2488,6 @@ gapi.load('client', () => {
                     },
                     sampledShapleyAttribution: {
                         numPaths: 42,
-                    },
-                    xraiAttribution: {
-                        numIntegralSteps: 42,
                     },
                 },
                 framework: "Test string",
@@ -4550,9 +2553,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -4644,9 +2644,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -4727,9 +2724,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -4820,9 +2814,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -4901,9 +2892,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -4994,9 +2982,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -5076,9 +3061,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -5169,9 +3151,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -5257,9 +3236,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -5350,9 +3326,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -5421,9 +3394,6 @@ gapi.load('client', () => {
                     sampledShapleyAttribution: {
                         numPaths: 42,
                     },
-                    xraiAttribution: {
-                        numIntegralSteps: 42,
-                    },
                 },
                 framework: "Test string",
                 isDefault: true,
@@ -5488,9 +3458,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -5582,9 +3549,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -5692,9 +3656,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -5785,9 +3746,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -5873,9 +3831,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -5966,9 +3921,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -6467,491 +4419,6 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.operations.get({
             name: "Test string",
         });
-        /** Creates a study. */
-        await gapi.client.ml.projects.locations.studies.create({
-            parent: "Test string",
-            studyId: "Test string",
-        }, {
-            createTime: "Test string",
-            inactiveReason: "Test string",
-            name: "Test string",
-            state: "Test string",
-            studyConfig: {
-                algorithm: "Test string",
-                automatedStoppingConfig: {
-                    decayCurveStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                    medianAutomatedStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                },
-                metrics: [
-                    {
-                        goal: "Test string",
-                        metric: "Test string",
-                    }                ],
-                parameters: [
-                    {
-                        categoricalValueSpec: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        childParameterSpecs: undefined,
-                        discreteValueSpec: {
-                            values: [
-                                42                            ],
-                        },
-                        doubleValueSpec: {
-                            maxValue: 42,
-                            minValue: 42,
-                        },
-                        integerValueSpec: {
-                            maxValue: "Test string",
-                            minValue: "Test string",
-                        },
-                        parameter: "Test string",
-                        parentCategoricalValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        parentDiscreteValues: {
-                            values: [
-                                42                            ],
-                        },
-                        parentIntValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        scaleType: "Test string",
-                        type: "Test string",
-                    }                ],
-            },
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Deletes a study. */
-        await gapi.client.ml.projects.locations.studies.delete({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Gets a study. */
-        await gapi.client.ml.projects.locations.studies.get({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Lists all the studies in a region for an associated project. */
-        await gapi.client.ml.projects.locations.studies.list({
-            parent: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
         /** List all locations that provides at least one type of CMLE capability. */
         await gapi.client.ml.projects.locations.list({
             pageSize: 42,
@@ -6980,491 +4447,6 @@ gapi.load('client', () => {
          */
         await gapi.client.ml.projects.locations.operations.get({
             name: "Test string",
-        });
-        /** Creates a study. */
-        await gapi.client.ml.projects.locations.studies.create({
-            parent: "Test string",
-            studyId: "Test string",
-        }, {
-            createTime: "Test string",
-            inactiveReason: "Test string",
-            name: "Test string",
-            state: "Test string",
-            studyConfig: {
-                algorithm: "Test string",
-                automatedStoppingConfig: {
-                    decayCurveStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                    medianAutomatedStoppingConfig: {
-                        useElapsedTime: true,
-                    },
-                },
-                metrics: [
-                    {
-                        goal: "Test string",
-                        metric: "Test string",
-                    }                ],
-                parameters: [
-                    {
-                        categoricalValueSpec: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        childParameterSpecs: undefined,
-                        discreteValueSpec: {
-                            values: [
-                                42                            ],
-                        },
-                        doubleValueSpec: {
-                            maxValue: 42,
-                            minValue: 42,
-                        },
-                        integerValueSpec: {
-                            maxValue: "Test string",
-                            minValue: "Test string",
-                        },
-                        parameter: "Test string",
-                        parentCategoricalValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        parentDiscreteValues: {
-                            values: [
-                                42                            ],
-                        },
-                        parentIntValues: {
-                            values: [
-                                "Test string"                            ],
-                        },
-                        scaleType: "Test string",
-                        type: "Test string",
-                    }                ],
-            },
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Deletes a study. */
-        await gapi.client.ml.projects.locations.studies.delete({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Gets a study. */
-        await gapi.client.ml.projects.locations.studies.get({
-            name: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
-        });
-        /** Lists all the studies in a region for an associated project. */
-        await gapi.client.ml.projects.locations.studies.list({
-            parent: "Test string",
-        });
-        /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
-            name: "Test string",
-        }, {
-            measurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a trial should stop or not. */
-        await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
-            name: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.ml.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided trial to a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedTime: "Test string",
-                metrics: [
-                    {
-                        metric: "Test string",
-                        value: 42,
-                    }                ],
-                stepCount: "Test string",
-            },
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedTime: "Test string",
-                    metrics: [
-                        {
-                            metric: "Test string",
-                            value: 42,
-                        }                    ],
-                    stepCount: "Test string",
-                }            ],
-            name: "Test string",
-            parameters: [
-                {
-                    floatValue: 42,
-                    intValue: "Test string",
-                    parameter: "Test string",
-                    stringValue: "Test string",
-                }            ],
-            startTime: "Test string",
-            state: "Test string",
-            trialInfeasible: true,
-        });
-        /** Deletes a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.ml.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the trials associated with a Study. */
-        await gapi.client.ml.projects.locations.studies.trials.list({
-            parent: "Test string",
-        });
-        /** Stops a trial. */
-        await gapi.client.ml.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
-         */
-        await gapi.client.ml.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            suggestionCount: 42,
         });
         /**
          * Creates a model which will later contain one or more versions.
@@ -7495,9 +4477,6 @@ gapi.load('client', () => {
                     },
                     sampledShapleyAttribution: {
                         numPaths: 42,
-                    },
-                    xraiAttribution: {
-                        numIntegralSteps: 42,
                     },
                 },
                 framework: "Test string",
@@ -7563,9 +4542,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -7657,9 +4633,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -7740,9 +4713,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -7833,9 +4803,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -7914,9 +4881,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -8007,9 +4971,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -8089,9 +5050,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -8182,9 +5140,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -8270,9 +5225,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -8363,9 +5315,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -8434,9 +5383,6 @@ gapi.load('client', () => {
                     sampledShapleyAttribution: {
                         numPaths: 42,
                     },
-                    xraiAttribution: {
-                        numIntegralSteps: 42,
-                    },
                 },
                 framework: "Test string",
                 isDefault: true,
@@ -8501,9 +5447,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -8595,9 +5538,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -8705,9 +5645,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -8798,9 +5735,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
@@ -8886,9 +5820,6 @@ gapi.load('client', () => {
                 sampledShapleyAttribution: {
                     numPaths: 42,
                 },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
-                },
             },
             framework: "Test string",
             isDefault: true,
@@ -8979,9 +5910,6 @@ gapi.load('client', () => {
                 },
                 sampledShapleyAttribution: {
                     numPaths: 42,
-                },
-                xraiAttribution: {
-                    numIntegralSteps: 42,
                 },
             },
             framework: "Test string",
