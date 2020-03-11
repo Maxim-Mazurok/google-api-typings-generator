@@ -90,6 +90,8 @@ gapi.load('client', () => {
                         "Test string"                    ],
                     includePrefixes: [
                         "Test string"                    ],
+                    lastModifiedBefore: "Test string",
+                    lastModifiedSince: "Test string",
                     maxTimeElapsedSinceLastModification: "Test string",
                     minTimeElapsedSinceLastModification: "Test string",
                 },
@@ -174,6 +176,8 @@ gapi.load('client', () => {
                             "Test string"                        ],
                         includePrefixes: [
                             "Test string"                        ],
+                        lastModifiedBefore: "Test string",
+                        lastModifiedSince: "Test string",
                         maxTimeElapsedSinceLastModification: "Test string",
                         minTimeElapsedSinceLastModification: "Test string",
                     },
