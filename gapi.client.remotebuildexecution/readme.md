@@ -213,6 +213,9 @@ Determine if blobs are present in the CAS.
 Clients can use this API before uploading blobs to determine which ones are
 already present in the CAS and do not need to be uploaded again.
 
+Servers SHOULD increase the TTLs of the referenced blobs if necessary and
+applicable.
+
 There are no method-specific errors.  
 */
 await gapi.client.blobs.findMissing({ instanceName: "instanceName",  }); 
@@ -237,6 +240,8 @@ multiple invocations of `GetTree`.
 
 If part of the tree is missing from the CAS, the server will return the
 portion present and omit the rest.
+
+Errors:
 
 * `NOT_FOUND`: The requested tree root is not present in the CAS.  
 */

@@ -120,7 +120,7 @@ gapi.load('client', () => {
         });
         /**
          * Creates a new release which makes the content of the specified version
-         * actively display on the site.
+         * actively display on the appropriate URL(s).
          */
         await gapi.client.firebasehosting.sites.releases.create({
             parent: "Test string",
@@ -502,7 +502,7 @@ gapi.load('client', () => {
         });
         /**
          * Creates a new release which makes the content of the specified version
-         * actively display on the site.
+         * actively display on the appropriate URL(s).
          */
         await gapi.client.firebasehosting.sites.releases.create({
             parent: "Test string",

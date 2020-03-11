@@ -96,6 +96,11 @@ gapi.load('client', () => {
                 }            ],
             outputDirectorySymlinks: [
                 {
+                    nodeProperties: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
                     path: "Test string",
                     target: "Test string",
                 }            ],
@@ -107,10 +112,30 @@ gapi.load('client', () => {
                         sizeBytes: "Test string",
                     },
                     isExecutable: true,
+                    nodeProperties: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
                     path: "Test string",
                 }            ],
             outputFileSymlinks: [
                 {
+                    nodeProperties: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    path: "Test string",
+                    target: "Test string",
+                }            ],
+            outputSymlinks: [
+                {
+                    nodeProperties: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
                     path: "Test string",
                     target: "Test string",
                 }            ],
@@ -280,6 +305,9 @@ gapi.load('client', () => {
          * Clients can use this API before uploading blobs to determine which ones are
          * already present in the CAS and do not need to be uploaded again.
          *
+         * Servers SHOULD increase the TTLs of the referenced blobs if necessary and
+         * applicable.
+         *
          * There are no method-specific errors.
          */
         await gapi.client.remotebuildexecution.blobs.findMissing({
@@ -311,6 +339,8 @@ gapi.load('client', () => {
          *
          * If part of the tree is missing from the CAS, the server will return the
          * portion present and omit the rest.
+         *
+         * Errors:
          *
          * &#42; `NOT_FOUND`: The requested tree root is not present in the CAS.
          */
