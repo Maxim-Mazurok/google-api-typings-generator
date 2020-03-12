@@ -19,6 +19,6 @@
     },
     "files": [
         "index.d.ts",
-        "gapi.client.cloudprivatecatalog-tests.ts"
+        "gapi.client.adsense-tests.ts"
     ]
 }

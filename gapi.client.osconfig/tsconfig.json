@@ -19,6 +19,6 @@
     },
     "files": [
         "index.d.ts",
-        "gapi.client.cloudprivatecatalogproducer-tests.ts"
+        "gapi.client.osconfig-tests.ts"
     ]
 }
