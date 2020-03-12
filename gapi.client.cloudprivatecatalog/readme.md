@@ -1,12 +1,12 @@
-# TypeScript typings for Cloud OS Config API v1
-OS management tools that can be used for patch management, patch compliance, and configuration management on VM instances.
-For detailed description please check [documentation](https://cloud.google.com/).
+# TypeScript typings for Cloud Private Catalog API v1beta1
+Enable cloud users to discover enterprise catalogs and products in their organizations.
+For detailed description please check [documentation](https://cloud.google.com/private-catalog/).
 
 ## Installing
 
-Install typings for Cloud OS Config API:
+Install typings for Cloud Private Catalog API:
 ```
-npm install @types/gapi.client.osconfig@v1 --save-dev
+npm install @types/gapi.client.cloudprivatecatalog@v1beta1 --save-dev
 ```
 
 ## Usage
@@ -21,8 +21,8 @@ gapi.load("client", () => {
 
 Then load api client wrapper:
 ```typescript
-gapi.client.load('osconfig', 'v1', () => {
-    // now we can use gapi.client.osconfig
+gapi.client.load('cloudprivatecatalog', 'v1beta1', () => {
+    // now we can use gapi.client.cloudprivatecatalog
     // ... 
 });
 ```
@@ -48,7 +48,7 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Cloud OS Config API resources:
+After that you can use Cloud Private Catalog API resources:
 
 ```typescript
 ```
