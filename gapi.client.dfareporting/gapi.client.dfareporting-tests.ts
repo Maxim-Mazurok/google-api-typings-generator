@@ -2025,80 +2025,8 @@ gapi.load('client', () => {
                     eventName: "Test string",
                     name: "Test string",
                 }            ],
-            counterCustomEvents: [
-                {
-                    advertiserCustomEventId: "Test string",
-                    advertiserCustomEventName: "Test string",
-                    advertiserCustomEventType: "Test string",
-                    artworkLabel: "Test string",
-                    artworkType: "Test string",
-                    exitClickThroughUrl: {
-                        computedClickThroughUrl: "Test string",
-                        customClickThroughUrl: "Test string",
-                        landingPageId: "Test string",
-                    },
-                    id: "Test string",
-                    popupWindowProperties: {
-                        dimension: {
-                            height: 42,
-                            iab: true,
-                            id: "Test string",
-                            kind: "Test string",
-                            width: 42,
-                        },
-                        offset: {
-                            left: 42,
-                            top: 42,
-                        },
-                        positionType: "Test string",
-                        showAddressBar: true,
-                        showMenuBar: true,
-                        showScrollBar: true,
-                        showStatusBar: true,
-                        showToolBar: true,
-                        title: "Test string",
-                    },
-                    targetType: "Test string",
-                    videoReportingId: "Test string",
-                }            ],
             detectedFeatures: [
                 "Test string"            ],
-            exitCustomEvents: [
-                {
-                    advertiserCustomEventId: "Test string",
-                    advertiserCustomEventName: "Test string",
-                    advertiserCustomEventType: "Test string",
-                    artworkLabel: "Test string",
-                    artworkType: "Test string",
-                    exitClickThroughUrl: {
-                        computedClickThroughUrl: "Test string",
-                        customClickThroughUrl: "Test string",
-                        landingPageId: "Test string",
-                    },
-                    id: "Test string",
-                    popupWindowProperties: {
-                        dimension: {
-                            height: 42,
-                            iab: true,
-                            id: "Test string",
-                            kind: "Test string",
-                            width: 42,
-                        },
-                        offset: {
-                            left: 42,
-                            top: 42,
-                        },
-                        positionType: "Test string",
-                        showAddressBar: true,
-                        showMenuBar: true,
-                        showScrollBar: true,
-                        showStatusBar: true,
-                        showToolBar: true,
-                        title: "Test string",
-                    },
-                    targetType: "Test string",
-                    videoReportingId: "Test string",
-                }            ],
             id: "Test string",
             idDimensionValue: {
                 dimensionName: "Test string",
@@ -2109,43 +2037,6 @@ gapi.load('client', () => {
                 value: "Test string",
             },
             kind: "Test string",
-            richMedia: true,
-            timerCustomEvents: [
-                {
-                    advertiserCustomEventId: "Test string",
-                    advertiserCustomEventName: "Test string",
-                    advertiserCustomEventType: "Test string",
-                    artworkLabel: "Test string",
-                    artworkType: "Test string",
-                    exitClickThroughUrl: {
-                        computedClickThroughUrl: "Test string",
-                        customClickThroughUrl: "Test string",
-                        landingPageId: "Test string",
-                    },
-                    id: "Test string",
-                    popupWindowProperties: {
-                        dimension: {
-                            height: 42,
-                            iab: true,
-                            id: "Test string",
-                            kind: "Test string",
-                            width: 42,
-                        },
-                        offset: {
-                            left: 42,
-                            top: 42,
-                        },
-                        positionType: "Test string",
-                        showAddressBar: true,
-                        showMenuBar: true,
-                        showScrollBar: true,
-                        showStatusBar: true,
-                        showToolBar: true,
-                        title: "Test string",
-                    },
-                    targetType: "Test string",
-                    videoReportingId: "Test string",
-                }            ],
             warnedValidationRules: [
                 "Test string"            ],
         });
@@ -2260,7 +2151,7 @@ gapi.load('client', () => {
             sortField: "Test string",
             sortOrder: "Test string",
         });
-        /** Updates an existing creative field. This method supports patch semantics. */
+        /** Updates an existing creative field value. This method supports patch semantics. */
         await gapi.client.dfareporting.creativeFieldValues.patch({
             creativeFieldId: "Test string",
             id: "Test string",
@@ -2660,20 +2551,6 @@ gapi.load('client', () => {
             mediaDescription: "Test string",
             mediaDuration: 42,
             name: "Test string",
-            obaIcon: {
-                iconClickThroughUrl: "Test string",
-                program: "Test string",
-                resourceUrl: "Test string",
-                size: {
-                    height: 42,
-                    iab: true,
-                    id: "Test string",
-                    kind: "Test string",
-                    width: 42,
-                },
-                xPosition: "Test string",
-                yPosition: "Test string",
-            },
             overrideCss: "Test string",
             progressOffset: {
                 offsetPercentage: 42,
@@ -3079,20 +2956,6 @@ gapi.load('client', () => {
             mediaDescription: "Test string",
             mediaDuration: 42,
             name: "Test string",
-            obaIcon: {
-                iconClickThroughUrl: "Test string",
-                program: "Test string",
-                resourceUrl: "Test string",
-                size: {
-                    height: 42,
-                    iab: true,
-                    id: "Test string",
-                    kind: "Test string",
-                    width: 42,
-                },
-                xPosition: "Test string",
-                yPosition: "Test string",
-            },
             overrideCss: "Test string",
             progressOffset: {
                 offsetPercentage: 42,
@@ -3477,20 +3340,6 @@ gapi.load('client', () => {
             mediaDescription: "Test string",
             mediaDuration: 42,
             name: "Test string",
-            obaIcon: {
-                iconClickThroughUrl: "Test string",
-                program: "Test string",
-                resourceUrl: "Test string",
-                size: {
-                    height: 42,
-                    iab: true,
-                    id: "Test string",
-                    kind: "Test string",
-                    width: 42,
-                },
-                xPosition: "Test string",
-                yPosition: "Test string",
-            },
             overrideCss: "Test string",
             progressOffset: {
                 offsetPercentage: 42,
@@ -3586,10 +3435,6 @@ gapi.load('client', () => {
                     annotateClickEvent: {
                         gclid: "Test string",
                         kind: "Test string",
-                    },
-                    annotateImpressionEvent: {
-                        kind: "Test string",
-                        pathImpressionId: "Test string",
                     },
                     customVariables: [
                         {
