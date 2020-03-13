@@ -238,16 +238,6 @@ Updates the LIA settings of the account.
 await gapi.client.liasettings.update({ accountId: "accountId", merchantId: "merchantId",  }); 
     
 /* 
-Updates local inventory for multiple products or stores in a single request.  
-*/
-await gapi.client.localinventory.custombatch({  }); 
-    
-/* 
-Update the local inventory of a product in your Merchant Center account.  
-*/
-await gapi.client.localinventory.insert({ merchantId: "merchantId", productId: "productId",  }); 
-    
-/* 
 Creates a charge invoice for a shipment group, and triggers a charge capture for orderinvoice enabled orders.  
 */
 await gapi.client.orderinvoices.createchargeinvoice({ merchantId: "merchantId", orderId: "orderId",  }); 
