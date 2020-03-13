@@ -40,7 +40,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of accelerator types. */
         await gapi.client.compute.acceleratorTypes.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -64,7 +63,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of addresses. */
         await gapi.client.compute.addresses.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -120,7 +118,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of autoscalers. */
         await gapi.client.compute.autoscalers.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -385,7 +382,6 @@ gapi.load('client', () => {
         /** Retrieves the list of all BackendService resources, regional and global, available to the specified project. */
         await gapi.client.compute.backendServices.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -418,7 +414,7 @@ gapi.load('client', () => {
         });
         /**
          * Creates a BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to
-         * keep in mind when creating a backend service. Read  Understanding backend services for more information.
+         * keep in mind when creating a backend service. Read  Restrictions and Guidelines for more information.
          */
         await gapi.client.compute.backendServices.insert({
             project: "Test string",
@@ -430,7 +426,6 @@ gapi.load('client', () => {
                     balancingMode: "Test string",
                     capacityScaler: 42,
                     description: "Test string",
-                    failover: true,
                     group: "Test string",
                     maxConnections: 42,
                     maxConnectionsPerEndpoint: 42,
@@ -481,11 +476,6 @@ gapi.load('client', () => {
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
-            failoverPolicy: {
-                disableConnectionDrainOnFailover: true,
-                dropTrafficIfUnhealthy: true,
-                failoverRatio: 42,
-            },
             fingerprint: "Test string",
             healthChecks: [
                 "Test string"            ],
@@ -542,9 +532,9 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Patches the specified BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind
-         * when updating a backend service. Read  Understanding backend services for more information. This method supports PATCH semantics and uses the JSON
-         * merge patch format and processing rules.
+         * Patches the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when
+         * updating a backend service. Read  Restrictions and Guidelines for more information. This method supports PATCH semantics and uses the JSON merge patch
+         * format and processing rules.
          */
         await gapi.client.compute.backendServices.patch({
             backendService: "Test string",
@@ -557,7 +547,6 @@ gapi.load('client', () => {
                     balancingMode: "Test string",
                     capacityScaler: 42,
                     description: "Test string",
-                    failover: true,
                     group: "Test string",
                     maxConnections: 42,
                     maxConnectionsPerEndpoint: 42,
@@ -608,11 +597,6 @@ gapi.load('client', () => {
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
-            failoverPolicy: {
-                disableConnectionDrainOnFailover: true,
-                dropTrafficIfUnhealthy: true,
-                failoverRatio: 42,
-            },
             fingerprint: "Test string",
             healthChecks: [
                 "Test string"            ],
@@ -669,8 +653,8 @@ gapi.load('client', () => {
             securityPolicy: "Test string",
         });
         /**
-         * Updates the specified BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind
-         * when updating a backend service. Read  Understanding backend services for more information.
+         * Updates the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when
+         * updating a backend service. Read  Restrictions and Guidelines for more information.
          */
         await gapi.client.compute.backendServices.update({
             backendService: "Test string",
@@ -683,7 +667,6 @@ gapi.load('client', () => {
                     balancingMode: "Test string",
                     capacityScaler: 42,
                     description: "Test string",
-                    failover: true,
                     group: "Test string",
                     maxConnections: 42,
                     maxConnectionsPerEndpoint: 42,
@@ -734,11 +717,6 @@ gapi.load('client', () => {
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
-            failoverPolicy: {
-                disableConnectionDrainOnFailover: true,
-                dropTrafficIfUnhealthy: true,
-                failoverRatio: 42,
-            },
             fingerprint: "Test string",
             healthChecks: [
                 "Test string"            ],
@@ -799,7 +777,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of persistent disks. */
         await gapi.client.compute.disks.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -831,14 +808,12 @@ gapi.load('client', () => {
             selfLink: "Test string",
             snapshotEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
             sourceDisk: "Test string",
             sourceDiskEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -886,7 +861,6 @@ gapi.load('client', () => {
             description: "Test string",
             diskEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -918,7 +892,6 @@ gapi.load('client', () => {
             sourceImage: "Test string",
             sourceImageEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -926,7 +899,6 @@ gapi.load('client', () => {
             sourceSnapshot: "Test string",
             sourceSnapshotEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -1079,7 +1051,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of disk types. */
         await gapi.client.compute.diskTypes.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -1316,7 +1287,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of forwarding rules. */
         await gapi.client.compute.forwardingRules.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -1593,84 +1563,9 @@ gapi.load('client', () => {
         }, {
             target: "Test string",
         });
-        /** Attach a network endpoint to the specified network endpoint group. */
-        await gapi.client.compute.globalNetworkEndpointGroups.attachNetworkEndpoints({
-            networkEndpointGroup: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-        }, {
-            networkEndpoints: [
-                {
-                    fqdn: "Test string",
-                    instance: "Test string",
-                    ipAddress: "Test string",
-                    port: 42,
-                }            ],
-        });
-        /** Deletes the specified network endpoint group.Note that the NEG cannot be deleted if there are backend services referencing it. */
-        await gapi.client.compute.globalNetworkEndpointGroups.delete({
-            networkEndpointGroup: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-        });
-        /** Detach the network endpoint from the specified network endpoint group. */
-        await gapi.client.compute.globalNetworkEndpointGroups.detachNetworkEndpoints({
-            networkEndpointGroup: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-        }, {
-            networkEndpoints: [
-                {
-                    fqdn: "Test string",
-                    instance: "Test string",
-                    ipAddress: "Test string",
-                    port: 42,
-                }            ],
-        });
-        /** Returns the specified network endpoint group. Gets a list of available network endpoint groups by making a list() request. */
-        await gapi.client.compute.globalNetworkEndpointGroups.get({
-            networkEndpointGroup: "Test string",
-            project: "Test string",
-        });
-        /** Creates a network endpoint group in the specified project using the parameters that are included in the request. */
-        await gapi.client.compute.globalNetworkEndpointGroups.insert({
-            project: "Test string",
-            requestId: "Test string",
-        }, {
-            creationTimestamp: "Test string",
-            defaultPort: 42,
-            description: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            name: "Test string",
-            network: "Test string",
-            networkEndpointType: "Test string",
-            selfLink: "Test string",
-            size: 42,
-            subnetwork: "Test string",
-            zone: "Test string",
-        });
-        /** Retrieves the list of network endpoint groups that are located in the specified project. */
-        await gapi.client.compute.globalNetworkEndpointGroups.list({
-            filter: "Test string",
-            maxResults: 42,
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-        });
-        /** Lists the network endpoints in the specified network endpoint group. */
-        await gapi.client.compute.globalNetworkEndpointGroups.listNetworkEndpoints({
-            filter: "Test string",
-            maxResults: 42,
-            networkEndpointGroup: "Test string",
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-        });
         /** Retrieves an aggregated list of all operations. */
         await gapi.client.compute.globalOperations.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -1712,7 +1607,6 @@ gapi.load('client', () => {
         /** Retrieves the list of all HealthCheck resources, regional and global, available to the specified project. */
         await gapi.client.compute.healthChecks.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -2149,7 +2043,6 @@ gapi.load('client', () => {
             id: "Test string",
             imageEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -2168,31 +2061,9 @@ gapi.load('client', () => {
                 source: "Test string",
             },
             selfLink: "Test string",
-            shieldedInstanceInitialState: {
-                dbs: [
-                    {
-                        content: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                dbxs: [
-                    {
-                        content: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                keks: [
-                    {
-                        content: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                pk: {
-                    content: "Test string",
-                    fileType: "Test string",
-                },
-            },
             sourceDisk: "Test string",
             sourceDiskEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -2200,7 +2071,6 @@ gapi.load('client', () => {
             sourceImage: "Test string",
             sourceImageEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -2208,7 +2078,6 @@ gapi.load('client', () => {
             sourceSnapshot: "Test string",
             sourceSnapshotEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -2360,13 +2229,12 @@ gapi.load('client', () => {
         /** Retrieves the list of managed instance groups and groups them by zone. */
         await gapi.client.compute.instanceGroupManagers.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
         });
-        /** Applies changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions. */
+        /** Apply changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions. */
         await gapi.client.compute.instanceGroupManagers.applyUpdatesToInstances({
             instanceGroupManager: "Test string",
             project: "Test string",
@@ -2481,7 +2349,6 @@ gapi.load('client', () => {
             region: "Test string",
             selfLink: "Test string",
             status: {
-                autoscaler: "Test string",
                 isStable: true,
                 versionTarget: {
                     isReached: true,
@@ -2503,7 +2370,6 @@ gapi.load('client', () => {
                     percent: 42,
                 },
                 minimalAction: "Test string",
-                replacementMethod: "Test string",
                 type: "Test string",
             },
             versions: [
@@ -2527,16 +2393,6 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
-        /** Lists all errors thrown by actions on instances for a given managed instance group. */
-        await gapi.client.compute.instanceGroupManagers.listErrors({
-            filter: "Test string",
-            instanceGroupManager: "Test string",
-            maxResults: 42,
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-            zone: "Test string",
-        });
         /**
          * Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed
          * instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous
@@ -2546,7 +2402,7 @@ gapi.load('client', () => {
             filter: "Test string",
             instanceGroupManager: "Test string",
             maxResults: 42,
-            orderBy: "Test string",
+            order_by: "Test string",
             pageToken: "Test string",
             project: "Test string",
             zone: "Test string",
@@ -2601,7 +2457,6 @@ gapi.load('client', () => {
             region: "Test string",
             selfLink: "Test string",
             status: {
-                autoscaler: "Test string",
                 isStable: true,
                 versionTarget: {
                     isReached: true,
@@ -2623,7 +2478,6 @@ gapi.load('client', () => {
                     percent: 42,
                 },
                 minimalAction: "Test string",
-                replacementMethod: "Test string",
                 type: "Test string",
             },
             versions: [
@@ -2725,7 +2579,6 @@ gapi.load('client', () => {
         /** Retrieves the list of instance groups and sorts them by zone. */
         await gapi.client.compute.instanceGroups.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -2842,7 +2695,6 @@ gapi.load('client', () => {
         /** Retrieves aggregated list of all of the instances in your project across all regions and zones. */
         await gapi.client.compute.instances.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -2864,7 +2716,6 @@ gapi.load('client', () => {
             deviceName: "Test string",
             diskEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -2881,20 +2732,17 @@ gapi.load('client', () => {
                 diskType: "Test string",
                 labels: {
                     A: "Test string"                },
-                onUpdateAction: "Test string",
                 resourcePolicies: [
                     "Test string"                ],
                 sourceImage: "Test string",
                 sourceImageEncryptionKey: {
                     kmsKeyName: "Test string",
-                    kmsKeyServiceAccount: "Test string",
                     rawKey: "Test string",
                     sha256: "Test string",
                 },
                 sourceSnapshot: "Test string",
                 sourceSnapshotEncryptionKey: {
                     kmsKeyName: "Test string",
-                    kmsKeyServiceAccount: "Test string",
                     rawKey: "Test string",
                     sha256: "Test string",
                 },
@@ -2904,27 +2752,6 @@ gapi.load('client', () => {
             licenses: [
                 "Test string"            ],
             mode: "Test string",
-            shieldedInstanceInitialState: {
-                dbs: [
-                    {
-                        content: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                dbxs: [
-                    {
-                        content: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                keks: [
-                    {
-                        content: "Test string",
-                        fileType: "Test string",
-                    }                ],
-                pk: {
-                    content: "Test string",
-                    fileType: "Test string",
-                },
-            },
             source: "Test string",
             type: "Test string",
         });
@@ -3005,7 +2832,6 @@ gapi.load('client', () => {
                     deviceName: "Test string",
                     diskEncryptionKey: {
                         kmsKeyName: "Test string",
-                        kmsKeyServiceAccount: "Test string",
                         rawKey: "Test string",
                         sha256: "Test string",
                     },
@@ -3022,20 +2848,17 @@ gapi.load('client', () => {
                         diskType: "Test string",
                         labels: {
                             A: "Test string"                        },
-                        onUpdateAction: "Test string",
                         resourcePolicies: [
                             "Test string"                        ],
                         sourceImage: "Test string",
                         sourceImageEncryptionKey: {
                             kmsKeyName: "Test string",
-                            kmsKeyServiceAccount: "Test string",
                             rawKey: "Test string",
                             sha256: "Test string",
                         },
                         sourceSnapshot: "Test string",
                         sourceSnapshotEncryptionKey: {
                             kmsKeyName: "Test string",
-                            kmsKeyServiceAccount: "Test string",
                             rawKey: "Test string",
                             sha256: "Test string",
                         },
@@ -3045,34 +2868,12 @@ gapi.load('client', () => {
                     licenses: [
                         "Test string"                    ],
                     mode: "Test string",
-                    shieldedInstanceInitialState: {
-                        dbs: [
-                            {
-                                content: "Test string",
-                                fileType: "Test string",
-                            }                        ],
-                        dbxs: [
-                            {
-                                content: "Test string",
-                                fileType: "Test string",
-                            }                        ],
-                        keks: [
-                            {
-                                content: "Test string",
-                                fileType: "Test string",
-                            }                        ],
-                        pk: {
-                            content: "Test string",
-                            fileType: "Test string",
-                        },
-                    },
                     source: "Test string",
                     type: "Test string",
                 }            ],
             displayDevice: {
                 enableDisplay: true,
             },
-            fingerprint: "Test string",
             guestAccelerators: [
                 {
                     acceleratorCount: 42,
@@ -3433,7 +3234,6 @@ gapi.load('client', () => {
                 {
                     diskEncryptionKey: {
                         kmsKeyName: "Test string",
-                        kmsKeyServiceAccount: "Test string",
                         rawKey: "Test string",
                         sha256: "Test string",
                     },
@@ -3459,185 +3259,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /** Updates an instance. */
-        await gapi.client.compute.instances.update({
-            instance: "Test string",
-            minimalAction: "Test string",
-            mostDisruptiveAllowedAction: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-            zone: "Test string",
-        }, {
-            canIpForward: true,
-            cpuPlatform: "Test string",
-            creationTimestamp: "Test string",
-            deletionProtection: true,
-            description: "Test string",
-            disks: [
-                {
-                    autoDelete: true,
-                    boot: true,
-                    deviceName: "Test string",
-                    diskEncryptionKey: {
-                        kmsKeyName: "Test string",
-                        kmsKeyServiceAccount: "Test string",
-                        rawKey: "Test string",
-                        sha256: "Test string",
-                    },
-                    diskSizeGb: "Test string",
-                    guestOsFeatures: [
-                        {
-                            type: "Test string",
-                        }                    ],
-                    index: 42,
-                    initializeParams: {
-                        description: "Test string",
-                        diskName: "Test string",
-                        diskSizeGb: "Test string",
-                        diskType: "Test string",
-                        labels: {
-                            A: "Test string"                        },
-                        onUpdateAction: "Test string",
-                        resourcePolicies: [
-                            "Test string"                        ],
-                        sourceImage: "Test string",
-                        sourceImageEncryptionKey: {
-                            kmsKeyName: "Test string",
-                            kmsKeyServiceAccount: "Test string",
-                            rawKey: "Test string",
-                            sha256: "Test string",
-                        },
-                        sourceSnapshot: "Test string",
-                        sourceSnapshotEncryptionKey: {
-                            kmsKeyName: "Test string",
-                            kmsKeyServiceAccount: "Test string",
-                            rawKey: "Test string",
-                            sha256: "Test string",
-                        },
-                    },
-                    interface: "Test string",
-                    kind: "Test string",
-                    licenses: [
-                        "Test string"                    ],
-                    mode: "Test string",
-                    shieldedInstanceInitialState: {
-                        dbs: [
-                            {
-                                content: "Test string",
-                                fileType: "Test string",
-                            }                        ],
-                        dbxs: [
-                            {
-                                content: "Test string",
-                                fileType: "Test string",
-                            }                        ],
-                        keks: [
-                            {
-                                content: "Test string",
-                                fileType: "Test string",
-                            }                        ],
-                        pk: {
-                            content: "Test string",
-                            fileType: "Test string",
-                        },
-                    },
-                    source: "Test string",
-                    type: "Test string",
-                }            ],
-            displayDevice: {
-                enableDisplay: true,
-            },
-            fingerprint: "Test string",
-            guestAccelerators: [
-                {
-                    acceleratorCount: 42,
-                    acceleratorType: "Test string",
-                }            ],
-            hostname: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            labelFingerprint: "Test string",
-            labels: {
-                A: "Test string"            },
-            machineType: "Test string",
-            metadata: {
-                fingerprint: "Test string",
-                items: [
-                    {
-                        key: "Test string",
-                        value: "Test string",
-                    }                ],
-                kind: "Test string",
-            },
-            minCpuPlatform: "Test string",
-            name: "Test string",
-            networkInterfaces: [
-                {
-                    accessConfigs: [
-                        {
-                            kind: "Test string",
-                            name: "Test string",
-                            natIP: "Test string",
-                            networkTier: "Test string",
-                            publicPtrDomainName: "Test string",
-                            setPublicPtr: true,
-                            type: "Test string",
-                        }                    ],
-                    aliasIpRanges: [
-                        {
-                            ipCidrRange: "Test string",
-                            subnetworkRangeName: "Test string",
-                        }                    ],
-                    fingerprint: "Test string",
-                    kind: "Test string",
-                    name: "Test string",
-                    network: "Test string",
-                    networkIP: "Test string",
-                    subnetwork: "Test string",
-                }            ],
-            reservationAffinity: {
-                consumeReservationType: "Test string",
-                key: "Test string",
-                values: [
-                    "Test string"                ],
-            },
-            scheduling: {
-                automaticRestart: true,
-                nodeAffinities: [
-                    {
-                        key: "Test string",
-                        operator: "Test string",
-                        values: [
-                            "Test string"                        ],
-                    }                ],
-                onHostMaintenance: "Test string",
-                preemptible: true,
-            },
-            selfLink: "Test string",
-            serviceAccounts: [
-                {
-                    email: "Test string",
-                    scopes: [
-                        "Test string"                    ],
-                }            ],
-            shieldedInstanceConfig: {
-                enableIntegrityMonitoring: true,
-                enableSecureBoot: true,
-                enableVtpm: true,
-            },
-            shieldedInstanceIntegrityPolicy: {
-                updateAutoLearnPolicy: true,
-            },
-            startRestricted: true,
-            status: "Test string",
-            statusMessage: "Test string",
-            tags: {
-                fingerprint: "Test string",
-                items: [
-                    "Test string"                ],
-            },
-            zone: "Test string",
         });
         /**
          * Updates the specified access config from an instance's network interface with the data included in the request. This method supports PATCH semantics
@@ -3756,7 +3377,6 @@ gapi.load('client', () => {
                         deviceName: "Test string",
                         diskEncryptionKey: {
                             kmsKeyName: "Test string",
-                            kmsKeyServiceAccount: "Test string",
                             rawKey: "Test string",
                             sha256: "Test string",
                         },
@@ -3773,20 +3393,17 @@ gapi.load('client', () => {
                             diskType: "Test string",
                             labels: {
                                 A: "Test string"                            },
-                            onUpdateAction: "Test string",
                             resourcePolicies: [
                                 "Test string"                            ],
                             sourceImage: "Test string",
                             sourceImageEncryptionKey: {
                                 kmsKeyName: "Test string",
-                                kmsKeyServiceAccount: "Test string",
                                 rawKey: "Test string",
                                 sha256: "Test string",
                             },
                             sourceSnapshot: "Test string",
                             sourceSnapshotEncryptionKey: {
                                 kmsKeyName: "Test string",
-                                kmsKeyServiceAccount: "Test string",
                                 rawKey: "Test string",
                                 sha256: "Test string",
                             },
@@ -3796,27 +3413,6 @@ gapi.load('client', () => {
                         licenses: [
                             "Test string"                        ],
                         mode: "Test string",
-                        shieldedInstanceInitialState: {
-                            dbs: [
-                                {
-                                    content: "Test string",
-                                    fileType: "Test string",
-                                }                            ],
-                            dbxs: [
-                                {
-                                    content: "Test string",
-                                    fileType: "Test string",
-                                }                            ],
-                            keks: [
-                                {
-                                    content: "Test string",
-                                    fileType: "Test string",
-                                }                            ],
-                            pk: {
-                                content: "Test string",
-                                fileType: "Test string",
-                            },
-                        },
                         source: "Test string",
                         type: "Test string",
                     }                ],
@@ -3868,8 +3464,6 @@ gapi.load('client', () => {
                     values: [
                         "Test string"                    ],
                 },
-                resourcePolicies: [
-                    "Test string"                ],
                 scheduling: {
                     automaticRestart: true,
                     nodeAffinities: [
@@ -4020,7 +3614,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of interconnect attachments. */
         await gapi.client.compute.interconnectAttachments.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -4260,18 +3853,12 @@ gapi.load('client', () => {
             selfLink: "Test string",
             state: "Test string",
         });
-        /**
-         * Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code.  Caution This resource
-         * is intended for use only by third-party partners who are creating Cloud Marketplace images.
-         */
+        /** Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code. */
         await gapi.client.compute.licenseCodes.get({
             licenseCode: "Test string",
             project: "Test string",
         });
-        /**
-         * Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are
-         * creating Cloud Marketplace images.
-         */
+        /** Returns permissions that a caller has on the specified resource. */
         await gapi.client.compute.licenseCodes.testIamPermissions({
             project: "Test string",
             resource: "Test string",
@@ -4279,32 +3866,23 @@ gapi.load('client', () => {
             permissions: [
                 "Test string"            ],
         });
-        /** Deletes the specified license.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
+        /** Deletes the specified license. */
         await gapi.client.compute.licenses.delete({
             license: "Test string",
             project: "Test string",
             requestId: "Test string",
         });
-        /**
-         * Returns the specified License resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace
-         * images.
-         */
+        /** Returns the specified License resource. */
         await gapi.client.compute.licenses.get({
             license: "Test string",
             project: "Test string",
         });
-        /**
-         * Gets the access control policy for a resource. May be empty if no such policy or resource exists.  Caution This resource is intended for use only by
-         * third-party partners who are creating Cloud Marketplace images.
-         */
+        /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.licenses.getIamPolicy({
             project: "Test string",
             resource: "Test string",
         });
-        /**
-         * Create a License resource in the specified project.  Caution This resource is intended for use only by third-party partners who are creating Cloud
-         * Marketplace images.
-         */
+        /** Create a License resource in the specified project. */
         await gapi.client.compute.licenses.insert({
             project: "Test string",
             requestId: "Test string",
@@ -4326,8 +3904,7 @@ gapi.load('client', () => {
         /**
          * Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including
          * licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a
-         * request to the respective image project, such as debian-cloud or windows-cloud.  Caution This resource is intended for use only by third-party partners
-         * who are creating Cloud Marketplace images.
+         * request to the respective image project, such as debian-cloud or windows-cloud.
          */
         await gapi.client.compute.licenses.list({
             filter: "Test string",
@@ -4336,10 +3913,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy.  Caution This resource is intended for use only by third-party
-         * partners who are creating Cloud Marketplace images.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.compute.licenses.setIamPolicy({
             project: "Test string",
             resource: "Test string",
@@ -4429,10 +4003,7 @@ gapi.load('client', () => {
                 version: 42,
             },
         });
-        /**
-         * Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are
-         * creating Cloud Marketplace images.
-         */
+        /** Returns permissions that a caller has on the specified resource. */
         await gapi.client.compute.licenses.testIamPermissions({
             project: "Test string",
             resource: "Test string",
@@ -4443,7 +4014,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of machine types. */
         await gapi.client.compute.machineTypes.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -4467,7 +4037,6 @@ gapi.load('client', () => {
         /** Retrieves the list of network endpoint groups and sorts them by zone. */
         await gapi.client.compute.networkEndpointGroups.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -4482,7 +4051,6 @@ gapi.load('client', () => {
         }, {
             networkEndpoints: [
                 {
-                    fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
                     port: 42,
@@ -4507,7 +4075,6 @@ gapi.load('client', () => {
         }, {
             networkEndpoints: [
                 {
-                    fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
                     port: 42,
@@ -4728,7 +4295,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes for more details about each group. */
         await gapi.client.compute.nodeGroups.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -4773,17 +4339,10 @@ gapi.load('client', () => {
             requestId: "Test string",
             zone: "Test string",
         }, {
-            autoscalingPolicy: {
-                maxNodes: 42,
-                minNodes: 42,
-                mode: "Test string",
-            },
             creationTimestamp: "Test string",
             description: "Test string",
-            fingerprint: "Test string",
             id: "Test string",
             kind: "Test string",
-            maintenancePolicy: "Test string",
             name: "Test string",
             nodeTemplate: "Test string",
             selfLink: "Test string",
@@ -4808,31 +4367,6 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
-            zone: "Test string",
-        });
-        /** Patch the node group. */
-        await gapi.client.compute.nodeGroups.patch({
-            nodeGroup: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-            zone: "Test string",
-        }, {
-            autoscalingPolicy: {
-                maxNodes: 42,
-                minNodes: 42,
-                mode: "Test string",
-            },
-            creationTimestamp: "Test string",
-            description: "Test string",
-            fingerprint: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            maintenancePolicy: "Test string",
-            name: "Test string",
-            nodeTemplate: "Test string",
-            selfLink: "Test string",
-            size: 42,
-            status: "Test string",
             zone: "Test string",
         });
         /** Sets the access control policy on the specified resource. Replaces any existing policy. */
@@ -4947,7 +4481,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of node templates. */
         await gapi.client.compute.nodeTemplates.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -5111,7 +4644,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of node types. */
         await gapi.client.compute.nodeTypes.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -5135,7 +4667,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of packetMirrorings. */
         await gapi.client.compute.packetMirrorings.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -5309,7 +4840,7 @@ gapi.load('client', () => {
         await gapi.client.compute.projects.getXpnResources({
             filter: "Test string",
             maxResults: 42,
-            orderBy: "Test string",
+            order_by: "Test string",
             pageToken: "Test string",
             project: "Test string",
         });
@@ -5317,7 +4848,7 @@ gapi.load('client', () => {
         await gapi.client.compute.projects.listXpnHosts({
             filter: "Test string",
             maxResults: 42,
-            orderBy: "Test string",
+            order_by: "Test string",
             pageToken: "Test string",
             project: "Test string",
         }, {
@@ -5546,7 +5077,7 @@ gapi.load('client', () => {
         });
         /**
          * Creates a regional BackendService resource in the specified project using the data included in the request. There are several restrictions and
-         * guidelines to keep in mind when creating a regional backend service. Read  Understanding backend services for more information.
+         * guidelines to keep in mind when creating a regional backend service. Read  Restrictions and Guidelines for more information.
          */
         await gapi.client.compute.regionBackendServices.insert({
             project: "Test string",
@@ -5559,7 +5090,6 @@ gapi.load('client', () => {
                     balancingMode: "Test string",
                     capacityScaler: 42,
                     description: "Test string",
-                    failover: true,
                     group: "Test string",
                     maxConnections: 42,
                     maxConnectionsPerEndpoint: 42,
@@ -5610,11 +5140,6 @@ gapi.load('client', () => {
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
-            failoverPolicy: {
-                disableConnectionDrainOnFailover: true,
-                dropTrafficIfUnhealthy: true,
-                failoverRatio: 42,
-            },
             fingerprint: "Test string",
             healthChecks: [
                 "Test string"            ],
@@ -5672,9 +5197,9 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Updates the specified regional BackendService resource with the data included in the request. There are several Understanding backend services to keep
-         * in mind when updating a backend service. Read  Understanding backend services for more information. This method supports PATCH semantics and uses the
-         * JSON merge patch format and processing rules.
+         * Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in
+         * mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports PATCH semantics and uses the JSON
+         * merge patch format and processing rules.
          */
         await gapi.client.compute.regionBackendServices.patch({
             backendService: "Test string",
@@ -5688,7 +5213,6 @@ gapi.load('client', () => {
                     balancingMode: "Test string",
                     capacityScaler: 42,
                     description: "Test string",
-                    failover: true,
                     group: "Test string",
                     maxConnections: 42,
                     maxConnectionsPerEndpoint: 42,
@@ -5739,11 +5263,6 @@ gapi.load('client', () => {
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
-            failoverPolicy: {
-                disableConnectionDrainOnFailover: true,
-                dropTrafficIfUnhealthy: true,
-                failoverRatio: 42,
-            },
             fingerprint: "Test string",
             healthChecks: [
                 "Test string"            ],
@@ -5792,8 +5311,8 @@ gapi.load('client', () => {
             timeoutSec: 42,
         });
         /**
-         * Updates the specified regional BackendService resource with the data included in the request. There are several Understanding backend services to keep
-         * in mind when updating a backend service. Read  Understanding backend services for more information.
+         * Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in
+         * mind when updating a backend service. Read  Restrictions and Guidelines for more information.
          */
         await gapi.client.compute.regionBackendServices.update({
             backendService: "Test string",
@@ -5807,7 +5326,6 @@ gapi.load('client', () => {
                     balancingMode: "Test string",
                     capacityScaler: 42,
                     description: "Test string",
-                    failover: true,
                     group: "Test string",
                     maxConnections: 42,
                     maxConnectionsPerEndpoint: 42,
@@ -5858,11 +5376,6 @@ gapi.load('client', () => {
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
-            failoverPolicy: {
-                disableConnectionDrainOnFailover: true,
-                dropTrafficIfUnhealthy: true,
-                failoverRatio: 42,
-            },
             fingerprint: "Test string",
             healthChecks: [
                 "Test string"            ],
@@ -5913,7 +5426,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of commitments. */
         await gapi.client.compute.regionCommitments.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -6025,14 +5537,12 @@ gapi.load('client', () => {
             selfLink: "Test string",
             snapshotEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
             sourceDisk: "Test string",
             sourceDiskEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -6070,7 +5580,6 @@ gapi.load('client', () => {
             description: "Test string",
             diskEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -6102,7 +5611,6 @@ gapi.load('client', () => {
             sourceImage: "Test string",
             sourceImageEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -6110,7 +5618,6 @@ gapi.load('client', () => {
             sourceSnapshot: "Test string",
             sourceSnapshotEncryptionKey: {
                 kmsKeyName: "Test string",
-                kmsKeyServiceAccount: "Test string",
                 rawKey: "Test string",
                 sha256: "Test string",
             },
@@ -6529,7 +6036,6 @@ gapi.load('client', () => {
             region: "Test string",
             selfLink: "Test string",
             status: {
-                autoscaler: "Test string",
                 isStable: true,
                 versionTarget: {
                     isReached: true,
@@ -6551,7 +6057,6 @@ gapi.load('client', () => {
                     percent: 42,
                 },
                 minimalAction: "Test string",
-                replacementMethod: "Test string",
                 type: "Test string",
             },
             versions: [
@@ -6575,16 +6080,6 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
-        /** Lists all errors thrown by actions on instances for a given regional managed instance group. */
-        await gapi.client.compute.regionInstanceGroupManagers.listErrors({
-            filter: "Test string",
-            instanceGroupManager: "Test string",
-            maxResults: 42,
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-            region: "Test string",
-        });
         /**
          * Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group
          * has scheduled for its instances.
@@ -6593,7 +6088,7 @@ gapi.load('client', () => {
             filter: "Test string",
             instanceGroupManager: "Test string",
             maxResults: 42,
-            orderBy: "Test string",
+            order_by: "Test string",
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
@@ -6648,7 +6143,6 @@ gapi.load('client', () => {
             region: "Test string",
             selfLink: "Test string",
             status: {
-                autoscaler: "Test string",
                 isStable: true,
                 versionTarget: {
                     isReached: true,
@@ -6670,7 +6164,6 @@ gapi.load('client', () => {
                     percent: 42,
                 },
                 minimalAction: "Test string",
-                replacementMethod: "Test string",
                 type: "Test string",
             },
             versions: [
@@ -8864,7 +8357,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of reservations. */
         await gapi.client.compute.reservations.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -9045,7 +8537,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of resource policies. */
         await gapi.client.compute.resourcePolicies.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -9078,11 +8569,6 @@ gapi.load('client', () => {
         }, {
             creationTimestamp: "Test string",
             description: "Test string",
-            groupPlacementPolicy: {
-                availabilityDomainCount: 42,
-                collocation: "Test string",
-                vmCount: 42,
-            },
             id: "Test string",
             kind: "Test string",
             name: "Test string",
@@ -9235,7 +8721,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of routers. */
         await gapi.client.compute.routers.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -9944,7 +9429,6 @@ gapi.load('client', () => {
         /** Retrieves the list of all SslCertificate resources, regional and global, available to the specified project. */
         await gapi.client.compute.sslCertificates.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -10073,7 +9557,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of subnetworks. */
         await gapi.client.compute.subnetworks.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -10124,11 +9607,8 @@ gapi.load('client', () => {
             logConfig: {
                 aggregationInterval: "Test string",
                 enable: true,
-                filterExpr: "Test string",
                 flowSampling: 42,
                 metadata: "Test string",
-                metadataFields: [
-                    "Test string"                ],
             },
             name: "Test string",
             network: "Test string",
@@ -10186,11 +9666,8 @@ gapi.load('client', () => {
             logConfig: {
                 aggregationInterval: "Test string",
                 enable: true,
-                filterExpr: "Test string",
                 flowSampling: 42,
                 metadata: "Test string",
-                metadataFields: [
-                    "Test string"                ],
             },
             name: "Test string",
             network: "Test string",
@@ -10318,7 +9795,6 @@ gapi.load('client', () => {
         /** Retrieves the list of all TargetHttpProxy resources, regional and global, available to the specified project. */
         await gapi.client.compute.targetHttpProxies.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -10368,7 +9844,6 @@ gapi.load('client', () => {
         /** Retrieves the list of all TargetHttpsProxy resources, regional and global, available to the specified project. */
         await gapi.client.compute.targetHttpsProxies.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -10450,7 +9925,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of target instances. */
         await gapi.client.compute.targetInstances.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -10521,7 +9995,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of target pools. */
         await gapi.client.compute.targetPools.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -10736,7 +10209,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of target VPN gateways. */
         await gapi.client.compute.targetVpnGateways.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -10787,7 +10259,6 @@ gapi.load('client', () => {
         /** Retrieves the list of all UrlMap resources, regional and global, available to the specified project. */
         await gapi.client.compute.urlMaps.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -12679,7 +12150,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of VPN gateways. */
         await gapi.client.compute.vpnGateways.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
@@ -12759,7 +12229,6 @@ gapi.load('client', () => {
         /** Retrieves an aggregated list of VPN tunnels. */
         await gapi.client.compute.vpnTunnels.aggregatedList({
             filter: "Test string",
-            includeAllScopes: true,
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
