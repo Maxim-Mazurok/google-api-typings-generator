@@ -213,7 +213,7 @@ Gets the most recent health check results for this BackendService.
 await gapi.client.backendServices.getHealth({ backendService: "backendService", project: "project",  }); 
     
 /* 
-Creates a BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a backend service. Read  Restrictions and Guidelines for more information.  
+Creates a BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a backend service. Read  Understanding backend services for more information.  
 */
 await gapi.client.backendServices.insert({ project: "project",  }); 
     
@@ -223,7 +223,7 @@ Retrieves the list of BackendService resources available to the specified projec
 await gapi.client.backendServices.list({ project: "project",  }); 
     
 /* 
-Patches the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.  
+Patches the specified BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind when updating a backend service. Read  Understanding backend services for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.  
 */
 await gapi.client.backendServices.patch({ backendService: "backendService", project: "project",  }); 
     
@@ -233,7 +233,7 @@ Sets the security policy for the specified backend service.
 await gapi.client.backendServices.setSecurityPolicy({ backendService: "backendService", project: "project",  }); 
     
 /* 
-Updates the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.  
+Updates the specified BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind when updating a backend service. Read  Understanding backend services for more information.  
 */
 await gapi.client.backendServices.update({ backendService: "backendService", project: "project",  }); 
     
@@ -463,6 +463,41 @@ Changes target URL for the GlobalForwardingRule resource. The new target should 
 await gapi.client.globalForwardingRules.setTarget({ forwardingRule: "forwardingRule", project: "project",  }); 
     
 /* 
+Attach a network endpoint to the specified network endpoint group.  
+*/
+await gapi.client.globalNetworkEndpointGroups.attachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project",  }); 
+    
+/* 
+Deletes the specified network endpoint group.Note that the NEG cannot be deleted if there are backend services referencing it.  
+*/
+await gapi.client.globalNetworkEndpointGroups.delete({ networkEndpointGroup: "networkEndpointGroup", project: "project",  }); 
+    
+/* 
+Detach the network endpoint from the specified network endpoint group.  
+*/
+await gapi.client.globalNetworkEndpointGroups.detachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project",  }); 
+    
+/* 
+Returns the specified network endpoint group. Gets a list of available network endpoint groups by making a list() request.  
+*/
+await gapi.client.globalNetworkEndpointGroups.get({ networkEndpointGroup: "networkEndpointGroup", project: "project",  }); 
+    
+/* 
+Creates a network endpoint group in the specified project using the parameters that are included in the request.  
+*/
+await gapi.client.globalNetworkEndpointGroups.insert({ project: "project",  }); 
+    
+/* 
+Retrieves the list of network endpoint groups that are located in the specified project.  
+*/
+await gapi.client.globalNetworkEndpointGroups.list({ project: "project",  }); 
+    
+/* 
+Lists the network endpoints in the specified network endpoint group.  
+*/
+await gapi.client.globalNetworkEndpointGroups.listNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project",  }); 
+    
+/* 
 Retrieves an aggregated list of all operations.  
 */
 await gapi.client.globalOperations.aggregatedList({ project: "project",  }); 
@@ -653,7 +688,7 @@ Retrieves the list of managed instance groups and groups them by zone.
 await gapi.client.instanceGroupManagers.aggregatedList({ project: "project",  }); 
     
 /* 
-Apply changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions.  
+Applies changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions.  
 */
 await gapi.client.instanceGroupManagers.applyUpdatesToInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  }); 
     
@@ -692,6 +727,11 @@ await gapi.client.instanceGroupManagers.insert({ project: "project", zone: "zone
 Retrieves a list of managed instance groups that are contained within the specified project and zone.  
 */
 await gapi.client.instanceGroupManagers.list({ project: "project", zone: "zone",  }); 
+    
+/* 
+Lists all errors thrown by actions on instances for a given managed instance group.  
+*/
+await gapi.client.instanceGroupManagers.listErrors({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  }); 
     
 /* 
 Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous action failed, the list displays the errors for that failed action.  
@@ -943,6 +983,11 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.instances.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  }); 
     
 /* 
+Updates an instance.  
+*/
+await gapi.client.instances.update({ instance: "instance", project: "project", zone: "zone",  }); 
+    
+/* 
 Updates the specified access config from an instance's network interface with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.  
 */
 await gapi.client.instances.updateAccessConfig({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  }); 
@@ -1068,47 +1113,47 @@ Updates the specified interconnect with the data included in the request. This m
 await gapi.client.interconnects.patch({ interconnect: "interconnect", project: "project",  }); 
     
 /* 
-Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code.  
+Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  
 */
 await gapi.client.licenseCodes.get({ licenseCode: "licenseCode", project: "project",  }); 
     
 /* 
-Returns permissions that a caller has on the specified resource.  
+Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  
 */
 await gapi.client.licenseCodes.testIamPermissions({ project: "project", resource: "resource",  }); 
     
 /* 
-Deletes the specified license.  
+Deletes the specified license.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  
 */
 await gapi.client.licenses.delete({ license: "license", project: "project",  }); 
     
 /* 
-Returns the specified License resource.  
+Returns the specified License resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  
 */
 await gapi.client.licenses.get({ license: "license", project: "project",  }); 
     
 /* 
-Gets the access control policy for a resource. May be empty if no such policy or resource exists.  
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  
 */
 await gapi.client.licenses.getIamPolicy({ project: "project", resource: "resource",  }); 
     
 /* 
-Create a License resource in the specified project.  
+Create a License resource in the specified project.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  
 */
 await gapi.client.licenses.insert({ project: "project",  }); 
     
 /* 
-Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.  
+Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  
 */
 await gapi.client.licenses.list({ project: "project",  }); 
     
 /* 
-Sets the access control policy on the specified resource. Replaces any existing policy.  
+Sets the access control policy on the specified resource. Replaces any existing policy.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  
 */
 await gapi.client.licenses.setIamPolicy({ project: "project", resource: "resource",  }); 
     
 /* 
-Returns permissions that a caller has on the specified resource.  
+Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.  
 */
 await gapi.client.licenses.testIamPermissions({ project: "project", resource: "resource",  }); 
     
@@ -1266,6 +1311,11 @@ await gapi.client.nodeGroups.list({ project: "project", zone: "zone",  });
 Lists nodes in the node group.  
 */
 await gapi.client.nodeGroups.listNodes({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  }); 
+    
+/* 
+Patch the node group.  
+*/
+await gapi.client.nodeGroups.patch({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  }); 
     
 /* 
 Sets the access control policy on the specified resource. Replaces any existing policy.  
@@ -1483,7 +1533,7 @@ Gets the most recent health check results for this regional BackendService.
 await gapi.client.regionBackendServices.getHealth({ backendService: "backendService", project: "project", region: "region",  }); 
     
 /* 
-Creates a regional BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a regional backend service. Read  Restrictions and Guidelines for more information.  
+Creates a regional BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a regional backend service. Read  Understanding backend services for more information.  
 */
 await gapi.client.regionBackendServices.insert({ project: "project", region: "region",  }); 
     
@@ -1493,12 +1543,12 @@ Retrieves the list of regional BackendService resources available to the specifi
 await gapi.client.regionBackendServices.list({ project: "project", region: "region",  }); 
     
 /* 
-Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.  
+Updates the specified regional BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind when updating a backend service. Read  Understanding backend services for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.  
 */
 await gapi.client.regionBackendServices.patch({ backendService: "backendService", project: "project", region: "region",  }); 
     
 /* 
-Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.  
+Updates the specified regional BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind when updating a backend service. Read  Understanding backend services for more information.  
 */
 await gapi.client.regionBackendServices.update({ backendService: "backendService", project: "project", region: "region",  }); 
     
@@ -1661,6 +1711,11 @@ await gapi.client.regionInstanceGroupManagers.insert({ project: "project", regio
 Retrieves the list of managed instance groups that are contained within the specified region.  
 */
 await gapi.client.regionInstanceGroupManagers.list({ project: "project", region: "region",  }); 
+    
+/* 
+Lists all errors thrown by actions on instances for a given regional managed instance group.  
+*/
+await gapi.client.regionInstanceGroupManagers.listErrors({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  }); 
     
 /* 
 Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group has scheduled for its instances.  
