@@ -268,6 +268,8 @@ gapi.load('client', () => {
                 mainPageSuffix: "Test string",
                 notFoundPage: "Test string",
             },
+            zone_affinity: [
+                "Test string"            ],
         });
         /** Retrieves a list of buckets for a given project. */
         await gapi.client.storage.buckets.list({
@@ -412,6 +414,8 @@ gapi.load('client', () => {
                 mainPageSuffix: "Test string",
                 notFoundPage: "Test string",
             },
+            zone_affinity: [
+                "Test string"            ],
         });
         /** Updates an IAM policy for the specified bucket. */
         await gapi.client.storage.buckets.setIamPolicy({
@@ -569,6 +573,8 @@ gapi.load('client', () => {
                 mainPageSuffix: "Test string",
                 notFoundPage: "Test string",
             },
+            zone_affinity: [
+                "Test string"            ],
         });
         /** Stop watching resources through this channel */
         await gapi.client.storage.channels.stop({} , {
@@ -1083,12 +1089,14 @@ gapi.load('client', () => {
         await gapi.client.storage.objects.list({
             bucket: "Test string",
             delimiter: "Test string",
+            endOffset: "Test string",
             includeTrailingDelimiter: true,
             maxResults: 42,
             pageToken: "Test string",
             prefix: "Test string",
             projection: "Test string",
             provisionalUserProject: "Test string",
+            startOffset: "Test string",
             userProject: "Test string",
             versions: true,
         });
@@ -1352,12 +1360,14 @@ gapi.load('client', () => {
         await gapi.client.storage.objects.watchAll({
             bucket: "Test string",
             delimiter: "Test string",
+            endOffset: "Test string",
             includeTrailingDelimiter: true,
             maxResults: 42,
             pageToken: "Test string",
             prefix: "Test string",
             projection: "Test string",
             provisionalUserProject: "Test string",
+            startOffset: "Test string",
             userProject: "Test string",
             versions: true,
         }, {
