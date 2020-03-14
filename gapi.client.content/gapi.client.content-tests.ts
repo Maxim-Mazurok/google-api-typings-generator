@@ -590,56 +590,6 @@ gapi.load('client', () => {
                 }            ],
             kind: "Test string",
         });
-        /** Updates local inventory for multiple products or stores in a single request. */
-        await gapi.client.content.localinventory.custombatch({} , {
-            entries: [
-                {
-                    batchId: 42,
-                    localInventory: {
-                        availability: "Test string",
-                        instoreProductLocation: "Test string",
-                        kind: "Test string",
-                        pickupMethod: "Test string",
-                        pickupSla: "Test string",
-                        price: {
-                            currency: "Test string",
-                            value: "Test string",
-                        },
-                        quantity: 42,
-                        salePrice: {
-                            currency: "Test string",
-                            value: "Test string",
-                        },
-                        salePriceEffectiveDate: "Test string",
-                        storeCode: "Test string",
-                    },
-                    merchantId: "Test string",
-                    method: "Test string",
-                    productId: "Test string",
-                }            ],
-        });
-        /** Update the local inventory of a product in your Merchant Center account. */
-        await gapi.client.content.localinventory.insert({
-            merchantId: "Test string",
-            productId: "Test string",
-        }, {
-            availability: "Test string",
-            instoreProductLocation: "Test string",
-            kind: "Test string",
-            pickupMethod: "Test string",
-            pickupSla: "Test string",
-            price: {
-                currency: "Test string",
-                value: "Test string",
-            },
-            quantity: 42,
-            salePrice: {
-                currency: "Test string",
-                value: "Test string",
-            },
-            salePriceEffectiveDate: "Test string",
-            storeCode: "Test string",
-        });
         /** Creates a charge invoice for a shipment group, and triggers a charge capture for orderinvoice enabled orders. */
         await gapi.client.content.orderinvoices.createchargeinvoice({
             merchantId: "Test string",
