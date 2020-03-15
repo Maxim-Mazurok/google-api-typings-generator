@@ -402,6 +402,7 @@ gapi.load('client', () => {
         });
         /** Create an association session for initiating an association with an AdSense user. */
         await gapi.client.adsensehost.associationsessions.start({
+            callbackUrl: "Test string",
             productCode: "Test string",
             userLocale: "Test string",
             websiteLocale: "Test string",
