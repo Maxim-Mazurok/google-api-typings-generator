@@ -1,6 +1,6 @@
 # TypeScript typings for Google Play Game Services Publishing API v1configuration
-The Publishing API for Google Play Game Services.
-For detailed description please check [documentation](https://developers.google.com/games/services).
+The Google Play Game Services Publishing API allows developers to configure their games in Game Services.
+For detailed description please check [documentation](https://developers.google.com/games/).
 
 ## Installing
 
@@ -73,11 +73,6 @@ Returns a list of the achievement configurations in this application.
 await gapi.client.achievementConfigurations.list({ applicationId: "applicationId",  }); 
     
 /* 
-Update the metadata of the achievement configuration with the given ID. This method supports patch semantics.  
-*/
-await gapi.client.achievementConfigurations.patch({ achievementId: "achievementId",  }); 
-    
-/* 
 Update the metadata of the achievement configuration with the given ID.  
 */
 await gapi.client.achievementConfigurations.update({ achievementId: "achievementId",  }); 
@@ -106,11 +101,6 @@ await gapi.client.leaderboardConfigurations.insert({ applicationId: "application
 Returns a list of the leaderboard configurations in this application.  
 */
 await gapi.client.leaderboardConfigurations.list({ applicationId: "applicationId",  }); 
-    
-/* 
-Update the metadata of the leaderboard configuration with the given ID. This method supports patch semantics.  
-*/
-await gapi.client.leaderboardConfigurations.patch({ leaderboardId: "leaderboardId",  }); 
     
 /* 
 Update the metadata of the leaderboard configuration with the given ID.  
