@@ -62,11 +62,6 @@ After that you can use Dataflow API resources:
 ```typescript 
     
 /* 
-Deletes a snapshot.  
-*/
-await gapi.client.projects.deleteSnapshots({ projectId: "projectId",  }); 
-    
-/* 
 Send a worker_message to the service.  
 */
 await gapi.client.projects.workerMessages({ projectId: "projectId",  });
