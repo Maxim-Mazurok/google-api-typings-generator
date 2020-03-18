@@ -48,6 +48,12 @@ gapi.load('client', () => {
             description: "Test string",
             lastModificationTime: "Test string",
             name: "Test string",
+            notificationConfig: {
+                eventTypes: [
+                    "Test string"                ],
+                payloadFormat: "Test string",
+                pubsubTopic: "Test string",
+            },
             projectId: "Test string",
             schedule: {
                 scheduleEndDate: {
@@ -75,6 +81,13 @@ gapi.load('client', () => {
                         secretAccessKey: "Test string",
                     },
                     bucketName: "Test string",
+                },
+                azureBlobStorageDataSource: {
+                    azureCredentials: {
+                        sasToken: "Test string",
+                    },
+                    container: "Test string",
+                    storageAccount: "Test string",
                 },
                 gcsDataSink: {
                     bucketName: "Test string",
@@ -134,6 +147,12 @@ gapi.load('client', () => {
                 description: "Test string",
                 lastModificationTime: "Test string",
                 name: "Test string",
+                notificationConfig: {
+                    eventTypes: [
+                        "Test string"                    ],
+                    payloadFormat: "Test string",
+                    pubsubTopic: "Test string",
+                },
                 projectId: "Test string",
                 schedule: {
                     scheduleEndDate: {
@@ -161,6 +180,13 @@ gapi.load('client', () => {
                             secretAccessKey: "Test string",
                         },
                         bucketName: "Test string",
+                    },
+                    azureBlobStorageDataSource: {
+                        azureCredentials: {
+                            sasToken: "Test string",
+                        },
+                        container: "Test string",
+                        storageAccount: "Test string",
                     },
                     gcsDataSink: {
                         bucketName: "Test string",
