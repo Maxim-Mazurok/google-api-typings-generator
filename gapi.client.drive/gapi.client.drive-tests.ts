@@ -498,6 +498,10 @@ gapi.load('client', () => {
                 permissionId: "Test string",
                 photoLink: "Test string",
             },
+            shortcutDetails: {
+                targetId: "Test string",
+                targetMimeType: "Test string",
+            },
             size: "Test string",
             spaces: [
                 "Test string"            ],
@@ -694,6 +698,10 @@ gapi.load('client', () => {
                 me: true,
                 permissionId: "Test string",
                 photoLink: "Test string",
+            },
+            shortcutDetails: {
+                targetId: "Test string",
+                targetMimeType: "Test string",
             },
             size: "Test string",
             spaces: [
@@ -937,6 +945,10 @@ gapi.load('client', () => {
                 me: true,
                 permissionId: "Test string",
                 photoLink: "Test string",
+            },
+            shortcutDetails: {
+                targetId: "Test string",
+                targetMimeType: "Test string",
             },
             size: "Test string",
             spaces: [
