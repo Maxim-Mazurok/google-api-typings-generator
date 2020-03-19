@@ -103,6 +103,22 @@ gapi.load('client', () => {
                     clientId: "Test string",
                     loginHint: "Test string",
                 },
+                policyDelegationSettings: {
+                    iamPermission: "Test string",
+                    iamServiceName: "Test string",
+                    policyName: {
+                        id: "Test string",
+                        region: "Test string",
+                        type: "Test string",
+                    },
+                    resource: {
+                        labels: {
+                            A: "Test string"                        },
+                        name: "Test string",
+                        service: "Test string",
+                        type: "Test string",
+                    },
+                },
             },
             applicationSettings: {
                 csmSettings: {
