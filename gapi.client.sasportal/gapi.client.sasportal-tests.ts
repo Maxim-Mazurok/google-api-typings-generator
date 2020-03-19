@@ -390,16 +390,76 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Deletes a node. */
         await gapi.client.sasportal.customers.nodes.delete({
             name: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Returns a requested node. */
         await gapi.client.sasportal.customers.nodes.get({
             name: "Test string",
         });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Lists nodes. */
         await gapi.client.sasportal.customers.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -410,6 +470,21 @@ gapi.load('client', () => {
         }, {
             destination: "Test string",
         });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Updates an existing node. */
         await gapi.client.sasportal.customers.nodes.patch({
             name: "Test string",
@@ -419,6 +494,21 @@ gapi.load('client', () => {
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Returns a list of requested customers. */
         await gapi.client.sasportal.customers.list({
@@ -784,16 +874,76 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Deletes a node. */
         await gapi.client.sasportal.customers.nodes.delete({
             name: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Returns a requested node. */
         await gapi.client.sasportal.customers.nodes.get({
             name: "Test string",
         });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Lists nodes. */
         await gapi.client.sasportal.customers.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -804,6 +954,21 @@ gapi.load('client', () => {
         }, {
             destination: "Test string",
         });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Updates an existing node. */
         await gapi.client.sasportal.customers.nodes.patch({
             name: "Test string",
@@ -813,6 +978,21 @@ gapi.load('client', () => {
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Updates an existing customer. */
         await gapi.client.sasportal.customers.patch({
@@ -1183,16 +1363,76 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Deletes a node. */
         await gapi.client.sasportal.customers.nodes.delete({
             name: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Returns a requested node. */
         await gapi.client.sasportal.customers.nodes.get({
             name: "Test string",
         });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Lists nodes. */
         await gapi.client.sasportal.customers.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -1203,6 +1443,21 @@ gapi.load('client', () => {
         }, {
             destination: "Test string",
         });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Updates an existing node. */
         await gapi.client.sasportal.customers.nodes.patch({
             name: "Test string",
@@ -1212,6 +1467,21 @@ gapi.load('client', () => {
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
+        });
+        /** Creates a new node. */
+        await gapi.client.sasportal.customers.nodes.nodes.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            sasUserIds: [
+                "Test string"            ],
+        });
+        /** Lists nodes. */
+        await gapi.client.sasportal.customers.nodes.nodes.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Generates a secret to be used with the ValidateInstaller method */
         await gapi.client.sasportal.installer.generateSecret({

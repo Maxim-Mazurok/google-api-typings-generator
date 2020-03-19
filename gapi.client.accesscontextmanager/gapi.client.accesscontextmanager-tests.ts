@@ -37,6 +37,7 @@ gapi.load('client', () => {
         await gapi.client.accesscontextmanager.accessPolicies.create({
         }, {
             createTime: "Test string",
+            etag: "Test string",
             name: "Test string",
             parent: "Test string",
             title: "Test string",
@@ -263,7 +264,7 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
+         * Create a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * Service Perimeter has
          * propagated to long-lasting storage. Service Perimeters containing
@@ -307,7 +308,7 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete an Service Perimeter by resource
+         * Delete a Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
          * removed from long-lasting storage.
@@ -316,7 +317,7 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Get an Service Perimeter by resource
+         * Get a Service Perimeter by resource
          * name.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
@@ -332,7 +333,7 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Service Perimeter. The
+         * Update a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * changes to the Service Perimeter have
          * propagated to long-lasting storage. Service Perimeter containing
@@ -659,7 +660,7 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
+         * Create a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * Service Perimeter has
          * propagated to long-lasting storage. Service Perimeters containing
@@ -703,7 +704,7 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete an Service Perimeter by resource
+         * Delete a Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
          * removed from long-lasting storage.
@@ -712,7 +713,7 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Get an Service Perimeter by resource
+         * Get a Service Perimeter by resource
          * name.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
@@ -728,7 +729,7 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Service Perimeter. The
+         * Update a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * changes to the Service Perimeter have
          * propagated to long-lasting storage. Service Perimeter containing
@@ -1050,7 +1051,7 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
+         * Create a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * Service Perimeter has
          * propagated to long-lasting storage. Service Perimeters containing
@@ -1094,7 +1095,7 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete an Service Perimeter by resource
+         * Delete a Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
          * removed from long-lasting storage.
@@ -1103,7 +1104,7 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Get an Service Perimeter by resource
+         * Get a Service Perimeter by resource
          * name.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
@@ -1119,7 +1120,7 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Service Perimeter. The
+         * Update a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * changes to the Service Perimeter have
          * propagated to long-lasting storage. Service Perimeter containing
@@ -1446,7 +1447,7 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
+         * Create a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * Service Perimeter has
          * propagated to long-lasting storage. Service Perimeters containing
@@ -1490,7 +1491,7 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete an Service Perimeter by resource
+         * Delete a Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
          * removed from long-lasting storage.
@@ -1499,7 +1500,7 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Get an Service Perimeter by resource
+         * Get a Service Perimeter by resource
          * name.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
@@ -1515,7 +1516,7 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Service Perimeter. The
+         * Update a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * changes to the Service Perimeter have
          * propagated to long-lasting storage. Service Perimeter containing
@@ -1624,6 +1625,7 @@ gapi.load('client', () => {
             updateMask: "Test string",
         }, {
             createTime: "Test string",
+            etag: "Test string",
             name: "Test string",
             parent: "Test string",
             title: "Test string",
@@ -1850,7 +1852,7 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create an Service Perimeter. The
+         * Create a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * Service Perimeter has
          * propagated to long-lasting storage. Service Perimeters containing
@@ -1894,7 +1896,7 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete an Service Perimeter by resource
+         * Delete a Service Perimeter by resource
          * name. The longrunning operation from this RPC will have a successful status
          * once the Service Perimeter has been
          * removed from long-lasting storage.
@@ -1903,7 +1905,7 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Get an Service Perimeter by resource
+         * Get a Service Perimeter by resource
          * name.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
@@ -1919,7 +1921,7 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Service Perimeter. The
+         * Update a Service Perimeter. The
          * longrunning operation from this RPC will have a successful status once the
          * changes to the Service Perimeter have
          * propagated to long-lasting storage. Service Perimeter containing
