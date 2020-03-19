@@ -184,6 +184,290 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
          * Creates a Step.
          *
          * The returned Step will have the id set.
@@ -2300,6 +2584,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -4421,6 +4989,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -6603,6 +7455,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -8800,6 +9936,290 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
          * Creates a Step.
          *
          * The returned Step will have the id set.
@@ -10916,6 +12336,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -13037,6 +14741,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -15219,6 +17207,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -17421,6 +19693,290 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
          * Creates a Step.
          *
          * The returned Step will have the id set.
@@ -19537,6 +22093,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -21658,6 +24498,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -23840,6 +26964,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -26065,6 +29473,290 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
          * Creates a Step.
          *
          * The returned Step will have the id set.
@@ -28181,6 +31873,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -30302,6 +34278,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -32484,6 +36744,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -34681,6 +39225,290 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
          * Creates a Step.
          *
          * The returned Step will have the id set.
@@ -36797,6 +41625,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -38918,6 +44030,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -41100,6 +46496,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -43302,6 +48982,290 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
          * Creates a Step.
          *
          * The returned Step will have the id set.
@@ -45418,6 +51382,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -47539,6 +53787,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
@@ -49721,6 +56253,290 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             projectId: "Test string",
+        });
+        /**
+         * Lists accessibility clusters for a given Step
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an
+         * argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.accessibilityClusters({
+            locale: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfMetricsSummary.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            appStartTime: {
+                fullyDrawnTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                initialDisplayTime: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+            },
+            executionId: "Test string",
+            graphicsStats: {
+                buckets: [
+                    {
+                        frameCount: "Test string",
+                        renderMillis: "Test string",
+                    }                ],
+                highInputLatencyCount: "Test string",
+                jankyFrames: "Test string",
+                missedVsyncCount: "Test string",
+                p50Millis: "Test string",
+                p90Millis: "Test string",
+                p95Millis: "Test string",
+                p99Millis: "Test string",
+                slowBitmapUploadCount: "Test string",
+                slowDrawCount: "Test string",
+                slowUiThreadCount: "Test string",
+                totalFrames: "Test string",
+            },
+            historyId: "Test string",
+            perfEnvironment: {
+                cpuInfo: {
+                    cpuProcessor: "Test string",
+                    cpuSpeedInGhz: 42,
+                    numberOfCores: 42,
+                },
+                memoryInfo: {
+                    memoryCapInKibibyte: "Test string",
+                    memoryTotalInKibibyte: "Test string",
+                },
+            },
+            perfMetrics: [
+                "Test string"            ],
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+         * does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.create({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        }, {
+            basicPerfSampleSeries: {
+                perfMetricType: "Test string",
+                perfUnit: "Test string",
+                sampleSeriesLabel: "Test string",
+            },
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets a PerfSampleSeries.
+         *
+         * May return any of the following error code(s): - NOT_FOUND - The specified PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists PerfSampleSeries for a given Step.
+         *
+         * The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The resulting
+         * PerfSampleSeries are sorted by ids.
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list({
+            executionId: "Test string",
+            filter: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
+         * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
+         * successfully inserted is returned in the response (omits items which already existed in the database).
+         *
+         * May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        }, {
+            perfSamples: [
+                {
+                    sampleTime: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                    value: 42,
+                }            ],
+        });
+        /**
+         * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
+         * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
+         * submit a subsequent request including the page token to return the rest of the samples up to the page limit
+         *
+         * May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The
+         * containing PerfSampleSeries does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            sampleSeriesId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Test Case does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.get({
+            executionId: "Test string",
+            historyId: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+            testCaseId: "Test string",
+        });
+        /**
+         * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development.
+         *
+         * May return any of the following canonical error codes:
+         *
+         * - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+         * containing Step does not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.testCases.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
+        });
+        /**
+         * Lists thumbnails of images attached to a step.
+         *
+         * May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the
+         * images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
+         */
+        await gapi.client.toolresults.projects.histories.executions.steps.thumbnails.list({
+            executionId: "Test string",
+            historyId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stepId: "Test string",
         });
         /**
          * Creates a Step.
