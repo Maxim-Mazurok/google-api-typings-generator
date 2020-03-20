@@ -42,7 +42,9 @@ gapi.load('client', () => {
             lineItems: "Test string",
         });
         /** Creates a query. */
-        await gapi.client.doubleclickbidmanager.queries.createquery({} , {
+        await gapi.client.doubleclickbidmanager.queries.createquery({
+            asynchronous: true,
+        }, {
             kind: "Test string",
             metadata: {
                 dataRange: "Test string",
@@ -101,6 +103,7 @@ gapi.load('client', () => {
         });
         /** Runs a stored query to generate a report. */
         await gapi.client.doubleclickbidmanager.queries.runquery({
+            asynchronous: true,
             queryId: "Test string",
         }, {
             dataRange: "Test string",
