@@ -1,10 +1,10 @@
-# TypeScript typings for Stackdriver Monitoring API v3
-Manages your Stackdriver Monitoring data and configurations. Most projects must be associated with a Stackdriver account, with a few exceptions as noted on the individual method pages. The table entries below are presented in alphabetical order, not in order of common use. For explanations of the concepts found in the table entries, read the Stackdriver Monitoring documentation.
+# TypeScript typings for Cloud Monitoring API v3
+Manages your Cloud Monitoring data and configurations. Most projects must be associated with a Workspace, with a few exceptions as noted on the individual method pages. The table entries below are presented in alphabetical order, not in order of common use. For explanations of the concepts found in the table entries, read the Cloud Monitoring documentation.
 For detailed description please check [documentation](https://cloud.google.com/monitoring/api/).
 
 ## Installing
 
-Install typings for Stackdriver Monitoring API:
+Install typings for Cloud Monitoring API:
 ```
 npm install @types/gapi.client.monitoring@v3 --save-dev
 ```
@@ -57,7 +57,7 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Stackdriver Monitoring API resources:
+After that you can use Cloud Monitoring API resources:
 
 ```typescript 
     
