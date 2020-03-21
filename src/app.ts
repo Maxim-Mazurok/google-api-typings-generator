@@ -1,13 +1,15 @@
 import doT from 'dot';
 import fs from 'fs';
 import _ from 'lodash';
-import path from 'path';
+import path, { resolve, join, basename } from 'path';
 import request from 'request';
 import sortObject from 'deep-sort-object';
 import { getResourceTypeName, parseVersion } from './utils';
 import JsonSchema = gapi.client.discovery.JsonSchema;
 import RestResource = gapi.client.discovery.RestResource;
 import RestDescription = gapi.client.discovery.RestDescription;
+
+export const tmpDirPath = resolve(__dirname, './../.tmp');
 
 const typesMap: { [key: string]: string } = {
   integer: 'number',
@@ -124,12 +126,11 @@ function formatPropertyName(name: string) {
   return name;
 }
 
-function ensureDirectoryExists(directory: string) {
+const ensureDirectoryExists = (directory: string) => {
   if (!fs.existsSync(directory)) {
-    ensureDirectoryExists(path.dirname(directory));
-    fs.mkdirSync(directory);
+    fs.mkdirSync(directory, { recursive: true });
   }
-}
+};
 
 class TypescriptTextWriter implements TypescriptTextWriter {
   constructor(private writer: IndentedTextWriter) {}
@@ -447,13 +448,11 @@ export class App {
   constructor(private base = __dirname + '/../types/') {
     this.typingsDirectory = base;
 
-    if (!fs.existsSync(this.base)) {
-      fs.mkdirSync(this.base);
-    }
+    ensureDirectoryExists(this.base);
 
-    if (!fs.existsSync(this.typingsDirectory)) {
-      fs.mkdirSync(this.typingsDirectory);
-    }
+    ensureDirectoryExists(this.typingsDirectory);
+
+    ensureDirectoryExists(tmpDirPath);
 
     console.log(`base directory: ${this.base}`);
     console.log(`typings directory: ${this.typingsDirectory}`);
@@ -462,7 +461,7 @@ export class App {
 
   static parseOutPath(dir: string) {
     if (!fs.existsSync(dir)) {
-      throw new Error(`Directory not found: ${dir}`);
+      ensureDirectoryExists(dir);
     }
 
     return dir;
@@ -771,6 +770,11 @@ export class App {
     const destinationDirectory = this.getTypingsDirectory(
       api.name,
       actualVersion ? null : api.version
+    );
+
+    fs.writeFileSync(
+      join(tmpDirPath, `${basename(destinationDirectory)}.json`),
+      JSON.stringify(api)
     );
 
     ensureDirectoryExists(destinationDirectory);
