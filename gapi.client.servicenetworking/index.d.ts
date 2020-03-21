@@ -1317,6 +1317,24 @@ declare namespace gapi.client {
              */
             secondaryRangeIpPrefixLengths?: number[];
         }
+        interface Route {
+            /** Destination CIDR range that this route applies to. */
+            destRange?: string;
+            /** Route name. See https://cloud.google.com/vpc/docs/routes */
+            name?: string;
+            /**
+             * Fully-qualified URL of the VPC network in the producer host tenant project
+             * that this route applies to. For example:
+             * `projects/123456/global/networks/host-network`
+             */
+            network?: string;
+            /**
+             * Fully-qualified URL of the gateway that should handle matching packets that
+             * this route applies to. For example:
+             * `projects/123456/global/gateways/default-internet-gateway`
+             */
+            nextHopGateway?: string;
+        }
         interface SearchRangeRequest {
             /**
              * Required. The prefix length of the IP range. Use usual CIDR range notation. For
