@@ -1,7 +1,7 @@
-import { readdirSync } from 'fs';
-import { join } from 'path';
+import { readdirSync, readFileSync } from 'fs';
+import { join, basename } from 'path';
 import runAll from 'npm-run-all';
-import ErrnoException = NodeJS.ErrnoException;
+import { tmpDirPath } from '../src/app';
 
 const MAX_PARALLEL = Number(process.env.GAPI_MAX_PARALLEL) || 1;
 
@@ -20,11 +20,32 @@ const options = {
   maxParallel: MAX_PARALLEL,
   parallel: true,
   stdout: process.stdout,
-  stderr: process.stderr
+  stderr: process.stderr,
 };
 
-console.log(`Linting ${scripts.length} projects in ${MAX_PARALLEL} parallel processes...`);
+console.log(
+  `Linting ${scripts.length} projects in ${MAX_PARALLEL} parallel processes...`
+);
 
 runAll([scripts.shift()], options) // run first synchronously to install TypeScript
   .then(() => runAll(scripts, options))
-  .catch((err: ErrnoException) => process.exit(Number(err.code)));
+  .catch(error => {
+    if (error.results) {
+      const results: Array<{ name: string; code: number }> = error.results;
+      const failedType = results.find(result => result.code === 1);
+      if (failedType) {
+        const typeDir = basename(failedType.name);
+        console.log('JSON API definitions:');
+        console.log(
+          readFileSync(join(tmpDirPath, `${typeDir}.json`)).toString()
+        );
+        console.log('Generated index.d.ts:');
+        console.log(readFileSync(join(path, typeDir, 'index.d.ts')).toString());
+        console.log('Generated tests:');
+        console.log(
+          readFileSync(join(path, typeDir, `${typeDir}-tests.ts`)).toString()
+        );
+      }
+    }
+    process.exit(1);
+  });
