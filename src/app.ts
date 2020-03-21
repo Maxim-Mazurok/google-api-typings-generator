@@ -399,12 +399,16 @@ function getMethodReturn(
   const name = schemas['Request'] ? 'client.Request' : 'Request';
 
   if (method.response) {
-    const schema = schemas[checkExists(method.response.$ref)];
+    if (method.response.$ref) {
+      const schema = schemas[method.response.$ref];
 
-    if (schema && !_.isEmpty(schema.properties)) {
-      return `${name}<${method.response.$ref}>`;
+      if (schema && !_.isEmpty(schema.properties)) {
+        return `${name}<${method.response.$ref}>`;
+      } else {
+        return `${name}<{}>`;
+      }
     } else {
-      return `${name}<{}>`;
+      return `${name}<${getType(method.response, schemas)}>`;
     }
   } else {
     return `${name}<void>`;
