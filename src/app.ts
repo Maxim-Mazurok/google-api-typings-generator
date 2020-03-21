@@ -36,7 +36,12 @@ class StreamWriter implements TextWriter {
   }
 }
 
-const excludedApi = ['dialogflow', 'replicapool', 'replicapoolupdater'];
+const excludedApi = [
+  'dialogflow',
+  'replicapool',
+  'replicapoolupdater',
+  'apigee',
+];
 
 const irregularSpaces = [
   /\u000B/g, // Line Tabulation (\v) - <VT>
