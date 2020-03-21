@@ -9,24 +9,35 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
-
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build and lint
-      run: |
-        npm ci
-        npm start
-        npm run lint
+    - run: npm ci
+    - name: Generate types
+      run: npm start
+    - run: npm run lint
       env:
-        CI: true
+        GAPI_MAX_PARALLEL: 3
+    - name: Upload types
+      uses: actions/upload-artifact@v1
+      with:
+        name: types
+        path: types
+
+  deploy:
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download types
+      uses: actions/download-artifact@v1
+      with:
+        name: types
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
       env:
