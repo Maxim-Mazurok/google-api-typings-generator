@@ -727,13 +727,11 @@ export class App {
             reject(error);
           }
         } else {
-          console.error(
-            'Got an error: ',
-            error,
-            ', status code: ',
-            response.statusCode,
-            `, while fetching ${url}`
-          );
+          console.error('Got an error: ', error);
+          if (response && response.statusCode) {
+            console.error(`with status code: ${response.statusCode}`);
+          }
+          console.error(`while fetching ${url}`);
           reject(error);
         }
       });
