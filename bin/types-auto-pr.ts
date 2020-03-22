@@ -41,7 +41,7 @@ git commit -m "automatic types update @ {yyyy-mm-dd hh:mm}"
 import path from 'path';
 import parseGitStatus from 'parse-git-status';
 import spawnAsync from '@expo/spawn-async';
-import {typingsPrefix} from "../src/app";
+import { typingsPrefix } from '../src/app';
 
 class TypesAutoPr {
   readonly #cwd: string;
@@ -51,31 +51,40 @@ class TypesAutoPr {
   }
 
   getChangedTypes = async (): Promise<string[]> => {
-    const {stdout} = await spawnAsync('git', ['status', '--porcelain', '-z'], {
-      cwd: this.#cwd
-    });
+    const { stdout } = await spawnAsync(
+      'git',
+      ['status', '--porcelain', '-z'],
+      {
+        cwd: this.#cwd,
+      }
+    );
     const status = parseGitStatus(stdout);
-    return [...new Set(status.map(x => path.basename(path.parse(x.to).dir)))].filter(x => x.indexOf(typingsPrefix) === 0)
+    return [
+      ...new Set(status.map(x => path.basename(path.parse(x.to).dir))),
+    ].filter(x => x.indexOf(typingsPrefix) === 0);
   };
 
   getBranches = async (): Promise<string[]> => {
-    const {stdout} = await spawnAsync('git', ['branch', '--list', '-r', 'origin/*'], {
-      cwd: this.#cwd
-    });
+    const { stdout } = await spawnAsync(
+      'git',
+      ['branch', '--list', '-r', 'origin/*'],
+      {
+        cwd: this.#cwd,
+      }
+    );
     return stdout
       .split('\n')
       .filter(x => x !== '')
       .map(x => x.trim().replace('origin/', ''))
-      .filter(x => x.indexOf(typingsPrefix) === 0)
-  }
-
+      .filter(x => x.indexOf(typingsPrefix) === 0);
+  };
 }
 
 (async () => {
   const app = new TypesAutoPr('/Users/maxim/IdeaProjects/dt-fork');
   const types = await app.getChangedTypes();
   const branches = await app.getBranches();
-  console.log({types, branches});
+  console.log({ types, branches });
 
   types.forEach(type => {
     if (branches.indexOf(type) === -1) {
@@ -83,5 +92,5 @@ class TypesAutoPr {
     } else {
       //TODO: update branch
     }
-  })
+  });
 })();

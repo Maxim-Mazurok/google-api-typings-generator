@@ -599,9 +599,9 @@ export class App {
     url: string
   ) {
     console.log(
-      `Generating ${api.id} definitions... ${(api.labels &&
-        api.labels.join(', ')) ||
-        ''}`
+      `Generating ${api.id} definitions... ${
+        (api.labels && api.labels.join(', ')) || ''
+      }`
     );
 
     const stream = fs.createWriteStream(
