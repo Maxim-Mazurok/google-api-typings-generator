@@ -461,9 +461,7 @@ export class App {
   }
 
   static parseOutPath(dir: string) {
-    if (!fs.existsSync(dir)) {
-      ensureDirectoryExists(dir);
-    }
+    ensureDirectoryExists(dir);
 
     return dir;
   }
