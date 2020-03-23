@@ -229,6 +229,7 @@ class TypesAutoPr {
     await app.checkoutBranch('master'); // checkout master first
     const isNewBranch = branches.indexOf(type) === -1;
     if (isNewBranch) {
+      // TODO: replace with `git checkout gapu.client.* master` instead of checking out master first
       await app.checkoutBranch(type, { create: true }); // so that new branch will be created from master and not from previous gapi.client.* branch
       await app.stageTypesFolder(type);
     } else {
