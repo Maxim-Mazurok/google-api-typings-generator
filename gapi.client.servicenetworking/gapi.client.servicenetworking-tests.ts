@@ -149,6 +149,22 @@ gapi.load('client', () => {
                 "Test string"            ],
             service: "Test string",
         });
+        /**
+         * Service producers can use this method to add roles in the shared VPC host
+         * project. Each role is bound to the provided member. Each role must be
+         * selected from within a whitelisted set of roles. Each role is applied at
+         * only the granularity specified in the whitelist.
+         */
+        await gapi.client.servicenetworking.services.roles.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            policyBinding: [
+                {
+                    member: "Test string",
+                    role: "Test string",
+                }            ],
+        });
         /** Disables VPC service controls for a connection. */
         await gapi.client.servicenetworking.services.disableVpcServiceControls({
             parent: "Test string",
@@ -199,6 +215,22 @@ gapi.load('client', () => {
                 "Test string"            ],
             service: "Test string",
         });
+        /**
+         * Service producers can use this method to add roles in the shared VPC host
+         * project. Each role is bound to the provided member. Each role must be
+         * selected from within a whitelisted set of roles. Each role is applied at
+         * only the granularity specified in the whitelist.
+         */
+        await gapi.client.servicenetworking.services.roles.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            policyBinding: [
+                {
+                    member: "Test string",
+                    role: "Test string",
+                }            ],
+        });
         /** Enables VPC service controls for a connection. */
         await gapi.client.servicenetworking.services.enableVpcServiceControls({
             parent: "Test string",
@@ -248,6 +280,22 @@ gapi.load('client', () => {
             reservedPeeringRanges: [
                 "Test string"            ],
             service: "Test string",
+        });
+        /**
+         * Service producers can use this method to add roles in the shared VPC host
+         * project. Each role is bound to the provided member. Each role must be
+         * selected from within a whitelisted set of roles. Each role is applied at
+         * only the granularity specified in the whitelist.
+         */
+        await gapi.client.servicenetworking.services.roles.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            policyBinding: [
+                {
+                    member: "Test string",
+                    role: "Test string",
+                }            ],
         });
         /**
          * Service producers can use this method to find a currently unused range
@@ -308,6 +356,22 @@ gapi.load('client', () => {
             reservedPeeringRanges: [
                 "Test string"            ],
             service: "Test string",
+        });
+        /**
+         * Service producers can use this method to add roles in the shared VPC host
+         * project. Each role is bound to the provided member. Each role must be
+         * selected from within a whitelisted set of roles. Each role is applied at
+         * only the granularity specified in the whitelist.
+         */
+        await gapi.client.servicenetworking.services.roles.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            policyBinding: [
+                {
+                    member: "Test string",
+                    role: "Test string",
+                }            ],
         });
         /**
          * Service producers use this method to validate if the consumer provided
@@ -372,6 +436,22 @@ gapi.load('client', () => {
             reservedPeeringRanges: [
                 "Test string"            ],
             service: "Test string",
+        });
+        /**
+         * Service producers can use this method to add roles in the shared VPC host
+         * project. Each role is bound to the provided member. Each role must be
+         * selected from within a whitelisted set of roles. Each role is applied at
+         * only the granularity specified in the whitelist.
+         */
+        await gapi.client.servicenetworking.services.roles.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            policyBinding: [
+                {
+                    member: "Test string",
+                    role: "Test string",
+                }            ],
         });
     }
 });

@@ -33,14 +33,14 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
     scope = [     
-        // Associate you with your personal info on Google
-        'https://www.googleapis.com/auth/plus.me',
-    
         // View your email address
         'https://www.googleapis.com/auth/userinfo.email',
     
         // See your personal info, including any personal info you've made publicly available
         'https://www.googleapis.com/auth/userinfo.profile',
+    
+        // Associate you with your personal info on Google
+        'openid',
     ],
     immediate = true;
 // ...

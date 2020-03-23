@@ -12,12 +12,12 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** Associate you with your personal info on Google */
-            'https://www.googleapis.com/auth/plus.me',
             /** View your email address */
             'https://www.googleapis.com/auth/userinfo.email',
             /** See your personal info, including any personal info you've made publicly available */
             'https://www.googleapis.com/auth/userinfo.profile',
+            /** Associate you with your personal info on Google */
+            'openid',
         ];
         const immediate = false;
         gapi.auth.authorize({ client_id, scope, immediate }, authResult => {

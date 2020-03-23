@@ -19,8 +19,6 @@ declare namespace gapi.client {
 
     namespace oauth2 {
         interface Tokeninfo {
-            /** The access type granted with this token. It can be offline or online. */
-            access_type?: string;
             /** Who is the intended audience for this token. In general the same as issued_to. */
             audience?: string;
             /** The email address of the user. Present only if the email scope is present in the request. */
@@ -31,14 +29,12 @@ declare namespace gapi.client {
             issued_to?: string;
             /** The space separated list of scopes granted to this token. */
             scope?: string;
-            /** The token handle associated with this token. */
-            token_handle?: string;
             /** The obfuscated user id. */
             user_id?: string;
             /** Boolean flag which is true if the email address is verified. Present only if the email scope is present in the request. */
             verified_email?: boolean;
         }
-        interface Userinfoplus {
+        interface Userinfo {
             /** The user's email address. */
             email?: string;
             /** The user's last name. */
@@ -78,7 +74,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
-            }): Request<Userinfoplus>;
+            }): Request<Userinfo>;
         }
         interface V2Resource {
             me: MeResource;
@@ -99,7 +95,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
-            }): Request<Userinfoplus>;
+            }): Request<Userinfo>;
             v2: V2Resource;
         }
 
