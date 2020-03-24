@@ -99,7 +99,6 @@ class TypesAutoPr {
     { create }: { create: boolean } = { create: false }
   ): Promise<void> => {
     console.log(`git checkout ${create ? '-B ' : ''}${name}`);
-    // validate branch name: https://stackoverflow.com/a/12093994/4536543
     if ((await this.checkBranchFormat(name)) === false) {
       throw new Error(`Invalid branch name: ${name}`);
     }
