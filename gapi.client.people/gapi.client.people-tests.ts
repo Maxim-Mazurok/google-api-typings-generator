@@ -391,7 +391,6 @@ gapi.load('client', () => {
                 }            ],
             genders: [
                 {
-                    addressMeAs: "Test string",
                     formattedValue: "Test string",
                     metadata: {
                         primary: true,
@@ -1163,7 +1162,6 @@ gapi.load('client', () => {
                 }            ],
             genders: [
                 {
-                    addressMeAs: "Test string",
                     formattedValue: "Test string",
                     metadata: {
                         primary: true,
