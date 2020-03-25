@@ -828,11 +828,6 @@ Adds an access config to an instance's network interface.
 await gapi.client.instances.addAccessConfig({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  }); 
     
 /* 
-Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations.  
-*/
-await gapi.client.instances.addResourcePolicies({ instance: "instance", project: "project", zone: "zone",  }); 
-    
-/* 
 Retrieves aggregated list of all of the instances in your project across all regions and zones.  
 */
 await gapi.client.instances.aggregatedList({ project: "project",  }); 
@@ -896,11 +891,6 @@ await gapi.client.instances.list({ project: "project", zone: "zone",  });
 Retrieves the list of referrers to instances contained within the specified zone. For more information, read Viewing Referrers to VM Instances.  
 */
 await gapi.client.instances.listReferrers({ instance: "instance", project: "project", zone: "zone",  }); 
-    
-/* 
-Removes resource policies from an instance.  
-*/
-await gapi.client.instances.removeResourcePolicies({ instance: "instance", project: "project", zone: "zone",  }); 
     
 /* 
 Performs a reset on the instance. This is a hard reset the VM does not do a graceful shutdown. For more information, see Resetting an instance.  
@@ -993,7 +983,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.instances.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  }); 
     
 /* 
-Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See  Updating a running instance for a list of updatable instance properties.  
+Updates an instance.  
 */
 await gapi.client.instances.update({ instance: "instance", project: "project", zone: "zone",  }); 
     
