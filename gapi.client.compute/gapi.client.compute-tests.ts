@@ -2839,6 +2839,19 @@ gapi.load('client', () => {
             setPublicPtr: true,
             type: "Test string",
         });
+        /**
+         * Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live
+         * migrations.
+         */
+        await gapi.client.compute.instances.addResourcePolicies({
+            instance: "Test string",
+            project: "Test string",
+            requestId: "Test string",
+            zone: "Test string",
+        }, {
+            resourcePolicies: [
+                "Test string"            ],
+        });
         /** Retrieves aggregated list of all of the instances in your project across all regions and zones. */
         await gapi.client.compute.instances.aggregatedList({
             filter: "Test string",
@@ -3182,6 +3195,16 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
+        /** Removes resource policies from an instance. */
+        await gapi.client.compute.instances.removeResourcePolicies({
+            instance: "Test string",
+            project: "Test string",
+            requestId: "Test string",
+            zone: "Test string",
+        }, {
+            resourcePolicies: [
+                "Test string"            ],
+        });
         /** Performs a reset on the instance. This is a hard reset the VM does not do a graceful shutdown. For more information, see Resetting an instance. */
         await gapi.client.compute.instances.reset({
             instance: "Test string",
@@ -3460,7 +3483,10 @@ gapi.load('client', () => {
             permissions: [
                 "Test string"            ],
         });
-        /** Updates an instance. */
+        /**
+         * Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See  Updating a
+         * running instance for a list of updatable instance properties.
+         */
         await gapi.client.compute.instances.update({
             instance: "Test string",
             minimalAction: "Test string",
