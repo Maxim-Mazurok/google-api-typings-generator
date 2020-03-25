@@ -36,15 +36,23 @@ git commit -m "automatic types update @ {yyyy-mm-dd hh:mm}"
 */
 
 import path from 'path';
+import process from 'process';
 import parseGitStatus from 'parse-git-status';
 import spawnAsync from '@expo/spawn-async';
 import { typingsPrefix } from '../src/app';
+import { getBranchNamesOfOpenPRs } from './gh-api';
 
 const settings: {
   cwd?: string;
   typesDirName?: string; // directory path in DT
+  user: string; // user who submits PRs to DT
+  auth: string; // GH public token
+  dtRepo: string;
 } = {
   cwd: '/Users/maxim/IdeaProjects/dt-fork',
+  user: 'Maxim-Mazurok',
+  auth: process.env.GH_AUTH_TOKEN || '',
+  dtRepo: 'DefinitelyTyped/DefinitelyTyped',
 };
 
 class TypesAutoPr {
@@ -245,4 +253,12 @@ class TypesAutoPr {
   }
 
   await app.pushAll(); // pushes to fork
+
+  // get branch names of open PRs by me to DT to later figure out do I have to open PR or it's already opened and will be updated automatically
+  const branchNamesOfOpenPRs = await getBranchNamesOfOpenPRs({
+    user: settings.user,
+    auth: settings.auth,
+    dtRepo: settings.dtRepo,
+  });
+  console.log({ branchNamesOfOpenPRs });
 })();
