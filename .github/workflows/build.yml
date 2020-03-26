@@ -26,11 +26,6 @@ jobs:
       run: npm run lint
       env:
         GAPI_MAX_PARALLEL: 3
-    - name: Upload types
-      uses: actions/upload-artifact@v1
-      with:
-        name: types
-        path: types
     - name: Copy discovery service response
       if: failure()
       run: cp .tmp/${{ env.FAILED_TYPE }}.json types/${{ env.FAILED_TYPE }}
@@ -40,6 +35,11 @@ jobs:
       with:
         name: ${{ env.FAILED_TYPE }}
         path: types/${{ env.FAILED_TYPE }}
+    - name: Upload types
+      uses: actions/upload-artifact@v1
+      with:
+        name: types
+        path: types
 
   deploy:
     needs: generate
