@@ -5,22 +5,29 @@ on: [pull_request]
 jobs:
   lint:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
-
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and lint
-      run: |
-        npm ci
-        npm start
-        npm run lint
+    - name: Install dependencies
+      run: npm ci
+    - name: Generate types
+      run: npm start
+    - name: Lint types
+      run: npm run lint
       env:
-        CI: true
         GAPI_MAX_PARALLEL: 3
+    - name: Copy discovery service response
+      if: failure()
+      run: cp .tmp/${{ env.FAILED_TYPE }}.json types/${{ env.FAILED_TYPE }}
+    - name: Upload failed type
+      uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: ${{ env.FAILED_TYPE }}
+        path: types/${{ env.FAILED_TYPE }}
