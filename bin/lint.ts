@@ -1,7 +1,6 @@
-import { readdirSync, readFileSync } from 'fs';
+import { readdirSync } from 'fs';
 import { join, basename } from 'path';
 import runAll from 'npm-run-all';
-import { tmpDirPath } from '../src/app';
 
 const MAX_PARALLEL = Number(process.env.GAPI_MAX_PARALLEL) || 1;
 
@@ -33,19 +32,11 @@ runAll([scripts.shift()], options) // run first synchronously to install TypeScr
     if (error.results) {
       const results: Array<{ name: string; code: number }> = error.results;
       const failedType = results.find(result => result.code === 1);
+
       if (failedType) {
-        const typeDir = basename(failedType.name);
-        console.log('JSON API definitions:');
-        console.log(
-          readFileSync(join(tmpDirPath, `${typeDir}.json`)).toString()
-        );
-        console.log('Generated index.d.ts:');
-        console.log(readFileSync(join(path, typeDir, 'index.d.ts')).toString());
-        console.log('Generated tests:');
-        console.log(
-          readFileSync(join(path, typeDir, `${typeDir}-tests.ts`)).toString()
-        );
+        console.log(`::set-env name=FAILED_TYPE::${basename(failedType.name)}`);
       }
     }
+
     process.exit(1);
   });
