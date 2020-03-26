@@ -26,7 +26,7 @@
     "lodash": "^4.17.15",
     "request": "^2.88.2",
     "ts-node": "^8.8.1",
-    "typescript": "next"
+    "typescript": "3.9.0-dev.20200324"
   },
   "devDependencies": {
     "@types/commander": "^2.12.2",
@@ -34,7 +34,7 @@
     "@types/gapi.client.discovery": "^1.0.1",
     "@types/jasmine": "^3.5.10",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^12.12.30",
+    "@types/node": "^12.12.31",
     "@types/request": "2.48.4",
     "dtslint": "^3.4.0",
     "gts": "^1.1.2",
