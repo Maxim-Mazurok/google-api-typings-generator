@@ -94,6 +94,14 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
+         * Returns the service configurations and enabled states for a given list of
+         * services.
+         */
+        await gapi.client.serviceusage.services.batchGet({
+            names: "Test string",
+            parent: "Test string",
+        });
+        /**
          * Disable a service so that it can no longer be used with a project.
          * This prevents unintended usage that may cause unexpected billing
          * charges or security leaks.

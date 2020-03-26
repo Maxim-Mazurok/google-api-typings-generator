@@ -109,6 +109,12 @@ To enable a single service, use the `EnableService` method instead.
 await gapi.client.services.batchEnable({ parent: "parent",  }); 
     
 /* 
+Returns the service configurations and enabled states for a given list of
+services.  
+*/
+await gapi.client.services.batchGet({ parent: "parent",  }); 
+    
+/* 
 Disable a service so that it can no longer be used with a project.
 This prevents unintended usage that may cause unexpected billing
 charges or security leaks.
