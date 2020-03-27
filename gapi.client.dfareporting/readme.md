@@ -404,7 +404,7 @@ Retrieves a list of creative field values, possibly filtered. This method suppor
 await gapi.client.creativeFieldValues.list({ creativeFieldId: "creativeFieldId", profileId: "profileId",  }); 
     
 /* 
-Updates an existing creative field value. This method supports patch semantics.  
+Updates an existing creative field. This method supports patch semantics.  
 */
 await gapi.client.creativeFieldValues.patch({ creativeFieldId: "creativeFieldId", id: "id", profileId: "profileId",  }); 
     
