@@ -12,7 +12,7 @@ export interface Settings {
   typesDirName: string; // directory name in DT
   typesBranchName: string; // branch name where generated types are in the generator repo
   user: string; // user who submits PRs to DT
-  auth: string; // GH public token
+  auth: string; // GH token with public_repo access
   dtRepoOwner: string; // DefinitelyTyped repo owner name only
   dtRepoName: string; // DefinitelyTyped repo name only
   thisRepo: string; // repo form where API calls to GH will be made
