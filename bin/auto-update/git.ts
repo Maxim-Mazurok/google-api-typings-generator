@@ -22,8 +22,66 @@ export class Git {
     });
   }
 
-  openPRIfItDoesntExist = async (gapiTypeName: string): Promise<void> => {
-    const { user, dtRepoOwner: owner, dtRepoName: repo } = this.#settings;
+  checkForTemplateUpdate = async (): Promise<void> => {
+    console.log(`Checking for template update...`);
+
+    const {
+      user,
+      dtRepoOwner: owner,
+      dtRepoName: repo,
+      thisRepo,
+      templateUpdateLabel: label,
+    } = this.#settings;
+    const metrics = await this.#octokit.repos.retrieveCommunityProfileMetrics({
+      owner,
+      repo,
+      mediaType: {
+        previews: ['black-panther'],
+      },
+    });
+    const pullRequestTemplateURL = metrics.data.files.pull_request_template.url;
+    const pullRequestTemplateSHA = (
+      await this.#octokit.request<{ sha: string }>(pullRequestTemplateURL)
+    ).data.sha;
+
+    if (pullRequestTemplateSHA !== this.#settings.pullRequestTemplateSHA) {
+      console.log(
+        'PR template is outdated, checking for the existing issue...'
+      );
+
+      const noOpenIssue =
+        (
+          await this.#octokit.issues.list({
+            state: 'open',
+            labels: label,
+          })
+        ).data.length === 0;
+
+      if (noOpenIssue) {
+        console.log('Creating an issue to update PR...');
+
+        await this.#octokit.issues.create({
+          owner: user,
+          repo: thisRepo,
+          title: 'Update PR template',
+          body: `Please, update PR template, current SHA \`${
+            this.#settings.pullRequestTemplateSHA
+          }\` doesn't match actual SHA \`${pullRequestTemplateSHA}\``,
+          assignees: [user],
+          labels: [label],
+        });
+      }
+    }
+  };
+
+  openPRIfItDoesNotExist = async (gapiTypeName: string): Promise<void> => {
+    const {
+      user,
+      dtRepoOwner: owner,
+      dtRepoName: repo,
+      thisRepo,
+      templateUpdateLabel,
+    } = this.#settings;
 
     console.log(`Opening PR for ${gapiTypeName}...`);
 
@@ -46,17 +104,20 @@ export class Git {
   Select one of these and delete the others:
 
   If changing an existing definition:
-  - [x] Provide a URL to documentation or source code which provides context for the suggested changes: https://github.com/Maxim-Mazurok/google-api-typings-generator#google-api-typings-generator
+  - [x] Provide a URL to documentation or source code which provides context for the suggested changes: https://github.com/${user}/${thisRepo}#${thisRepo}
   - [x] If this PR brings the type definitions up to date with a new version of the JS library, update the version number in the header.
   - [x] If you are making substantial changes, consider adding a \`tslint.json\` containing \`{ "extends": "dtslint/dt.json" }\`. If for reason the any rule need to be disabled, disable it for that line using \`// tslint:disable-next-line [ruleName]\` and not for whole package so that the need for disabling can be reviewed.
 
   ----
 
-  Please, note: this PR was created automatically by [Maxim-Mazurok/google-api-typings-generator](https://github.com/Maxim-Mazurok/google-api-typings-generator).
+  Please, note: this PR was created automatically by [${user}/${thisRepo}](https://github.com/${user}/${thisRepo}).
   Types are generated automatically from [Google API Discovery Service](https://developers.google.com/discovery).
   Before submitting this PR, types were linted and tested automatically.
-  Alternatively, you can [use](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/85#issuecomment-601133279) these typings from our [\`types\` branch](https://github.com/Maxim-Mazurok/google-api-typings-generator/tree/types) which gets updated, linted and tested every hour.
-  In case if something is wrong with this PR or the template needs to be updated - please, [submit new issue](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/new).
+  Alternatively, you can [use](https://github.com/${user}/${thisRepo}/issues/85#issuecomment-601133279) these typings from our [\`types\` branch](https://github.com/${user}/${thisRepo}/tree/types) which gets updated, linted and tested every hour.
+  In case if something is wrong with this PR - please, [submit new issue](https://github.com/${user}/${thisRepo}/issues/new).
+  If the PR template was updated - we probably already have an [open issue](https://github.com/${user}/${thisRepo}/issues?q=${encodeURIComponent(
+          `is:issue label:"${templateUpdateLabel}" is:open`
+        )} to update it.
   `,
       });
     } catch (e) {
@@ -178,14 +239,23 @@ export class Git {
     await this.#sh.trySh(cmd);
   };
 
+  addAll = async (): Promise<void> => {
+    const cmd = `git add --all`;
+    await this.#sh.trySh(cmd);
+  };
+
   commit = async ({
     message,
-    all,
+    stageAllFirst,
   }: {
     message: string;
-    all: boolean;
+    stageAllFirst: boolean;
   }): Promise<void> => {
-    const cmd = `git commit -m "${message}" ${all ? '--all' : ''}`;
+    if (stageAllFirst) {
+      await this.addAll(); // make sure that newly added files are also staged
+    }
+
+    const cmd = `git commit -m "${message}"`;
     try {
       await this.#sh.runSh(cmd);
     } catch (e) {
@@ -224,7 +294,7 @@ export class Git {
     const cmd = force ? `git checkout stash -- .` : `git stash pop`;
     await this.#sh.trySh(cmd);
     if (force) {
-      await this.dropStash(); // make the stach actually pop
+      await this.dropStash(); // make the stash actually pop
     }
   };
 }

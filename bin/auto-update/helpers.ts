@@ -18,7 +18,7 @@ export class Helpers {
     await this.downloadTypesBranch();
     await this.copyTypesBranchToDTFork(); // TODO: handle deleted files?
     await this.deleteFolder(`${thisRepo}-${typesBranchName}`); // remove original folder after copying
-    await this.#git.commit({ message: 'tmp', all: true }); // commit all modified/added files so that test runner can detect what changed
+    await this.#git.commit({ message: 'tmp', stageAllFirst: true }); // commit all modified/added files so that test runner can detect what changed
     await this.npm('install'); // install required packages to run tests (no `npm ci` because https://github.com/DefinitelyTyped/DefinitelyTyped/pull/30476#issuecomment-593053174)
     await this.npm('test'); // run DT test runner on changed types
     await this.#git.reset({ hard: false, to: 'HEAD^', quiet: true }); // undo last commit

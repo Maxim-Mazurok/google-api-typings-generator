@@ -26,7 +26,7 @@ export class SH {
 
   error = (exception: SpawnResult): Error =>
     new Error(
-      `An error occured:\n` +
+      `An error occurred:\n` +
         `Error: ${exception.stderr}\n` +
         `Output: ${exception.stdout}\n`
     );

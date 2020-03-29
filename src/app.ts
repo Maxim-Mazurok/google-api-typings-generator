@@ -738,11 +738,11 @@ export class App {
   }
 
   writeTemplate(
-    filepath: string,
+    filePath: string,
     template: doT.RenderFunction,
     api: gapi.client.discovery.RestDescription
   ) {
-    const stream = fs.createWriteStream(filepath),
+    const stream = fs.createWriteStream(filePath),
       writer = new StreamWriter(stream);
 
     try {

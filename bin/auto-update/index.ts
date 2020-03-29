@@ -16,6 +16,8 @@ export interface Settings {
   dtRepoOwner: string; // DefinitelyTyped repo owner name only
   dtRepoName: string; // DefinitelyTyped repo name only
   thisRepo: string; // repo form where API calls to GH will be made
+  pullRequestTemplateSHA: string; // SHA of PULL_REQUEST_TEMPLATE.md file from DT
+  templateUpdateLabel: string; // label for issues regarding PR template update
 }
 
 const settings: Settings = {
@@ -27,6 +29,8 @@ const settings: Settings = {
   dtRepoOwner: 'test-user-delete-me-please-3', // TODO: change this to: 'DefinitelyTyped'
   dtRepoName: 'DefinitelyTyped',
   thisRepo: 'google-api-typings-generator',
+  pullRequestTemplateSHA: 'ab3f84d44f18d1f33cc79c5d857067b939813c7e',
+  templateUpdateLabel: 'template update',
 };
 
 const sh = new SH(settings.dtForkPath);
@@ -61,13 +65,15 @@ const helpers = new Helpers(sh, git, settings);
 
     await git.commit({
       message: `automatic ${type} update @ ${new Date().toUTCString()}`,
-      all: false,
+      stageAllFirst: false,
     });
   }
 
   await git.push({ all: true }); // pushes to fork
 
   for (const type of changedTypes) {
-    await git.openPRIfItDoesntExist(type);
+    await git.openPRIfItDoesNotExist(type);
   }
+
+  await git.checkForTemplateUpdate();
 })();
