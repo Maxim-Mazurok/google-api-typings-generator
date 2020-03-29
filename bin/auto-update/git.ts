@@ -8,30 +8,27 @@ import { Octokit } from '@octokit/rest';
 export class Git {
   readonly #sh: SH;
   readonly #settings: Settings;
+  readonly #octokit: Octokit;
 
   constructor(sh: SH, settings: Settings) {
     this.#sh = sh;
     this.#settings = settings;
-  }
 
-  openPRIfItDoesntExist = async (gapiTypeName: string): Promise<void> => {
-    const {
-      user,
-      auth,
-      thisRepo,
-      dtRepoOwner: owner,
-      dtRepoName: repo,
-    } = this.#settings;
-    const octokit = new Octokit({
+    const { user, auth, thisRepo } = this.#settings;
+    this.#octokit = new Octokit({
       auth,
       userAgent: `${user}/${thisRepo}`,
       timeZone: 'UTC',
     });
+  }
+
+  openPRIfItDoesntExist = async (gapiTypeName: string): Promise<void> => {
+    const { user, dtRepoOwner: owner, dtRepoName: repo } = this.#settings;
 
     console.log(`Opening PR for ${gapiTypeName}...`);
 
     try {
-      await octokit.pulls.create({
+      await this.#octokit.pulls.create({
         owner,
         repo,
         title: `[${gapiTypeName}] automatic update`,

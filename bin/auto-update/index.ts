@@ -24,7 +24,7 @@ const settings: Settings = {
   typesBranchName: 'types',
   user: 'Maxim-Mazurok',
   auth: process.env.GH_AUTH_TOKEN,
-  dtRepoOwner: 'test-user-delete-me-please', // TODO: change this to: 'DefinitelyTyped'
+  dtRepoOwner: 'test-user-delete-me-please-3', // TODO: change this to: 'DefinitelyTyped'
   dtRepoName: 'DefinitelyTyped',
   thisRepo: 'google-api-typings-generator',
 };
