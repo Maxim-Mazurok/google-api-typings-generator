@@ -226,5 +226,6 @@ export class Git {
   ): Promise<void> => {
     const cmd = force ? `git checkout stash -- .` : `git stash pop`;
     await this.#sh.trySh(cmd);
+    force && await this.dropStash(); // make the stach actually pop
   };
 }

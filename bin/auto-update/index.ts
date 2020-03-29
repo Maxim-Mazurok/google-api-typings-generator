@@ -55,8 +55,7 @@ const helpers = new Helpers(sh, git, settings);
       await git.stash({ keepIndex: true }); // #1 contains all changes
       await git.stash(); // #0 contains only staged changes
       await git.checkoutBranch(type);
-      await git.popStash({ force: true }); // #0 applies staged changes
-      await git.dropStash(); // #0 drops stash that we force-applied
+      await git.popStash({ force: true }); // #0 applies staged changes and drops stash
       await git.popStash(); // #1 pops all changes
     }
 
