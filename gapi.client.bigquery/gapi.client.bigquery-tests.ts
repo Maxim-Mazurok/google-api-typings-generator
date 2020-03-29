@@ -354,6 +354,8 @@ gapi.load('client', () => {
                         fields: [
                             "Test string"                        ],
                     },
+                    connectionProperties: [
+                        42                    ],
                     createDisposition: "Test string",
                     defaultDataset: {
                         datasetId: "Test string",
@@ -514,11 +516,18 @@ gapi.load('client', () => {
                 query: {
                     billingTier: 42,
                     cacheHit: true,
+                    ddlAffectedRowAccessPolicyCount: "Test string",
                     ddlOperationPerformed: "Test string",
                     ddlTargetRoutine: {
                         datasetId: "Test string",
                         projectId: "Test string",
                         routineId: "Test string",
+                    },
+                    ddlTargetRowAccessPolicy: {
+                        datasetId: "Test string",
+                        policyId: "Test string",
+                        projectId: "Test string",
+                        tableId: "Test string",
                     },
                     ddlTargetTable: {
                         datasetId: "Test string",
@@ -649,6 +658,9 @@ gapi.load('client', () => {
                         name: "Test string",
                         slotMs: "Test string",
                     }                ],
+                rowLevelSecurityStatistics: {
+                    rowLevelSecurityApplied: true,
+                },
                 scriptStatistics: {
                     evaluationKind: "Test string",
                     stackFrames: [
@@ -702,6 +714,8 @@ gapi.load('client', () => {
         await gapi.client.bigquery.jobs.query({
             projectId: "Test string",
         }, {
+            connectionProperties: [
+                42            ],
             defaultDataset: {
                 datasetId: "Test string",
                 projectId: "Test string",
@@ -889,6 +903,12 @@ gapi.load('client', () => {
                                         }                                    ],
                                 }                            ],
                         },
+                        rankingMetrics: {
+                            averageRank: 42,
+                            meanAveragePrecision: 42,
+                            meanSquaredError: 42,
+                            normalizedDiscountedCumulativeGain: 42,
+                        },
                         regressionMetrics: {
                             meanAbsoluteError: 42,
                             meanSquaredError: 42,
@@ -937,14 +957,20 @@ gapi.load('client', () => {
                         }                    ],
                     startTime: "Test string",
                     trainingOptions: {
+                        batchSize: "Test string",
                         dataSplitColumn: "Test string",
                         dataSplitEvalFraction: 42,
                         dataSplitMethod: "Test string",
                         distanceType: "Test string",
+                        dropout: 42,
                         earlyStop: true,
+                        feedbackType: "Test string",
+                        hiddenUnits: [
+                            "Test string"                        ],
                         initialLearnRate: 42,
                         inputLabelColumns: [
                             "Test string"                        ],
+                        itemColumn: "Test string",
                         kmeansInitializationColumn: "Test string",
                         kmeansInitializationMethod: "Test string",
                         l1Regularization: 42,
@@ -955,10 +981,16 @@ gapi.load('client', () => {
                         learnRateStrategy: "Test string",
                         lossType: "Test string",
                         maxIterations: "Test string",
+                        maxTreeDepth: "Test string",
                         minRelativeProgress: 42,
+                        minSplitLoss: 42,
                         modelUri: "Test string",
                         numClusters: "Test string",
+                        numFactors: "Test string",
                         optimizationStrategy: "Test string",
+                        subsample: 42,
+                        userColumn: "Test string",
+                        walsAlpha: 42,
                         warmStart: true,
                     },
                 }            ],
