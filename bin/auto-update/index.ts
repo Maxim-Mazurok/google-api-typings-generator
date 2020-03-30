@@ -30,7 +30,7 @@ const settings: Settings = {
   dtRepoName: 'DefinitelyTyped',
   thisRepo: 'google-api-typings-generator',
   pullRequestTemplateSHA: 'ab3f84d44f18d1f33cc79c5d857067b939813c7e',
-  templateUpdateLabel: 'template update',
+  templateUpdateLabel: 'DT PR template update',
 };
 
 const sh = new SH(settings.dtForkPath);
