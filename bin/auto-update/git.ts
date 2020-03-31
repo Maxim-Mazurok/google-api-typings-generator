@@ -22,6 +22,40 @@ export class Git {
     });
   }
 
+  getArchiveLink = async (commitSHA: string): Promise<string> => {
+    console.log(`Getting archive link for ${commitSHA}...`);
+
+    const { user: owner, thisRepo: repo } = this.#settings;
+    const response = await this.#octokit.repos.getArchiveLink({
+      owner,
+      repo,
+      ref: commitSHA,
+      archive_format: 'tarball',
+      method: 'HEAD',
+    });
+    return response.url;
+  };
+
+  getLatestCommitHash = async ({
+    owner,
+    repo,
+    branch,
+  }: {
+    owner: string;
+    repo: string;
+    branch: string;
+  }): Promise<string> => {
+    console.log(`Getting latest commit SHA for ${owner}/${repo}/${branch}...`);
+
+    const branchData = await this.#octokit.repos.getBranch({
+      owner,
+      repo,
+      branch,
+    });
+
+    return branchData.data.commit.sha;
+  };
+
   checkForTemplateUpdate = async (): Promise<void> => {
     console.log(`Checking for template update...`);
 

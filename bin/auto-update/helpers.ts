@@ -1,6 +1,8 @@
 import { SH } from './sh';
 import { Git } from './git';
 import { Settings } from './index';
+import { ensureDirectoryExists } from '../../src/utils';
+import { join } from 'path';
 
 export class Helpers {
   readonly #sh: SH;
@@ -14,10 +16,25 @@ export class Helpers {
   }
 
   copyTypesBranchFromGeneratorToDTFork = async (): Promise<void> => {
-    const { thisRepo, typesBranchName } = this.#settings;
-    await this.downloadTypesBranch();
+    const {
+      user,
+      thisRepo,
+      typesBranchName,
+      tempTypesDirName,
+    } = this.#settings;
+
+    const sha = await this.#git.getLatestCommitHash({
+      owner: user,
+      repo: thisRepo,
+      branch: typesBranchName,
+    });
+
+    await this.downloadTypesBranch(sha);
     await this.copyTypesBranchToDTFork(); // TODO: handle deleted files?
-    await this.deleteFolder(`${thisRepo}-${typesBranchName}`); // remove original folder after copying
+    await this.deleteFolder(`${tempTypesDirName}`); // remove temp folder after copying
+  };
+
+  runDTTests = async (): Promise<void> => {
     await this.#git.commit({ message: 'tmp', stageAllFirst: true }); // commit all modified/added files so that test runner can detect what changed
     await this.npm('install'); // install required packages to run tests (no `npm ci` because https://github.com/DefinitelyTyped/DefinitelyTyped/pull/30476#issuecomment-593053174)
     await this.npm('test'); // run DT test runner on changed types
@@ -29,15 +46,17 @@ export class Helpers {
     await this.#sh.trySh(cmd);
   };
 
-  downloadTypesBranch = async (): Promise<void> => {
-    const { user, thisRepo, typesBranchName } = this.#settings;
-    const cmd = `curl https://codeload.github.com/${user}/${thisRepo}/tar.gz/${typesBranchName} | tar xvz -`;
+  downloadTypesBranch = async (commitSHA: string): Promise<void> => {
+    const { dtForkPath, tempTypesDirName } = this.#settings;
+    const url = await this.#git.getArchiveLink(commitSHA);
+    ensureDirectoryExists(join(dtForkPath, tempTypesDirName));
+    const cmd = `curl ${url} | tar xvz - --strip-components=1 -C ${tempTypesDirName}`;
     await this.#sh.trySh(cmd);
   };
 
   copyTypesBranchToDTFork = async (): Promise<void> => {
-    const { thisRepo, typesBranchName, typesDirName } = this.#settings;
-    const cmd = `rsync -a ${thisRepo}-${typesBranchName}/ ${typesDirName}/`;
+    const { tempTypesDirName, typesDirName } = this.#settings;
+    const cmd = `rsync -a ${tempTypesDirName}/ ${typesDirName}/`;
     await this.#sh.trySh(cmd);
   };
 

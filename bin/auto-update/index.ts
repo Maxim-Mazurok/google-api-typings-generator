@@ -10,6 +10,7 @@ if (!process.env.GH_AUTH_TOKEN) {
 export interface Settings {
   dtForkPath: string; // full path to the local DT fork folder
   typesDirName: string; // directory name in DT
+  tempTypesDirName: string; // temporary directory name to download types branch to
   typesBranchName: string; // branch name where generated types are in the generator repo
   user: string; // user who submits PRs to DT
   auth: string; // GH token with public_repo access
@@ -23,10 +24,11 @@ export interface Settings {
 const settings: Settings = {
   dtForkPath: join(resolve(__dirname, '../..'), 'dt-fork'), // TODO: maybe use require('os').tmpdir() or something like that
   typesDirName: 'types',
+  tempTypesDirName: 'temp-types',
   typesBranchName: 'types',
   user: 'Maxim-Mazurok',
   auth: process.env.GH_AUTH_TOKEN,
-  dtRepoOwner: 'test-user-delete-me-please-3', // TODO: change this to: 'DefinitelyTyped'
+  dtRepoOwner: 'test-user-delete-me-please-5', // 'DefinitelyTyped',
   dtRepoName: 'DefinitelyTyped',
   thisRepo: 'google-api-typings-generator',
   pullRequestTemplateSHA: 'ab3f84d44f18d1f33cc79c5d857067b939813c7e',
@@ -42,6 +44,7 @@ const helpers = new Helpers(sh, git, settings);
   await git.cloneDTFork();
   await git.updateDTFork();
   await helpers.copyTypesBranchFromGeneratorToDTFork();
+  //await helpers.runDTTests();
 
   // Do the job
   const changedTypes = await git.getChangedTypes(); // TODO: types changed relative to master, but branches might already have latest changes, maybe try to detect this

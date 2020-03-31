@@ -1,3 +1,5 @@
+import fs from 'fs';
+
 /**
  * Converts the specified version into a `major.minor` convention.
  *
@@ -20,3 +22,13 @@ export function getResourceTypeName(resourceName: string) {
 
   return `${resourceName[0].toUpperCase()}${resourceName.substring(1)}Resource`;
 }
+
+/**
+ * Creates directory recursively if it doesn't exist
+ * @param directory
+ */
+export const ensureDirectoryExists = (directory: string) => {
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, { recursive: true });
+  }
+};

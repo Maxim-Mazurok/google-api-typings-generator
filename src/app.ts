@@ -4,7 +4,11 @@ import _ from 'lodash';
 import path, { resolve, join, basename } from 'path';
 import request from 'request';
 import sortObject from 'deep-sort-object';
-import { getResourceTypeName, parseVersion } from './utils';
+import {
+  getResourceTypeName,
+  parseVersion,
+  ensureDirectoryExists,
+} from './utils';
 import JsonSchema = gapi.client.discovery.JsonSchema;
 import RestResource = gapi.client.discovery.RestResource;
 import RestDescription = gapi.client.discovery.RestDescription;
@@ -126,12 +130,6 @@ function formatPropertyName(name: string) {
   }
   return name;
 }
-
-const ensureDirectoryExists = (directory: string) => {
-  if (!fs.existsSync(directory)) {
-    fs.mkdirSync(directory, { recursive: true });
-  }
-};
 
 class TypescriptTextWriter implements TypescriptTextWriter {
   constructor(private writer: IndentedTextWriter) {}
