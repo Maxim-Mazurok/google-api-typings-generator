@@ -29,7 +29,7 @@
     "parse-git-status": "^0.1.0",
     "request": "^2.88.2",
     "ts-node": "^8.8.1",
-    "typescript": "3.9.0-dev.20200324"
+    "typescript": "3.9.0-dev.20200330"
   },
   "devDependencies": {
     "@types/commander": "^2.12.2",
@@ -37,9 +37,9 @@
     "@types/gapi.client.discovery": "^1.0.1",
     "@types/jasmine": "^3.5.10",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^12.12.32",
+    "@types/node": "^12.12.34",
     "@types/request": "2.48.4",
-    "dtslint": "^3.4.0",
+    "dtslint": "^3.4.1",
     "gts": "^1.1.2",
     "jasmine": "^3.5.0",
     "mocha": "^7.1.1",
