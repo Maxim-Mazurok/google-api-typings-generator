@@ -1,10 +1,10 @@
-# TypeScript typings for Cloud Security Command Center API v1
-Cloud Security Command Center API provides access to temporal views of assets and findings within an organization.
+# TypeScript typings for Security Command Center API v1
+Security Command Center API provides access to temporal views of assets and findings within an organization.
 For detailed description please check [documentation](https://console.cloud.google.com/apis/api/securitycenter.googleapis.com/overview).
 
 ## Installing
 
-Install typings for Cloud Security Command Center API:
+Install typings for Security Command Center API:
 ```
 npm install @types/gapi.client.securitycenter@v1 --save-dev
 ```
@@ -48,7 +48,7 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Cloud Security Command Center API resources:
+After that you can use Security Command Center API resources:
 
 ```typescript 
     
