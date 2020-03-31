@@ -2260,7 +2260,7 @@ gapi.load('client', () => {
             sortField: "Test string",
             sortOrder: "Test string",
         });
-        /** Updates an existing creative field. This method supports patch semantics. */
+        /** Updates an existing creative field value. This method supports patch semantics. */
         await gapi.client.dfareporting.creativeFieldValues.patch({
             creativeFieldId: "Test string",
             id: "Test string",
