@@ -2662,6 +2662,8 @@ gapi.load('client', () => {
             name: "Test string",
             obaIcon: {
                 iconClickThroughUrl: "Test string",
+                iconClickTrackingUrl: "Test string",
+                iconViewTrackingUrl: "Test string",
                 program: "Test string",
                 resourceUrl: "Test string",
                 size: {
@@ -3081,6 +3083,8 @@ gapi.load('client', () => {
             name: "Test string",
             obaIcon: {
                 iconClickThroughUrl: "Test string",
+                iconClickTrackingUrl: "Test string",
+                iconViewTrackingUrl: "Test string",
                 program: "Test string",
                 resourceUrl: "Test string",
                 size: {
@@ -3479,6 +3483,8 @@ gapi.load('client', () => {
             name: "Test string",
             obaIcon: {
                 iconClickThroughUrl: "Test string",
+                iconClickTrackingUrl: "Test string",
+                iconViewTrackingUrl: "Test string",
                 program: "Test string",
                 resourceUrl: "Test string",
                 size: {
@@ -5920,7 +5926,7 @@ gapi.load('client', () => {
             subAccountId: "Test string",
             type: "Test string",
         });
-        /** Retrieves a report file. This method supports media download. */
+        /** Retrieves a report file by its report ID and file ID. This method supports media download. */
         await gapi.client.dfareporting.reports.files.get({
             fileId: "Test string",
             profileId: "Test string",
@@ -6226,7 +6232,7 @@ gapi.load('client', () => {
             subAccountId: "Test string",
             type: "Test string",
         });
-        /** Retrieves a report file. This method supports media download. */
+        /** Retrieves a report file by its report ID and file ID. This method supports media download. */
         await gapi.client.dfareporting.reports.files.get({
             fileId: "Test string",
             profileId: "Test string",
@@ -6810,7 +6816,7 @@ gapi.load('client', () => {
             subAccountId: "Test string",
             type: "Test string",
         });
-        /** Retrieves a report file. This method supports media download. */
+        /** Retrieves a report file by its report ID and file ID. This method supports media download. */
         await gapi.client.dfareporting.reports.files.get({
             fileId: "Test string",
             profileId: "Test string",
@@ -7120,7 +7126,7 @@ gapi.load('client', () => {
             subAccountId: "Test string",
             type: "Test string",
         });
-        /** Retrieves a report file. This method supports media download. */
+        /** Retrieves a report file by its report ID and file ID. This method supports media download. */
         await gapi.client.dfareporting.reports.files.get({
             fileId: "Test string",
             profileId: "Test string",
@@ -7427,7 +7433,7 @@ gapi.load('client', () => {
             subAccountId: "Test string",
             type: "Test string",
         });
-        /** Retrieves a report file. This method supports media download. */
+        /** Retrieves a report file by its report ID and file ID. This method supports media download. */
         await gapi.client.dfareporting.reports.files.get({
             fileId: "Test string",
             profileId: "Test string",
@@ -8012,7 +8018,7 @@ gapi.load('client', () => {
             subAccountId: "Test string",
             type: "Test string",
         });
-        /** Retrieves a report file. This method supports media download. */
+        /** Retrieves a report file by its report ID and file ID. This method supports media download. */
         await gapi.client.dfareporting.reports.files.get({
             fileId: "Test string",
             profileId: "Test string",
