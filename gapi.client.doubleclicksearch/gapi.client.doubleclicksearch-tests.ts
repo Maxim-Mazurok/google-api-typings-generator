@@ -89,62 +89,6 @@ gapi.load('client', () => {
                 }            ],
             kind: "Test string",
         });
-        /** Updates a batch of conversions in DoubleClick Search. This method supports patch semantics. */
-        await gapi.client.doubleclicksearch.conversion.patch({
-            advertiserId: "Test string",
-            agencyId: "Test string",
-            endDate: 42,
-            engineAccountId: "Test string",
-            rowCount: 42,
-            startDate: 42,
-            startRow: 42,
-        }, {
-            conversion: [
-                {
-                    adGroupId: "Test string",
-                    adId: "Test string",
-                    advertiserId: "Test string",
-                    agencyId: "Test string",
-                    attributionModel: "Test string",
-                    campaignId: "Test string",
-                    channel: "Test string",
-                    clickId: "Test string",
-                    conversionId: "Test string",
-                    conversionModifiedTimestamp: "Test string",
-                    conversionTimestamp: "Test string",
-                    countMillis: "Test string",
-                    criterionId: "Test string",
-                    currencyCode: "Test string",
-                    customDimension: [
-                        {
-                            name: "Test string",
-                            value: "Test string",
-                        }                    ],
-                    customMetric: [
-                        {
-                            name: "Test string",
-                            value: 42,
-                        }                    ],
-                    deviceType: "Test string",
-                    dsConversionId: "Test string",
-                    engineAccountId: "Test string",
-                    floodlightOrderId: "Test string",
-                    inventoryAccountId: "Test string",
-                    productCountry: "Test string",
-                    productGroupId: "Test string",
-                    productId: "Test string",
-                    productLanguage: "Test string",
-                    quantityMillis: "Test string",
-                    revenueMicros: "Test string",
-                    segmentationId: "Test string",
-                    segmentationName: "Test string",
-                    segmentationType: "Test string",
-                    state: "Test string",
-                    storeId: "Test string",
-                    type: "Test string",
-                }            ],
-            kind: "Test string",
-        });
         /** Updates a batch of conversions in DoubleClick Search. */
         await gapi.client.doubleclicksearch.conversion.update({} , {
             conversion: [
