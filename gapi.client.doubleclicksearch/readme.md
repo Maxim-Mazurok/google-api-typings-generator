@@ -63,6 +63,11 @@ Inserts a batch of new conversions into DoubleClick Search.
 await gapi.client.conversion.insert({  }); 
     
 /* 
+Updates a batch of conversions in DoubleClick Search. This method supports patch semantics.  
+*/
+await gapi.client.conversion.patch({ advertiserId: "advertiserId", agencyId: "agencyId", endDate: 1, engineAccountId: "engineAccountId", rowCount: 1, startDate: 1, startRow: 1,  }); 
+    
+/* 
 Updates a batch of conversions in DoubleClick Search.  
 */
 await gapi.client.conversion.update({  }); 
