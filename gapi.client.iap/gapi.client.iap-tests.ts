@@ -121,6 +121,9 @@ gapi.load('client', () => {
                 },
             },
             applicationSettings: {
+                accessDeniedPageSettings: {
+                    accessDeniedPageUri: "Test string",
+                },
                 csmSettings: {
                     rctokenAud: "Test string",
                 },
