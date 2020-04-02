@@ -800,7 +800,7 @@ export class App {
           if (line.startsWith('// Revision: ')) {
             const match = line.match(/^\/\/ Revision\: (\d+)$/);
             if (match !== null && match.length === 2) {
-              existingRevision = parseInt(match[1]);
+              existingRevision = Number(match[1]);
               return false;
             }
           }
@@ -817,7 +817,7 @@ export class App {
         );
       }
 
-      const newRevision = parseInt(api.revision);
+      const newRevision = Number(api.revision);
       if (existingRevision > newRevision) {
         return console.warn(
           `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${api.id}`

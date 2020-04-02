@@ -29,8 +29,10 @@ if (params.url) {
     error => console.error(error)
   );
 } else {
-  app.discover(params.service, params.all || false, params.newRevisionsOnly).then(
-    () => console.log('Done'),
-    error => console.error(error)
-  );
+  app
+    .discover(params.service, params.all || false, params.newRevisionsOnly)
+    .then(
+      () => console.log('Done'),
+      error => console.error(error)
+    );
 }
