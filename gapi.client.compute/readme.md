@@ -508,7 +508,7 @@ Deletes the specified Operations resource.
 await gapi.client.globalOperations.delete({ operation: "operation", project: "project",  }); 
     
 /* 
-Retrieves the specified Operations resource. Gets a list of operations by making a `list()` request.  
+Retrieves the specified Operations resource. Gets a list of operations by making a list() request.  
 */
 await gapi.client.globalOperations.get({ operation: "operation", project: "project",  }); 
     
@@ -518,11 +518,11 @@ Retrieves a list of Operation resources contained within the specified project.
 await gapi.client.globalOperations.list({ project: "project",  }); 
     
 /* 
-Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress.
+Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be DONE or still in progress.
 
 This method is called on a best-effort basis. Specifically:  
 - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. 
-- If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.  
+- If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not DONE.  
 */
 await gapi.client.globalOperations.wait({ operation: "operation", project: "project",  }); 
     
@@ -1801,11 +1801,11 @@ Retrieves a list of Operation resources contained within the specified region.
 await gapi.client.regionOperations.list({ project: "project", region: "region",  }); 
     
 /* 
-Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress.
+Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be DONE or still in progress.
 
 This method is called on a best-effort basis. Specifically:  
 - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. 
-- If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.  
+- If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not DONE.  
 */
 await gapi.client.regionOperations.wait({ operation: "operation", project: "project", region: "region",  }); 
     
@@ -2115,11 +2115,6 @@ List all the policies that have been configured for the specified project.
 await gapi.client.securityPolicies.list({ project: "project",  }); 
     
 /* 
-Gets the current list of preconfigured Web Application Firewall (WAF) expressions.  
-*/
-await gapi.client.securityPolicies.listPreconfiguredExpressionSets({ project: "project",  }); 
-    
-/* 
 Patches the specified policy with the data included in the request.  
 */
 await gapi.client.securityPolicies.patch({ project: "project", securityPolicy: "securityPolicy",  }); 
@@ -2267,7 +2262,7 @@ Retrieves an aggregated list of all usable subnetworks in the project. The list 
 await gapi.client.subnetworks.listUsable({ project: "project",  }); 
     
 /* 
-Patches the specified subnetwork with the data included in the request. Only certain fields can up updated with a patch request as indicated in the field descriptions. You must specify the current fingerprint of the subnetwork resource being patched.  
+Patches the specified subnetwork with the data included in the request. Only certain fields can up updated with a patch request as indicated in the field descriptions. You must specify the current fingeprint of the subnetwork resource being patched.  
 */
 await gapi.client.subnetworks.patch({ project: "project", region: "region", subnetwork: "subnetwork",  }); 
     
@@ -2662,11 +2657,11 @@ Retrieves a list of Operation resources contained within the specified zone.
 await gapi.client.zoneOperations.list({ project: "project", zone: "zone",  }); 
     
 /* 
-Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress.
+Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be DONE or still in progress.
 
 This method is called on a best-effort basis. Specifically:  
 - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. 
-- If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.  
+- If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not DONE.  
 */
 await gapi.client.zoneOperations.wait({ operation: "operation", project: "project", zone: "zone",  }); 
     
