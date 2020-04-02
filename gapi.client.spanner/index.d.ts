@@ -44,7 +44,7 @@ declare namespace gapi.client {
              */
             expireTime?: string;
             /**
-             * Output only for the CreateBackup][DatabaseAdmin.CreateBackup] operation.
+             * Output only for the CreateBackup operation.
              * Required for the UpdateBackup operation.
              *
              * A globally unique identifier for the backup which cannot be
@@ -1322,8 +1322,8 @@ declare namespace gapi.client {
              * other methods to check whether the cancellation succeeded or whether the
              * operation completed despite cancellation. On successful cancellation,
              * the operation is not deleted; instead, it becomes an operation with
-             * an Operation.error value with a google.rpc.Status.code of 1,
-             * corresponding to `Code.CANCELLED`.
+             * an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancelTime?: string;
             /** Name of the database being created and restored to. */
@@ -1333,7 +1333,7 @@ declare namespace gapi.client {
              * track the post-restore optimization process to optimize the performance of
              * the restored database, and remove the dependency on the restore source.
              * The name is of the form
-             * `projects/<project>/instances/<instance>/databases/<database>/operations/<operation>
+             * `projects/<project>/instances/<instance>/databases/<database>/operations/<operation>`
              * where the <database> is the name of database being created and restored to.
              * The metadata type of the  long-running operation is
              * OptimizeRestoredDatabaseMetadata. This long-running operation will be
@@ -1832,47 +1832,44 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter expression that filters what operations are returned in the
-                 * response.
+                 * An expression that filters the list of returned backup operations.
                  *
-                 * The filter expression must specify the field name of an operation, a
-                 * comparison operator, and the value that you want to use for filtering.
+                 * A filter expression consists of a field name, a
+                 * comparison operator, and a value for filtering.
                  * The value must be a string, a number, or a boolean. The comparison operator
-                 * must be
-                 * <, >, <=, >=, !=, =, or :. Colon ‘:’ represents a HAS operator which is
-                 * roughly synonymous with equality. Filter rules are case insensitive.
+                 * must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
+                 * Colon `:` is the contains operator. Filter rules are not case sensitive.
                  *
-                 * The long-running operation fields eligible for filtering are:
-                 * &#42; `name` --> The name of the long-running operation
-                 * &#42; `done` --> False if the operation is in progress, else true.
-                 * &#42; `metadata.type_url` (using filter string `metadata.@type`) and fields
-                 * in `metadata.value` (using filter string `metadata.<field_name>`,
-                 * where <field_name> is a field in metadata.value) are eligible for
-                 * filtering.
-                 * &#42; `error` --> Error associated with the long-running operation.
-                 * &#42; `response.type_url` (using filter string `response.@type`) and fields
-                 * in `response.value` (using filter string `response.<field_name>`,
-                 * where <field_name> is a field in response.value) are eligible for
-                 * filtering.
+                 * The following fields in the operation
+                 * are eligible for filtering:
                  *
-                 * To filter on multiple expressions, provide each separate expression within
-                 * parentheses. By default, each expression is an AND expression. However,
-                 * you can include AND, OR, and NOT expressions explicitly.
+                 * &#42; `name` - The name of the long-running operation
+                 * &#42; `done` - False if the operation is in progress, else true.
+                 * &#42; `metadata.@type` - the type of metadata. For example, the type string
+                 * for CreateBackupMetadata is
+                 * `type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata`.
+                 * &#42; `metadata.<field_name>` - any field in metadata.value.
+                 * &#42; `error` - Error associated with the long-running operation.
+                 * &#42; `response.@type` - the type of response.
+                 * &#42; `response.<field_name>` - any field in response.value.
                  *
-                 * Some examples of using filters are:
+                 * You can combine multiple expressions by enclosing each expression in
+                 * parentheses. By default, expressions are combined with AND logic, but
+                 * you can specify AND, OR, and NOT logic explicitly.
                  *
-                 * &#42; `done:true` --> The operation is complete.
-                 * &#42; `metadata.database:prod`
-                 * --> The database the backup was taken from has a name containing
-                 * the string "prod".
-                 * &#42; `(metadata.@type:type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
-                 * AND (metadata.name:howl)
-                 * AND (metadata.progress.start_time < \"2018-03-28T14:50:00Z\")
-                 * AND (error:&#42;)`
-                 * --> Return CreateBackup operations where the created backup name
-                 * contains the string "howl", the progress.start_time of the
-                 * backup operation is before 2018-03-28T14:50:00Z, and the
-                 * operation returned an error.
+                 * Here are a few examples:
+                 *
+                 * &#42; `done:true` - The operation is complete.
+                 * &#42; `metadata.database:prod` - The database the backup was taken from has
+                 * a name containing the string "prod".
+                 * &#42; `(metadata.@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata) AND` <br/>
+                 * `(metadata.name:howl) AND` <br/>
+                 * `(metadata.progress.start_time < \"2018-03-28T14:50:00Z\") AND` <br/>
+                 * `(error:&#42;)` - Returns operations where:
+                 * &#42; The operation's metadata type is CreateBackupMetadata.
+                 * &#42; The backup name contains the string "howl".
+                 * &#42; The operation started before 2018-03-28T14:50:00Z.
+                 * &#42; The operation resulted in an error.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2268,14 +2265,16 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter expression that filters backups listed in the response.
-                 * The expression must specify the field name, a comparison operator,
-                 * and the value that you want to use for filtering. The value must be a
-                 * string, a number, or a boolean. The comparison operator must be
-                 * <, >, <=, >=, !=, =, or :. Colon ‘:’ represents a HAS operator which is
-                 * roughly synonymous with equality. Filter rules are case insensitive.
+                 * An expression that filters the list of returned backups.
                  *
-                 * The fields eligible for filtering are:
+                 * A filter expression consists of a field name, a comparison operator, and a
+                 * value for filtering.
+                 * The value must be a string, a number, or a boolean. The comparison operator
+                 * must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
+                 * Colon `:` is the contains operator. Filter rules are not case sensitive.
+                 *
+                 * The following fields in the Backup are eligible for filtering:
+                 *
                  * &#42; `name`
                  * &#42; `database`
                  * &#42; `state`
@@ -2283,23 +2282,23 @@ declare namespace gapi.client {
                  * &#42; `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
                  * &#42; `size_bytes`
                  *
-                 * To filter on multiple expressions, provide each separate expression within
-                 * parentheses. By default, each expression is an AND expression. However,
-                 * you can include AND, OR, and NOT expressions explicitly.
+                 * You can combine multiple expressions by enclosing each expression in
+                 * parentheses. By default, expressions are combined with AND logic, but
+                 * you can specify AND, OR, and NOT logic explicitly.
                  *
-                 * Some examples of using filters are:
+                 * Here are a few examples:
                  *
-                 * &#42; `name:Howl` --> The backup's name contains the string "howl".
+                 * &#42; `name:Howl` - The backup's name contains the string "howl".
                  * &#42; `database:prod`
-                 * --> The database's name contains the string "prod".
-                 * &#42; `state:CREATING` --> The backup is pending creation.
-                 * &#42; `state:READY` --> The backup is fully created and ready for use.
+                 * - The database's name contains the string "prod".
+                 * &#42; `state:CREATING` - The backup is pending creation.
+                 * &#42; `state:READY` - The backup is fully created and ready for use.
                  * &#42; `(name:howl) AND (create_time < \"2018-03-28T14:50:00Z\")`
-                 * --> The backup name contains the string "howl" and `create_time`
+                 * - The backup name contains the string "howl" and `create_time`
                  * of the backup is before 2018-03-28T14:50:00Z.
                  * &#42; `expire_time < \"2018-03-28T14:50:00Z\"`
-                 * --> The backup `expire_time` is before 2018-03-28T14:50:00Z.
-                 * &#42; `size_bytes > 10000000000` --> The backup's size is greater than 10GB
+                 * - The backup `expire_time` is before 2018-03-28T14:50:00Z.
+                 * &#42; `size_bytes > 10000000000` - The backup's size is greater than 10GB
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2347,7 +2346,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only for the CreateBackup][DatabaseAdmin.CreateBackup] operation.
+                 * Output only for the CreateBackup operation.
                  * Required for the UpdateBackup operation.
                  *
                  * A globally unique identifier for the backup which cannot be
@@ -2397,7 +2396,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only for the CreateBackup][DatabaseAdmin.CreateBackup] operation.
+                 * Output only for the CreateBackup operation.
                  * Required for the UpdateBackup operation.
                  *
                  * A globally unique identifier for the backup which cannot be
@@ -2538,46 +2537,46 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter expression that filters what operations are returned in the
-                 * response.
+                 * An expression that filters the list of returned operations.
                  *
-                 * The filter expression must specify the field name, a comparison operator,
-                 * and the value that you want to use for filtering. The value must be a
-                 * string, a number, or a boolean. The comparison operator must be
-                 * <, >, <=, >=, !=, =, or :. Colon ‘:’ represents a HAS operator which is
-                 * roughly synonymous with equality. Filter rules are case insensitive.
+                 * A filter expression consists of a field name, a
+                 * comparison operator, and a value for filtering.
+                 * The value must be a string, a number, or a boolean. The comparison operator
+                 * must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
+                 * Colon `:` is the contains operator. Filter rules are not case sensitive.
                  *
-                 * The long-running operation fields eligible for filtering are:
-                 * &#42; `name` --> The name of the long-running operation
-                 * &#42; `done` --> False if the operation is in progress, else true.
-                 * &#42; `metadata.type_url` (using filter string `metadata.@type`) and fields
-                 * in `metadata.value` (using filter string `metadata.<field_name>`,
-                 * where <field_name> is a field in metadata.value) are eligible for
-                 * filtering.
-                 * &#42; `error` --> Error associated with the long-running operation.
-                 * &#42; `response.type_url` (using filter string `response.@type`) and fields
-                 * in `response.value` (using filter string `response.<field_name>`,
-                 * where <field_name> is a field in response.value) are eligible for
-                 * filtering.
+                 * The following fields in the Operation
+                 * are eligible for filtering:
                  *
-                 * To filter on multiple expressions, provide each separate expression within
-                 * parentheses. By default, each expression is an AND expression. However,
-                 * you can include AND, OR, and NOT expressions explicitly.
+                 * &#42; `name` - The name of the long-running operation
+                 * &#42; `done` - False if the operation is in progress, else true.
+                 * &#42; `metadata.@type` - the type of metadata. For example, the type string
+                 * for RestoreDatabaseMetadata is
+                 * `type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata`.
+                 * &#42; `metadata.<field_name>` - any field in metadata.value.
+                 * &#42; `error` - Error associated with the long-running operation.
+                 * &#42; `response.@type` - the type of response.
+                 * &#42; `response.<field_name>` - any field in response.value.
                  *
-                 * Some examples of using filters are:
+                 * You can combine multiple expressions by enclosing each expression in
+                 * parentheses. By default, expressions are combined with AND logic. However,
+                 * you can specify AND, OR, and NOT logic explicitly.
                  *
-                 * &#42; `done:true` --> The operation is complete.
-                 * &#42; `(metadata.@type:type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata)
-                 * AND (metadata.source_type:BACKUP)
-                 * AND (metadata.backup_info.backup:backup_howl)
-                 * AND (metadata.name:restored_howl)
-                 * AND (metadata.progress.start_time < \"2018-03-28T14:50:00Z\")
-                 * AND (error:&#42;)`
-                 * --> Return RestoreDatabase operations from backups whose name
-                 * contains "backup_howl", where the created database name
-                 * contains the string "restored_howl", the start_time of the
-                 * restore operation is before 2018-03-28T14:50:00Z,
-                 * and the operation returned an error.
+                 * Here are a few examples:
+                 *
+                 * &#42; `done:true` - The operation is complete.
+                 * &#42; `(metadata.@type=type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata) AND` <br/>
+                 * `(metadata.source_type:BACKUP) AND` <br/>
+                 * `(metadata.backup_info.backup:backup_howl) AND` <br/>
+                 * `(metadata.name:restored_howl) AND` <br/>
+                 * `(metadata.progress.start_time < \"2018-03-28T14:50:00Z\") AND` <br/>
+                 * `(error:&#42;)` - Return operations where:
+                 * &#42; The operation's metadata type is RestoreDatabaseMetadata.
+                 * &#42; The database is restored from a backup.
+                 * &#42; The backup name contains "backup_howl".
+                 * &#42; The restored database's name contains "restored_howl".
+                 * &#42; The operation started before 2018-03-28T14:50:00Z.
+                 * &#42; The operation resulted in an error.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3953,7 +3952,7 @@ declare namespace gapi.client {
                  * restored database. This instance must be in the same project and
                  * have the same instance configuration as the instance containing
                  * the source backup. Values are of the form
-                 * `projects/<project>/instances/<instance>.
+                 * `projects/<project>/instances/<instance>`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3987,7 +3986,7 @@ declare namespace gapi.client {
                  * restored database. This instance must be in the same project and
                  * have the same instance configuration as the instance containing
                  * the source backup. Values are of the form
-                 * `projects/<project>/instances/<instance>.
+                 * `projects/<project>/instances/<instance>`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
