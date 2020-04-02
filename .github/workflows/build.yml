@@ -23,7 +23,7 @@ jobs:
       - name: Get latest types
         run: npm run get-latest-types
       - name: Generate types
-        run: npm start
+        run: npm start -- --new-revisions-only
       - name: Lint types
         run: npm run lint
         env:

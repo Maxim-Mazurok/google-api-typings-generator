@@ -4,6 +4,8 @@ import _ from 'lodash';
 import path, { resolve, join, basename } from 'path';
 import request from 'request';
 import sortObject from 'deep-sort-object';
+import lineReader from 'line-reader';
+import { promisify } from 'bluebird';
 import {
   getResourceTypeName,
   parseVersion,
@@ -15,6 +17,12 @@ import RestDescription = gapi.client.discovery.RestDescription;
 
 export const typingsPrefix = 'gapi.client.';
 export const tmpDirPath = resolve(__dirname, './../.tmp');
+
+const eachLine: (
+  ...args: Parameters<LineReader['eachLine']>
+) => Promise<ReturnType<LineReader['eachLine']>> = promisify(
+  lineReader.eachLine
+);
 
 const typesMap: { [key: string]: string } = {
   integer: 'number',
@@ -750,7 +758,11 @@ export class App {
     }
   }
 
-  async processService(url: string, actualVersion: boolean) {
+  async processService(
+    url: string,
+    actualVersion: boolean,
+    newRevisionsOnly = false
+  ) {
     let api;
 
     try {
@@ -775,6 +787,43 @@ export class App {
     );
 
     ensureDirectoryExists(destinationDirectory);
+
+    if (
+      newRevisionsOnly &&
+      fs.existsSync(path.join(destinationDirectory, 'index.d.ts'))
+    ) {
+      let existingRevision;
+      await eachLine(
+        path.join(destinationDirectory, 'index.d.ts'),
+        {},
+        line => {
+          if (line.startsWith('// Revision: ')) {
+            const match = line.match(/^\/\/ Revision\: (\d+)$/);
+            if (match !== null && match.length === 2) {
+              existingRevision = parseInt(match[1]);
+              return false;
+            }
+          }
+          return true;
+        }
+      );
+
+      if (!api.revision) {
+        return console.error(`There's no revision in JSON: ${api.id}`);
+      }
+      if (!existingRevision) {
+        return console.error(
+          `Can't find previous revision in index.d.ts: ${api.id}`
+        );
+      }
+
+      const newRevision = parseInt(api.revision);
+      if (existingRevision > newRevision) {
+        return console.warn(
+          `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${api.id}`
+        );
+      }
+    }
 
     await this.processApi(destinationDirectory, api, actualVersion, url);
 
@@ -1066,7 +1115,11 @@ export class App {
     writer.endLine(');');
   }
 
-  async discover(service: string | undefined, allVersions = false) {
+  async discover(
+    service: string | undefined,
+    allVersions = false,
+    newRevisionsOnly = false
+  ) {
     console.log('Discovering Google services...');
 
     const list: gapi.client.discovery.DirectoryList = await this.request(
@@ -1094,7 +1147,8 @@ export class App {
           try {
             await this.processService(
               checkExists(preferredApi.discoveryRestUrl),
-              checkExists(preferredApi.preferred)
+              checkExists(preferredApi.preferred),
+              newRevisionsOnly
             );
           } catch (e) {
             console.error(e);
@@ -1111,7 +1165,8 @@ export class App {
             try {
               await this.processService(
                 checkExists(api.discoveryRestUrl),
-                checkExists(api.preferred)
+                checkExists(api.preferred),
+                newRevisionsOnly
               );
             } catch (e) {
               console.error(e);
