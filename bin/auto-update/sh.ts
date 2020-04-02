@@ -3,8 +3,8 @@ import spawnAsync, { SpawnResult } from '@expo/spawn-async';
 export class SH {
   readonly #cwd: string;
 
-  constructor(cwd: string) {
-    this.#cwd = cwd;
+  constructor(cwd?: string) {
+    this.#cwd = cwd || process.cwd();
   }
 
   runSh = async (command: string, cwd?: string): Promise<SpawnResult> => {

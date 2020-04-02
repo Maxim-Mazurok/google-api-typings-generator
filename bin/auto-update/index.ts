@@ -1,22 +1,23 @@
 import { join, resolve } from 'path';
 import { SH } from './sh';
-import { Git } from './git';
+import { Git, Settings as GitSettings } from './git';
 import { Helpers } from './helpers';
+import { GitHelpers } from './gitHelpers';
 
 if (!process.env.GH_AUTH_TOKEN) {
   throw new Error('Please, set env var: GH_AUTH_TOKEN');
 }
 
-export interface Settings {
-  dtForkPath: string; // full path to the local DT fork folder
+export interface TypesBranchAndDirSettings {
   typesDirName: string; // directory name in DT
-  tempTypesDirName: string; // temporary directory name to download types branch to
   typesBranchName: string; // branch name where generated types are in the generator repo
-  user: string; // user who submits PRs to DT
-  auth: string; // GH token with public_repo access
+}
+
+export interface Settings extends GitSettings, TypesBranchAndDirSettings {
+  dtForkPath: string; // full path to the local DT fork folder
+  tempTypesDirName: string; // temporary directory name to download types branch to
   dtRepoOwner: string; // DefinitelyTyped repo owner name only
   dtRepoName: string; // DefinitelyTyped repo name only
-  thisRepo: string; // repo form where API calls to GH will be made
   pullRequestTemplateSHA: string; // SHA of PULL_REQUEST_TEMPLATE.md file from DT
   templateUpdateLabel: string; // label for issues regarding PR template update
 }
@@ -37,12 +38,13 @@ const settings: Settings = {
 
 const sh = new SH(settings.dtForkPath);
 const git = new Git(sh, settings);
+const gitHelpers = new GitHelpers(git, settings);
 const helpers = new Helpers(sh, git, settings);
 
 (async () => {
   // Initialize
-  await git.cloneDTFork();
-  await git.updateDTFork();
+  await gitHelpers.cloneDTFork();
+  await gitHelpers.updateDTFork();
   await helpers.copyTypesBranchFromGeneratorToDTFork();
   //await helpers.runDTTests();
 
@@ -55,10 +57,10 @@ const helpers = new Helpers(sh, git, settings);
     const isNewBranch = branches.indexOf(type) === -1;
     if (isNewBranch) {
       await git.checkoutBranch(type, { create: true, from: 'master' }); // so that new branch will be created from master and not from previous gapi.client.* branch
-      await git.stageTypesFolder(type);
+      await gitHelpers.stageTypesFolder(type);
     } else {
       await git.checkoutBranch('master');
-      await git.stageTypesFolder(type);
+      await gitHelpers.stageTypesFolder(type);
       await git.stash({ keepIndex: true }); // #1 contains all changes
       await git.stash(); // #0 contains only staged changes
       await git.checkoutBranch(type);
@@ -75,8 +77,8 @@ const helpers = new Helpers(sh, git, settings);
   await git.push({ all: true }); // pushes to fork
 
   for (const type of changedTypes) {
-    await git.openPRIfItDoesNotExist(type);
+    await gitHelpers.openPRIfItDoesNotExist(type);
   }
 
-  await git.checkForTemplateUpdate();
+  await gitHelpers.checkForTemplateUpdate();
 })();
