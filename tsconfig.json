@@ -1,18 +1,10 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "declaration": false,
     "outDir": "dist",
     "rootDir": ".",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./typings"
-    ],
+    "typeRoots": ["./node_modules/@types", "./typings"],
     "esModuleInterop": true
   },
-  "include": [
-    "bin/**/*",
-    "src/**/*",
-    "tests/**/*"
-  ]
+  "include": ["bin/**/*", "src/**/*", "tests/**/*"]
 }

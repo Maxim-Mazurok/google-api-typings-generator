@@ -2,7 +2,7 @@ name: Build
 
 on:
   schedule:
-    - cron:  '0 * * * *'
+    - cron: '0 * * * *'
   push:
     branches: [master]
 
@@ -13,47 +13,47 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install dependencies
-      run: npm ci
-    - name: Generate types
-      run: npm start
-    - name: Lint types
-      run: npm run lint
-      env:
-        GAPI_MAX_PARALLEL: 3
-    - name: Copy discovery service response
-      if: failure()
-      run: cp .tmp/${{ env.FAILED_TYPE }}.json types/${{ env.FAILED_TYPE }}
-    - name: Upload failed type
-      uses: actions/upload-artifact@v1
-      if: failure()
-      with:
-        name: ${{ env.FAILED_TYPE }}
-        path: types/${{ env.FAILED_TYPE }}
-    - name: Upload types
-      uses: actions/upload-artifact@v1
-      with:
-        name: types
-        path: types
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Generate types
+        run: npm start
+      - name: Lint types
+        run: npm run lint
+        env:
+          GAPI_MAX_PARALLEL: 3
+      - name: Copy discovery service response
+        if: failure()
+        run: cp .tmp/${{ env.FAILED_TYPE }}.json types/${{ env.FAILED_TYPE }}
+      - name: Upload failed type
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: ${{ env.FAILED_TYPE }}
+          path: types/${{ env.FAILED_TYPE }}
+      - name: Upload types
+        uses: actions/upload-artifact@v1
+        with:
+          name: types
+          path: types
 
   deploy:
     needs: generate
     runs-on: ubuntu-latest
     steps:
-    - name: Download types
-      uses: actions/download-artifact@v1
-      with:
-        name: types
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2
-      env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        PUBLISH_BRANCH: types
-        PUBLISH_DIR: ./types
-      with:
-        emptyCommits: false
+      - name: Download types
+        uses: actions/download-artifact@v1
+        with:
+          name: types
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: types
+          PUBLISH_DIR: ./types
+        with:
+          emptyCommits: false

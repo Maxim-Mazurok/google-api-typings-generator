@@ -1,4 +1,5 @@
 # google-api-typings-generator
+
 Generate TypeScript type definitions for all Google APIs,
 using [Google API discovery](https://developers.google.com/discovery/) service.
 
@@ -6,6 +7,7 @@ Meant to be used with [Google APIs JavaScript Browser Client](https://github.com
 Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/google-api-nodejs-client) which is already in TS; [details](#javascript-vs-nodejs-clients)
 
 ##### My fork DIFF:
+
 - Supports both `resource` and second-argument approaches; [details](#resource-vs-body)
 - Includes empty interfaces; [details](#empty-interfaces)
 - Works for arrays, aka `"repeated": true`; [details](#arrays--repeated-values)
@@ -17,43 +19,43 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
 
 1. Use the supported Node version via [Node Version Manager](https://github.com/nvm-sh/nvm):
 
-    ```sh
-    nvm install
-    ```
+   ```sh
+   nvm install
+   ```
 
 2. Install dependencies:
 
-    ```sh
-    npm install
-    ```
+   ```sh
+   npm install
+   ```
 
 3. Generate type definitions for:
 
-    1. all discovered Google APIs:
+   1. all discovered Google APIs:
 
-        ```sh
-        npm start
-        ```
+      ```sh
+      npm start
+      ```
 
-        _Some APIs are disabled or not fully developed yet, so some expected errors might be output._
+      _Some APIs are disabled or not fully developed yet, so some expected errors might be output._
 
-    2. one service by name:
+   2. one service by name:
 
-        ```sh
-        npm start -- --service sheets
-        ```
+      ```sh
+      npm start -- --service sheets
+      ```
 
-        where `sheets` is the name of the [Google Sheets](https://developers.google.com/sheets/) service.
+      where `sheets` is the name of the [Google Sheets](https://developers.google.com/sheets/) service.
 
-        _The full list of APIs can be found [here](https://www.googleapis.com/discovery/v1/apis)._
+      _The full list of APIs can be found [here](https://www.googleapis.com/discovery/v1/apis)._
 
-    3. one service by URL:
+   3. one service by URL:
 
-        ```sh
-        npm start -- --url https://sheets.googleapis.com/\\\$discovery/rest?version=v4
-        ```
+      ```sh
+      npm start -- --url https://sheets.googleapis.com/\\\$discovery/rest?version=v4
+      ```
 
-       _Note the intentional escaping of `$discovery`._
+      _Note the intentional escaping of `$discovery`._
 
 ### Compiling project
 
@@ -108,25 +110,31 @@ npm run fix
 ## Details
 
 ### Resource VS Body
+
 First approach (Resource):
+
 ```javascript
-gapi.client.sheets.spreadsheets
-  .batchUpdate({
-    spreadsheetId: 'someId',
-    resource: {
-      // Request Body goes here, as part of `request`
-    },
-  })
+gapi.client.sheets.spreadsheets.batchUpdate({
+  spreadsheetId: 'someId',
+  resource: {
+    // Request Body goes here, as part of `request`
+  },
+});
 ```
+
 second approach (Body):
+
 ```javascript
-gapi.client.sheets.spreadsheets
-  .batchUpdate({
+gapi.client.sheets.spreadsheets.batchUpdate(
+  {
     spreadsheetId: 'someId',
-  }, {
+  },
+  {
     // Request Body goes here, as a second argument
-  })
+  }
+);
 ```
+
 Both approaches are valid (tested for Google Sheets API), but first one seems to be default for JS Client Library.
 
 More info here: [google/google-api-javascript-client#432 (comment)](https://github.com/google/google-api-javascript-client/issues/432#issuecomment-530860301),
@@ -135,17 +143,20 @@ and here: [declanvong@`bec4f89`#r35992626](https://github.com/declanvong/google-
 **NOTE:** Some APIs have methods that accept `resource` parameter that is not request body. In that case, we only generate second approach ([details](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/14/commits/776e36ef25886fdb2d38a002ed12ba1dacde85c5))
 
 ### Empty interfaces
+
 This fork keeps interfaces even if they are empty to make typings more accurate.
 
 More info here: [Maxim-Mazurok/google-api-typings-generator#4](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/4)
 
 ### Arrays / repeated values
+
 This fork understands `"repeated": true`
 
 More info here: [Maxim-Mazurok/google-api-typings-generator#1](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/1)
 and here: [declanvong@`bec4f89`#r35992626](https://github.com/declanvong/google-api-typings-generator/commit/bec4f89b998db670e4a9d41810ceb39a1ba9b798#r35992626)
 
 ### JavaScript VS NodeJS Clients
+
 There are two ways to use Google APIs: on client-side (in browser) and on server-side.
 
 **Client-side** library, called `gapi` is kinda closed-source.
