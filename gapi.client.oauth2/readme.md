@@ -1,6 +1,6 @@
 # TypeScript typings for Google OAuth2 API v2
 Obtains end-user authorization grants for use with other Google APIs.
-For detailed description please check [documentation](https://developers.google.com/accounts/docs/OAuth2).
+For detailed description please check [documentation](https://developers.google.com/identity/protocols/oauth2/).
 
 ## Installing
 

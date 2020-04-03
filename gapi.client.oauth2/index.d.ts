@@ -1,5 +1,5 @@
 // Type definitions for non-npm package Google OAuth2 API v2 2.0
-// Project: https://developers.google.com/accounts/docs/OAuth2
+// Project: https://developers.google.com/identity/protocols/oauth2/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
