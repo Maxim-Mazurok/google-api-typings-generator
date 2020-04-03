@@ -1681,7 +1681,7 @@ gapi.load('client', () => {
             operation: "Test string",
             project: "Test string",
         });
-        /** Retrieves the specified Operations resource. Gets a list of operations by making a list() request. */
+        /** Retrieves the specified Operations resource. Gets a list of operations by making a `list()` request. */
         await gapi.client.compute.globalOperations.get({
             operation: "Test string",
             project: "Test string",
@@ -1695,15 +1695,15 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified
-         * Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the
-         * current state of the operation, which might be DONE or still in progress.
+         * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified
+         * Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the
+         * current state of the operation, which might be `DONE` or still in progress.
          *
          * This method is called on a best-effort basis. Specifically:
          * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
          * seconds.
          * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
-         * operation is not DONE.
+         * operation is not `DONE`.
          */
         await gapi.client.compute.globalOperations.wait({
             operation: "Test string",
@@ -3139,6 +3139,8 @@ gapi.load('client', () => {
                 values: [
                     "Test string"                ],
             },
+            resourcePolicies: [
+                "Test string"            ],
             scheduling: {
                 automaticRestart: true,
                 nodeAffinities: [
@@ -3628,6 +3630,8 @@ gapi.load('client', () => {
                 values: [
                     "Test string"                ],
             },
+            resourcePolicies: [
+                "Test string"            ],
             scheduling: {
                 automaticRestart: true,
                 nodeAffinities: [
@@ -6834,15 +6838,15 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified
-         * Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the
-         * current state of the operation, which might be DONE or still in progress.
+         * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified
+         * Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the
+         * current state of the operation, which might be `DONE` or still in progress.
          *
          * This method is called on a best-effort basis. Specifically:
          * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
          * seconds.
          * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
-         * operation is not DONE.
+         * operation is not `DONE`.
          */
         await gapi.client.compute.regionOperations.wait({
             operation: "Test string",
@@ -9765,6 +9769,14 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
+        /** Gets the current list of preconfigured Web Application Firewall (WAF) expressions. */
+        await gapi.client.compute.securityPolicies.listPreconfiguredExpressionSets({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+        });
         /** Patches the specified policy with the data included in the request. */
         await gapi.client.compute.securityPolicies.patch({
             project: "Test string",
@@ -10192,7 +10204,7 @@ gapi.load('client', () => {
         });
         /**
          * Patches the specified subnetwork with the data included in the request. Only certain fields can up updated with a patch request as indicated in the
-         * field descriptions. You must specify the current fingeprint of the subnetwork resource being patched.
+         * field descriptions. You must specify the current fingerprint of the subnetwork resource being patched.
          */
         await gapi.client.compute.subnetworks.patch({
             drainTimeoutSeconds: 42,
@@ -12866,15 +12878,15 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Waits for the specified Operation resource to return as DONE or for the request to approach the 2 minute deadline, and retrieves the specified
-         * Operation resource. This method differs from the GET method in that it waits for no more than the default deadline (2 minutes) and then returns the
-         * current state of the operation, which might be DONE or still in progress.
+         * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified
+         * Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the
+         * current state of the operation, which might be `DONE` or still in progress.
          *
          * This method is called on a best-effort basis. Specifically:
          * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
          * seconds.
          * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
-         * operation is not DONE.
+         * operation is not `DONE`.
          */
         await gapi.client.compute.zoneOperations.wait({
             operation: "Test string",
