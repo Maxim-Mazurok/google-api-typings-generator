@@ -90,16 +90,6 @@ gapi.load('client', () => {
                 encryptionConfig: {
                     kmsKeyName: "Test string",
                 },
-                evaluatorConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                evaluatorCount: "Test string",
-                evaluatorType: "Test string",
                 hyperparameters: {
                     algorithm: "Test string",
                     enableTrialEarlyStopping: true,
@@ -273,16 +263,6 @@ gapi.load('client', () => {
                 encryptionConfig: {
                     kmsKeyName: "Test string",
                 },
-                evaluatorConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                evaluatorCount: "Test string",
-                evaluatorType: "Test string",
                 hyperparameters: {
                     algorithm: "Test string",
                     enableTrialEarlyStopping: true,
@@ -3116,16 +3096,6 @@ gapi.load('client', () => {
                 encryptionConfig: {
                     kmsKeyName: "Test string",
                 },
-                evaluatorConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                evaluatorCount: "Test string",
-                evaluatorType: "Test string",
                 hyperparameters: {
                     algorithm: "Test string",
                     enableTrialEarlyStopping: true,
@@ -3299,16 +3269,6 @@ gapi.load('client', () => {
                 encryptionConfig: {
                     kmsKeyName: "Test string",
                 },
-                evaluatorConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                evaluatorCount: "Test string",
-                evaluatorType: "Test string",
                 hyperparameters: {
                     algorithm: "Test string",
                     enableTrialEarlyStopping: true,
@@ -6149,16 +6109,6 @@ gapi.load('client', () => {
                 encryptionConfig: {
                     kmsKeyName: "Test string",
                 },
-                evaluatorConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                evaluatorCount: "Test string",
-                evaluatorType: "Test string",
                 hyperparameters: {
                     algorithm: "Test string",
                     enableTrialEarlyStopping: true,
@@ -6332,16 +6282,6 @@ gapi.load('client', () => {
                 encryptionConfig: {
                     kmsKeyName: "Test string",
                 },
-                evaluatorConfig: {
-                    acceleratorConfig: {
-                        count: "Test string",
-                        type: "Test string",
-                    },
-                    imageUri: "Test string",
-                    tpuTfVersion: "Test string",
-                },
-                evaluatorCount: "Test string",
-                evaluatorType: "Test string",
                 hyperparameters: {
                     algorithm: "Test string",
                     enableTrialEarlyStopping: true,
