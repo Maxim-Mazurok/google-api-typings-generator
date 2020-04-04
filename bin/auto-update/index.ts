@@ -3,6 +3,7 @@ import { SH } from './sh';
 import { Git, Settings as GitSettings } from './git';
 import { Helpers } from './helpers';
 import { GitHelpers } from './gitHelpers';
+import { typingsPrefix } from '../../src/app';
 
 if (!process.env.GH_AUTH_TOKEN) {
   throw new Error('Please, set env var: GH_AUTH_TOKEN');
@@ -36,6 +37,8 @@ const settings: Settings = {
   templateUpdateLabel: 'DT PR template update',
 };
 
+const whiteListedTypes = ['sheets'].map(x => `${typingsPrefix}${x}`);
+
 const sh = new SH(settings.dtForkPath);
 const git = new Git(sh, settings);
 const gitHelpers = new GitHelpers(git, settings);
@@ -46,7 +49,7 @@ const helpers = new Helpers(sh, git, settings);
   await gitHelpers.cloneDTFork();
   await gitHelpers.updateDTFork();
   await helpers.copyTypesBranchFromGeneratorToDTFork();
-  //await helpers.runDTTests();
+  await helpers.runDTTests();
 
   // Do the job
   const changedTypes = await git.getChangedTypes(); // TODO: types changed relative to master, but branches might already have latest changes, maybe try to detect this
@@ -77,6 +80,8 @@ const helpers = new Helpers(sh, git, settings);
   await git.push({ all: true }); // pushes to fork
 
   for (const type of changedTypes) {
+    if (whiteListedTypes.indexOf(type) === -1) continue;
+
     await gitHelpers.openPRIfItDoesNotExist(type);
   }
 

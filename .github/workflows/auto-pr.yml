@@ -10,9 +10,6 @@ jobs:
     steps:
       # setup
       - uses: actions/checkout@v2
-      - name: Set GitHub Token ENV
-        env:
-        GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
       - name: Read .nvmrc
         run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
         id: nvm
@@ -24,5 +21,7 @@ jobs:
         run: npm ci
 
       # do the job
-      - name: Auto Open PRs
+      - name: Auto Open PRs∂
         run: npm run auto-update
+        env:
+          GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
