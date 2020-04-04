@@ -1,0 +1,28 @@
+name: Auto Open PRs
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      # setup
+      - uses: actions/checkout@v2
+      - name: Set GitHub Token ENV
+        env:
+        GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
+      - name: Read .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvm
+      - name: Use Node.js ${{ steps.node_version.outputs.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm ci
+
+      # do the job
+      - name: Auto Open PRs
+        run: npm run auto-update

@@ -29,7 +29,7 @@ const settings: Settings = {
   typesBranchName: 'types',
   user: 'Maxim-Mazurok',
   auth: process.env.GH_AUTH_TOKEN,
-  dtRepoOwner: 'test-user-delete-me-please-5', // 'DefinitelyTyped',
+  dtRepoOwner: 'DefinitelyTyped',
   dtRepoName: 'DefinitelyTyped',
   thisRepo: 'google-api-typings-generator',
   pullRequestTemplateSHA: 'ab3f84d44f18d1f33cc79c5d857067b939813c7e',
