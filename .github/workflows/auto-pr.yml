@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       # do the job
-      - name: Auto Open PRs∂
+      - name: Auto Open PRs
         run: npm run auto-update
         env:
           GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
