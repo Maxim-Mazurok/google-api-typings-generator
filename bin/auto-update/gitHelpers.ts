@@ -105,14 +105,11 @@ export class GitHelpers {
 
   ----
 
-  Please, note: this PR was created automatically by [${user}/${thisRepo}](https://github.com/${user}/${thisRepo}).
-  Types are generated automatically from [Google API Discovery Service](https://developers.google.com/discovery).
-  Before submitting this PR, types were linted and tested automatically.
-  Alternatively, you can [use](https://github.com/${user}/${thisRepo}/issues/85#issuecomment-601133279) these typings from our [\`types\` branch](https://github.com/${user}/${thisRepo}/tree/types) which gets updated, linted and tested every hour.
-  In case if something is wrong with this PR - please, [submit new issue](https://github.com/${user}/${thisRepo}/issues/new).
-  If the PR template was updated - we probably already have an [open issue](https://github.com/${user}/${thisRepo}/issues?q=${encodeURIComponent(
-          `is:issue label:"${templateUpdateLabel}" is:open`
-        )} to update it.
+  🤖 This pull request was automatically created by [${user}/${thisRepo}](https://github.com/${user}/${thisRepo}) which generates types from [Google API Discovery Service](https://developers.google.com/discovery). Types were linted and tested before submission.
+
+  If there is an issue with this pull request, consider [submitting a new issue](https://github.com/${user}/${thisRepo}/issues/new).
+  
+  Note you can also [use these types](https://github.com/${user}/${thisRepo}/issues/85#issuecomment-601133279) from our [\`types\` branch](https://github.com/${user}/${thisRepo}/tree/types) which is updated hourly.
   `,
       });
     } catch (e) {
