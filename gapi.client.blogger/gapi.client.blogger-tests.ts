@@ -29,18 +29,18 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /** Gets one blog by ID. */
+        /** Gets a blog by id. */
         await gapi.client.blogger.blogs.get({
             blogId: "Test string",
             maxPosts: 42,
             view: "Test string",
         });
-        /** Retrieve a Blog by URL. */
+        /** Gets a blog by url. */
         await gapi.client.blogger.blogs.getByUrl({
             url: "Test string",
             view: "Test string",
         });
-        /** Retrieves a list of blogs, possibly filtered. */
+        /** Lists blogs by user. */
         await gapi.client.blogger.blogs.listByUser({
             fetchUserInfo: true,
             role: "Test string",
@@ -48,32 +48,32 @@ gapi.load('client', () => {
             userId: "Test string",
             view: "Test string",
         });
-        /** Gets one blog and user info pair by blogId and userId. */
+        /** Gets one blog and user info pair by blog id and user id. */
         await gapi.client.blogger.blogUserInfos.get({
             blogId: "Test string",
             maxPosts: 42,
             userId: "Test string",
         });
-        /** Marks a comment as not spam. */
+        /** Marks a comment as not spam by blog id, post id and comment id. */
         await gapi.client.blogger.comments.approve({
             blogId: "Test string",
             commentId: "Test string",
             postId: "Test string",
         });
-        /** Delete a comment by ID. */
+        /** Deletes a comment by blog id, post id and comment id. */
         await gapi.client.blogger.comments.delete({
             blogId: "Test string",
             commentId: "Test string",
             postId: "Test string",
         });
-        /** Gets one comment by ID. */
+        /** Gets a comment by id. */
         await gapi.client.blogger.comments.get({
             blogId: "Test string",
             commentId: "Test string",
             postId: "Test string",
             view: "Test string",
         });
-        /** Retrieves the comments for a post, possibly filtered. */
+        /** Lists comments. */
         await gapi.client.blogger.comments.list({
             blogId: "Test string",
             endDate: "Test string",
@@ -85,7 +85,7 @@ gapi.load('client', () => {
             status: "Test string",
             view: "Test string",
         });
-        /** Retrieves the comments for a blog, across all posts, possibly filtered. */
+        /** Lists comments by blog. */
         await gapi.client.blogger.comments.listByBlog({
             blogId: "Test string",
             endDate: "Test string",
@@ -95,30 +95,30 @@ gapi.load('client', () => {
             startDate: "Test string",
             status: "Test string",
         });
-        /** Marks a comment as spam. */
+        /** Marks a comment as spam by blog id, post id and comment id. */
         await gapi.client.blogger.comments.markAsSpam({
             blogId: "Test string",
             commentId: "Test string",
             postId: "Test string",
         });
-        /** Removes the content of a comment. */
+        /** Removes the content of a comment by blog id, post id and comment id. */
         await gapi.client.blogger.comments.removeContent({
             blogId: "Test string",
             commentId: "Test string",
             postId: "Test string",
         });
-        /** Delete a page by ID. */
+        /** Deletes a page by blog id and page id. */
         await gapi.client.blogger.pages.delete({
             blogId: "Test string",
             pageId: "Test string",
         });
-        /** Gets one blog page by ID. */
+        /** Gets a page by blog id and page id. */
         await gapi.client.blogger.pages.get({
             blogId: "Test string",
             pageId: "Test string",
             view: "Test string",
         });
-        /** Add a page. */
+        /** Inserts a page. */
         await gapi.client.blogger.pages.insert({
             blogId: "Test string",
             isDraft: true,
@@ -145,7 +145,7 @@ gapi.load('client', () => {
             updated: "Test string",
             url: "Test string",
         });
-        /** Retrieves the pages for a blog, optionally including non-LIVE statuses. */
+        /** Lists pages. */
         await gapi.client.blogger.pages.list({
             blogId: "Test string",
             fetchBodies: true,
@@ -154,7 +154,7 @@ gapi.load('client', () => {
             status: "Test string",
             view: "Test string",
         });
-        /** Update a page. This method supports patch semantics. */
+        /** Patches a page. */
         await gapi.client.blogger.pages.patch({
             blogId: "Test string",
             pageId: "Test string",
@@ -183,17 +183,17 @@ gapi.load('client', () => {
             updated: "Test string",
             url: "Test string",
         });
-        /** Publishes a draft page. */
+        /** Publishes a page. */
         await gapi.client.blogger.pages.publish({
             blogId: "Test string",
             pageId: "Test string",
         });
-        /** Revert a published or scheduled page to draft state. */
+        /** Reverts a published or scheduled page to draft state. */
         await gapi.client.blogger.pages.revert({
             blogId: "Test string",
             pageId: "Test string",
         });
-        /** Update a page. */
+        /** Updates a page by blog id and page id. */
         await gapi.client.blogger.pages.update({
             blogId: "Test string",
             pageId: "Test string",
@@ -222,17 +222,17 @@ gapi.load('client', () => {
             updated: "Test string",
             url: "Test string",
         });
-        /** Retrieve pageview stats for a Blog. */
+        /** Gets page views by blog id. */
         await gapi.client.blogger.pageViews.get({
             blogId: "Test string",
             range: "Test string",
         });
-        /** Delete a post by ID. */
+        /** Deletes a post by blog id and post id. */
         await gapi.client.blogger.posts.delete({
             blogId: "Test string",
             postId: "Test string",
         });
-        /** Get a post by ID. */
+        /** Gets a post by blog id and post id */
         await gapi.client.blogger.posts.get({
             blogId: "Test string",
             fetchBody: true,
@@ -241,14 +241,14 @@ gapi.load('client', () => {
             postId: "Test string",
             view: "Test string",
         });
-        /** Retrieve a Post by Path. */
+        /** Gets a post by path. */
         await gapi.client.blogger.posts.getByPath({
             blogId: "Test string",
             maxComments: 42,
             path: "Test string",
             view: "Test string",
         });
-        /** Add a post. */
+        /** Inserts a post. */
         await gapi.client.blogger.posts.insert({
             blogId: "Test string",
             fetchBody: true,
@@ -323,7 +323,7 @@ gapi.load('client', () => {
             updated: "Test string",
             url: "Test string",
         });
-        /** Retrieves a list of posts, possibly filtered. */
+        /** Lists posts. */
         await gapi.client.blogger.posts.list({
             blogId: "Test string",
             endDate: "Test string",
@@ -337,7 +337,7 @@ gapi.load('client', () => {
             status: "Test string",
             view: "Test string",
         });
-        /** Update a post. This method supports patch semantics. */
+        /** Patches a post. */
         await gapi.client.blogger.posts.patch({
             blogId: "Test string",
             fetchBody: true,
@@ -415,25 +415,25 @@ gapi.load('client', () => {
             updated: "Test string",
             url: "Test string",
         });
-        /** Publishes a draft post, optionally at the specific time of the given publishDate parameter. */
+        /** Publishes a post. */
         await gapi.client.blogger.posts.publish({
             blogId: "Test string",
             postId: "Test string",
             publishDate: "Test string",
         });
-        /** Revert a published or scheduled post to draft state. */
+        /** Reverts a published or scheduled post to draft state. */
         await gapi.client.blogger.posts.revert({
             blogId: "Test string",
             postId: "Test string",
         });
-        /** Search for a post. */
+        /** Searches for posts matching given query terms in the specified blog. */
         await gapi.client.blogger.posts.search({
             blogId: "Test string",
             fetchBodies: true,
             orderBy: "Test string",
             q: "Test string",
         });
-        /** Update a post. */
+        /** Updates a post by blog id and post id. */
         await gapi.client.blogger.posts.update({
             blogId: "Test string",
             fetchBody: true,
@@ -511,20 +511,14 @@ gapi.load('client', () => {
             updated: "Test string",
             url: "Test string",
         });
-        /**
-         * Gets one post and user info pair, by post ID and user ID. The post user info contains per-user information about the post, such as access rights,
-         * specific to the user.
-         */
+        /** Gets one post and user info pair, by post_id and user_id. */
         await gapi.client.blogger.postUserInfos.get({
             blogId: "Test string",
             maxComments: 42,
             postId: "Test string",
             userId: "Test string",
         });
-        /**
-         * Retrieves a list of post and post user info pairs, possibly filtered. The post user info contains per-user information about the post, such as access
-         * rights, specific to the user.
-         */
+        /** Lists post and user info pairs. */
         await gapi.client.blogger.postUserInfos.list({
             blogId: "Test string",
             endDate: "Test string",
@@ -538,7 +532,7 @@ gapi.load('client', () => {
             userId: "Test string",
             view: "Test string",
         });
-        /** Gets one user by ID. */
+        /** Gets one user by user_id. */
         await gapi.client.blogger.users.get({
             userId: "Test string",
         });
