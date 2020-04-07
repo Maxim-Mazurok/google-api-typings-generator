@@ -1,11 +1,10 @@
-# TypeScript typings for Blogger API v3 v3
-The Blogger API provides access to posts, comments and pages of a
-    Blogger blog.
+# TypeScript typings for Blogger API v3
+API for access to the data within Blogger.
 For detailed description please check [documentation](https://developers.google.com/blogger/docs/3.0/getting_started).
 
 ## Installing
 
-Install typings for Blogger API v3:
+Install typings for Blogger API:
 ```
 npm install @types/gapi.client.blogger@v3 --save-dev
 ```
@@ -52,172 +51,172 @@ gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }
 });            
 ```
 
-After that you can use Blogger API v3 resources:
+After that you can use Blogger API resources:
 
 ```typescript 
     
 /* 
-Gets a blog by id.  
+Gets one blog by ID.  
 */
 await gapi.client.blogs.get({ blogId: "blogId",  }); 
     
 /* 
-Gets a blog by url.  
+Retrieve a Blog by URL.  
 */
 await gapi.client.blogs.getByUrl({ url: "url",  }); 
     
 /* 
-Lists blogs by user.  
+Retrieves a list of blogs, possibly filtered.  
 */
 await gapi.client.blogs.listByUser({ userId: "userId",  }); 
     
 /* 
-Gets one blog and user info pair by blog id and user id.  
+Gets one blog and user info pair by blogId and userId.  
 */
 await gapi.client.blogUserInfos.get({ blogId: "blogId", userId: "userId",  }); 
     
 /* 
-Marks a comment as not spam by blog id, post id and comment id.  
+Marks a comment as not spam.  
 */
 await gapi.client.comments.approve({ blogId: "blogId", commentId: "commentId", postId: "postId",  }); 
     
 /* 
-Deletes a comment by blog id, post id and comment id.  
+Delete a comment by ID.  
 */
 await gapi.client.comments.delete({ blogId: "blogId", commentId: "commentId", postId: "postId",  }); 
     
 /* 
-Gets a comment by id.  
+Gets one comment by ID.  
 */
 await gapi.client.comments.get({ blogId: "blogId", commentId: "commentId", postId: "postId",  }); 
     
 /* 
-Lists comments.  
+Retrieves the comments for a post, possibly filtered.  
 */
 await gapi.client.comments.list({ blogId: "blogId", postId: "postId",  }); 
     
 /* 
-Lists comments by blog.  
+Retrieves the comments for a blog, across all posts, possibly filtered.  
 */
 await gapi.client.comments.listByBlog({ blogId: "blogId",  }); 
     
 /* 
-Marks a comment as spam by blog id, post id and comment id.  
+Marks a comment as spam.  
 */
 await gapi.client.comments.markAsSpam({ blogId: "blogId", commentId: "commentId", postId: "postId",  }); 
     
 /* 
-Removes the content of a comment by blog id, post id and comment id.  
+Removes the content of a comment.  
 */
 await gapi.client.comments.removeContent({ blogId: "blogId", commentId: "commentId", postId: "postId",  }); 
     
 /* 
-Deletes a page by blog id and page id.  
+Delete a page by ID.  
 */
 await gapi.client.pages.delete({ blogId: "blogId", pageId: "pageId",  }); 
     
 /* 
-Gets a page by blog id and page id.  
+Gets one blog page by ID.  
 */
 await gapi.client.pages.get({ blogId: "blogId", pageId: "pageId",  }); 
     
 /* 
-Inserts a page.  
+Add a page.  
 */
 await gapi.client.pages.insert({ blogId: "blogId",  }); 
     
 /* 
-Lists pages.  
+Retrieves the pages for a blog, optionally including non-LIVE statuses.  
 */
 await gapi.client.pages.list({ blogId: "blogId",  }); 
     
 /* 
-Patches a page.  
+Update a page. This method supports patch semantics.  
 */
 await gapi.client.pages.patch({ blogId: "blogId", pageId: "pageId",  }); 
     
 /* 
-Publishes a page.  
+Publishes a draft page.  
 */
 await gapi.client.pages.publish({ blogId: "blogId", pageId: "pageId",  }); 
     
 /* 
-Reverts a published or scheduled page to draft state.  
+Revert a published or scheduled page to draft state.  
 */
 await gapi.client.pages.revert({ blogId: "blogId", pageId: "pageId",  }); 
     
 /* 
-Updates a page by blog id and page id.  
+Update a page.  
 */
 await gapi.client.pages.update({ blogId: "blogId", pageId: "pageId",  }); 
     
 /* 
-Gets page views by blog id.  
+Retrieve pageview stats for a Blog.  
 */
 await gapi.client.pageViews.get({ blogId: "blogId",  }); 
     
 /* 
-Deletes a post by blog id and post id.  
+Delete a post by ID.  
 */
 await gapi.client.posts.delete({ blogId: "blogId", postId: "postId",  }); 
     
 /* 
-Gets a post by blog id and post id  
+Get a post by ID.  
 */
 await gapi.client.posts.get({ blogId: "blogId", postId: "postId",  }); 
     
 /* 
-Gets a post by path.  
+Retrieve a Post by Path.  
 */
 await gapi.client.posts.getByPath({ blogId: "blogId", path: "path",  }); 
     
 /* 
-Inserts a post.  
+Add a post.  
 */
 await gapi.client.posts.insert({ blogId: "blogId",  }); 
     
 /* 
-Lists posts.  
+Retrieves a list of posts, possibly filtered.  
 */
 await gapi.client.posts.list({ blogId: "blogId",  }); 
     
 /* 
-Patches a post.  
+Update a post. This method supports patch semantics.  
 */
 await gapi.client.posts.patch({ blogId: "blogId", postId: "postId",  }); 
     
 /* 
-Publishes a post.  
+Publishes a draft post, optionally at the specific time of the given publishDate parameter.  
 */
 await gapi.client.posts.publish({ blogId: "blogId", postId: "postId",  }); 
     
 /* 
-Reverts a published or scheduled post to draft state.  
+Revert a published or scheduled post to draft state.  
 */
 await gapi.client.posts.revert({ blogId: "blogId", postId: "postId",  }); 
     
 /* 
-Searches for posts matching given query terms in the specified blog.  
+Search for a post.  
 */
 await gapi.client.posts.search({ blogId: "blogId", q: "q",  }); 
     
 /* 
-Updates a post by blog id and post id.  
+Update a post.  
 */
 await gapi.client.posts.update({ blogId: "blogId", postId: "postId",  }); 
     
 /* 
-Gets one post and user info pair, by post_id and user_id.  
+Gets one post and user info pair, by post ID and user ID. The post user info contains per-user information about the post, such as access rights, specific to the user.  
 */
 await gapi.client.postUserInfos.get({ blogId: "blogId", postId: "postId", userId: "userId",  }); 
     
 /* 
-Lists post and user info pairs.  
+Retrieves a list of post and post user info pairs, possibly filtered. The post user info contains per-user information about the post, such as access rights, specific to the user.  
 */
 await gapi.client.postUserInfos.list({ blogId: "blogId", userId: "userId",  }); 
     
 /* 
-Gets one user by user_id.  
+Gets one user by ID.  
 */
 await gapi.client.users.get({ userId: "userId",  });
 ```
