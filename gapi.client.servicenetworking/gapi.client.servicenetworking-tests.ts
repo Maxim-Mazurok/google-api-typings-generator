@@ -81,15 +81,14 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * For service producers, provisions a new subnet in a
-         * peered service's shared VPC network in the requested region and with the
-         * requested size that's expressed as a CIDR range (number of leading bits of
-         * ipV4 network mask). The method checks against the assigned allocated ranges
-         * to find a non-conflicting IP address range. The method will reuse a subnet
-         * if subsequent calls contain the same subnet name, region, and prefix
-         * length. This method will make producer's tenant project to be a shared VPC
-         * service project as needed. The response from the `get` operation will be of
-         * type `Subnetwork` if the operation successfully completes.
+         * For service producers, provisions a new subnet in a peered service's shared
+         * VPC network in the requested region and with the requested size that's
+         * expressed as a CIDR range (number of leading bits of ipV4 network mask).
+         * The method checks against the assigned allocated ranges to find a
+         * non-conflicting IP address range. The method will reuse a subnet if
+         * subsequent calls contain the same subnet name, region, and prefix length.
+         * This method will make producer's tenant project to be a shared VPC service
+         * project as needed.
          */
         await gapi.client.servicenetworking.services.addSubnetwork({
             parent: "Test string",
@@ -112,9 +111,7 @@ gapi.load('client', () => {
          * method. The administrator must assign one or more allocated IP ranges for
          * provisioning subnetworks in the service producer's VPC network. This
          * connection is used for all supported services in the service producer's
-         * organization, so it only needs to be invoked once. The response from the
-         * `get` operation will be of type `Connection` if the operation successfully
-         * completes.
+         * organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -133,11 +130,7 @@ gapi.load('client', () => {
             network: "Test string",
             parent: "Test string",
         });
-        /**
-         * Updates the allocated ranges that are assigned to a connection.
-         * The response from the `get` operation will be of type `Connection` if the
-         * operation successfully completes.
-         */
+        /** Updates the allocated ranges that are assigned to a connection. */
         await gapi.client.servicenetworking.services.connections.patch({
             force: true,
             name: "Test string",
@@ -178,9 +171,7 @@ gapi.load('client', () => {
          * method. The administrator must assign one or more allocated IP ranges for
          * provisioning subnetworks in the service producer's VPC network. This
          * connection is used for all supported services in the service producer's
-         * organization, so it only needs to be invoked once. The response from the
-         * `get` operation will be of type `Connection` if the operation successfully
-         * completes.
+         * organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -199,11 +190,7 @@ gapi.load('client', () => {
             network: "Test string",
             parent: "Test string",
         });
-        /**
-         * Updates the allocated ranges that are assigned to a connection.
-         * The response from the `get` operation will be of type `Connection` if the
-         * operation successfully completes.
-         */
+        /** Updates the allocated ranges that are assigned to a connection. */
         await gapi.client.servicenetworking.services.connections.patch({
             force: true,
             name: "Test string",
@@ -244,9 +231,7 @@ gapi.load('client', () => {
          * method. The administrator must assign one or more allocated IP ranges for
          * provisioning subnetworks in the service producer's VPC network. This
          * connection is used for all supported services in the service producer's
-         * organization, so it only needs to be invoked once. The response from the
-         * `get` operation will be of type `Connection` if the operation successfully
-         * completes.
+         * organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -265,11 +250,7 @@ gapi.load('client', () => {
             network: "Test string",
             parent: "Test string",
         });
-        /**
-         * Updates the allocated ranges that are assigned to a connection.
-         * The response from the `get` operation will be of type `Connection` if the
-         * operation successfully completes.
-         */
+        /** Updates the allocated ranges that are assigned to a connection. */
         await gapi.client.servicenetworking.services.connections.patch({
             force: true,
             name: "Test string",
@@ -299,13 +280,11 @@ gapi.load('client', () => {
         });
         /**
          * Service producers can use this method to find a currently unused range
-         * within consumer allocated ranges.   This returned range is not reserved,
-         * and not guaranteed to remain unused.
-         * It will validate previously provided allocated ranges, find
-         * non-conflicting sub-range of requested size (expressed in
-         * number of leading bits of ipv4 network mask, as in CIDR range
+         * within consumer allocated ranges. This returned range is not reserved,
+         * and not guaranteed to remain unused. It will validate previously provided
+         * allocated ranges, find non-conflicting sub-range of requested size
+         * (expressed in number of leading bits of ipv4 network mask, as in CIDR range
          * notation).
-         * Operation<response: Range>
          */
         await gapi.client.servicenetworking.services.searchRange({
             parent: "Test string",
@@ -320,9 +299,7 @@ gapi.load('client', () => {
          * method. The administrator must assign one or more allocated IP ranges for
          * provisioning subnetworks in the service producer's VPC network. This
          * connection is used for all supported services in the service producer's
-         * organization, so it only needs to be invoked once. The response from the
-         * `get` operation will be of type `Connection` if the operation successfully
-         * completes.
+         * organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -341,11 +318,7 @@ gapi.load('client', () => {
             network: "Test string",
             parent: "Test string",
         });
-        /**
-         * Updates the allocated ranges that are assigned to a connection.
-         * The response from the `get` operation will be of type `Connection` if the
-         * operation successfully completes.
-         */
+        /** Updates the allocated ranges that are assigned to a connection. */
         await gapi.client.servicenetworking.services.connections.patch({
             force: true,
             name: "Test string",
@@ -375,7 +348,7 @@ gapi.load('client', () => {
         });
         /**
          * Service producers use this method to validate if the consumer provided
-         * network, project and the requested range is valid. This allows them to use
+         * network, project and requested range are valid. This allows them to use
          * a fail-fast mechanism for consumer requests, and not have to wait for
          * AddSubnetwork operation completion to determine if user request is invalid.
          */
@@ -400,9 +373,7 @@ gapi.load('client', () => {
          * method. The administrator must assign one or more allocated IP ranges for
          * provisioning subnetworks in the service producer's VPC network. This
          * connection is used for all supported services in the service producer's
-         * organization, so it only needs to be invoked once. The response from the
-         * `get` operation will be of type `Connection` if the operation successfully
-         * completes.
+         * organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -421,11 +392,7 @@ gapi.load('client', () => {
             network: "Test string",
             parent: "Test string",
         });
-        /**
-         * Updates the allocated ranges that are assigned to a connection.
-         * The response from the `get` operation will be of type `Connection` if the
-         * operation successfully completes.
-         */
+        /** Updates the allocated ranges that are assigned to a connection. */
         await gapi.client.servicenetworking.services.connections.patch({
             force: true,
             name: "Test string",
