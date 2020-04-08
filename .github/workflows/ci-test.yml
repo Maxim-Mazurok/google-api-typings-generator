@@ -1,6 +1,11 @@
 name: CI Test
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - master
+  repository_dispatch:
+    types: [ci-test]
 
 jobs:
   test:
@@ -9,12 +14,12 @@ jobs:
       # setup
       - uses: actions/checkout@v2
       - name: Read .nvmrc
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        run: echo '##[set-output name=NVMRC;]$(cat .nvmrc)'
         id: nvm
       - name: Use Node.js ${{ steps.nvm.outputs.NVMRC }}
         uses: actions/setup-node@v1
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
       - name: Install dependencies
         run: npm ci
 

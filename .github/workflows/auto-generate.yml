@@ -5,6 +5,8 @@ on:
     - cron: '0 * * * *'
   push:
     branches: [master]
+  repository_dispatch:
+    types: [auto-generate-types]
 
 jobs:
   generate:
@@ -13,12 +15,12 @@ jobs:
       # setup
       - uses: actions/checkout@v2
       - name: Read .nvmrc
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        run: echo '##[set-output name=NVMRC;]$(cat .nvmrc)'
         id: nvm
       - name: Use Node.js ${{ steps.nvm.outputs.NVMRC }}
         uses: actions/setup-node@v1
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
       - name: Install dependencies
         run: npm ci
       - name: Get latest types
