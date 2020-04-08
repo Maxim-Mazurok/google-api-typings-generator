@@ -54,6 +54,7 @@ const excludedApi = [
   'replicapool',
   'replicapoolupdater',
   'apigee',
+  'storage',
 ];
 
 const irregularSpaces = [
