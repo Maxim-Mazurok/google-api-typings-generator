@@ -167,7 +167,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
   }
 
   interface(name: string, context: TypescriptWriterCallback) {
-    // this.writer.writeLine();
+    name[0] === "I" && this.writer.writeLine('// tslint:disable-next-line:interface-name'); // workaround for cases like `IPAllocationPolicy`
     this.braces(`interface ${name}`, context);
   }
 
