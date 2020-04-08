@@ -1,9 +1,5 @@
-import { SH } from './sh';
-import { typingsPrefix } from '../../src/app';
-import { join, basename, parse } from 'path';
-import parseGitStatus from 'parse-git-status';
+import { join } from 'path';
 import { Settings } from './index';
-import { Octokit } from '@octokit/rest';
 import { Git } from './git';
 
 export class GitHelpers {
@@ -14,6 +10,12 @@ export class GitHelpers {
     this.#settings = settings;
     this.#git = git;
   }
+
+  setConfig = async (): Promise<void> => {
+    const { userEmail, userName } = this.#settings;
+    await this.#git.sh.trySh(`git config --global user.email "${userEmail}"`);
+    await this.#git.sh.trySh(`git config --global user.name "${userName}"`);
+  };
 
   checkForTemplateUpdate = async (): Promise<void> => {
     console.log(`Checking for template update...`);
@@ -108,7 +110,7 @@ export class GitHelpers {
   🤖 This pull request was automatically created by [${user}/${thisRepo}](https://github.com/${user}/${thisRepo}) which generates types from [Google API Discovery Service](https://developers.google.com/discovery). Types were linted and tested before submission.
 
   If there is an issue with this pull request, consider [submitting a new issue](https://github.com/${user}/${thisRepo}/issues/new).
-  
+
   Note you can also [use these types](https://github.com/${user}/${thisRepo}/issues/85#issuecomment-601133279) from our [\`types\` branch](https://github.com/${user}/${thisRepo}/tree/types) which is updated hourly.
   `,
       });
@@ -130,14 +132,14 @@ export class GitHelpers {
 
   cloneDTFork = async (): Promise<void> => {
     // clone only last commit for every branch
-    const { user, dtRepoName, dtForkPath } = this.#settings;
-    const cmd = `git clone --depth=1 https://github.com/${user}/${dtRepoName} --no-single-branch ${dtForkPath}`;
+    const { user, auth, dtRepoName, dtForkPath } = this.#settings;
+    const cmd = `git clone --depth=1 https://${user}:${auth}@github.com/${user}/${dtRepoName} --no-single-branch ${dtForkPath}`;
     await this.#git.sh.trySh(cmd, __dirname);
   };
 
   addRemote = async (): Promise<void> => {
-    const { dtRepoOwner, dtRepoName } = this.#settings;
-    const cmd = `git remote add upstream https://github.com/${dtRepoOwner}/${dtRepoName}`;
+    const { user, auth, dtRepoOwner, dtRepoName } = this.#settings;
+    const cmd = `git remote add upstream https://${user}:${auth}@github.com/${dtRepoOwner}/${dtRepoName}`;
     await this.#git.sh.trySh(cmd);
   };
 

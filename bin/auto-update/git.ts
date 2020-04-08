@@ -1,6 +1,6 @@
 import { SH } from './sh';
 import { typingsPrefix } from '../../src/app';
-import { join, basename, parse } from 'path';
+import { basename, parse } from 'path';
 import parseGitStatus from 'parse-git-status';
 import { Octokit } from '@octokit/rest';
 

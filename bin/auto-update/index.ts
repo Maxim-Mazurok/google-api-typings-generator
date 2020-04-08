@@ -15,6 +15,8 @@ export interface TypesBranchAndDirSettings {
 }
 
 export interface Settings extends GitSettings, TypesBranchAndDirSettings {
+  userEmail: string; // email used for git config
+  userName: string; // full name used for git config
   dtForkPath: string; // full path to the local DT fork folder
   tempTypesDirName: string; // temporary directory name to download types branch to
   dtRepoOwner: string; // DefinitelyTyped repo owner name only
@@ -29,6 +31,8 @@ const settings: Settings = {
   tempTypesDirName: 'temp-types',
   typesBranchName: 'types',
   user: 'Maxim-Mazurok',
+  userEmail: 'maxim@mazurok.com',
+  userName: 'Maxim Mazurok',
   auth: process.env.GH_AUTH_TOKEN,
   dtRepoOwner: 'DefinitelyTyped',
   dtRepoName: 'DefinitelyTyped',
@@ -50,6 +54,7 @@ process.on('unhandledRejection', reason => {
 
 (async () => {
   // Initialize
+  await gitHelpers.setConfig();
   await gitHelpers.cloneDTFork();
   await gitHelpers.updateDTFork();
   await helpers.copyTypesBranchFromGeneratorToDTFork();
