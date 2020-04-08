@@ -1,10 +1,12 @@
 # TypeScript typings for {{=it.title}} {{=it.version}}
+
 {{=it.description}}
 For detailed description please check [documentation]({{=it.documentationLink}}).
 
 ## Installing
 
 Install typings for {{=it.title}}:
+
 ```
 npm install @types/gapi.client.{{=it.name}}@{{=it.version}} --save-dev
 ```
@@ -12,48 +14,52 @@ npm install @types/gapi.client.{{=it.name}}@{{=it.version}} --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('{{=it.name}}', '{{=it.version}}', () => {
-    // now we can use gapi.client.{{=it.name}}
-    // ... 
+  // now we can use gapi.client.{{=it.name}}
+  // ...
 });
 ```
 
 {{? it.auth }}Don't forget to authenticate your client before sending any request to resources:
-```typescript
 
+```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-    scope = [ {{ for(var scope in it.auth.oauth2.scopes) { }}    
-        // {{=it.auth.oauth2.scopes[scope].description}}
-        '{{=scope}}',
+  scope = [ {{ for(var scope in it.auth.oauth2.scopes) { }}
+      // {{=it.auth.oauth2.scopes[scope].description}}
+      '{{=scope}}',
 {{ } }}    ],
     immediate = true;
 // ...
 
-gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
     if (authResult && !authResult.error) {
         /* handle successful authorization */
     } else {
         /* handle authorization error */
     }
-});            
+});
 ```{{?}}
 
 After that you can use {{=it.title}} resources:
 
-```typescript{{ for(var resource in it.resources) { }}{{ for(var method in it.resources[resource].methods) { }} 
-    
-/* 
-{{=it.resources[resource].methods[method].description}}  
+```typescript{{ for(var resource in it.resources) { }}{{ for(var method in it.resources[resource].methods) { }}
+
+/*
+{{=it.resources[resource].methods[method].description}}
 */
 await gapi.client.{{=resource}}.{{=method}}({ {{ for(var parameter in it.resources[resource].methods[method].parameters) { }}{{? it.resources[resource].methods[method].parameters[parameter].required }}{{=parameter }}: {{? it.resources[resource].methods[method].parameters[parameter].type === 'integer'}}1{{?}}{{? it.resources[resource].methods[method].parameters[parameter].type === 'string'}}"{{=parameter}}"{{?}}, {{?}}{{ } }} });{{ }}}{{ }}}
 ```

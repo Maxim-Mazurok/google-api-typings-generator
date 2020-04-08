@@ -4,12 +4,25 @@ import _ from 'lodash';
 import path, { resolve, join, basename } from 'path';
 import request from 'request';
 import sortObject from 'deep-sort-object';
-import { getResourceTypeName, parseVersion } from './utils';
+import lineReader from 'line-reader';
+import { promisify } from 'bluebird';
+import {
+  getResourceTypeName,
+  parseVersion,
+  ensureDirectoryExists,
+} from './utils';
 import JsonSchema = gapi.client.discovery.JsonSchema;
 import RestResource = gapi.client.discovery.RestResource;
 import RestDescription = gapi.client.discovery.RestDescription;
 
+export const typingsPrefix = 'gapi.client.';
 export const tmpDirPath = resolve(__dirname, './../.tmp');
+
+const eachLine: (
+  ...args: Parameters<LineReader['eachLine']>
+) => Promise<ReturnType<LineReader['eachLine']>> = promisify(
+  lineReader.eachLine
+);
 
 const typesMap: { [key: string]: string } = {
   integer: 'number',
@@ -41,6 +54,8 @@ const excludedApi = [
   'replicapool',
   'replicapoolupdater',
   'apigee',
+  'storage',
+  'vision',
 ];
 
 const irregularSpaces = [
@@ -126,12 +141,6 @@ function formatPropertyName(name: string) {
   return name;
 }
 
-const ensureDirectoryExists = (directory: string) => {
-  if (!fs.existsSync(directory)) {
-    fs.mkdirSync(directory, { recursive: true });
-  }
-};
-
 class TypescriptTextWriter implements TypescriptTextWriter {
   constructor(private writer: IndentedTextWriter) {}
 
@@ -159,8 +168,24 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     this.braces(`declare namespace ${name}`, context);
   }
 
-  interface(name: string, context: TypescriptWriterCallback) {
-    // this.writer.writeLine();
+  interface(
+    name: string,
+    context: TypescriptWriterCallback,
+    emptyInterface = false
+  ) {
+    const ignoreRules: string[] = [];
+    if (name && name[0] && name[0] === 'I') {
+      // workaround for cases like `IPAllocationPolicy`
+      ignoreRules.push('interface-name');
+    }
+    if (emptyInterface) {
+      ignoreRules.push('no-empty-interface');
+    }
+    if (ignoreRules.length > 0) {
+      this.writer.writeLine(
+        `// tslint:disable-next-line:${ignoreRules.join(' ')}`
+      );
+    }
     this.braces(`interface ${name}`, context);
   }
 
@@ -578,9 +603,9 @@ export class App {
 
   private static getTypingsName(api: string, version: string | null) {
     if (version == null) {
-      return `gapi.client.${api}`;
+      return `${typingsPrefix}${api}`;
     } else {
-      return path.join(`gapi.client.${api}`, version);
+      return path.join(`${typingsPrefix}${api}`, version);
     }
   }
 
@@ -596,9 +621,9 @@ export class App {
     url: string
   ) {
     console.log(
-      `Generating ${api.id} definitions... ${(api.labels &&
-        api.labels.join(', ')) ||
-        ''}`
+      `Generating ${api.id} definitions... ${
+        (api.labels && api.labels.join(', ')) || ''
+      }`
     );
 
     const stream = fs.createWriteStream(
@@ -667,30 +692,31 @@ export class App {
         const schemas = checkExists(api.schemas);
 
         _.forEach(schemas, schema => {
-          if (isEmptySchema(schema)) {
-            writer.writeLine(`// tslint:disable-next-line:no-empty-interface`);
-          }
-          writer.interface(checkExists(schema.id), () => {
-            if (schema.properties) {
-              _.forEach(schema.properties, (data, key) => {
-                if (data.description) {
-                  writer.comment(formatComment(data.description));
-                }
-                writer.property(
-                  key,
-                  getType(data, schemas),
-                  data.required || false
-                );
-              });
-            }
+          writer.interface(
+            checkExists(schema.id),
+            () => {
+              if (schema.properties) {
+                _.forEach(schema.properties, (data, key) => {
+                  if (data.description) {
+                    writer.comment(formatComment(data.description));
+                  }
+                  writer.property(
+                    key,
+                    getType(data, schemas),
+                    data.required || false
+                  );
+                });
+              }
 
-            if (schema.additionalProperties) {
-              writer.property(
-                '[key: string]',
-                getType(schema.additionalProperties, schemas)
-              );
-            }
-          });
+              if (schema.additionalProperties) {
+                writer.property(
+                  '[key: string]',
+                  getType(schema.additionalProperties, schemas)
+                );
+              }
+            },
+            isEmptySchema(schema)
+          );
         });
 
         if (api.resources) {
@@ -737,11 +763,11 @@ export class App {
   }
 
   writeTemplate(
-    filepath: string,
+    filePath: string,
     template: doT.RenderFunction,
     api: gapi.client.discovery.RestDescription
   ) {
-    const stream = fs.createWriteStream(filepath),
+    const stream = fs.createWriteStream(filePath),
       writer = new StreamWriter(stream);
 
     try {
@@ -751,7 +777,11 @@ export class App {
     }
   }
 
-  async processService(url: string, actualVersion: boolean) {
+  async processService(
+    url: string,
+    actualVersion: boolean,
+    newRevisionsOnly = false
+  ) {
     let api;
 
     try {
@@ -776,6 +806,43 @@ export class App {
     );
 
     ensureDirectoryExists(destinationDirectory);
+
+    if (
+      newRevisionsOnly &&
+      fs.existsSync(path.join(destinationDirectory, 'index.d.ts'))
+    ) {
+      let existingRevision;
+      await eachLine(
+        path.join(destinationDirectory, 'index.d.ts'),
+        {},
+        line => {
+          if (line.startsWith('// Revision: ')) {
+            const match = line.match(/^\/\/ Revision\: (\d+)$/);
+            if (match !== null && match.length === 2) {
+              existingRevision = Number(match[1]);
+              return false;
+            }
+          }
+          return true;
+        }
+      );
+
+      if (!api.revision) {
+        return console.error(`There's no revision in JSON: ${api.id}`);
+      }
+      if (!existingRevision) {
+        return console.error(
+          `Can't find previous revision in index.d.ts: ${api.id}`
+        );
+      }
+
+      const newRevision = Number(api.revision);
+      if (existingRevision > newRevision) {
+        return console.warn(
+          `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${api.id}`
+        );
+      }
+    }
 
     await this.processApi(destinationDirectory, api, actualVersion, url);
 
@@ -1067,7 +1134,11 @@ export class App {
     writer.endLine(');');
   }
 
-  async discover(service: string | undefined, allVersions = false) {
+  async discover(
+    service: string | undefined,
+    allVersions = false,
+    newRevisionsOnly = false
+  ) {
     console.log('Discovering Google services...');
 
     const list: gapi.client.discovery.DirectoryList = await this.request(
@@ -1095,7 +1166,8 @@ export class App {
           try {
             await this.processService(
               checkExists(preferredApi.discoveryRestUrl),
-              checkExists(preferredApi.preferred)
+              checkExists(preferredApi.preferred),
+              newRevisionsOnly
             );
           } catch (e) {
             console.error(e);
@@ -1112,7 +1184,8 @@ export class App {
             try {
               await this.processService(
                 checkExists(api.discoveryRestUrl),
-                checkExists(api.preferred)
+                checkExists(api.preferred),
+                newRevisionsOnly
               );
             } catch (e) {
               console.error(e);

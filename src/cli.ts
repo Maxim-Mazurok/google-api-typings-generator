@@ -13,6 +13,10 @@ const params = program
   )
   .option('-a, --all', 'include previously versions', false)
   .option('-o, --out [path]', 'output directory', App.parseOutPath)
+  .option(
+    '-n, --new-revisions-only',
+    'overwrite existing type only if revision is newer'
+  )
   .parse(process.argv);
 
 console.info(`Output directory: ${params.out}`);
@@ -20,13 +24,15 @@ console.info(`Output directory: ${params.out}`);
 const app = new App(params.out);
 
 if (params.url) {
-  app.processService(params.url, true).then(
+  app.processService(params.url, true, params.newRevisionsOnly).then(
     () => console.log('Done'),
     error => console.error(error)
   );
 } else {
-  app.discover(params.service, params.all || false).then(
-    () => console.log('Done'),
-    error => console.error(error)
-  );
+  app
+    .discover(params.service, params.all || false, params.newRevisionsOnly)
+    .then(
+      () => console.log('Done'),
+      error => console.error(error)
+    );
 }

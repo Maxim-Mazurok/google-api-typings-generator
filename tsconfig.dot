@@ -1,24 +1,18 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "lib": [
-            "es6",
-            "dom"
-        ],
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "strictNullChecks": true,
-        "baseUrl": {{? it.actualVersion }}"../"{{?}}{{? !it.actualVersion }} "../../" {{?}},
-        "typeRoots": [
-            {{? it.actualVersion }}"../"{{?}}{{? !it.actualVersion }}"../../"{{?}}
-        ],
-        "types": [],
-        "noEmit": true,
-        "forceConsistentCasingInFileNames": true,        
-        "strictFunctionTypes": true
-    },
-    "files": [
-        "index.d.ts",
-        "gapi.client.{{=it.name}}-tests.ts"
-    ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "baseUrl": {{? it.actualVersion }}"../"{{?}}{{? !it.actualVersion }} "../../" {{?}},
+    "typeRoots": [
+      {{? it.actualVersion }}"../"{{?}}{{? !it.actualVersion }}"../../"{{?}}
+    ],
+    "types": [],
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictFunctionTypes": true
+  },
+  "files": ["index.d.ts", "gapi.client.{{=it.name}}-tests.ts"]
 }
