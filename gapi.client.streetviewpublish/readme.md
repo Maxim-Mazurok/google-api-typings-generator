@@ -1,4 +1,5 @@
 # TypeScript typings for Street View Publish API v1
+
 Publishes 360 photos to Google Maps, along with position, orientation, and connectivity metadata. Apps can offer an interface for positioning, connecting, and uploading user-generated Street View images.
 
 For detailed description please check [documentation](https://developers.google.com/streetview/publish/).
@@ -6,6 +7,7 @@ For detailed description please check [documentation](https://developers.google.
 ## Installing
 
 Install typings for Street View Publish API:
+
 ```
 npm install @types/gapi.client.streetviewpublish@v1 --save-dev
 ```
@@ -13,47 +15,51 @@ npm install @types/gapi.client.streetviewpublish@v1 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('streetviewpublish', 'v1', () => {
-    // now we can use gapi.client.streetviewpublish
-    // ... 
+  // now we can use gapi.client.streetviewpublish
+  // ...
 });
 ```
 
 Don't forget to authenticate your client before sending any request to resources:
-```typescript
 
+```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-    scope = [     
-        // Publish and manage your 360 photos on Google Street View
-        'https://www.googleapis.com/auth/streetviewpublish',
+  scope = [ 
+      // Publish and manage your 360 photos on Google Street View
+      'https://www.googleapis.com/auth/streetviewpublish',
     ],
     immediate = true;
 // ...
 
-gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
     if (authResult && !authResult.error) {
         /* handle successful authorization */
     } else {
         /* handle authorization error */
     }
-});            
+});
 ```
 
 After that you can use Street View Publish API resources:
 
-```typescript 
-    
-/* 
+```typescript
+
+/*
 After the client finishes uploading the photo with the returned
 UploadRef,
 CreatePhoto
@@ -72,22 +78,22 @@ This method returns the following error codes:
 the uploaded photo is not a 360 photo.
 * google.rpc.Code.NOT_FOUND if the upload reference does not exist.
 * google.rpc.Code.RESOURCE_EXHAUSTED if the account has reached the
-storage limit.  
+storage limit.
 */
-await gapi.client.photo.create({  }); 
-    
-/* 
+await gapi.client.photo.create({  });
+
+/*
 Deletes a Photo and its metadata.
 
 This method returns the following error codes:
 
 * google.rpc.Code.PERMISSION_DENIED if the requesting user did not
 create the requested photo.
-* google.rpc.Code.NOT_FOUND if the photo ID does not exist.  
+* google.rpc.Code.NOT_FOUND if the photo ID does not exist.
 */
-await gapi.client.photo.delete({ photoId: "photoId",  }); 
-    
-/* 
+await gapi.client.photo.delete({ photoId: "photoId",  });
+
+/*
 Gets the metadata of the specified
 Photo.
 
@@ -98,11 +104,11 @@ create the requested Photo.
 * google.rpc.Code.NOT_FOUND if the requested
 Photo does not exist.
 * google.rpc.Code.UNAVAILABLE if the requested
-Photo is still being indexed.  
+Photo is still being indexed.
 */
-await gapi.client.photo.get({ photoId: "photoId",  }); 
-    
-/* 
+await gapi.client.photo.get({ photoId: "photoId",  });
+
+/*
 Creates an upload session to start uploading photo bytes.  The method uses
 the upload URL of the returned
 UploadRef to upload the bytes for
@@ -122,11 +128,11 @@ the photo must be a full 360 horizontally.
 After the upload completes, the method uses
 UploadRef with
 CreatePhoto
-to create the Photo object entry.  
+to create the Photo object entry.
 */
-await gapi.client.photo.startUpload({  }); 
-    
-/* 
+await gapi.client.photo.startUpload({  });
+
+/*
 Updates the metadata of a Photo, such
 as pose, place association, connections, etc. Changing the pixels of a
 photo is not supported.
@@ -143,11 +149,11 @@ create the requested photo.
 * google.rpc.Code.INVALID_ARGUMENT if the request is malformed.
 * google.rpc.Code.NOT_FOUND if the requested photo does not exist.
 * google.rpc.Code.UNAVAILABLE if the requested
-Photo is still being indexed.  
+Photo is still being indexed.
 */
-await gapi.client.photo.update({ id: "id",  }); 
-    
-/* 
+await gapi.client.photo.update({ id: "id",  });
+
+/*
 Deletes a list of Photos and their
 metadata.
 
@@ -163,11 +169,11 @@ in
 BatchDeletePhotosResponse.results.
 See
 DeletePhoto
-for specific failures that can occur per photo.  
+for specific failures that can occur per photo.
 */
-await gapi.client.photos.batchDelete({  }); 
-    
-/* 
+await gapi.client.photos.batchDelete({  });
+
+/*
 Gets the metadata of the specified
 Photo batch.
 
@@ -183,11 +189,11 @@ in
 BatchGetPhotosResponse.results.
 See
 GetPhoto
-for specific failures that can occur per photo.  
+for specific failures that can occur per photo.
 */
-await gapi.client.photos.batchGet({  }); 
-    
-/* 
+await gapi.client.photos.batchGet({  });
+
+/*
 Updates the metadata of Photos, such
 as pose, place association, connections, etc. Changing the pixels of photos
 is not supported.
@@ -220,16 +226,16 @@ must not exceed 20.
 <aside class="note"><b>Note:</b> To update
 Pose.altitude,
 Pose.latLngPair has to be
-filled as well. Otherwise, the request will fail.</aside>  
+filled as well. Otherwise, the request will fail.</aside>
 */
-await gapi.client.photos.batchUpdate({  }); 
-    
-/* 
+await gapi.client.photos.batchUpdate({  });
+
+/*
 Lists all the Photos that belong to
 the user.
 
 <aside class="note"><b>Note:</b> Recently created photos that are still
-being indexed are not returned in the response.</aside>  
+being indexed are not returned in the response.</aside>
 */
 await gapi.client.photos.list({  });
 ```

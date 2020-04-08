@@ -552,6 +552,7 @@ declare namespace gapi.client {
             /** The object ID of the created group. */
             objectId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Image {
             /**
              * An URL to an image with a default lifetime of 30 minutes.
@@ -568,6 +569,7 @@ declare namespace gapi.client {
              */
             sourceUrl?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface ImageProperties {
             /**
              * The brightness effect of the image. The value should be in the interval
@@ -605,6 +607,7 @@ declare namespace gapi.client {
              */
             transparency?: number;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertTableColumnsRequest {
             /**
              * The reference table cell location from which columns will be inserted.
@@ -626,6 +629,7 @@ declare namespace gapi.client {
             /** The table to insert columns into. */
             tableObjectId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertTableRowsRequest {
             /**
              * The reference table cell location from which rows will be inserted.
@@ -647,6 +651,7 @@ declare namespace gapi.client {
             /** The table to insert rows into. */
             tableObjectId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertTextRequest {
             /**
              * The optional table cell location if the text is to be inserted into a table

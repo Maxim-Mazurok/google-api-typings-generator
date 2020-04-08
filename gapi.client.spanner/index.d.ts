@@ -519,6 +519,7 @@ declare namespace gapi.client {
              */
             requestedPolicyVersion?: number;
         }
+        // tslint:disable-next-line:interface-name
         interface Instance {
             /**
              * Required. The name of the instance's configuration. Values are of the form
@@ -584,6 +585,7 @@ declare namespace gapi.client {
              */
             state?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InstanceConfig {
             /** The name of this instance configuration as it appears in UIs. */
             displayName?: string;
@@ -1733,6 +1735,7 @@ declare namespace gapi.client {
              */
             values?: any[][];
         }
+        // tslint:disable-next-line:interface-name
         interface InstanceConfigsResource {
             /** Gets information about a particular instance configuration. */
             get(request?: {
@@ -4294,6 +4297,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListOperationsResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /**
              * Creates an instance and begins preparing it to begin serving. The

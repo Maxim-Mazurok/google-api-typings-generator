@@ -788,6 +788,7 @@ declare namespace gapi.client {
              */
             value?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IntOrString {
             /** The int value. */
             intVal?: number;

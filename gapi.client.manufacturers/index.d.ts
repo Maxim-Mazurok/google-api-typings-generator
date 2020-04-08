@@ -224,6 +224,7 @@ declare namespace gapi.client {
             /** A detailed description of the feature. */
             text?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Image {
             /**
              * The URL of the image. For crawled images, this is the provided URL. For
@@ -242,6 +243,7 @@ declare namespace gapi.client {
              */
             type?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Issue {
             /**
              * If present, the attribute that triggered the issue. For more information

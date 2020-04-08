@@ -71,14 +71,17 @@ declare namespace gapi.client {
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudRedisV1ZoneMetadata {
         }
+        // tslint:disable-next-line:interface-name
         interface ImportInstanceRequest {
             /** Required. Specify data to be imported. */
             inputConfig?: InputConfig;
         }
+        // tslint:disable-next-line:interface-name
         interface InputConfig {
             /** Google Cloud Storage location where input content is located. */
             gcsSource?: GcsSource;
         }
+        // tslint:disable-next-line:interface-name
         interface Instance {
             /**
              * Optional. Only applicable to STANDARD_HA tier which protects the instance
@@ -326,6 +329,7 @@ declare namespace gapi.client {
             /** Required. Specifies the target version of Redis software to upgrade to. */
             redisVersion?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /**
              * Creates a Redis instance based on the specified tier and memory size.

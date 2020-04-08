@@ -1,10 +1,12 @@
 # TypeScript typings for Cloud Resource Manager API v2
+
 Creates, reads, and updates metadata for Google Cloud Platform resource containers.
 For detailed description please check [documentation](https://cloud.google.com/resource-manager).
 
 ## Installing
 
 Install typings for Cloud Resource Manager API:
+
 ```
 npm install @types/gapi.client.cloudresourcemanager@v2 --save-dev
 ```
@@ -12,50 +14,54 @@ npm install @types/gapi.client.cloudresourcemanager@v2 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('cloudresourcemanager', 'v2', () => {
-    // now we can use gapi.client.cloudresourcemanager
-    // ... 
+  // now we can use gapi.client.cloudresourcemanager
+  // ...
 });
 ```
 
 Don't forget to authenticate your client before sending any request to resources:
-```typescript
 
+```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-    scope = [     
-        // View and manage your data across Google Cloud Platform services
-        'https://www.googleapis.com/auth/cloud-platform',
-    
-        // View your data across Google Cloud Platform services
-        'https://www.googleapis.com/auth/cloud-platform.read-only',
+  scope = [ 
+      // View and manage your data across Google Cloud Platform services
+      'https://www.googleapis.com/auth/cloud-platform',
+
+      // View your data across Google Cloud Platform services
+      'https://www.googleapis.com/auth/cloud-platform.read-only',
     ],
     immediate = true;
 // ...
 
-gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
     if (authResult && !authResult.error) {
         /* handle successful authorization */
     } else {
         /* handle authorization error */
     }
-});            
+});
 ```
 
 After that you can use Cloud Resource Manager API resources:
 
-```typescript 
-    
-/* 
+```typescript
+
+/*
 Creates a Folder in the resource hierarchy.
 Returns an Operation which can be used to track the progress of the
 folder creation workflow.
@@ -82,11 +88,11 @@ PreconditionFailure returned via the details list in the Operation.error
 field.
 
 The caller must have `resourcemanager.folders.create` permission on the
-identified parent.  
+identified parent.
 */
-await gapi.client.folders.create({  }); 
-    
-/* 
+await gapi.client.folders.create({  });
+
+/*
 Requests deletion of a Folder. The Folder is moved into the
 DELETE_REQUESTED state
 immediately, and is deleted approximately 30 days later. This method may
@@ -95,40 +101,40 @@ ACTIVE state, where a Folder is empty if
 it doesn't contain any Folders or Projects in the
 ACTIVE state.
 The caller must have `resourcemanager.folders.delete` permission on the
-identified folder.  
+identified folder.
 */
-await gapi.client.folders.delete({ name: "name",  }); 
-    
-/* 
+await gapi.client.folders.delete({ name: "name",  });
+
+/*
 Retrieves a Folder identified by the supplied resource name.
 Valid Folder resource names have the format `folders/{folder_id}`
 (for example, `folders/1234`).
 The caller must have `resourcemanager.folders.get` permission on the
-identified folder.  
+identified folder.
 */
-await gapi.client.folders.get({ name: "name",  }); 
-    
-/* 
+await gapi.client.folders.get({ name: "name",  });
+
+/*
 Gets the access control policy for a Folder. The returned policy may be
 empty if no such policy or resource exists. The `resource` field should
 be the Folder's resource name, e.g. "folders/1234".
 The caller must have `resourcemanager.folders.getIamPolicy` permission
-on the identified folder.  
+on the identified folder.
 */
-await gapi.client.folders.getIamPolicy({ resource: "resource",  }); 
-    
-/* 
+await gapi.client.folders.getIamPolicy({ resource: "resource",  });
+
+/*
 Lists the Folders that are direct descendants of supplied parent resource.
 List provides a strongly consistent view of the Folders underneath
 the specified parent resource.
 List returns Folders sorted based upon the (ascending) lexical ordering
 of their display_name.
 The caller must have `resourcemanager.folders.list` permission on the
-identified parent.  
+identified parent.
 */
-await gapi.client.folders.list({  }); 
-    
-/* 
+await gapi.client.folders.list({  });
+
+/*
 Moves a Folder under a new resource parent.
 Returns an Operation which can be used to track the progress of the
 folder move workflow.
@@ -145,11 +151,11 @@ Folder moves will be rejected if they violate either the naming, height
 or fanout constraints described in the
 CreateFolder documentation.
 The caller must have `resourcemanager.folders.move` permission on the
-folder's current and proposed new parent.  
+folder's current and proposed new parent.
 */
-await gapi.client.folders.move({ name: "name",  }); 
-    
-/* 
+await gapi.client.folders.move({ name: "name",  });
+
+/*
 Updates a Folder, changing its display_name.
 Changes to the folder display_name will be rejected if they violate either
 the display_name formatting rules or naming constraints described in
@@ -164,39 +170,39 @@ identified folder.
 
 If the update fails due to the unique name constraint then a
 PreconditionFailure explaining this violation will be returned
-in the Status.details field.  
+in the Status.details field.
 */
-await gapi.client.folders.patch({ name: "name",  }); 
-    
-/* 
+await gapi.client.folders.patch({ name: "name",  });
+
+/*
 Search for folders that match specific filter criteria.
 Search provides an eventually consistent view of the folders a user has
 access to which meet the specified filter criteria.
 
 This will only return folders on which the caller has the
-permission `resourcemanager.folders.get`.  
+permission `resourcemanager.folders.get`.
 */
-await gapi.client.folders.search({  }); 
-    
-/* 
+await gapi.client.folders.search({  });
+
+/*
 Sets the access control policy on a Folder, replacing any existing policy.
 The `resource` field should be the Folder's resource name, e.g.
 "folders/1234".
 The caller must have `resourcemanager.folders.setIamPolicy` permission
-on the identified folder.  
+on the identified folder.
 */
-await gapi.client.folders.setIamPolicy({ resource: "resource",  }); 
-    
-/* 
+await gapi.client.folders.setIamPolicy({ resource: "resource",  });
+
+/*
 Returns permissions that a caller has on the specified Folder.
 The `resource` field should be the Folder's resource name,
 e.g. "folders/1234".
 
-There are no permissions required for making this API call.  
+There are no permissions required for making this API call.
 */
-await gapi.client.folders.testIamPermissions({ resource: "resource",  }); 
-    
-/* 
+await gapi.client.folders.testIamPermissions({ resource: "resource",  });
+
+/*
 Cancels the deletion request for a Folder. This method may only be
 called on a Folder in the
 DELETE_REQUESTED state.
@@ -206,14 +212,14 @@ In addition, reintroducing the folder into the tree must not violate
 folder naming, height and fanout constraints described in the
 CreateFolder documentation.
 The caller must have `resourcemanager.folders.undelete` permission on the
-identified folder.  
+identified folder.
 */
-await gapi.client.folders.undelete({ name: "name",  }); 
-    
-/* 
+await gapi.client.folders.undelete({ name: "name",  });
+
+/*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
-service.  
+service.
 */
 await gapi.client.operations.get({ name: "name",  });
 ```

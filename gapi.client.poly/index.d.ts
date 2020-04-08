@@ -137,6 +137,7 @@ declare namespace gapi.client {
             /** The estimated number of triangles. */
             triangleCount?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface ImageError {
             /** The type of image error encountered. Optional for older image errors. */
             code?: string;

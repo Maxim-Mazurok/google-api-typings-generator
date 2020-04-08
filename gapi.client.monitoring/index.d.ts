@@ -482,6 +482,7 @@ declare namespace gapi.client {
              */
             validateSsl?: boolean;
         }
+        // tslint:disable-next-line:interface-name
         interface InternalChecker {
             /**
              * The checker's human-readable name. The display name should be unique within a Stackdriver Workspace in order to make it easier to identify; however,

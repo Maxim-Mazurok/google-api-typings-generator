@@ -134,6 +134,7 @@ declare namespace gapi.client {
         interface HistoryMessageDeleted {
             message?: Message;
         }
+        // tslint:disable-next-line:interface-name
         interface ImapSettings {
             /**
              * If this value is true, Gmail will immediately expunge a message when it is marked as deleted in IMAP. Otherwise, Gmail will wait for an update from the

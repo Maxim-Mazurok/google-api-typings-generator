@@ -1,4 +1,5 @@
 # TypeScript typings for Cloud Billing API v1
+
 Allows developers to manage billing for their Google Cloud Platform projects
     programmatically.
 For detailed description please check [documentation](https://cloud.google.com/billing/).
@@ -6,6 +7,7 @@ For detailed description please check [documentation](https://cloud.google.com/b
 ## Installing
 
 Install typings for Cloud Billing API:
+
 ```
 npm install @types/gapi.client.cloudbilling@v1 --save-dev
 ```
@@ -13,47 +15,51 @@ npm install @types/gapi.client.cloudbilling@v1 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('cloudbilling', 'v1', () => {
-    // now we can use gapi.client.cloudbilling
-    // ... 
+  // now we can use gapi.client.cloudbilling
+  // ...
 });
 ```
 
 Don't forget to authenticate your client before sending any request to resources:
-```typescript
 
+```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-    scope = [     
-        // View and manage your data across Google Cloud Platform services
-        'https://www.googleapis.com/auth/cloud-platform',
+  scope = [ 
+      // View and manage your data across Google Cloud Platform services
+      'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
 // ...
 
-gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
     if (authResult && !authResult.error) {
         /* handle successful authorization */
     } else {
         /* handle authorization error */
     }
-});            
+});
 ```
 
 After that you can use Cloud Billing API resources:
 
-```typescript 
-    
-/* 
+```typescript
+
+/*
 Creates a billing account.
 This method can only be used to create
 [billing subaccounts](https://cloud.google.com/billing/docs/concepts)
@@ -63,67 +69,67 @@ When creating a subaccount, the current authenticated user must have the
 typically given to billing account
 [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
 This method will return an error if the master account has not been
-provisioned as a reseller account.  
+provisioned as a reseller account.
 */
-await gapi.client.billingAccounts.create({  }); 
-    
-/* 
+await gapi.client.billingAccounts.create({  });
+
+/*
 Gets information about a billing account. The current authenticated user
 must be a [viewer of the billing
-account](https://cloud.google.com/billing/docs/how-to/billing-access).  
+account](https://cloud.google.com/billing/docs/how-to/billing-access).
 */
-await gapi.client.billingAccounts.get({ name: "name",  }); 
-    
-/* 
+await gapi.client.billingAccounts.get({ name: "name",  });
+
+/*
 Gets the access control policy for a billing account.
 The caller must have the `billing.accounts.getIamPolicy` permission on the
 account, which is often given to billing account
-[viewers](https://cloud.google.com/billing/docs/how-to/billing-access).  
+[viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
 */
-await gapi.client.billingAccounts.getIamPolicy({ resource: "resource",  }); 
-    
-/* 
+await gapi.client.billingAccounts.getIamPolicy({ resource: "resource",  });
+
+/*
 Lists the billing accounts that the current authenticated user has
 permission to
-[view](https://cloud.google.com/billing/docs/how-to/billing-access).  
+[view](https://cloud.google.com/billing/docs/how-to/billing-access).
 */
-await gapi.client.billingAccounts.list({  }); 
-    
-/* 
+await gapi.client.billingAccounts.list({  });
+
+/*
 Updates a billing account's fields.
 Currently the only field that can be edited is `display_name`.
 The current authenticated user must have the `billing.accounts.update`
 IAM permission, which is typically given to the
 [administrator](https://cloud.google.com/billing/docs/how-to/billing-access)
-of the billing account.  
+of the billing account.
 */
-await gapi.client.billingAccounts.patch({ name: "name",  }); 
-    
-/* 
+await gapi.client.billingAccounts.patch({ name: "name",  });
+
+/*
 Sets the access control policy for a billing account. Replaces any existing
 policy.
 The caller must have the `billing.accounts.setIamPolicy` permission on the
 account, which is often given to billing account
-[administrators](https://cloud.google.com/billing/docs/how-to/billing-access).  
+[administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
 */
-await gapi.client.billingAccounts.setIamPolicy({ resource: "resource",  }); 
-    
-/* 
+await gapi.client.billingAccounts.setIamPolicy({ resource: "resource",  });
+
+/*
 Tests the access control policy for a billing account. This method takes
 the resource and a set of permissions as input and returns the subset of
-the input permissions that the caller is allowed for that resource.  
+the input permissions that the caller is allowed for that resource.
 */
-await gapi.client.billingAccounts.testIamPermissions({ resource: "resource",  }); 
-    
-/* 
+await gapi.client.billingAccounts.testIamPermissions({ resource: "resource",  });
+
+/*
 Gets the billing information for a project. The current authenticated user
 must have [permission to view the
 project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
-).  
+).
 */
-await gapi.client.projects.getBillingInfo({ name: "name",  }); 
-    
-/* 
+await gapi.client.projects.getBillingInfo({ name: "name",  });
+
+/*
 Sets or updates the billing account associated with a project. You specify
 the new billing account by setting the `billing_account_name` in the
 `ProjectBillingInfo` resource to the resource name of a billing account.
@@ -154,12 +160,12 @@ Note that associating a project with a *closed* billing account will have
 much the same effect as disabling billing on the project: any paid
 resources used by the project will be shut down. Thus, unless you wish to
 disable billing, you should always call this method with the name of an
-*open* billing account.  
+*open* billing account.
 */
-await gapi.client.projects.updateBillingInfo({ name: "name",  }); 
-    
-/* 
-Lists all public cloud services.  
+await gapi.client.projects.updateBillingInfo({ name: "name",  });
+
+/*
+Lists all public cloud services.
 */
 await gapi.client.services.list({  });
 ```

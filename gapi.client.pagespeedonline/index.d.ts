@@ -82,6 +82,7 @@ declare namespace gapi.client {
             /** The user agent string that was sent over the network. */
             networkUserAgent?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface I18n {
             /**
              * Internationalized strings that are formatted to the locale in

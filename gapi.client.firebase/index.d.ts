@@ -254,6 +254,7 @@ declare namespace gapi.client {
             /** The default Firebase resources associated with the Project. */
             resources?: DefaultResources;
         }
+        // tslint:disable-next-line:interface-name
         interface IosApp {
             /**
              * Immutable. The globally unique, Firebase-assigned identifier of the App.
@@ -282,6 +283,7 @@ declare namespace gapi.client {
             /** The globally unique, user-assigned ID of the parent Project for the App. */
             projectId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IosAppConfig {
             /** The content of the XML configuration file. */
             configFileContents?: string;
@@ -1339,6 +1341,7 @@ declare namespace gapi.client {
             },
             body: FinalizeDefaultLocationRequest): Request<Operation>;
         }
+        // tslint:disable-next-line:interface-name
         interface IosAppsResource {
             /**
              * Requests that a new IosApp be created.

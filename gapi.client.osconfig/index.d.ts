@@ -648,6 +648,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListPatchDeploymentsResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface InstanceDetailsResource {
             /** Get a list of instance details for a given patch job. */
             list(request?: {

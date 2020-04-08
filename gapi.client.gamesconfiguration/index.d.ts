@@ -117,6 +117,7 @@ declare namespace gapi.client {
              */
             suffix?: GamesNumberAffixConfiguration;
         }
+        // tslint:disable-next-line:interface-name
         interface ImageConfiguration {
             /** The image type for the image. */
             imageType?: string;
@@ -400,6 +401,7 @@ declare namespace gapi.client {
             },
             body: AchievementConfiguration): Request<AchievementConfiguration>;
         }
+        // tslint:disable-next-line:interface-name
         interface ImageConfigurationsResource {
             /** Uploads an image for a resource with the given ID and image type. */
             upload(request?: {

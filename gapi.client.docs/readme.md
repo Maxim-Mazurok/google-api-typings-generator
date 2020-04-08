@@ -1,10 +1,12 @@
 # TypeScript typings for Google Docs API v1
+
 Reads and writes Google Docs documents.
 For detailed description please check [documentation](https://developers.google.com/docs/).
 
 ## Installing
 
 Install typings for Google Docs API:
+
 ```
 npm install @types/gapi.client.docs@v1 --save-dev
 ```
@@ -12,59 +14,63 @@ npm install @types/gapi.client.docs@v1 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('docs', 'v1', () => {
-    // now we can use gapi.client.docs
-    // ... 
+  // now we can use gapi.client.docs
+  // ...
 });
 ```
 
 Don't forget to authenticate your client before sending any request to resources:
-```typescript
 
+```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-    scope = [     
-        // View and manage your Google Docs documents
-        'https://www.googleapis.com/auth/documents',
-    
-        // View your Google Docs documents
-        'https://www.googleapis.com/auth/documents.readonly',
-    
-        // See, edit, create, and delete all of your Google Drive files
-        'https://www.googleapis.com/auth/drive',
-    
-        // View and manage Google Drive files and folders that you have opened or created with this app
-        'https://www.googleapis.com/auth/drive.file',
-    
-        // See and download all your Google Drive files
-        'https://www.googleapis.com/auth/drive.readonly',
+  scope = [ 
+      // View and manage your Google Docs documents
+      'https://www.googleapis.com/auth/documents',
+
+      // View your Google Docs documents
+      'https://www.googleapis.com/auth/documents.readonly',
+
+      // See, edit, create, and delete all of your Google Drive files
+      'https://www.googleapis.com/auth/drive',
+
+      // View and manage Google Drive files and folders that you have opened or created with this app
+      'https://www.googleapis.com/auth/drive.file',
+
+      // See and download all your Google Drive files
+      'https://www.googleapis.com/auth/drive.readonly',
     ],
     immediate = true;
 // ...
 
-gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
     if (authResult && !authResult.error) {
         /* handle successful authorization */
     } else {
         /* handle authorization error */
     }
-});            
+});
 ```
 
 After that you can use Google Docs API resources:
 
-```typescript 
-    
-/* 
+```typescript
+
+/*
 Applies one or more updates to the document.
 
 Each request is validated before
@@ -85,20 +91,20 @@ might not exactly reflect your changes: your changes may
 be altered with respect to collaborator changes. If there are no
 collaborators, the document should reflect your changes. In any case,
 the updates in your request are guaranteed to be applied together
-atomically.  
+atomically.
 */
-await gapi.client.documents.batchUpdate({ documentId: "documentId",  }); 
-    
-/* 
+await gapi.client.documents.batchUpdate({ documentId: "documentId",  });
+
+/*
 Creates a blank document using the title given in the request. Other fields
 in the request, including any provided content, are ignored.
 
-Returns the created document.  
+Returns the created document.
 */
-await gapi.client.documents.create({  }); 
-    
-/* 
-Gets the latest version of the specified document.  
+await gapi.client.documents.create({  });
+
+/*
+Gets the latest version of the specified document.
 */
 await gapi.client.documents.get({ documentId: "documentId",  });
 ```

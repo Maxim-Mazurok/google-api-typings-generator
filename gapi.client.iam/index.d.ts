@@ -623,6 +623,7 @@ declare namespace gapi.client {
              */
             publicKeyData?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IamPoliciesResource {
             /**
              * Lints a Cloud IAM policy object or its sub fields. Currently supports

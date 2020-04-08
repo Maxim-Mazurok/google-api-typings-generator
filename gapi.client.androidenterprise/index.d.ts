@@ -324,6 +324,7 @@ declare namespace gapi.client {
             /** A user of an enterprise. */
             user?: User[];
         }
+        // tslint:disable-next-line:interface-name
         interface Install {
             /**
              * Install state. The state "installPending" means that an install request has recently been made and download to the device is in progress. The state
@@ -336,6 +337,7 @@ declare namespace gapi.client {
             /** The version of the installed product. Guaranteed to be set only if the install state is "installed". */
             versionCode?: number;
         }
+        // tslint:disable-next-line:interface-name
         interface InstallFailureEvent {
             /** The Android ID of the device. This field will always be present. */
             deviceId?: string;
@@ -348,6 +350,7 @@ declare namespace gapi.client {
             /** The ID of the user. This field will always be present. */
             userId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InstallsListResponse {
             /** An installation of an app for a user on a specific device. The existence of an install implies that the user must have an entitlement to the app. */
             install?: Install[];
@@ -1719,6 +1722,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<GroupLicenseUsersListResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface InstallsResource {
             /** Requests to remove an app from a device. A call to get or list will still show the app as installed on the device until it is actually removed. */
             delete(request?: {

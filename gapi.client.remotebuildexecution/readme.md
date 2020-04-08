@@ -1,10 +1,12 @@
 # TypeScript typings for Remote Build Execution API v2
+
 Supplies a Remote Execution API service for tools such as bazel.
 For detailed description please check [documentation](https://cloud.google.com/remote-build-execution/docs/).
 
 ## Installing
 
 Install typings for Remote Build Execution API:
+
 ```
 npm install @types/gapi.client.remotebuildexecution@v2 --save-dev
 ```
@@ -12,47 +14,51 @@ npm install @types/gapi.client.remotebuildexecution@v2 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('remotebuildexecution', 'v2', () => {
-    // now we can use gapi.client.remotebuildexecution
-    // ... 
+  // now we can use gapi.client.remotebuildexecution
+  // ...
 });
 ```
 
 Don't forget to authenticate your client before sending any request to resources:
-```typescript
 
+```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-    scope = [     
-        // View and manage your data across Google Cloud Platform services
-        'https://www.googleapis.com/auth/cloud-platform',
+  scope = [ 
+      // View and manage your data across Google Cloud Platform services
+      'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
 // ...
 
-gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
     if (authResult && !authResult.error) {
         /* handle successful authorization */
     } else {
         /* handle authorization error */
     }
-});            
+});
 ```
 
 After that you can use Remote Build Execution API resources:
 
-```typescript 
-    
-/* 
+```typescript
+
+/*
 Retrieve a cached execution result.
 
 Implementations SHOULD ensure that any blobs referenced from the
@@ -64,11 +70,11 @@ if necessary and applicable.
 
 Errors:
 
-* `NOT_FOUND`: The requested `ActionResult` is not in the cache.  
+* `NOT_FOUND`: The requested `ActionResult` is not in the cache.
 */
-await gapi.client.actionResults.get({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  }); 
-    
-/* 
+await gapi.client.actionResults.get({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  });
+
+/*
 Upload a new execution result.
 
 In order to allow the server to perform access control based on the type of
@@ -84,11 +90,11 @@ Errors:
 * `FAILED_PRECONDITION`: One or more errors occurred in updating the
   action result, such as a missing command or action.
 * `RESOURCE_EXHAUSTED`: There is insufficient storage space to add the
-  entry to the cache.  
+  entry to the cache.
 */
-await gapi.client.actionResults.update({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  }); 
-    
-/* 
+await gapi.client.actionResults.update({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  });
+
+/*
 Execute an action remotely.
 
 In order to execute an action, the client must first upload all of the
@@ -151,11 +157,11 @@ In the case of a missing input or command, the server SHOULD additionally
 send a PreconditionFailure error detail
 where, for each requested blob not present in the CAS, there is a
 `Violation` with a `type` of `MISSING` and a `subject` of
-`"blobs/{hash}/{size}"` indicating the digest of the missing blob.  
+`"blobs/{hash}/{size}"` indicating the digest of the missing blob.
 */
-await gapi.client.actions.execute({ instanceName: "instanceName",  }); 
-    
-/* 
+await gapi.client.actions.execute({ instanceName: "instanceName",  });
+
+/*
 Download many blobs at once.
 
 The server may enforce a limit of the combined total size of blobs
@@ -175,11 +181,11 @@ Errors:
   server supported limit.
 
 Every error on individual read will be returned in the corresponding digest
-status.  
+status.
 */
-await gapi.client.blobs.batchRead({ instanceName: "instanceName",  }); 
-    
-/* 
+await gapi.client.blobs.batchRead({ instanceName: "instanceName",  });
+
+/*
 Upload many blobs at once.
 
 The server may enforce a limit of the combined total size of blobs
@@ -203,11 +209,11 @@ Individual requests may return the following errors, additionally:
 * `RESOURCE_EXHAUSTED`: There is insufficient disk quota to store the blob.
 * `INVALID_ARGUMENT`: The
 Digest does not match the
-provided data.  
+provided data.
 */
-await gapi.client.blobs.batchUpdate({ instanceName: "instanceName",  }); 
-    
-/* 
+await gapi.client.blobs.batchUpdate({ instanceName: "instanceName",  });
+
+/*
 Determine if blobs are present in the CAS.
 
 Clients can use this API before uploading blobs to determine which ones are
@@ -216,11 +222,11 @@ already present in the CAS and do not need to be uploaded again.
 Servers SHOULD increase the TTLs of the referenced blobs if necessary and
 applicable.
 
-There are no method-specific errors.  
+There are no method-specific errors.
 */
-await gapi.client.blobs.findMissing({ instanceName: "instanceName",  }); 
-    
-/* 
+await gapi.client.blobs.findMissing({ instanceName: "instanceName",  });
+
+/*
 Fetch the entire directory tree rooted at a node.
 
 This request must be targeted at a
@@ -243,21 +249,21 @@ portion present and omit the rest.
 
 Errors:
 
-* `NOT_FOUND`: The requested tree root is not present in the CAS.  
+* `NOT_FOUND`: The requested tree root is not present in the CAS.
 */
-await gapi.client.blobs.getTree({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  }); 
-    
-/* 
+await gapi.client.blobs.getTree({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  });
+
+/*
 Wait for an execution operation to complete. When the client initially
 makes the request, the server immediately responds with the current status
 of the execution. The server will leave the request stream open until the
 operation completes, and then respond with the completed operation. The
 server MAY choose to stream additional updates as execution progresses,
-such as to provide an update as to the state of the execution.  
+such as to provide an update as to the state of the execution.
 */
-await gapi.client.operations.waitExecution({ name: "name",  }); 
-    
-/* 
+await gapi.client.operations.waitExecution({ name: "name",  });
+
+/*
 GetCapabilities returns the server capabilities configuration of the
 remote endpoint.
 Only the capabilities of the services supported by the endpoint will
@@ -265,7 +271,7 @@ be returned:
 * Execution + CAS + Action Cache endpoints should return both
   CacheCapabilities and ExecutionCapabilities.
 * Execution only endpoints should return ExecutionCapabilities.
-* CAS + Action Cache only endpoints should return CacheCapabilities.  
+* CAS + Action Cache only endpoints should return CacheCapabilities.
 */
 await gapi.client.v2.getCapabilities({ instanceName: "instanceName",  });
 ```

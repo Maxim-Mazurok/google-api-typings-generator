@@ -647,6 +647,7 @@ declare namespace gapi.client {
             /** User-provided name of the step that contains this hot key. */
             userStepName?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InstructionInput {
             /** The output index (origin zero) within the producer. */
             outputNum?: number;
@@ -658,6 +659,7 @@ declare namespace gapi.client {
              */
             producerInstructionIndex?: number;
         }
+        // tslint:disable-next-line:interface-name
         interface InstructionOutput {
             /** The codec to use to encode data being written via this output. */
             codec?: Record<string, any>;
@@ -684,16 +686,19 @@ declare namespace gapi.client {
              */
             systemName?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IntegerGauge {
             /** The time at which this value was measured. Measured as msecs from epoch. */
             timestamp?: string;
             /** The value of the variable represented by this gauge. */
             value?: SplitInt64;
         }
+        // tslint:disable-next-line:interface-name
         interface IntegerList {
             /** Elements of the list. */
             elements?: SplitInt64[];
         }
+        // tslint:disable-next-line:interface-name
         interface IntegerMean {
             /** The number of values being aggregated. */
             count?: SplitInt64;

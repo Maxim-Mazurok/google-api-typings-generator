@@ -1,10 +1,12 @@
 # TypeScript typings for Firebase Management API v1beta1
+
 The Firebase Management API enables programmatic setup and management of Firebase projects, including a project's Firebase resources and Firebase apps.
 For detailed description please check [documentation](https://firebase.google.com).
 
 ## Installing
 
 Install typings for Firebase Management API:
+
 ```
 npm install @types/gapi.client.firebase@v1beta1 --save-dev
 ```
@@ -12,56 +14,60 @@ npm install @types/gapi.client.firebase@v1beta1 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('firebase', 'v1beta1', () => {
-    // now we can use gapi.client.firebase
-    // ... 
+  // now we can use gapi.client.firebase
+  // ...
 });
 ```
 
 Don't forget to authenticate your client before sending any request to resources:
-```typescript
 
+```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-    scope = [     
-        // View and manage your data across Google Cloud Platform services
-        'https://www.googleapis.com/auth/cloud-platform',
-    
-        // View your data across Google Cloud Platform services
-        'https://www.googleapis.com/auth/cloud-platform.read-only',
-    
-        // View and administer all your Firebase data and settings
-        'https://www.googleapis.com/auth/firebase',
-    
-        // View all your Firebase data and settings
-        'https://www.googleapis.com/auth/firebase.readonly',
+  scope = [ 
+      // View and manage your data across Google Cloud Platform services
+      'https://www.googleapis.com/auth/cloud-platform',
+
+      // View your data across Google Cloud Platform services
+      'https://www.googleapis.com/auth/cloud-platform.read-only',
+
+      // View and administer all your Firebase data and settings
+      'https://www.googleapis.com/auth/firebase',
+
+      // View all your Firebase data and settings
+      'https://www.googleapis.com/auth/firebase.readonly',
     ],
     immediate = true;
 // ...
 
-gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
     if (authResult && !authResult.error) {
         /* handle successful authorization */
     } else {
         /* handle authorization error */
     }
-});            
+});
 ```
 
 After that you can use Firebase Management API resources:
 
-```typescript 
-    
-/* 
+```typescript
+
+/*
 Returns a list of [Google Cloud Platform (GCP) `Projects`]
 (https://cloud.google.com/resource-manager/reference/rest/v1/projects)
 that are available to have Firebase resources added to them.
@@ -74,18 +80,18 @@ that are available to have Firebase resources added to them.
   <li><p>The GCP `Project` is not already a FirebaseProject.</p></li>
   <li><p>The GCP `Project` is not in an Organization which has policies
          that prevent Firebase resources from being added.</p></li>
-</ol>  
+</ol>
 */
-await gapi.client.availableProjects.list({  }); 
-    
-/* 
+await gapi.client.availableProjects.list({  });
+
+/*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
-service.  
+service.
 */
-await gapi.client.operations.get({ name: "name",  }); 
-    
-/* 
+await gapi.client.operations.get({ name: "name",  });
+
+/*
 Adds Firebase resources to the specified existing
 [Google Cloud Platform (GCP) `Project`]
 (https://cloud.google.com/resource-manager/reference/rest/v1/projects).
@@ -111,11 +117,11 @@ DeleteOperation.
 underlying GCP `Project`.
 <br>
 <br>To call `AddFirebase`, a member must be an Editor or Owner for the
-existing GCP `Project`. Service accounts cannot call `AddFirebase`.  
+existing GCP `Project`. Service accounts cannot call `AddFirebase`.
 */
-await gapi.client.projects.addFirebase({ project: "project",  }); 
-    
-/* 
+await gapi.client.projects.addFirebase({ project: "project",  });
+
+/*
 Links a FirebaseProject with an existing
 [Google Analytics account](http://www.google.com/analytics/).
 <br>
@@ -168,34 +174,34 @@ call `AddGoogleAnalytics` using an `analyticsPropertyId` that's different
 from the currently associated property, then the call will fail. Analytics
 may have already been enabled in the Firebase console or by specifying
 `timeZone` and `regionCode` in the call to
-[`AddFirebase`](../../v1beta1/projects/addFirebase).  
+[`AddFirebase`](../../v1beta1/projects/addFirebase).
 */
-await gapi.client.projects.addGoogleAnalytics({ parent: "parent",  }); 
-    
-/* 
-Gets the FirebaseProject identified by the specified resource name.  
+await gapi.client.projects.addGoogleAnalytics({ parent: "parent",  });
+
+/*
+Gets the FirebaseProject identified by the specified resource name.
 */
-await gapi.client.projects.get({ name: "name",  }); 
-    
-/* 
+await gapi.client.projects.get({ name: "name",  });
+
+/*
 Gets the configuration artifact used by servers to simplify initialization.
 <br>
 <br>Typically, this configuration is used with the Firebase Admin SDK
 [initializeApp](https://firebase.google.com/docs/admin/setup#initialize_the_sdk)
-command.  
+command.
 */
-await gapi.client.projects.getAdminSdkConfig({ name: "name",  }); 
-    
-/* 
+await gapi.client.projects.getAdminSdkConfig({ name: "name",  });
+
+/*
 Gets the Google Analytics details currently associated with a
 FirebaseProject.
 <br>
 <br>If the `FirebaseProject` is not yet linked to Google Analytics, then
-the response to `GetAnalyticsDetails` is NOT_FOUND.  
+the response to `GetAnalyticsDetails` is NOT_FOUND.
 */
-await gapi.client.projects.getAnalyticsDetails({ name: "name",  }); 
-    
-/* 
+await gapi.client.projects.getAnalyticsDetails({ name: "name",  });
+
+/*
 Lists each FirebaseProject accessible to the caller.
 <br>
 <br>The elements are returned in no particular order, but they will be a
@@ -209,19 +215,19 @@ include only ACTIVE Projects.
 <br>
 <br>Use
 GetFirebaseProject
-for consistent reads as well as for additional Project details.  
+for consistent reads as well as for additional Project details.
 */
-await gapi.client.projects.list({  }); 
-    
-/* 
+await gapi.client.projects.list({  });
+
+/*
 Updates the attributes of the FirebaseProject identified by the
 specified resource name.
 <br>
-<br>All [query parameters](#query-parameters) are required.  
+<br>All [query parameters](#query-parameters) are required.
 */
-await gapi.client.projects.patch({ name: "name",  }); 
-    
-/* 
+await gapi.client.projects.patch({ name: "name",  });
+
+/*
 Unlinks the specified `FirebaseProject` from its Google Analytics account.
 <br>
 <br>This call removes the association of the specified `FirebaseProject`
@@ -238,17 +244,17 @@ for Web Apps, this call provisions a <em>new</em> data stream for each Web
 App.
 <br>
 <br>To call `RemoveAnalytics`, a member must be an Owner for
-the `FirebaseProject`.  
+the `FirebaseProject`.
 */
-await gapi.client.projects.removeAnalytics({ parent: "parent",  }); 
-    
-/* 
+await gapi.client.projects.removeAnalytics({ parent: "parent",  });
+
+/*
 A convenience method that lists all available Apps for the specified
 FirebaseProject.
 <br>
 <br>Typically, interaction with an App should be done using the
 platform-specific service, but some tool use-cases require a summary of all
-known Apps (such as for App selector interfaces).  
+known Apps (such as for App selector interfaces).
 */
 await gapi.client.projects.searchApps({ parent: "parent",  });
 ```

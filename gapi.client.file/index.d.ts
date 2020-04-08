@@ -234,6 +234,7 @@ declare namespace gapi.client {
              */
             tier?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Instance {
             /** Output only. The time when the instance was created. */
             createTime?: string;
@@ -423,6 +424,7 @@ declare namespace gapi.client {
              */
             message?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /** Creates an instance. */
             create(request: {

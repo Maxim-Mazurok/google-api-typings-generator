@@ -181,6 +181,7 @@ declare namespace gapi.client {
              */
             title?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IamPolicy {
             /**
              * Associates a list of `members` to a `role`. Optionally, may specify a

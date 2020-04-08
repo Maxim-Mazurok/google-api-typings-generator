@@ -756,6 +756,7 @@ declare namespace gapi.client {
             /** Properties matching the groupBy fields in the request. */
             properties?: Record<string, any>;
         }
+        // tslint:disable-next-line:interface-name
         interface IamPolicy {
             /**
              * The JSON representation of the Policy associated with the asset.

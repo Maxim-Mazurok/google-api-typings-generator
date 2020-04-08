@@ -1395,6 +1395,7 @@ declare namespace gapi.client {
             },
             body: GoogleFirestoreAdminV1Field): Request<GoogleLongrunningOperation>;
         }
+        // tslint:disable-next-line:interface-name
         interface IndexesResource {
             /**
              * Creates a composite index. This returns a google.longrunning.Operation

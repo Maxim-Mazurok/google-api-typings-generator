@@ -366,6 +366,7 @@ declare namespace gapi.client {
              */
             tier?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Instance {
             /**
              * Optional. The full name of the Google Compute Engine
@@ -443,6 +444,7 @@ declare namespace gapi.client {
              */
             zones?: string[];
         }
+        // tslint:disable-next-line:interface-name
         interface InstanceMessage {
             /** A code that correspond to one type of user-facing message. */
             code?: string;
@@ -680,6 +682,7 @@ declare namespace gapi.client {
         // tslint:disable-next-line:no-empty-interface
         interface ZoneMetadata {
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /**
              * ApplyParameters will update current set of Parameters to the set of

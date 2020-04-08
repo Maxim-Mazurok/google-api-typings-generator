@@ -533,6 +533,7 @@ declare namespace gapi.client {
             /** This is always <code>sql#flagsList</code>. */
             kind?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface ImportContext {
             /** Import parameters specific to SQL Server .BAK files */
             bakImportOptions?: {
@@ -589,26 +590,32 @@ declare namespace gapi.client {
              */
             uri?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesCloneRequest {
             /** Contains details about the clone operation. */
             cloneContext?: CloneContext;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesDemoteMasterRequest {
             /** Contains details about the demoteMaster operation. */
             demoteMasterContext?: DemoteMasterContext;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesExportRequest {
             /** Contains details about the export operation. */
             exportContext?: ExportContext;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesFailoverRequest {
             /** Failover Context. */
             failoverContext?: FailoverContext;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesImportRequest {
             /** Contains details about the import operation. */
             importContext?: ImportContext;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesListResponse {
             /** List of database instance resources. */
             items?: DatabaseInstance[];
@@ -622,6 +629,7 @@ declare namespace gapi.client {
             /** List of warnings that occurred while handling the request. */
             warnings?: ApiWarning[];
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesListServerCasResponse {
             activeVersion?: string;
             /** List of server CA certificates for the instance. */
@@ -629,18 +637,22 @@ declare namespace gapi.client {
             /** This is always <code>sql#instancesListServerCas</code>. */
             kind?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesRestoreBackupRequest {
             /** Parameters required to perform the restore backup operation. */
             restoreBackupContext?: RestoreBackupContext;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesRotateServerCaRequest {
             /** Contains details about the rotate server CA operation. */
             rotateServerCaContext?: RotateServerCaContext;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesTruncateLogRequest {
             /** Contains details about the truncate log operation. */
             truncateLogContext?: TruncateLogContext;
         }
+        // tslint:disable-next-line:interface-name
         interface IpConfiguration {
             /**
              * The list of external networks that are allowed to connect to the instance
@@ -662,6 +674,7 @@ declare namespace gapi.client {
             /** Whether SSL connections over IP should be enforced or not. */
             requireSsl?: boolean;
         }
+        // tslint:disable-next-line:interface-name
         interface IpMapping {
             /** The IP address assigned. */
             ipAddress?: string;
@@ -1708,6 +1721,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<FlagsListResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /**
              * Add a new trusted Certificate Authority (CA) version for the specified
@@ -2800,6 +2814,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<OperationsListResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /** Reschedules the maintenance on the given instance. */
             rescheduleMaintenance(request: {

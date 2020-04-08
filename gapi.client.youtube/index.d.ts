@@ -873,6 +873,7 @@ declare namespace gapi.client {
             /** Description of the guide category. */
             title?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface I18nLanguage {
             /** Etag of this resource. */
             etag?: string;
@@ -883,6 +884,7 @@ declare namespace gapi.client {
             /** The snippet object contains basic details about the i18n language, such as language code and human-readable name. */
             snippet?: I18nLanguageSnippet;
         }
+        // tslint:disable-next-line:interface-name
         interface I18nLanguageListResponse {
             /** Etag of this resource. */
             etag?: string;
@@ -895,12 +897,14 @@ declare namespace gapi.client {
             /** The visitorId identifies the visitor. */
             visitorId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface I18nLanguageSnippet {
             /** A short BCP-47 code that uniquely identifies a language. */
             hl?: string;
             /** The human-readable name of the language in the language itself. */
             name?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface I18nRegion {
             /** Etag of this resource. */
             etag?: string;
@@ -911,6 +915,7 @@ declare namespace gapi.client {
             /** The snippet object contains basic details about the i18n region, such as region code and human-readable name. */
             snippet?: I18nRegionSnippet;
         }
+        // tslint:disable-next-line:interface-name
         interface I18nRegionListResponse {
             /** Etag of this resource. */
             etag?: string;
@@ -923,12 +928,14 @@ declare namespace gapi.client {
             /** The visitorId identifies the visitor. */
             visitorId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface I18nRegionSnippet {
             /** The region code as a 2-letter ISO country code. */
             gl?: string;
             /** The human-readable name of the region. */
             name?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface ImageSettings {
             /** The URL for the background image shown on the video watch page. The image should be 1200px by 615px, with a maximum file size of 128k. */
             backgroundImageUrl?: LocalizedProperty;
@@ -978,6 +985,7 @@ declare namespace gapi.client {
              */
             watchIconImageUrl?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IngestionInfo {
             /**
              * The backup ingestion URL that you should use to stream video to YouTube. You have the option of simultaneously streaming the content that you are
@@ -996,6 +1004,7 @@ declare namespace gapi.client {
             /** The HTTP or RTMP stream name that YouTube assigns to the video stream. */
             streamName?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InvideoBranding {
             imageBytes?: string;
             imageUrl?: string;
@@ -1003,12 +1012,14 @@ declare namespace gapi.client {
             targetChannelId?: string;
             timing?: InvideoTiming;
         }
+        // tslint:disable-next-line:interface-name
         interface InvideoPosition {
             /** Describes in which corner of the video the visual widget will appear. */
             cornerPosition?: string;
             /** Defines the position type. */
             type?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InvideoPromotion {
             /** The default temporal position within the video where the promoted item will be displayed. Can be overriden by more specific timing in the item. */
             defaultTiming?: InvideoTiming;
@@ -1022,6 +1033,7 @@ declare namespace gapi.client {
              */
             useSmartTiming?: boolean;
         }
+        // tslint:disable-next-line:interface-name
         interface InvideoTiming {
             /** Defines the duration in milliseconds for which the promotion should be displayed. If missing, the client should use the default. */
             durationMs?: string;
@@ -3916,6 +3928,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<GuideCategoryListResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface I18nLanguagesResource {
             /** Returns a list of application languages that the YouTube website supports. */
             list(request?: {
@@ -3939,6 +3952,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<I18nLanguageListResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface I18nRegionsResource {
             /** Returns a list of content regions that the YouTube website supports. */
             list(request?: {

@@ -45,6 +45,7 @@ declare namespace gapi.client {
             /** Name of the media resource. */
             resourceName?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IdFilter {
             /**
              * TrueView Ads to download by ID. All IDs must belong to the same
@@ -89,6 +90,7 @@ declare namespace gapi.client {
              */
             mediaProductIds?: string[];
         }
+        // tslint:disable-next-line:interface-name
         interface InventorySourceFilter {
             /**
              * Inventory Sources to download by ID. All IDs must belong to the same

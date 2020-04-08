@@ -383,6 +383,7 @@ declare namespace gapi.client {
             /** Campaign term; used with paid search to supply the keywords for ads. */
             utmTerm?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IosInfo {
             /** iOS App Store ID. */
             iosAppStoreId?: string;
@@ -403,6 +404,7 @@ declare namespace gapi.client {
             /** iOS minimum version. */
             iosMinimumVersion?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface ITunesConnectAnalytics {
             /** Affiliate token used to create affiliate-coded links. */
             at?: string;

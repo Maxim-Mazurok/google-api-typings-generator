@@ -2561,6 +2561,7 @@ declare namespace gapi.client {
              */
             seconds?: number;
         }
+        // tslint:disable-next-line:interface-name
         interface InfoTypesResource {
             /**
              * Returns a list of the sensitive information types that the DLP API
@@ -2608,6 +2609,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GooglePrivacyDlpV2ListInfoTypesResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface InfoTypesResource {
             /**
              * Returns a list of the sensitive information types that the DLP API
@@ -2930,6 +2932,7 @@ declare namespace gapi.client {
             },
             body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
         }
+        // tslint:disable-next-line:interface-name
         interface InspectTemplatesResource {
             /**
              * Creates an InspectTemplate for re-using frequently used configuration
@@ -3479,6 +3482,7 @@ declare namespace gapi.client {
             },
             body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
         }
+        // tslint:disable-next-line:interface-name
         interface InspectTemplatesResource {
             /**
              * Creates an InspectTemplate for re-using frequently used configuration
@@ -5070,6 +5074,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GooglePrivacyDlpV2ListDlpJobsResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface ImageResource {
             /**
              * Redacts potentially sensitive info from an image.
@@ -5137,6 +5142,7 @@ declare namespace gapi.client {
             },
             body: GooglePrivacyDlpV2RedactImageRequest): Request<GooglePrivacyDlpV2RedactImageResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface InspectTemplatesResource {
             /**
              * Creates an InspectTemplate for re-using frequently used configuration
@@ -6682,6 +6688,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GooglePrivacyDlpV2ListDlpJobsResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface ImageResource {
             /**
              * Redacts potentially sensitive info from an image.
@@ -6761,6 +6768,7 @@ declare namespace gapi.client {
             },
             body: GooglePrivacyDlpV2RedactImageRequest): Request<GooglePrivacyDlpV2RedactImageResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface InspectTemplatesResource {
             /**
              * Creates an InspectTemplate for re-using frequently used configuration

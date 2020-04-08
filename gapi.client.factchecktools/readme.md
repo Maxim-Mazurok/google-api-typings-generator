@@ -1,10 +1,12 @@
 # TypeScript typings for Fact Check Tools API v1alpha1
 
+
 For detailed description please check [documentation](https://developers.google.com/fact-check/tools/api/).
 
 ## Installing
 
 Install typings for Fact Check Tools API:
+
 ```
 npm install @types/gapi.client.factchecktools@v1alpha1 --save-dev
 ```
@@ -12,79 +14,83 @@ npm install @types/gapi.client.factchecktools@v1alpha1 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('factchecktools', 'v1alpha1', () => {
-    // now we can use gapi.client.factchecktools
-    // ... 
+  // now we can use gapi.client.factchecktools
+  // ...
 });
 ```
 
 Don't forget to authenticate your client before sending any request to resources:
-```typescript
 
+```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-    scope = [     
-        // View your email address
-        'https://www.googleapis.com/auth/userinfo.email',
+  scope = [ 
+      // View your email address
+      'https://www.googleapis.com/auth/userinfo.email',
     ],
     immediate = true;
 // ...
 
-gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
     if (authResult && !authResult.error) {
         /* handle successful authorization */
     } else {
         /* handle authorization error */
     }
-});            
+});
 ```
 
 After that you can use Fact Check Tools API resources:
 
-```typescript 
-    
-/* 
-Search through fact-checked claims.  
+```typescript
+
+/*
+Search through fact-checked claims.
 */
-await gapi.client.claims.search({  }); 
-    
-/* 
-Create `ClaimReview` markup on a page.  
+await gapi.client.claims.search({  });
+
+/*
+Create `ClaimReview` markup on a page.
 */
-await gapi.client.pages.create({  }); 
-    
-/* 
-Delete all `ClaimReview` markup on a page.  
+await gapi.client.pages.create({  });
+
+/*
+Delete all `ClaimReview` markup on a page.
 */
-await gapi.client.pages.delete({ name: "name",  }); 
-    
-/* 
-Get all `ClaimReview` markup on a page.  
+await gapi.client.pages.delete({ name: "name",  });
+
+/*
+Get all `ClaimReview` markup on a page.
 */
-await gapi.client.pages.get({ name: "name",  }); 
-    
-/* 
+await gapi.client.pages.get({ name: "name",  });
+
+/*
 List the `ClaimReview` markup pages for a specific URL or for an
-organization.  
+organization.
 */
-await gapi.client.pages.list({  }); 
-    
-/* 
+await gapi.client.pages.list({  });
+
+/*
 Update for all `ClaimReview` markup on a page
 
 Note that this is a full update. To retain the existing `ClaimReview`
 markup on a page, first perform a Get operation, then modify the returned
 markup, and finally call Update with the entire `ClaimReview` markup as the
-body.  
+body.
 */
 await gapi.client.pages.update({ name: "name",  });
 ```

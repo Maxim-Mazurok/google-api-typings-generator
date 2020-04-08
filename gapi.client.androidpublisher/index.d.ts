@@ -180,6 +180,7 @@ declare namespace gapi.client {
             /** The name of the permission requested. */
             name?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Image {
             /** A unique id representing this image. */
             id?: string;
@@ -190,15 +191,19 @@ declare namespace gapi.client {
             /** A URL that will serve a preview of the image. */
             url?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface ImagesDeleteAllResponse {
             deleted?: Image[];
         }
+        // tslint:disable-next-line:interface-name
         interface ImagesListResponse {
             images?: Image[];
         }
+        // tslint:disable-next-line:interface-name
         interface ImagesUploadResponse {
             image?: Image;
         }
+        // tslint:disable-next-line:interface-name
         interface InAppProduct {
             /** The default language of the localized data, as defined by BCP 47. e.g. "en-US", "en-GB". */
             defaultLanguage?: string;
@@ -231,10 +236,12 @@ declare namespace gapi.client {
              */
             trialPeriod?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InAppProductListing {
             description?: string;
             title?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InappproductsListResponse {
             inappproduct?: InAppProduct[];
             /** Identifies what kind of resource this is. Value: the fixed string "androidpublisher#inappproductsListResponse". */
@@ -242,6 +249,7 @@ declare namespace gapi.client {
             pageInfo?: PageInfo;
             tokenPagination?: TokenPagination;
         }
+        // tslint:disable-next-line:interface-name
         interface InternalAppSharingArtifact {
             /** The SHA256 fingerprint of the certificate used to signed the generated artifact. */
             certificateFingerprint?: string;
@@ -250,6 +258,7 @@ declare namespace gapi.client {
             /** The SHA-256 hash of the artifact represented as a lowercase hexadecimal number, matching the output of the sha256sum command. */
             sha256?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IntroductoryPriceInfo {
             /**
              * Introductory price of the subscription, not including tax. The currency is the same as price_currency_code. Price is expressed in micro-units, where
@@ -1127,6 +1136,7 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<ExpansionFilesUploadResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface ImagesResource {
             /** Deletes the image (specified by id) from the edit. */
             delete(request?: {
@@ -1823,6 +1833,7 @@ declare namespace gapi.client {
             testers: TestersResource;
             tracks: TracksResource;
         }
+        // tslint:disable-next-line:interface-name
         interface InappproductsResource {
             /** Delete an in-app product for an app. */
             delete(request?: {
@@ -2046,6 +2057,7 @@ declare namespace gapi.client {
             },
             body: InAppProduct): Request<InAppProduct>;
         }
+        // tslint:disable-next-line:interface-name
         interface InternalappsharingartifactsResource {
             /**
              * Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before

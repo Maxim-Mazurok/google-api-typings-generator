@@ -910,10 +910,12 @@ declare namespace gapi.client {
              */
             selector?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface ImportAdminOverridesResponse {
             /** The overrides that were created from the imported data. */
             overrides?: QuotaOverride[];
         }
+        // tslint:disable-next-line:interface-name
         interface ImportConsumerOverridesResponse {
             /** The overrides that were created from the imported data. */
             overrides?: QuotaOverride[];

@@ -310,6 +310,7 @@ declare namespace gapi.client {
              */
             name?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Image {
             /** An error explaining why the thumbnail could not be rendered. */
             error?: Status;
@@ -330,6 +331,7 @@ declare namespace gapi.client {
             /** The thumbnail. */
             thumbnail?: Thumbnail;
         }
+        // tslint:disable-next-line:interface-name
         interface InconclusiveDetail {
             /**
              * If the end user aborted the test execution before a pass or fail could be determined. For example, the user pressed ctrl-c which sent a kill signal to
@@ -345,6 +347,7 @@ declare namespace gapi.client {
              */
             infrastructureFailure?: boolean;
         }
+        // tslint:disable-next-line:interface-name
         interface IndividualOutcome {
             /** Unique int given to each step. Ranges from 0(inclusive) to total number of steps(exclusive). The primary step is 0. */
             multistepNumber?: number;

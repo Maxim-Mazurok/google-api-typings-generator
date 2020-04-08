@@ -429,6 +429,7 @@ declare namespace gapi.client {
              */
             gcsPath?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IntentFilter {
             /** The android:name value of the <action> tag. */
             actionNames?: string[];
@@ -437,6 +438,7 @@ declare namespace gapi.client {
             /** The android:mimeType value of the <data> tag. */
             mimeType?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IosDevice {
             /**
              * Required. The id of the iOS device to be used.
@@ -459,6 +461,7 @@ declare namespace gapi.client {
              */
             orientation?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IosDeviceCatalog {
             /** The set of supported iOS device models. */
             models?: IosModel[];
@@ -469,10 +472,12 @@ declare namespace gapi.client {
             /** The set of supported Xcode versions. */
             xcodeVersions?: XcodeVersion[];
         }
+        // tslint:disable-next-line:interface-name
         interface IosDeviceList {
             /** Required. A list of iOS devices. */
             iosDevices?: IosDevice[];
         }
+        // tslint:disable-next-line:interface-name
         interface IosModel {
             /**
              * Device capabilities.
@@ -507,12 +512,14 @@ declare namespace gapi.client {
              */
             tags?: string[];
         }
+        // tslint:disable-next-line:interface-name
         interface IosRuntimeConfiguration {
             /** The set of available locales. */
             locales?: Locale[];
             /** The set of available orientations. */
             orientations?: Orientation[];
         }
+        // tslint:disable-next-line:interface-name
         interface IosTestLoop {
             /** Output only. The bundle id for the application under test. */
             appBundleId?: string;
@@ -524,6 +531,7 @@ declare namespace gapi.client {
              */
             scenarios?: number[];
         }
+        // tslint:disable-next-line:interface-name
         interface IosTestSetup {
             /**
              * The network traffic profile used for running the test.
@@ -533,6 +541,7 @@ declare namespace gapi.client {
              */
             networkProfile?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IosVersion {
             /**
              * An opaque id for this iOS version.
@@ -557,6 +566,7 @@ declare namespace gapi.client {
              */
             tags?: string[];
         }
+        // tslint:disable-next-line:interface-name
         interface IosXcTest {
             /** Output only. The bundle id for the application under test. */
             appBundleId?: string;

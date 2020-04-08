@@ -171,6 +171,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<RdapResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface IpResource {
             /**
              * The RDAP API recognizes this command from the RDAP specification but

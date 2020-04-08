@@ -357,6 +357,7 @@ declare namespace gapi.client {
              */
             requestedPolicyVersion?: number;
         }
+        // tslint:disable-next-line:interface-name
         interface Instance {
             /**
              * Required. The descriptive name for this instance as it appears in UIs.
@@ -392,6 +393,7 @@ declare namespace gapi.client {
             /** Required. The type of the instance. Defaults to `PRODUCTION`. */
             type?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Intersection {
             /** Only delete cells which would be deleted by every element of `rules`. */
             rules?: GcRule[];
@@ -2057,6 +2059,7 @@ declare namespace gapi.client {
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /** Create an instance within a project. */
             create(request: {

@@ -2446,6 +2446,7 @@ declare namespace gapi.client {
              */
             regions?: Region[];
         }
+        // tslint:disable-next-line:interface-name
         interface InventoryItem {
             /** Account ID of this inventory item. */
             accountId?: string;
@@ -2494,6 +2495,7 @@ declare namespace gapi.client {
             /** Type of inventory item. */
             type?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InventoryItemsListResponse {
             /** Inventory item collection */
             inventoryItems?: InventoryItem[];
@@ -8239,6 +8241,7 @@ declare namespace gapi.client {
             },
             body: FloodlightConfiguration): Request<FloodlightConfiguration>;
         }
+        // tslint:disable-next-line:interface-name
         interface InventoryItemsResource {
             /** Gets one inventory item by ID. */
             get(request?: {

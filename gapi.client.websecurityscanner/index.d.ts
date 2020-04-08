@@ -146,6 +146,7 @@ declare namespace gapi.client {
             /** Header value. */
             value?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IapCredential {
             /**
              * Authentication configuration when Web-Security-Scanner service
@@ -153,6 +154,7 @@ declare namespace gapi.client {
              */
             iapTestServiceAccountInfo?: IapTestServiceAccountInfo;
         }
+        // tslint:disable-next-line:interface-name
         interface IapTestServiceAccountInfo {
             /**
              * Required. Describes OAuth2 client id of resources protected by

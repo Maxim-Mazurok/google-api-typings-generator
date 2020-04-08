@@ -1427,6 +1427,7 @@ declare namespace gapi.client {
             devices: DevicesResource;
             nodes: NodesResource;
         }
+        // tslint:disable-next-line:interface-name
         interface InstallerResource {
             /** Generates a secret to be used with the ValidateInstaller method */
             generateSecret(request: {

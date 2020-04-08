@@ -1,10 +1,12 @@
 # TypeScript typings for Admin Reports API reports_v1
+
 Fetches reports for the administrators of G Suite customers about the usage, collaboration, security, and risk for their users.
 For detailed description please check [documentation](/admin-sdk/reports/).
 
 ## Installing
 
 Install typings for Admin Reports API:
+
 ```
 npm install @types/gapi.client.admin@reports_v1 --save-dev
 ```
@@ -12,76 +14,80 @@ npm install @types/gapi.client.admin@reports_v1 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('admin', 'reports_v1', () => {
-    // now we can use gapi.client.admin
-    // ... 
+  // now we can use gapi.client.admin
+  // ...
 });
 ```
 
 Don't forget to authenticate your client before sending any request to resources:
-```typescript
 
+```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-    scope = [     
-        // View audit reports for your G Suite domain
-        'https://www.googleapis.com/auth/admin.reports.audit.readonly',
-    
-        // View usage reports for your G Suite domain
-        'https://www.googleapis.com/auth/admin.reports.usage.readonly',
+  scope = [ 
+      // View audit reports for your G Suite domain
+      'https://www.googleapis.com/auth/admin.reports.audit.readonly',
+
+      // View usage reports for your G Suite domain
+      'https://www.googleapis.com/auth/admin.reports.usage.readonly',
     ],
     immediate = true;
 // ...
 
-gapi.auth.authorize({ client_id: client_id, scope: scope, immediate: immediate }, authResult => {
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
     if (authResult && !authResult.error) {
         /* handle successful authorization */
     } else {
         /* handle authorization error */
     }
-});            
+});
 ```
 
 After that you can use Admin Reports API resources:
 
-```typescript 
-    
-/* 
-Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application. For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters, see the activity parameters reference guides.  
+```typescript
+
+/*
+Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application. For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters, see the activity parameters reference guides.
 */
-await gapi.client.activities.list({ applicationName: "applicationName", userKey: "userKey",  }); 
-    
-/* 
-Start receiving notifications for account activities. For more information, see Receiving Push Notifications.  
+await gapi.client.activities.list({ applicationName: "applicationName", userKey: "userKey",  });
+
+/*
+Start receiving notifications for account activities. For more information, see Receiving Push Notifications.
 */
-await gapi.client.activities.watch({ applicationName: "applicationName", userKey: "userKey",  }); 
-    
-/* 
-Stop watching resources through this channel  
+await gapi.client.activities.watch({ applicationName: "applicationName", userKey: "userKey",  });
+
+/*
+Stop watching resources through this channel
 */
-await gapi.client.channels.stop({  }); 
-    
-/* 
-Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides.  
+await gapi.client.channels.stop({  });
+
+/*
+Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides.
 */
-await gapi.client.customerUsageReports.get({ date: "date",  }); 
-    
-/* 
-Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the Entities Usage Report guide. For more information about the entities report's parameters, see the Entities Usage parameters reference guides.  
+await gapi.client.customerUsageReports.get({ date: "date",  });
+
+/*
+Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the Entities Usage Report guide. For more information about the entities report's parameters, see the Entities Usage parameters reference guides.
 */
-await gapi.client.entityUsageReports.get({ date: "date", entityKey: "entityKey", entityType: "entityType",  }); 
-    
-/* 
-Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage Report guide. For more information about the user report's parameters, see the Users Usage parameters reference guides.  
+await gapi.client.entityUsageReports.get({ date: "date", entityKey: "entityKey", entityType: "entityType",  });
+
+/*
+Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage Report guide. For more information about the user report's parameters, see the Users Usage parameters reference guides.
 */
 await gapi.client.userUsageReport.get({ date: "date", userKey: "userKey",  });
 ```

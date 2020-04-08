@@ -1745,6 +1745,7 @@ declare namespace gapi.client {
             /** The data for this histogram series. */
             data?: ChartData;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertDimensionRequest {
             /**
              * Whether dimension properties should be extended from the dimensions
@@ -1764,6 +1765,7 @@ declare namespace gapi.client {
             /** The dimensions to insert.  Both the start and end indexes must be bounded. */
             range?: DimensionRange;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertRangeRequest {
             /** The range to insert new cells into. */
             range?: GridRange;
@@ -1774,6 +1776,7 @@ declare namespace gapi.client {
              */
             shiftDimension?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InterpolationPoint {
             /** The color this interpolation point should use. */
             color?: Color;
@@ -1791,6 +1794,7 @@ declare namespace gapi.client {
              */
             value?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IterativeCalculationSettings {
             /**
              * When iterative calculation is enabled and successive results differ by

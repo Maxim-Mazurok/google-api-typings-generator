@@ -1,10 +1,12 @@
 # TypeScript typings for HomeGraph API v1
 
+
 For detailed description please check [documentation](https://developers.google.com/actions/smarthome/create-app#request-sync).
 
 ## Installing
 
 Install typings for HomeGraph API:
+
 ```
 npm install @types/gapi.client.homegraph@v1 --save-dev
 ```
@@ -12,18 +14,20 @@ npm install @types/gapi.client.homegraph@v1 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('homegraph', 'v1', () => {
-    // now we can use gapi.client.homegraph
-    // ... 
+  // now we can use gapi.client.homegraph
+  // ...
 });
 ```
 
@@ -31,9 +35,9 @@ gapi.client.load('homegraph', 'v1', () => {
 
 After that you can use HomeGraph API resources:
 
-```typescript 
-    
-/* 
+```typescript
+
+/*
 Unlinks an agent user from Google. As a result, all data related to this
 user will be deleted.
 
@@ -58,19 +62,19 @@ The third-party user's identity is passed in as `agent_user_id`.
 The agent is identified by the JWT signed by the partner's service account.
 
 Note: Special characters (except "/") in `agent_user_id` must be
-URL-encoded.  
+URL-encoded.
 */
-await gapi.client.agentUsers.delete({ agentUserId: "agentUserId",  }); 
-    
-/* 
+await gapi.client.agentUsers.delete({ agentUserId: "agentUserId",  });
+
+/*
 Gets the device states for the devices in QueryRequest.
 The third-party user's identity is passed in as `agent_user_id`. The agent
 is identified by the JWT signed by the third-party partner's service
-account.  
+account.
 */
-await gapi.client.devices.query({  }); 
-    
-/* 
+await gapi.client.devices.query({  });
+
+/*
 Reports device state and optionally sends device notifications. Called by
 an agent when the device state of a third-party changes or the agent wants
 to send a notification about the device. See
@@ -85,11 +89,11 @@ if so. It also optionally takes in a list of Notifications that may be
 created, which are associated to this state change.
 
 The third-party user's identity is passed in as `agent_user_id`.
-The agent is identified by the JWT signed by the partner's service account.  
+The agent is identified by the JWT signed by the partner's service account.
 */
-await gapi.client.devices.reportStateAndNotification({  }); 
-    
-/* 
+await gapi.client.devices.reportStateAndNotification({  });
+
+/*
 Requests a `SYNC` call from Google to a 3p partner's home control agent for
 a user.
 
@@ -97,15 +101,15 @@ a user.
 The third-party user's identity is passed in as `agent_user_id`
 (see RequestSyncDevicesRequest) and forwarded back to the agent.
 The agent is identified by the API key or JWT signed by the partner's
-service account.  
+service account.
 */
-await gapi.client.devices.requestSync({  }); 
-    
-/* 
+await gapi.client.devices.requestSync({  });
+
+/*
 Gets all the devices associated with the given third-party user.
 The third-party user's identity is passed in as `agent_user_id`. The agent
 is identified by the JWT signed by the third-party partner's service
-account.  
+account.
 */
 await gapi.client.devices.sync({  });
 ```

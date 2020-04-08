@@ -861,6 +861,7 @@ declare namespace gapi.client {
              */
             timestampValue?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IndexesResource {
             /**
              * Creates the specified index.

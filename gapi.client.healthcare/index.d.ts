@@ -865,10 +865,12 @@ declare namespace gapi.client {
              */
             extensions?: Array<Record<string, any>>;
         }
+        // tslint:disable-next-line:interface-name
         interface ImageConfig {
             /** Determines how to redact text from image. */
             textRedactionMode?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface ImportDicomDataErrorDetails {
             /**
              * Deprecated. Use only for debugging purposes.
@@ -878,6 +880,7 @@ declare namespace gapi.client {
              */
             sampleErrors?: ErrorDetail[];
         }
+        // tslint:disable-next-line:interface-name
         interface ImportDicomDataRequest {
             /**
              * Cloud Storage source data location and import configuration.
@@ -887,9 +890,10 @@ declare namespace gapi.client {
              */
             gcsSource?: GoogleCloudHealthcareV1beta1DicomGcsSource;
         }
-        // tslint:disable-next-line:no-empty-interface
+        // tslint:disable-next-line:interface-name no-empty-interface
         interface ImportDicomDataResponse {
         }
+        // tslint:disable-next-line:interface-name
         interface ImportResourcesRequest {
             /**
              * The content structure in the source location. If not specified, the server
@@ -907,6 +911,7 @@ declare namespace gapi.client {
              */
             gcsSource?: GoogleCloudHealthcareV1beta1FhirRestGcsSource;
         }
+        // tslint:disable-next-line:interface-name
         interface InfoTypeTransformation {
             /** Config for character mask. */
             characterMaskConfig?: CharacterMaskConfig;
@@ -925,10 +930,12 @@ declare namespace gapi.client {
             /** Config for replace with InfoType. */
             replaceWithInfoTypeConfig?: any;
         }
+        // tslint:disable-next-line:interface-name
         interface IngestMessageRequest {
             /** HL7v2 message to ingest. */
             message?: Message;
         }
+        // tslint:disable-next-line:interface-name
         interface IngestMessageResponse {
             /** HL7v2 ACK message. */
             hl7Ack?: string;
@@ -1686,6 +1693,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<HttpBody>;
         }
+        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /**
              * DeleteInstance deletes an instance associated with the given study, series,

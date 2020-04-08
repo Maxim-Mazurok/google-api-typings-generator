@@ -275,6 +275,7 @@ declare namespace gapi.client {
             /** The title of the group. */
             title?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Impersonation {
             /** The impersonated user. */
             impersonatedUser?: User;

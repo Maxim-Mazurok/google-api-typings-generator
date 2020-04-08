@@ -325,6 +325,7 @@ declare namespace gapi.client {
              */
             units?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InsightsResource {
             /**
              * Gets the requested insight. Requires the recommender.&#42;.get IAM permission
@@ -478,6 +479,7 @@ declare namespace gapi.client {
             },
             body: GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest): Request<GoogleCloudRecommenderV1beta1Insight>;
         }
+        // tslint:disable-next-line:interface-name
         interface InsightTypesResource {
             insights: InsightsResource;
         }

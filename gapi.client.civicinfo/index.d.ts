@@ -261,10 +261,12 @@ declare namespace gapi.client {
              */
             officeIndices?: number[];
         }
+        // tslint:disable-next-line:interface-name
         interface InternalFieldMetadataProto {
             isAuto?: boolean;
             sourceSummary?: InternalSourceSummaryProto;
         }
+        // tslint:disable-next-line:interface-name
         interface InternalSourceSummaryProto {
             dataset?: string;
             provider?: string;

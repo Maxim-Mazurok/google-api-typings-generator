@@ -932,18 +932,21 @@ declare namespace gapi.client {
              */
             type?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface Installment {
             /** The amount the buyer has to pay per month. */
             amount?: Price;
             /** The number of installments the buyer has to pay. */
             months?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InvoiceSummary {
             /** Summary of the total amounts of the additional charges. */
             additionalChargeSummaries?: InvoiceSummaryAdditionalChargeSummary[];
             /** [required] Total price for the product. */
             productTotal?: Amount;
         }
+        // tslint:disable-next-line:interface-name
         interface InvoiceSummaryAdditionalChargeSummary {
             /** [required] Total additional charge for this type. */
             totalAmount?: Amount;

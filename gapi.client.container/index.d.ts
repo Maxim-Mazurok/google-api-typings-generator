@@ -713,10 +713,12 @@ declare namespace gapi.client {
              */
             disabled?: boolean;
         }
+        // tslint:disable-next-line:interface-name
         interface IntraNodeVisibilityConfig {
             /** Enables intra node visibility for this cluster. */
             enabled?: boolean;
         }
+        // tslint:disable-next-line:interface-name
         interface IPAllocationPolicy {
             /** This field is deprecated, use cluster_ipv4_cidr_block. */
             clusterIpv4Cidr?: string;

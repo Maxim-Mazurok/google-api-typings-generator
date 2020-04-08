@@ -782,6 +782,7 @@ declare namespace gapi.client {
              */
             textStyle?: TextStyle;
         }
+        // tslint:disable-next-line:interface-name
         interface ImageProperties {
             /** The clockwise rotation angle of the image, in radians. */
             angle?: number;
@@ -815,6 +816,7 @@ declare namespace gapi.client {
              */
             transparency?: number;
         }
+        // tslint:disable-next-line:interface-name
         interface ImagePropertiesSuggestionState {
             /** Indicates if there was a suggested change to angle. */
             angleSuggested?: boolean;
@@ -837,6 +839,7 @@ declare namespace gapi.client {
             /** Indicates if there was a suggested change to transparency. */
             transparencySuggested?: boolean;
         }
+        // tslint:disable-next-line:interface-name
         interface InlineObject {
             /** The properties of this inline object. */
             inlineObjectProperties?: InlineObjectProperties;
@@ -858,6 +861,7 @@ declare namespace gapi.client {
              */
             suggestedInsertionId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InlineObjectElement {
             /**
              * The ID of the InlineObject this
@@ -889,10 +893,12 @@ declare namespace gapi.client {
              */
             textStyle?: TextStyle;
         }
+        // tslint:disable-next-line:interface-name
         interface InlineObjectProperties {
             /** The embedded object of this inline object. */
             embeddedObject?: EmbeddedObject;
         }
+        // tslint:disable-next-line:interface-name
         interface InlineObjectPropertiesSuggestionState {
             /**
              * A mask that indicates which of the fields in embedded_object have been
@@ -900,6 +906,7 @@ declare namespace gapi.client {
              */
             embeddedObjectSuggestionState?: EmbeddedObjectSuggestionState;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertInlineImageRequest {
             /**
              * Inserts the text at the end of a header, footer or the document body.
@@ -942,14 +949,17 @@ declare namespace gapi.client {
              */
             uri?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertInlineImageResponse {
             /** The ID of the created InlineObject. */
             objectId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertInlineSheetsChartResponse {
             /** The object ID of the inserted chart. */
             objectId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertPageBreakRequest {
             /**
              * Inserts the page break at the end of the document body.
@@ -974,6 +984,7 @@ declare namespace gapi.client {
              */
             location?: Location;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertSectionBreakRequest {
             /**
              * Inserts a newline and a section break at the end of the document body.
@@ -1002,6 +1013,7 @@ declare namespace gapi.client {
             /** The type of section to insert. */
             sectionType?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertTableColumnRequest {
             /**
              * Whether to insert new column to the right of the reference cell location.
@@ -1019,6 +1031,7 @@ declare namespace gapi.client {
              */
             tableCellLocation?: TableCellLocation;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertTableRequest {
             /** The number of columns in the table. */
             columns?: number;
@@ -1046,6 +1059,7 @@ declare namespace gapi.client {
             /** The number of rows in the table. */
             rows?: number;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertTableRowRequest {
             /**
              * Whether to insert new row below the reference cell location.
@@ -1063,6 +1077,7 @@ declare namespace gapi.client {
              */
             tableCellLocation?: TableCellLocation;
         }
+        // tslint:disable-next-line:interface-name
         interface InsertTextRequest {
             /**
              * Inserts the text at the end of a header, footer, footnote or

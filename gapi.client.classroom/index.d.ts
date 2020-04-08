@@ -593,6 +593,7 @@ declare namespace gapi.client {
             /** ID of the student (in standard format) */
             studentId?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IndividualStudentsOptions {
             /**
              * Identifiers for the students that have access to the
@@ -600,6 +601,7 @@ declare namespace gapi.client {
              */
             studentIds?: string[];
         }
+        // tslint:disable-next-line:interface-name
         interface Invitation {
             /** Identifier of the course to invite the user to. */
             courseId?: string;
@@ -4090,6 +4092,7 @@ declare namespace gapi.client {
             teachers: TeachersResource;
             topics: TopicsResource;
         }
+        // tslint:disable-next-line:interface-name
         interface InvitationsResource {
             /**
              * Accepts an invitation, removing it and adding the invited user to the

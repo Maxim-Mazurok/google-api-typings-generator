@@ -1,10 +1,12 @@
 # TypeScript typings for Digital Asset Links API v1
+
 Discovers relationships between online assets such as websites or mobile apps.
 For detailed description please check [documentation](https://developers.google.com/digital-asset-links/).
 
 ## Installing
 
 Install typings for Digital Asset Links API:
+
 ```
 npm install @types/gapi.client.digitalassetlinks@v1 --save-dev
 ```
@@ -12,18 +14,20 @@ npm install @types/gapi.client.digitalassetlinks@v1 --save-dev
 ## Usage
 
 You need to initialize Google API client in your code:
+
 ```typescript
-gapi.load("client", () => { 
-    // now we can use gapi.client
-    // ... 
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
 });
 ```
 
 Then load api client wrapper:
+
 ```typescript
 gapi.client.load('digitalassetlinks', 'v1', () => {
-    // now we can use gapi.client.digitalassetlinks
-    // ... 
+  // now we can use gapi.client.digitalassetlinks
+  // ...
 });
 ```
 
@@ -31,9 +35,9 @@ gapi.client.load('digitalassetlinks', 'v1', () => {
 
 After that you can use Digital Asset Links API resources:
 
-```typescript 
-    
-/* 
+```typescript
+
+/*
 Determines whether the specified (directional) relationship exists between
 the specified source and target assets.
 
@@ -56,11 +60,11 @@ HTTP website (that is, the URL starts with `http://` instead of
 possible to ensure that the website's statements have not been altered by a
 third party.  For more information, see the [Digital Asset Links technical
 design
-specification](https://github.com/google/digitalassetlinks/blob/master/well-known/details.md).  
+specification](https://github.com/google/digitalassetlinks/blob/master/well-known/details.md).
 */
-await gapi.client.assetlinks.check({  }); 
-    
-/* 
+await gapi.client.assetlinks.check({  });
+
+/*
 Retrieves a list of all statements from a given source that match the
 specified target and statement string.
 
@@ -77,7 +81,7 @@ know all the ways in which two assets are related, or enumerate all the
 relationships from a particular source asset.  Example: a feature that
 helps users navigate to related items.  When a mobile app is running on a
 device, the feature would make it easy to navigate to the corresponding web
-site or Google+ profile.  
+site or Google+ profile.
 */
 await gapi.client.statements.list({  });
 ```

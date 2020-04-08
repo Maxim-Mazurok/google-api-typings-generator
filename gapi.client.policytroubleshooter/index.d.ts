@@ -349,6 +349,7 @@ declare namespace gapi.client {
              */
             title?: string;
         }
+        // tslint:disable-next-line:interface-name
         interface IamResource {
             /**
              * Checks whether a member has a specific permission for a specific resource,
