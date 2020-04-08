@@ -1,10 +1,10 @@
-# TypeScript typings for Custom Search API v1
+# TypeScript typings for CustomSearch API v1
 Searches over a website or collection of websites
-For detailed description please check [documentation](https://developers.google.com/custom-search/v1/introduction).
+For detailed description please check [documentation](https://developers.google.com/custom-search/v1/using_rest).
 
 ## Installing
 
-Install typings for Custom Search API:
+Install typings for CustomSearch API:
 ```
 npm install @types/gapi.client.customsearch@v1 --save-dev
 ```
@@ -29,20 +29,12 @@ gapi.client.load('customsearch', 'v1', () => {
 
 
 
-After that you can use Custom Search API resources:
+After that you can use CustomSearch API resources:
 
 ```typescript 
     
 /* 
-Returns metadata about the search performed, metadata about the custom
-search engine used for the search, and the search results.  
+Returns metadata about the search performed, metadata about the custom search engine used for the search, and the search results.  
 */
-await gapi.client.cse.list({  }); 
-    
-/* 
-Returns metadata about the search performed, metadata about the custom
-search engine used for the search, and the search results. Uses a small set
-of url patterns.  
-*/
-await gapi.client.siterestrict.list({  });
+await gapi.client.cse.list({ q: "q",  });
 ```
