@@ -44,6 +44,10 @@ const git = new Git(sh, settings);
 const gitHelpers = new GitHelpers(git, settings);
 const helpers = new Helpers(sh, git, settings);
 
+process.on('unhandledRejection', reason => {
+  throw reason;
+});
+
 (async () => {
   // Initialize
   await gitHelpers.cloneDTFork();
