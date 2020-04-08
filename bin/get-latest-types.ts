@@ -31,6 +31,6 @@ const git = new Git(sh, settings);
   });
   const url = await git.getArchiveLink(commitSHA);
   ensureDirectoryExists(pathToTypes);
-  const cmd = `curl ${url} | tar xvz - --strip-components=1 -C ${typesDirName}`;
+  const cmd = `curl ${url} | tar xvz --strip-components=1 -C ${typesDirName}`;
   await sh.trySh(cmd);
 })();
