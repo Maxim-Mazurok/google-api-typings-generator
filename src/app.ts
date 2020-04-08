@@ -166,10 +166,23 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     this.braces(`declare namespace ${name}`, context);
   }
 
-  interface(name: string, context: TypescriptWriterCallback) {
+  interface(
+    name: string,
+    context: TypescriptWriterCallback,
+    emptyInterface = false
+  ) {
+    const ignoreRules: string[] = [];
     if (name && name[0] && name[0] === 'I') {
       // workaround for cases like `IPAllocationPolicy`
-      this.writer.writeLine('// tslint:disable-next-line:interface-name');
+      ignoreRules.push('interface-name');
+    }
+    if (emptyInterface) {
+      ignoreRules.push('no-empty-interface');
+    }
+    if (ignoreRules.length > 0) {
+      this.writer.writeLine(
+        `// tslint:disable-next-line:${ignoreRules.join(' ')}`
+      );
     }
     this.braces(`interface ${name}`, context);
   }
@@ -677,30 +690,31 @@ export class App {
         const schemas = checkExists(api.schemas);
 
         _.forEach(schemas, schema => {
-          if (isEmptySchema(schema)) {
-            writer.writeLine(`// tslint:disable-next-line:no-empty-interface`);
-          }
-          writer.interface(checkExists(schema.id), () => {
-            if (schema.properties) {
-              _.forEach(schema.properties, (data, key) => {
-                if (data.description) {
-                  writer.comment(formatComment(data.description));
-                }
-                writer.property(
-                  key,
-                  getType(data, schemas),
-                  data.required || false
-                );
-              });
-            }
+          writer.interface(
+            checkExists(schema.id),
+            () => {
+              if (schema.properties) {
+                _.forEach(schema.properties, (data, key) => {
+                  if (data.description) {
+                    writer.comment(formatComment(data.description));
+                  }
+                  writer.property(
+                    key,
+                    getType(data, schemas),
+                    data.required || false
+                  );
+                });
+              }
 
-            if (schema.additionalProperties) {
-              writer.property(
-                '[key: string]',
-                getType(schema.additionalProperties, schemas)
-              );
-            }
-          });
+              if (schema.additionalProperties) {
+                writer.property(
+                  '[key: string]',
+                  getType(schema.additionalProperties, schemas)
+                );
+              }
+            },
+            isEmptySchema(schema)
+          );
         });
 
         if (api.resources) {
