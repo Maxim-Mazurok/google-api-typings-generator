@@ -50,7 +50,7 @@ export class Helpers {
     const { dtForkPath, tempTypesDirName } = this.#settings;
     const url = await this.#git.getArchiveLink(commitSHA);
     ensureDirectoryExists(join(dtForkPath, tempTypesDirName));
-    const cmd = `curl ${url} | tar xvz - --strip-components=1 -C ${tempTypesDirName}`;
+    const cmd = `curl ${url} | tar xvz --strip-components=1 -C ${tempTypesDirName}`;
     await this.#sh.trySh(cmd);
   };
 
