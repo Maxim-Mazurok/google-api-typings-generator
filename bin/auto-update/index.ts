@@ -54,8 +54,8 @@ process.on('unhandledRejection', reason => {
 
 (async () => {
   // Initialize
-  await gitHelpers.setConfig();
   await gitHelpers.cloneDTFork();
+  await gitHelpers.setConfig();
   await gitHelpers.updateDTFork();
   await helpers.copyTypesBranchFromGeneratorToDTFork();
   await helpers.runDTTests();
