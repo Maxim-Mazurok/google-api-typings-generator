@@ -38,7 +38,10 @@ export class GitHelpers {
     );
     const pullRequestTemplateURL = metrics.data.files.pull_request_template.url;
     const pullRequestTemplateSHA = (
-      await this.#git.octokit.request<{ sha: string }>(pullRequestTemplateURL)
+      await this.#git.octokit.request<{ sha: string }>({
+        method: 'GET',
+        url: pullRequestTemplateURL,
+      })
     ).data.sha;
 
     if (pullRequestTemplateSHA !== this.#settings.pullRequestTemplateSHA) {
