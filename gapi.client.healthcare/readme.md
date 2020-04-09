@@ -1,4 +1,4 @@
-# TypeScript typings for Cloud Healthcare API v1beta1
+# TypeScript typings for Cloud Healthcare API v1
 
 Manage, store, and access healthcare data in Google Cloud Platform.
 For detailed description please check [documentation](https://cloud.google.com/healthcare).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/h
 Install typings for Cloud Healthcare API:
 
 ```
-npm install @types/gapi.client.healthcare@v1beta1 --save-dev
+npm install @types/gapi.client.healthcare@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('healthcare', 'v1beta1', () => {
+gapi.client.load('healthcare', 'v1', () => {
   // now we can use gapi.client.healthcare
   // ...
 });
