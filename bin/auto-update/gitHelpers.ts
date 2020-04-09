@@ -152,7 +152,7 @@ export class GitHelpers {
     const dateSince = await this.#git.getDateSince();
     await this.#git.updateDTForkFromUpstream(dateSince);
     await this.#git.reset({ hard: true, to: 'upstream/master', quiet: false }); // reset fork to upstream
-    await this.#git.push({ all: false });
+    await this.#git.push();
   };
 
   stageTypesFolder = async (name: string): Promise<void> => {

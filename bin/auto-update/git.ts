@@ -123,7 +123,7 @@ export class Git {
 
   checkoutBranch = async (
     name: string,
-    { create, from }: { create: boolean; from?: string } = { create: false }
+    { createOrReset, from }: { createOrReset?: boolean; from?: string } = {}
   ): Promise<void> => {
     if ((await this.checkBranchFormat(name)) === false) {
       throw new Error(`Invalid branch name: ${name}`);
@@ -132,7 +132,9 @@ export class Git {
       throw new Error(`Invalid branch from name: ${from}`);
     }
 
-    const cmd = `git checkout ${create ? '-B' : ''} ${name} ${from || ''}`;
+    const cmd = `git checkout ${createOrReset ? '-B' : ''} ${name} ${
+      from || ''
+    }`;
     await this.sh.trySh(cmd);
   };
 
@@ -168,8 +170,16 @@ export class Git {
     }
   };
 
-  push = async ({ all }: { all: boolean }): Promise<void> => {
-    const cmd = `git push ${all ? '--all' : ''} origin`;
+  push = async ({
+    all,
+    force,
+  }: {
+    all?: boolean;
+    force?: boolean;
+  } = {}): Promise<void> => {
+    const cmd = `git push ${all ? '--all' : ''} ${
+      force ? '--force' : ''
+    } origin`;
     await this.sh.trySh(cmd);
   };
 
