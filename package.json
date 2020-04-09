@@ -43,7 +43,7 @@
     "@types/jasmine": "^3.5.10",
     "@types/line-reader": "0.0.28",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^12.12.34",
+    "@types/node": "^12.12.35",
     "@types/request": "2.48.4",
     "dtslint": "^3.4.1",
     "gts": "^1.1.2",
