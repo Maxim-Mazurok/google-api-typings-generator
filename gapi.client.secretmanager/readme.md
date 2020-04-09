@@ -1,6 +1,6 @@
 # TypeScript typings for Secret Manager API v1
 
-Stores API keys, passwords, certificates, and other sensitive data. Provides convenience while improving security.
+Stores sensitive data such as API keys, passwords, and certificates. Provides convenience while improving security.
 
 For detailed description please check [documentation](https://cloud.google.com/secret-manager/).
 
