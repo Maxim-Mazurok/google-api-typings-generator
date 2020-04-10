@@ -1145,7 +1145,7 @@ export class App {
     );
 
     const apis = list
-      .items!.filter(api => service === null || api.name === service)
+      .items!.filter(api => (service ? api.name === service : true))
       .filter(api => excludedApi.indexOf(checkExists(api.name)) < 0);
 
     if (apis.length === 0) {
