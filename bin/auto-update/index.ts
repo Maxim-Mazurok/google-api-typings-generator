@@ -1,9 +1,9 @@
-import { join, resolve } from 'path';
-import { SH } from './sh';
-import { Git, Settings as GitSettings } from './git';
-import { Helpers } from './helpers';
-import { GitHelpers } from './gitHelpers';
-import { typingsPrefix } from '../../src/app';
+import {join, resolve} from 'path';
+import {SH} from './sh';
+import {Git, Settings as GitSettings} from './git';
+import {Helpers} from './helpers';
+import {GitHelpers} from './gitHelpers';
+import {typingsPrefix} from '../../src/app';
 
 if (!process.env.GH_AUTH_TOKEN) {
   throw new Error('Please, set env var: GH_AUTH_TOKEN');
@@ -63,20 +63,20 @@ process.on('unhandledRejection', reason => {
   // Do the job
   const changedTypes = await git.getChangedTypes(); // TODO: types changed relative to master, but branches might already have latest changes, maybe try to detect this
   const branches = await git.getBranches();
-  console.log({ branches, changedTypes });
+  console.log({branches, changedTypes});
 
   for (const type of changedTypes) {
     const isNewBranch = branches.indexOf(type) === -1;
     if (isNewBranch) {
-      await git.checkoutBranch(type, { createOrReset: true, from: 'master' }); // so that new branch will be created from master and not from previous gapi.client.* branch
+      await git.checkoutBranch(type, {createOrReset: true, from: 'master'}); // so that new branch will be created from master and not from previous gapi.client.* branch
       await gitHelpers.stageTypesFolder(type);
     } else {
       await git.checkoutBranch('master');
       await gitHelpers.stageTypesFolder(type);
-      await git.stash({ keepIndex: true }); // #1 contains all changes
+      await git.stash({keepIndex: true}); // #1 contains all changes
       await git.stash(); // #0 contains only staged changes
-      await git.checkoutBranch(type, { createOrReset: true, from: 'master' }); // so that existing branch will be reset to master and not continue own history
-      await git.popStash({ force: true }); // #0 applies staged changes and drops stash
+      await git.checkoutBranch(type, {createOrReset: true, from: 'master'}); // so that existing branch will be reset to master and not continue own history
+      await git.popStash({force: true}); // #0 applies staged changes and drops stash
       await git.popStash(); // #1 pops all changes
     }
 
@@ -86,7 +86,7 @@ process.on('unhandledRejection', reason => {
     });
   }
 
-  await git.push({ all: true, force: true }); // pushes to fork
+  await git.push({all: true, force: true}); // pushes to fork
 
   for (const type of changedTypes) {
     if (whiteListedTypes.indexOf(type) === -1) continue;

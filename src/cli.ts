@@ -1,5 +1,5 @@
 import program from 'commander';
-import { App } from './app';
+import {App} from './app';
 
 const params = program
   .version('0.0.1')

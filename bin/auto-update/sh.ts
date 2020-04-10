@@ -1,17 +1,17 @@
-import spawnAsync, { SpawnResult } from '@expo/spawn-async';
+import spawnAsync, {SpawnResult} from '@expo/spawn-async';
 
 export class SH {
-  readonly #cwd: string;
+  readonly cwd: string;
 
   constructor(cwd?: string) {
-    this.#cwd = cwd || process.cwd();
+    this.cwd = cwd || process.cwd();
   }
 
   runSh = async (command: string, cwd?: string): Promise<SpawnResult> => {
     console.log(command);
     return spawnAsync(command, undefined, {
       shell: true,
-      cwd: cwd || this.#cwd,
+      cwd: cwd || this.cwd,
     });
   };
 
@@ -26,7 +26,7 @@ export class SH {
 
   error = (exception: SpawnResult): Error =>
     new Error(
-      `An error occurred:\n` +
+      'An error occurred:\n' +
         `Error: ${exception.stderr}\n` +
         `Output: ${exception.stdout}\n`
     );

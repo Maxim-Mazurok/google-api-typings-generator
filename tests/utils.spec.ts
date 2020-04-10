@@ -1,7 +1,6 @@
-import 'jasmine';
 import _ from 'lodash';
 import assert from 'assert';
-import { getResourceTypeName, parseVersion } from '../src/utils';
+import {getResourceTypeName, parseVersion} from '../src/utils';
 
 describe('parseVersion', () => {
   const expectations = {
