@@ -7,6 +7,10 @@ const MAX_PARALLEL = Number(process.env.GAPI_MAX_PARALLEL) || 1;
 process.stdout.setMaxListeners(MAX_PARALLEL);
 process.stderr.setMaxListeners(1 + MAX_PARALLEL);
 
+process.on('unhandledRejection', reason => {
+  throw reason;
+});
+
 const path = process.argv[2];
 
 console.log(`Reading project directories in ${path}...`);
