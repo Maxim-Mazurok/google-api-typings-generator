@@ -29,6 +29,6 @@ export function getResourceTypeName(resourceName: string) {
  */
 export const ensureDirectoryExists = (directory: string) => {
   if (!fs.existsSync(directory)) {
-    fs.mkdirSync(directory, { recursive: true });
+    fs.mkdirSync(directory, {recursive: true});
   }
 };

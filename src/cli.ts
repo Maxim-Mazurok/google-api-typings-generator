@@ -1,5 +1,9 @@
 import program from 'commander';
-import { App } from './app';
+import {App} from './app';
+
+process.on('unhandledRejection', reason => {
+  throw reason;
+});
 
 const params = program
   .version('0.0.1')
@@ -26,13 +30,19 @@ const app = new App(params.out);
 if (params.url) {
   app.processService(params.url, true, params.newRevisionsOnly).then(
     () => console.log('Done'),
-    error => console.error(error)
+    error => {
+      console.error(error);
+      throw error;
+    }
   );
 } else {
   app
     .discover(params.service, params.all || false, params.newRevisionsOnly)
     .then(
       () => console.log('Done'),
-      error => console.error(error)
+      error => {
+        console.error(error);
+        throw error;
+      }
     );
 }

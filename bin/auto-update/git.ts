@@ -1,8 +1,8 @@
-import { SH } from './sh';
-import { typingsPrefix } from '../../src/app';
-import { basename, parse } from 'path';
+import {SH} from './sh';
+import {typingsPrefix} from '../../src/app';
+import {basename, parse} from 'path';
 import parseGitStatus from 'parse-git-status';
-import { Octokit } from '@octokit/rest';
+import {Octokit} from '@octokit/rest';
 
 export interface Settings {
   user: string; // user who submits PRs to DT
@@ -11,15 +11,15 @@ export interface Settings {
 }
 
 export class Git {
-  readonly #settings: Settings;
+  readonly settings: Settings;
   readonly sh: SH;
   readonly octokit: Octokit;
 
   constructor(sh: SH, settings: Settings) {
     this.sh = sh;
-    this.#settings = settings;
+    this.settings = settings;
 
-    const { user, auth, thisRepo } = this.#settings;
+    const {user, auth, thisRepo} = this.settings;
     this.octokit = new Octokit({
       auth,
       userAgent: `${user}/${thisRepo}`,
@@ -30,7 +30,7 @@ export class Git {
   getArchiveLink = async (commitSHA: string): Promise<string> => {
     console.log(`Getting archive link for ${commitSHA}...`);
 
-    const { user: owner, thisRepo: repo } = this.#settings;
+    const {user: owner, thisRepo: repo} = this.settings;
     const response = await this.octokit.repos.getArchiveLink({
       owner,
       repo,
@@ -70,13 +70,13 @@ export class Git {
   };
 
   getGitStatus = async (): Promise<string> => {
-    const cmd = `git status --porcelain -z`;
+    const cmd = 'git status --porcelain -z';
     return (await this.sh.trySh(cmd)).stdout;
   };
 
   getDateSince = async (): Promise<string> => {
     // get time of the last commit to origin
-    const cmd = `git log -1 --format="%cd" --date=unix`;
+    const cmd = 'git log -1 --format="%cd" --date=unix';
     return (await this.sh.trySh(cmd)).stdout.replace(/\s/g, '');
   };
 
@@ -102,7 +102,7 @@ export class Git {
   };
 
   getBranches = async (): Promise<string[]> => {
-    const { stdout } = await this.sh.trySh(`git branch --list -r origin/*`);
+    const {stdout} = await this.sh.trySh('git branch --list -r origin/*');
     return stdout
       .split('\n')
       .filter(x => x !== '')
@@ -123,7 +123,7 @@ export class Git {
 
   checkoutBranch = async (
     name: string,
-    { createOrReset, from }: { createOrReset?: boolean; from?: string } = {}
+    {createOrReset, from}: {createOrReset?: boolean; from?: string} = {}
   ): Promise<void> => {
     if ((await this.checkBranchFormat(name)) === false) {
       throw new Error(`Invalid branch name: ${name}`);
@@ -139,7 +139,7 @@ export class Git {
   };
 
   addAll = async (): Promise<void> => {
-    const cmd = `git add --all`;
+    const cmd = 'git add --all';
     await this.sh.trySh(cmd);
   };
 
@@ -184,21 +184,21 @@ export class Git {
   };
 
   stash = async (
-    { keepIndex }: { keepIndex: boolean } = { keepIndex: false }
+    {keepIndex}: {keepIndex: boolean} = {keepIndex: false}
   ): Promise<void> => {
     const cmd = `git stash ${keepIndex ? '--keep-index' : ''}`;
     await this.sh.trySh(cmd);
   };
 
   dropStash = async (): Promise<void> => {
-    const cmd = `git stash drop`;
+    const cmd = 'git stash drop';
     await this.sh.trySh(cmd);
   };
 
   popStash = async (
-    { force }: { force: boolean } = { force: false }
+    {force}: {force: boolean} = {force: false}
   ): Promise<void> => {
-    const cmd = force ? `git checkout stash -- .` : `git stash pop`;
+    const cmd = force ? 'git checkout stash -- .' : 'git stash pop';
     await this.sh.trySh(cmd);
     if (force) {
       await this.dropStash(); // make the stash actually pop

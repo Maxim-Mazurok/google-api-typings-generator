@@ -1,24 +1,24 @@
-import { join } from 'path';
-import { Settings } from './index';
-import { Git } from './git';
+import {join} from 'path';
+import {Settings} from './index';
+import {Git} from './git';
 
 export class GitHelpers {
-  readonly #settings: Settings;
-  readonly #git: Git;
+  readonly settings: Settings;
+  readonly git: Git;
 
   constructor(git: Git, settings: Settings) {
-    this.#settings = settings;
-    this.#git = git;
+    this.settings = settings;
+    this.git = git;
   }
 
   setConfig = async (): Promise<void> => {
-    const { userEmail, userName } = this.#settings;
-    await this.#git.sh.trySh(`git config --global user.email "${userEmail}"`);
-    await this.#git.sh.trySh(`git config --global user.name "${userName}"`);
+    const {userEmail, userName} = this.settings;
+    await this.git.sh.trySh(`git config --global user.email "${userEmail}"`);
+    await this.git.sh.trySh(`git config --global user.name "${userName}"`);
   };
 
   checkForTemplateUpdate = async (): Promise<void> => {
-    console.log(`Checking for template update...`);
+    console.log('Checking for template update...');
 
     const {
       user,
@@ -26,8 +26,8 @@ export class GitHelpers {
       dtRepoName: repo,
       thisRepo,
       templateUpdateLabel: label,
-    } = this.#settings;
-    const metrics = await this.#git.octokit.repos.retrieveCommunityProfileMetrics(
+    } = this.settings;
+    const metrics = await this.git.octokit.repos.retrieveCommunityProfileMetrics(
       {
         owner,
         repo,
@@ -38,20 +38,20 @@ export class GitHelpers {
     );
     const pullRequestTemplateURL = metrics.data.files.pull_request_template.url;
     const pullRequestTemplateSHA = (
-      await this.#git.octokit.request<{ sha: string }>({
+      await this.git.octokit.request<{sha: string}>({
         method: 'GET',
         url: pullRequestTemplateURL,
       })
     ).data.sha;
 
-    if (pullRequestTemplateSHA !== this.#settings.pullRequestTemplateSHA) {
+    if (pullRequestTemplateSHA !== this.settings.pullRequestTemplateSHA) {
       console.log(
         'PR template is outdated, checking for the existing issue...'
       );
 
       const noOpenIssue =
         (
-          await this.#git.octokit.issues.list({
+          await this.git.octokit.issues.list({
             state: 'open',
             labels: label,
           })
@@ -60,13 +60,11 @@ export class GitHelpers {
       if (noOpenIssue) {
         console.log('Creating an issue to update PR...');
 
-        await this.#git.octokit.issues.create({
+        await this.git.octokit.issues.create({
           owner: user,
           repo: thisRepo,
           title: 'Update PR template',
-          body: `Please, update PR template, current SHA \`${
-            this.#settings.pullRequestTemplateSHA
-          }\` doesn't match actual SHA \`${pullRequestTemplateSHA}\``,
+          body: `Please, update PR template, current SHA \`${this.settings.pullRequestTemplateSHA}\` doesn't match actual SHA \`${pullRequestTemplateSHA}\``,
           assignees: [user],
           labels: [label],
         });
@@ -80,13 +78,12 @@ export class GitHelpers {
       dtRepoOwner: owner,
       dtRepoName: repo,
       thisRepo,
-      templateUpdateLabel,
-    } = this.#settings;
+    } = this.settings;
 
     console.log(`Opening PR for ${gapiTypeName}...`);
 
     try {
-      await this.#git.octokit.pulls.create({
+      await this.git.octokit.pulls.create({
         owner,
         repo,
         title: `[${gapiTypeName}] automatic update`,
@@ -135,29 +132,29 @@ export class GitHelpers {
 
   cloneDTFork = async (): Promise<void> => {
     // clone only last commit for every branch
-    const { user, auth, dtRepoName, dtForkPath } = this.#settings;
+    const {user, auth, dtRepoName, dtForkPath} = this.settings;
     const cmd = `git clone --depth=1 https://${user}:${auth}@github.com/${user}/${dtRepoName} --no-single-branch ${dtForkPath}`;
-    await this.#git.sh.trySh(cmd, __dirname);
+    await this.git.sh.trySh(cmd, __dirname);
   };
 
   addRemote = async (): Promise<void> => {
-    const { user, auth, dtRepoOwner, dtRepoName } = this.#settings;
+    const {user, auth, dtRepoOwner, dtRepoName} = this.settings;
     const cmd = `git remote add upstream https://${user}:${auth}@github.com/${dtRepoOwner}/${dtRepoName}`;
-    await this.#git.sh.trySh(cmd);
+    await this.git.sh.trySh(cmd);
   };
 
   updateDTFork = async (): Promise<void> => {
     // Rebase master
     await this.addRemote();
-    const dateSince = await this.#git.getDateSince();
-    await this.#git.updateDTForkFromUpstream(dateSince);
-    await this.#git.reset({ hard: true, to: 'upstream/master', quiet: false }); // reset fork to upstream
-    await this.#git.push();
+    const dateSince = await this.git.getDateSince();
+    await this.git.updateDTForkFromUpstream(dateSince);
+    await this.git.reset({hard: true, to: 'upstream/master', quiet: false}); // reset fork to upstream
+    await this.git.push();
   };
 
   stageTypesFolder = async (name: string): Promise<void> => {
-    const { typesDirName } = this.#settings;
+    const {typesDirName} = this.settings;
     const cmd = `git add ${join(typesDirName, name)}`;
-    await this.#git.sh.trySh(cmd);
+    await this.git.sh.trySh(cmd);
   };
 }
