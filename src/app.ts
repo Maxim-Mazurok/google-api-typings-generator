@@ -1,16 +1,18 @@
-import doT from 'dot';
 import fs from 'fs';
 import _ from 'lodash';
-import path, {resolve, join, basename} from 'path';
+import path, {basename, join, resolve} from 'path';
 import request from 'request';
 import sortObject from 'deep-sort-object';
 import lineReader from 'line-reader';
 import {promisify} from 'bluebird';
 import {
+  ensureDirectoryExists,
   getResourceTypeName,
   parseVersion,
-  ensureDirectoryExists,
 } from './utils';
+import {StreamWriter, TextWriter} from './writer';
+import {Template} from './template';
+
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
 type RestDescription = gapi.client.discovery.RestDescription;
@@ -32,24 +34,6 @@ const typesMap: {[key: string]: string} = {
   any: 'any',
   string: 'string',
 };
-
-interface TextWriter {
-  write(chunk?: string): void;
-
-  end(): void;
-}
-
-class StreamWriter implements TextWriter {
-  constructor(private stream: fs.WriteStream) {}
-
-  write(chunk: string) {
-    this.stream.write(chunk);
-  }
-
-  end() {
-    this.stream.end();
-  }
-}
 
 const excludedApi = [
   'dialogflow',
@@ -444,25 +428,9 @@ function getMethodReturn(
   }
 }
 
-function loadTemplate(name: string) {
-  let filename = '';
-
-  if (fs.existsSync(name)) {
-    filename = name;
-  } else if (fs.existsSync(path.join('..', name))) {
-    filename = path.join('..', name);
-  } else {
-    throw Error(`Can't find ${name} file template`);
-  }
-
-  doT.templateSettings.strip = false;
-
-  return doT.template(fs.readFileSync(filename, 'utf-8'));
-}
-
-const readmeTpl = loadTemplate('readme.dot');
-const tsconfigTpl = loadTemplate('tsconfig.dot');
-const tslintTpl = loadTemplate('tslint.dot');
+const readmeTpl = new Template('readme.dot');
+const tsconfigTpl = new Template('tsconfig.dot');
+const tslintTpl = new Template('tslint.dot');
 
 function isEmptySchema(schema: JsonSchema) {
   return _.isEmpty(schema.properties) && !schema.additionalProperties;
@@ -764,21 +732,6 @@ export class App {
     });
   }
 
-  writeTemplate(
-    filePath: string,
-    template: doT.RenderFunction,
-    api: RestDescription
-  ) {
-    const stream = fs.createWriteStream(filePath),
-      writer = new StreamWriter(stream);
-
-    try {
-      writer.write(template({...api, formatPropertyName}));
-    } finally {
-      writer.end();
-    }
-  }
-
   async processService(
     url: string,
     actualVersion: boolean,
@@ -850,19 +803,13 @@ export class App {
 
     const templateData = {...api, actualVersion};
 
-    this.writeTemplate(
-      path.join(destinationDirectory, 'readme.md'),
-      readmeTpl,
-      templateData
-    );
-    this.writeTemplate(
+    readmeTpl.write(path.join(destinationDirectory, 'readme.md'), templateData);
+    tsconfigTpl.write(
       path.join(destinationDirectory, 'tsconfig.json'),
-      tsconfigTpl,
       templateData
     );
-    this.writeTemplate(
+    tslintTpl.write(
       path.join(destinationDirectory, 'tslint.json'),
-      tslintTpl,
       templateData
     );
 
