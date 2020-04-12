@@ -184,10 +184,13 @@ export class Git {
   };
 
   stash = async (
-    {keepIndex}: {keepIndex: boolean} = {keepIndex: false}
+    {keepIndex, name}: {keepIndex: boolean; name: string} = {
+      keepIndex: false,
+      name: '',
+    }
   ): Promise<void> => {
     process.env.DEBUG && (await this.listStash());
-    const cmd = `git stash ${keepIndex ? '--keep-index' : ''}`;
+    const cmd = `git stash push ${keepIndex ? '--keep-index' : ''} ${name}`;
     await this.sh.trySh(cmd);
     process.env.DEBUG && (await this.listStash());
   };
@@ -213,6 +216,6 @@ export class Git {
   };
 
   listStash = async (): Promise<void> => {
-    console.log(await this.sh.trySh('git stash list'));
+    await this.sh.trySh('git stash list');
   };
 }
