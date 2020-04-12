@@ -190,7 +190,9 @@ export class Git {
     }
   ): Promise<void> => {
     process.env.DEBUG && (await this.listStash());
-    const cmd = `git stash push ${keepIndex ? '--keep-index' : ''} ${name}`;
+    const cmd = `git stash push ${keepIndex ? '--keep-index' : ''} ${
+      name ? `--message ${name}` : ''
+    }`;
     await this.sh.trySh(cmd);
     process.env.DEBUG && (await this.listStash());
   };
