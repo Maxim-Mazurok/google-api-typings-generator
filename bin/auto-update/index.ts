@@ -37,7 +37,7 @@ const settings: Settings = {
   dtRepoOwner: 'DefinitelyTyped',
   dtRepoName: 'DefinitelyTyped',
   thisRepo: 'google-api-typings-generator',
-  pullRequestTemplateSHA: 'ab3f84d44f18d1f33cc79c5d857067b939813c7e',
+  pullRequestTemplateSHA: '5e283ccee07a788a471cfd554b845215de74a549',
   templateUpdateLabel: 'DT PR template update',
 };
 
