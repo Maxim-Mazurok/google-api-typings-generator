@@ -27,3 +27,4 @@ jobs:
         run: npm run auto-update
         env:
           GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
+          DEBUG: true

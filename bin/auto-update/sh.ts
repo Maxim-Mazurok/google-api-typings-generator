@@ -9,15 +9,17 @@ export class SH {
 
   runSh = async (command: string, cwd?: string): Promise<SpawnResult> => {
     console.log(command);
-    return spawnAsync(command, undefined, {
+    const result = await spawnAsync(command, undefined, {
       shell: true,
       cwd: cwd || this.cwd,
     });
+    process.env.DEBUG && console.log(result);
+    return result;
   };
 
-  trySh = async (command: string, cwd?: string): Promise<SpawnResult> => {
+  trySh = (command: string, cwd?: string): Promise<SpawnResult> => {
     try {
-      return await this.runSh(command, cwd);
+      return this.runSh(command, cwd);
     } catch (exception) {
       console.log(exception);
       throw this.error(exception);
