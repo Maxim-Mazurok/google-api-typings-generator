@@ -186,22 +186,33 @@ export class Git {
   stash = async (
     {keepIndex}: {keepIndex: boolean} = {keepIndex: false}
   ): Promise<void> => {
+    process.env.DEBUG && (await this.listStash());
     const cmd = `git stash ${keepIndex ? '--keep-index' : ''}`;
     await this.sh.trySh(cmd);
+    process.env.DEBUG && (await this.listStash());
   };
 
   dropStash = async (): Promise<void> => {
+    process.env.DEBUG && (await this.listStash());
     const cmd = 'git stash drop';
     await this.sh.trySh(cmd);
+    process.env.DEBUG && (await this.listStash());
   };
 
   popStash = async (
     {force}: {force: boolean} = {force: false}
   ): Promise<void> => {
+    process.env.DEBUG && (await this.listStash());
     const cmd = force ? 'git checkout stash -- .' : 'git stash pop';
     await this.sh.trySh(cmd);
     if (force) {
+      process.env.DEBUG && (await this.listStash());
       await this.dropStash(); // make the stash actually pop
     }
+    process.env.DEBUG && (await this.listStash());
+  };
+
+  listStash = async (): Promise<void> => {
+    console.log(await this.sh.trySh('git stash list'));
   };
 }
