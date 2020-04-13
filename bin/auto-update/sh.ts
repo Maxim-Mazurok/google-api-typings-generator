@@ -9,7 +9,7 @@ export class SH {
 
   runSh = async (command: string, cwd?: string): Promise<SpawnResult> => {
     console.log(command);
-    return spawnAsync(command, undefined, {
+    return spawnAsync(`sync && ${command}`, undefined, {
       shell: true,
       cwd: cwd || this.cwd,
     });
