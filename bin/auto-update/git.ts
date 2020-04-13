@@ -184,9 +184,8 @@ export class Git {
   };
 
   stash = async (
-    {keepIndex, name}: {keepIndex: boolean; name: string} = {
+    {keepIndex, name}: {keepIndex: boolean; name?: string} = {
       keepIndex: false,
-      name: '',
     }
   ): Promise<void> => {
     process.env.DEBUG && (await this.listStash());
