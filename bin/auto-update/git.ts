@@ -199,7 +199,7 @@ export class Git {
   dropStash = async (): Promise<void> => {
     process.env.DEBUG && (await this.listStash());
     const cmd = 'git stash drop';
-    await this.sh.trySh(`sleep 1 && ${cmd}`);
+    await this.sh.trySh(cmd);
     process.env.DEBUG && (await this.listStash());
   };
 
@@ -208,7 +208,7 @@ export class Git {
   ): Promise<void> => {
     process.env.DEBUG && (await this.listStash());
     const cmd = force ? 'git checkout stash -- .' : 'git stash pop';
-    await this.sh.trySh(`sleep 1 && ${cmd}`);
+    await this.sh.trySh(cmd);
     if (force) {
       process.env.DEBUG && (await this.listStash());
       await this.dropStash(); // make the stash actually pop
