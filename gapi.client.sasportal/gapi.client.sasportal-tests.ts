@@ -54,6 +54,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -97,6 +98,8 @@ gapi.load('client', () => {
                             },
                         }                    ],
                     state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
                 }            ],
             name: "Test string",
             preloadedConfig: {
@@ -112,6 +115,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -187,6 +191,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -230,6 +235,8 @@ gapi.load('client', () => {
                             },
                         }                    ],
                     state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
                 }            ],
             name: "Test string",
             preloadedConfig: {
@@ -245,6 +252,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -289,6 +297,7 @@ gapi.load('client', () => {
                         antennaDowntilt: 42,
                         antennaGain: 42,
                         antennaModel: "Test string",
+                        cpeCbsdIndication: true,
                         eirpCapability: 42,
                         height: 42,
                         heightType: "Test string",
@@ -332,6 +341,8 @@ gapi.load('client', () => {
                                 },
                             }                        ],
                         state: "Test string",
+                        suspensionReason: [
+                            "Test string"                        ],
                     }                ],
                 name: "Test string",
                 preloadedConfig: {
@@ -347,6 +358,7 @@ gapi.load('client', () => {
                         antennaDowntilt: 42,
                         antennaGain: 42,
                         antennaModel: "Test string",
+                        cpeCbsdIndication: true,
                         eirpCapability: 42,
                         height: 42,
                         heightType: "Test string",
@@ -538,6 +550,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -581,6 +594,8 @@ gapi.load('client', () => {
                             },
                         }                    ],
                     state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
                 }            ],
             name: "Test string",
             preloadedConfig: {
@@ -596,6 +611,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -671,6 +687,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -714,6 +731,8 @@ gapi.load('client', () => {
                             },
                         }                    ],
                     state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
                 }            ],
             name: "Test string",
             preloadedConfig: {
@@ -729,6 +748,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -773,6 +793,7 @@ gapi.load('client', () => {
                         antennaDowntilt: 42,
                         antennaGain: 42,
                         antennaModel: "Test string",
+                        cpeCbsdIndication: true,
                         eirpCapability: 42,
                         height: 42,
                         heightType: "Test string",
@@ -816,6 +837,8 @@ gapi.load('client', () => {
                                 },
                             }                        ],
                         state: "Test string",
+                        suspensionReason: [
+                            "Test string"                        ],
                     }                ],
                 name: "Test string",
                 preloadedConfig: {
@@ -831,6 +854,7 @@ gapi.load('client', () => {
                         antennaDowntilt: 42,
                         antennaGain: 42,
                         antennaModel: "Test string",
+                        cpeCbsdIndication: true,
                         eirpCapability: 42,
                         height: 42,
                         heightType: "Test string",
@@ -1027,6 +1051,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -1070,6 +1095,8 @@ gapi.load('client', () => {
                             },
                         }                    ],
                     state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
                 }            ],
             name: "Test string",
             preloadedConfig: {
@@ -1085,6 +1112,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -1160,6 +1188,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -1203,6 +1232,8 @@ gapi.load('client', () => {
                             },
                         }                    ],
                     state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
                 }            ],
             name: "Test string",
             preloadedConfig: {
@@ -1218,6 +1249,7 @@ gapi.load('client', () => {
                     antennaDowntilt: 42,
                     antennaGain: 42,
                     antennaModel: "Test string",
+                    cpeCbsdIndication: true,
                     eirpCapability: 42,
                     height: 42,
                     heightType: "Test string",
@@ -1262,6 +1294,7 @@ gapi.load('client', () => {
                         antennaDowntilt: 42,
                         antennaGain: 42,
                         antennaModel: "Test string",
+                        cpeCbsdIndication: true,
                         eirpCapability: 42,
                         height: 42,
                         heightType: "Test string",
@@ -1305,6 +1338,8 @@ gapi.load('client', () => {
                                 },
                             }                        ],
                         state: "Test string",
+                        suspensionReason: [
+                            "Test string"                        ],
                     }                ],
                 name: "Test string",
                 preloadedConfig: {
@@ -1320,6 +1355,7 @@ gapi.load('client', () => {
                         antennaDowntilt: 42,
                         antennaGain: 42,
                         antennaModel: "Test string",
+                        cpeCbsdIndication: true,
                         eirpCapability: 42,
                         height: 42,
                         heightType: "Test string",
