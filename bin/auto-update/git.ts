@@ -192,7 +192,7 @@ export class Git {
     const cmd = `git stash push ${keepIndex ? '--keep-index' : ''} ${
       name ? `--message ${name}` : ''
     }`;
-    !keepIndex && (await this.sh.trySh('sleep 0.5'));
+    !keepIndex && (await this.sh.trySh('sleep 0.1'));
     await this.sh.trySh(cmd);
     process.env.DEBUG && (await this.listStash());
   };
