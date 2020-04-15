@@ -87,7 +87,10 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced. */
+        /**
+         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
+         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
+         */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
@@ -518,7 +521,10 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced. */
+        /**
+         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
+         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
+         */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
@@ -946,7 +952,10 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced. */
+        /**
+         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
+         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
+         */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
@@ -1376,7 +1385,10 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced. */
+        /**
+         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
+         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
+         */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
@@ -1804,7 +1816,10 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced. */
+        /**
+         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
+         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
+         */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
