@@ -30,6 +30,6183 @@ gapi.load('client', () => {
 
     async function run() {
         /**
+         * Creates a new advertiser.
+         * Returns the newly created advertiser if successful.
+         * This method can take up to 180 seconds to complete.
+         */
+        await gapi.client.displayvideo.advertisers.create({
+        }, {
+            adServerConfig: {
+                cmHybridConfig: {
+                    cmAccountId: "Test string",
+                    cmFloodlightConfigId: "Test string",
+                    cmFloodlightLinkingAuthorized: true,
+                    cmSyncableSiteIds: [
+                        "Test string"                    ],
+                    dv360ToCmCostReportingEnabled: true,
+                    dv360ToCmDataSharingEnabled: true,
+                },
+                thirdPartyOnlyConfig: {
+                    pixelOrderIdReportingEnabled: true,
+                },
+            },
+            advertiserId: "Test string",
+            creativeConfig: {
+                dynamicCreativeEnabled: true,
+                iasClientId: "Test string",
+                obaComplianceDisabled: true,
+                videoCreativeDataSharingAuthorized: true,
+            },
+            dataAccessConfig: {
+                sdfConfig: {
+                    overridePartnerSdfConfig: true,
+                    sdfConfig: {
+                        adminEmail: "Test string",
+                        version: "Test string",
+                    },
+                },
+            },
+            displayName: "Test string",
+            entityStatus: "Test string",
+            generalConfig: {
+                currencyCode: "Test string",
+                domainUrl: "Test string",
+                timeZone: "Test string",
+            },
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            partnerId: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Uploads an asset.
+         * Returns the ID of the newly uploaded asset if successful.
+         * The asset file size should be no more than 10 MB for images, 200 MB for
+         * ZIP files, and 1 GB for videos.
+         */
+        await gapi.client.displayvideo.advertisers.assets.upload({
+            advertiserId: "Test string",
+        }, {
+            filename: "Test string",
+        });
+        /**
+         * Creates a new campaign.
+         * Returns the newly created campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
+         * The campaign should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.delete({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /** Gets a campaign. */
+        await gapi.client.displayvideo.advertisers.campaigns.get({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /**
+         * Lists campaigns in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, campaigns with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing campaign.
+         * Returns the updated campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.patch({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a channel for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.get({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists channels for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Creates a new creative.
+         * Returns the newly created creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.create({
+            advertiserId: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Deletes a creative.
+         * Returns error code `NOT_FOUND` if the creative does not exist.
+         * The creative should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
+         * it can be deleted.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.delete({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /** Gets a creative. */
+        await gapi.client.displayvideo.advertisers.creatives.get({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /**
+         * Lists creatives in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, creatives with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing creative.
+         * Returns the updated creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.patch({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+            updateMask: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Creates a new insertion order.
+         * Returns the newly created insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         * The insertion order should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`,
+         * to be able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.delete({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Gets an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.get({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Lists insertion orders in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, insertion
+         * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing insertion order.
+         * Returns the updated insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.patch({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Bulk edits targeting options under a single line item.
+         * The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
+         * then create the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        }, {
+            createRequests: [
+                {
+                    assignedTargetingOptions: [
+                        {
+                            ageRangeDetails: {
+                                ageRange: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            appCategoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            appDetails: {
+                                appId: "Test string",
+                                displayName: "Test string",
+                                negative: true,
+                            },
+                            assignedTargetingOptionId: "Test string",
+                            audienceGroupDetails: {
+                                excludedFirstAndThirdPartyAudienceGroup: {
+                                    settings: [
+                                        {
+                                            firstAndThirdPartyAudienceId: "Test string",
+                                            recency: "Test string",
+                                        }                                    ],
+                                },
+                                excludedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCombinedAudienceGroup: {
+                                    settings: [
+                                        {
+                                            combinedAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCustomListGroup: {
+                                    settings: [
+                                        {
+                                            customListId: "Test string",
+                                        }                                    ],
+                                },
+                                includedFirstAndThirdPartyAudienceGroups: [
+                                    {
+                                        settings: [
+                                            {
+                                                firstAndThirdPartyAudienceId: "Test string",
+                                                recency: "Test string",
+                                            }                                        ],
+                                    }                                ],
+                                includedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                            },
+                            authorizedSellerStatusDetails: {
+                                authorizedSellerStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            browserDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            carrierAndIspDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            categoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            channelDetails: {
+                                channelId: "Test string",
+                                negative: true,
+                            },
+                            contentInstreamPositionDetails: {
+                                contentInstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            contentOutstreamPositionDetails: {
+                                contentOutstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            dayAndTimeDetails: {
+                                dayOfWeek: "Test string",
+                                endHour: 42,
+                                startHour: 42,
+                                timeZoneResolution: "Test string",
+                            },
+                            deviceMakeModelDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            deviceTypeDetails: {
+                                deviceType: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            digitalContentLabelExclusionDetails: {
+                                contentRatingTier: "Test string",
+                                excludedTargetingOptionId: "Test string",
+                            },
+                            environmentDetails: {
+                                environment: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            exchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            genderDetails: {
+                                gender: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            geoRegionDetails: {
+                                displayName: "Test string",
+                                geoRegionType: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            householdIncomeDetails: {
+                                householdIncome: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            inheritance: "Test string",
+                            inventorySourceDetails: {
+                                inventorySourceId: "Test string",
+                            },
+                            inventorySourceGroupDetails: {
+                                inventorySourceGroupId: "Test string",
+                            },
+                            keywordDetails: {
+                                keyword: "Test string",
+                                negative: true,
+                            },
+                            languageDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            name: "Test string",
+                            negativeKeywordListDetails: {
+                                negativeKeywordListId: "Test string",
+                            },
+                            onScreenPositionDetails: {
+                                onScreenPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            operatingSystemDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            parentalStatusDetails: {
+                                parentalStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            proximityLocationListDetails: {
+                                proximityLocationListId: "Test string",
+                                proximityRadiusRange: "Test string",
+                            },
+                            regionalLocationListDetails: {
+                                negative: true,
+                                regionalLocationListId: "Test string",
+                            },
+                            sensitiveCategoryExclusionDetails: {
+                                excludedTargetingOptionId: "Test string",
+                                sensitiveCategory: "Test string",
+                            },
+                            subExchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            targetingType: "Test string",
+                            thirdPartyVerifierDetails: {
+                                adloox: {
+                                    excludedAdlooxCategories: [
+                                        "Test string"                                    ],
+                                },
+                                doubleVerify: {
+                                    appStarRating: {
+                                        avoidedStarRating: "Test string",
+                                        avoidInsufficientStarRating: true,
+                                    },
+                                    avoidedAgeRatings: [
+                                        "Test string"                                    ],
+                                    brandSafetyCategories: {
+                                        avoidedHighSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidedMediumSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidUnknownBrandSafetyCategory: true,
+                                    },
+                                    displayViewability: {
+                                        iab: "Test string",
+                                        viewableDuring: "Test string",
+                                    },
+                                    fraudInvalidTraffic: {
+                                        avoidedFraudOption: "Test string",
+                                        avoidInsufficientOption: true,
+                                    },
+                                    videoViewability: {
+                                        playerImpressionRate: "Test string",
+                                        videoIab: "Test string",
+                                        videoViewableRate: "Test string",
+                                    },
+                                },
+                                integralAdScience: {
+                                    displayViewability: "Test string",
+                                    excludedAdFraudRisk: "Test string",
+                                    excludedAdultRisk: "Test string",
+                                    excludedAlcoholRisk: "Test string",
+                                    excludedDrugsRisk: "Test string",
+                                    excludedGamblingRisk: "Test string",
+                                    excludedHateSpeechRisk: "Test string",
+                                    excludedIllegalDownloadsRisk: "Test string",
+                                    excludedOffensiveLanguageRisk: "Test string",
+                                    excludedViolenceRisk: "Test string",
+                                    excludeUnrateable: true,
+                                    traqScoreOption: "Test string",
+                                    videoViewability: "Test string",
+                                },
+                            },
+                            urlDetails: {
+                                negative: true,
+                                url: "Test string",
+                            },
+                            userRewardedContentDetails: {
+                                targetingOptionId: "Test string",
+                                userRewardedContent: "Test string",
+                            },
+                            videoPlayerSizeDetails: {
+                                targetingOptionId: "Test string",
+                                videoPlayerSize: "Test string",
+                            },
+                            viewabilityDetails: {
+                                targetingOptionId: "Test string",
+                                viewability: "Test string",
+                            },
+                        }                    ],
+                    targetingType: "Test string",
+                }            ],
+            deleteRequests: [
+                {
+                    assignedTargetingOptionIds: [
+                        "Test string"                    ],
+                    targetingType: "Test string",
+                }            ],
+        });
+        /** Lists assigned targeting options of a line item across targeting types. */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkListLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            lineItemId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new line item.
+         * Returns the newly created line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes a line item.
+         * Returns error code `NOT_FOUND` if the line item does not exist.
+         * The line item should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.delete({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /** Gets a line item. */
+        await gapi.client.displayvideo.advertisers.lineItems.get({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /**
+         * Lists line items in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, line items with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing line item.
+         * Returns the updated line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.patch({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /** Gets a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.get({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists location lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.locationLists.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Gets a negative keyword list given an advertiser ID and a negative keyword
+         * list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keyword lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
+            advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Deletes an advertiser.
+         * Deleting an advertiser will delete all of its child resources, for example,
+         * campaigns, insertion orders and line items.
+         * A deleted advertiser cannot be recovered.
+         */
+        await gapi.client.displayvideo.advertisers.delete({
+            advertiserId: "Test string",
+        });
+        /**
+         * Uploads an asset.
+         * Returns the ID of the newly uploaded asset if successful.
+         * The asset file size should be no more than 10 MB for images, 200 MB for
+         * ZIP files, and 1 GB for videos.
+         */
+        await gapi.client.displayvideo.advertisers.assets.upload({
+            advertiserId: "Test string",
+        }, {
+            filename: "Test string",
+        });
+        /**
+         * Creates a new campaign.
+         * Returns the newly created campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
+         * The campaign should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.delete({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /** Gets a campaign. */
+        await gapi.client.displayvideo.advertisers.campaigns.get({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /**
+         * Lists campaigns in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, campaigns with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing campaign.
+         * Returns the updated campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.patch({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a channel for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.get({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists channels for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Creates a new creative.
+         * Returns the newly created creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.create({
+            advertiserId: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Deletes a creative.
+         * Returns error code `NOT_FOUND` if the creative does not exist.
+         * The creative should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
+         * it can be deleted.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.delete({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /** Gets a creative. */
+        await gapi.client.displayvideo.advertisers.creatives.get({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /**
+         * Lists creatives in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, creatives with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing creative.
+         * Returns the updated creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.patch({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+            updateMask: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Creates a new insertion order.
+         * Returns the newly created insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         * The insertion order should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`,
+         * to be able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.delete({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Gets an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.get({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Lists insertion orders in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, insertion
+         * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing insertion order.
+         * Returns the updated insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.patch({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Bulk edits targeting options under a single line item.
+         * The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
+         * then create the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        }, {
+            createRequests: [
+                {
+                    assignedTargetingOptions: [
+                        {
+                            ageRangeDetails: {
+                                ageRange: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            appCategoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            appDetails: {
+                                appId: "Test string",
+                                displayName: "Test string",
+                                negative: true,
+                            },
+                            assignedTargetingOptionId: "Test string",
+                            audienceGroupDetails: {
+                                excludedFirstAndThirdPartyAudienceGroup: {
+                                    settings: [
+                                        {
+                                            firstAndThirdPartyAudienceId: "Test string",
+                                            recency: "Test string",
+                                        }                                    ],
+                                },
+                                excludedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCombinedAudienceGroup: {
+                                    settings: [
+                                        {
+                                            combinedAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCustomListGroup: {
+                                    settings: [
+                                        {
+                                            customListId: "Test string",
+                                        }                                    ],
+                                },
+                                includedFirstAndThirdPartyAudienceGroups: [
+                                    {
+                                        settings: [
+                                            {
+                                                firstAndThirdPartyAudienceId: "Test string",
+                                                recency: "Test string",
+                                            }                                        ],
+                                    }                                ],
+                                includedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                            },
+                            authorizedSellerStatusDetails: {
+                                authorizedSellerStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            browserDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            carrierAndIspDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            categoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            channelDetails: {
+                                channelId: "Test string",
+                                negative: true,
+                            },
+                            contentInstreamPositionDetails: {
+                                contentInstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            contentOutstreamPositionDetails: {
+                                contentOutstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            dayAndTimeDetails: {
+                                dayOfWeek: "Test string",
+                                endHour: 42,
+                                startHour: 42,
+                                timeZoneResolution: "Test string",
+                            },
+                            deviceMakeModelDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            deviceTypeDetails: {
+                                deviceType: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            digitalContentLabelExclusionDetails: {
+                                contentRatingTier: "Test string",
+                                excludedTargetingOptionId: "Test string",
+                            },
+                            environmentDetails: {
+                                environment: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            exchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            genderDetails: {
+                                gender: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            geoRegionDetails: {
+                                displayName: "Test string",
+                                geoRegionType: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            householdIncomeDetails: {
+                                householdIncome: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            inheritance: "Test string",
+                            inventorySourceDetails: {
+                                inventorySourceId: "Test string",
+                            },
+                            inventorySourceGroupDetails: {
+                                inventorySourceGroupId: "Test string",
+                            },
+                            keywordDetails: {
+                                keyword: "Test string",
+                                negative: true,
+                            },
+                            languageDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            name: "Test string",
+                            negativeKeywordListDetails: {
+                                negativeKeywordListId: "Test string",
+                            },
+                            onScreenPositionDetails: {
+                                onScreenPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            operatingSystemDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            parentalStatusDetails: {
+                                parentalStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            proximityLocationListDetails: {
+                                proximityLocationListId: "Test string",
+                                proximityRadiusRange: "Test string",
+                            },
+                            regionalLocationListDetails: {
+                                negative: true,
+                                regionalLocationListId: "Test string",
+                            },
+                            sensitiveCategoryExclusionDetails: {
+                                excludedTargetingOptionId: "Test string",
+                                sensitiveCategory: "Test string",
+                            },
+                            subExchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            targetingType: "Test string",
+                            thirdPartyVerifierDetails: {
+                                adloox: {
+                                    excludedAdlooxCategories: [
+                                        "Test string"                                    ],
+                                },
+                                doubleVerify: {
+                                    appStarRating: {
+                                        avoidedStarRating: "Test string",
+                                        avoidInsufficientStarRating: true,
+                                    },
+                                    avoidedAgeRatings: [
+                                        "Test string"                                    ],
+                                    brandSafetyCategories: {
+                                        avoidedHighSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidedMediumSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidUnknownBrandSafetyCategory: true,
+                                    },
+                                    displayViewability: {
+                                        iab: "Test string",
+                                        viewableDuring: "Test string",
+                                    },
+                                    fraudInvalidTraffic: {
+                                        avoidedFraudOption: "Test string",
+                                        avoidInsufficientOption: true,
+                                    },
+                                    videoViewability: {
+                                        playerImpressionRate: "Test string",
+                                        videoIab: "Test string",
+                                        videoViewableRate: "Test string",
+                                    },
+                                },
+                                integralAdScience: {
+                                    displayViewability: "Test string",
+                                    excludedAdFraudRisk: "Test string",
+                                    excludedAdultRisk: "Test string",
+                                    excludedAlcoholRisk: "Test string",
+                                    excludedDrugsRisk: "Test string",
+                                    excludedGamblingRisk: "Test string",
+                                    excludedHateSpeechRisk: "Test string",
+                                    excludedIllegalDownloadsRisk: "Test string",
+                                    excludedOffensiveLanguageRisk: "Test string",
+                                    excludedViolenceRisk: "Test string",
+                                    excludeUnrateable: true,
+                                    traqScoreOption: "Test string",
+                                    videoViewability: "Test string",
+                                },
+                            },
+                            urlDetails: {
+                                negative: true,
+                                url: "Test string",
+                            },
+                            userRewardedContentDetails: {
+                                targetingOptionId: "Test string",
+                                userRewardedContent: "Test string",
+                            },
+                            videoPlayerSizeDetails: {
+                                targetingOptionId: "Test string",
+                                videoPlayerSize: "Test string",
+                            },
+                            viewabilityDetails: {
+                                targetingOptionId: "Test string",
+                                viewability: "Test string",
+                            },
+                        }                    ],
+                    targetingType: "Test string",
+                }            ],
+            deleteRequests: [
+                {
+                    assignedTargetingOptionIds: [
+                        "Test string"                    ],
+                    targetingType: "Test string",
+                }            ],
+        });
+        /** Lists assigned targeting options of a line item across targeting types. */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkListLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            lineItemId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new line item.
+         * Returns the newly created line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes a line item.
+         * Returns error code `NOT_FOUND` if the line item does not exist.
+         * The line item should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.delete({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /** Gets a line item. */
+        await gapi.client.displayvideo.advertisers.lineItems.get({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /**
+         * Lists line items in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, line items with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing line item.
+         * Returns the updated line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.patch({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /** Gets a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.get({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists location lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.locationLists.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Gets a negative keyword list given an advertiser ID and a negative keyword
+         * list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keyword lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
+            advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets an advertiser. */
+        await gapi.client.displayvideo.advertisers.get({
+            advertiserId: "Test string",
+        });
+        /**
+         * Uploads an asset.
+         * Returns the ID of the newly uploaded asset if successful.
+         * The asset file size should be no more than 10 MB for images, 200 MB for
+         * ZIP files, and 1 GB for videos.
+         */
+        await gapi.client.displayvideo.advertisers.assets.upload({
+            advertiserId: "Test string",
+        }, {
+            filename: "Test string",
+        });
+        /**
+         * Creates a new campaign.
+         * Returns the newly created campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
+         * The campaign should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.delete({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /** Gets a campaign. */
+        await gapi.client.displayvideo.advertisers.campaigns.get({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /**
+         * Lists campaigns in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, campaigns with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing campaign.
+         * Returns the updated campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.patch({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a channel for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.get({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists channels for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Creates a new creative.
+         * Returns the newly created creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.create({
+            advertiserId: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Deletes a creative.
+         * Returns error code `NOT_FOUND` if the creative does not exist.
+         * The creative should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
+         * it can be deleted.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.delete({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /** Gets a creative. */
+        await gapi.client.displayvideo.advertisers.creatives.get({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /**
+         * Lists creatives in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, creatives with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing creative.
+         * Returns the updated creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.patch({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+            updateMask: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Creates a new insertion order.
+         * Returns the newly created insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         * The insertion order should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`,
+         * to be able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.delete({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Gets an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.get({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Lists insertion orders in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, insertion
+         * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing insertion order.
+         * Returns the updated insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.patch({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Bulk edits targeting options under a single line item.
+         * The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
+         * then create the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        }, {
+            createRequests: [
+                {
+                    assignedTargetingOptions: [
+                        {
+                            ageRangeDetails: {
+                                ageRange: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            appCategoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            appDetails: {
+                                appId: "Test string",
+                                displayName: "Test string",
+                                negative: true,
+                            },
+                            assignedTargetingOptionId: "Test string",
+                            audienceGroupDetails: {
+                                excludedFirstAndThirdPartyAudienceGroup: {
+                                    settings: [
+                                        {
+                                            firstAndThirdPartyAudienceId: "Test string",
+                                            recency: "Test string",
+                                        }                                    ],
+                                },
+                                excludedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCombinedAudienceGroup: {
+                                    settings: [
+                                        {
+                                            combinedAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCustomListGroup: {
+                                    settings: [
+                                        {
+                                            customListId: "Test string",
+                                        }                                    ],
+                                },
+                                includedFirstAndThirdPartyAudienceGroups: [
+                                    {
+                                        settings: [
+                                            {
+                                                firstAndThirdPartyAudienceId: "Test string",
+                                                recency: "Test string",
+                                            }                                        ],
+                                    }                                ],
+                                includedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                            },
+                            authorizedSellerStatusDetails: {
+                                authorizedSellerStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            browserDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            carrierAndIspDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            categoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            channelDetails: {
+                                channelId: "Test string",
+                                negative: true,
+                            },
+                            contentInstreamPositionDetails: {
+                                contentInstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            contentOutstreamPositionDetails: {
+                                contentOutstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            dayAndTimeDetails: {
+                                dayOfWeek: "Test string",
+                                endHour: 42,
+                                startHour: 42,
+                                timeZoneResolution: "Test string",
+                            },
+                            deviceMakeModelDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            deviceTypeDetails: {
+                                deviceType: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            digitalContentLabelExclusionDetails: {
+                                contentRatingTier: "Test string",
+                                excludedTargetingOptionId: "Test string",
+                            },
+                            environmentDetails: {
+                                environment: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            exchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            genderDetails: {
+                                gender: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            geoRegionDetails: {
+                                displayName: "Test string",
+                                geoRegionType: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            householdIncomeDetails: {
+                                householdIncome: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            inheritance: "Test string",
+                            inventorySourceDetails: {
+                                inventorySourceId: "Test string",
+                            },
+                            inventorySourceGroupDetails: {
+                                inventorySourceGroupId: "Test string",
+                            },
+                            keywordDetails: {
+                                keyword: "Test string",
+                                negative: true,
+                            },
+                            languageDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            name: "Test string",
+                            negativeKeywordListDetails: {
+                                negativeKeywordListId: "Test string",
+                            },
+                            onScreenPositionDetails: {
+                                onScreenPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            operatingSystemDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            parentalStatusDetails: {
+                                parentalStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            proximityLocationListDetails: {
+                                proximityLocationListId: "Test string",
+                                proximityRadiusRange: "Test string",
+                            },
+                            regionalLocationListDetails: {
+                                negative: true,
+                                regionalLocationListId: "Test string",
+                            },
+                            sensitiveCategoryExclusionDetails: {
+                                excludedTargetingOptionId: "Test string",
+                                sensitiveCategory: "Test string",
+                            },
+                            subExchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            targetingType: "Test string",
+                            thirdPartyVerifierDetails: {
+                                adloox: {
+                                    excludedAdlooxCategories: [
+                                        "Test string"                                    ],
+                                },
+                                doubleVerify: {
+                                    appStarRating: {
+                                        avoidedStarRating: "Test string",
+                                        avoidInsufficientStarRating: true,
+                                    },
+                                    avoidedAgeRatings: [
+                                        "Test string"                                    ],
+                                    brandSafetyCategories: {
+                                        avoidedHighSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidedMediumSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidUnknownBrandSafetyCategory: true,
+                                    },
+                                    displayViewability: {
+                                        iab: "Test string",
+                                        viewableDuring: "Test string",
+                                    },
+                                    fraudInvalidTraffic: {
+                                        avoidedFraudOption: "Test string",
+                                        avoidInsufficientOption: true,
+                                    },
+                                    videoViewability: {
+                                        playerImpressionRate: "Test string",
+                                        videoIab: "Test string",
+                                        videoViewableRate: "Test string",
+                                    },
+                                },
+                                integralAdScience: {
+                                    displayViewability: "Test string",
+                                    excludedAdFraudRisk: "Test string",
+                                    excludedAdultRisk: "Test string",
+                                    excludedAlcoholRisk: "Test string",
+                                    excludedDrugsRisk: "Test string",
+                                    excludedGamblingRisk: "Test string",
+                                    excludedHateSpeechRisk: "Test string",
+                                    excludedIllegalDownloadsRisk: "Test string",
+                                    excludedOffensiveLanguageRisk: "Test string",
+                                    excludedViolenceRisk: "Test string",
+                                    excludeUnrateable: true,
+                                    traqScoreOption: "Test string",
+                                    videoViewability: "Test string",
+                                },
+                            },
+                            urlDetails: {
+                                negative: true,
+                                url: "Test string",
+                            },
+                            userRewardedContentDetails: {
+                                targetingOptionId: "Test string",
+                                userRewardedContent: "Test string",
+                            },
+                            videoPlayerSizeDetails: {
+                                targetingOptionId: "Test string",
+                                videoPlayerSize: "Test string",
+                            },
+                            viewabilityDetails: {
+                                targetingOptionId: "Test string",
+                                viewability: "Test string",
+                            },
+                        }                    ],
+                    targetingType: "Test string",
+                }            ],
+            deleteRequests: [
+                {
+                    assignedTargetingOptionIds: [
+                        "Test string"                    ],
+                    targetingType: "Test string",
+                }            ],
+        });
+        /** Lists assigned targeting options of a line item across targeting types. */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkListLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            lineItemId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new line item.
+         * Returns the newly created line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes a line item.
+         * Returns error code `NOT_FOUND` if the line item does not exist.
+         * The line item should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.delete({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /** Gets a line item. */
+        await gapi.client.displayvideo.advertisers.lineItems.get({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /**
+         * Lists line items in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, line items with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing line item.
+         * Returns the updated line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.patch({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /** Gets a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.get({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists location lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.locationLists.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Gets a negative keyword list given an advertiser ID and a negative keyword
+         * list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keyword lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
+            advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Lists advertisers that are accessible to the current user.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         *
+         * A single partner_id is required.
+         * Cross-partner listing is not supported.
+         */
+        await gapi.client.displayvideo.advertisers.list({
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Uploads an asset.
+         * Returns the ID of the newly uploaded asset if successful.
+         * The asset file size should be no more than 10 MB for images, 200 MB for
+         * ZIP files, and 1 GB for videos.
+         */
+        await gapi.client.displayvideo.advertisers.assets.upload({
+            advertiserId: "Test string",
+        }, {
+            filename: "Test string",
+        });
+        /**
+         * Creates a new campaign.
+         * Returns the newly created campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
+         * The campaign should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.delete({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /** Gets a campaign. */
+        await gapi.client.displayvideo.advertisers.campaigns.get({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /**
+         * Lists campaigns in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, campaigns with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing campaign.
+         * Returns the updated campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.patch({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a channel for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.get({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists channels for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Creates a new creative.
+         * Returns the newly created creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.create({
+            advertiserId: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Deletes a creative.
+         * Returns error code `NOT_FOUND` if the creative does not exist.
+         * The creative should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
+         * it can be deleted.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.delete({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /** Gets a creative. */
+        await gapi.client.displayvideo.advertisers.creatives.get({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /**
+         * Lists creatives in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, creatives with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing creative.
+         * Returns the updated creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.patch({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+            updateMask: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Creates a new insertion order.
+         * Returns the newly created insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         * The insertion order should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`,
+         * to be able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.delete({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Gets an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.get({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Lists insertion orders in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, insertion
+         * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing insertion order.
+         * Returns the updated insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.patch({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Bulk edits targeting options under a single line item.
+         * The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
+         * then create the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        }, {
+            createRequests: [
+                {
+                    assignedTargetingOptions: [
+                        {
+                            ageRangeDetails: {
+                                ageRange: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            appCategoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            appDetails: {
+                                appId: "Test string",
+                                displayName: "Test string",
+                                negative: true,
+                            },
+                            assignedTargetingOptionId: "Test string",
+                            audienceGroupDetails: {
+                                excludedFirstAndThirdPartyAudienceGroup: {
+                                    settings: [
+                                        {
+                                            firstAndThirdPartyAudienceId: "Test string",
+                                            recency: "Test string",
+                                        }                                    ],
+                                },
+                                excludedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCombinedAudienceGroup: {
+                                    settings: [
+                                        {
+                                            combinedAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCustomListGroup: {
+                                    settings: [
+                                        {
+                                            customListId: "Test string",
+                                        }                                    ],
+                                },
+                                includedFirstAndThirdPartyAudienceGroups: [
+                                    {
+                                        settings: [
+                                            {
+                                                firstAndThirdPartyAudienceId: "Test string",
+                                                recency: "Test string",
+                                            }                                        ],
+                                    }                                ],
+                                includedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                            },
+                            authorizedSellerStatusDetails: {
+                                authorizedSellerStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            browserDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            carrierAndIspDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            categoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            channelDetails: {
+                                channelId: "Test string",
+                                negative: true,
+                            },
+                            contentInstreamPositionDetails: {
+                                contentInstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            contentOutstreamPositionDetails: {
+                                contentOutstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            dayAndTimeDetails: {
+                                dayOfWeek: "Test string",
+                                endHour: 42,
+                                startHour: 42,
+                                timeZoneResolution: "Test string",
+                            },
+                            deviceMakeModelDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            deviceTypeDetails: {
+                                deviceType: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            digitalContentLabelExclusionDetails: {
+                                contentRatingTier: "Test string",
+                                excludedTargetingOptionId: "Test string",
+                            },
+                            environmentDetails: {
+                                environment: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            exchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            genderDetails: {
+                                gender: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            geoRegionDetails: {
+                                displayName: "Test string",
+                                geoRegionType: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            householdIncomeDetails: {
+                                householdIncome: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            inheritance: "Test string",
+                            inventorySourceDetails: {
+                                inventorySourceId: "Test string",
+                            },
+                            inventorySourceGroupDetails: {
+                                inventorySourceGroupId: "Test string",
+                            },
+                            keywordDetails: {
+                                keyword: "Test string",
+                                negative: true,
+                            },
+                            languageDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            name: "Test string",
+                            negativeKeywordListDetails: {
+                                negativeKeywordListId: "Test string",
+                            },
+                            onScreenPositionDetails: {
+                                onScreenPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            operatingSystemDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            parentalStatusDetails: {
+                                parentalStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            proximityLocationListDetails: {
+                                proximityLocationListId: "Test string",
+                                proximityRadiusRange: "Test string",
+                            },
+                            regionalLocationListDetails: {
+                                negative: true,
+                                regionalLocationListId: "Test string",
+                            },
+                            sensitiveCategoryExclusionDetails: {
+                                excludedTargetingOptionId: "Test string",
+                                sensitiveCategory: "Test string",
+                            },
+                            subExchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            targetingType: "Test string",
+                            thirdPartyVerifierDetails: {
+                                adloox: {
+                                    excludedAdlooxCategories: [
+                                        "Test string"                                    ],
+                                },
+                                doubleVerify: {
+                                    appStarRating: {
+                                        avoidedStarRating: "Test string",
+                                        avoidInsufficientStarRating: true,
+                                    },
+                                    avoidedAgeRatings: [
+                                        "Test string"                                    ],
+                                    brandSafetyCategories: {
+                                        avoidedHighSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidedMediumSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidUnknownBrandSafetyCategory: true,
+                                    },
+                                    displayViewability: {
+                                        iab: "Test string",
+                                        viewableDuring: "Test string",
+                                    },
+                                    fraudInvalidTraffic: {
+                                        avoidedFraudOption: "Test string",
+                                        avoidInsufficientOption: true,
+                                    },
+                                    videoViewability: {
+                                        playerImpressionRate: "Test string",
+                                        videoIab: "Test string",
+                                        videoViewableRate: "Test string",
+                                    },
+                                },
+                                integralAdScience: {
+                                    displayViewability: "Test string",
+                                    excludedAdFraudRisk: "Test string",
+                                    excludedAdultRisk: "Test string",
+                                    excludedAlcoholRisk: "Test string",
+                                    excludedDrugsRisk: "Test string",
+                                    excludedGamblingRisk: "Test string",
+                                    excludedHateSpeechRisk: "Test string",
+                                    excludedIllegalDownloadsRisk: "Test string",
+                                    excludedOffensiveLanguageRisk: "Test string",
+                                    excludedViolenceRisk: "Test string",
+                                    excludeUnrateable: true,
+                                    traqScoreOption: "Test string",
+                                    videoViewability: "Test string",
+                                },
+                            },
+                            urlDetails: {
+                                negative: true,
+                                url: "Test string",
+                            },
+                            userRewardedContentDetails: {
+                                targetingOptionId: "Test string",
+                                userRewardedContent: "Test string",
+                            },
+                            videoPlayerSizeDetails: {
+                                targetingOptionId: "Test string",
+                                videoPlayerSize: "Test string",
+                            },
+                            viewabilityDetails: {
+                                targetingOptionId: "Test string",
+                                viewability: "Test string",
+                            },
+                        }                    ],
+                    targetingType: "Test string",
+                }            ],
+            deleteRequests: [
+                {
+                    assignedTargetingOptionIds: [
+                        "Test string"                    ],
+                    targetingType: "Test string",
+                }            ],
+        });
+        /** Lists assigned targeting options of a line item across targeting types. */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkListLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            lineItemId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new line item.
+         * Returns the newly created line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes a line item.
+         * Returns error code `NOT_FOUND` if the line item does not exist.
+         * The line item should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.delete({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /** Gets a line item. */
+        await gapi.client.displayvideo.advertisers.lineItems.get({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /**
+         * Lists line items in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, line items with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing line item.
+         * Returns the updated line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.patch({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /** Gets a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.get({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists location lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.locationLists.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Gets a negative keyword list given an advertiser ID and a negative keyword
+         * list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keyword lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
+            advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing advertiser.
+         * Returns the updated advertiser if successful.
+         */
+        await gapi.client.displayvideo.advertisers.patch({
+            advertiserId: "Test string",
+            updateMask: "Test string",
+        }, {
+            adServerConfig: {
+                cmHybridConfig: {
+                    cmAccountId: "Test string",
+                    cmFloodlightConfigId: "Test string",
+                    cmFloodlightLinkingAuthorized: true,
+                    cmSyncableSiteIds: [
+                        "Test string"                    ],
+                    dv360ToCmCostReportingEnabled: true,
+                    dv360ToCmDataSharingEnabled: true,
+                },
+                thirdPartyOnlyConfig: {
+                    pixelOrderIdReportingEnabled: true,
+                },
+            },
+            advertiserId: "Test string",
+            creativeConfig: {
+                dynamicCreativeEnabled: true,
+                iasClientId: "Test string",
+                obaComplianceDisabled: true,
+                videoCreativeDataSharingAuthorized: true,
+            },
+            dataAccessConfig: {
+                sdfConfig: {
+                    overridePartnerSdfConfig: true,
+                    sdfConfig: {
+                        adminEmail: "Test string",
+                        version: "Test string",
+                    },
+                },
+            },
+            displayName: "Test string",
+            entityStatus: "Test string",
+            generalConfig: {
+                currencyCode: "Test string",
+                domainUrl: "Test string",
+                timeZone: "Test string",
+            },
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            partnerId: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Uploads an asset.
+         * Returns the ID of the newly uploaded asset if successful.
+         * The asset file size should be no more than 10 MB for images, 200 MB for
+         * ZIP files, and 1 GB for videos.
+         */
+        await gapi.client.displayvideo.advertisers.assets.upload({
+            advertiserId: "Test string",
+        }, {
+            filename: "Test string",
+        });
+        /**
+         * Creates a new campaign.
+         * Returns the newly created campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
+         * The campaign should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.delete({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /** Gets a campaign. */
+        await gapi.client.displayvideo.advertisers.campaigns.get({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /**
+         * Lists campaigns in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, campaigns with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing campaign.
+         * Returns the updated campaign if successful.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.patch({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a channel for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.get({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists channels for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Creates a new creative.
+         * Returns the newly created creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.create({
+            advertiserId: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Deletes a creative.
+         * Returns error code `NOT_FOUND` if the creative does not exist.
+         * The creative should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
+         * it can be deleted.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.delete({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /** Gets a creative. */
+        await gapi.client.displayvideo.advertisers.creatives.get({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /**
+         * Lists creatives in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, creatives with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing creative.
+         * Returns the updated creative if successful.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.patch({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+            updateMask: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Creates a new insertion order.
+         * Returns the newly created insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         * The insertion order should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`,
+         * to be able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.delete({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Gets an insertion order.
+         * Returns error code `NOT_FOUND` if the insertion order does not exist.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.get({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Lists insertion orders in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, insertion
+         * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing insertion order.
+         * Returns the updated insertion order if successful.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.patch({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Bulk edits targeting options under a single line item.
+         * The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
+         * then create the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        }, {
+            createRequests: [
+                {
+                    assignedTargetingOptions: [
+                        {
+                            ageRangeDetails: {
+                                ageRange: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            appCategoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            appDetails: {
+                                appId: "Test string",
+                                displayName: "Test string",
+                                negative: true,
+                            },
+                            assignedTargetingOptionId: "Test string",
+                            audienceGroupDetails: {
+                                excludedFirstAndThirdPartyAudienceGroup: {
+                                    settings: [
+                                        {
+                                            firstAndThirdPartyAudienceId: "Test string",
+                                            recency: "Test string",
+                                        }                                    ],
+                                },
+                                excludedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCombinedAudienceGroup: {
+                                    settings: [
+                                        {
+                                            combinedAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCustomListGroup: {
+                                    settings: [
+                                        {
+                                            customListId: "Test string",
+                                        }                                    ],
+                                },
+                                includedFirstAndThirdPartyAudienceGroups: [
+                                    {
+                                        settings: [
+                                            {
+                                                firstAndThirdPartyAudienceId: "Test string",
+                                                recency: "Test string",
+                                            }                                        ],
+                                    }                                ],
+                                includedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                            },
+                            authorizedSellerStatusDetails: {
+                                authorizedSellerStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            browserDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            carrierAndIspDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            categoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            channelDetails: {
+                                channelId: "Test string",
+                                negative: true,
+                            },
+                            contentInstreamPositionDetails: {
+                                contentInstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            contentOutstreamPositionDetails: {
+                                contentOutstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            dayAndTimeDetails: {
+                                dayOfWeek: "Test string",
+                                endHour: 42,
+                                startHour: 42,
+                                timeZoneResolution: "Test string",
+                            },
+                            deviceMakeModelDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            deviceTypeDetails: {
+                                deviceType: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            digitalContentLabelExclusionDetails: {
+                                contentRatingTier: "Test string",
+                                excludedTargetingOptionId: "Test string",
+                            },
+                            environmentDetails: {
+                                environment: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            exchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            genderDetails: {
+                                gender: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            geoRegionDetails: {
+                                displayName: "Test string",
+                                geoRegionType: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            householdIncomeDetails: {
+                                householdIncome: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            inheritance: "Test string",
+                            inventorySourceDetails: {
+                                inventorySourceId: "Test string",
+                            },
+                            inventorySourceGroupDetails: {
+                                inventorySourceGroupId: "Test string",
+                            },
+                            keywordDetails: {
+                                keyword: "Test string",
+                                negative: true,
+                            },
+                            languageDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            name: "Test string",
+                            negativeKeywordListDetails: {
+                                negativeKeywordListId: "Test string",
+                            },
+                            onScreenPositionDetails: {
+                                onScreenPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            operatingSystemDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            parentalStatusDetails: {
+                                parentalStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            proximityLocationListDetails: {
+                                proximityLocationListId: "Test string",
+                                proximityRadiusRange: "Test string",
+                            },
+                            regionalLocationListDetails: {
+                                negative: true,
+                                regionalLocationListId: "Test string",
+                            },
+                            sensitiveCategoryExclusionDetails: {
+                                excludedTargetingOptionId: "Test string",
+                                sensitiveCategory: "Test string",
+                            },
+                            subExchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            targetingType: "Test string",
+                            thirdPartyVerifierDetails: {
+                                adloox: {
+                                    excludedAdlooxCategories: [
+                                        "Test string"                                    ],
+                                },
+                                doubleVerify: {
+                                    appStarRating: {
+                                        avoidedStarRating: "Test string",
+                                        avoidInsufficientStarRating: true,
+                                    },
+                                    avoidedAgeRatings: [
+                                        "Test string"                                    ],
+                                    brandSafetyCategories: {
+                                        avoidedHighSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidedMediumSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidUnknownBrandSafetyCategory: true,
+                                    },
+                                    displayViewability: {
+                                        iab: "Test string",
+                                        viewableDuring: "Test string",
+                                    },
+                                    fraudInvalidTraffic: {
+                                        avoidedFraudOption: "Test string",
+                                        avoidInsufficientOption: true,
+                                    },
+                                    videoViewability: {
+                                        playerImpressionRate: "Test string",
+                                        videoIab: "Test string",
+                                        videoViewableRate: "Test string",
+                                    },
+                                },
+                                integralAdScience: {
+                                    displayViewability: "Test string",
+                                    excludedAdFraudRisk: "Test string",
+                                    excludedAdultRisk: "Test string",
+                                    excludedAlcoholRisk: "Test string",
+                                    excludedDrugsRisk: "Test string",
+                                    excludedGamblingRisk: "Test string",
+                                    excludedHateSpeechRisk: "Test string",
+                                    excludedIllegalDownloadsRisk: "Test string",
+                                    excludedOffensiveLanguageRisk: "Test string",
+                                    excludedViolenceRisk: "Test string",
+                                    excludeUnrateable: true,
+                                    traqScoreOption: "Test string",
+                                    videoViewability: "Test string",
+                                },
+                            },
+                            urlDetails: {
+                                negative: true,
+                                url: "Test string",
+                            },
+                            userRewardedContentDetails: {
+                                targetingOptionId: "Test string",
+                                userRewardedContent: "Test string",
+                            },
+                            videoPlayerSizeDetails: {
+                                targetingOptionId: "Test string",
+                                videoPlayerSize: "Test string",
+                            },
+                            viewabilityDetails: {
+                                targetingOptionId: "Test string",
+                                viewability: "Test string",
+                            },
+                        }                    ],
+                    targetingType: "Test string",
+                }            ],
+            deleteRequests: [
+                {
+                    assignedTargetingOptionIds: [
+                        "Test string"                    ],
+                    targetingType: "Test string",
+                }            ],
+        });
+        /** Lists assigned targeting options of a line item across targeting types. */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkListLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            lineItemId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new line item.
+         * Returns the newly created line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes a line item.
+         * Returns error code `NOT_FOUND` if the line item does not exist.
+         * The line item should be archived first, i.e. set
+         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
+         * able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.delete({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /** Gets a line item. */
+        await gapi.client.displayvideo.advertisers.lineItems.get({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /**
+         * Lists line items in an advertiser.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         * If a filter by
+         * entity_status is not specified, line items with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates an existing line item.
+         * Returns the updated line item if successful.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.patch({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /** Gets a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.get({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists location lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.locationLists.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Gets a negative keyword list given an advertiser ID and a negative keyword
+         * list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keyword lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
+            advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets a combined audience. */
+        await gapi.client.displayvideo.combinedAudiences.get({
+            advertiserId: "Test string",
+            combinedAudienceId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Lists combined audiences.
+         *
+         * The order is defined by the
+         * order_by parameter.
+         */
+        await gapi.client.displayvideo.combinedAudiences.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets a custom list. */
+        await gapi.client.displayvideo.customLists.get({
+            advertiserId: "Test string",
+            customListId: "Test string",
+        });
+        /**
+         * Lists custom lists.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         */
+        await gapi.client.displayvideo.customLists.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets a first and third party audience. */
+        await gapi.client.displayvideo.firstAndThirdPartyAudiences.get({
+            advertiserId: "Test string",
+            firstAndThirdPartyAudienceId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Lists first and third party audiences.
+         *
+         * The order is defined by the
+         * order_by parameter.
+         */
+        await gapi.client.displayvideo.firstAndThirdPartyAudiences.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets a Floodlight group. */
+        await gapi.client.displayvideo.floodlightGroups.get({
+            floodlightGroupId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Updates an existing Floodlight group.
+         * Returns the updated Floodlight group if successful.
+         */
+        await gapi.client.displayvideo.floodlightGroups.patch({
+            floodlightGroupId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            activeViewConfig: {
+                displayName: "Test string",
+                minimumDuration: "Test string",
+                minimumQuartile: "Test string",
+                minimumViewability: "Test string",
+                minimumVolume: "Test string",
+            },
+            customVariables: {
+                A: 42            },
+            displayName: "Test string",
+            floodlightGroupId: "Test string",
+            lookbackWindow: {
+                clickDays: 42,
+                impressionDays: 42,
+            },
+            name: "Test string",
+            webTagType: "Test string",
+        });
+        /** Gets a Google audience. */
+        await gapi.client.displayvideo.googleAudiences.get({
+            advertiserId: "Test string",
+            googleAudienceId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Lists Google audiences.
+         *
+         * The order is defined by the order_by
+         * parameter.
+         */
+        await gapi.client.displayvideo.googleAudiences.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets an inventory source group. */
+        await gapi.client.displayvideo.inventorySourceGroups.get({
+            advertiserId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Lists inventory source groups that are accessible to the current user.
+         *
+         * The order is defined by the
+         * order_by parameter.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets an inventory source. */
+        await gapi.client.displayvideo.inventorySources.get({
+            inventorySourceId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Lists inventory sources that are accessible to the current user.
+         *
+         * The order is defined by the
+         * order_by parameter.
+         * If a filter by
+         * entity_status is not
+         * specified, inventory sources with entity status `ENTITY_STATUS_ARCHIVED`
+         * will not be included in the results.
+         */
+        await gapi.client.displayvideo.inventorySources.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
          * Downloads media. Download is supported on the URI `/download/{resource_name=&#42;&#42;}?alt=media.`
          *
          * &#42;&#42;Note&#42;&#42;: Download requests will not be successful without including `alt=media` query string.
