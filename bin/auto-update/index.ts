@@ -73,7 +73,7 @@ process.on('unhandledRejection', reason => {
     } else {
       await git.checkoutBranch('master');
       await gitHelpers.stageTypesFolder(type);
-      await git.stash({keepIndex: true, name: 'all-changes'}); // #1 contains all changes
+      await git.stash({keepIndex: true}); // #1 contains all changes
       await git.stash({keepIndex: false, name: 'staged-only'}); // #0 contains only staged changes
       await git.checkoutBranch(type, {createOrReset: true, from: 'master'}); // so that existing branch will be reset to master and not continue own history
       await git.popStash({force: true}); // #0 applies staged changes and drops stash
