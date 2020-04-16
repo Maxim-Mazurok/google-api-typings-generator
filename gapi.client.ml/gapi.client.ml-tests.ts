@@ -530,8 +530,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -546,12 +546,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -567,7 +572,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -605,15 +610,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -623,8 +628,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -637,8 +645,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -653,12 +661,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -674,7 +687,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -712,15 +725,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -730,8 +743,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -744,8 +760,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -760,12 +776,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -781,7 +802,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -819,15 +840,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -837,8 +858,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -851,8 +875,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -867,12 +891,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -888,7 +917,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -926,15 +955,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -944,8 +973,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -1044,8 +1076,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -1060,12 +1092,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -1081,7 +1118,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -1119,15 +1156,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -1137,8 +1174,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -1151,8 +1191,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -1167,12 +1207,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -1188,7 +1233,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -1226,15 +1271,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -1244,8 +1289,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -1258,8 +1306,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -1274,12 +1322,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -1295,7 +1348,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -1333,15 +1386,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -1351,8 +1404,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -1365,8 +1421,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -1381,12 +1437,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -1402,7 +1463,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -1440,15 +1501,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -1458,8 +1519,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -3556,8 +3620,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -3572,12 +3636,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -3593,7 +3662,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -3631,15 +3700,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -3649,8 +3718,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -3663,8 +3735,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -3679,12 +3751,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -3700,7 +3777,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -3738,15 +3815,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -3756,8 +3833,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -3770,8 +3850,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -3786,12 +3866,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -3807,7 +3892,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -3845,15 +3930,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -3863,8 +3948,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -3877,8 +3965,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -3893,12 +3981,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -3914,7 +4007,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -3952,15 +4045,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -3970,8 +4063,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -4070,8 +4166,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -4086,12 +4182,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -4107,7 +4208,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -4145,15 +4246,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -4163,8 +4264,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -4177,8 +4281,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -4193,12 +4297,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -4214,7 +4323,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -4252,15 +4361,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -4270,8 +4379,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -4284,8 +4396,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -4300,12 +4412,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -4321,7 +4438,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -4359,15 +4476,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -4377,8 +4494,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -4391,8 +4511,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -4407,12 +4527,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -4428,7 +4553,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -4466,15 +4591,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -4484,8 +4609,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -6589,8 +6717,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -6605,12 +6733,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -6626,7 +6759,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -6664,15 +6797,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -6682,8 +6815,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -6696,8 +6832,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -6712,12 +6848,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -6733,7 +6874,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -6771,15 +6912,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -6789,8 +6930,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -6803,8 +6947,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -6819,12 +6963,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -6840,7 +6989,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -6878,15 +7027,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -6896,8 +7045,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -6910,8 +7062,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -6926,12 +7078,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -6947,7 +7104,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -6985,15 +7142,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -7003,8 +7160,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -7103,8 +7263,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -7119,12 +7279,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -7140,7 +7305,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -7178,15 +7343,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -7196,8 +7361,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -7210,8 +7378,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -7226,12 +7394,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -7247,7 +7420,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -7285,15 +7458,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -7303,8 +7476,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -7317,8 +7493,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -7333,12 +7509,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -7354,7 +7535,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -7392,15 +7573,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -7410,8 +7591,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
@@ -7424,8 +7608,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Adds a measurement of the objective metrics to a Trial. This measurement
-         * is assumed to have been taken before the Trial is complete.
+         * Adds a measurement of the objective metrics to a trial. This measurement
+         * is assumed to have been taken before the trial is complete.
          */
         await gapi.client.ml.projects.locations.studies.trials.addMeasurement({
             name: "Test string",
@@ -7440,12 +7624,17 @@ gapi.load('client', () => {
                 stepCount: "Test string",
             },
         });
-        /** Checks whether a trial should stop or not. */
+        /**
+         * Checks  whether a trial should stop or not. Returns a
+         * long-running operation. When the operation is successful,
+         * it will contain a
+         * CheckTrialEarlyStoppingStateResponse.
+         */
         await gapi.client.ml.projects.locations.studies.trials.checkEarlyStoppingState({
             name: "Test string",
         }, {
         });
-        /** Marks a Trial as complete. */
+        /** Marks a trial as complete. */
         await gapi.client.ml.projects.locations.studies.trials.complete({
             name: "Test string",
         }, {
@@ -7461,7 +7650,7 @@ gapi.load('client', () => {
             infeasibleReason: "Test string",
             trialInfeasible: true,
         });
-        /** Adds a user provided trial to a Study. */
+        /** Adds a user provided trial to a study. */
         await gapi.client.ml.projects.locations.studies.trials.create({
             parent: "Test string",
         }, {
@@ -7499,15 +7688,15 @@ gapi.load('client', () => {
             state: "Test string",
             trialInfeasible: true,
         });
-        /** Deletes a Trial. */
+        /** Deletes a trial. */
         await gapi.client.ml.projects.locations.studies.trials.delete({
             name: "Test string",
         });
-        /** Gets a Trial. */
+        /** Gets a trial. */
         await gapi.client.ml.projects.locations.studies.trials.get({
             name: "Test string",
         });
-        /** Lists the trials associated with a Study. */
+        /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
@@ -7517,8 +7706,11 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Returns a long-running operation associated with the generation of trial
-         * suggestions.
+         * Adds one or more trials to a study, with parameter values
+         * suggested by AI Platform Optimizer. Returns a long-running
+         * operation associated with the generation of trial suggestions.
+         * When this long-running operation succeeds, it will contain
+         * a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
             parent: "Test string",
