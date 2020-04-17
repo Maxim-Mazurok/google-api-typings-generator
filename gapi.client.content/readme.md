@@ -525,6 +525,21 @@ Lists the return policies of the Merchant Center account.
 await gapi.client.returnpolicy.list({ merchantId: "merchantId",  });
 
 /*
+Retrieves a settlement report from your Merchant Center account.
+*/
+await gapi.client.settlementreports.get({ merchantId: "merchantId", settlementId: "settlementId",  });
+
+/*
+Retrieves a list of settlement reports from your Merchant Center account.
+*/
+await gapi.client.settlementreports.list({ merchantId: "merchantId",  });
+
+/*
+Retrieves a list of transactions for the settlement.
+*/
+await gapi.client.settlementtransactions.list({ merchantId: "merchantId", settlementId: "settlementId",  });
+
+/*
 Retrieves and updates the shipping settings of multiple accounts in a single request.
 */
 await gapi.client.shippingsettings.custombatch({  });

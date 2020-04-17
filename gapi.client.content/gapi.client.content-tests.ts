@@ -1808,6 +1808,27 @@ gapi.load('client', () => {
         await gapi.client.content.returnpolicy.list({
             merchantId: "Test string",
         });
+        /** Retrieves a settlement report from your Merchant Center account. */
+        await gapi.client.content.settlementreports.get({
+            merchantId: "Test string",
+            settlementId: "Test string",
+        });
+        /** Retrieves a list of settlement reports from your Merchant Center account. */
+        await gapi.client.content.settlementreports.list({
+            maxResults: 42,
+            merchantId: "Test string",
+            pageToken: "Test string",
+            transferEndDate: "Test string",
+            transferStartDate: "Test string",
+        });
+        /** Retrieves a list of transactions for the settlement. */
+        await gapi.client.content.settlementtransactions.list({
+            maxResults: 42,
+            merchantId: "Test string",
+            pageToken: "Test string",
+            settlementId: "Test string",
+            transactionIds: "Test string",
+        });
         /** Retrieves and updates the shipping settings of multiple accounts in a single request. */
         await gapi.client.content.shippingsettings.custombatch({} , {
             entries: [
@@ -1878,6 +1899,17 @@ gapi.load('client', () => {
                                 minimumOrderValue: {
                                     currency: "Test string",
                                     value: "Test string",
+                                },
+                                minimumOrderValueTable: {
+                                    storeCodeSetWithMovs: [
+                                        {
+                                            storeCodes: [
+                                                "Test string"                                            ],
+                                            value: {
+                                                currency: "Test string",
+                                                value: "Test string",
+                                            },
+                                        }                                    ],
                                 },
                                 name: "Test string",
                                 pickupService: {
@@ -2125,6 +2157,17 @@ gapi.load('client', () => {
                     minimumOrderValue: {
                         currency: "Test string",
                         value: "Test string",
+                    },
+                    minimumOrderValueTable: {
+                        storeCodeSetWithMovs: [
+                            {
+                                storeCodes: [
+                                    "Test string"                                ],
+                                value: {
+                                    currency: "Test string",
+                                    value: "Test string",
+                                },
+                            }                        ],
                     },
                     name: "Test string",
                     pickupService: {
