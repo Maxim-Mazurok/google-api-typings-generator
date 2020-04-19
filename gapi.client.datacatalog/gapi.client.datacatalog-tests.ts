@@ -42,7 +42,8 @@ gapi.load('client', () => {
          * across repeated search queries.
          *
          * See [Data Catalog Search
-         * Syntax](/data-catalog/docs/how-to/search-reference) for more information.
+         * Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference)
+         * for more information.
          */
         await gapi.client.datacatalog.catalog.search({
         }, {
