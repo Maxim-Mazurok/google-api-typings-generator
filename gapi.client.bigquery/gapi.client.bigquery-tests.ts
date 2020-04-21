@@ -294,7 +294,6 @@ gapi.load('client', () => {
                     },
                     encoding: "Test string",
                     fieldDelimiter: "Test string",
-                    hivePartitioningMode: "Test string",
                     hivePartitioningOptions: {
                         mode: "Test string",
                         sourceUriPrefix: "Test string",
@@ -355,7 +354,10 @@ gapi.load('client', () => {
                             "Test string"                        ],
                     },
                     connectionProperties: [
-                        42                    ],
+                        {
+                            key: "Test string",
+                            value: "Test string",
+                        }                    ],
                     createDisposition: "Test string",
                     defaultDataset: {
                         datasetId: "Test string",
@@ -441,7 +443,6 @@ gapi.load('client', () => {
                                 range: "Test string",
                                 skipLeadingRows: "Test string",
                             },
-                            hivePartitioningMode: "Test string",
                             hivePartitioningOptions: {
                                 mode: "Test string",
                                 sourceUriPrefix: "Test string",
@@ -715,7 +716,10 @@ gapi.load('client', () => {
             projectId: "Test string",
         }, {
             connectionProperties: [
-                42            ],
+                {
+                    key: "Test string",
+                    value: "Test string",
+                }            ],
             defaultDataset: {
                 datasetId: "Test string",
                 projectId: "Test string",
@@ -934,11 +938,15 @@ gapi.load('client', () => {
                                             logLikelihood: 42,
                                             variance: 42,
                                         },
+                                        hasDrift: true,
                                         nonSeasonalOrder: {
                                             d: "Test string",
                                             p: "Test string",
                                             q: "Test string",
                                         },
+                                        seasonalPeriods: [
+                                            "Test string"                                        ],
+                                        timeSeriesId: "Test string",
                                     }                                ],
                                 seasonalPeriods: [
                                     "Test string"                                ],
@@ -1223,7 +1231,6 @@ gapi.load('client', () => {
                     range: "Test string",
                     skipLeadingRows: "Test string",
                 },
-                hivePartitioningMode: "Test string",
                 hivePartitioningOptions: {
                     mode: "Test string",
                     sourceUriPrefix: "Test string",
@@ -1418,7 +1425,6 @@ gapi.load('client', () => {
                     range: "Test string",
                     skipLeadingRows: "Test string",
                 },
-                hivePartitioningMode: "Test string",
                 hivePartitioningOptions: {
                     mode: "Test string",
                     sourceUriPrefix: "Test string",
@@ -1606,7 +1612,6 @@ gapi.load('client', () => {
                     range: "Test string",
                     skipLeadingRows: "Test string",
                 },
-                hivePartitioningMode: "Test string",
                 hivePartitioningOptions: {
                     mode: "Test string",
                     sourceUriPrefix: "Test string",
