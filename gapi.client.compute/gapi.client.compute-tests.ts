@@ -409,7 +409,13 @@ gapi.load('client', () => {
             backendService: "Test string",
             project: "Test string",
         });
-        /** Gets the most recent health check results for this BackendService. */
+        /**
+         * Gets the most recent health check results for this BackendService.
+         *
+         * Example request body:
+         *
+         * { "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
+         */
         await gapi.client.compute.backendServices.getHealth({
             backendService: "Test string",
             project: "Test string",
@@ -4610,7 +4616,9 @@ gapi.load('client', () => {
                 autoCreateRoutes: true,
                 exchangeSubnetRoutes: true,
                 exportCustomRoutes: true,
+                exportSubnetRoutesWithPublicIp: true,
                 importCustomRoutes: true,
+                importSubnetRoutesWithPublicIp: true,
                 name: "Test string",
                 network: "Test string",
                 state: "Test string",
@@ -4647,7 +4655,9 @@ gapi.load('client', () => {
                     autoCreateRoutes: true,
                     exchangeSubnetRoutes: true,
                     exportCustomRoutes: true,
+                    exportSubnetRoutesWithPublicIp: true,
                     importCustomRoutes: true,
+                    importSubnetRoutesWithPublicIp: true,
                     name: "Test string",
                     network: "Test string",
                     state: "Test string",
@@ -4699,7 +4709,9 @@ gapi.load('client', () => {
                     autoCreateRoutes: true,
                     exchangeSubnetRoutes: true,
                     exportCustomRoutes: true,
+                    exportSubnetRoutesWithPublicIp: true,
                     importCustomRoutes: true,
+                    importSubnetRoutesWithPublicIp: true,
                     name: "Test string",
                     network: "Test string",
                     state: "Test string",
@@ -4739,7 +4751,9 @@ gapi.load('client', () => {
                 autoCreateRoutes: true,
                 exchangeSubnetRoutes: true,
                 exportCustomRoutes: true,
+                exportSubnetRoutesWithPublicIp: true,
                 importCustomRoutes: true,
+                importSubnetRoutesWithPublicIp: true,
                 name: "Test string",
                 network: "Test string",
                 state: "Test string",
@@ -4840,7 +4854,7 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
-        /** Patch the node group. */
+        /** Updates the specified node group. */
         await gapi.client.compute.nodeGroups.patch({
             nodeGroup: "Test string",
             project: "Test string",
@@ -6888,12 +6902,27 @@ gapi.load('client', () => {
             certificate: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
+            expireTime: "Test string",
             id: "Test string",
             kind: "Test string",
+            managed: {
+                domains: [
+                    "Test string"                ],
+                domainStatus: {
+                    A: "Test string"                },
+                status: "Test string",
+            },
             name: "Test string",
             privateKey: "Test string",
             region: "Test string",
             selfLink: "Test string",
+            selfManaged: {
+                certificate: "Test string",
+                privateKey: "Test string",
+            },
+            subjectAlternativeNames: [
+                "Test string"            ],
+            type: "Test string",
         });
         /** Retrieves the list of SslCertificate resources available to the specified project in the specified region. */
         await gapi.client.compute.regionSslCertificates.list({
@@ -10007,12 +10036,27 @@ gapi.load('client', () => {
             certificate: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
+            expireTime: "Test string",
             id: "Test string",
             kind: "Test string",
+            managed: {
+                domains: [
+                    "Test string"                ],
+                domainStatus: {
+                    A: "Test string"                },
+                status: "Test string",
+            },
             name: "Test string",
             privateKey: "Test string",
             region: "Test string",
             selfLink: "Test string",
+            selfManaged: {
+                certificate: "Test string",
+                privateKey: "Test string",
+            },
+            subjectAlternativeNames: [
+                "Test string"            ],
+            type: "Test string",
         });
         /** Retrieves the list of SslCertificate resources available to the specified project. */
         await gapi.client.compute.sslCertificates.list({

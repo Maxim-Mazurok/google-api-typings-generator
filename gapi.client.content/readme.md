@@ -259,7 +259,7 @@ Creates a charge invoice for a shipment group, and triggers a charge capture for
 await gapi.client.orderinvoices.createchargeinvoice({ merchantId: "merchantId", orderId: "orderId",  });
 
 /*
-Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items that have previously been charged using createChargeInvoice. All amounts (except for the summary) are incremental with respect to the previous invoice.
+Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items that have previously been charged using `createChargeInvoice`. All amounts (except for the summary) are incremental with respect to the previous invoice.
 */
 await gapi.client.orderinvoices.createrefundinvoice({ merchantId: "merchantId", orderId: "orderId",  });
 
@@ -289,7 +289,7 @@ Marks an order as acknowledged.
 await gapi.client.orders.acknowledge({ merchantId: "merchantId", orderId: "orderId",  });
 
 /*
-Sandbox only. Moves a test order from state "inProgress" to state "pendingShipment".
+Sandbox only. Moves a test order from state "`inProgress`" to state "`pendingShipment`".
 */
 await gapi.client.orders.advancetestorder({ merchantId: "merchantId", orderId: "orderId",  });
 

@@ -713,7 +713,8 @@ gapi.load('client', () => {
         });
         /**
          * Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items
-         * that have previously been charged using createChargeInvoice. All amounts (except for the summary) are incremental with respect to the previous invoice.
+         * that have previously been charged using `createChargeInvoice`. All amounts (except for the summary) are incremental with respect to the previous
+         * invoice.
          */
         await gapi.client.content.orderinvoices.createrefundinvoice({
             merchantId: "Test string",
@@ -834,7 +835,7 @@ gapi.load('client', () => {
         }, {
             operationId: "Test string",
         });
-        /** Sandbox only. Moves a test order from state "inProgress" to state "pendingShipment". */
+        /** Sandbox only. Moves a test order from state "`inProgress`" to state "`pendingShipment`". */
         await gapi.client.content.orders.advancetestorder({
             merchantId: "Test string",
             orderId: "Test string",

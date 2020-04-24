@@ -215,6 +215,10 @@ await gapi.client.backendServices.get({ backendService: "backendService", projec
 
 /*
 Gets the most recent health check results for this BackendService.
+
+Example request body:
+
+{ "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
 */
 await gapi.client.backendServices.getHealth({ backendService: "backendService", project: "project",  });
 
@@ -1329,7 +1333,7 @@ Lists nodes in the node group.
 await gapi.client.nodeGroups.listNodes({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
 
 /*
-Patch the node group.
+Updates the specified node group.
 */
 await gapi.client.nodeGroups.patch({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
 
