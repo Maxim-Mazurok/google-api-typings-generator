@@ -1,13 +1,23 @@
 # google-api-typings-generator
 
+[![GitHub](https://img.shields.io/github/license/Maxim-Mazurok/google-api-typings-generator)](https://github.com/Maxim-Mazurok/google-api-typings-generator/blob/master/LICENSE)
+[![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=Maxim-Mazurok/google-api-typings-generator)](https://dependabot.com)
+
+[![Auto Open PRs](https://github.com/Maxim-Mazurok/google-api-typings-generator/workflows/Auto%20Open%20PRs/badge.svg)](https://github.com/Maxim-Mazurok/google-api-typings-generator/actions?query=workflow%3A%22Auto+Open+PRs%22)
+[![Auto Generate Types](https://github.com/Maxim-Mazurok/google-api-typings-generator/workflows/Auto%20Generate%20Types/badge.svg)](https://github.com/Maxim-Mazurok/google-api-typings-generator/actions?query=workflow%3A%22Auto+Generate+Types%22)
+[![CI Test](https://github.com/Maxim-Mazurok/google-api-typings-generator/workflows/CI%20Test/badge.svg)](https://github.com/Maxim-Mazurok/google-api-typings-generator/actions?query=workflow%3A%22CI+Test%22)
+
 Generate TypeScript type definitions for all Google APIs,
 using [Google API discovery](https://developers.google.com/discovery/) service.
 
 Meant to be used with [Google APIs JavaScript Browser Client](https://github.com/google/google-api-javascript-client), aka `gapi`.
 Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/google-api-nodejs-client) which is already in TS; [details](#javascript-vs-nodejs-clients)
 
-##### My fork DIFF:
+## Fork Log:
 
+- ⚠️ This is the only maintained fork
+- 🤖 Auto updates every hour; [details](#auto-updates)
 - Supports both `resource` and second-argument approaches; [details](#resource-vs-body)
 - Includes empty interfaces; [details](#empty-interfaces)
 - Works for arrays, aka `"repeated": true`; [details](#arrays--repeated-values)
@@ -108,6 +118,12 @@ npm run fix
 ```
 
 ## Details
+
+### Auto Updates
+
+Every hour, type definitions are generated, linted, tested and PR is opened to DefinitelyTyped repository.
+
+All thanks to [this PR](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/74) and everyone who was involved.
 
 ### Resource VS Body
 
