@@ -1,6 +1,7 @@
 import {join} from 'path';
 import {Settings} from './index';
 import {Git} from './git';
+import {revisionPrefix} from '../../src/app';
 
 export class GitHelpers {
   readonly settings: Settings;
@@ -10,6 +11,17 @@ export class GitHelpers {
     this.settings = settings;
     this.git = git;
   }
+
+  onlyRevisionChanged = async (type: string): Promise<boolean> => {
+    const cmd = `git diff master..origin/${type} --unified=0`;
+    const diff = (await this.git.sh.trySh(cmd)).stdout
+      .split('\n')
+      .splice(5)
+      .join('\n');
+    return new RegExp(
+      `^-${revisionPrefix}\\d+\\n\\+${revisionPrefix}\\d+\\n$`
+    ).test(diff);
+  };
 
   setConfig = async (): Promise<void> => {
     const {userEmail, userName} = this.settings;

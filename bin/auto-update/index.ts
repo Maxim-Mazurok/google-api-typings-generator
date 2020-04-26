@@ -105,7 +105,12 @@ process.on('unhandledRejection', reason => {
   await git.push({all: true, force: true}); // pushes to fork
 
   for (const type of changedTypes) {
-    if (whiteListedTypes.indexOf(type) === -1) continue;
+    if (
+      whiteListedTypes.indexOf(type) === -1 ||
+      (await gitHelpers.onlyRevisionChanged(type))
+    ) {
+      continue;
+    }
 
     await gitHelpers.openPRIfItDoesNotExist(type);
   }

@@ -21,6 +21,7 @@ type DirectoryList = gapi.client.discovery.DirectoryList;
 
 export const typingsPrefix = 'gapi.client.';
 export const tmpDirPath = resolve(__dirname, './../.tmp');
+export const revisionPrefix = '// Revision: ';
 
 const eachLine: (
   ...args: Parameters<LineReader['eachLine']>
@@ -625,7 +626,7 @@ export class App {
       '// In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator'
     );
     writer.writeLine(`// Generated from: ${url}`);
-    writer.writeLine(`// Revision: ${api.revision}`);
+    writer.writeLine(`${revisionPrefix}${api.revision}`);
     writer.writeLine();
     writer.referenceTypes('gapi.client');
 
@@ -771,8 +772,8 @@ export class App {
         path.join(destinationDirectory, 'index.d.ts'),
         {},
         line => {
-          if (line.startsWith('// Revision: ')) {
-            const match = line.match(/^\/\/ Revision: (\d+)$/);
+          if (line.startsWith(revisionPrefix)) {
+            const match = line.match(new RegExp(`^${revisionPrefix}(\\d+)$`));
             if (match !== null && match.length === 2) {
               existingRevision = Number(match[1]);
               return false;
