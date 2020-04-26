@@ -27,6 +27,34 @@ export class Git {
     });
   }
 
+  deleteBranch = async (
+    branch: string,
+    {force}: {force: boolean} = {force: false}
+  ): Promise<void> => {
+    const cmd = `git branch --delete ${force ? '--force' : ''} ${branch}`;
+    await this.sh.trySh(cmd);
+  };
+
+  moveBranch = async (from: string, to: string): Promise<void> => {
+    const cmd = `git branch -m ${from} ${to}`;
+    await this.sh.trySh(cmd);
+  };
+
+  branchesDiffer = async (
+    branch1: string,
+    branch2: string
+  ): Promise<boolean> => {
+    const cmd = `git diff ${branch1}..${branch2} --quiet`;
+    try {
+      await this.sh.runSh(cmd);
+    } catch (e) {
+      // exited with status != 0
+      return true;
+    }
+    // no exception => exit status == 0
+    return false;
+  };
+
   getArchiveLink = async (commitSHA: string): Promise<string> => {
     console.log(`Getting archive link for ${commitSHA}...`);
 
