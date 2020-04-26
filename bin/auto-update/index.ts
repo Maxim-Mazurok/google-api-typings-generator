@@ -67,6 +67,7 @@ process.on('unhandledRejection', reason => {
 
   for (const type of changedTypes) {
     const isNewBranch = branches.indexOf(type) === -1;
+    const tmpBranchName = `${type}-tmp`;
     if (isNewBranch) {
       await git.checkoutBranch(type, {createOrReset: true, from: 'master'}); // so that new branch will be created from master and not from previous gapi.client.* branch
       await gitHelpers.stageTypesFolder(type);
@@ -75,7 +76,11 @@ process.on('unhandledRejection', reason => {
       await gitHelpers.stageTypesFolder(type);
       await git.stash({keepIndex: true, name: 'all-changes'}); // #1 contains all changes
       await git.stash({keepIndex: false}); // #0 contains only staged changes
-      await git.checkoutBranch(type, {createOrReset: true, from: 'master'}); // so that existing branch will be reset to master and not continue own history
+      await git.checkoutBranch(tmpBranchName, {
+        // create new temporary branch
+        createOrReset: true, // so that existing branch will be reset to master and not continue own history
+        from: 'master',
+      });
       await git.popStash({force: true}); // #0 applies staged changes and drops stash
       await git.popStash(); // #1 pops all changes
     }
@@ -84,6 +89,17 @@ process.on('unhandledRejection', reason => {
       message: `automatic ${type} update @ ${new Date().toUTCString()}`,
       stageAllFirst: false,
     });
+
+    if (!isNewBranch) {
+      if (await git.branchesDiffer(`origin/${type}`, tmpBranchName)) {
+        // if type definition actually changed - update branch
+        await git.moveBranch(tmpBranchName, type);
+      } else {
+        // else - delete temp branch
+        await git.checkoutBranch('master');
+        await git.deleteBranch(tmpBranchName, {force: true});
+      }
+    }
   }
 
   await git.push({all: true, force: true}); // pushes to fork
