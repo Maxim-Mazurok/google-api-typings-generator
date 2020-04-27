@@ -13,7 +13,7 @@ export class GitHelpers {
   }
 
   onlyRevisionChanged = async (type: string): Promise<boolean> => {
-    const cmd = `git diff master..origin/${type} --unified=0`;
+    const cmd = `git diff master..origin/${type} --unified=0 types/${type}/*`;
     const diff = (await this.git.sh.trySh(cmd)).stdout
       .split('\n')
       .splice(5)

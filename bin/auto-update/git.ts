@@ -3,6 +3,7 @@ import {typingsPrefix} from '../../src/app';
 import {basename, parse} from 'path';
 import parseGitStatus from 'parse-git-status';
 import {Octokit} from '@octokit/rest';
+import {tmpBranchNameFunc} from './helpers';
 
 export interface Settings {
   user: string; // user who submits PRs to DT
@@ -40,11 +41,10 @@ export class Git {
     await this.sh.trySh(cmd);
   };
 
-  branchesDiffer = async (
-    branch1: string,
-    branch2: string
-  ): Promise<boolean> => {
-    const cmd = `git diff ${branch1}..${branch2} --quiet`;
+  tmpAndOriginBranchesDiffer = async (type: string): Promise<boolean> => {
+    const cmd = `git diff origin/${type}..${tmpBranchNameFunc(
+      type
+    )} --quiet types/${type}/*`;
     try {
       await this.sh.runSh(cmd);
     } catch (e) {
