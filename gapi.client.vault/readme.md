@@ -111,7 +111,7 @@ await gapi.client.matters.undelete({ matterId: "matterId",  });
 /*
 Updates the specified matter.
 This updates only the name and description of the matter, identified by
-matter id. Changes to any other fields are ignored.
+matter ID. Changes to any other fields are ignored.
 Returns the default view of the matter.
 */
 await gapi.client.matters.update({ matterId: "matterId",  });
