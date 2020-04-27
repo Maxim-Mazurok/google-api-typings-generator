@@ -41,7 +41,9 @@ const settings: Settings = {
   templateUpdateLabel: 'DT PR template update',
 };
 
-const whiteListedTypes = ['sheets'].map(x => `${typingsPrefix}${x}`);
+const whiteListedTypes = ['sheets', 'drive', 'classroom'].map(
+  x => `${typingsPrefix}${x}`
+);
 
 const sh = new SH(settings.dtForkPath);
 const git = new Git(sh, settings);
