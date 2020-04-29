@@ -64,12 +64,9 @@ gapi.load('client', () => {
         /** Unlocks this achievement for the currently authenticated player. */
         await gapi.client.games.achievements.unlock({
             achievementId: "Test string",
-            builtinGameId: "Test string",
         });
         /** Updates multiple achievements for the currently authenticated player. */
-        await gapi.client.games.achievements.updateMultiple({
-            builtinGameId: "Test string",
-        }, {
+        await gapi.client.games.achievements.updateMultiple({} , {
             kind: "Test string",
             updates: [
                 {
@@ -97,9 +94,7 @@ gapi.load('client', () => {
             platformType: "Test string",
         });
         /** Indicate that the the currently authenticated user is playing your application. */
-        await gapi.client.games.applications.played({
-            builtinGameId: "Test string",
-        });
+        await gapi.client.games.applications.played();
         /** Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for. */
         await gapi.client.games.applications.verify({
             applicationId: "Test string",
