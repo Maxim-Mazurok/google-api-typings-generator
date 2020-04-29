@@ -24,6 +24,8 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/user.birthday.read',
             /** View your email addresses */
             'https://www.googleapis.com/auth/user.emails.read',
+            /** See your gender */
+            'https://www.googleapis.com/auth/user.gender.read',
             /** See your education, work history and org info */
             'https://www.googleapis.com/auth/user.organization.read',
             /** View your phone numbers */
