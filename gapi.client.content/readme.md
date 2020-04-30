@@ -274,6 +274,11 @@ Retrieves a list of transactions for a disbursement from your Merchant Center ac
 await gapi.client.orderreports.listtransactions({ disbursementId: "disbursementId", merchantId: "merchantId", transactionStartDate: "transactionStartDate",  });
 
 /*
+Acks an order return in your Merchant Center account.
+*/
+await gapi.client.orderreturns.acknowledge({ merchantId: "merchantId", returnId: "returnId",  });
+
+/*
 Retrieves an order return from your Merchant Center account.
 */
 await gapi.client.orderreturns.get({ merchantId: "merchantId", returnId: "returnId",  });
@@ -282,6 +287,11 @@ await gapi.client.orderreturns.get({ merchantId: "merchantId", returnId: "return
 Lists order returns in your Merchant Center account.
 */
 await gapi.client.orderreturns.list({ merchantId: "merchantId",  });
+
+/*
+Processes return in your Merchant Center account.
+*/
+await gapi.client.orderreturns.process({ merchantId: "merchantId", returnId: "returnId",  });
 
 /*
 Marks an order as acknowledged.

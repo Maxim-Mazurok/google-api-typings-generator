@@ -62,6 +62,7 @@ gapi.load('client', () => {
                             phoneNumber: "Test string",
                         },
                         googleMyBusinessLink: {
+                            gmbAccountId: "Test string",
                             gmbEmail: "Test string",
                             status: "Test string",
                         },
@@ -136,6 +137,7 @@ gapi.load('client', () => {
                 phoneNumber: "Test string",
             },
             googleMyBusinessLink: {
+                gmbAccountId: "Test string",
                 gmbEmail: "Test string",
                 status: "Test string",
             },
@@ -209,6 +211,7 @@ gapi.load('client', () => {
                 phoneNumber: "Test string",
             },
             googleMyBusinessLink: {
+                gmbAccountId: "Test string",
                 gmbEmail: "Test string",
                 status: "Test string",
             },
@@ -814,6 +817,13 @@ gapi.load('client', () => {
             transactionEndDate: "Test string",
             transactionStartDate: "Test string",
         });
+        /** Acks an order return in your Merchant Center account. */
+        await gapi.client.content.orderreturns.acknowledge({
+            merchantId: "Test string",
+            returnId: "Test string",
+        }, {
+            operationId: "Test string",
+        });
         /** Retrieves an order return from your Merchant Center account. */
         await gapi.client.content.orderreturns.get({
             merchantId: "Test string",
@@ -821,12 +831,64 @@ gapi.load('client', () => {
         });
         /** Lists order returns in your Merchant Center account. */
         await gapi.client.content.orderreturns.list({
+            acknowledged: true,
             createdEndDate: "Test string",
             createdStartDate: "Test string",
+            googleOrderIds: "Test string",
             maxResults: 42,
             merchantId: "Test string",
             orderBy: "Test string",
             pageToken: "Test string",
+            shipmentStates: "Test string",
+            shipmentStatus: "Test string",
+            shipmentTrackingNumbers: "Test string",
+            shipmentTypes: "Test string",
+        });
+        /** Processes return in your Merchant Center account. */
+        await gapi.client.content.orderreturns.process({
+            merchantId: "Test string",
+            returnId: "Test string",
+        }, {
+            fullChargeReturnShippingCost: true,
+            operationId: "Test string",
+            refundShippingFee: {
+                fullRefund: true,
+                partialRefund: {
+                    priceAmount: {
+                        currency: "Test string",
+                        value: "Test string",
+                    },
+                    taxAmount: {
+                        currency: "Test string",
+                        value: "Test string",
+                    },
+                },
+                reasonText: "Test string",
+                returnRefundReason: "Test string",
+            },
+            returnItems: [
+                {
+                    refund: {
+                        fullRefund: true,
+                        partialRefund: {
+                            priceAmount: {
+                                currency: "Test string",
+                                value: "Test string",
+                            },
+                            taxAmount: {
+                                currency: "Test string",
+                                value: "Test string",
+                            },
+                        },
+                        reasonText: "Test string",
+                        returnRefundReason: "Test string",
+                    },
+                    reject: {
+                        reason: "Test string",
+                        reasonText: "Test string",
+                    },
+                    returnItemId: "Test string",
+                }            ],
         });
         /** Marks an order as acknowledged. */
         await gapi.client.content.orders.acknowledge({
