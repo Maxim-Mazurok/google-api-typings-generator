@@ -199,31 +199,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /**
-         * Creates a new version on the target site using the content
-         * of the specified version.
-         */
-        await gapi.client.firebasehosting.sites.versions.clone({
-            parent: "Test string",
-        }, {
-            exclude: {
-                regexes: [
-                    "Test string"                ],
-            },
-            finalize: true,
-            include: {
-                regexes: [
-                    "Test string"                ],
-            },
-            sourceVersion: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            status: "Test string",
-        });
         /** Creates a new version for a site. */
         await gapi.client.firebasehosting.sites.versions.create({
             parent: "Test string",
@@ -417,6 +392,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateMask: "Test string",
         }, {
+            cloudLoggingEnabled: true,
             maxVersions: "Test string",
         });
         /** Creates a domain mapping on the specified site. */
@@ -580,31 +556,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /**
-         * Creates a new version on the target site using the content
-         * of the specified version.
-         */
-        await gapi.client.firebasehosting.sites.versions.clone({
-            parent: "Test string",
-        }, {
-            exclude: {
-                regexes: [
-                    "Test string"                ],
-            },
-            finalize: true,
-            include: {
-                regexes: [
-                    "Test string"                ],
-            },
-            sourceVersion: "Test string",
-        });
-        /** Lists the remaining files to be uploaded for the specified version. */
-        await gapi.client.firebasehosting.sites.versions.files.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            status: "Test string",
         });
         /** Creates a new version for a site. */
         await gapi.client.firebasehosting.sites.versions.create({
