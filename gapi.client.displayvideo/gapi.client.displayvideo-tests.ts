@@ -569,6 +569,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
@@ -686,6 +687,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
@@ -1756,6 +1758,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
@@ -1873,6 +1876,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
@@ -2938,6 +2942,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
@@ -3055,6 +3060,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
@@ -4132,6 +4138,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
@@ -4249,6 +4256,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
@@ -5363,6 +5371,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
@@ -5480,6 +5489,7 @@ gapi.load('client', () => {
                 budgetSegments: [
                     {
                         budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
                         dateRange: {
                             endDate: {
                                 day: 42,
