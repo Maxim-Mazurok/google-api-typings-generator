@@ -42,11 +42,4 @@ Returns metadata about the search performed, metadata about the custom
 search engine used for the search, and the search results.
 */
 await gapi.client.cse.list({  });
-
-/*
-Returns metadata about the search performed, metadata about the custom
-search engine used for the search, and the search results. Uses a small set
-of url patterns.
-*/
-await gapi.client.siterestrict.list({  });
 ```

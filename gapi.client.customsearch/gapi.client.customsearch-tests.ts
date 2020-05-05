@@ -54,7 +54,7 @@ gapi.load('client', () => {
          * search engine used for the search, and the search results. Uses a small set
          * of url patterns.
          */
-        await gapi.client.customsearch.siterestrict.list({
+        await gapi.client.customsearch.cse.siterestrict.list({
             c2coff: "Test string",
             cr: "Test string",
             cx: "Test string",
