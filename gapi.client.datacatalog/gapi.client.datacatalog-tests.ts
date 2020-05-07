@@ -57,6 +57,8 @@ gapi.load('client', () => {
                     "Test string"                ],
                 includeProjectIds: [
                     "Test string"                ],
+                restrictedLocations: [
+                    "Test string"                ],
             },
         });
         /**
