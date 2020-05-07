@@ -56,6 +56,7 @@ gapi.load('client', () => {
             startIndex: 42,
             userId: "Test string",
         });
+        /** Add a user-upload volume and triggers processing. */
         await gapi.client.books.cloudloading.addBook({
             drive_document_id: "Test string",
             mime_type: "Test string",
@@ -66,7 +67,9 @@ gapi.load('client', () => {
         await gapi.client.books.cloudloading.deleteBook({
             volumeId: "Test string",
         });
-        await gapi.client.books.cloudloading.updateBook({} , {
+        /** Updates a user-upload volume. */
+        await gapi.client.books.cloudloading.updateBook({
+        }, {
             author: "Test string",
             processingState: "Test string",
             title: "Test string",
@@ -80,13 +83,19 @@ gapi.load('client', () => {
         await gapi.client.books.familysharing.getFamilyInfo({
             source: "Test string",
         });
-        /** Initiates sharing of the content with the user's family. Empty response indicates success. */
+        /**
+         * Initiates sharing of the content with the user's family. Empty response
+         * indicates success.
+         */
         await gapi.client.books.familysharing.share({
             docId: "Test string",
             source: "Test string",
             volumeId: "Test string",
         });
-        /** Initiates revoking content that has already been shared with the user's family. Empty response indicates success. */
+        /**
+         * Initiates revoking content that has already been shared with the user's
+         * family. Empty response indicates success.
+         */
         await gapi.client.books.familysharing.unshare({
             docId: "Test string",
             source: "Test string",
@@ -218,7 +227,9 @@ gapi.load('client', () => {
             volumeId: "Test string",
         });
         /** Gets the current settings for the user. */
-        await gapi.client.books.myconfig.getUserSettings();
+        await gapi.client.books.myconfig.getUserSettings({
+            country: "Test string",
+        });
         /** Release downloaded content access restriction. */
         await gapi.client.books.myconfig.releaseDownloadAccess({
             cpksver: "Test string",
@@ -235,7 +246,10 @@ gapi.load('client', () => {
             source: "Test string",
             volumeId: "Test string",
         });
-        /** Request downloaded content access for specified volumes on the My eBooks shelf. */
+        /**
+         * Request downloaded content access for specified volumes on the My eBooks
+         * shelf.
+         */
         await gapi.client.books.myconfig.syncVolumeLicenses({
             cpksver: "Test string",
             features: "Test string",
@@ -247,10 +261,12 @@ gapi.load('client', () => {
             volumeIds: "Test string",
         });
         /**
-         * Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects
-         * will retain the existing value.
+         * Sets the settings for the user. If a sub-object is specified, it will
+         * overwrite the existing sub-object stored in the server. Unspecified
+         * sub-objects will retain the existing value.
          */
-        await gapi.client.books.myconfig.updateUserSettings({} , {
+        await gapi.client.books.myconfig.updateUserSettings({
+        }, {
             kind: "Test string",
             notesExport: {
                 folderName: "Test string",
@@ -298,6 +314,7 @@ gapi.load('client', () => {
             maxAllowedMaturityRating: "Test string",
             source: "Test string",
         });
+        /** Accepts the promo offer. */
         await gapi.client.books.promooffer.accept({
             androidId: "Test string",
             device: "Test string",
@@ -308,6 +325,7 @@ gapi.load('client', () => {
             serial: "Test string",
             volumeId: "Test string",
         });
+        /** Marks the promo offer as dismissed. */
         await gapi.client.books.promooffer.dismiss({
             androidId: "Test string",
             device: "Test string",

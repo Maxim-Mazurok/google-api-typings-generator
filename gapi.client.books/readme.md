@@ -1,7 +1,7 @@
 # TypeScript typings for Books API v1
 
-Searches for books and manages your Google Books library.
-For detailed description please check [documentation](https://developers.google.com/books/docs/v1/getting_started).
+The Google Books API allows clients to access the Google Books repository.
+For detailed description please check [documentation](https://code.google.com/apis/books/docs/v1/getting_started.html).
 
 ## Installing
 
@@ -69,24 +69,24 @@ Retrieves a list of public bookshelves for the specified user.
 await gapi.client.bookshelves.list({ userId: "userId",  });
 
 /*
-
+Add a user-upload volume and triggers processing.
 */
 await gapi.client.cloudloading.addBook({  });
 
 /*
 Remove the book and its contents
 */
-await gapi.client.cloudloading.deleteBook({ volumeId: "volumeId",  });
+await gapi.client.cloudloading.deleteBook({  });
 
 /*
-
+Updates a user-upload volume.
 */
 await gapi.client.cloudloading.updateBook({  });
 
 /*
 Returns a list of offline dictionary metadata available
 */
-await gapi.client.dictionary.listOfflineMetadata({ cpksver: "cpksver",  });
+await gapi.client.dictionary.listOfflineMetadata({  });
 
 /*
 Gets information regarding the family that the user is part of.
@@ -94,12 +94,14 @@ Gets information regarding the family that the user is part of.
 await gapi.client.familysharing.getFamilyInfo({  });
 
 /*
-Initiates sharing of the content with the user's family. Empty response indicates success.
+Initiates sharing of the content with the user's family. Empty response
+indicates success.
 */
 await gapi.client.familysharing.share({  });
 
 /*
-Initiates revoking content that has already been shared with the user's family. Empty response indicates success.
+Initiates revoking content that has already been shared with the user's
+family. Empty response indicates success.
 */
 await gapi.client.familysharing.unshare({  });
 
@@ -121,27 +123,30 @@ await gapi.client.myconfig.getUserSettings({  });
 /*
 Release downloaded content access restriction.
 */
-await gapi.client.myconfig.releaseDownloadAccess({ cpksver: "cpksver", volumeIds: "volumeIds",  });
+await gapi.client.myconfig.releaseDownloadAccess({  });
 
 /*
 Request concurrent and download access restrictions.
 */
-await gapi.client.myconfig.requestAccess({ cpksver: "cpksver", nonce: "nonce", source: "source", volumeId: "volumeId",  });
+await gapi.client.myconfig.requestAccess({  });
 
 /*
-Request downloaded content access for specified volumes on the My eBooks shelf.
+Request downloaded content access for specified volumes on the My eBooks
+shelf.
 */
-await gapi.client.myconfig.syncVolumeLicenses({ cpksver: "cpksver", nonce: "nonce", source: "source",  });
+await gapi.client.myconfig.syncVolumeLicenses({  });
 
 /*
-Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects will retain the existing value.
+Sets the settings for the user. If a sub-object is specified, it will
+overwrite the existing sub-object stored in the server. Unspecified
+sub-objects will retain the existing value.
 */
 await gapi.client.myconfig.updateUserSettings({  });
 
 /*
 Returns notification details for a given notification id.
 */
-await gapi.client.notification.get({ notification_id: "notification_id",  });
+await gapi.client.notification.get({  });
 
 /*
 List categories for onboarding experience.
@@ -159,12 +164,12 @@ Returns a stream of personalized book clusters
 await gapi.client.personalizedstream.get({  });
 
 /*
-
+Accepts the promo offer.
 */
 await gapi.client.promooffer.accept({  });
 
 /*
-
+Marks the promo offer as dismissed.
 */
 await gapi.client.promooffer.dismiss({  });
 
@@ -176,7 +181,7 @@ await gapi.client.promooffer.get({  });
 /*
 Returns Series metadata for the given series ids.
 */
-await gapi.client.series.get({ series_id: "series_id",  });
+await gapi.client.series.get({  });
 
 /*
 Gets volume information for a single volume.
@@ -186,5 +191,5 @@ await gapi.client.volumes.get({ volumeId: "volumeId",  });
 /*
 Performs a book search.
 */
-await gapi.client.volumes.list({ q: "q",  });
+await gapi.client.volumes.list({  });
 ```
