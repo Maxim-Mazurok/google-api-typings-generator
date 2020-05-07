@@ -218,6 +218,13 @@ Gets the specified table resource by table ID. This method does not return the d
 await gapi.client.tables.get({ datasetId: "datasetId", projectId: "projectId", tableId: "tableId",  });
 
 /*
+Gets the access control policy for a resource.
+Returns an empty policy if the resource exists and does not have a policy
+set.
+*/
+await gapi.client.tables.getIamPolicy({ resource: "resource",  });
+
+/*
 Creates a new, empty table in the dataset.
 */
 await gapi.client.tables.insert({ datasetId: "datasetId", projectId: "projectId",  });
@@ -231,6 +238,25 @@ await gapi.client.tables.list({ datasetId: "datasetId", projectId: "projectId", 
 Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. This method supports patch semantics.
 */
 await gapi.client.tables.patch({ datasetId: "datasetId", projectId: "projectId", tableId: "tableId",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any
+existing policy.
+
+Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+*/
+await gapi.client.tables.setIamPolicy({ resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+If the resource does not exist, this will return an empty set of
+permissions, not a `NOT_FOUND` error.
+
+Note: This operation is designed to be used for building permission-aware
+UIs and command-line tools, not for authorization checking. This operation
+may "fail open" without warning.
+*/
+await gapi.client.tables.testIamPermissions({ resource: "resource",  });
 
 /*
 Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource.

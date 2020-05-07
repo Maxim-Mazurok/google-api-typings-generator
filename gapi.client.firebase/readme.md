@@ -116,8 +116,11 @@ DeleteOperation.
 <br>This method does not modify any billing account information on the
 underlying GCP `Project`.
 <br>
-<br>To call `AddFirebase`, a member must be an Editor or Owner for the
-existing GCP `Project`. Service accounts cannot call `AddFirebase`.
+<br>To call `AddFirebase`, a project member or service account must have
+the following permissions (the IAM roles of Editor and Owner contain these
+permissions):
+`firebase.projects.update`, `resourcemanager.projects.get`,
+`serviceusage.services.enable`, and `serviceusage.services.get`.
 */
 await gapi.client.projects.addFirebase({ project: "project",  });
 
