@@ -212,6 +212,8 @@ gapi.load('client', () => {
             space: {
                 displayName: "Test string",
                 name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
                 type: "Test string",
             },
             text: "Test string",
@@ -413,6 +415,8 @@ gapi.load('client', () => {
             space: {
                 displayName: "Test string",
                 name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
                 type: "Test string",
             },
             text: "Test string",
@@ -621,6 +625,8 @@ gapi.load('client', () => {
             space: {
                 displayName: "Test string",
                 name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
                 type: "Test string",
             },
             text: "Test string",
@@ -822,6 +828,8 @@ gapi.load('client', () => {
             space: {
                 displayName: "Test string",
                 name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
                 type: "Test string",
             },
             text: "Test string",
