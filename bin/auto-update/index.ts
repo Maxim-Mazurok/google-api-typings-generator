@@ -41,7 +41,7 @@ const settings: Settings = {
   templateUpdateLabel: 'DT PR template update',
 };
 
-const whiteListedTypes = ['sheets', 'drive', 'classroom'].map(
+const whiteListedTypes = ['sheets', 'drive', 'classroom', 'calendar'].map(
   x => `${typingsPrefix}${x}`
 );
 
