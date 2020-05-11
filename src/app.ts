@@ -1,19 +1,18 @@
-import { promisify } from 'bluebird';
+import {promisify} from 'bluebird';
 import sortObject from 'deep-sort-object';
 import fs from 'fs';
 import lineReader from 'line-reader';
 import _ from 'lodash';
-import path, { basename, join, resolve } from 'path';
+import path, {basename, join, resolve} from 'path';
 import request from 'request';
-import { Template } from './template';
+import {Template} from './template';
 import {
   camelCaseParts,
   ensureDirectoryExists,
   getResourceTypeName,
-  getTypeName,
   parseVersion,
 } from './utils';
-import { StreamWriter, TextWriter } from './writer';
+import {StreamWriter, TextWriter} from './writer';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
