@@ -1,17 +1,19 @@
-import fs from 'fs';
-import _ from 'lodash';
-import path, {basename, join, resolve} from 'path';
-import request from 'request';
+import { promisify } from 'bluebird';
 import sortObject from 'deep-sort-object';
+import fs from 'fs';
 import lineReader from 'line-reader';
-import {promisify} from 'bluebird';
+import _ from 'lodash';
+import path, { basename, join, resolve } from 'path';
+import request from 'request';
+import { Template } from './template';
 import {
+  camelCaseParts,
   ensureDirectoryExists,
   getResourceTypeName,
+  getTypeName,
   parseVersion,
 } from './utils';
-import {StreamWriter, TextWriter} from './writer';
-import {Template} from './template';
+import { StreamWriter, TextWriter } from './writer';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -417,10 +419,11 @@ function getMethodReturn(
   const name = schemas['Request'] ? 'client.Request' : 'Request';
 
   if (method.response) {
-    const schema = schemas[checkExists(method.response.$ref)];
+    const schemaName = method.response.$ref;
+    const schema = schemas[checkExists(schemaName)];
 
-    if (schema && !_.isEmpty(schema.properties)) {
-      return `${name}<${method.response.$ref}>`;
+    if (schema && !isEmptySchema(schema)) {
+      return `${name}<${schemaName}>`;
     } else {
       return `${name}<{}>`;
     }
@@ -462,34 +465,6 @@ export class App {
   }
 
   /**
-   * Creates a callback that writes request parameters.
-   */
-  private static createRequestParameterWriterCallback(
-    parameters: Record<string, JsonSchema>,
-    schemas: Record<string, JsonSchema>,
-    ref?: string
-  ) {
-    return function requestParameterWriterCallback(
-      writer: TypescriptTextWriter
-    ) {
-      writer.anonymousType(() => {
-        _.forEach(parameters, (data, key) => {
-          if (data.description) {
-            writer.comment(formatComment(data.description));
-          }
-
-          writer.property(key, getType(data, schemas), Boolean(data.required));
-        });
-
-        if (ref) {
-          writer.comment('Request body');
-          writer.property('resource', ref, true);
-        }
-      });
-    };
-  }
-
-  /**
    * Writes specified resource definition.
    */
   private writeResources(
@@ -498,38 +473,83 @@ export class App {
     parameters: Record<string, JsonSchema> = {},
     schemas: Record<string, JsonSchema>
   ) {
-    _.forEach(resources, (resource, resourceName) => {
-      const resourceInterfaceName = getResourceTypeName(resourceName);
+    // Accumulates the request method parameter types, to be written after all of the resource interfaces.
+    const requestTypeWriters: (() => void)[] = [];
 
+    // Write all resource interfaces
+    _.forEach(resources, (resource, resourceName) => {
       if (resource.resources) {
         this.writeResources(out, resource.resources, parameters, schemas);
       }
 
-      out.interface(resourceInterfaceName, () => {
+      out.interface(getResourceTypeName(resourceName), () => {
+        if (resource.resources) {
+          _.forEach(resource.resources, (_, childResourceName) => {
+            const childResourceInterfaceName = getResourceTypeName(
+              childResourceName
+            );
+            out.property(childResourceName, childResourceInterfaceName);
+          });
+        }
+
         _.forEach(resource.methods, method => {
           if (method.description) {
             out.comment(formatComment(method.description));
           }
 
-          const requestRef = method.request?.$ref;
-          const requestParameters: Record<string, JsonSchema> = sortObject({
-            ...parameters,
-            ...method.parameters,
+          // Construct request type, e.g. get(...) on InvitationsResource -> GetInvitationsRequest
+          const methodType = checkExists(getName(method.id));
+          const methodParts = method.id?.split('.');
+          const methodName = methodParts
+            ? camelCaseParts(methodParts.slice(1, methodParts.length - 1))
+            : '';
+          const requestTypeName =
+            methodType[0].toUpperCase() +
+            methodType.slice(1) +
+            methodName +
+            'Request';
+
+          const hasResourcePolicy = !!(
+            parameters.resource || method.parameters?.resource
+          );
+
+          // Prepare the request object to be written
+          requestTypeWriters.push(() => {
+            out.interface(requestTypeName, (writer: TypescriptTextWriter) => {
+              const requestParams: Record<string, JsonSchema> = sortObject({
+                ...parameters,
+                ...method.parameters,
+              });
+
+              _.forEach(requestParams, (data, key) => {
+                if (data.description) {
+                  writer.comment(formatComment(data.description));
+                }
+                writer.property(
+                  key,
+                  getType(data, schemas),
+                  data.required || false
+                );
+              });
+
+              // If the request takes a body (e.g. a POST request), add it as the 'resource' property.
+              if (method.request?.$ref && !hasResourcePolicy) {
+                writer.comment('Request body');
+                writer.property('resource', method.request.$ref, true);
+              }
+            });
           });
 
-          if (!requestParameters.resource || !requestRef) {
+          const requestRef = method.request?.$ref;
+          if (!hasResourcePolicy || !requestRef) {
             // generate method(request)
             out.method(
-              formatPropertyName(checkExists(getName(method.id))),
+              formatPropertyName(methodType),
               [
                 {
                   parameter: 'request',
-                  type: App.createRequestParameterWriterCallback(
-                    requestParameters,
-                    schemas,
-                    requestRef
-                  ),
-                  required: Boolean(requestRef),
+                  type: requestTypeName,
+                  required: !!method.parameters,
                 },
               ],
               getMethodReturn(method, schemas)
@@ -539,19 +559,18 @@ export class App {
           if (requestRef) {
             // generate method(request, body)
             out.method(
-              formatPropertyName(checkExists(getName(method.id))),
+              formatPropertyName(methodType),
               [
                 {
                   parameter: 'request',
-                  type: App.createRequestParameterWriterCallback(
-                    requestParameters,
-                    schemas
-                  ),
-                  required: true,
+                  type: `Omit<${requestTypeName}, 'resource'>`,
+                  required: !!method.parameters,
                 },
                 {
                   parameter: 'body',
-                  type: requestRef,
+                  type: hasResourcePolicy
+                    ? requestRef
+                    : `${requestTypeName}['resource']`,
                   required: true,
                 },
               ],
@@ -559,17 +578,11 @@ export class App {
             );
           }
         });
-
-        if (resource.resources) {
-          _.forEach(resource.resources, (_, childResourceName) => {
-            const childResourceInterfaceName = getResourceTypeName(
-              childResourceName
-            );
-            out.property(childResourceName, childResourceInterfaceName);
-          });
-        }
       });
     });
+
+    // Then write all request types
+    requestTypeWriters.forEach(write => write());
   }
 
   private static getTypingsName(api: string, version: string | null) {
