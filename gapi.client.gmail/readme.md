@@ -1,7 +1,6 @@
 # TypeScript typings for Gmail API v1
 
-The Gmail API lets you view and manage Gmail mailbox data like
-    threads, messages, and labels.
+Access Gmail mailboxes including sending user email.
 For detailed description please check [documentation](https://developers.google.com/gmail/api/).
 
 ## Installing
