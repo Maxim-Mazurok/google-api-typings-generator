@@ -41,6 +41,7 @@ gapi.load('client', () => {
         }, {
             authDomain: "Test string",
             codeBucket: "Test string",
+            databaseType: "Test string",
             defaultBucket: "Test string",
             defaultCookieExpiration: "Test string",
             defaultHostname: "Test string",
@@ -5749,6 +5750,7 @@ gapi.load('client', () => {
         }, {
             authDomain: "Test string",
             codeBucket: "Test string",
+            databaseType: "Test string",
             defaultBucket: "Test string",
             defaultCookieExpiration: "Test string",
             defaultHostname: "Test string",
