@@ -163,6 +163,24 @@ gapi.load('client', () => {
                         seconds: "Test string",
                     },
                 },
+                iosTest: {
+                    iosAppInfo: {
+                        name: "Test string",
+                    },
+                    iosRoboTest: {
+                    },
+                    iosTestLoop: {
+                        bundleId: "Test string",
+                    },
+                    iosXcTest: {
+                        bundleId: "Test string",
+                        xcodeVersion: "Test string",
+                    },
+                    testTimeout: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                },
             },
             state: "Test string",
             testExecutionMatrixId: "Test string",
@@ -280,6 +298,24 @@ gapi.load('client', () => {
                         seconds: "Test string",
                     },
                 },
+                iosTest: {
+                    iosAppInfo: {
+                        name: "Test string",
+                    },
+                    iosRoboTest: {
+                    },
+                    iosTestLoop: {
+                        bundleId: "Test string",
+                    },
+                    iosXcTest: {
+                        bundleId: "Test string",
+                        xcodeVersion: "Test string",
+                    },
+                    testTimeout: {
+                        nanos: 42,
+                        seconds: "Test string",
+                    },
+                },
             },
             state: "Test string",
             testExecutionMatrixId: "Test string",
@@ -302,6 +338,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             historyId: "Test string",
             name: "Test string",
+            testPlatform: "Test string",
         });
         /**
          * Gets a History.
