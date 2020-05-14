@@ -1613,6 +1613,11 @@ Returns a specified regional persistent disk.
 await gapi.client.regionDisks.get({ disk: "disk", project: "project", region: "region",  });
 
 /*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.regionDisks.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Creates a persistent regional disk in the specified project using the data included in the request.
 */
 await gapi.client.regionDisks.insert({ project: "project", region: "region",  });
@@ -1631,6 +1636,11 @@ await gapi.client.regionDisks.removeResourcePolicies({ disk: "disk", project: "p
 Resizes the specified regional persistent disk.
 */
 await gapi.client.regionDisks.resize({ disk: "disk", project: "project", region: "region",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.regionDisks.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Sets the labels on the target regional disk.

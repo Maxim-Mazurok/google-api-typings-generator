@@ -6103,6 +6103,12 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
+        /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
+        await gapi.client.compute.regionDisks.getIamPolicy({
+            project: "Test string",
+            region: "Test string",
+            resource: "Test string",
+        });
         /** Creates a persistent regional disk in the specified project using the data included in the request. */
         await gapi.client.compute.regionDisks.insert({
             project: "Test string",
@@ -6192,6 +6198,97 @@ gapi.load('client', () => {
             requestId: "Test string",
         }, {
             sizeGb: "Test string",
+        });
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. */
+        await gapi.client.compute.regionDisks.setIamPolicy({
+            project: "Test string",
+            region: "Test string",
+            resource: "Test string",
+        }, {
+            bindings: [
+                {
+                    condition: {
+                        description: "Test string",
+                        expression: "Test string",
+                        location: "Test string",
+                        title: "Test string",
+                    },
+                    members: [
+                        "Test string"                    ],
+                    role: "Test string",
+                }            ],
+            etag: "Test string",
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                ignoreChildExemptions: true,
+                                logType: "Test string",
+                            }                        ],
+                        exemptedMembers: [
+                            "Test string"                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                iamOwned: true,
+                rules: [
+                    {
+                        action: "Test string",
+                        conditions: [
+                            {
+                                iam: "Test string",
+                                op: "Test string",
+                                svc: "Test string",
+                                sys: "Test string",
+                                values: [
+                                    "Test string"                                ],
+                            }                        ],
+                        description: "Test string",
+                        ins: [
+                            "Test string"                        ],
+                        logConfigs: [
+                            {
+                                cloudAudit: {
+                                    authorizationLoggingOptions: {
+                                        permissionType: "Test string",
+                                    },
+                                    logName: "Test string",
+                                },
+                                counter: {
+                                    customFields: [
+                                        {
+                                            name: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                    field: "Test string",
+                                    metric: "Test string",
+                                },
+                                dataAccess: {
+                                    logMode: "Test string",
+                                },
+                            }                        ],
+                        notIns: [
+                            "Test string"                        ],
+                        permissions: [
+                            "Test string"                        ],
+                    }                ],
+                version: 42,
+            },
         });
         /** Sets the labels on the target regional disk. */
         await gapi.client.compute.regionDisks.setLabels({
