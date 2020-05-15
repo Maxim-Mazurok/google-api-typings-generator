@@ -31,8 +31,8 @@ gapi.load('client', () => {
     async function run() {
         /**
          * Performs explanation on the data in the request.
-         * AI Platform implements a custom `explain` verb on top of an HTTP POST
-         * method.
+         *
+         * <div>{% dynamic include "/ai-platform/includes/___explain-request" %}</div>
          */
         await gapi.client.ml.projects.explain({
             name: "Test string",
@@ -95,6 +95,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -128,10 +132,15 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
                 masterType: "Test string",
+                network: "Test string",
                 packageUris: [
                     "Test string"                ],
                 parameterServerConfig: {
@@ -139,6 +148,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -151,6 +164,7 @@ gapi.load('client', () => {
                 scaleTier: "Test string",
                 scheduling: {
                     maxRunningTime: "Test string",
+                    maxWaitTime: "Test string",
                 },
                 useChiefInTfConfig: true,
                 workerConfig: {
@@ -158,6 +172,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -278,6 +296,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -311,10 +333,15 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
                 masterType: "Test string",
+                network: "Test string",
                 packageUris: [
                     "Test string"                ],
                 parameterServerConfig: {
@@ -322,6 +349,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -334,6 +365,7 @@ gapi.load('client', () => {
                 scaleTier: "Test string",
                 scheduling: {
                     maxRunningTime: "Test string",
+                    maxWaitTime: "Test string",
                 },
                 useChiefInTfConfig: true,
                 workerConfig: {
@@ -341,6 +373,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -390,7 +426,7 @@ gapi.load('client', () => {
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         * Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
          */
         await gapi.client.ml.projects.jobs.setIamPolicy({
             resource: "Test string",
@@ -426,7 +462,7 @@ gapi.load('client', () => {
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
+         * permissions, not a `NOT_FOUND` error.
          *
          * Note: This operation is designed to be used for building permission-aware
          * UIs and command-line tools, not for authorization checking. This operation
@@ -2705,7 +2741,7 @@ gapi.load('client', () => {
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         * Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
          */
         await gapi.client.ml.projects.models.setIamPolicy({
             resource: "Test string",
@@ -2907,7 +2943,7 @@ gapi.load('client', () => {
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
+         * permissions, not a `NOT_FOUND` error.
          *
          * Note: This operation is designed to be used for building permission-aware
          * UIs and command-line tools, not for authorization checking. This operation
@@ -3185,6 +3221,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -3218,10 +3258,15 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
                 masterType: "Test string",
+                network: "Test string",
                 packageUris: [
                     "Test string"                ],
                 parameterServerConfig: {
@@ -3229,6 +3274,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -3241,6 +3290,7 @@ gapi.load('client', () => {
                 scaleTier: "Test string",
                 scheduling: {
                     maxRunningTime: "Test string",
+                    maxWaitTime: "Test string",
                 },
                 useChiefInTfConfig: true,
                 workerConfig: {
@@ -3248,6 +3298,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -3368,6 +3422,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -3401,10 +3459,15 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
                 masterType: "Test string",
+                network: "Test string",
                 packageUris: [
                     "Test string"                ],
                 parameterServerConfig: {
@@ -3412,6 +3475,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -3424,6 +3491,7 @@ gapi.load('client', () => {
                 scaleTier: "Test string",
                 scheduling: {
                     maxRunningTime: "Test string",
+                    maxWaitTime: "Test string",
                 },
                 useChiefInTfConfig: true,
                 workerConfig: {
@@ -3431,6 +3499,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -3480,7 +3552,7 @@ gapi.load('client', () => {
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         * Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
          */
         await gapi.client.ml.projects.jobs.setIamPolicy({
             resource: "Test string",
@@ -3516,7 +3588,7 @@ gapi.load('client', () => {
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
+         * permissions, not a `NOT_FOUND` error.
          *
          * Note: This operation is designed to be used for building permission-aware
          * UIs and command-line tools, not for authorization checking. This operation
@@ -5795,7 +5867,7 @@ gapi.load('client', () => {
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         * Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
          */
         await gapi.client.ml.projects.models.setIamPolicy({
             resource: "Test string",
@@ -5997,7 +6069,7 @@ gapi.load('client', () => {
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
+         * permissions, not a `NOT_FOUND` error.
          *
          * Note: This operation is designed to be used for building permission-aware
          * UIs and command-line tools, not for authorization checking. This operation
@@ -6282,6 +6354,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -6315,10 +6391,15 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
                 masterType: "Test string",
+                network: "Test string",
                 packageUris: [
                     "Test string"                ],
                 parameterServerConfig: {
@@ -6326,6 +6407,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -6338,6 +6423,7 @@ gapi.load('client', () => {
                 scaleTier: "Test string",
                 scheduling: {
                     maxRunningTime: "Test string",
+                    maxWaitTime: "Test string",
                 },
                 useChiefInTfConfig: true,
                 workerConfig: {
@@ -6345,6 +6431,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -6465,6 +6555,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -6498,10 +6592,15 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
                 masterType: "Test string",
+                network: "Test string",
                 packageUris: [
                     "Test string"                ],
                 parameterServerConfig: {
@@ -6509,6 +6608,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -6521,6 +6624,7 @@ gapi.load('client', () => {
                 scaleTier: "Test string",
                 scheduling: {
                     maxRunningTime: "Test string",
+                    maxWaitTime: "Test string",
                 },
                 useChiefInTfConfig: true,
                 workerConfig: {
@@ -6528,6 +6632,10 @@ gapi.load('client', () => {
                         count: "Test string",
                         type: "Test string",
                     },
+                    containerArgs: [
+                        "Test string"                    ],
+                    containerCommand: [
+                        "Test string"                    ],
                     imageUri: "Test string",
                     tpuTfVersion: "Test string",
                 },
@@ -6577,7 +6685,7 @@ gapi.load('client', () => {
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         * Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
          */
         await gapi.client.ml.projects.jobs.setIamPolicy({
             resource: "Test string",
@@ -6613,7 +6721,7 @@ gapi.load('client', () => {
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
+         * permissions, not a `NOT_FOUND` error.
          *
          * Note: This operation is designed to be used for building permission-aware
          * UIs and command-line tools, not for authorization checking. This operation
@@ -8892,7 +9000,7 @@ gapi.load('client', () => {
          * Sets the access control policy on the specified resource. Replaces any
          * existing policy.
          *
-         * Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+         * Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
          */
         await gapi.client.ml.projects.models.setIamPolicy({
             resource: "Test string",
@@ -9094,7 +9202,7 @@ gapi.load('client', () => {
         /**
          * Returns permissions that a caller has on the specified resource.
          * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
+         * permissions, not a `NOT_FOUND` error.
          *
          * Note: This operation is designed to be used for building permission-aware
          * UIs and command-line tools, not for authorization checking. This operation

@@ -63,8 +63,8 @@ After that you can use AI Platform Training & Prediction API resources:
 
 /*
 Performs explanation on the data in the request.
-AI Platform implements a custom `explain` verb on top of an HTTP POST
-method.
+
+<div>{% dynamic include "/ai-platform/includes/___explain-request" %}</div>
 */
 await gapi.client.projects.explain({ name: "name",  });
 
