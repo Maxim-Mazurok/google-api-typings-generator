@@ -1,11 +1,11 @@
-# TypeScript typings for Verified Access API v1
+# TypeScript typings for Chrome Verified Access API v1
 
 API for Verified Access chrome extension to provide credential verification for chrome devices connecting to an enterprise network
-For detailed description please check [documentation](https://www.google.com/work/chrome/).
+For detailed description please check [documentation](https://developers.google.com/chrome/verified-access).
 
 ## Installing
 
-Install typings for Verified Access API:
+Install typings for Chrome Verified Access API:
 
 ```
 npm install @types/gapi.client.verifiedaccess@v1 --save-dev
@@ -54,7 +54,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Verified Access API resources:
+After that you can use Chrome Verified Access API resources:
 
 ```typescript
 
