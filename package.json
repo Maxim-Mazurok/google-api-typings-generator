@@ -32,7 +32,7 @@
     "@types/lodash": "^4.14.151",
     "@types/mocha": "^7.0.2",
     "@types/node": "^12.12.39",
-    "@types/request": "2.48.4",
+    "@types/request": "2.48.5",
     "bluebird": "^3.7.2",
     "commander": "^5.1.0",
     "deep-sort-object": "^1.0.2",
