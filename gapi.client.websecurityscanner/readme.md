@@ -1,7 +1,7 @@
 # TypeScript typings for Web Security Scanner API v1
 
 Scans your Compute and App Engine apps for common web vulnerabilities.
-For detailed description please check [documentation](https://cloud.google.com/security-scanner/).
+For detailed description please check [documentation](https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview/).
 
 ## Installing
 
