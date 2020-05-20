@@ -1,4 +1,4 @@
-# TypeScript typings for Firebase ML API v1
+# TypeScript typings for Firebase ML API v1beta2
 
 Access custom machine learning models hosted via Firebase ML.
 For detailed description please check [documentation](https://firebase.google.com).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://firebase.google.co
 Install typings for Firebase ML API:
 
 ```
-npm install @types/gapi.client.firebaseml@v1 --save-dev
+npm install @types/gapi.client.firebaseml@v1beta2 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('firebaseml', 'v1', () => {
+gapi.client.load('firebaseml', 'v1beta2', () => {
   // now we can use gapi.client.firebaseml
   // ...
 });
@@ -57,40 +57,4 @@ gapi.auth.authorize(
 After that you can use Firebase ML API resources:
 
 ```typescript
-
-/*
-Starts asynchronous cancellation on a long-running operation.  The server
-makes a best effort to cancel the operation, but success is not
-guaranteed.  If the server doesn't support this method, it returns
-`google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-Operations.GetOperation or
-other methods to check whether the cancellation succeeded or whether the
-operation completed despite cancellation. On successful cancellation,
-the operation is not deleted; instead, it becomes an operation with
-an Operation.error value with a google.rpc.Status.code of 1,
-corresponding to `Code.CANCELLED`.
-*/
-await gapi.client.operations.cancel({ name: "name",  });
-
-/*
-Deletes a long-running operation. This method indicates that the client is
-no longer interested in the operation result. It does not cancel the
-operation. If the server doesn't support this method, it returns
-`google.rpc.Code.UNIMPLEMENTED`.
-*/
-await gapi.client.operations.delete({ name: "name",  });
-
-/*
-Lists operations that match the specified filter in the request. If the
-server doesn't support this method, it returns `UNIMPLEMENTED`.
-
-NOTE: the `name` binding allows API services to override the binding
-to use different resource name schemes, such as `users/*/operations`. To
-override the binding, API services can add a binding such as
-`"/v1/{name=users/*}/operations"` to their service configuration.
-For backwards compatibility, the default name includes the operations
-collection id, however overriding users must ensure the name binding
-is the parent resource, without the operations collection id.
-*/
-await gapi.client.operations.list({ name: "name",  });
 ```
