@@ -431,6 +431,7 @@ gapi.load('client', () => {
                                 readRowkeyAsString: true,
                             },
                             compression: "Test string",
+                            connectionId: "Test string",
                             csvOptions: {
                                 allowJaggedRows: true,
                                 allowQuotedNewlines: true,
@@ -1231,6 +1232,7 @@ gapi.load('client', () => {
                     readRowkeyAsString: true,
                 },
                 compression: "Test string",
+                connectionId: "Test string",
                 csvOptions: {
                     allowJaggedRows: true,
                     allowQuotedNewlines: true,
@@ -1425,6 +1427,7 @@ gapi.load('client', () => {
                     readRowkeyAsString: true,
                 },
                 compression: "Test string",
+                connectionId: "Test string",
                 csvOptions: {
                     allowJaggedRows: true,
                     allowQuotedNewlines: true,
@@ -1664,6 +1667,7 @@ gapi.load('client', () => {
                     readRowkeyAsString: true,
                 },
                 compression: "Test string",
+                connectionId: "Test string",
                 csvOptions: {
                     allowJaggedRows: true,
                     allowQuotedNewlines: true,
