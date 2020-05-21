@@ -609,6 +609,11 @@ export class App {
         api.version
       } ${parseVersion(checkExists(api.version))}`
     );
+    if (!api.documentationLink) {
+      throw new Error(
+        "No documentationLink found, can't write required Project header"
+      );
+    }
     writer.writeLine(`// Project: ${api.documentationLink}`);
     writer.writeLine(
       '// Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>'
@@ -800,7 +805,12 @@ export class App {
       }
     }
 
-    await this.processApi(destinationDirectory, api, actualVersion, url);
+    try {
+      await this.processApi(destinationDirectory, api, actualVersion, url);
+    } catch (e) {
+      console.error(`Error while processing API: ${api}`);
+      console.error(e);
+    }
 
     const templateData = {...api, actualVersion};
 
