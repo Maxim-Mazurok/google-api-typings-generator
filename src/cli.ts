@@ -1,6 +1,6 @@
 import program from 'commander';
 import {App} from './app';
-import {getProxySettings} from 'get-proxy-settings';
+import {getProxySettings, ProxySettings} from 'get-proxy-settings';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -27,8 +27,8 @@ const params = program
 console.info(`Output directory: ${params.out}`);
 
 (async () => {
-  const proxy = await getProxySettings();
-  const bestProxy = proxy.https || proxy.http || undefined;
+  const proxy = (await getProxySettings()) as ProxySettings | null; // TODO: remove `as ...` when https://github.com/Azure/get-proxy-settings/issues/24 is fixed
+  const bestProxy = (proxy && (proxy.https || proxy.http)) || undefined; // TODO: remove `proxy && ` when https://github.com/Azure/get-proxy-settings/issues/24 is fixed
 
   const app = new App(params.out, bestProxy);
 
