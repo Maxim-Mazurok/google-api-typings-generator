@@ -31,7 +31,7 @@
     "@types/line-reader": "0.0.29",
     "@types/lodash": "^4.14.152",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^12.12.39",
+    "@types/node": "^12.12.41",
     "@types/request": "2.48.5",
     "bluebird": "^3.7.2",
     "commander": "^5.1.0",
