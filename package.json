@@ -29,7 +29,7 @@
     "@types/dot": "^1.1.4",
     "@types/gapi.client.discovery": "^1.0.1",
     "@types/line-reader": "0.0.29",
-    "@types/lodash": "^4.14.151",
+    "@types/lodash": "^4.14.152",
     "@types/mocha": "^7.0.2",
     "@types/node": "^12.12.39",
     "@types/request": "2.48.5",
