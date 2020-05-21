@@ -143,6 +143,87 @@ gapi.load('client', () => {
             service: "Test string",
         });
         /**
+         * Service producers can use this method to add DNS record sets to private DNS
+         * zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to update DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.update({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            existingDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            newDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to add private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsSuffix: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            name: "Test string",
+        });
+        /**
          * Service producers can use this method to add roles in the shared VPC host
          * project. Each role is bound to the provided member. Each role must be
          * selected from within a whitelisted set of roles. Each role is applied at
@@ -203,6 +284,87 @@ gapi.load('client', () => {
             service: "Test string",
         });
         /**
+         * Service producers can use this method to add DNS record sets to private DNS
+         * zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to update DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.update({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            existingDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            newDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to add private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsSuffix: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            name: "Test string",
+        });
+        /**
          * Service producers can use this method to add roles in the shared VPC host
          * project. Each role is bound to the provided member. Each role must be
          * selected from within a whitelisted set of roles. Each role is applied at
@@ -261,6 +423,87 @@ gapi.load('client', () => {
             reservedPeeringRanges: [
                 "Test string"            ],
             service: "Test string",
+        });
+        /**
+         * Service producers can use this method to add DNS record sets to private DNS
+         * zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to update DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.update({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            existingDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            newDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to add private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsSuffix: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            name: "Test string",
         });
         /**
          * Service producers can use this method to add roles in the shared VPC host
@@ -329,6 +572,87 @@ gapi.load('client', () => {
             reservedPeeringRanges: [
                 "Test string"            ],
             service: "Test string",
+        });
+        /**
+         * Service producers can use this method to add DNS record sets to private DNS
+         * zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to update DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.update({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            existingDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            newDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to add private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsSuffix: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            name: "Test string",
         });
         /**
          * Service producers can use this method to add roles in the shared VPC host
@@ -403,6 +727,87 @@ gapi.load('client', () => {
             reservedPeeringRanges: [
                 "Test string"            ],
             service: "Test string",
+        });
+        /**
+         * Service producers can use this method to add DNS record sets to private DNS
+         * zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to update DNS record sets from
+         * private DNS zones in the shared producer host project.
+         */
+        await gapi.client.servicenetworking.services.dnsRecordSets.update({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            existingDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            newDnsRecordSet: {
+                data: [
+                    "Test string"                ],
+                domain: "Test string",
+                ttl: "Test string",
+                type: "Test string",
+            },
+            zone: "Test string",
+        });
+        /**
+         * Service producers can use this method to add private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.add({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            dnsSuffix: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Service producers can use this method to remove private DNS zones in the
+         * shared producer host project and matching peering zones in the consumer
+         * project.
+         */
+        await gapi.client.servicenetworking.services.dnsZones.remove({
+            parent: "Test string",
+        }, {
+            consumerNetwork: "Test string",
+            name: "Test string",
         });
         /**
          * Service producers can use this method to add roles in the shared VPC host
