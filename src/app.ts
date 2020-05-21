@@ -609,7 +609,9 @@ export class App {
         api.version
       } ${parseVersion(checkExists(api.version))}`
     );
-    writer.writeLine(`// Project: ${api.documentationLink}`);
+    if (api.documentationLink) {
+      writer.writeLine(`// Project: ${api.documentationLink}`);
+    }
     writer.writeLine(
       '// Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>'
     );
