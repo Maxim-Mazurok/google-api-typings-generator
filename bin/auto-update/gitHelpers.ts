@@ -76,7 +76,7 @@ export class GitHelpers {
           owner: user,
           repo: thisRepo,
           title: 'Update PR template',
-          body: `Please, update [PR template](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/master/.github/PULL_REQUEST_TEMPLATE.md), current SHA \`${this.settings.pullRequestTemplateSHA}\` doesn't match actual SHA \`${pullRequestTemplateSHA}\``,
+          body: `Please, update [PR template](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/master/.github/PULL_REQUEST_TEMPLATE.md), local SHA \`${this.settings.pullRequestTemplateSHA}\` doesn't match latest SHA \`${pullRequestTemplateSHA}\``,
           assignees: [user],
           labels: [label],
         });
