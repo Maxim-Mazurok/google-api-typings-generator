@@ -1,5 +1,6 @@
 import program from 'commander';
 import {App} from './app';
+import {getProxySettings} from 'get-proxy-settings';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -25,24 +26,29 @@ const params = program
 
 console.info(`Output directory: ${params.out}`);
 
-const app = new App(params.out);
+(async () => {
+  const proxy = await getProxySettings();
+  const bestProxy = proxy.https || proxy.http || undefined;
 
-if (params.url) {
-  app.processService(params.url, true, params.newRevisionsOnly).then(
-    () => console.log('Done'),
-    error => {
-      console.error(error);
-      throw error;
-    }
-  );
-} else {
-  app
-    .discover(params.service, params.all || false, params.newRevisionsOnly)
-    .then(
+  const app = new App(params.out, bestProxy);
+
+  if (params.url) {
+    app.processService(params.url, true, params.newRevisionsOnly).then(
       () => console.log('Done'),
       error => {
         console.error(error);
         throw error;
       }
     );
-}
+  } else {
+    app
+      .discover(params.service, params.all || false, params.newRevisionsOnly)
+      .then(
+        () => console.log('Done'),
+        error => {
+          console.error(error);
+          throw error;
+        }
+      );
+  }
+})();
