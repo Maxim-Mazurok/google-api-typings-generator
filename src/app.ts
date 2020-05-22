@@ -12,6 +12,7 @@ import {
 } from './utils';
 import {StreamWriter, TextWriter} from './writer';
 import {Template} from './template';
+import {ProxySetting} from 'get-proxy-settings';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -439,10 +440,12 @@ function isEmptySchema(schema: JsonSchema) {
 
 export class App {
   private readonly typingsDirectory: string;
+  private readonly proxy?: ProxySetting;
   private seenSchemaRefs: Set<string> = new Set();
 
-  constructor(private base = __dirname + '/../types/') {
+  constructor(private base = __dirname + '/../types/', proxy?: ProxySetting) {
     this.typingsDirectory = base;
+    this.proxy = proxy;
 
     ensureDirectoryExists(this.base);
 
@@ -715,26 +718,30 @@ export class App {
 
   private request(url: string): Promise<DirectoryList> {
     return new Promise((resolve, reject) => {
-      request(url, {gzip: true}, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
-          try {
-            const api = JSON.parse(body) as DirectoryList;
-            resolve(api);
-          } catch (e) {
-            console.error(
-              `Caught an error: ${e.message}; while parsing JSON from ${url}: "${body}"`
-            );
+      request(
+        url,
+        {gzip: true, ...(this.proxy ? {proxy: this.proxy.toString()} : {})},
+        (error, response, body) => {
+          if (!error && response.statusCode === 200) {
+            try {
+              const api = JSON.parse(body) as DirectoryList;
+              resolve(api);
+            } catch (e) {
+              console.error(
+                `Caught an error: ${e.message}; while parsing JSON from ${url}: "${body}"`
+              );
+              reject(error);
+            }
+          } else {
+            console.error('Got an error: ', error);
+            if (response && response.statusCode) {
+              console.error(`with status code: ${response.statusCode}`);
+            }
+            console.error(`while fetching ${url}`);
             reject(error);
           }
-        } else {
-          console.error('Got an error: ', error);
-          if (response && response.statusCode) {
-            console.error(`with status code: ${response.statusCode}`);
-          }
-          console.error(`while fetching ${url}`);
-          reject(error);
         }
-      });
+      );
     });
   }
 

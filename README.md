@@ -21,6 +21,7 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
 - Supports both `resource` and second-argument approaches; [details](#resource-vs-body)
 - Includes empty interfaces; [details](#empty-interfaces)
 - Works for arrays, aka `"repeated": true`; [details](#arrays--repeated-values)
+- System proxy support (see [Azure/get-proxy-settings](https://github.com/Azure/get-proxy-settings#system-proxy))
 - Other minor fixes and updates
 
 ## Usage
