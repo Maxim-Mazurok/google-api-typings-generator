@@ -68,107 +68,107 @@ After that you can use Google Cloud DNS API resources:
 ```typescript
 
 /*
-Atomically update the ResourceRecordSet collection.
+
 */
 await gapi.client.changes.create({ managedZone: "managedZone", project: "project",  });
 
 /*
-Fetch the representation of an existing Change.
+
 */
 await gapi.client.changes.get({ changeId: "changeId", managedZone: "managedZone", project: "project",  });
 
 /*
-Enumerate Changes to a ResourceRecordSet collection.
+
 */
 await gapi.client.changes.list({ managedZone: "managedZone", project: "project",  });
 
 /*
-Fetch the representation of an existing DnsKey.
+
 */
 await gapi.client.dnsKeys.get({ dnsKeyId: "dnsKeyId", managedZone: "managedZone", project: "project",  });
 
 /*
-Enumerate DnsKeys to a ResourceRecordSet collection.
+
 */
 await gapi.client.dnsKeys.list({ managedZone: "managedZone", project: "project",  });
 
 /*
-Fetch the representation of an existing Operation.
+
 */
 await gapi.client.managedZoneOperations.get({ managedZone: "managedZone", operation: "operation", project: "project",  });
 
 /*
-Enumerate Operations for the given ManagedZone.
+
 */
 await gapi.client.managedZoneOperations.list({ managedZone: "managedZone", project: "project",  });
 
 /*
-Create a new ManagedZone.
+
 */
 await gapi.client.managedZones.create({ project: "project",  });
 
 /*
-Delete a previously created ManagedZone.
+
 */
 await gapi.client.managedZones.delete({ managedZone: "managedZone", project: "project",  });
 
 /*
-Fetch the representation of an existing ManagedZone.
+
 */
 await gapi.client.managedZones.get({ managedZone: "managedZone", project: "project",  });
 
 /*
-Enumerate ManagedZones that have been created but not yet deleted.
+
 */
 await gapi.client.managedZones.list({ project: "project",  });
 
 /*
-Apply a partial update to an existing ManagedZone.
+
 */
 await gapi.client.managedZones.patch({ managedZone: "managedZone", project: "project",  });
 
 /*
-Update an existing ManagedZone.
+
 */
 await gapi.client.managedZones.update({ managedZone: "managedZone", project: "project",  });
 
 /*
-Create a new Policy
+
 */
 await gapi.client.policies.create({ project: "project",  });
 
 /*
-Delete a previously created Policy. Will fail if the policy is still being referenced by a network.
+
 */
 await gapi.client.policies.delete({ policy: "policy", project: "project",  });
 
 /*
-Fetch the representation of an existing Policy.
+
 */
 await gapi.client.policies.get({ policy: "policy", project: "project",  });
 
 /*
-Enumerate all Policies associated with a project.
+
 */
 await gapi.client.policies.list({ project: "project",  });
 
 /*
-Apply a partial update to an existing Policy.
+
 */
 await gapi.client.policies.patch({ policy: "policy", project: "project",  });
 
 /*
-Update an existing Policy.
+
 */
 await gapi.client.policies.update({ policy: "policy", project: "project",  });
 
 /*
-Fetch the representation of an existing Project.
+
 */
 await gapi.client.projects.get({ project: "project",  });
 
 /*
-Enumerate ResourceRecordSets that have been created but not yet deleted.
+
 */
 await gapi.client.resourceRecordSets.list({ managedZone: "managedZone", project: "project",  });
 ```

@@ -144,7 +144,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /** Updates a deployment and all of the resources described by the deployment manifest. This method supports patch semantics. */
+        /** Patches a deployment and all of the resources described by the deployment manifest. */
         await gapi.client.deploymentmanager.deployments.patch({
             createPolicy: "Test string",
             deletePolicy: "Test string",
@@ -251,6 +251,7 @@ gapi.load('client', () => {
                             {
                                 exemptedMembers: [
                                     "Test string"                                ],
+                                ignoreChildExemptions: true,
                                 logType: "Test string",
                             }                        ],
                         exemptedMembers: [
@@ -280,7 +281,6 @@ gapi.load('client', () => {
                                 op: "Test string",
                                 svc: "Test string",
                                 sys: "Test string",
-                                value: "Test string",
                                 values: [
                                     "Test string"                                ],
                             }                        ],
@@ -296,6 +296,11 @@ gapi.load('client', () => {
                                     logName: "Test string",
                                 },
                                 counter: {
+                                    customFields: [
+                                        {
+                                            name: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
                                     field: "Test string",
                                     metric: "Test string",
                                 },

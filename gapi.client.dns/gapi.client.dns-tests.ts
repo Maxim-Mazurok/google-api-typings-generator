@@ -33,7 +33,6 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /** Atomically update the ResourceRecordSet collection. */
         await gapi.client.dns.changes.create({
             clientOperationId: "Test string",
             managedZone: "Test string",
@@ -67,14 +66,12 @@ gapi.load('client', () => {
             startTime: "Test string",
             status: "Test string",
         });
-        /** Fetch the representation of an existing Change. */
         await gapi.client.dns.changes.get({
             changeId: "Test string",
             clientOperationId: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
-        /** Enumerate Changes to a ResourceRecordSet collection. */
         await gapi.client.dns.changes.list({
             managedZone: "Test string",
             maxResults: 42,
@@ -83,7 +80,6 @@ gapi.load('client', () => {
             sortBy: "Test string",
             sortOrder: "Test string",
         });
-        /** Fetch the representation of an existing DnsKey. */
         await gapi.client.dns.dnsKeys.get({
             clientOperationId: "Test string",
             digestType: "Test string",
@@ -91,7 +87,6 @@ gapi.load('client', () => {
             managedZone: "Test string",
             project: "Test string",
         });
-        /** Enumerate DnsKeys to a ResourceRecordSet collection. */
         await gapi.client.dns.dnsKeys.list({
             digestType: "Test string",
             managedZone: "Test string",
@@ -99,14 +94,12 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /** Fetch the representation of an existing Operation. */
         await gapi.client.dns.managedZoneOperations.get({
             clientOperationId: "Test string",
             managedZone: "Test string",
             operation: "Test string",
             project: "Test string",
         });
-        /** Enumerate Operations for the given ManagedZone. */
         await gapi.client.dns.managedZoneOperations.list({
             managedZone: "Test string",
             maxResults: 42,
@@ -114,7 +107,6 @@ gapi.load('client', () => {
             project: "Test string",
             sortBy: "Test string",
         });
-        /** Create a new ManagedZone. */
         await gapi.client.dns.managedZones.create({
             clientOperationId: "Test string",
             project: "Test string",
@@ -138,6 +130,7 @@ gapi.load('client', () => {
                 kind: "Test string",
                 targetNameServers: [
                     {
+                        forwardingPath: "Test string",
                         ipv4Address: "Test string",
                         kind: "Test string",
                     }                ],
@@ -166,28 +159,27 @@ gapi.load('client', () => {
                         networkUrl: "Test string",
                     }                ],
             },
+            reverseLookupConfig: {
+                kind: "Test string",
+            },
             visibility: "Test string",
         });
-        /** Delete a previously created ManagedZone. */
         await gapi.client.dns.managedZones.delete({
             clientOperationId: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
-        /** Fetch the representation of an existing ManagedZone. */
         await gapi.client.dns.managedZones.get({
             clientOperationId: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
-        /** Enumerate ManagedZones that have been created but not yet deleted. */
         await gapi.client.dns.managedZones.list({
             dnsName: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             project: "Test string",
         });
-        /** Apply a partial update to an existing ManagedZone. */
         await gapi.client.dns.managedZones.patch({
             clientOperationId: "Test string",
             managedZone: "Test string",
@@ -212,6 +204,7 @@ gapi.load('client', () => {
                 kind: "Test string",
                 targetNameServers: [
                     {
+                        forwardingPath: "Test string",
                         ipv4Address: "Test string",
                         kind: "Test string",
                     }                ],
@@ -240,9 +233,11 @@ gapi.load('client', () => {
                         networkUrl: "Test string",
                     }                ],
             },
+            reverseLookupConfig: {
+                kind: "Test string",
+            },
             visibility: "Test string",
         });
-        /** Update an existing ManagedZone. */
         await gapi.client.dns.managedZones.update({
             clientOperationId: "Test string",
             managedZone: "Test string",
@@ -267,6 +262,7 @@ gapi.load('client', () => {
                 kind: "Test string",
                 targetNameServers: [
                     {
+                        forwardingPath: "Test string",
                         ipv4Address: "Test string",
                         kind: "Test string",
                     }                ],
@@ -295,9 +291,11 @@ gapi.load('client', () => {
                         networkUrl: "Test string",
                     }                ],
             },
+            reverseLookupConfig: {
+                kind: "Test string",
+            },
             visibility: "Test string",
         });
-        /** Create a new Policy */
         await gapi.client.dns.policies.create({
             clientOperationId: "Test string",
             project: "Test string",
@@ -306,6 +304,7 @@ gapi.load('client', () => {
                 kind: "Test string",
                 targetNameServers: [
                     {
+                        forwardingPath: "Test string",
                         ipv4Address: "Test string",
                         kind: "Test string",
                     }                ],
@@ -322,25 +321,21 @@ gapi.load('client', () => {
                     networkUrl: "Test string",
                 }            ],
         });
-        /** Delete a previously created Policy. Will fail if the policy is still being referenced by a network. */
         await gapi.client.dns.policies.delete({
             clientOperationId: "Test string",
             policy: "Test string",
             project: "Test string",
         });
-        /** Fetch the representation of an existing Policy. */
         await gapi.client.dns.policies.get({
             clientOperationId: "Test string",
             policy: "Test string",
             project: "Test string",
         });
-        /** Enumerate all Policies associated with a project. */
         await gapi.client.dns.policies.list({
             maxResults: 42,
             pageToken: "Test string",
             project: "Test string",
         });
-        /** Apply a partial update to an existing Policy. */
         await gapi.client.dns.policies.patch({
             clientOperationId: "Test string",
             policy: "Test string",
@@ -350,6 +345,7 @@ gapi.load('client', () => {
                 kind: "Test string",
                 targetNameServers: [
                     {
+                        forwardingPath: "Test string",
                         ipv4Address: "Test string",
                         kind: "Test string",
                     }                ],
@@ -366,7 +362,6 @@ gapi.load('client', () => {
                     networkUrl: "Test string",
                 }            ],
         });
-        /** Update an existing Policy. */
         await gapi.client.dns.policies.update({
             clientOperationId: "Test string",
             policy: "Test string",
@@ -376,6 +371,7 @@ gapi.load('client', () => {
                 kind: "Test string",
                 targetNameServers: [
                     {
+                        forwardingPath: "Test string",
                         ipv4Address: "Test string",
                         kind: "Test string",
                     }                ],
@@ -392,12 +388,10 @@ gapi.load('client', () => {
                     networkUrl: "Test string",
                 }            ],
         });
-        /** Fetch the representation of an existing Project. */
         await gapi.client.dns.projects.get({
             clientOperationId: "Test string",
             project: "Test string",
         });
-        /** Enumerate ResourceRecordSets that have been created but not yet deleted. */
         await gapi.client.dns.resourceRecordSets.list({
             managedZone: "Test string",
             maxResults: 42,

@@ -98,7 +98,7 @@ Lists all deployments for a given project.
 await gapi.client.deployments.list({ project: "project",  });
 
 /*
-Updates a deployment and all of the resources described by the deployment manifest. This method supports patch semantics.
+Patches a deployment and all of the resources described by the deployment manifest.
 */
 await gapi.client.deployments.patch({ deployment: "deployment", project: "project",  });
 
