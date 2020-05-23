@@ -27,7 +27,7 @@
     "@types/bluebird": "^3.5.31",
     "@types/commander": "^2.12.2",
     "@types/dot": "^1.1.4",
-    "@types/gapi.client.discovery": "^1.0.1",
+    "@types/gapi.client.discovery": "^1.0.2",
     "@types/line-reader": "0.0.29",
     "@types/lodash": "^4.14.152",
     "@types/mocha": "^7.0.2",
