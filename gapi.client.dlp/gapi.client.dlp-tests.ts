@@ -36,6 +36,7 @@ gapi.load('client', () => {
             filter: "Test string",
             languageCode: "Test string",
             locationId: "Test string",
+            parent: "Test string",
         });
     }
 });
