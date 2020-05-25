@@ -39,6 +39,395 @@ gapi.load('client', () => {
             projectId: "Test string",
             snapshotId: "Test string",
         });
+        /**
+         * Creates a new TemplateVersion (Important: not new Template) entry in the
+         * spanner table. Requires project_id and display_name (template).
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.commit({
+            name: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /** Deletes an existing Template. Do nothing if Template does not exist. */
+        await gapi.client.dataflow.projects.catalogTemplates.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /**
+         * Get TemplateVersion using project_id and display_name with an optional
+         * version_id field. Get latest (has tag "latest") TemplateVersion if
+         * version_id not set.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.get({
+            name: "Test string",
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /**
+         * Updates the label of the TemplateVersion. Label can be duplicated in
+         * Template, so either add or remove the label in the TemplateVersion.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.label({
+            name: "Test string",
+        }, {
+            key: "Test string",
+            op: "Test string",
+            value: "Test string",
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /**
+         * Updates the tag of the TemplateVersion, and tag is unique in Template.
+         * If tag exists in another TemplateVersion in the Template, updates the tag
+         * to this TemplateVersion will remove it from the old TemplateVersion and add
+         * it to this TemplateVersion. If request is remove_only (remove_only = true),
+         * remove the tag from this TemplateVersion.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.tag({
+            name: "Test string",
+        }, {
+            removeOnly: true,
+            tag: "Test string",
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
         /** List the jobs of a project across all regions. */
         await gapi.client.dataflow.projects.jobs.aggregated({
             filter: "Test string",
@@ -6858,6 +7247,16 @@ gapi.load('client', () => {
             transformNameMapping: {
                 A: "Test string"            },
             update: true,
+        });
+        /**
+         * List TemplateVersions using project_id and an optional display_name field.
+         * List all the TemplateVersions in the Template if display set.
+         * List all the TemplateVersions in the Project if display_name not set.
+         */
+        await gapi.client.dataflow.projects.templateVersions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Send a worker_message to the service. */
         await gapi.client.dataflow.projects.workerMessages({
@@ -6911,6 +7310,395 @@ gapi.load('client', () => {
                     },
                 }            ],
         });
+        /**
+         * Creates a new TemplateVersion (Important: not new Template) entry in the
+         * spanner table. Requires project_id and display_name (template).
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.commit({
+            name: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /** Deletes an existing Template. Do nothing if Template does not exist. */
+        await gapi.client.dataflow.projects.catalogTemplates.delete({
+            name: "Test string",
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /**
+         * Get TemplateVersion using project_id and display_name with an optional
+         * version_id field. Get latest (has tag "latest") TemplateVersion if
+         * version_id not set.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.get({
+            name: "Test string",
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /**
+         * Updates the label of the TemplateVersion. Label can be duplicated in
+         * Template, so either add or remove the label in the TemplateVersion.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.label({
+            name: "Test string",
+        }, {
+            key: "Test string",
+            op: "Test string",
+            value: "Test string",
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
+        /**
+         * Updates the tag of the TemplateVersion, and tag is unique in Template.
+         * If tag exists in another TemplateVersion in the Template, updates the tag
+         * to this TemplateVersion will remove it from the old TemplateVersion and add
+         * it to this TemplateVersion. If request is remove_only (remove_only = true),
+         * remove the tag from this TemplateVersion.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.tag({
+            name: "Test string",
+        }, {
+            removeOnly: true,
+            tag: "Test string",
+        });
+        /**
+         * Creates a new Template with TemplateVersion. Requires
+         * project_id(projects) and template display_name(catalogTemplates).
+         * The template display_name is set by the user.
+         */
+        await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
+            parent: "Test string",
+        }, {
+            templateVersion: {
+                artifact: {
+                    containerSpec: {
+                        image: "Test string",
+                        metadata: {
+                            description: "Test string",
+                            name: "Test string",
+                            parameters: [
+                                {
+                                    helpText: "Test string",
+                                    isOptional: true,
+                                    label: "Test string",
+                                    name: "Test string",
+                                    paramType: "Test string",
+                                    regexes: [
+                                        "Test string"                                    ],
+                                }                            ],
+                        },
+                        sdkInfo: {
+                            language: "Test string",
+                            version: "Test string",
+                        },
+                    },
+                    jobGraphGcsPath: "Test string",
+                    metadata: {
+                        description: "Test string",
+                        name: "Test string",
+                        parameters: [
+                            {
+                                helpText: "Test string",
+                                isOptional: true,
+                                label: "Test string",
+                                name: "Test string",
+                                paramType: "Test string",
+                                regexes: [
+                                    "Test string"                                ],
+                            }                        ],
+                    },
+                },
+                createTime: "Test string",
+                description: "Test string",
+                displayName: "Test string",
+                labels: {
+                    A: "Test string"                },
+                projectId: "Test string",
+                tags: [
+                    "Test string"                ],
+                type: "Test string",
+                versionId: "Test string",
+            },
+        });
         /** List the jobs of a project across all regions. */
         await gapi.client.dataflow.projects.jobs.aggregated({
             filter: "Test string",
@@ -13730,6 +14518,16 @@ gapi.load('client', () => {
             transformNameMapping: {
                 A: "Test string"            },
             update: true,
+        });
+        /**
+         * List TemplateVersions using project_id and an optional display_name field.
+         * List all the TemplateVersions in the Template if display set.
+         * List all the TemplateVersions in the Project if display_name not set.
+         */
+        await gapi.client.dataflow.projects.templateVersions.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
     }
 });
