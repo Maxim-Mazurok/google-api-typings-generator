@@ -1,11 +1,11 @@
-# TypeScript typings for Fitness v1
+# TypeScript typings for Fitness API v1
 
-Stores and accesses user data in the fitness store from apps on any platform.
-For detailed description please check [documentation](https://developers.google.com/fit/rest/).
+The Fitness API for managing users' fitness tracking data.
+For detailed description please check [documentation](https://developers.google.com/fit/rest/v1/get-started).
 
 ## Installing
 
-Install typings for Fitness:
+Install typings for Fitness API:
 
 ```
 npm install @types/gapi.client.fitness@v1 --save-dev
@@ -105,7 +105,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Fitness resources:
+After that you can use Fitness API resources:
 
 ```typescript
 ```
