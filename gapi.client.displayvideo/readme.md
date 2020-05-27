@@ -62,6 +62,20 @@ After that you can use Display & Video 360 API resources:
 ```typescript
 
 /*
+Bulk edits targeting options under a single advertiser.
+The operation will delete the assigned targeting options provided in
+BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and
+then create the assigned targeting options provided in
+BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests .
+*/
+await gapi.client.advertisers.bulkEditAdvertiserAssignedTargetingOptions({ advertiserId: "advertiserId",  });
+
+/*
+Lists assigned targeting options of an advertiser across targeting types.
+*/
+await gapi.client.advertisers.bulkListAdvertiserAssignedTargetingOptions({ advertiserId: "advertiserId",  });
+
+/*
 Creates a new advertiser.
 Returns the newly created advertiser if successful.
 This method can take up to 180 seconds to complete.
