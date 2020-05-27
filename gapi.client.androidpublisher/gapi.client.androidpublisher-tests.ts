@@ -2210,6 +2210,8 @@ gapi.load('client', () => {
             gracePeriod: "Test string",
             listings: {
                 A: {
+                    benefits: [
+                        "Test string"                    ],
                     description: "Test string",
                     title: "Test string",
                 }            },
@@ -2246,6 +2248,8 @@ gapi.load('client', () => {
             gracePeriod: "Test string",
             listings: {
                 A: {
+                    benefits: [
+                        "Test string"                    ],
                     description: "Test string",
                     title: "Test string",
                 }            },
@@ -2275,6 +2279,8 @@ gapi.load('client', () => {
             gracePeriod: "Test string",
             listings: {
                 A: {
+                    benefits: [
+                        "Test string"                    ],
                     description: "Test string",
                     title: "Test string",
                 }            },

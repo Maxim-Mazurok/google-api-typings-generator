@@ -394,13 +394,6 @@ This call only works with EMM-managed accounts.
 await gapi.client.users.generateAuthenticationToken({ enterpriseId: "enterpriseId", userId: "userId",  });
 
 /*
-Generates a token (activation code) to allow this user to configure their managed account in the Android Setup Wizard. Revokes any previously generated token.
-
-This call only works with Google managed accounts.
-*/
-await gapi.client.users.generateToken({ enterpriseId: "enterpriseId", userId: "userId",  });
-
-/*
 Retrieves a user's details.
 */
 await gapi.client.users.get({ enterpriseId: "enterpriseId", userId: "userId",  });
@@ -429,11 +422,6 @@ Revokes access to all devices currently provisioned to the user. The user will n
 This call only works with EMM-managed accounts.
 */
 await gapi.client.users.revokeDeviceAccess({ enterpriseId: "enterpriseId", userId: "userId",  });
-
-/*
-Revokes a previously generated token (activation code) for the user.
-*/
-await gapi.client.users.revokeToken({ enterpriseId: "enterpriseId", userId: "userId",  });
 
 /*
 Modifies the set of products that a user is entitled to access (referred to as whitelisted products). Only products that are approved or products that were previously approved (products with revoked approval) can be whitelisted.

@@ -685,16 +685,6 @@ gapi.load('client', () => {
             enterpriseId: "Test string",
             userId: "Test string",
         });
-        /**
-         * Generates a token (activation code) to allow this user to configure their managed account in the Android Setup Wizard. Revokes any previously generated
-         * token.
-         *
-         * This call only works with Google managed accounts.
-         */
-        await gapi.client.androidenterprise.users.generateToken({
-            enterpriseId: "Test string",
-            userId: "Test string",
-        });
         /** Retrieves a user's details. */
         await gapi.client.androidenterprise.users.get({
             enterpriseId: "Test string",
@@ -738,11 +728,6 @@ gapi.load('client', () => {
          * This call only works with EMM-managed accounts.
          */
         await gapi.client.androidenterprise.users.revokeDeviceAccess({
-            enterpriseId: "Test string",
-            userId: "Test string",
-        });
-        /** Revokes a previously generated token (activation code) for the user. */
-        await gapi.client.androidenterprise.users.revokeToken({
             enterpriseId: "Test string",
             userId: "Test string",
         });
