@@ -727,7 +727,10 @@ gapi.load('client', () => {
             },
             dryRun: true,
             kind: "Test string",
+            labels: {
+                A: "Test string"            },
             location: "Test string",
+            maximumBytesBilled: "Test string",
             maxResults: 42,
             parameterMode: "Test string",
             preserveNulls: true,
@@ -751,6 +754,7 @@ gapi.load('client', () => {
                         value: "Test string",
                     },
                 }            ],
+            requestId: "Test string",
             timeoutMs: 42,
             useLegacySql: true,
             useQueryCache: true,
