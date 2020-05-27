@@ -251,6 +251,7 @@ gapi.load('client', () => {
                     "Test string"                ],
                 fileType: "Test string",
                 kind: "Test string",
+                offload: true,
                 sqlExportOptions: {
                     mysqlExportOptions: {
                         masterData: 42,
