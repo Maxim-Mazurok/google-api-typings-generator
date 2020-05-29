@@ -387,9 +387,10 @@ function getType(
   } else if (type.type === 'object' && type.additionalProperties) {
     return (writer: TypescriptTextWriter) => {
       const child = getType(checkExists(type.additionalProperties), schemas);
-      writer.write('Record<string, ');
+      // Record<K, T> (workaround for https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/206)
+      writer.write('{ [P in string]: ');
       writer.write(child);
-      writer.write('>');
+      writer.write(' }');
     };
   } else if (type.type) {
     const tsType = typesMap[type.type] || type.type;
