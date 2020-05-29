@@ -685,7 +685,7 @@ declare namespace gapi.client {
              * about that field. Valid field IDs are defined by the tag's template. A tag
              * must have at least 1 field and at most 500 fields.
              */
-            fields?: Record<string, GoogleCloudDatacatalogV1beta1TagField>;
+            fields?: { [P in string]: GoogleCloudDatacatalogV1beta1TagField };
             /**
              * The resource name of the tag in URL format. Example:
              *
@@ -748,7 +748,7 @@ declare namespace gapi.client {
              * Field IDs must be at least 1 character long and at most
              * 64 characters long. Field IDs must start with a letter or underscore.
              */
-            fields?: Record<string, GoogleCloudDatacatalogV1beta1TagTemplateField>;
+            fields?: { [P in string]: GoogleCloudDatacatalogV1beta1TagTemplateField };
             /**
              * The resource name of the tag template in URL format. Example:
              *
