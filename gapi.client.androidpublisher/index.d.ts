@@ -215,11 +215,11 @@ declare namespace gapi.client {
              */
             gracePeriod?: string;
             /** List of localized title and description data. */
-            listings?: Record<string, InAppProductListing>;
+            listings?: { [P in string]: InAppProductListing };
             /** The package name of the parent app. */
             packageName?: string;
             /** Prices per buyer region. None of these prices should be zero. In-app products can never be free. */
-            prices?: Record<string, Price>;
+            prices?: { [P in string]: Price };
             /** Purchase type enum value. Unmodifiable after creation. */
             purchaseType?: string;
             /** The stock-keeping-unit (SKU) of the product, unique within an app. */
