@@ -1039,7 +1039,7 @@ declare namespace gapi.client {
              * User-provided labels, represented as a dictionary where each label is a
              * single key value pair.
              */
-            userLabels?: { [P in string]: string };
+            userLabels?: Record<string, string>;
         }
         interface SqlExternalSyncSettingError {
             /** Additional information about the error encountered. */
