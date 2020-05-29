@@ -556,7 +556,7 @@ declare namespace gapi.client {
              * phase. The keys SHOULD be human readable so that a client can display them
              * to a user.
              */
-            serverLogs?: Record<string, BuildBazelRemoteExecutionV2LogFile>;
+            serverLogs?: { [P in string]: BuildBazelRemoteExecutionV2LogFile };
             /**
              * If the status has a code other than `OK`, it indicates that the action did
              * not finish execution. For example, if the operation times out during
@@ -1088,7 +1088,7 @@ declare namespace gapi.client {
              * Label values are optional.
              * There can not be more than 64 labels per resource.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Required. Machine type of the worker, such as `n1-standard-2`.
              * See https://cloud.google.com/compute/docs/machine-types for a list of
@@ -1208,7 +1208,7 @@ declare namespace gapi.client {
              * considered an error for the bot to provide the server with a field that it
              * doesn't know about.
              */
-            metadata?: Array<Record<string, any>>;
+            metadata?: Array<{ [P in string]: any }>;
             /**
              * The output files. The blob referenced by the digest should contain
              * one of the following (implementation-dependent):
@@ -1405,7 +1405,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -1422,7 +1422,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface GoogleRpcStatus {
             /** The status code, which should be an enum value of google.rpc.Code. */
@@ -1431,7 +1431,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

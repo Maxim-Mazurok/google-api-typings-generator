@@ -27,7 +27,7 @@ declare namespace gapi.client {
              * Application specific response metadata. Must be set in the first response
              * for streaming APIs.
              */
-            extensions?: Array<Record<string, any>>;
+            extensions?: Array<{ [P in string]: any }>;
         }
         interface Link {
             /** Target URL of a link. Example: "http://example.com/previous". */

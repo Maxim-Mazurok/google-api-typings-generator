@@ -55,7 +55,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of AcceleratorTypesScopedList resources. */
-            items?: Record<string, AcceleratorTypesScopedList>;
+            items?: { [P in string]: AcceleratorTypesScopedList };
             /** [Output Only] Type of resource. Always compute#acceleratorTypeAggregatedList for aggregated lists of accelerator types. */
             kind?: string;
             /**
@@ -250,7 +250,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of AddressesScopedList resources. */
-            items?: Record<string, AddressesScopedList>;
+            items?: { [P in string]: AddressesScopedList };
             /** [Output Only] Type of resource. Always compute#addressAggregatedList for aggregated lists of addresses. */
             kind?: string;
             /**
@@ -487,7 +487,7 @@ declare namespace gapi.client {
              */
             diskType?: string;
             /** Labels to apply to this disk. These can be later modified by the disks.setLabels method. This field is only applicable for persistent disks. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Specifies which action to take on instance update with this disk. Default is to use the existing disk. */
             onUpdateAction?: string;
             /**
@@ -616,7 +616,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of AutoscalersScopedList resources. */
-            items?: Record<string, AutoscalersScopedList>;
+            items?: { [P in string]: AutoscalersScopedList };
             /** [Output Only] Type of resource. Always compute#autoscalerAggregatedList for aggregated lists of autoscalers. */
             kind?: string;
             /**
@@ -1170,7 +1170,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of BackendServicesScopedList resources. */
-            items?: Record<string, BackendServicesScopedList>;
+            items?: { [P in string]: BackendServicesScopedList };
             /** Type of resource. */
             kind?: string;
             /**
@@ -1462,7 +1462,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of CommitmentsScopedList resources. */
-            items?: Record<string, CommitmentsScopedList>;
+            items?: { [P in string]: CommitmentsScopedList };
             /** [Output Only] Type of resource. Always compute#commitmentAggregatedList for aggregated lists of commitments. */
             kind?: string;
             /**
@@ -1709,7 +1709,7 @@ declare namespace gapi.client {
              */
             labelFingerprint?: string;
             /** Labels to apply to this disk. These can be later modified by the setLabels method. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** [Output Only] Last attach timestamp in RFC3339 text format. */
             lastAttachTimestamp?: string;
             /** [Output Only] Last detach timestamp in RFC3339 text format. */
@@ -1818,7 +1818,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of DisksScopedList resources. */
-            items?: Record<string, DisksScopedList>;
+            items?: { [P in string]: DisksScopedList };
             /** [Output Only] Type of resource. Always compute#diskAggregatedList for aggregated lists of persistent disks. */
             kind?: string;
             /**
@@ -1997,7 +1997,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of DiskTypesScopedList resources. */
-            items?: Record<string, DiskTypesScopedList>;
+            items?: { [P in string]: DiskTypesScopedList };
             /** [Output Only] Type of resource. Always compute#diskTypeAggregatedList. */
             kind?: string;
             /**
@@ -2205,7 +2205,7 @@ declare namespace gapi.client {
              * Labels for this resource. These can only be added or modified by the setLabels method. Each label key/value pair must comply with RFC1035. Label values
              * may be empty.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
              * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
@@ -2641,7 +2641,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of ForwardingRulesScopedList resources. */
-            items?: Record<string, ForwardingRulesScopedList>;
+            items?: { [P in string]: ForwardingRulesScopedList };
             /** [Output Only] Type of resource. Always compute#forwardingRuleAggregatedList for lists of forwarding rules. */
             kind?: string;
             /**
@@ -2763,7 +2763,7 @@ declare namespace gapi.client {
              * be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. For example, "webserver-frontend": "images". A label value
              * can also be empty (e.g. "my-label": "").
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         interface GlobalSetPolicyRequest {
             /** Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify bindings. */
@@ -2891,7 +2891,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of HealthChecksScopedList resources. */
-            items?: Record<string, HealthChecksScopedList>;
+            items?: { [P in string]: HealthChecksScopedList };
             /** Type of resource. */
             kind?: string;
             /**
@@ -3589,7 +3589,7 @@ declare namespace gapi.client {
              */
             labelFingerprint?: string;
             /** Labels to apply to this image. These can be later modified by the setLabels method. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Integer license codes indicating which licenses are attached to this image. */
             licenseCodes?: string[];
             /** Any applicable license URI. */
@@ -3770,7 +3770,7 @@ declare namespace gapi.client {
              */
             labelFingerprint?: string;
             /** Labels to apply to this instance. These can be later modified by the setLabels method. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Full or partial URL of the machine type resource to use for this instance, in the format: zones/zone/machineTypes/machine-type. This is provided by the
              * client when the instance is created. For example, the following is a valid partial url to a predefined machine type:
@@ -3849,7 +3849,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** An object that contains a list of instances scoped by zone. */
-            items?: Record<string, InstancesScopedList>;
+            items?: { [P in string]: InstancesScopedList };
             /** [Output Only] Type of resource. Always compute#instanceAggregatedList for aggregated lists of Instance resources. */
             kind?: string;
             /**
@@ -3933,7 +3933,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of InstanceGroupsScopedList resources. */
-            items?: Record<string, InstanceGroupsScopedList>;
+            items?: { [P in string]: InstanceGroupsScopedList };
             /** [Output Only] The resource type, which is always compute#instanceGroupAggregatedList for aggregated lists of instance groups. */
             kind?: string;
             /**
@@ -4120,7 +4120,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of InstanceGroupManagersScopedList resources. */
-            items?: Record<string, InstanceGroupManagersScopedList>;
+            items?: { [P in string]: InstanceGroupManagersScopedList };
             /** [Output Only] The resource type, which is always compute#instanceGroupManagerAggregatedList for an aggregated list of managed instance groups. */
             kind?: string;
             /**
@@ -4643,7 +4643,7 @@ declare namespace gapi.client {
             /** A list of guest accelerator cards' type and count to use for instances created from the instance template. */
             guestAccelerators?: AcceleratorConfig[];
             /** Labels to apply to instances that are created from this template. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The machine type to use for instances that are created from this template. */
             machineType?: string;
             /**
@@ -4728,7 +4728,7 @@ declare namespace gapi.client {
              * add or change labels.
              */
             labelFingerprint?: string;
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         // tslint:disable-next-line:interface-name
         interface InstancesSetMachineResourcesRequest {
@@ -5059,7 +5059,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of InterconnectAttachmentsScopedList resources. */
-            items?: Record<string, InterconnectAttachmentsScopedList>;
+            items?: { [P in string]: InterconnectAttachmentsScopedList };
             /** [Output Only] Type of resource. Always compute#interconnectAttachmentAggregatedList for aggregated lists of interconnect attachments. */
             kind?: string;
             /**
@@ -5593,7 +5593,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of MachineTypesScopedList resources. */
-            items?: Record<string, MachineTypesScopedList>;
+            items?: { [P in string]: MachineTypesScopedList };
             /** [Output Only] Type of resource. Always compute#machineTypeAggregatedList for aggregated lists of machine types. */
             kind?: string;
             /**
@@ -5901,7 +5901,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of NetworkEndpointGroupsScopedList resources. */
-            items?: Record<string, NetworkEndpointGroupsScopedList>;
+            items?: { [P in string]: NetworkEndpointGroupsScopedList };
             /** [Output Only] The resource type, which is always compute#networkEndpointGroupAggregatedList for aggregated lists of network endpoint groups. */
             kind?: string;
             /**
@@ -6252,7 +6252,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of NodeGroupsScopedList resources. */
-            items?: Record<string, NodeGroupsScopedList>;
+            items?: { [P in string]: NodeGroupsScopedList };
             /** [Output Only] Type of resource.Always compute#nodeGroupAggregatedList for aggregated lists of node groups. */
             kind?: string;
             /**
@@ -6438,7 +6438,7 @@ declare namespace gapi.client {
              */
             name?: string;
             /** Labels to use for node affinity, which will be used in instance scheduling. */
-            nodeAffinityLabels?: Record<string, string>;
+            nodeAffinityLabels?: { [P in string]: string };
             /** The node type to use for nodes group that are created from this template. */
             nodeType?: string;
             /**
@@ -6468,7 +6468,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of NodeTemplatesScopedList resources. */
-            items?: Record<string, NodeTemplatesScopedList>;
+            items?: { [P in string]: NodeTemplatesScopedList };
             /** [Output Only] Type of resource.Always compute#nodeTemplateAggregatedList for aggregated lists of node templates. */
             kind?: string;
             /**
@@ -6601,7 +6601,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of NodeTypesScopedList resources. */
-            items?: Record<string, NodeTypesScopedList>;
+            items?: { [P in string]: NodeTypesScopedList };
             /** [Output Only] Type of resource.Always compute#nodeTypeAggregatedList for aggregated lists of node types. */
             kind?: string;
             /**
@@ -6791,7 +6791,7 @@ declare namespace gapi.client {
             /** [Output Only] The unique identifier for the resource. This identifier is defined by the server. */
             id?: string;
             /** [Output Only] A map of scoped operation lists. */
-            items?: Record<string, OperationsScopedList>;
+            items?: { [P in string]: OperationsScopedList };
             /** [Output Only] Type of resource. Always `compute#operationAggregatedList` for aggregated lists of operations. */
             kind?: string;
             /**
@@ -6996,7 +6996,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of PacketMirroring resources. */
-            items?: Record<string, PacketMirroringsScopedList>;
+            items?: { [P in string]: PacketMirroringsScopedList };
             /** Type of resource. */
             kind?: string;
             /**
@@ -7744,7 +7744,7 @@ declare namespace gapi.client {
              */
             labelFingerprint?: string;
             /** The labels to set for this resource. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         interface RegionSetPolicyRequest {
             /** Flatten Policy to create a backwacd compatible wire-format. Deprecated. Use 'policy' to specify bindings. */
@@ -7819,7 +7819,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of Allocation resources. */
-            items?: Record<string, ReservationsScopedList>;
+            items?: { [P in string]: ReservationsScopedList };
             /** Type of resource. */
             kind?: string;
             /**
@@ -7992,7 +7992,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of ResourcePolicy resources. */
-            items?: Record<string, ResourcePoliciesScopedList>;
+            items?: { [P in string]: ResourcePoliciesScopedList };
             /** Type of resource. */
             kind?: string;
             /**
@@ -8121,7 +8121,7 @@ declare namespace gapi.client {
             /** Indication to perform a 'guest aware' snapshot. */
             guestFlush?: boolean;
             /** Labels to apply to scheduled snapshots. These can be later modified by the setLabels method. Label values may be empty. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Cloud Storage bucket storage location of the auto snapshot (regional or multi-regional). */
             storageLocations?: string[];
         }
@@ -8305,7 +8305,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of Router resources. */
-            items?: Record<string, RoutersScopedList>;
+            items?: { [P in string]: RoutersScopedList };
             /** Type of resource. */
             kind?: string;
             /**
@@ -8882,7 +8882,7 @@ declare namespace gapi.client {
              */
             labelFingerprint?: string;
             /** Labels to apply to this snapshot. These can be later modified by the setLabels method. Label values may be empty. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** [Output Only] Integer license codes indicating which licenses are attached to this snapshot. */
             licenseCodes?: string[];
             /**
@@ -9023,7 +9023,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of SslCertificatesScopedList resources. */
-            items?: Record<string, SslCertificatesScopedList>;
+            items?: { [P in string]: SslCertificatesScopedList };
             /** [Output Only] Type of resource. Always compute#sslCertificateAggregatedList for lists of SSL Certificates. */
             kind?: string;
             /**
@@ -9099,7 +9099,7 @@ declare namespace gapi.client {
             /** The domains for which a managed SSL certificate will be generated. Currently only single-domain certs are supported. */
             domains?: string[];
             /** [Output only] Detailed statuses of the domains specified for managed certificate resource. */
-            domainStatus?: Record<string, string>;
+            domainStatus?: { [P in string]: string };
             /** [Output only] Status of the managed certificate resource. */
             status?: string;
         }
@@ -9366,7 +9366,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of SubnetworksScopedList resources. */
-            items?: Record<string, SubnetworksScopedList>;
+            items?: { [P in string]: SubnetworksScopedList };
             /** [Output Only] Type of resource. Always compute#subnetworkAggregatedList for aggregated lists of subnetworks. */
             kind?: string;
             /**
@@ -9577,7 +9577,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of TargetHttpProxiesScopedList resources. */
-            items?: Record<string, TargetHttpProxiesScopedList>;
+            items?: { [P in string]: TargetHttpProxiesScopedList };
             /** [Output Only] Type of resource. Always compute#targetHttpProxyAggregatedList for lists of Target HTTP Proxies. */
             kind?: string;
             /**
@@ -9713,7 +9713,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of TargetHttpsProxiesScopedList resources. */
-            items?: Record<string, TargetHttpsProxiesScopedList>;
+            items?: { [P in string]: TargetHttpsProxiesScopedList };
             /** [Output Only] Type of resource. Always compute#targetHttpsProxyAggregatedList for lists of Target HTTP Proxies. */
             kind?: string;
             /**
@@ -9822,7 +9822,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of TargetInstance resources. */
-            items?: Record<string, TargetInstancesScopedList>;
+            items?: { [P in string]: TargetInstancesScopedList };
             /** Type of resource. */
             kind?: string;
             /**
@@ -9982,7 +9982,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of TargetPool resources. */
-            items?: Record<string, TargetPoolsScopedList>;
+            items?: { [P in string]: TargetPoolsScopedList };
             /** [Output Only] Type of resource. Always compute#targetPoolAggregatedList for aggregated lists of target pools. */
             kind?: string;
             /**
@@ -10305,7 +10305,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of TargetVpnGateway resources. */
-            items?: Record<string, TargetVpnGatewaysScopedList>;
+            items?: { [P in string]: TargetVpnGatewaysScopedList };
             /** [Output Only] Type of resource. Always compute#targetVpnGateway for target VPN gateways. */
             kind?: string;
             /**
@@ -10556,7 +10556,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of UrlMapsScopedList resources. */
-            items?: Record<string, UrlMapsScopedList>;
+            items?: { [P in string]: UrlMapsScopedList };
             /** Type of resource. */
             kind?: string;
             /**
@@ -10811,7 +10811,7 @@ declare namespace gapi.client {
              * Labels for this resource. These can only be added or modified by the setLabels method. Each label key/value pair must comply with RFC1035. Label values
              * may be empty.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
              * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
@@ -10831,7 +10831,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of VpnGateway resources. */
-            items?: Record<string, VpnGatewaysScopedList>;
+            items?: { [P in string]: VpnGatewaysScopedList };
             /** [Output Only] Type of resource. Always compute#vpnGateway for VPN gateways. */
             kind?: string;
             /**
@@ -11066,7 +11066,7 @@ declare namespace gapi.client {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
             /** A list of VpnTunnelsScopedList resources. */
-            items?: Record<string, VpnTunnelsScopedList>;
+            items?: { [P in string]: VpnTunnelsScopedList };
             /** [Output Only] Type of resource. Always compute#vpnTunnel for VPN tunnels. */
             kind?: string;
             /**
@@ -11314,7 +11314,7 @@ declare namespace gapi.client {
              */
             labelFingerprint?: string;
             /** The labels to set for this resource. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         interface ZoneSetPolicyRequest {
             /** Flatten Policy to create a backwacd compatible wire-format. Deprecated. Use 'policy' to specify bindings. */

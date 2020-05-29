@@ -76,7 +76,7 @@ declare namespace gapi.client {
             id?: string;
             /** Identifies what kind of resource this is. Value: the fixed string "dns#managedZone". */
             kind?: string;
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             name?: string;
             nameServers?: string[];
             nameServerSet?: string;

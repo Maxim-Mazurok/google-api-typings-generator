@@ -199,14 +199,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -273,7 +273,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
@@ -343,7 +343,7 @@ declare namespace gapi.client {
              */
             notificationPubsubTopic?: string;
             /** Data transfer specific parameters. */
-            params?: Record<string, any>;
+            params?: { [P in string]: any };
             /**
              * Data transfer schedule.
              * If the data source does not support a custom schedule, this should be
@@ -407,7 +407,7 @@ declare namespace gapi.client {
              */
             notificationPubsubTopic?: string;
             /** Output only. Data transfer specific parameters. */
-            params?: Record<string, any>;
+            params?: { [P in string]: any };
             /**
              * For batch transfer runs, specifies the date and time of the data should be
              * ingested.

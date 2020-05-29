@@ -213,7 +213,7 @@ declare namespace gapi.client {
              * roles can also be found in the returned `policy` bindings. Note that the
              * map is populated only for requests with permission queries.
              */
-            matchedPermissions?: Record<string, Permissions>;
+            matchedPermissions?: { [P in string]: Permissions };
         }
         interface ExportAssetsRequest {
             /**
@@ -850,7 +850,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -867,7 +867,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OutputConfig {
             /**
@@ -948,7 +948,7 @@ declare namespace gapi.client {
              * The content of the resource, in which some sensitive fields are removed
              * and may not be present.
              */
-            data?: Record<string, any>;
+            data?: { [P in string]: any };
             /**
              * The URL of the discovery document containing the resource's JSON schema.
              * Example:
@@ -1009,7 +1009,7 @@ declare namespace gapi.client {
              * additional_attributes = { dnsName: "foobar" }, you can issue a query
              * `"foobar"`.
              */
-            additionalAttributes?: Record<string, any>;
+            additionalAttributes?: { [P in string]: any };
             /**
              * The type of this resource. Example: "compute.googleapis.com/Disk".
              *
@@ -1050,7 +1050,7 @@ declare namespace gapi.client {
              * - query by a given label'sexistence. Example: `labels.env : &#42;`
              * &#42; use a free text query. Example: `"prod"`
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Location can be "global", regional like "us-east1", or zonal like
              * "us-west1-b".
@@ -1129,7 +1129,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

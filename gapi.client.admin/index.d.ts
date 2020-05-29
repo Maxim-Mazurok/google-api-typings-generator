@@ -123,7 +123,7 @@ declare namespace gapi.client {
             /** Identifies this as a notification channel used to watch for changes to a resource, which is "api#channel". */
             kind?: string;
             /** Additional parameters controlling delivery channel behavior. Optional. */
-            params?: Record<string, string>;
+            params?: { [P in string]: string };
             /** A Boolean value to indicate whether payload is wanted. Optional. */
             payload?: boolean;
             /** An opaque ID that identifies the resource being watched on this channel. Stable across different API versions. */
@@ -180,7 +180,7 @@ declare namespace gapi.client {
                 /** Integer value of the parameter. */
                 intValue?: string;
                 /** Nested message value of the parameter. */
-                msgValue?: Array<Record<string, any>>;
+                msgValue?: Array<{ [P in string]: any }>;
                 name?: string;
                 /** String value of the parameter. */
                 stringValue?: string;

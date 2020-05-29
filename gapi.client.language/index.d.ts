@@ -201,7 +201,7 @@ declare namespace gapi.client {
              * and Knowledge Graph MID (`mid`), if they are available. For the metadata
              * associated with other entity types, see the Type table below.
              */
-            metadata?: Record<string, string>;
+            metadata?: { [P in string]: string };
             /** The representative name for the entity. */
             name?: string;
             /**
@@ -304,7 +304,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

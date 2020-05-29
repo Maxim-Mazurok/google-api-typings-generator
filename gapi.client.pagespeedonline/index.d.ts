@@ -94,7 +94,7 @@ declare namespace gapi.client {
             /** The description of the audit. */
             description?: string;
             /** Freeform details section of the audit. */
-            details?: Record<string, any>;
+            details?: { [P in string]: any };
             /** The value that should be displayed on the UI for this audit. */
             displayValue?: string;
             /** An error message from a thrown error inside the audit. */
@@ -137,11 +137,11 @@ declare namespace gapi.client {
         }
         interface LighthouseResultV5 {
             /** Map of audits in the LHR. */
-            audits?: Record<string, LighthouseAuditResultV5>;
+            audits?: { [P in string]: LighthouseAuditResultV5 };
             /** Map of categories in the LHR. */
             categories?: Categories;
             /** Map of category groups in the LHR. */
-            categoryGroups?: Record<string, CategoryGroupV5>;
+            categoryGroups?: { [P in string]: CategoryGroupV5 };
             /** The configuration settings for this LHR. */
             configSettings?: ConfigSettings;
             /** Environment settings that were used when making this LHR. */
@@ -176,7 +176,7 @@ declare namespace gapi.client {
             /** The requested URL, which may differ from the resolved "id". */
             initial_url?: string;
             /** The map of <metrics, data>. */
-            metrics?: Record<string, UserPageLoadMetricV5>;
+            metrics?: { [P in string]: UserPageLoadMetricV5 };
             /** The human readable speed "category" of the id. */
             overall_category?: string;
         }
@@ -261,7 +261,7 @@ declare namespace gapi.client {
         }
         interface StackPack {
             /** The stack pack advice strings. */
-            descriptions?: Record<string, string>;
+            descriptions?: { [P in string]: string };
             /** The stack pack icon data uri. */
             iconDataURL?: string;
             /** The stack pack id. */

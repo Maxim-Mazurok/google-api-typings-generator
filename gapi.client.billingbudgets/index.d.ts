@@ -100,7 +100,7 @@ declare namespace gapi.client {
              * multiple values per entry are not allowed. If omitted, the report will
              * include all labeled and unlabeled usage.
              */
-            labels?: Record<string, any[]>;
+            labels?: { [P in string]: any[] };
             /**
              * Optional. A set of projects of the form `projects/{project}`,
              * specifying that usage from only this set of projects should be

@@ -230,7 +230,7 @@ declare namespace gapi.client {
              * Manifest of the files stored in Google Cloud Storage that are included as part of this version. All files must be readable using the credentials
              * supplied with this call.
              */
-            files?: Record<string, FileInfo>;
+            files?: { [P in string]: FileInfo };
             /** The zip file for this deployment, if this is a zip deployment. */
             zip?: ZipInfo;
         }
@@ -479,11 +479,11 @@ declare namespace gapi.client {
              * Cross-service attributes for the location. For example
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: "us-east1". */
             locationId?: string;
             /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /** Resource name for the location, which may vary between implementations. For example: "projects/example-project/locations/us-east1" */
             name?: string;
         }
@@ -549,7 +549,7 @@ declare namespace gapi.client {
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
              * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should
              * be a resource name ending with operations/{unique_id}.
@@ -561,7 +561,7 @@ declare namespace gapi.client {
              * should have the type XxxResponse, where Xxx is the original method name. For example, if the original method name is TakeSnapshot(), the inferred
              * response type is TakeSnapshotResponse.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OperationMetadataV1 {
             createVersionMetadata?: CreateVersionMetadataV1;
@@ -712,7 +712,7 @@ declare namespace gapi.client {
             /** Time a static file served by this handler should be cached by web proxies and browsers. */
             expiration?: string;
             /** HTTP headers to use for all responses from these URLs. */
-            httpHeaders?: Record<string, string>;
+            httpHeaders?: { [P in string]: string };
             /** MIME type used to serve all files served by this handler.Defaults to file-specific MIME types, which are derived from each file's filename extension. */
             mimeType?: string;
             /**
@@ -729,7 +729,7 @@ declare namespace gapi.client {
             /** The status code, which should be an enum value of google.rpc.Code. */
             code?: number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
              * google.rpc.Status.details field, or localized by the client.
@@ -743,7 +743,7 @@ declare namespace gapi.client {
              * is deleted or their traffic allocation is removed. Allocations must sum to 1. Up to two decimal place precision is supported for IP-based splits and up
              * to three decimal places is supported for cookie-based splits.
              */
-            allocations?: Record<string, number>;
+            allocations?: { [P in string]: number };
             /**
              * Mechanism used to determine which version a request is sent to. The traffic selection algorithm will be stable for either type until allocations are
              * changed.
@@ -799,7 +799,7 @@ declare namespace gapi.client {
              */
             basicScaling?: BasicScaling;
             /** Metadata settings that are supplied to this version to enable beta runtime features. */
-            betaSettings?: Record<string, string>;
+            betaSettings?: { [P in string]: string };
             /** Email address of the user who created this version.@OutputOnly */
             createdBy?: string;
             /** Time that this version was created.@OutputOnly */
@@ -824,7 +824,7 @@ declare namespace gapi.client {
             /** App Engine execution environment for this version.Defaults to standard. */
             env?: string;
             /** Environment variables available to the application.Only returned in GET requests if view=FULL is set. */
-            envVariables?: Record<string, string>;
+            envVariables?: { [P in string]: string };
             /** Custom static error pages. Limited to 10KB per page.Only returned in GET requests if view=FULL is set. */
             errorHandlers?: ErrorHandler[];
             /**

@@ -24,7 +24,7 @@ declare namespace gapi.client {
             /** The name of the font. */
             family?: string;
             /** The font files (with all supported scripts) for each one of the available variants, as a key : value map. */
-            files?: Record<string, string>;
+            files?: { [P in string]: string };
             /** This kind represents a webfont object in the webfonts service. */
             kind?: string;
             /** The date (format "yyyy-MM-dd") the font was modified for the last time. */

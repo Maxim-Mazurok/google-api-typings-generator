@@ -36,7 +36,7 @@ declare namespace gapi.client {
              * &#42; Both keys and values are additionally constrained to be <= 128 bytes in
              * size.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The resource name of the environment, in the form:
              * "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
@@ -284,7 +284,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -301,7 +301,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OperationMetadata {
             /** Output only. The time the operation was submitted to the server. */
@@ -387,7 +387,7 @@ declare namespace gapi.client {
              * [blacklisted](/composer/docs/how-to/managing/setting-airflow-configurations#airflow_configuration_blacklists),
              * and cannot be overridden.
              */
-            airflowConfigOverrides?: Record<string, string>;
+            airflowConfigOverrides?: { [P in string]: string };
             /**
              * Optional. Additional environment variables to provide to the Apache Airflow
              * scheduler, worker, and webserver processes.
@@ -412,7 +412,7 @@ declare namespace gapi.client {
              * &#42; `SQL_REGION`
              * &#42; `SQL_USER`
              */
-            envVariables?: Record<string, string>;
+            envVariables?: { [P in string]: string };
             /**
              * The version of the software running in the environment.
              * This encapsulates both the version of Cloud Composer functionality and the
@@ -446,7 +446,7 @@ declare namespace gapi.client {
              * package without pinning it to a version specifier, use the empty string as
              * the value.
              */
-            pypiPackages?: Record<string, string>;
+            pypiPackages?: { [P in string]: string };
             /**
              * Optional. The major version of Python used to run the Apache Airflow
              * scheduler, worker, and webserver processes.
@@ -463,7 +463,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

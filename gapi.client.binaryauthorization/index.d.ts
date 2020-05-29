@@ -283,7 +283,7 @@ declare namespace gapi.client {
              * https://cloud.google.com/container-engine/reference/rest/v1/projects.zones.clusters.
              * LINT.ThenChange(//depot/google3/cloud/console/web/binary_authorization/api/models/admission_rule_type.ts:cluster_regex)
              */
-            clusterAdmissionRules?: Record<string, AdmissionRule>;
+            clusterAdmissionRules?: { [P in string]: AdmissionRule };
             /**
              * Required. Default admission rule for a cluster without a per-cluster, per-
              * kubernetes-service-account, or per-istio-service-identity admission rule.

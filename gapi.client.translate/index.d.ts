@@ -23,7 +23,7 @@ declare namespace gapi.client {
              * Optional. Glossaries to be applied for translation.
              * It's keyed by target language code.
              */
-            glossaries?: Record<string, TranslateTextGlossaryConfig>;
+            glossaries?: { [P in string]: TranslateTextGlossaryConfig };
             /**
              * Required. Input configurations.
              * The total number of files matched should be <= 1000.
@@ -42,7 +42,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/translate/docs/advanced/labels for more
              * information.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Optional. The models to use for translation. Map's key is target language
              * code. Map's value is model name. Value can be a built-in general model,
@@ -61,7 +61,7 @@ declare namespace gapi.client {
              * If the map is empty or a specific model is
              * not requested for a language pair, then default google model (nmt) is used.
              */
-            models?: Record<string, string>;
+            models?: { [P in string]: string };
             /**
              * Required. Output configuration.
              * If 2 input configs match to the same file (that is, same input path),
@@ -99,7 +99,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/translate/docs/advanced/labels for more
              * information.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Optional. The format of the source text, for example, "text/html",
              * "text/plain". If left blank, the MIME type defaults to "text/html".
@@ -274,14 +274,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -303,7 +303,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -320,7 +320,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OutputConfig {
             /**
@@ -400,7 +400,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
@@ -473,7 +473,7 @@ declare namespace gapi.client {
              * See https://cloud.google.com/translate/docs/advanced/labels for more
              * information.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Optional. The format of the source text, for example, "text/html",
              * "text/plain". If left blank, the MIME type defaults to "text/html".

@@ -286,7 +286,7 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "youtube#channel". */
             kind?: string;
             /** Localizations for different languages */
-            localizations?: Record<string, ChannelLocalization>;
+            localizations?: { [P in string]: ChannelLocalization };
             /** The snippet object contains basic details about the channel, such as its title, description, and thumbnail images. */
             snippet?: ChannelSnippet;
             /** The statistics object encapsulates statistics for the channel. */
@@ -419,7 +419,7 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "youtube#channelSection". */
             kind?: string;
             /** Localizations for different languages */
-            localizations?: Record<string, ChannelSectionLocalization>;
+            localizations?: { [P in string]: ChannelSectionLocalization };
             /** The snippet object contains basic details about the channel section, such as its type, style and title. */
             snippet?: ChannelSectionSnippet;
             /** The targeting object contains basic targeting settings about the channel section. */
@@ -1656,7 +1656,7 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "youtube#playlist". */
             kind?: string;
             /** Localizations for different languages */
-            localizations?: Record<string, PlaylistLocalization>;
+            localizations?: { [P in string]: PlaylistLocalization };
             /** The player object contains information that you would use to play the playlist in an embedded player. */
             player?: PlaylistPlayer;
             /** The snippet object contains basic details about the playlist, such as its title and description. */
@@ -2174,7 +2174,7 @@ declare namespace gapi.client {
              */
             liveStreamingDetails?: VideoLiveStreamingDetails;
             /** List with all localizations. */
-            localizations?: Record<string, VideoLocalization>;
+            localizations?: { [P in string]: VideoLocalization };
             /** The monetizationDetails object encapsulates information about the monetization status of the video. */
             monetizationDetails?: VideoMonetizationDetails;
             /** The player object contains information that you would use to play the video in an embedded player. */

@@ -272,7 +272,7 @@ declare namespace gapi.client {
              * The labels associated with this game server cluster. Each label is a
              * key-value pair.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Required. The resource name of the game server cluster. Uses the form:
              *
@@ -309,7 +309,7 @@ declare namespace gapi.client {
              * The labels associated with this game server config. Each label is a
              * key-value pair.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The resource name of the game server config. Uses the form:
              *
@@ -341,7 +341,7 @@ declare namespace gapi.client {
              * The labels associated with this game server deployment. Each label is a
              * key-value pair.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The resource name of the game server deployment. Uses the form:
              *
@@ -399,7 +399,7 @@ declare namespace gapi.client {
         }
         interface LabelSelector {
             /** Resource labels for this selector. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         interface ListGameServerClustersResponse {
             /** The list of game server clusters. */
@@ -468,14 +468,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -505,7 +505,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -522,7 +522,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OperationMetadata {
             /** Output only. API version used to start the operation. */
@@ -537,7 +537,7 @@ declare namespace gapi.client {
              * the status of the operation. In case of failures, the value includes an
              * error code and error message.
              */
-            operationStatus?: Record<string, OperationStatus>;
+            operationStatus?: { [P in string]: OperationStatus };
             /**
              * Output only. Identifies whether the user has requested cancellation
              * of the operation. Operations that have successfully been cancelled
@@ -667,7 +667,7 @@ declare namespace gapi.client {
             /** ETag of the resource. */
             etag?: string;
             /** The labels associated with this realm. Each label is a key-value pair. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The resource name of the realm. Uses the form:
              * `projects/{project}/locations/{location}/realms/{realm}`. For
@@ -792,7 +792,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

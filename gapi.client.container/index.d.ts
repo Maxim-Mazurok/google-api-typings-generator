@@ -368,7 +368,7 @@ declare namespace gapi.client {
              * The resource labels for the cluster to use to annotate any related
              * Google Compute Engine resources.
              */
-            resourceLabels?: Record<string, string>;
+            resourceLabels?: { [P in string]: string };
             /**
              * Configuration for exporting resource usages. Resource usage export is
              * disabled when this config is unspecified.
@@ -922,7 +922,7 @@ declare namespace gapi.client {
              * Exceptions to maintenance window. Non-emergency maintenance should not
              * occur in these windows.
              */
-            maintenanceExclusions?: Record<string, TimeWindow>;
+            maintenanceExclusions?: { [P in string]: TimeWindow };
             /**
              * RecurringWindow specifies some number of recurring time periods for
              * maintenance to occur. The time windows may be overlapping. If no
@@ -1055,7 +1055,7 @@ declare namespace gapi.client {
              * For more information, including usage and the valid values, see:
              * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The number of local SSD disks to be attached to the node.
              *
@@ -1108,7 +1108,7 @@ declare namespace gapi.client {
              *
              * The total size of all keys and values must be less than 512 KB.
              */
-            metadata?: Record<string, string>;
+            metadata?: { [P in string]: string };
             /**
              * Minimum CPU platform to be used by this instance. The instance may be
              * scheduled on the specified or newer CPU platform. Applicable values are the
@@ -1533,7 +1533,7 @@ declare namespace gapi.client {
              */
             projectId?: string;
             /** Required. The labels to set for that cluster. */
-            resourceLabels?: Record<string, string>;
+            resourceLabels?: { [P in string]: string };
             /**
              * Deprecated. The name of the Google Compute Engine
              * [zone](https://cloud.google.com/compute/docs/zones#available) in which the

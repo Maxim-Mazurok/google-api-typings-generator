@@ -270,9 +270,9 @@ declare namespace gapi.client {
              */
             insertId?: string;
             /** The log entry payload, represented as a structure that is expressed as a JSON object. */
-            jsonPayload?: Record<string, any>;
+            jsonPayload?: { [P in string]: any };
             /** Optional. A set of user-defined (key, value) data that provides additional information about the log entry. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Required. The resource name of the log to which this log entry belongs:
              * "projects/[PROJECT_ID]/logs/[LOG_ID]"
@@ -301,7 +301,7 @@ declare namespace gapi.client {
              * protocol buffer types are supported; user-defined types are not supported:"type.googleapis.com/google.cloud.audit.AuditLog"
              * "type.googleapis.com/google.appengine.logging.v1.RequestLog"
              */
-            protoPayload?: Record<string, any>;
+            protoPayload?: { [P in string]: any };
             /** Output only. The time the log entry was received by Logging. */
             receiveTimestamp?: string;
             /**
@@ -424,7 +424,7 @@ declare namespace gapi.client {
              * for a boolean label its false.Note that there are upper bounds on the maximum number of labels and the number of active time series that are allowed in
              * a project.
              */
-            labelExtractors?: Record<string, string>;
+            labelExtractors?: { [P in string]: string };
             /**
              * Optional. The metric descriptor associated with the logs-based metric. If unspecified, it uses a default metric descriptor with a DELTA metric kind,
              * INT64 value type, with no labels and a unit of "1". Such a metric counts the number of log entries matching the filter expression.The name, type, and
@@ -629,7 +629,7 @@ declare namespace gapi.client {
              * Required. Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels
              * "project_id", "instance_id", and "zone".
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Required. The monitored resource type. This field must match the type field of a MonitoredResourceDescriptor object. For example, the type of a Compute
              * Engine VM instance is gce_instance.
@@ -671,9 +671,9 @@ declare namespace gapi.client {
              * "security_group": ["a", "b", "c"],
              * "spot_instance": false }
              */
-            systemLabels?: Record<string, any>;
+            systemLabels?: { [P in string]: any };
             /** Output only. A map of user-defined metadata labels. */
-            userLabels?: Record<string, string>;
+            userLabels?: { [P in string]: string };
         }
         interface RequestLog {
             /** App Engine release version. */
@@ -802,7 +802,7 @@ declare namespace gapi.client {
              * Optional. Default labels that are added to the labels field of all log entries in entries. If a log entry already has a label with the same key as a
              * label in this parameter, then the log entry's label is not changed. See LogEntry.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Optional. A default log resource name that is assigned to all log entries in entries that do not specify a value for log_name:
              * "projects/[PROJECT_ID]/logs/[LOG_ID]"

@@ -502,6 +502,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -676,6 +678,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -1690,6 +1694,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -1864,6 +1870,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -2925,6 +2933,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -3099,6 +3109,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -4114,6 +4126,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -4288,6 +4302,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -5298,6 +5314,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -5472,6 +5490,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -6494,6 +6514,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -6668,6 +6690,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -7730,6 +7754,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",
@@ -7904,6 +7930,8 @@ gapi.load('client', () => {
             iasCampaignMonitoring: true,
             integrationCode: "Test string",
             jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
             mediaDuration: "Test string",
             name: "Test string",
             notes: "Test string",

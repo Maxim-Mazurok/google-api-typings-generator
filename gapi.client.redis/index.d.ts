@@ -50,7 +50,7 @@ declare namespace gapi.client {
              * specified in `location_id` or `alternative_location_id` fields when
              * creating a Redis instance.
              */
-            availableZones?: Record<string, any>;
+            availableZones?: { [P in string]: any };
         }
         interface GoogleCloudRedisV1OperationMetadata {
             /** API version. */
@@ -119,7 +119,7 @@ declare namespace gapi.client {
              */
             host?: string;
             /** Resource labels to represent user provided metadata */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Optional. The zone where the instance will be provisioned. If not provided,
              * the service will choose a zone for the instance. For STANDARD_HA tier,
@@ -174,7 +174,7 @@ declare namespace gapi.client {
              * &#42;   stream-node-max-bytes
              * &#42;   stream-node-max-entries
              */
-            redisConfigs?: Record<string, string>;
+            redisConfigs?: { [P in string]: string };
             /**
              * Optional. The version of Redis software.
              * If not provided, latest supported version will be used. Currently, the
@@ -247,14 +247,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Resource ID for the region. For example: "us-east1". */
             locationId?: string;
             /**
              * Output only. The set of available zones in the location. The map is keyed by the lowercase ID of each zone, as defined by Compute Engine. These keys
              * can be specified in `location_id` or `alternative_location_id` fields when creating a Redis instance.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /** Full resource name for the region. For example: "projects/example-project/locations/us-east1". */
             name?: string;
         }
@@ -287,7 +287,7 @@ declare namespace gapi.client {
              *
              * }
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -304,7 +304,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OutputConfig {
             /** Google Cloud Storage destination for output content. */
@@ -317,7 +317,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

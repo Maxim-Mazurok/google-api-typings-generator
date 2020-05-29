@@ -145,7 +145,7 @@ declare namespace gapi.client {
              * (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035
              * (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a cluster.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Output only. Contains cluster daemon metrics such as HDFS and YARN stats.Beta Feature: This report is available for testing purposes only. It may be
              * changed before final release.
@@ -199,9 +199,9 @@ declare namespace gapi.client {
         }
         interface ClusterMetrics {
             /** The HDFS metrics. */
-            hdfsMetrics?: Record<string, string>;
+            hdfsMetrics?: { [P in string]: string };
             /** The YARN metrics. */
-            yarnMetrics?: Record<string, string>;
+            yarnMetrics?: { [P in string]: string };
         }
         interface ClusterOperation {
             /** Output only. Indicates the operation is done. */
@@ -219,7 +219,7 @@ declare namespace gapi.client {
             /** Output only. Short description of operation. */
             description?: string;
             /** Output only. Labels associated with the operation */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Output only. The operation type. */
             operationType?: string;
             /** Output only. Current operation status. */
@@ -241,7 +241,7 @@ declare namespace gapi.client {
         }
         interface ClusterSelector {
             /** Required. The cluster labels. Cluster must have all labels to match. */
-            clusterLabels?: Record<string, string>;
+            clusterLabels?: { [P in string]: string };
             /**
              * Optional. The zone where workflow process executes. This parameter does not affect the selection of the cluster.If unspecified, the zone of the first
              * cluster matching the selector is used.
@@ -308,7 +308,7 @@ declare namespace gapi.client {
              * The Compute Engine metadata entries to add to all instances (see Project and instance metadata
              * (https://cloud.google.com/compute/docs/storing-retrieving-metadata#project_and_instance_metadata)).
              */
-            metadata?: Record<string, string>;
+            metadata?: { [P in string]: string };
             /**
              * Optional. The Compute Engine network to be used for machine communications. Cannot be specified with subnetwork_uri. If neither network_uri nor
              * subnetwork_uri is specified, the "default" network of the project is used, if it exists. Cannot be a "Custom Subnet Network" (see Using Subnetworks
@@ -403,7 +403,7 @@ declare namespace gapi.client {
              * Optional. A mapping of property names to values, used to configure Hadoop. Properties that conflict with values set by the Dataproc API may be
              * overwritten. Can include properties set in /etc/hadoop/conf/&#42;-site and classes in user code.
              */
-            properties?: Record<string, string>;
+            properties?: { [P in string]: string };
         }
         interface HiveJob {
             /**
@@ -417,13 +417,13 @@ declare namespace gapi.client {
              * Optional. A mapping of property names and values, used to configure Hive. Properties that conflict with values set by the Dataproc API may be
              * overwritten. Can include properties set in /etc/hadoop/conf/&#42;-site.xml, /etc/hive/conf/hive-site.xml, and classes in user code.
              */
-            properties?: Record<string, string>;
+            properties?: { [P in string]: string };
             /** The HCFS URI of the script that contains Hive queries. */
             queryFileUri?: string;
             /** A list of queries. */
             queryList?: QueryList;
             /** Optional. Mapping of query variable names to values (equivalent to the Hive command: SET name="value";). */
-            scriptVariables?: Record<string, string>;
+            scriptVariables?: { [P in string]: string };
         }
         // tslint:disable-next-line:interface-name
         interface InstanceGroupAutoscalingPolicyConfig {
@@ -496,7 +496,7 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InstantiateWorkflowTemplateRequest {
             /** Optional. Map from parameter names to values that should be used for those parameters. Values may not exceed 100 characters. */
-            parameters?: Record<string, string>;
+            parameters?: { [P in string]: string };
             /**
              * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances
              * started due to retries.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must
@@ -536,7 +536,7 @@ declare namespace gapi.client {
              * (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035
              * (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a job.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Optional. Job is a Pig job. */
             pigJob?: PigJob;
             /** Required. Job information, including how, when, and where to run the job. */
@@ -724,7 +724,7 @@ declare namespace gapi.client {
              * The per-package log levels for the driver. This may include "root" package name to configure rootLogger. Examples:  'com.google = FATAL', 'root =
              * INFO', 'org.apache = DEBUG'
              */
-            driverLogLevels?: Record<string, string>;
+            driverLogLevels?: { [P in string]: string };
         }
         interface ManagedCluster {
             /**
@@ -739,7 +739,7 @@ declare namespace gapi.client {
              * expression: \p{Ll}\p{Lo}{0,62}Label values must be between 1 and 63 characters long, and must conform to the following PCRE regular expression:
              * \p{Ll}\p{Lo}\p{N}_-{0,63}No more than 32 labels can be associated with a given cluster.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         interface ManagedGroupConfig {
             /** Output only. The name of the Instance Group Manager for this group. */
@@ -766,7 +766,7 @@ declare namespace gapi.client {
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
              * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should
              * be a resource name ending with operations/{unique_id}.
@@ -778,7 +778,7 @@ declare namespace gapi.client {
              * should have the type XxxResponse, where Xxx is the original method name. For example, if the original method name is TakeSnapshot(), the inferred
              * response type is TakeSnapshotResponse.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OrderedJob {
             /** Optional. Job is a Hadoop job. */
@@ -790,7 +790,7 @@ declare namespace gapi.client {
              * expression: \p{Ll}\p{Lo}{0,62}Label values must be between 1 and 63 characters long, and must conform to the following regular expression:
              * \p{Ll}\p{Lo}\p{N}_-{0,63}No more than 32 labels can be associated with a given job.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Optional. Job is a Pig job. */
             pigJob?: PigJob;
             /** Optional. The optional list of prerequisite job step_ids. If not specified, the job will start at the beginning of workflow. */
@@ -834,13 +834,13 @@ declare namespace gapi.client {
              * Optional. A mapping of property names to values, used to configure Pig. Properties that conflict with values set by the Dataproc API may be
              * overwritten. Can include properties set in /etc/hadoop/conf/&#42;-site.xml, /etc/pig/conf/pig.properties, and classes in user code.
              */
-            properties?: Record<string, string>;
+            properties?: { [P in string]: string };
             /** The HCFS URI of the script that contains the Pig queries. */
             queryFileUri?: string;
             /** A list of queries. */
             queryList?: QueryList;
             /** Optional. Mapping of query variable names to values (equivalent to the Pig command: name=[value]). */
-            scriptVariables?: Record<string, string>;
+            scriptVariables?: { [P in string]: string };
         }
         interface Policy {
             /**
@@ -887,7 +887,7 @@ declare namespace gapi.client {
              * Optional. A mapping of property names to values. Used to set Presto session properties (https://prestodb.io/docs/current/sql/set-session.html)
              * Equivalent to using the --session flag in the Presto CLI
              */
-            properties?: Record<string, string>;
+            properties?: { [P in string]: string };
             /** The HCFS URI of the script that contains SQL queries. */
             queryFileUri?: string;
             /** A list of queries. */
@@ -913,7 +913,7 @@ declare namespace gapi.client {
              * Optional. A mapping of property names to values, used to configure PySpark. Properties that conflict with values set by the Dataproc API may be
              * overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code.
              */
-            properties?: Record<string, string>;
+            properties?: { [P in string]: string };
             /** Optional. HCFS file URIs of Python files to pass to the PySpark framework. Supported file types: .py, .egg, and .zip. */
             pythonFileUris?: string[];
         }
@@ -982,7 +982,7 @@ declare namespace gapi.client {
              * spark: spark-defaults.conf
              * yarn: yarn-site.xmlFor more information, see Cluster properties (https://cloud.google.com/dataproc/docs/concepts/cluster-properties).
              */
-            properties?: Record<string, string>;
+            properties?: { [P in string]: string };
         }
         interface SparkJob {
             /**
@@ -1009,7 +1009,7 @@ declare namespace gapi.client {
              * Optional. A mapping of property names to values, used to configure Spark. Properties that conflict with values set by the Dataproc API may be
              * overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code.
              */
-            properties?: Record<string, string>;
+            properties?: { [P in string]: string };
         }
         interface SparkRJob {
             /**
@@ -1032,7 +1032,7 @@ declare namespace gapi.client {
              * Optional. A mapping of property names to values, used to configure SparkR. Properties that conflict with values set by the Dataproc API may be
              * overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code.
              */
-            properties?: Record<string, string>;
+            properties?: { [P in string]: string };
         }
         interface SparkSqlJob {
             /** Optional. HCFS URIs of jar files to be added to the Spark CLASSPATH. */
@@ -1043,19 +1043,19 @@ declare namespace gapi.client {
              * Optional. A mapping of property names to values, used to configure Spark SQL's SparkConf. Properties that conflict with values set by the Dataproc API
              * may be overwritten.
              */
-            properties?: Record<string, string>;
+            properties?: { [P in string]: string };
             /** The HCFS URI of the script that contains SQL queries. */
             queryFileUri?: string;
             /** A list of queries. */
             queryList?: QueryList;
             /** Optional. Mapping of query variable names to values (equivalent to the Spark SQL command: SET name="value";). */
-            scriptVariables?: Record<string, string>;
+            scriptVariables?: { [P in string]: string };
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
             code?: number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
              * google.rpc.Status.details field, or localized by the client.
@@ -1149,7 +1149,7 @@ declare namespace gapi.client {
             /** Output only. The workflow graph. */
             graph?: WorkflowGraph;
             /** Map from parameter names to values that were used for those parameters. */
-            parameters?: Record<string, string>;
+            parameters?: { [P in string]: string };
             /** Output only. Workflow start time. */
             startTime?: string;
             /** Output only. The workflow state. */
@@ -1189,7 +1189,7 @@ declare namespace gapi.client {
              * must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).No more than 32 labels can be associated with a
              * template.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names.
              * For projects.regions.workflowTemplates, the resource name of the  template has the following format:

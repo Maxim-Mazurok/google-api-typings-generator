@@ -39,7 +39,7 @@ declare namespace gapi.client {
              * Resource managed properties. These properties are managed and defined by
              * the Google Cloud resource and cannot be modified by the user.
              */
-            resourceProperties?: Record<string, any>;
+            resourceProperties?: { [P in string]: any };
             /**
              * Security Command Center managed properties. These properties are managed by
              * Security Command Center and cannot be modified by the user.
@@ -232,7 +232,7 @@ declare namespace gapi.client {
              * between 1 and 255 characters, and must start with a letter and contain
              * alphanumeric characters or underscores only.
              */
-            sourceProperties?: Record<string, any>;
+            sourceProperties?: { [P in string]: any };
             /** The state of the finding. */
             state?: string;
         }
@@ -296,7 +296,7 @@ declare namespace gapi.client {
              * Resource managed properties. These properties are managed and defined by
              * the Google Cloud resource and cannot be modified by the user.
              */
-            resourceProperties?: Record<string, any>;
+            resourceProperties?: { [P in string]: any };
             /**
              * Security Command Center managed properties. These properties are managed by
              * Security Command Center and cannot be modified by the user.
@@ -370,7 +370,7 @@ declare namespace gapi.client {
              * between 1 and 255 characters, and must start with a letter and contain
              * alphanumeric characters or underscores only.
              */
-            sourceProperties?: Record<string, any>;
+            sourceProperties?: { [P in string]: any };
             /** The state of the finding. */
             state?: string;
         }
@@ -446,7 +446,7 @@ declare namespace gapi.client {
              * &#42; Values have leading and trailing whitespace trimmed, remaining
              * characters must be between 1 - 4096 characters (inclusive)
              */
-            marks?: Record<string, string>;
+            marks?: { [P in string]: string };
             /**
              * The relative resource name of the SecurityMarks. See:
              * https://cloud.google.com/apis/design/resource_names#relative_resource_name
@@ -766,7 +766,7 @@ declare namespace gapi.client {
             /** Total count of resources for the given properties. */
             count?: string;
             /** Properties matching the groupBy fields in the request. */
-            properties?: Record<string, any>;
+            properties?: { [P in string]: any };
         }
         // tslint:disable-next-line:interface-name
         interface IamPolicy {
@@ -879,7 +879,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -896,7 +896,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OrganizationSettings {
             /** The configuration used for Asset Discovery runs. */
@@ -1030,7 +1030,7 @@ declare namespace gapi.client {
              * &#42; Values have leading and trailing whitespace trimmed, remaining
              * characters must be between 1 - 4096 characters (inclusive)
              */
-            marks?: Record<string, string>;
+            marks?: { [P in string]: string };
             /**
              * The relative resource name of the SecurityMarks. See:
              * https://cloud.google.com/apis/design/resource_names#relative_resource_name
@@ -1097,7 +1097,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

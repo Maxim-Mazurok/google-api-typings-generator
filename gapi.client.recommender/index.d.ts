@@ -43,7 +43,7 @@ declare namespace gapi.client {
              * A struct of custom fields to explain the insight.
              * Example: "grantedPermissionsCount": "1000"
              */
-            content?: Record<string, any>;
+            content?: { [P in string]: any };
             /**
              * Free-form human readable summary in English. The maximum length is 500
              * characters.
@@ -82,7 +82,7 @@ declare namespace gapi.client {
             /** Insight state. */
             state?: string;
             /** A map of metadata for the state, provided by user or automations systems. */
-            stateMetadata?: Record<string, string>;
+            stateMetadata?: { [P in string]: string };
         }
         interface GoogleCloudRecommenderV1beta1ListInsightsResponse {
             /** The set of insights for the `parent` resource. */
@@ -109,7 +109,7 @@ declare namespace gapi.client {
              * Optional. State properties user wish to include with this state.  Full replace of the
              * current state_metadata.
              */
-            stateMetadata?: Record<string, string>;
+            stateMetadata?: { [P in string]: string };
         }
         interface GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest {
             /** Required. Fingerprint of the Recommendation. Provides optimistic locking. */
@@ -120,7 +120,7 @@ declare namespace gapi.client {
              * Keys must match the regex /^a-z0-9{0,62}$/.
              * Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
              */
-            stateMetadata?: Record<string, string>;
+            stateMetadata?: { [P in string]: string };
         }
         interface GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest {
             /** Required. Fingerprint of the Recommendation. Provides optimistic locking. */
@@ -131,7 +131,7 @@ declare namespace gapi.client {
              * Keys must match the regex /^a-z0-9{0,62}$/.
              * Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
              */
-            stateMetadata?: Record<string, string>;
+            stateMetadata?: { [P in string]: string };
         }
         interface GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest {
             /** Required. Fingerprint of the Recommendation. Provides optimistic locking. */
@@ -142,7 +142,7 @@ declare namespace gapi.client {
              * Keys must match the regex /^a-z0-9{0,62}$/.
              * Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
              */
-            stateMetadata?: Record<string, string>;
+            stateMetadata?: { [P in string]: string };
         }
         interface GoogleCloudRecommenderV1beta1Operation {
             /**
@@ -178,7 +178,7 @@ declare namespace gapi.client {
              * When both path_filters and path_value_matchers are set, an implicit AND
              * must be performed.
              */
-            pathFilters?: Record<string, any>;
+            pathFilters?: { [P in string]: any };
             /**
              * Similar to path_filters, this contains set of filters to apply if `path`
              * field referes to array elements. This is meant to support value matching
@@ -186,7 +186,7 @@ declare namespace gapi.client {
              * When both path_filters and path_value_matchers are set, an implicit AND
              * must be performed.
              */
-            pathValueMatchers?: Record<string, GoogleCloudRecommenderV1beta1ValueMatcher>;
+            pathValueMatchers?: { [P in string]: GoogleCloudRecommenderV1beta1ValueMatcher };
             /**
              * Contains the fully qualified resource name. This field is always populated.
              * ex: //cloudresourcemanager.googleapis.com/projects/foo.
@@ -297,7 +297,7 @@ declare namespace gapi.client {
             /** The state of the recommendation, Eg ACTIVE, SUCCEEDED, FAILED. */
             state?: string;
             /** A map of metadata for the state, provided by user or automations systems. */
-            stateMetadata?: Record<string, string>;
+            stateMetadata?: { [P in string]: string };
         }
         interface GoogleCloudRecommenderV1beta1ValueMatcher {
             /**

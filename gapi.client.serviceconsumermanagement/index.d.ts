@@ -938,7 +938,7 @@ declare namespace gapi.client {
              * increased for the metric against which the quota limits are defined.
              * The value must not be negative.
              */
-            metricCosts?: Record<string, string>;
+            metricCosts?: { [P in string]: string };
             /**
              * Selects the methods to which this rule applies.
              *
@@ -1051,7 +1051,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -1068,7 +1068,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface Option {
             /**
@@ -1084,7 +1084,7 @@ declare namespace gapi.client {
              * should be used. If the value is an enum, it should be stored as an int32
              * value using the google.protobuf.Int32Value type.
              */
-            value?: Record<string, any>;
+            value?: { [P in string]: any };
         }
         interface Page {
             /**
@@ -1225,7 +1225,7 @@ declare namespace gapi.client {
              * integer value that is the maximum number of requests allowed for the
              * specified unit. Currently only STANDARD is supported.
              */
-            values?: Record<string, string>;
+            values?: { [P in string]: string };
         }
         interface RemoveTenantProjectRequest {
             /** Tag of the resource within the tenancy unit. */
@@ -1386,7 +1386,7 @@ declare namespace gapi.client {
         }
         interface SourceInfo {
             /** All files used during config generation. */
-            sourceFiles?: Array<Record<string, any>>;
+            sourceFiles?: Array<{ [P in string]: any }>;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
@@ -1395,7 +1395,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
@@ -1505,7 +1505,7 @@ declare namespace gapi.client {
              */
             folder?: string;
             /** Labels that are applied to this project. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Configuration for the IAM service account on the tenant project. */
             serviceAccountConfig?: ServiceAccountConfig;
             /**
@@ -1653,7 +1653,7 @@ declare namespace gapi.client {
              * all valid keys other than "region" or "zone" must also appear in the
              * map.
              */
-            dimensions?: Record<string, string>;
+            dimensions?: { [P in string]: string };
             /**
              * The name of the metric to which this override applies.
              *

@@ -384,7 +384,7 @@ declare namespace gapi.client {
         }
         interface RepresentativeInfoData {
             /** Political geographic divisions that contain the requested address. */
-            divisions?: Record<string, GeographicDivision>;
+            divisions?: { [P in string]: GeographicDivision };
             /** Elected offices referenced by the divisions listed above. Will only be present if includeOffices was true in the request. */
             offices?: Office[];
             /** Officials holding the offices listed above. Will only be present if includeOffices was true in the request. */
@@ -395,7 +395,7 @@ declare namespace gapi.client {
         }
         interface RepresentativeInfoResponse {
             /** Political geographic divisions that contain the requested address. */
-            divisions?: Record<string, GeographicDivision>;
+            divisions?: { [P in string]: GeographicDivision };
             /** Identifies what kind of resource this is. Value: the fixed string "civicinfo#representativeInfoResponse". */
             kind?: string;
             /** The normalized version of the requested address */

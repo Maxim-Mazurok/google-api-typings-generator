@@ -180,7 +180,7 @@ declare namespace gapi.client {
              * escaped using a `\`. For example, `` `x&y` `` represents `x&y` and
              * `` `bak\`tik` `` represents `` bak`tik ``.
              */
-            fields?: Record<string, Value>;
+            fields?: { [P in string]: Value };
             /**
              * The resource name of the document, for example
              * `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
@@ -661,7 +661,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -678,7 +678,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface LatLng {
             /** The latitude in degrees. It must be in the range [-90.0, +90.0]. */
@@ -711,7 +711,7 @@ declare namespace gapi.client {
             /** A target to add to this stream. */
             addTarget?: Target;
             /** Labels associated with this target change. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The ID of a target to remove from this stream. */
             removeTarget?: number;
         }
@@ -753,14 +753,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -776,7 +776,7 @@ declare namespace gapi.client {
              * in certain documented contexts. The map keys, represented as UTF-8, must
              * not exceed 1,500 bytes and cannot be empty.
              */
-            fields?: Record<string, Value>;
+            fields?: { [P in string]: Value };
         }
         interface Order {
             /** The direction to order by. Defaults to `ASCENDING`. */
@@ -887,7 +887,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
@@ -1101,7 +1101,7 @@ declare namespace gapi.client {
         }
         interface WriteRequest {
             /** Labels associated with this write request. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The ID of the write stream to resume.
              * This may only be set in the first message. When left empty, a new write

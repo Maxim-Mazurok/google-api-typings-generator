@@ -75,7 +75,7 @@ declare namespace gapi.client {
              * "/http/request_bytes": 300
              * "abc.com/myattribute": true
              */
-            attributeMap?: Record<string, AttributeValue>;
+            attributeMap?: { [P in string]: AttributeValue };
             /**
              * The number of attributes that were discarded. Attributes can be discarded
              * because their keys are too long or because there are too many attributes.
@@ -104,7 +104,7 @@ declare namespace gapi.client {
              * Other service-specific data about the request, response, and other
              * information associated with the current audited event.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The name of the service method or operation.
              * For API calls, this should be the name of the API method.
@@ -127,7 +127,7 @@ declare namespace gapi.client {
              * When the JSON object represented here has a proto equivalent, the proto
              * name will be indicated in the `@type` property.
              */
-            request?: Record<string, any>;
+            request?: { [P in string]: any };
             /** Metadata about the operation. */
             requestMetadata?: RequestMetadata;
             /** The resource location information. */
@@ -150,7 +150,7 @@ declare namespace gapi.client {
              * When the JSON object represented here has a proto equivalent,
              * the proto name will be indicated in the `@type` property.
              */
-            resourceOriginalState?: Record<string, any>;
+            resourceOriginalState?: { [P in string]: any };
             /**
              * The operation response. This may not include all response elements,
              * such as those that are too large, privacy-sensitive, or duplicated
@@ -159,13 +159,13 @@ declare namespace gapi.client {
              * When the JSON object represented here has a proto equivalent, the proto
              * name will be indicated in the `@type` property.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
             /**
              * Deprecated, use `metadata` field instead.
              * Other service-specific data about the request, response, and other
              * activities.
              */
-            serviceData?: Record<string, any>;
+            serviceData?: { [P in string]: any };
             /**
              * The name of the API service performing the operation. For example,
              * `"datastore.googleapis.com"`.
@@ -219,7 +219,7 @@ declare namespace gapi.client {
              * SAML assertions are similarly specified, but with an identity provider
              * dependent structure.
              */
-            claims?: Record<string, any>;
+            claims?: { [P in string]: any };
             /**
              * The authorized presenter of the credential. Reflects the optional
              * Authorized Presenter (`azp`) claim within a JWT or the
@@ -276,7 +276,7 @@ declare namespace gapi.client {
              * When the JSON object represented here has a proto equivalent, the proto
              * name will be indicated in the `@type` property.
              */
-            thirdPartyPrincipal?: Record<string, any>;
+            thirdPartyPrincipal?: { [P in string]: any };
         }
         interface AuthorizationInfo {
             /**
@@ -453,7 +453,7 @@ declare namespace gapi.client {
              * There may be only a single attachment of any given message type in a
              * single exemplar, and this is enforced by the system.
              */
-            attachments?: Array<Record<string, any>>;
+            attachments?: Array<{ [P in string]: any }>;
             /** The observation (sampling) time of the above value. */
             timestamp?: string;
             /**
@@ -514,7 +514,7 @@ declare namespace gapi.client {
              * Metadata about the service that uses the service account.
              * .
              */
-            serviceMetadata?: Record<string, any>;
+            serviceMetadata?: { [P in string]: any };
         }
         interface HttpRequest {
             /**
@@ -624,7 +624,7 @@ declare namespace gapi.client {
              * A set of user-defined (key, value) data that provides additional
              * information about the log entry.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Required. The log to which this log entry belongs. Examples: `"syslog"`,
              * `"book_log"`.
@@ -640,7 +640,7 @@ declare namespace gapi.client {
              * expressed as a JSON object. The only accepted type currently is
              * AuditLog.
              */
-            protoPayload?: Record<string, any>;
+            protoPayload?: { [P in string]: any };
             /**
              * The severity of the log entry. The default value is
              * `LogSeverity.DEFAULT`.
@@ -655,7 +655,7 @@ declare namespace gapi.client {
              * The log entry payload, represented as a structure that
              * is expressed as a JSON object.
              */
-            structPayload?: Record<string, any>;
+            structPayload?: { [P in string]: any };
             /** The log entry payload, represented as a Unicode string (UTF-8). */
             textPayload?: string;
             /**
@@ -729,7 +729,7 @@ declare namespace gapi.client {
              * the overriding relationship.
              * Note that this map must not contain monitored resource labels.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** A money value. */
             moneyValue?: Money;
             /**
@@ -808,7 +808,7 @@ declare namespace gapi.client {
              * where the API is served, such as App Engine, Compute Engine, or
              * Kubernetes Engine.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Represents information to be logged. */
             logEntries?: LogEntry[];
             /**
@@ -862,13 +862,13 @@ declare namespace gapi.client {
              * with. Only a combination of 1000 user labels per consumer project are
              * allowed.
              */
-            userLabels?: Record<string, string>;
+            userLabels?: { [P in string]: string };
         }
         interface Peer {
             /** The IP address of the peer. */
             ip?: string;
             /** The labels associated with the peer. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The network port of the peer. */
             port?: string;
             /**
@@ -915,7 +915,7 @@ declare namespace gapi.client {
              * keep this field for Castor (that scales quota usage) and 'quota_metrics'
              * for SuperQuota (that doesn't scale quota usage).
              */
-            quotaConsumed?: Record<string, number>;
+            quotaConsumed?: { [P in string]: number };
             /**
              * Quota metrics to indicate the usage. Depending on the check request, one or
              * more of the following metrics will be included:
@@ -945,7 +945,7 @@ declare namespace gapi.client {
              */
             consumerId?: string;
             /** Labels describing the operation. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Fully qualified name of the API method for which this quota operation is
              * requested. This name is used for matching quota rules or metric rules and
@@ -1073,7 +1073,7 @@ declare namespace gapi.client {
              * must be merged according to the HTTP spec. All header keys must be
              * lowercased, because HTTP header keys are case-insensitive.
              */
-            headers?: Record<string, string>;
+            headers?: { [P in string]: string };
             /** The HTTP request `Host` header value. */
             host?: string;
             /**
@@ -1176,7 +1176,7 @@ declare namespace gapi.client {
              * The labels or tags on the resource, such as AWS resource tags and
              * Kubernetes resource labels.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The stable identifier (name) of a resource on the `service`. A resource
              * can be logically identified as "//{resource.service}/{resource.name}".
@@ -1275,7 +1275,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
@@ -1285,7 +1285,7 @@ declare namespace gapi.client {
         }
         interface ThirdPartyPrincipal {
             /** Metadata about third party identity. */
-            thirdPartyClaims?: Record<string, any>;
+            thirdPartyClaims?: { [P in string]: any };
         }
         interface TraceSpan {
             /**

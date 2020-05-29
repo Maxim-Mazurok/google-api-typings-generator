@@ -752,7 +752,7 @@ declare namespace gapi.client {
              * google.api.servicemanagement.v1.ConfigSource,
              * and google.api.Service
              */
-            newConfig?: Record<string, any>;
+            newConfig?: { [P in string]: any };
             /**
              * Optional. Service configuration against which the comparison will be done.
              * For this version of API, the supported types are
@@ -760,7 +760,7 @@ declare namespace gapi.client {
              * google.api.servicemanagement.v1.ConfigSource,
              * and google.api.Service
              */
-            oldConfig?: Record<string, any>;
+            oldConfig?: { [P in string]: any };
         }
         interface GenerateConfigReportResponse {
             /**
@@ -1191,7 +1191,7 @@ declare namespace gapi.client {
              * increased for the metric against which the quota limits are defined.
              * The value must not be negative.
              */
-            metricCosts?: Record<string, string>;
+            metricCosts?: { [P in string]: string };
             /**
              * Selects the methods to which this rule applies.
              *
@@ -1304,7 +1304,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -1321,7 +1321,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OperationMetadata {
             /** Percentage of completion of this operation, ranging from 0 to 100. */
@@ -1350,7 +1350,7 @@ declare namespace gapi.client {
              * should be used. If the value is an enum, it should be stored as an int32
              * value using the google.protobuf.Int32Value type.
              */
-            value?: Record<string, any>;
+            value?: { [P in string]: any };
         }
         interface Page {
             /**
@@ -1530,7 +1530,7 @@ declare namespace gapi.client {
              * integer value that is the maximum number of requests allowed for the
              * specified unit. Currently only STANDARD is supported.
              */
-            values?: Record<string, string>;
+            values?: { [P in string]: string };
         }
         interface Rollout {
             /**
@@ -1723,7 +1723,7 @@ declare namespace gapi.client {
         }
         interface SourceInfo {
             /** All files used during config generation. */
-            sourceFiles?: Array<Record<string, any>>;
+            sourceFiles?: Array<{ [P in string]: any }>;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
@@ -1732,7 +1732,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
@@ -1847,7 +1847,7 @@ declare namespace gapi.client {
              * Key is the service configuration ID, Value is the traffic percentage
              * which must be greater than 0.0 and the sum must equal to 100.0.
              */
-            percentages?: Record<string, number>;
+            percentages?: { [P in string]: number };
         }
         interface Type {
             /** The list of fields. */

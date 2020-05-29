@@ -110,7 +110,7 @@ declare namespace gapi.client {
              * non-background action that executed. This can be used by workflow engine
              * authors to determine whether an individual action has succeeded or failed.
              */
-            environment?: Record<string, string>;
+            environment?: { [P in string]: string };
             /**
              * Normally, a non-zero exit status causes the pipeline to fail. This flag
              * allows execution of other actions to continue instead.
@@ -139,7 +139,7 @@ declare namespace gapi.client {
              * what sort of action they perform, such as localization or debugging).
              * They are returned in the operation metadata, but are otherwise ignored.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * A list of mounts to make available to the action.
              *
@@ -175,7 +175,7 @@ declare namespace gapi.client {
              * random port is assigned. To determine the resulting port number, consult
              * the `ContainerStartedEvent` in the operation metadata.
              */
-            portMappings?: Record<string, number>;
+            portMappings?: { [P in string]: number };
             /**
              * Exposes all ports specified by `EXPOSE` statements in the container. To
              * discover the host side port numbers, consult the `ACTION_STARTED` event
@@ -218,7 +218,7 @@ declare namespace gapi.client {
              * set will contain any ports exposed using the `PUBLISH_EXPOSED_PORTS` flag
              * as well as any specified in the `Action` definition.
              */
-            portMappings?: Record<string, number>;
+            portMappings?: { [P in string]: number };
         }
         interface ContainerStoppedEvent {
             /** The numeric ID of the action that started this container. */
@@ -336,14 +336,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -361,7 +361,7 @@ declare namespace gapi.client {
              */
             events?: Event[];
             /** The user-defined labels associated with this operation. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The pipeline this operation represents. */
             pipeline?: Pipeline;
             /** The first time at which resources were allocated to execute the pipeline. */
@@ -416,11 +416,11 @@ declare namespace gapi.client {
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /** An Metadata object. This will always be returned with the Operation. */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /** The server-assigned name for the operation.  This may be passed to the other operation methods to retrieve information about the operation's status. */
             name?: string;
             /** An Empty object. */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface Pipeline {
             /** The list of actions to execute, in the order they are specified. */
@@ -430,7 +430,7 @@ declare namespace gapi.client {
              * additional environment variables but cannot delete an entry from this map
              * (though they can overwrite it with a different value).
              */
-            environment?: Record<string, string>;
+            environment?: { [P in string]: string };
             /** The resources required for execution. */
             resources?: Resources;
             /**
@@ -474,7 +474,7 @@ declare namespace gapi.client {
              * To associate labels with resources created while executing the operation,
              * see the appropriate resource message (for example, `VirtualMachine`).
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Required. The description of the pipeline to run. */
             pipeline?: Pipeline;
         }
@@ -513,7 +513,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
@@ -579,7 +579,7 @@ declare namespace gapi.client {
              * Labels applied at creation time to the VM. Applied on a best-effort basis
              * to attached disk resources shortly after VM creation.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Required. The machine type of the virtual machine to create. Must be the short name
              * of a standard machine type (such as "n1-standard-1") or a custom machine

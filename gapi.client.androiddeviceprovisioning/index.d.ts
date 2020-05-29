@@ -265,7 +265,7 @@ declare namespace gapi.client {
         }
         interface DeviceMetadata {
             /** Metadata entries recorded as key-value pairs. */
-            entries?: Record<string, string>;
+            entries?: { [P in string]: string };
         }
         interface DeviceReference {
             /** The ID of the device. */
@@ -423,7 +423,7 @@ declare namespace gapi.client {
              * This field will contain a `DevicesLongRunningOperationMetadata` object if the operation is created by `claimAsync`, `unclaimAsync`, or
              * `updateMetadataAsync`.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -434,7 +434,7 @@ declare namespace gapi.client {
              * This field will contain a `DevicesLongRunningOperationResponse` object if the operation is created by `claimAsync`, `unclaimAsync`, or
              * `updateMetadataAsync`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OperationPerDevice {
             /** A copy of the original device-claim request received by the server. */
@@ -488,7 +488,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

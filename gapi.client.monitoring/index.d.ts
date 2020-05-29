@@ -106,7 +106,7 @@ declare namespace gapi.client {
              * value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals,
              * underscores, and dashes. Keys must begin with a letter.
              */
-            userLabels?: Record<string, string>;
+            userLabels?: { [P in string]: string };
             /** Read-only description of how the alert policy is invalid. OK if the alert policy is valid. If not OK, the alert policy will not generate incidents. */
             validity?: Status;
         }
@@ -179,7 +179,7 @@ declare namespace gapi.client {
             /** The end time of the interval. */
             endTime?: string;
             /** The measurement metadata. Example: "process_id" -> 12345 */
-            metadata?: Record<string, TypedValue>;
+            metadata?: { [P in string]: TypedValue };
             /** The name of the plugin. Example: "disk". */
             plugin?: string;
             /** The instance name of the plugin Example: "hdcl". */
@@ -340,7 +340,7 @@ declare namespace gapi.client {
         }
         interface DroppedLabels {
             /** Map from label to its value, for all labels dropped in any aggregation. */
-            label?: Record<string, string>;
+            label?: { [P in string]: string };
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
@@ -357,7 +357,7 @@ declare namespace gapi.client {
              * type.googleapis.com/google.protobuf.StringValueLabels dropped during aggregation:  type.googleapis.com/google.monitoring.v3.DroppedLabelsThere may be
              * only a single attachment of any given message type in a single exemplar, and this is enforced by the system.
              */
-            attachments?: Array<Record<string, any>>;
+            attachments?: Array<{ [P in string]: any }>;
             /** The observation (sampling) time of the above value. */
             timestamp?: string;
             /** Value of the exemplar point. This value determines to which bucket the exemplar belongs. */
@@ -464,7 +464,7 @@ declare namespace gapi.client {
              * (page 31). Entering two separate headers with the same key in a Create call will cause the first to be overwritten by the second. The maximum number of
              * headers allowed is 100.
              */
-            headers?: Record<string, string>;
+            headers?: { [P in string]: string };
             /**
              * Boolean specifying whether to encrypt the header information. Encryption should be specified for any headers related to authentication that you do not
              * wish to be seen when retrieving the configuration. The server will be responsible for encrypting the headers. On Get/List calls, if mask_headers is set
@@ -673,7 +673,7 @@ declare namespace gapi.client {
         }
         interface Metric {
             /** The set of label values that uniquely identify this metric. All labels listed in the MetricDescriptor must be assigned values. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** An existing metric type, see google.api.MetricDescriptor. For example, custom.googleapis.com/invoice/paid/amount. */
             type?: string;
         }
@@ -881,7 +881,7 @@ declare namespace gapi.client {
              * Required. Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels
              * "project_id", "instance_id", and "zone".
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Required. The monitored resource type. This field must match the type field of a MonitoredResourceDescriptor object. For example, the type of a Compute
              * Engine VM instance is gce_instance. For a list of types, see Monitoring resource types and Logging resource types.
@@ -923,9 +923,9 @@ declare namespace gapi.client {
              * "security_group": ["a", "b", "c"],
              * "spot_instance": false }
              */
-            systemLabels?: Record<string, any>;
+            systemLabels?: { [P in string]: any };
             /** Output only. A map of user-defined metadata labels. */
-            userLabels?: Record<string, string>;
+            userLabels?: { [P in string]: string };
         }
         interface MutationRecord {
             /** The email address of the user making the change. */
@@ -954,7 +954,7 @@ declare namespace gapi.client {
              * Configuration fields that define the channel and its behavior. The permissible and required labels are specified in the
              * NotificationChannelDescriptor.labels of the NotificationChannelDescriptor corresponding to the type field.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The full REST resource name for this channel. The format is:
              * projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
@@ -969,7 +969,7 @@ declare namespace gapi.client {
              * is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores,
              * and dashes. Keys must begin with a letter.
              */
-            userLabels?: Record<string, string>;
+            userLabels?: { [P in string]: string };
             /**
              * Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to
              * be populated.If the value is UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification);
@@ -1014,7 +1014,7 @@ declare namespace gapi.client {
              * The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto
              * should be used. If the value is an enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
              */
-            value?: Record<string, any>;
+            value?: { [P in string]: any };
         }
         interface PerformanceThreshold {
             /** BasicSli to evaluate to judge window quality. */
@@ -1155,7 +1155,7 @@ declare namespace gapi.client {
             /** The status code, which should be an enum value of google.rpc.Code. */
             code?: number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
              * google.rpc.Status.details field, or localized by the client.

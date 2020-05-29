@@ -307,7 +307,7 @@ declare namespace gapi.client {
              */
             error?: Status;
             /** If the script function returns successfully, this field contains an ExecutionResponse object with the function's return value. */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface Project {
             /** When the script was created. */
@@ -346,7 +346,7 @@ declare namespace gapi.client {
              */
             code?: number;
             /** An array that contains a single ExecutionError object that provides information about the nature of the error. */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which is in English. Any user-facing error message is localized and sent in the details field, or localized by the
              * client.
@@ -355,7 +355,7 @@ declare namespace gapi.client {
         }
         interface Struct {
             /** Unordered map of dynamically typed values. */
-            fields?: Record<string, Value>;
+            fields?: { [P in string]: Value };
         }
         interface UpdateDeploymentRequest {
             /** The deployment configuration. */
@@ -375,7 +375,7 @@ declare namespace gapi.client {
             /** Represents a double value. */
             numberValue?: number;
             /** Represents a structured proto value. */
-            protoValue?: Record<string, any>;
+            protoValue?: { [P in string]: any };
             /** Represents a string value. */
             stringValue?: string;
             /** Represents a structured value. */

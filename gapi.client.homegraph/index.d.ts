@@ -30,7 +30,7 @@ declare namespace gapi.client {
         }
         interface Device {
             /** Attributes for the traits supported by the device. */
-            attributes?: Record<string, any>;
+            attributes?: { [P in string]: any };
             /**
              * Custom device attributes stored in Home Graph and provided to your
              * smart home Action in each
@@ -39,7 +39,7 @@ declare namespace gapi.client {
              * [EXECUTE](https://developers.google.com/assistant/smarthome/reference/intent/execute)
              * intent.
              */
-            customData?: Record<string, any>;
+            customData?: { [P in string]: any };
             /** Device manufacturer, model, hardware version, and software version. */
             deviceInfo?: DeviceInfo;
             /** Third-party device ID. */
@@ -145,7 +145,7 @@ declare namespace gapi.client {
              * States of the devices. Map of third-party device ID to struct of device
              * states.
              */
-            devices?: Record<string, Record<string, any>>;
+            devices?: { [P in string]: { [P in string]: any } };
         }
         interface ReportStateAndNotificationDevice {
             /**
@@ -153,13 +153,13 @@ declare namespace gapi.client {
              * section of the individual trait [reference
              * guides](https://developers.google.com/assistant/smarthome/traits).
              */
-            notifications?: Record<string, any>;
+            notifications?: { [P in string]: any };
             /**
              * States of devices to update. See the &#42;&#42;Device STATES&#42;&#42; section
              * of the individual trait [reference
              * guides](https://developers.google.com/assistant/smarthome/traits).
              */
-            states?: Record<string, any>;
+            states?: { [P in string]: any };
         }
         interface ReportStateAndNotificationRequest {
             /** Required. Third-party user ID. */

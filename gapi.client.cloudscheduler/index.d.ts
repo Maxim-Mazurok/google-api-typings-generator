@@ -63,7 +63,7 @@ declare namespace gapi.client {
              * In addition, some App Engine headers, which contain
              * job-specific information, are also be sent to the job handler.
              */
-            headers?: Record<string, string>;
+            headers?: { [P in string]: string };
             /**
              * The HTTP method to use for the request. PATCH and OPTIONS are not
              * permitted.
@@ -199,7 +199,7 @@ declare namespace gapi.client {
              *
              * The total size of headers must be less than 80KB.
              */
-            headers?: Record<string, string>;
+            headers?: { [P in string]: string };
             /** Which HTTP method to use for the request. */
             httpMethod?: string;
             /**
@@ -367,14 +367,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -418,7 +418,7 @@ declare namespace gapi.client {
              * Attributes for this message. If this field is empty, the message must
              * contain non-empty data.
              */
-            attributes?: Record<string, string>;
+            attributes?: { [P in string]: string };
             /**
              * The message data field. If this field is empty, the message must contain
              * at least one attribute.
@@ -445,7 +445,7 @@ declare namespace gapi.client {
              * Pubsub message must contain either non-empty data, or at least one
              * attribute.
              */
-            attributes?: Record<string, string>;
+            attributes?: { [P in string]: string };
             /**
              * The message payload for PubsubMessage.
              *
@@ -544,7 +544,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

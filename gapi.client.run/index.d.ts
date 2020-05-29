@@ -924,14 +924,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -982,7 +982,7 @@ declare namespace gapi.client {
              * are not queryable and should be preserved when modifying objects. More
              * info: http://kubernetes.io/docs/user-guide/annotations
              */
-            annotations?: Record<string, string>;
+            annotations?: { [P in string]: string };
             /**
              * (Optional)
              *
@@ -1110,7 +1110,7 @@ declare namespace gapi.client {
              * and routes.
              * More info: http://kubernetes.io/docs/user-guide/labels
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Name must be unique within a namespace, within a Cloud Run region.
              * Is required when creating
@@ -1390,7 +1390,7 @@ declare namespace gapi.client {
              * The values of the map is string form of the 'quantity' k8s type:
              * https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
              */
-            limits?: Record<string, string>;
+            limits?: { [P in string]: string };
             /**
              * (Optional)
              *
@@ -1405,7 +1405,7 @@ declare namespace gapi.client {
              * The values of the map is string form of the 'quantity' k8s type:
              * https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
              */
-            requests?: Record<string, string>;
+            requests?: { [P in string]: string };
         }
         interface Revision {
             /** The API version for this call such as "serving.knative.dev/v1". */
@@ -1584,7 +1584,7 @@ declare namespace gapi.client {
              * base64 encoded string, representing the arbitrary (possibly non-string)
              * data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
              */
-            data?: Record<string, string>;
+            data?: { [P in string]: string };
             /**
              * Standard object's metadata.
              * More info:
@@ -1598,7 +1598,7 @@ declare namespace gapi.client {
              * any existing values. It is never output when reading from the API.
              * +k8s:conversion-gen=false
              */
-            stringData?: Record<string, string>;
+            stringData?: { [P in string]: string };
             /** Used to facilitate programmatic handling of secret data. */
             type?: string;
         }

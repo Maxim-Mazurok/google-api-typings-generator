@@ -27,7 +27,7 @@ declare namespace gapi.client {
              * Application specific response metadata. Must be set in the first response
              * for streaming APIs.
              */
-            extensions?: Array<Record<string, any>>;
+            extensions?: Array<{ [P in string]: any }>;
         }
         interface GoogleCloudMlV1__AcceleratorConfig {
             /** The number of accelerators to attach to each machine running the job. */
@@ -220,7 +220,7 @@ declare namespace gapi.client {
             /** The final objective metric seen for this trial. */
             finalMetric?: GoogleCloudMlV1_HyperparameterOutput_HyperparameterMetric;
             /** The hyperparameters given to this trial. */
-            hyperparameters?: Record<string, string>;
+            hyperparameters?: { [P in string]: string };
             /** True if the trial is stopped early. */
             isTrialStoppedEarly?: boolean;
             /** Output only. Start time for the trial. */
@@ -330,7 +330,7 @@ declare namespace gapi.client {
              * For more information, see the documentation on
              * <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Input parameters to create a prediction job. */
             predictionInput?: GoogleCloudMlV1__PredictionInput;
             /** The current prediction job result. */
@@ -447,7 +447,7 @@ declare namespace gapi.client {
              * For more information, see the documentation on
              * <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Required. The name specified for the model when it was created.
              *
@@ -503,7 +503,7 @@ declare namespace gapi.client {
              * The user labels, inherited from the model or the model version being
              * operated on.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Contains the name of the model associated with the operation. */
             modelName?: string;
             /** The operation type. */
@@ -1267,7 +1267,7 @@ declare namespace gapi.client {
              * For more information, see the documentation on
              * <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Output only. The time the version was last used for prediction. */
             lastUseTime?: string;
             /**
@@ -1757,7 +1757,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -1774,7 +1774,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleProtobuf__Empty {
@@ -1786,7 +1786,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

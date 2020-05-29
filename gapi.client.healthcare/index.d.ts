@@ -268,7 +268,7 @@ declare namespace gapi.client {
              *
              * No more than 64 labels can be associated with a given store.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Output only. Resource name of the DICOM store, of the form
              * `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
@@ -418,7 +418,7 @@ declare namespace gapi.client {
              *
              * No more than 64 labels can be associated with a given store.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Output only. Resource name of the FHIR store, of the form
              * `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
@@ -683,7 +683,7 @@ declare namespace gapi.client {
              *
              * No more than 64 labels can be associated with a given store.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Output only. Resource name of the HL7v2 store, of the form
              * `projects/{project_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
@@ -725,7 +725,7 @@ declare namespace gapi.client {
              * Application specific response metadata. Must be set in the first response
              * for streaming APIs.
              */
-            extensions?: Array<Record<string, any>>;
+            extensions?: Array<{ [P in string]: any }>;
         }
         // tslint:disable-next-line:interface-name
         interface ImageConfig {
@@ -880,7 +880,7 @@ declare namespace gapi.client {
              *
              * No more than 64 labels can be associated with a given store.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The message type for this message. MSH-9.1. */
             messageType?: string;
             /**
@@ -938,7 +938,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -955,7 +955,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OperationMetadata {
             /** The name of the API method that initiated the operation. */
@@ -1104,7 +1104,7 @@ declare namespace gapi.client {
              * &#42; (1[0].1, "HbA1c") denotes that the first component of the
              * first Instance of Field 1, which is repeated, has the value "HbA1c".
              */
-            fields?: Record<string, string>;
+            fields?: { [P in string]: string };
             /** A string that indicates the type of segment. For example, EVN or PID. */
             segmentId?: string;
             /**
@@ -1137,7 +1137,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

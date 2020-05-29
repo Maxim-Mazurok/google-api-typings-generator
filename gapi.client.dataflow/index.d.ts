@@ -325,7 +325,7 @@ declare namespace gapi.client {
              */
             location?: string;
             /** The runtime parameters to pass to the job. */
-            parameters?: Record<string, string>;
+            parameters?: { [P in string]: string };
         }
         interface CreateTemplateVersionRequest {
             /** The TemplateVersion object to create. */
@@ -492,14 +492,14 @@ declare namespace gapi.client {
             /** Which Flexible Resource Scheduling mode to run in. */
             flexResourceSchedulingGoal?: string;
             /** Experimental settings. */
-            internalExperiments?: Record<string, any>;
+            internalExperiments?: { [P in string]: any };
             /**
              * The Cloud Dataflow SDK pipeline options specified by the user. These
              * options are passed through the service and are used to recreate the
              * SDK pipeline options on the worker in a language agnostic and platform
              * independent way.
              */
-            sdkPipelineOptions?: Record<string, any>;
+            sdkPipelineOptions?: { [P in string]: any };
             /** Identity to run virtual machines as. Defaults to the default account. */
             serviceAccountEmail?: string;
             /**
@@ -527,12 +527,12 @@ declare namespace gapi.client {
              */
             tempStoragePrefix?: string;
             /** A description of the process that generated the request. */
-            userAgent?: Record<string, any>;
+            userAgent?: { [P in string]: any };
             /**
              * A structure describing which components and their versions of the service
              * are required in order to run the job.
              */
-            version?: Record<string, any>;
+            version?: { [P in string]: any };
             /**
              * The worker pools. At least one "harness" worker pool must be
              * specified in order for the job to have workers.
@@ -681,7 +681,7 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InstructionOutput {
             /** The codec to use to encode data being written via this output. */
-            codec?: Record<string, any>;
+            codec?: { [P in string]: any };
             /** The user-provided name of this output. */
             name?: string;
             /**
@@ -789,7 +789,7 @@ declare namespace gapi.client {
              * &#42; Both keys and values are additionally constrained to be <= 128 bytes in
              * size.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The [regional endpoint]
              * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
@@ -882,13 +882,13 @@ declare namespace gapi.client {
              * The map of transform name prefixes of the job to be replaced to the
              * corresponding name prefixes of the new job.
              */
-            transformNameMapping?: Record<string, string>;
+            transformNameMapping?: { [P in string]: string };
             /** The type of Cloud Dataflow job. */
             type?: string;
         }
         interface JobExecutionInfo {
             /** A mapping from each stage to the information about that stage. */
-            stages?: Record<string, JobExecutionStageInfo>;
+            stages?: { [P in string]: JobExecutionStageInfo };
         }
         interface JobExecutionStageInfo {
             /**
@@ -977,7 +977,7 @@ declare namespace gapi.client {
              * The parameters for FlexTemplate.
              * Ex. {"num_workers":"5"}
              */
-            parameters?: Record<string, string>;
+            parameters?: { [P in string]: string };
         }
         interface LaunchFlexTemplateRequest {
             /** Required. Parameter to launch a job form Flex Template. */
@@ -1001,12 +1001,12 @@ declare namespace gapi.client {
             /** Required. The job name to use for the created job. */
             jobName?: string;
             /** The runtime parameters to pass to the job. */
-            parameters?: Record<string, string>;
+            parameters?: { [P in string]: string };
             /**
              * Only applicable when updating a pipeline. Map of transform name prefixes of
              * the job to be replaced to the corresponding name prefixes of the new job.
              */
-            transformNameMapping?: Record<string, string>;
+            transformNameMapping?: { [P in string]: string };
             /**
              * If set, replace the existing pipeline with the name specified by jobName
              * with this pipeline, preserving state.
@@ -1032,7 +1032,7 @@ declare namespace gapi.client {
             /** The initial lease period. */
             requestedLeaseDuration?: string;
             /** Untranslated bag-of-bytes WorkRequest from UnifiedWorker. */
-            unifiedWorkerRequest?: Record<string, any>;
+            unifiedWorkerRequest?: { [P in string]: any };
             /**
              * Worker capabilities. WorkItems might be limited to workers with specific
              * capabilities.
@@ -1048,7 +1048,7 @@ declare namespace gapi.client {
         }
         interface LeaseWorkItemResponse {
             /** Untranslated bag-of-bytes WorkResponse for UnifiedWorker. */
-            unifiedWorkerResponse?: Record<string, any>;
+            unifiedWorkerResponse?: { [P in string]: any };
             /** A list of the leased WorkItems. */
             workItems?: WorkItem[];
         }
@@ -1132,7 +1132,7 @@ declare namespace gapi.client {
              * context['step'] = <step-name>. Counters associated with PCollections
              * in the SDK will have context['pcollection'] = <pcollection-name>.
              */
-            context?: Record<string, string>;
+            context?: { [P in string]: string };
             /** Worker-defined metric name. */
             name?: string;
             /**
@@ -1219,7 +1219,7 @@ declare namespace gapi.client {
         }
         interface ModifyTemplateVersionLabelResponse {
             /** All the label in the TemplateVersion. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         interface ModifyTemplateVersionTagRequest {
             /**
@@ -1325,13 +1325,13 @@ declare namespace gapi.client {
             /** Zero or more side inputs. */
             sideInputs?: SideInputInfo[];
             /** The user function to invoke. */
-            userFn?: Record<string, any>;
+            userFn?: { [P in string]: any };
         }
         interface PartialGroupByKeyInstruction {
             /** Describes the input to the partial group-by-key instruction. */
             input?: InstructionInput;
             /** The codec to use for interpreting an element in the input PTable. */
-            inputElementCodec?: Record<string, any>;
+            inputElementCodec?: { [P in string]: any };
             /**
              * If this instruction includes a combining function this is the name of the
              * intermediate store between the GBK and the CombineValues.
@@ -1345,7 +1345,7 @@ declare namespace gapi.client {
             /** Zero or more side inputs. */
             sideInputs?: SideInputInfo[];
             /** The value combining function to invoke. */
-            valueCombiningFn?: Record<string, any>;
+            valueCombiningFn?: { [P in string]: any };
         }
         interface PipelineDescription {
             /** Pipeline level display data. */
@@ -1451,7 +1451,7 @@ declare namespace gapi.client {
              */
             location?: string;
             /** Untranslated bag-of-bytes WorkProgressUpdateRequest from UnifiedWorker. */
-            unifiedWorkerRequest?: Record<string, any>;
+            unifiedWorkerRequest?: { [P in string]: any };
             /**
              * The ID of the worker reporting the WorkItem status.  If this
              * does not match the ID of the worker which the Dataflow service
@@ -1468,7 +1468,7 @@ declare namespace gapi.client {
         }
         interface ReportWorkItemStatusResponse {
             /** Untranslated bag-of-bytes WorkProgressUpdateResponse for UnifiedWorker. */
-            unifiedWorkerResponse?: Record<string, any>;
+            unifiedWorkerResponse?: { [P in string]: any };
             /**
              * A set of messages indicating the service-side state for each
              * WorkItem whose status was reported, in the same order as the
@@ -1482,7 +1482,7 @@ declare namespace gapi.client {
              * Per container information.
              * Key: container name.
              */
-            containers?: Record<string, ResourceUtilizationReport>;
+            containers?: { [P in string]: ResourceUtilizationReport };
             /** CPU utilization samples. */
             cpuTime?: CPUTime[];
             /** Memory utilization samples. */
@@ -1500,7 +1500,7 @@ declare namespace gapi.client {
              * restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
              * page.
              */
-            additionalUserLabels?: Record<string, string>;
+            additionalUserLabels?: { [P in string]: string };
             /**
              * Whether to bypass the safety checks for the job's temporary directory.
              * Use with caution.
@@ -1649,7 +1649,7 @@ declare namespace gapi.client {
              */
             systemName?: string;
             /** The user function to invoke. */
-            userFn?: Record<string, any>;
+            userFn?: { [P in string]: any };
         }
         interface SeqMapTaskOutputInfo {
             /** The sink to write the output value to. */
@@ -1665,7 +1665,7 @@ declare namespace gapi.client {
         }
         interface SideInputInfo {
             /** How to interpret the source element(s) as a side input value. */
-            kind?: Record<string, any>;
+            kind?: { [P in string]: any };
             /**
              * The source(s) to read element(s) from to get the value of this side input.
              * If more than one source, then the elements are taken from the
@@ -1681,9 +1681,9 @@ declare namespace gapi.client {
         }
         interface Sink {
             /** The codec to use to encode data written to the sink. */
-            codec?: Record<string, any>;
+            codec?: { [P in string]: any };
             /** The sink to write to, plus its parameters. */
-            spec?: Record<string, any>;
+            spec?: { [P in string]: any };
         }
         interface Snapshot {
             /** The time this snapshot was created. */
@@ -1728,9 +1728,9 @@ declare namespace gapi.client {
              * of each parameter in the order:
              * base_specs (later items win), spec (overrides anything in base_specs).
              */
-            baseSpecs?: Array<Record<string, any>>;
+            baseSpecs?: Array<{ [P in string]: any }>;
             /** The codec to use to decode data read from the source. */
-            codec?: Record<string, any>;
+            codec?: { [P in string]: any };
             /**
              * Setting this value to true hints to the framework that the source
              * doesn't need splitting, and using SourceSplitRequest on it would
@@ -1763,7 +1763,7 @@ declare namespace gapi.client {
              */
             metadata?: SourceMetadata;
             /** The source to read from, plus its parameters. */
-            spec?: Record<string, any>;
+            spec?: { [P in string]: any };
         }
         interface SourceFork {
             /** DEPRECATED */
@@ -1909,7 +1909,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
@@ -1930,7 +1930,7 @@ declare namespace gapi.client {
              * predefined step has its own required set of properties.
              * Must be provided on Create.  Only retrieved with JOB_VIEW_ALL.
              */
-            properties?: Record<string, any>;
+            properties?: { [P in string]: any };
         }
         interface StreamingApplianceSnapshotConfig {
             /** Indicates which endpoint is used to import appliance state. */
@@ -1951,7 +1951,7 @@ declare namespace gapi.client {
              * Map from user name of stateful transforms in this stage to their state
              * family.
              */
-            transformUserNameToStateFamily?: Record<string, string>;
+            transformUserNameToStateFamily?: { [P in string]: string };
         }
         interface StreamingComputationRanges {
             /** The ID of the computation. */
@@ -1977,7 +1977,7 @@ declare namespace gapi.client {
             /** Set of computation configuration information. */
             streamingComputationConfigs?: StreamingComputationConfig[];
             /** Map from user step names to state families. */
-            userStepToStateFamilyNameMap?: Record<string, string>;
+            userStepToStateFamilyNameMap?: { [P in string]: string };
             /**
              * If present, the worker must use this endpoint to communicate with Windmill
              * Service dispatchers, otherwise the worker must continue to use whatever
@@ -2151,7 +2151,7 @@ declare namespace gapi.client {
             /** A customized name for Template. Multiple TemplateVersions per Template. */
             displayName?: string;
             /** Labels for the Template Version. Labels can be duplicate within Template. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** A unique project_id. Multiple Templates per Project. */
             projectId?: string;
             /** Alias for version_id, helps locate a TemplateVersion. */
@@ -2171,7 +2171,7 @@ declare namespace gapi.client {
             /** Version number for persistent state. */
             persistentStateVersion?: number;
             /** Maps user stage names to stable computation names. */
-            userStageToComputationNameMap?: Record<string, string>;
+            userStageToComputationNameMap?: { [P in string]: string };
         }
         interface TransformSummary {
             /** Transform-specific display data. */
@@ -2203,7 +2203,7 @@ declare namespace gapi.client {
              * This field is used by the worker to send the status of the indvidual
              * containers running on each worker.
              */
-            pods?: Array<Record<string, any>>;
+            pods?: Array<{ [P in string]: any }>;
             /**
              * The interval at which the worker is sending health reports.
              * The default value of 0 should be interpreted as the field is not being
@@ -2243,7 +2243,7 @@ declare namespace gapi.client {
              * Other stats that can accompany an event. E.g.
              * { "downloaded_bytes" : "123456" }
              */
-            metadata?: Record<string, string>;
+            metadata?: { [P in string]: string };
         }
         interface WorkerMessage {
             /**
@@ -2258,7 +2258,7 @@ declare namespace gapi.client {
              * of development other strings can be used as tags. LABEL_UNSPECIFIED should
              * not be used here.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The timestamp of the worker_message. */
             time?: string;
             /** The health of a worker. */
@@ -2308,7 +2308,7 @@ declare namespace gapi.client {
              * hostname and other worker identifiers should almost always be passed
              * as labels since they will be included on most messages.
              */
-            parameters?: Record<string, any>;
+            parameters?: { [P in string]: any };
         }
         interface WorkerMessageResponse {
             /** The service's response to a worker's health report. */
@@ -2354,7 +2354,7 @@ declare namespace gapi.client {
              */
             machineType?: string;
             /** Metadata to set on the Google Compute Engine VMs. */
-            metadata?: Record<string, string>;
+            metadata?: { [P in string]: string };
             /**
              * Network to which VMs will be assigned.  If empty or unspecified,
              * the service will use the network "default".
@@ -2380,7 +2380,7 @@ declare namespace gapi.client {
             /** Packages to be installed on workers. */
             packages?: Package[];
             /** Extra arguments for this worker pool. */
-            poolArgs?: Record<string, any>;
+            poolArgs?: { [P in string]: any };
             /**
              * Set of SDK harness containers needed to execute this pipeline. This will
              * only be set in the Fn API path. For non-cross-language pipelines this
@@ -2524,7 +2524,7 @@ declare namespace gapi.client {
              * Other data returned by the service, specific to the particular
              * worker harness.
              */
-            harnessData?: Record<string, any>;
+            harnessData?: { [P in string]: any };
             /**
              * A hot key is a symptom of poor data distribution in which there are enough
              * elements mapped to a single key to impact pipeline performance. When

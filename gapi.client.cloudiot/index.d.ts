@@ -198,7 +198,7 @@ declare namespace gapi.client {
              * The total size of all keys and values must be less than 256 KB, and the
              * maximum number of key-value pairs is 500.
              */
-            metadata?: Record<string, string>;
+            metadata?: { [P in string]: string };
             /**
              * The resource path name. For example,
              * `projects/p1/locations/us-central1/registries/registry0/devices/dev0` or
@@ -577,7 +577,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

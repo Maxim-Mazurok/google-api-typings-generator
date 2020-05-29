@@ -144,7 +144,7 @@ declare namespace gapi.client {
             /** Required. The operations to be performed on the workspace. */
             steps?: BuildStep[];
             /** Substitutions data for `Build` resource. */
-            substitutions?: Record<string, string>;
+            substitutions?: { [P in string]: string };
             /** Tags for annotation of a `Build`. These are not docker tags. */
             tags?: string[];
             /**
@@ -168,7 +168,7 @@ declare namespace gapi.client {
              * If the build does not specify source or images,
              * these keys will not be included.
              */
-            timing?: Record<string, TimeSpan>;
+            timing?: { [P in string]: TimeSpan };
         }
         interface BuildOperationMetadata {
             /** The build that the operation is tracking. */
@@ -406,7 +406,7 @@ declare namespace gapi.client {
              * regular expression: `^_[A-Z0-9_]+$`.The keys cannot conflict with the
              * keys in bindings.
              */
-            substitutions?: Record<string, string>;
+            substitutions?: { [P in string]: string };
             /** Tags for annotation of a `BuildTrigger` */
             tags?: string[];
             /**
@@ -502,7 +502,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -519,7 +519,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface PullRequestFilter {
             /**
@@ -591,7 +591,7 @@ declare namespace gapi.client {
              * Substitutions to use in a triggered build.
              * Should only be used with RunBuildTrigger
              */
-            substitutions?: Record<string, string>;
+            substitutions?: { [P in string]: string };
             /**
              * Regex matching tags to build.
              *
@@ -638,7 +638,7 @@ declare namespace gapi.client {
              * 64 KB in size. There can be at most 100 secret values across all of a
              * build's secrets.
              */
-            secretEnv?: Record<string, string>;
+            secretEnv?: { [P in string]: string };
         }
         interface Source {
             /**
@@ -662,7 +662,7 @@ declare namespace gapi.client {
              * If the build source came in a single package such as a gzipped tarfile
              * (`.tar.gz`), the `FileHash` will be for the single path to that file.
              */
-            fileHashes?: Record<string, FileHashes>;
+            fileHashes?: { [P in string]: FileHashes };
             /**
              * A copy of the build's `source.repo_source`, if exists, with any
              * revisions resolved.
@@ -681,7 +681,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

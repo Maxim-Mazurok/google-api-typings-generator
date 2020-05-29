@@ -135,7 +135,7 @@ declare namespace gapi.client {
              * Labels with user-defined metadata. For more information, see
              * [Labeling Keys](/kms/docs/labeling-keys).
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Output only. The resource name for this CryptoKey in the format
              * `projects/&#42;/locations/&#42;/keyRings/&#42;/cryptoKeys/&#42;`.
@@ -538,14 +538,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`

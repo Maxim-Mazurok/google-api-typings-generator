@@ -90,7 +90,7 @@ declare namespace gapi.client {
              * `group:product-eng@example.com`, and the `membership` field in the value is
              * set to `MEMBERSHIP_INCLUDED`.
              */
-            memberships?: Record<string, GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership>;
+            memberships?: { [P in string]: GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership };
             /**
              * The relevance of this binding to the overall determination for the entire
              * policy.

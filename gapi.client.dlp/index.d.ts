@@ -1020,7 +1020,7 @@ declare namespace gapi.client {
              * &#42; `"environment" : "production"`
              * &#42; `"pipeline" : "etl"`
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Confidence of how likely it is that the `info_type` is correct. */
             likelihood?: string;
             /** Where the content was found. */
@@ -1142,7 +1142,7 @@ declare namespace gapi.client {
              * &#42; `"environment" : "production"`
              * &#42; `"pipeline" : "etl"`
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Offset of the row for tables. Populate if the row(s) being scanned are
              * part of a bigger dataset and you want to keep track of their absolute
@@ -1207,7 +1207,7 @@ declare namespace gapi.client {
              * &#42; `"environment" : "production"`
              * &#42; `"pipeline" : "etl"`
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * These are labels that each inspection request must include within their
              * 'finding_labels' map. Request may contain others, but any missing one of
@@ -2499,7 +2499,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

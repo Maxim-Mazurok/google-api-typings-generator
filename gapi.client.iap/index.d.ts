@@ -363,7 +363,7 @@ declare namespace gapi.client {
              * data availability and management requirements.
              * &#42; Talk to iam-conditions-eng@ about your use case.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Name of the resource on which conditions will be evaluated.
              * Must use the Relative Resource Name of the resource, which is the URI

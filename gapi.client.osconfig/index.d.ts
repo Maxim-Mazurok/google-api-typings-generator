@@ -248,7 +248,7 @@ declare namespace gapi.client {
              * Compute Engine instance labels that must be present for a VM
              * instance to be targeted by this filter.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         interface PatchJob {
             /** Time this patch job was created. */

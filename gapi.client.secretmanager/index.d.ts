@@ -201,14 +201,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -296,7 +296,7 @@ declare namespace gapi.client {
              *
              * No more than 64 labels can be assigned to a given resource.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Output only. The resource name of the Secret in the format `projects/&#42;/secrets/&#42;`. */
             name?: string;
             /**

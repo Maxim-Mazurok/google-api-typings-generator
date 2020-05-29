@@ -29,7 +29,7 @@ declare namespace gapi.client {
              * Arbitrary key/value payload. If present, it will override
              * google.firebase.fcm.v1.Message.data.
              */
-            data?: Record<string, string>;
+            data?: { [P in string]: string };
             /**
              * If set to true, messages will be allowed to be delivered to the app while
              * the device is in direct boot mode. See [Support Direct Boot
@@ -260,7 +260,7 @@ declare namespace gapi.client {
              * headers](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)
              * for supported headers, e.g. "apns-priority": "10".
              */
-            headers?: Record<string, string>;
+            headers?: { [P in string]: string };
             /**
              * APNs payload as a JSON object, including both `aps` dictionary and custom
              * payload. See [Payload Key
@@ -268,7 +268,7 @@ declare namespace gapi.client {
              * If present, it overrides google.firebase.fcm.v1.Notification.title
              * and google.firebase.fcm.v1.Notification.body.
              */
-            payload?: Record<string, any>;
+            payload?: { [P in string]: any };
         }
         interface ApnsFcmOptions {
             /** Label associated with the message's analytics data. */
@@ -345,7 +345,7 @@ declare namespace gapi.client {
              * Input only. Arbitrary key/value payload. The key should not be a reserved
              * word ("from", "message_type", or any word starting with "google" or "gcm").
              */
-            data?: Record<string, string>;
+            data?: { [P in string]: string };
             /**
              * Input only. Template for FCM SDK feature options to use across all
              * platforms.
@@ -399,7 +399,7 @@ declare namespace gapi.client {
              * Arbitrary key/value payload. If present, it will override
              * google.firebase.fcm.v1.Message.data.
              */
-            data?: Record<string, string>;
+            data?: { [P in string]: string };
             /** Options for features provided by the FCM SDK for Web. */
             fcmOptions?: WebpushFcmOptions;
             /**
@@ -407,7 +407,7 @@ declare namespace gapi.client {
              * [Webpush protocol](https://tools.ietf.org/html/rfc8030#section-5) for
              * supported headers, e.g. "TTL": "15".
              */
-            headers?: Record<string, string>;
+            headers?: { [P in string]: string };
             /**
              * Web Notification options as a JSON object. Supports Notification instance
              * properties as defined in [Web Notification
@@ -416,7 +416,7 @@ declare namespace gapi.client {
              * [google.firebase.fcm.v1.Notification.title] and
              * [google.firebase.fcm.v1.Notification.body].
              */
-            notification?: Record<string, any>;
+            notification?: { [P in string]: any };
         }
         interface WebpushFcmOptions {
             /** Label associated with the message's analytics data. */

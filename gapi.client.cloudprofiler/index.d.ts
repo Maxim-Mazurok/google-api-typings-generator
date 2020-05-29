@@ -40,7 +40,7 @@ declare namespace gapi.client {
              * is "us-central1-a", an example of a region is "us-central1" or
              * "us-central".
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Project ID is the ID of a cloud project.
              * Validation regex: `^a-z{4,61}[a-z0-9]$`.
@@ -73,7 +73,7 @@ declare namespace gapi.client {
              * get merged with the deployment labels for the final data set.  See
              * documentation on deployment labels for validation rules and limits.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Output only. Opaque, server-assigned, unique ID for this profile. */
             name?: string;
             /**

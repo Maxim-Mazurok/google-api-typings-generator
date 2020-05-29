@@ -157,7 +157,7 @@ declare namespace gapi.client {
         }
         interface Column {
             /** Map of attribute name and value for this column. */
-            attributes?: Record<string, string>;
+            attributes?: { [P in string]: string };
             /** Column id. */
             id?: string;
             /** Resource type for Analytics column. */
@@ -899,7 +899,7 @@ declare namespace gapi.client {
              * Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as
              * the metric order specified in the request.
              */
-            totalsForAllResults?: Record<string, string>;
+            totalsForAllResults?: { [P in string]: string };
         }
         interface Goal {
             /** Account ID to which this goal belongs. */
@@ -1151,7 +1151,7 @@ declare namespace gapi.client {
              * Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as
              * the metric order specified in the request.
              */
-            totalsForAllResults?: Record<string, string>;
+            totalsForAllResults?: { [P in string]: string };
         }
         interface Profile {
             /** Account ID to which this view (profile) belongs. */
@@ -1378,7 +1378,7 @@ declare namespace gapi.client {
              * Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as
              * the metric order specified in the request.
              */
-            totalsForAllResults?: Record<string, string>;
+            totalsForAllResults?: { [P in string]: string };
         }
         interface RemarketingAudience {
             /** Account ID to which this remarketing audience belongs. */

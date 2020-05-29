@@ -50,7 +50,7 @@ declare namespace gapi.client {
              * set will contain any ports exposed using the `PUBLISH_EXPOSED_PORTS` flag
              * as well as any specified in the `Action` definition.
              */
-            portMappings?: Record<string, number>;
+            portMappings?: { [P in string]: number };
         }
         interface ContainerStoppedEvent {
             /** The numeric ID of the action that started this container. */
@@ -95,7 +95,7 @@ declare namespace gapi.client {
              */
             description?: string;
             /** Machine-readable details about the event. */
-            details?: Record<string, any>;
+            details?: { [P in string]: any };
             /** The time at which the event occurred. */
             timestamp?: string;
         }
@@ -121,14 +121,14 @@ declare namespace gapi.client {
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /** An OperationMetadata or Metadata object. This will always be returned with the Operation. */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. For example&#58;
              * `operations/CJHU7Oi_ChDrveSpBRjfuL-qzoWAgEw`
              */
             name?: string;
             /** An Empty object. */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OperationEvent {
             /** Required description of event. */
@@ -161,7 +161,7 @@ declare namespace gapi.client {
              * Optionally provided by the caller when submitting the request that creates
              * the operation.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The Google Cloud Project in which the job is scoped. */
             projectId?: string;
             /**
@@ -169,9 +169,9 @@ declare namespace gapi.client {
              * current version of the API. If the operation was started with v1beta2 API
              * and a GetOperation is performed on v1 API, a v1 request will be returned.
              */
-            request?: Record<string, any>;
+            request?: { [P in string]: any };
             /** Runtime metadata on this Operation. */
-            runtimeMetadata?: Record<string, any>;
+            runtimeMetadata?: { [P in string]: any };
             /** The time at which the job began to run. */
             startTime?: string;
         }
@@ -197,7 +197,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

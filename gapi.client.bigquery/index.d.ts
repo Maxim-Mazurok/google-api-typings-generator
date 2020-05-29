@@ -559,7 +559,7 @@ declare namespace gapi.client {
              * The labels associated with this dataset. You can use these to organize and group your datasets. You can set this property when inserting or updating a
              * dataset. See Creating and Updating Dataset Labels for more information.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** [Output-only] The date when this dataset or any of its tables was last modified, in milliseconds since the epoch. */
             lastModifiedTime?: string;
             /** The geographic location where the dataset should reside. The default value is US. See details at https://cloud.google.com/bigquery/docs/locations. */
@@ -582,7 +582,7 @@ declare namespace gapi.client {
                 /** The resource type. This property always returns the value "bigquery#dataset". */
                 kind?: string;
                 /** The labels associated with this dataset. You can use these to organize and group your datasets. */
-                labels?: Record<string, string>;
+                labels?: { [P in string]: string };
                 /** The geographic location where the data resides. */
                 location?: string;
             }>;
@@ -623,7 +623,7 @@ declare namespace gapi.client {
              * [Optional] The labels associated with this table. You can use these to organize and group your tables. This will only be used if the destination table
              * is newly created. If the table already exists and labels are different than the current labels are provided, the job will fail.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         interface EncryptionConfiguration {
             /**
@@ -986,7 +986,7 @@ declare namespace gapi.client {
              * only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys
              * must start with a letter and each label in the list must have a different key.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** [Pick one] Configures a load job. */
             load?: JobConfigurationLoad;
             /** [Pick one] Configures a query job. */
@@ -1220,7 +1220,7 @@ declare namespace gapi.client {
              * [Optional] If querying an external data source outside of BigQuery, describes the data format, location and other properties of the data source. By
              * defining these properties, the data source can then be queried as if it were a standard BigQuery table.
              */
-            tableDefinitions?: Record<string, ExternalDataConfiguration>;
+            tableDefinitions?: { [P in string]: ExternalDataConfiguration };
             /** Time-based partitioning specification for the destination table. Only one of timePartitioning and rangePartitioning should be specified. */
             timePartitioning?: TimePartitioning;
             /**
@@ -1548,7 +1548,7 @@ declare namespace gapi.client {
              * Label values are optional. Label keys must start with a letter and each
              * label in the list must have a different key.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Output only. The time when this model was last modified, in millisecs since the epoch. */
             lastModifiedTime?: string;
             /**
@@ -1699,7 +1699,7 @@ declare namespace gapi.client {
             /** [Optional] The array values, if this is an array type. */
             arrayValues?: QueryParameterValue[];
             /** [Optional] The struct field values, in order of the struct type's declaration. */
-            structValues?: Record<string, QueryParameterValue>;
+            structValues?: { [P in string]: QueryParameterValue };
             /** [Optional] The value of this value, if a simple scalar type. */
             value?: string;
         }
@@ -1723,7 +1723,7 @@ declare namespace gapi.client {
              * only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys
              * must start with a letter and each label in the list must have a different key.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The geographic location where the job should run. See details at https://cloud.google.com/bigquery/docs/locations#specifying_your_location. */
             location?: string;
             /**
@@ -2106,7 +2106,7 @@ declare namespace gapi.client {
              * can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label
              * keys must start with a letter and each label in the list must have a different key.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** [Output-only] The time when this table was last modified, in milliseconds since the epoch. */
             lastModifiedTime?: string;
             /** [Output-only] The geographic location where the table resides. This value is inherited from the dataset. */
@@ -2263,7 +2263,7 @@ declare namespace gapi.client {
                 /** The resource type. */
                 kind?: string;
                 /** The labels associated with this table. You can use these to organize and group your tables. */
-                labels?: Record<string, string>;
+                labels?: { [P in string]: string };
                 /** The range partitioning specification for this table, if configured. */
                 rangePartitioning?: RangePartitioning;
                 /** A reference uniquely identifying the table. */
@@ -2395,7 +2395,7 @@ declare namespace gapi.client {
              * Weights associated with each label class, for rebalancing the
              * training data. Only applicable for classification models.
              */
-            labelClassWeights?: Record<string, number>;
+            labelClassWeights?: { [P in string]: number };
             /** Learning rate in training. Used only for iterative training algorithms. */
             learnRate?: number;
             /** The strategy to determine learn rate for the current iteration. */

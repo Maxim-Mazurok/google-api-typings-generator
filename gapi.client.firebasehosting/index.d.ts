@@ -115,7 +115,7 @@ declare namespace gapi.client {
              */
             glob?: string;
             /** Required. The additional headers to add to the response. */
-            headers?: Record<string, string>;
+            headers?: { [P in string]: string };
             /**
              * The user-supplied RE2 regular expression to match against the request
              * URL path.
@@ -166,7 +166,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -183,7 +183,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface PopulateVersionFilesRequest {
             /**
@@ -192,7 +192,7 @@ declare namespace gapi.client {
              * the path from the version. Calculate a hash by Gzipping the file then
              * taking the SHA256 hash of the newly compressed file.
              */
-            files?: Record<string, string>;
+            files?: { [P in string]: string };
         }
         interface PopulateVersionFilesResponse {
             /**
@@ -341,7 +341,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
@@ -373,7 +373,7 @@ declare namespace gapi.client {
             /** Output only. Identifies the user who `FINALIZED` the version. */
             finalizeUser?: ActingUser;
             /** The labels used for extra metadata and/or filtering. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The unique identifier for a version, in the format:
              * <code>sites/<var>site-name</var>/versions/<var>versionID</var></code>

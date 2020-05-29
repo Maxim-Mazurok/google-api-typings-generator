@@ -76,7 +76,7 @@ declare namespace gapi.client {
              * A set of custom breakpoint properties, populated by the agent, to be
              * displayed to the user.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** Breakpoint source location. */
             location?: SourceLocation;
             /** Indicates the severity of the log. Only relevant when action is `LOG`. */
@@ -199,7 +199,7 @@ declare namespace gapi.client {
              * A set of custom debuggee properties, populated by the agent, to be
              * displayed to the user.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Project the debuggee is associated with.
              * Use project number or id when registering a Google Cloud Platform project.
@@ -233,7 +233,7 @@ declare namespace gapi.client {
             /** Any source context. */
             context?: SourceContext;
             /** Labels with user defined metadata. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
         }
         interface FormatMessage {
             /**

@@ -106,7 +106,7 @@ declare namespace gapi.client {
              * spread accoss all key-value pairs. Metadata that goes beyond any these
              * limits will be rejected.
              */
-            metadata?: Record<string, string>;
+            metadata?: { [P in string]: string };
             /**
              * Immutable. The resource name for the endpoint in the format
              * 'projects/&#42;/locations/&#42;/namespaces/&#42;/services/&#42;/endpoints/&#42;'.
@@ -206,14 +206,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -226,7 +226,7 @@ declare namespace gapi.client {
              * No more than 64 user labels can be associated with a given resource.  Label
              * keys and values can be no longer than 63 characters.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Immutable. The resource name for the namespace in the format
              * 'projects/&#42;/locations/&#42;/namespaces/&#42;'.
@@ -327,7 +327,7 @@ declare namespace gapi.client {
              * spread across all key-value pairs. Metadata that goes beyond any these
              * limits will be rejected.
              */
-            metadata?: Record<string, string>;
+            metadata?: { [P in string]: string };
             /**
              * Immutable. The resource name for the service in the format
              * 'projects/&#42;/locations/&#42;/namespaces/&#42;/services/&#42;'.

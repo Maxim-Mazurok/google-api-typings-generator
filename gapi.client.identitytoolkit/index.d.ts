@@ -118,7 +118,7 @@ declare namespace gapi.client {
              * The query parameter that client can customize by themselves in auth url. The following parameters are reserved for server so that they cannot be
              * customized by clients: client_id, response_type, scope, redirect_uri, state, oauth_token.
              */
-            customParameter?: Record<string, string>;
+            customParameter?: { [P in string]: string };
             /** The hosted domain to restrict sign-in to accounts at that domain for Google Apps hosted accounts. */
             hostedDomain?: string;
             /** The email or federated ID of the user. */

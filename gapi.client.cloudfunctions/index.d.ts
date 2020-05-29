@@ -141,7 +141,7 @@ declare namespace gapi.client {
              */
             entryPoint?: string;
             /** Environment variables that shall be available during function execution. */
-            environmentVariables?: Record<string, string>;
+            environmentVariables?: { [P in string]: string };
             /** A source that fires events in response to a condition in another service. */
             eventTrigger?: EventTrigger;
             /** An HTTPS endpoint type of source that can be triggered via URL. */
@@ -152,7 +152,7 @@ declare namespace gapi.client {
              */
             ingressSettings?: string;
             /** Labels associated with this Cloud Function. */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The limit on the maximum number of function instances that may coexist at a
              * given time.
@@ -389,14 +389,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -418,7 +418,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -435,11 +435,11 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface OperationMetadataV1 {
             /** The original request that started the operation. */
-            request?: Record<string, any>;
+            request?: { [P in string]: any };
             /**
              * Target of the operation - for example
              * projects/project-1/locations/region-1/functions/function-1
@@ -457,7 +457,7 @@ declare namespace gapi.client {
         }
         interface OperationMetadataV1Beta2 {
             /** The original request that started the operation. */
-            request?: Record<string, any>;
+            request?: { [P in string]: any };
             /**
              * Target of the operation - for example
              * projects/project-1/locations/region-1/functions/function-1
@@ -576,7 +576,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

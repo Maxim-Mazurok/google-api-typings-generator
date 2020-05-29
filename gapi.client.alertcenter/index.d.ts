@@ -83,7 +83,7 @@ declare namespace gapi.client {
              * Optional. The data associated with this alert, for example
              * google.apps.alertcenter.type.DeviceCompromised.
              */
-            data?: Record<string, any>;
+            data?: { [P in string]: any };
             /** Output only. `True` if this alert is marked for deletion. */
             deleted?: boolean;
             /**
@@ -232,7 +232,7 @@ declare namespace gapi.client {
         }
         interface BatchDeleteAlertsResponse {
             /** The status details for each failed alert_id. */
-            failedAlertStatus?: Record<string, Status>;
+            failedAlertStatus?: { [P in string]: Status };
             /** The successful list of alert IDs. */
             successAlertIds?: string[];
         }
@@ -247,7 +247,7 @@ declare namespace gapi.client {
         }
         interface BatchUndeleteAlertsResponse {
             /** The status details for each failed alert_id. */
-            failedAlertStatus?: Record<string, Status>;
+            failedAlertStatus?: { [P in string]: Status };
             /** The successful list of alert IDs. */
             successAlertIds?: string[];
         }
@@ -511,7 +511,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

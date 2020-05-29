@@ -150,7 +150,7 @@ declare namespace gapi.client {
              * by the lowercase ID of each zone, as defined by GCE. These keys can be
              * specified in the `zones` field when creating a Memcached instance.
              */
-            availableZones?: Record<string, any>;
+            availableZones?: { [P in string]: any };
         }
         interface GoogleCloudMemcacheV1beta2OperationMetadata {
             /** Output only. API version used to start the operation. */
@@ -189,7 +189,7 @@ declare namespace gapi.client {
              * is a key-value pair, where both the key and the value are arbitrary strings
              * provided by the user.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * The MaintenancePolicies that have been attached to the instance.
              * The key must be of the type name of the oneof policy name defined in
@@ -197,12 +197,12 @@ declare namespace gapi.client {
              * type. For complete details of MaintenancePolicy, please refer to
              * go/cloud-saas-mw-ug.
              */
-            maintenancePolicyNames?: Record<string, string>;
+            maintenancePolicyNames?: { [P in string]: string };
             /**
              * The MaintenanceSchedule contains the scheduling information of published
              * maintenance schedule.
              */
-            maintenanceSchedules?: Record<string, GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule>;
+            maintenanceSchedules?: { [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule };
             /**
              * Unique name of the resource. It uses the form:
              * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
@@ -213,7 +213,7 @@ declare namespace gapi.client {
              * producer-specific information in monitoring dashboards.
              * See go/get-instance-metadata.
              */
-            producerMetadata?: Record<string, string>;
+            producerMetadata?: { [P in string]: string };
             /**
              * Output only. The list of data plane resources provisioned for this
              * instance, e.g. compute VMs. See go/get-instance-metadata.
@@ -236,7 +236,7 @@ declare namespace gapi.client {
              * Software versions that are used to deploy this instance. This can be
              * mutated by rollout services.
              */
-            softwareVersions?: Record<string, string>;
+            softwareVersions?: { [P in string]: string };
             /**
              * Output only. Current lifecycle state of the resource (e.g. if it's being
              * created or ready to use).
@@ -399,7 +399,7 @@ declare namespace gapi.client {
              * Refer to cloud documentation on labels for more details.
              * https://cloud.google.com/compute/docs/labeling-resources
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Output only. The full version of memcached server running on this instance.
              * System automatically determines the full memcached version for an instance
@@ -499,14 +499,14 @@ declare namespace gapi.client {
              *
              * {"cloud.googleapis.com/region": "us-east1"}
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
             locationId?: string;
             /**
              * Service-specific metadata. For example the available capacity at the given
              * location.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * Resource name for the location, which may vary between implementations.
              * For example: `"projects/example-project/locations/us-east1"`
@@ -522,7 +522,7 @@ declare namespace gapi.client {
              */
             id?: string;
             /** User defined set of parameters to use in the memcached process. */
-            params?: Record<string, string>;
+            params?: { [P in string]: string };
         }
         interface Node {
             /**
@@ -565,7 +565,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -582,7 +582,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface Policy {
             /** Specifies cloud audit logging configuration for this policy. */
@@ -660,7 +660,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the

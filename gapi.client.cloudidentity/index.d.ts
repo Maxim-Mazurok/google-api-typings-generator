@@ -60,7 +60,7 @@ declare namespace gapi.client {
              * For creating Groups under a namespace, set label key to
              * 'labels/system/groups/external' and label value as empty.
              */
-            labels?: Record<string, string>;
+            labels?: { [P in string]: string };
             /**
              * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the
              * Group in the format: `groups/{group_id}`, where group_id is the unique ID
@@ -173,7 +173,7 @@ declare namespace gapi.client {
              * Some services might not provide such metadata.  Any method that returns a
              * long-running operation should document the metadata type, if any.
              */
-            metadata?: Record<string, any>;
+            metadata?: { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that
              * originally returns it. If you use the default HTTP mapping, the
@@ -190,7 +190,7 @@ declare namespace gapi.client {
              * is `TakeSnapshot()`, the inferred response type is
              * `TakeSnapshotResponse`.
              */
-            response?: Record<string, any>;
+            response?: { [P in string]: any };
         }
         interface SearchGroupsResponse {
             /** List of Groups satisfying the search query. */
@@ -208,7 +208,7 @@ declare namespace gapi.client {
              * A list of messages that carry the error details.  There is a common set of
              * message types for APIs to use.
              */
-            details?: Array<Record<string, any>>;
+            details?: Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any
              * user-facing error message should be localized and sent in the
