@@ -3,8 +3,7 @@ import _ from 'lodash';
 import path, {basename, join, resolve} from 'path';
 import request from 'request';
 import sortObject from 'deep-sort-object';
-import lineReader from 'line-reader';
-import {promisify} from 'bluebird';
+import LineByLine from 'n-readlines';
 import {
   ensureDirectoryExists,
   getResourceTypeName,
@@ -23,12 +22,6 @@ type DirectoryList = gapi.client.discovery.DirectoryList;
 export const typingsPrefix = 'gapi.client.';
 export const tmpDirPath = resolve(__dirname, './../.tmp');
 export const revisionPrefix = '// Revision: ';
-
-const eachLine: (
-  ...args: Parameters<LineReader['eachLine']>
-) => Promise<ReturnType<LineReader['eachLine']>> = promisify(
-  lineReader.eachLine
-);
 
 const typesMap: {[key: string]: string} = {
   integer: 'number',
@@ -776,30 +769,26 @@ export class App {
     );
 
     ensureDirectoryExists(destinationDirectory);
+    const indexDTSPath = path.join(destinationDirectory, 'index.d.ts');
 
-    if (
-      newRevisionsOnly &&
-      fs.existsSync(path.join(destinationDirectory, 'index.d.ts'))
-    ) {
-      let existingRevision;
-      await eachLine(
-        path.join(destinationDirectory, 'index.d.ts'),
-        {},
-        line => {
-          if (line.startsWith(revisionPrefix)) {
-            const match = line.match(new RegExp(`^${revisionPrefix}(\\d+)$`));
-            if (match !== null && match.length === 2) {
-              existingRevision = Number(match[1]);
-              return false;
-            }
-          }
-          return true;
-        }
-      );
-
+    if (newRevisionsOnly && fs.existsSync(indexDTSPath)) {
       if (!api.revision) {
         return console.error(`There's no revision in JSON: ${api.id}`);
       }
+
+      let existingRevision, line;
+      const liner = new LineByLine(indexDTSPath);
+      while ((line = liner.next())) {
+        line = line.toString();
+        if (line.startsWith(revisionPrefix)) {
+          const match = line.match(new RegExp(`^${revisionPrefix}(\\d+)$`));
+          if (match !== null && match.length === 2) {
+            existingRevision = Number(match[1]);
+            break;
+          }
+        }
+      }
+
       if (!existingRevision) {
         return console.error(
           `Can't find previous revision in index.d.ts: ${api.id}`
