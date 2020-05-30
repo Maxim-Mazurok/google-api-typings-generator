@@ -63,7 +63,7 @@ Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.speech.operations.get({ name: "name",  });
+await gapi.client.operations.get({ name: "name",  });
 
 /*
 Lists operations that match the specified filter in the request. If the
@@ -77,7 +77,7 @@ For backwards compatibility, the default name includes the operations
 collection id, however overriding users must ensure the name binding
 is the parent resource, without the operations collection id.
 */
-await gapi.client.speech.operations.list({  });
+await gapi.client.operations.list({  });
 
 /*
 Performs asynchronous speech recognition: receive results via the
@@ -87,11 +87,11 @@ a `LongRunningRecognizeResponse` message.
 For more information on asynchronous speech recognition, see the
 [how-to](https://cloud.google.com/speech-to-text/docs/async-recognize).
 */
-await gapi.client.speech.speech.longrunningrecognize({  });
+await gapi.client.speech.longrunningrecognize({  });
 
 /*
 Performs synchronous speech recognition: receive results after all audio
 has been sent and processed.
 */
-await gapi.client.speech.speech.recognize({  });
+await gapi.client.speech.recognize({  });
 ```

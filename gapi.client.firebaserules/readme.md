@@ -89,5 +89,5 @@ _*Example*_
       }
     }
 */
-await gapi.client.firebaserules.projects.test({ name: "name",  });
+await gapi.client.projects.test({ name: "name",  });
 ```
