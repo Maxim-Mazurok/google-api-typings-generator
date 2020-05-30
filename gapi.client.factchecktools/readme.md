@@ -61,28 +61,28 @@ After that you can use Fact Check Tools API resources:
 /*
 Search through fact-checked claims.
 */
-await gapi.client.claims.search({  });
+await gapi.client.factchecktools.claims.search({  });
 
 /*
 Create `ClaimReview` markup on a page.
 */
-await gapi.client.pages.create({  });
+await gapi.client.factchecktools.pages.create({  });
 
 /*
 Delete all `ClaimReview` markup on a page.
 */
-await gapi.client.pages.delete({ name: "name",  });
+await gapi.client.factchecktools.pages.delete({ name: "name",  });
 
 /*
 Get all `ClaimReview` markup on a page.
 */
-await gapi.client.pages.get({ name: "name",  });
+await gapi.client.factchecktools.pages.get({ name: "name",  });
 
 /*
 List the `ClaimReview` markup pages for a specific URL or for an
 organization.
 */
-await gapi.client.pages.list({  });
+await gapi.client.factchecktools.pages.list({  });
 
 /*
 Update for all `ClaimReview` markup on a page
@@ -92,5 +92,5 @@ markup on a page, first perform a Get operation, then modify the returned
 markup, and finally call Update with the entire `ClaimReview` markup as the
 body.
 */
-await gapi.client.pages.update({ name: "name",  });
+await gapi.client.factchecktools.pages.update({ name: "name",  });
 ```

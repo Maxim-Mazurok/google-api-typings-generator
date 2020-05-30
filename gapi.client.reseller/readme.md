@@ -64,85 +64,85 @@ After that you can use Enterprise Apps Reseller API resources:
 /*
 Get a customer account.
 */
-await gapi.client.customers.get({ customerId: "customerId",  });
+await gapi.client.reseller.customers.get({ customerId: "customerId",  });
 
 /*
 Order a new customer's account.
 */
-await gapi.client.customers.insert({  });
+await gapi.client.reseller.customers.insert({  });
 
 /*
 Update a customer account's settings. This method supports patch semantics.
 */
-await gapi.client.customers.patch({ customerId: "customerId",  });
+await gapi.client.reseller.customers.patch({ customerId: "customerId",  });
 
 /*
 Update a customer account's settings.
 */
-await gapi.client.customers.update({ customerId: "customerId",  });
+await gapi.client.reseller.customers.update({ customerId: "customerId",  });
 
 /*
 Returns all the details of the watch corresponding to the reseller.
 */
-await gapi.client.resellernotify.getwatchdetails({  });
+await gapi.client.reseller.resellernotify.getwatchdetails({  });
 
 /*
 Registers a Reseller for receiving notifications.
 */
-await gapi.client.resellernotify.register({  });
+await gapi.client.reseller.resellernotify.register({  });
 
 /*
 Unregisters a Reseller for receiving notifications.
 */
-await gapi.client.resellernotify.unregister({  });
+await gapi.client.reseller.resellernotify.unregister({  });
 
 /*
 Activates a subscription previously suspended by the reseller
 */
-await gapi.client.subscriptions.activate({ customerId: "customerId", subscriptionId: "subscriptionId",  });
+await gapi.client.reseller.subscriptions.activate({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
 /*
 Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with monthly or yearly payments.
 */
-await gapi.client.subscriptions.changePlan({ customerId: "customerId", subscriptionId: "subscriptionId",  });
+await gapi.client.reseller.subscriptions.changePlan({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
 /*
 Update a user license's renewal settings. This is applicable for accounts with annual commitment plans only.
 */
-await gapi.client.subscriptions.changeRenewalSettings({ customerId: "customerId", subscriptionId: "subscriptionId",  });
+await gapi.client.reseller.subscriptions.changeRenewalSettings({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
 /*
 Update a subscription's user license settings.
 */
-await gapi.client.subscriptions.changeSeats({ customerId: "customerId", subscriptionId: "subscriptionId",  });
+await gapi.client.reseller.subscriptions.changeSeats({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
 /*
 Cancel, suspend, or transfer a subscription to direct.
 */
-await gapi.client.subscriptions.delete({ customerId: "customerId", deletionType: "deletionType", subscriptionId: "subscriptionId",  });
+await gapi.client.reseller.subscriptions.delete({ customerId: "customerId", deletionType: "deletionType", subscriptionId: "subscriptionId",  });
 
 /*
 Get a specific subscription.
 */
-await gapi.client.subscriptions.get({ customerId: "customerId", subscriptionId: "subscriptionId",  });
+await gapi.client.reseller.subscriptions.get({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
 /*
 Create or transfer a subscription.
 */
-await gapi.client.subscriptions.insert({ customerId: "customerId",  });
+await gapi.client.reseller.subscriptions.insert({ customerId: "customerId",  });
 
 /*
 List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions.
 */
-await gapi.client.subscriptions.list({  });
+await gapi.client.reseller.subscriptions.list({  });
 
 /*
 Immediately move a 30-day free trial subscription to a paid service subscription.
 */
-await gapi.client.subscriptions.startPaidService({ customerId: "customerId", subscriptionId: "subscriptionId",  });
+await gapi.client.reseller.subscriptions.startPaidService({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
 /*
 Suspends an active subscription.
 */
-await gapi.client.subscriptions.suspend({ customerId: "customerId", subscriptionId: "subscriptionId",  });
+await gapi.client.reseller.subscriptions.suspend({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 ```

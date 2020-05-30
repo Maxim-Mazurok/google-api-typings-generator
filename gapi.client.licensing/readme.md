@@ -61,35 +61,35 @@ After that you can use Licensing API resources:
 /*
 Revoke a license.
 */
-await gapi.client.licenseAssignments.delete({ productId: "productId", skuId: "skuId", userId: "userId",  });
+await gapi.client.licensing.licenseAssignments.delete({ productId: "productId", skuId: "skuId", userId: "userId",  });
 
 /*
 Get a specific user's license by product SKU.
 */
-await gapi.client.licenseAssignments.get({ productId: "productId", skuId: "skuId", userId: "userId",  });
+await gapi.client.licensing.licenseAssignments.get({ productId: "productId", skuId: "skuId", userId: "userId",  });
 
 /*
 Assign a license.
 */
-await gapi.client.licenseAssignments.insert({ productId: "productId", skuId: "skuId",  });
+await gapi.client.licensing.licenseAssignments.insert({ productId: "productId", skuId: "skuId",  });
 
 /*
 List all users assigned licenses for a specific product SKU.
 */
-await gapi.client.licenseAssignments.listForProduct({ customerId: "customerId", productId: "productId",  });
+await gapi.client.licensing.licenseAssignments.listForProduct({ customerId: "customerId", productId: "productId",  });
 
 /*
 List all users assigned licenses for a specific product SKU.
 */
-await gapi.client.licenseAssignments.listForProductAndSku({ customerId: "customerId", productId: "productId", skuId: "skuId",  });
+await gapi.client.licensing.licenseAssignments.listForProductAndSku({ customerId: "customerId", productId: "productId", skuId: "skuId",  });
 
 /*
 Reassign a user's product SKU with a different SKU in the same product. This method supports patch semantics.
 */
-await gapi.client.licenseAssignments.patch({ productId: "productId", skuId: "skuId", userId: "userId",  });
+await gapi.client.licensing.licenseAssignments.patch({ productId: "productId", skuId: "skuId", userId: "userId",  });
 
 /*
 Reassign a user's product SKU with a different SKU in the same product.
 */
-await gapi.client.licenseAssignments.update({ productId: "productId", skuId: "skuId", userId: "userId",  });
+await gapi.client.licensing.licenseAssignments.update({ productId: "productId", skuId: "skuId", userId: "userId",  });
 ```

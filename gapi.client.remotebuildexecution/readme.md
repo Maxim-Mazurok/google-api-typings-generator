@@ -72,7 +72,7 @@ Errors:
 
 * `NOT_FOUND`: The requested `ActionResult` is not in the cache.
 */
-await gapi.client.actionResults.get({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  });
+await gapi.client.remotebuildexecution.actionResults.get({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  });
 
 /*
 Upload a new execution result.
@@ -92,7 +92,7 @@ Errors:
 * `RESOURCE_EXHAUSTED`: There is insufficient storage space to add the
   entry to the cache.
 */
-await gapi.client.actionResults.update({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  });
+await gapi.client.remotebuildexecution.actionResults.update({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  });
 
 /*
 Execute an action remotely.
@@ -159,7 +159,7 @@ where, for each requested blob not present in the CAS, there is a
 `Violation` with a `type` of `MISSING` and a `subject` of
 `"blobs/{hash}/{size}"` indicating the digest of the missing blob.
 */
-await gapi.client.actions.execute({ instanceName: "instanceName",  });
+await gapi.client.remotebuildexecution.actions.execute({ instanceName: "instanceName",  });
 
 /*
 Download many blobs at once.
@@ -183,7 +183,7 @@ Errors:
 Every error on individual read will be returned in the corresponding digest
 status.
 */
-await gapi.client.blobs.batchRead({ instanceName: "instanceName",  });
+await gapi.client.remotebuildexecution.blobs.batchRead({ instanceName: "instanceName",  });
 
 /*
 Upload many blobs at once.
@@ -211,7 +211,7 @@ Individual requests may return the following errors, additionally:
 Digest does not match the
 provided data.
 */
-await gapi.client.blobs.batchUpdate({ instanceName: "instanceName",  });
+await gapi.client.remotebuildexecution.blobs.batchUpdate({ instanceName: "instanceName",  });
 
 /*
 Determine if blobs are present in the CAS.
@@ -224,7 +224,7 @@ applicable.
 
 There are no method-specific errors.
 */
-await gapi.client.blobs.findMissing({ instanceName: "instanceName",  });
+await gapi.client.remotebuildexecution.blobs.findMissing({ instanceName: "instanceName",  });
 
 /*
 Fetch the entire directory tree rooted at a node.
@@ -251,7 +251,7 @@ Errors:
 
 * `NOT_FOUND`: The requested tree root is not present in the CAS.
 */
-await gapi.client.blobs.getTree({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  });
+await gapi.client.remotebuildexecution.blobs.getTree({ hash: "hash", instanceName: "instanceName", sizeBytes: "sizeBytes",  });
 
 /*
 Wait for an execution operation to complete. When the client initially
@@ -261,7 +261,7 @@ operation completes, and then respond with the completed operation. The
 server MAY choose to stream additional updates as execution progresses,
 such as to provide an update as to the state of the execution.
 */
-await gapi.client.operations.waitExecution({ name: "name",  });
+await gapi.client.remotebuildexecution.operations.waitExecution({ name: "name",  });
 
 /*
 GetCapabilities returns the server capabilities configuration of the
@@ -273,5 +273,5 @@ be returned:
 * Execution only endpoints should return ExecutionCapabilities.
 * CAS + Action Cache only endpoints should return CacheCapabilities.
 */
-await gapi.client.v2.getCapabilities({ instanceName: "instanceName",  });
+await gapi.client.remotebuildexecution.v2.getCapabilities({ instanceName: "instanceName",  });
 ```

@@ -93,7 +93,7 @@ collaborators, the document should reflect your changes. In any case,
 the updates in your request are guaranteed to be applied together
 atomically.
 */
-await gapi.client.documents.batchUpdate({ documentId: "documentId",  });
+await gapi.client.docs.documents.batchUpdate({ documentId: "documentId",  });
 
 /*
 Creates a blank document using the title given in the request. Other fields
@@ -101,10 +101,10 @@ in the request, including any provided content, are ignored.
 
 Returns the created document.
 */
-await gapi.client.documents.create({  });
+await gapi.client.docs.documents.create({  });
 
 /*
 Gets the latest version of the specified document.
 */
-await gapi.client.documents.get({ documentId: "documentId",  });
+await gapi.client.docs.documents.get({ documentId: "documentId",  });
 ```

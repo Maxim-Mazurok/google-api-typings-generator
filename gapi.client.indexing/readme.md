@@ -63,10 +63,10 @@ Gets metadata about a Web Document. This method can _only_ be used to query
 URLs that were previously seen in successful Indexing API notifications.
 Includes the latest `UrlNotification` received via this API.
 */
-await gapi.client.urlNotifications.getMetadata({  });
+await gapi.client.indexing.urlNotifications.getMetadata({  });
 
 /*
 Notifies that a URL has been updated or deleted.
 */
-await gapi.client.urlNotifications.publish({  });
+await gapi.client.indexing.urlNotifications.publish({  });
 ```

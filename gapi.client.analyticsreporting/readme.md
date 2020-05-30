@@ -64,10 +64,10 @@ After that you can use Analytics Reporting API resources:
 /*
 Returns the Analytics data.
 */
-await gapi.client.reports.batchGet({  });
+await gapi.client.analyticsreporting.reports.batchGet({  });
 
 /*
 Returns User Activity data.
 */
-await gapi.client.userActivity.search({  });
+await gapi.client.analyticsreporting.userActivity.search({  });
 ```

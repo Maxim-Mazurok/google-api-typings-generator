@@ -64,15 +64,15 @@ After that you can use Cloud Translation API resources:
 /*
 Detects the language of text within a request.
 */
-await gapi.client.projects.detectLanguage({ parent: "parent",  });
+await gapi.client.translate.projects.detectLanguage({ parent: "parent",  });
 
 /*
 Returns a list of supported languages for translation.
 */
-await gapi.client.projects.getSupportedLanguages({ parent: "parent",  });
+await gapi.client.translate.projects.getSupportedLanguages({ parent: "parent",  });
 
 /*
 Translates input text and returns translated text.
 */
-await gapi.client.projects.translateText({ parent: "parent",  });
+await gapi.client.translate.projects.translateText({ parent: "parent",  });
 ```

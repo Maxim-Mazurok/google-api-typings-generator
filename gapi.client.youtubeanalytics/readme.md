@@ -73,42 +73,42 @@ After that you can use YouTube Analytics API resources:
 /*
 Removes an item from a group.
 */
-await gapi.client.groupItems.delete({  });
+await gapi.client.youtubeanalytics.groupItems.delete({  });
 
 /*
 Creates a group item.
 */
-await gapi.client.groupItems.insert({  });
+await gapi.client.youtubeanalytics.groupItems.insert({  });
 
 /*
 Returns a collection of group items that match the API request parameters.
 */
-await gapi.client.groupItems.list({  });
+await gapi.client.youtubeanalytics.groupItems.list({  });
 
 /*
 Deletes a group.
 */
-await gapi.client.groups.delete({  });
+await gapi.client.youtubeanalytics.groups.delete({  });
 
 /*
 Creates a group.
 */
-await gapi.client.groups.insert({  });
+await gapi.client.youtubeanalytics.groups.insert({  });
 
 /*
 Returns a collection of groups that match the API request parameters. For
 example, you can retrieve all groups that the authenticated user owns,
 or you can retrieve one or more groups by their unique IDs.
 */
-await gapi.client.groups.list({  });
+await gapi.client.youtubeanalytics.groups.list({  });
 
 /*
 Modifies a group. For example, you could change a group's title.
 */
-await gapi.client.groups.update({  });
+await gapi.client.youtubeanalytics.groups.update({  });
 
 /*
 Retrieve your YouTube Analytics reports.
 */
-await gapi.client.reports.query({  });
+await gapi.client.youtubeanalytics.reports.query({  });
 ```

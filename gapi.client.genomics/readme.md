@@ -72,7 +72,7 @@ Authorization requires the following [Google IAM](https://cloud.google.com/iam) 
 
 * `genomics.operations.cancel`
 */
-await gapi.client.operations.cancel({ name: "name",  });
+await gapi.client.genomics.operations.cancel({ name: "name",  });
 
 /*
 Gets the latest state of a long-running operation.
@@ -82,7 +82,7 @@ Authorization requires the following [Google IAM](https://cloud.google.com/iam) 
 
 * `genomics.operations.get`
 */
-await gapi.client.operations.get({ name: "name",  });
+await gapi.client.genomics.operations.get({ name: "name",  });
 
 /*
 Lists operations that match the specified filter in the request.
@@ -90,5 +90,5 @@ Authorization requires the following [Google IAM](https://cloud.google.com/iam) 
 
 * `genomics.operations.list`
 */
-await gapi.client.operations.list({ name: "name",  });
+await gapi.client.genomics.operations.list({ name: "name",  });
 ```

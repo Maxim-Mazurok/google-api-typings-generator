@@ -61,15 +61,15 @@ After that you can use Groups Settings API resources:
 /*
 Gets one resource by id.
 */
-await gapi.client.groups.get({ groupUniqueId: "groupUniqueId",  });
+await gapi.client.groupssettings.groups.get({ groupUniqueId: "groupUniqueId",  });
 
 /*
 Updates an existing resource. This method supports patch semantics.
 */
-await gapi.client.groups.patch({ groupUniqueId: "groupUniqueId",  });
+await gapi.client.groupssettings.groups.patch({ groupUniqueId: "groupUniqueId",  });
 
 /*
 Updates an existing resource.
 */
-await gapi.client.groups.update({ groupUniqueId: "groupUniqueId",  });
+await gapi.client.groupssettings.groups.update({ groupUniqueId: "groupUniqueId",  });
 ```

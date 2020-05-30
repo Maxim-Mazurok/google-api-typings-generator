@@ -61,43 +61,43 @@ After that you can use SAS Portal API resources:
 /*
 Returns a requested customer.
 */
-await gapi.client.customers.get({ name: "name",  });
+await gapi.client.sasportal.customers.get({ name: "name",  });
 
 /*
 Returns a list of requested customers.
 */
-await gapi.client.customers.list({  });
+await gapi.client.sasportal.customers.list({  });
 
 /*
 Updates an existing customer.
 */
-await gapi.client.customers.patch({ name: "name",  });
+await gapi.client.sasportal.customers.patch({ name: "name",  });
 
 /*
 Generates a secret to be used with the ValidateInstaller method
 */
-await gapi.client.installer.generateSecret({  });
+await gapi.client.sasportal.installer.generateSecret({  });
 
 /*
 Validates the identity of a Certified Professional Installer (CPI).
 */
-await gapi.client.installer.validate({  });
+await gapi.client.sasportal.installer.validate({  });
 
 /*
 Gets the access control policy for a resource.
 Returns an empty policy if the resource exists and does not have a policy
 set.
 */
-await gapi.client.policies.get({  });
+await gapi.client.sasportal.policies.get({  });
 
 /*
 Sets the access control policy on the specified resource. Replaces any
 existing policy.
 */
-await gapi.client.policies.set({  });
+await gapi.client.sasportal.policies.set({  });
 
 /*
 Returns permissions that a caller has on the specified resource.
 */
-await gapi.client.policies.test({  });
+await gapi.client.sasportal.policies.test({  });
 ```

@@ -64,31 +64,31 @@ After that you can use YouTube Reporting API resources:
 /*
 Creates a job and returns it.
 */
-await gapi.client.jobs.create({  });
+await gapi.client.youtubereporting.jobs.create({  });
 
 /*
 Deletes a job.
 */
-await gapi.client.jobs.delete({ jobId: "jobId",  });
+await gapi.client.youtubereporting.jobs.delete({ jobId: "jobId",  });
 
 /*
 Gets a job.
 */
-await gapi.client.jobs.get({ jobId: "jobId",  });
+await gapi.client.youtubereporting.jobs.get({ jobId: "jobId",  });
 
 /*
 Lists jobs.
 */
-await gapi.client.jobs.list({  });
+await gapi.client.youtubereporting.jobs.list({  });
 
 /*
 Method for media download. Download is supported
 on the URI `/v1/media/{+name}?alt=media`.
 */
-await gapi.client.media.download({ resourceName: "resourceName",  });
+await gapi.client.youtubereporting.media.download({ resourceName: "resourceName",  });
 
 /*
 Lists report types.
 */
-await gapi.client.reportTypes.list({  });
+await gapi.client.youtubereporting.reportTypes.list({  });
 ```

@@ -70,30 +70,30 @@ After that you can use Cloud Monitoring API resources:
 /*
 Create a Service.
 */
-await gapi.client.services.create({ parent: "parent",  });
+await gapi.client.monitoring.services.create({ parent: "parent",  });
 
 /*
 Soft delete this Service.
 */
-await gapi.client.services.delete({ name: "name",  });
+await gapi.client.monitoring.services.delete({ name: "name",  });
 
 /*
 Get the named Service.
 */
-await gapi.client.services.get({ name: "name",  });
+await gapi.client.monitoring.services.get({ name: "name",  });
 
 /*
 List Services for this workspace.
 */
-await gapi.client.services.list({ parent: "parent",  });
+await gapi.client.monitoring.services.list({ parent: "parent",  });
 
 /*
 Update this Service.
 */
-await gapi.client.services.patch({ name: "name",  });
+await gapi.client.monitoring.services.patch({ name: "name",  });
 
 /*
 Returns the list of IP addresses that checkers run from
 */
-await gapi.client.uptimeCheckIps.list({  });
+await gapi.client.monitoring.uptimeCheckIps.list({  });
 ```

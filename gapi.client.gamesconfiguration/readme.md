@@ -61,55 +61,55 @@ After that you can use Google Play Game Services Publishing API resources:
 /*
 Delete the achievement configuration with the given ID.
 */
-await gapi.client.achievementConfigurations.delete({ achievementId: "achievementId",  });
+await gapi.client.gamesconfiguration.achievementConfigurations.delete({ achievementId: "achievementId",  });
 
 /*
 Retrieves the metadata of the achievement configuration with the given ID.
 */
-await gapi.client.achievementConfigurations.get({ achievementId: "achievementId",  });
+await gapi.client.gamesconfiguration.achievementConfigurations.get({ achievementId: "achievementId",  });
 
 /*
 Insert a new achievement configuration in this application.
 */
-await gapi.client.achievementConfigurations.insert({ applicationId: "applicationId",  });
+await gapi.client.gamesconfiguration.achievementConfigurations.insert({ applicationId: "applicationId",  });
 
 /*
 Returns a list of the achievement configurations in this application.
 */
-await gapi.client.achievementConfigurations.list({ applicationId: "applicationId",  });
+await gapi.client.gamesconfiguration.achievementConfigurations.list({ applicationId: "applicationId",  });
 
 /*
 Update the metadata of the achievement configuration with the given ID.
 */
-await gapi.client.achievementConfigurations.update({ achievementId: "achievementId",  });
+await gapi.client.gamesconfiguration.achievementConfigurations.update({ achievementId: "achievementId",  });
 
 /*
 Uploads an image for a resource with the given ID and image type.
 */
-await gapi.client.imageConfigurations.upload({ imageType: "imageType", resourceId: "resourceId",  });
+await gapi.client.gamesconfiguration.imageConfigurations.upload({ imageType: "imageType", resourceId: "resourceId",  });
 
 /*
 Delete the leaderboard configuration with the given ID.
 */
-await gapi.client.leaderboardConfigurations.delete({ leaderboardId: "leaderboardId",  });
+await gapi.client.gamesconfiguration.leaderboardConfigurations.delete({ leaderboardId: "leaderboardId",  });
 
 /*
 Retrieves the metadata of the leaderboard configuration with the given ID.
 */
-await gapi.client.leaderboardConfigurations.get({ leaderboardId: "leaderboardId",  });
+await gapi.client.gamesconfiguration.leaderboardConfigurations.get({ leaderboardId: "leaderboardId",  });
 
 /*
 Insert a new leaderboard configuration in this application.
 */
-await gapi.client.leaderboardConfigurations.insert({ applicationId: "applicationId",  });
+await gapi.client.gamesconfiguration.leaderboardConfigurations.insert({ applicationId: "applicationId",  });
 
 /*
 Returns a list of the leaderboard configurations in this application.
 */
-await gapi.client.leaderboardConfigurations.list({ applicationId: "applicationId",  });
+await gapi.client.gamesconfiguration.leaderboardConfigurations.list({ applicationId: "applicationId",  });
 
 /*
 Update the metadata of the leaderboard configuration with the given ID.
 */
-await gapi.client.leaderboardConfigurations.update({ leaderboardId: "leaderboardId",  });
+await gapi.client.gamesconfiguration.leaderboardConfigurations.update({ leaderboardId: "leaderboardId",  });
 ```

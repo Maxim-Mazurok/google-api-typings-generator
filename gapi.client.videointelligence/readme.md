@@ -64,5 +64,5 @@ retrieved through the `google.longrunning.Operations` interface.
 `Operation.metadata` contains `AnnotateVideoProgress` (progress).
 `Operation.response` contains `AnnotateVideoResponse` (results).
 */
-await gapi.client.videos.annotate({  });
+await gapi.client.videointelligence.videos.annotate({  });
 ```

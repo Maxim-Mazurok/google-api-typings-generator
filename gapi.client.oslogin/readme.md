@@ -65,12 +65,12 @@ After that you can use Cloud OS Login API resources:
 Retrieves the profile information used for logging in to a virtual machine
 on Google Compute Engine.
 */
-await gapi.client.users.getLoginProfile({ name: "name",  });
+await gapi.client.oslogin.users.getLoginProfile({ name: "name",  });
 
 /*
 Adds an SSH public key and returns the profile information. Default POSIX
 account information is set when no username and UID exist as part of the
 login profile.
 */
-await gapi.client.users.importSshPublicKey({ parent: "parent",  });
+await gapi.client.oslogin.users.importSshPublicKey({ parent: "parent",  });
 ```

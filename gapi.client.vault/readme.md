@@ -64,49 +64,49 @@ After that you can use G Suite Vault API resources:
 /*
 Adds an account as a matter collaborator.
 */
-await gapi.client.matters.addPermissions({ matterId: "matterId",  });
+await gapi.client.vault.matters.addPermissions({ matterId: "matterId",  });
 
 /*
 Closes the specified matter. Returns matter with updated state.
 */
-await gapi.client.matters.close({ matterId: "matterId",  });
+await gapi.client.vault.matters.close({ matterId: "matterId",  });
 
 /*
 Creates a new matter with the given name and description. The initial state
 is open, and the owner is the method caller. Returns the created matter
 with default view.
 */
-await gapi.client.matters.create({  });
+await gapi.client.vault.matters.create({  });
 
 /*
 Deletes the specified matter. Returns matter with updated state.
 */
-await gapi.client.matters.delete({ matterId: "matterId",  });
+await gapi.client.vault.matters.delete({ matterId: "matterId",  });
 
 /*
 Gets the specified matter.
 */
-await gapi.client.matters.get({ matterId: "matterId",  });
+await gapi.client.vault.matters.get({ matterId: "matterId",  });
 
 /*
 Lists matters the user has access to.
 */
-await gapi.client.matters.list({  });
+await gapi.client.vault.matters.list({  });
 
 /*
 Removes an account as a matter collaborator.
 */
-await gapi.client.matters.removePermissions({ matterId: "matterId",  });
+await gapi.client.vault.matters.removePermissions({ matterId: "matterId",  });
 
 /*
 Reopens the specified matter. Returns matter with updated state.
 */
-await gapi.client.matters.reopen({ matterId: "matterId",  });
+await gapi.client.vault.matters.reopen({ matterId: "matterId",  });
 
 /*
 Undeletes the specified matter. Returns matter with updated state.
 */
-await gapi.client.matters.undelete({ matterId: "matterId",  });
+await gapi.client.vault.matters.undelete({ matterId: "matterId",  });
 
 /*
 Updates the specified matter.
@@ -114,7 +114,7 @@ This updates only the name and description of the matter, identified by
 matter ID. Changes to any other fields are ignored.
 Returns the default view of the matter.
 */
-await gapi.client.matters.update({ matterId: "matterId",  });
+await gapi.client.vault.matters.update({ matterId: "matterId",  });
 
 /*
 Deletes a long-running operation. This method indicates that the client is
@@ -122,5 +122,5 @@ no longer interested in the operation result. It does not cancel the
 operation. If the server doesn't support this method, it returns
 `google.rpc.Code.UNIMPLEMENTED`.
 */
-await gapi.client.operations.delete({ name: "name",  });
+await gapi.client.vault.operations.delete({ name: "name",  });
 ```

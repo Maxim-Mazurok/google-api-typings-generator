@@ -66,18 +66,18 @@ After that you can use Cloud Datastore API resources:
 Allocates IDs for the given keys, which is useful for referencing an entity
 before it is inserted.
 */
-await gapi.client.projects.allocateIds({ projectId: "projectId",  });
+await gapi.client.datastore.projects.allocateIds({ projectId: "projectId",  });
 
 /*
 Begins a new transaction.
 */
-await gapi.client.projects.beginTransaction({ projectId: "projectId",  });
+await gapi.client.datastore.projects.beginTransaction({ projectId: "projectId",  });
 
 /*
 Commits a transaction, optionally creating, deleting or modifying some
 entities.
 */
-await gapi.client.projects.commit({ projectId: "projectId",  });
+await gapi.client.datastore.projects.commit({ projectId: "projectId",  });
 
 /*
 Exports a copy of all or a subset of entities from Google Cloud Datastore
@@ -89,7 +89,7 @@ used once the associated operation is done. If an export operation is
 cancelled before completion it may leave partial data behind in Google
 Cloud Storage.
 */
-await gapi.client.projects.export({ projectId: "projectId",  });
+await gapi.client.datastore.projects.export({ projectId: "projectId",  });
 
 /*
 Imports entities into Google Cloud Datastore. Existing entities with the
@@ -98,26 +98,26 @@ progress can be monitored and managed via the Operation resource that is
 created. If an ImportEntities operation is cancelled, it is possible
 that a subset of the data has already been imported to Cloud Datastore.
 */
-await gapi.client.projects.import({ projectId: "projectId",  });
+await gapi.client.datastore.projects.import({ projectId: "projectId",  });
 
 /*
 Looks up entities by key.
 */
-await gapi.client.projects.lookup({ projectId: "projectId",  });
+await gapi.client.datastore.projects.lookup({ projectId: "projectId",  });
 
 /*
 Prevents the supplied keys' IDs from being auto-allocated by Cloud
 Datastore.
 */
-await gapi.client.projects.reserveIds({ projectId: "projectId",  });
+await gapi.client.datastore.projects.reserveIds({ projectId: "projectId",  });
 
 /*
 Rolls back a transaction.
 */
-await gapi.client.projects.rollback({ projectId: "projectId",  });
+await gapi.client.datastore.projects.rollback({ projectId: "projectId",  });
 
 /*
 Queries for entities.
 */
-await gapi.client.projects.runQuery({ projectId: "projectId",  });
+await gapi.client.datastore.projects.runQuery({ projectId: "projectId",  });
 ```

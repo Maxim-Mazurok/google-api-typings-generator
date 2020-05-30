@@ -40,5 +40,5 @@ After that you can use Google Fonts Developer API resources:
 /*
 Retrieves the list of fonts currently served by the Google Fonts Developer API
 */
-await gapi.client.webfonts.list({  });
+await gapi.client.webfonts.webfonts.list({  });
 ```

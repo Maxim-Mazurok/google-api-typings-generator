@@ -72,12 +72,12 @@ Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.operations.get({ name: "name",  });
+await gapi.client.servicemanagement.operations.get({ name: "name",  });
 
 /*
 Lists service operations that match the specified filter in the request.
 */
-await gapi.client.operations.list({  });
+await gapi.client.servicemanagement.operations.list({  });
 
 /*
 Creates a new managed service.
@@ -92,7 +92,7 @@ dedicated producer project.
 
 Operation<response: ManagedService>
 */
-await gapi.client.services.create({  });
+await gapi.client.servicemanagement.services.create({  });
 
 /*
 Deletes a managed service. This method will change the service to the
@@ -102,7 +102,7 @@ After 30 days, the service will be permanently deleted.
 
 Operation<response: google.protobuf.Empty>
 */
-await gapi.client.services.delete({ serviceName: "serviceName",  });
+await gapi.client.servicemanagement.services.delete({ serviceName: "serviceName",  });
 
 /*
 Disables a service for a project, so it can no longer be
@@ -111,7 +111,7 @@ unexpected billing charges or security leaks.
 
 Operation<response: DisableServiceResponse>
 */
-await gapi.client.services.disable({ serviceName: "serviceName",  });
+await gapi.client.servicemanagement.services.disable({ serviceName: "serviceName",  });
 
 /*
 Enables a service for a project, so it can be used
@@ -121,7 +121,7 @@ more information.
 
 Operation<response: EnableServiceResponse>
 */
-await gapi.client.services.enable({ serviceName: "serviceName",  });
+await gapi.client.servicemanagement.services.enable({ serviceName: "serviceName",  });
 
 /*
 Generates and returns a report (errors, warnings and changes from
@@ -136,25 +136,25 @@ If GenerateConfigReportRequest.old_value is not specified, this method
 will compare GenerateConfigReportRequest.new_value with the last pushed
 service configuration.
 */
-await gapi.client.services.generateConfigReport({  });
+await gapi.client.servicemanagement.services.generateConfigReport({  });
 
 /*
 Gets a managed service. Authentication is required unless the service is
 public.
 */
-await gapi.client.services.get({ serviceName: "serviceName",  });
+await gapi.client.servicemanagement.services.get({ serviceName: "serviceName",  });
 
 /*
 Gets a service configuration (version) for a managed service.
 */
-await gapi.client.services.getConfig({ serviceName: "serviceName",  });
+await gapi.client.servicemanagement.services.getConfig({ serviceName: "serviceName",  });
 
 /*
 Gets the access control policy for a resource.
 Returns an empty policy if the resource exists and does not have a policy
 set.
 */
-await gapi.client.services.getIamPolicy({ resource: "resource",  });
+await gapi.client.servicemanagement.services.getIamPolicy({ resource: "resource",  });
 
 /*
 Lists managed services.
@@ -167,7 +167,7 @@ for.
 services enabled on the consumer. The `consumer_id` must have the format
 of "project:{PROJECT-ID}".
 */
-await gapi.client.services.list({  });
+await gapi.client.servicemanagement.services.list({  });
 
 /*
 Sets the access control policy on the specified resource. Replaces any
@@ -175,7 +175,7 @@ existing policy.
 
 Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
 */
-await gapi.client.services.setIamPolicy({ resource: "resource",  });
+await gapi.client.servicemanagement.services.setIamPolicy({ resource: "resource",  });
 
 /*
 Returns permissions that a caller has on the specified resource.
@@ -186,7 +186,7 @@ Note: This operation is designed to be used for building permission-aware
 UIs and command-line tools, not for authorization checking. This operation
 may "fail open" without warning.
 */
-await gapi.client.services.testIamPermissions({ resource: "resource",  });
+await gapi.client.servicemanagement.services.testIamPermissions({ resource: "resource",  });
 
 /*
 Revives a previously deleted managed service. The method restores the
@@ -196,5 +196,5 @@ last 30 days.
 
 Operation<response: UndeleteServiceResponse>
 */
-await gapi.client.services.undelete({ serviceName: "serviceName",  });
+await gapi.client.servicemanagement.services.undelete({ serviceName: "serviceName",  });
 ```

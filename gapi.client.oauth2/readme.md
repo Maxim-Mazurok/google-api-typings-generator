@@ -67,5 +67,5 @@ After that you can use Google OAuth2 API resources:
 /*
 undefined
 */
-await gapi.client.userinfo.get({  });
+await gapi.client.oauth2.userinfo.get({  });
 ```

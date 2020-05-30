@@ -61,5 +61,5 @@ After that you can use Groups Migration API resources:
 /*
 Inserts a new mail into the archive of the Google group.
 */
-await gapi.client.archive.insert({ groupId: "groupId",  });
+await gapi.client.groupsmigration.archive.insert({ groupId: "groupId",  });
 ```

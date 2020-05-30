@@ -62,7 +62,7 @@ third party.  For more information, see the [Digital Asset Links technical
 design
 specification](https://github.com/google/digitalassetlinks/blob/master/well-known/details.md).
 */
-await gapi.client.assetlinks.check({  });
+await gapi.client.digitalassetlinks.assetlinks.check({  });
 
 /*
 Retrieves a list of all statements from a given source that match the
@@ -83,5 +83,5 @@ helps users navigate to related items.  When a mobile app is running on a
 device, the feature would make it easy to navigate to the corresponding web
 site or Google+ profile.
 */
-await gapi.client.statements.list({  });
+await gapi.client.digitalassetlinks.statements.list({  });
 ```

@@ -42,5 +42,5 @@ After that you can use Accelerated Mobile Pages (AMP) URL API resources:
 Returns AMP URL(s) and equivalent
 [AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).
 */
-await gapi.client.ampUrls.batchGet({  });
+await gapi.client.acceleratedmobilepageurl.ampUrls.batchGet({  });
 ```

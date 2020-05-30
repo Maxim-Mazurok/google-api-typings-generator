@@ -80,15 +80,15 @@ After that you can use Tag Manager API resources:
 /*
 Gets a GTM Account.
 */
-await gapi.client.accounts.get({ path: "path",  });
+await gapi.client.tagmanager.accounts.get({ path: "path",  });
 
 /*
 Lists all GTM Accounts that a user has access to.
 */
-await gapi.client.accounts.list({  });
+await gapi.client.tagmanager.accounts.list({  });
 
 /*
 Updates a GTM Account.
 */
-await gapi.client.accounts.update({ path: "path",  });
+await gapi.client.tagmanager.accounts.update({ path: "path",  });
 ```

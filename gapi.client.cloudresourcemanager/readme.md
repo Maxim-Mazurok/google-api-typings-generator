@@ -90,7 +90,7 @@ field.
 The caller must have `resourcemanager.folders.create` permission on the
 identified parent.
 */
-await gapi.client.folders.create({  });
+await gapi.client.cloudresourcemanager.folders.create({  });
 
 /*
 Requests deletion of a Folder. The Folder is moved into the
@@ -103,7 +103,7 @@ ACTIVE state.
 The caller must have `resourcemanager.folders.delete` permission on the
 identified folder.
 */
-await gapi.client.folders.delete({ name: "name",  });
+await gapi.client.cloudresourcemanager.folders.delete({ name: "name",  });
 
 /*
 Retrieves a Folder identified by the supplied resource name.
@@ -112,7 +112,7 @@ Valid Folder resource names have the format `folders/{folder_id}`
 The caller must have `resourcemanager.folders.get` permission on the
 identified folder.
 */
-await gapi.client.folders.get({ name: "name",  });
+await gapi.client.cloudresourcemanager.folders.get({ name: "name",  });
 
 /*
 Gets the access control policy for a Folder. The returned policy may be
@@ -121,7 +121,7 @@ be the Folder's resource name, e.g. "folders/1234".
 The caller must have `resourcemanager.folders.getIamPolicy` permission
 on the identified folder.
 */
-await gapi.client.folders.getIamPolicy({ resource: "resource",  });
+await gapi.client.cloudresourcemanager.folders.getIamPolicy({ resource: "resource",  });
 
 /*
 Lists the Folders that are direct descendants of supplied parent resource.
@@ -132,7 +132,7 @@ of their display_name.
 The caller must have `resourcemanager.folders.list` permission on the
 identified parent.
 */
-await gapi.client.folders.list({  });
+await gapi.client.cloudresourcemanager.folders.list({  });
 
 /*
 Moves a Folder under a new resource parent.
@@ -153,7 +153,7 @@ CreateFolder documentation.
 The caller must have `resourcemanager.folders.move` permission on the
 folder's current and proposed new parent.
 */
-await gapi.client.folders.move({ name: "name",  });
+await gapi.client.cloudresourcemanager.folders.move({ name: "name",  });
 
 /*
 Updates a Folder, changing its display_name.
@@ -172,7 +172,7 @@ If the update fails due to the unique name constraint then a
 PreconditionFailure explaining this violation will be returned
 in the Status.details field.
 */
-await gapi.client.folders.patch({ name: "name",  });
+await gapi.client.cloudresourcemanager.folders.patch({ name: "name",  });
 
 /*
 Search for folders that match specific filter criteria.
@@ -182,7 +182,7 @@ access to which meet the specified filter criteria.
 This will only return folders on which the caller has the
 permission `resourcemanager.folders.get`.
 */
-await gapi.client.folders.search({  });
+await gapi.client.cloudresourcemanager.folders.search({  });
 
 /*
 Sets the access control policy on a Folder, replacing any existing policy.
@@ -191,7 +191,7 @@ The `resource` field should be the Folder's resource name, e.g.
 The caller must have `resourcemanager.folders.setIamPolicy` permission
 on the identified folder.
 */
-await gapi.client.folders.setIamPolicy({ resource: "resource",  });
+await gapi.client.cloudresourcemanager.folders.setIamPolicy({ resource: "resource",  });
 
 /*
 Returns permissions that a caller has on the specified Folder.
@@ -200,7 +200,7 @@ e.g. "folders/1234".
 
 There are no permissions required for making this API call.
 */
-await gapi.client.folders.testIamPermissions({ resource: "resource",  });
+await gapi.client.cloudresourcemanager.folders.testIamPermissions({ resource: "resource",  });
 
 /*
 Cancels the deletion request for a Folder. This method may only be
@@ -214,12 +214,12 @@ CreateFolder documentation.
 The caller must have `resourcemanager.folders.undelete` permission on the
 identified folder.
 */
-await gapi.client.folders.undelete({ name: "name",  });
+await gapi.client.cloudresourcemanager.folders.undelete({ name: "name",  });
 
 /*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.operations.get({ name: "name",  });
+await gapi.client.cloudresourcemanager.operations.get({ name: "name",  });
 ```

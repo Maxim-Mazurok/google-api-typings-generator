@@ -62,34 +62,34 @@ After that you can use Cloud Asset API resources:
 Creates a feed in a parent project/folder/organization to listen to its
 asset updates.
 */
-await gapi.client.feeds.create({ parent: "parent",  });
+await gapi.client.cloudasset.feeds.create({ parent: "parent",  });
 
 /*
 Deletes an asset feed.
 */
-await gapi.client.feeds.delete({ name: "name",  });
+await gapi.client.cloudasset.feeds.delete({ name: "name",  });
 
 /*
 Gets details about an asset feed.
 */
-await gapi.client.feeds.get({ name: "name",  });
+await gapi.client.cloudasset.feeds.get({ name: "name",  });
 
 /*
 Lists all asset feeds in a parent project/folder/organization.
 */
-await gapi.client.feeds.list({ parent: "parent",  });
+await gapi.client.cloudasset.feeds.list({ parent: "parent",  });
 
 /*
 Updates an asset feed configuration.
 */
-await gapi.client.feeds.patch({ name: "name",  });
+await gapi.client.cloudasset.feeds.patch({ name: "name",  });
 
 /*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.operations.get({ name: "name",  });
+await gapi.client.cloudasset.operations.get({ name: "name",  });
 
 /*
 Batch gets the update history of assets that overlap a time window.
@@ -100,7 +100,7 @@ attached IAM POLICY both exist. This can create gaps in the output history.
 If a specified asset does not exist, this API returns an INVALID_ARGUMENT
 error.
 */
-await gapi.client.v1.batchGetAssetsHistory({ parent: "parent",  });
+await gapi.client.cloudasset.v1.batchGetAssetsHistory({ parent: "parent",  });
 
 /*
 Exports assets with time and resource types to a given Cloud Storage
@@ -112,7 +112,7 @@ with exponential retry to poll the export operation result. For
 regular-size resource parent, the export operation usually finishes within
 5 minutes.
 */
-await gapi.client.v1.exportAssets({ parent: "parent",  });
+await gapi.client.cloudasset.v1.exportAssets({ parent: "parent",  });
 
 /*
 Searches all the IAM policies within the given accessible scope (e.g., a
@@ -120,7 +120,7 @@ project, a folder or an organization). Callers should have
 cloud.assets.SearchAllIamPolicies permission upon the requested scope,
 otherwise the request will be rejected.
 */
-await gapi.client.v1.searchAllIamPolicies({ scope: "scope",  });
+await gapi.client.cloudasset.v1.searchAllIamPolicies({ scope: "scope",  });
 
 /*
 Searches all the resources within the given accessible scope (e.g., a
@@ -128,5 +128,5 @@ project, a folder or an organization). Callers should have
 cloud.assets.SearchAllResources permission upon the requested scope,
 otherwise the request will be rejected.
 */
-await gapi.client.v1.searchAllResources({ scope: "scope",  });
+await gapi.client.cloudasset.v1.searchAllResources({ scope: "scope",  });
 ```

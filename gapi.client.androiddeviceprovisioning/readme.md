@@ -40,12 +40,12 @@ After that you can use Android Device Provisioning Partner API resources:
 /*
 Lists the user's customer accounts.
 */
-await gapi.client.customers.list({  });
+await gapi.client.androiddeviceprovisioning.customers.list({  });
 
 /*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.operations.get({ name: "name",  });
+await gapi.client.androiddeviceprovisioning.operations.get({ name: "name",  });
 ```

@@ -61,12 +61,12 @@ After that you can use G Suite Alert Center API resources:
 /*
 Performs batch delete operation on alerts.
 */
-await gapi.client.alerts.batchDelete({  });
+await gapi.client.alertcenter.alerts.batchDelete({  });
 
 /*
 Performs batch undelete operation on alerts.
 */
-await gapi.client.alerts.batchUndelete({  });
+await gapi.client.alertcenter.alerts.batchUndelete({  });
 
 /*
 Marks the specified alert for deletion. An alert that has been marked for
@@ -75,24 +75,24 @@ Marking an alert for deletion has no effect on an alert which has
 already been marked for deletion. Attempting to mark a nonexistent alert
 for deletion results in a `NOT_FOUND` error.
 */
-await gapi.client.alerts.delete({ alertId: "alertId",  });
+await gapi.client.alertcenter.alerts.delete({ alertId: "alertId",  });
 
 /*
 Gets the specified alert. Attempting to get a nonexistent alert returns
 `NOT_FOUND` error.
 */
-await gapi.client.alerts.get({ alertId: "alertId",  });
+await gapi.client.alertcenter.alerts.get({ alertId: "alertId",  });
 
 /*
 Returns the metadata of an alert. Attempting to get metadata for
 a non-existent alert returns `NOT_FOUND` error.
 */
-await gapi.client.alerts.getMetadata({ alertId: "alertId",  });
+await gapi.client.alertcenter.alerts.getMetadata({ alertId: "alertId",  });
 
 /*
 Lists the alerts.
 */
-await gapi.client.alerts.list({  });
+await gapi.client.alertcenter.alerts.list({  });
 
 /*
 Restores, or "undeletes", an alert that was marked for deletion within the
@@ -101,15 +101,15 @@ over 30 days ago (which has been removed from the Alert Center database) or
 a nonexistent alert returns a `NOT_FOUND` error. Attempting to
 undelete an alert which has not been marked for deletion has no effect.
 */
-await gapi.client.alerts.undelete({ alertId: "alertId",  });
+await gapi.client.alertcenter.alerts.undelete({ alertId: "alertId",  });
 
 /*
 Returns customer-level settings.
 */
-await gapi.client.v1beta1.getSettings({  });
+await gapi.client.alertcenter.v1beta1.getSettings({  });
 
 /*
 Updates the customer-level settings.
 */
-await gapi.client.v1beta1.updateSettings({  });
+await gapi.client.alertcenter.v1beta1.updateSettings({  });
 ```

@@ -40,10 +40,10 @@ After that you can use Abusive Experience Report API resources:
 /*
 Gets a site's Abusive Experience Report summary.
 */
-await gapi.client.sites.get({ name: "name",  });
+await gapi.client.abusiveexperiencereport.sites.get({ name: "name",  });
 
 /*
 Lists sites that are failing in the Abusive Experience Report.
 */
-await gapi.client.violatingSites.list({  });
+await gapi.client.abusiveexperiencereport.violatingSites.list({  });
 ```

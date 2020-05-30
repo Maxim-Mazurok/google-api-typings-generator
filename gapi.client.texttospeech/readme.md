@@ -62,10 +62,10 @@ After that you can use Cloud Text-to-Speech API resources:
 Synthesizes speech synchronously: receive results after all text input
 has been processed.
 */
-await gapi.client.text.synthesize({  });
+await gapi.client.texttospeech.text.synthesize({  });
 
 /*
 Returns a list of Voice supported for synthesis.
 */
-await gapi.client.voices.list({  });
+await gapi.client.texttospeech.voices.list({  });
 ```

@@ -40,10 +40,10 @@ After that you can use Hangouts Chat API resources:
 /*
 Returns a space.
 */
-await gapi.client.spaces.get({ name: "name",  });
+await gapi.client.chat.spaces.get({ name: "name",  });
 
 /*
 Lists spaces the caller is a member of.
 */
-await gapi.client.spaces.list({  });
+await gapi.client.chat.spaces.list({  });
 ```

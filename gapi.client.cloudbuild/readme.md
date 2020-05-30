@@ -70,14 +70,14 @@ the operation is not deleted; instead, it becomes an operation with
 an Operation.error value with a google.rpc.Status.code of 1,
 corresponding to `Code.CANCELLED`.
 */
-await gapi.client.operations.cancel({ name: "name",  });
+await gapi.client.cloudbuild.operations.cancel({ name: "name",  });
 
 /*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.operations.get({ name: "name",  });
+await gapi.client.cloudbuild.operations.get({ name: "name",  });
 
 /*
 Lists operations that match the specified filter in the request. If the
@@ -91,5 +91,5 @@ For backwards compatibility, the default name includes the operations
 collection id, however overriding users must ensure the name binding
 is the parent resource, without the operations collection id.
 */
-await gapi.client.operations.list({ name: "name",  });
+await gapi.client.cloudbuild.operations.list({ name: "name",  });
 ```

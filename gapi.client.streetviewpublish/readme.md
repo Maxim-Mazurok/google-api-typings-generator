@@ -80,7 +80,7 @@ the uploaded photo is not a 360 photo.
 * google.rpc.Code.RESOURCE_EXHAUSTED if the account has reached the
 storage limit.
 */
-await gapi.client.photo.create({  });
+await gapi.client.streetviewpublish.photo.create({  });
 
 /*
 Deletes a Photo and its metadata.
@@ -91,7 +91,7 @@ This method returns the following error codes:
 create the requested photo.
 * google.rpc.Code.NOT_FOUND if the photo ID does not exist.
 */
-await gapi.client.photo.delete({ photoId: "photoId",  });
+await gapi.client.streetviewpublish.photo.delete({ photoId: "photoId",  });
 
 /*
 Gets the metadata of the specified
@@ -106,7 +106,7 @@ Photo does not exist.
 * google.rpc.Code.UNAVAILABLE if the requested
 Photo is still being indexed.
 */
-await gapi.client.photo.get({ photoId: "photoId",  });
+await gapi.client.streetviewpublish.photo.get({ photoId: "photoId",  });
 
 /*
 Creates an upload session to start uploading photo bytes.  The method uses
@@ -130,7 +130,7 @@ UploadRef with
 CreatePhoto
 to create the Photo object entry.
 */
-await gapi.client.photo.startUpload({  });
+await gapi.client.streetviewpublish.photo.startUpload({  });
 
 /*
 Updates the metadata of a Photo, such
@@ -151,7 +151,7 @@ create the requested photo.
 * google.rpc.Code.UNAVAILABLE if the requested
 Photo is still being indexed.
 */
-await gapi.client.photo.update({ id: "id",  });
+await gapi.client.streetviewpublish.photo.update({ id: "id",  });
 
 /*
 Deletes a list of Photos and their
@@ -171,7 +171,7 @@ See
 DeletePhoto
 for specific failures that can occur per photo.
 */
-await gapi.client.photos.batchDelete({  });
+await gapi.client.streetviewpublish.photos.batchDelete({  });
 
 /*
 Gets the metadata of the specified
@@ -191,7 +191,7 @@ See
 GetPhoto
 for specific failures that can occur per photo.
 */
-await gapi.client.photos.batchGet({  });
+await gapi.client.streetviewpublish.photos.batchGet({  });
 
 /*
 Updates the metadata of Photos, such
@@ -228,7 +228,7 @@ Pose.altitude,
 Pose.latLngPair has to be
 filled as well. Otherwise, the request will fail.</aside>
 */
-await gapi.client.photos.batchUpdate({  });
+await gapi.client.streetviewpublish.photos.batchUpdate({  });
 
 /*
 Lists all the Photos that belong to
@@ -237,5 +237,5 @@ the user.
 <aside class="note"><b>Note:</b> Recently created photos that are still
 being indexed are not returned in the response.</aside>
 */
-await gapi.client.photos.list({  });
+await gapi.client.streetviewpublish.photos.list({  });
 ```

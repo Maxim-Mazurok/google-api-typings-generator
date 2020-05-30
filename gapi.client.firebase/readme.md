@@ -82,14 +82,14 @@ that are available to have Firebase resources added to them.
          that prevent Firebase resources from being added.</p></li>
 </ol>
 */
-await gapi.client.availableProjects.list({  });
+await gapi.client.firebase.availableProjects.list({  });
 
 /*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.operations.get({ name: "name",  });
+await gapi.client.firebase.operations.get({ name: "name",  });
 
 /*
 Adds Firebase resources to the specified existing
@@ -122,7 +122,7 @@ permissions):
 `firebase.projects.update`, `resourcemanager.projects.get`,
 `serviceusage.services.enable`, and `serviceusage.services.get`.
 */
-await gapi.client.projects.addFirebase({ project: "project",  });
+await gapi.client.firebase.projects.addFirebase({ project: "project",  });
 
 /*
 Links a FirebaseProject with an existing
@@ -179,12 +179,12 @@ may have already been enabled in the Firebase console or by specifying
 `timeZone` and `regionCode` in the call to
 [`AddFirebase`](../../v1beta1/projects/addFirebase).
 */
-await gapi.client.projects.addGoogleAnalytics({ parent: "parent",  });
+await gapi.client.firebase.projects.addGoogleAnalytics({ parent: "parent",  });
 
 /*
 Gets the FirebaseProject identified by the specified resource name.
 */
-await gapi.client.projects.get({ name: "name",  });
+await gapi.client.firebase.projects.get({ name: "name",  });
 
 /*
 Gets the configuration artifact used by servers to simplify initialization.
@@ -193,7 +193,7 @@ Gets the configuration artifact used by servers to simplify initialization.
 [initializeApp](https://firebase.google.com/docs/admin/setup#initialize_the_sdk)
 command.
 */
-await gapi.client.projects.getAdminSdkConfig({ name: "name",  });
+await gapi.client.firebase.projects.getAdminSdkConfig({ name: "name",  });
 
 /*
 Gets the Google Analytics details currently associated with a
@@ -202,7 +202,7 @@ FirebaseProject.
 <br>If the `FirebaseProject` is not yet linked to Google Analytics, then
 the response to `GetAnalyticsDetails` is NOT_FOUND.
 */
-await gapi.client.projects.getAnalyticsDetails({ name: "name",  });
+await gapi.client.firebase.projects.getAnalyticsDetails({ name: "name",  });
 
 /*
 Lists each FirebaseProject accessible to the caller.
@@ -220,7 +220,7 @@ include only ACTIVE Projects.
 GetFirebaseProject
 for consistent reads as well as for additional Project details.
 */
-await gapi.client.projects.list({  });
+await gapi.client.firebase.projects.list({  });
 
 /*
 Updates the attributes of the FirebaseProject identified by the
@@ -228,7 +228,7 @@ specified resource name.
 <br>
 <br>All [query parameters](#query-parameters) are required.
 */
-await gapi.client.projects.patch({ name: "name",  });
+await gapi.client.firebase.projects.patch({ name: "name",  });
 
 /*
 Unlinks the specified `FirebaseProject` from its Google Analytics account.
@@ -249,7 +249,7 @@ App.
 <br>To call `RemoveAnalytics`, a member must be an Owner for
 the `FirebaseProject`.
 */
-await gapi.client.projects.removeAnalytics({ parent: "parent",  });
+await gapi.client.firebase.projects.removeAnalytics({ parent: "parent",  });
 
 /*
 A convenience method that lists all available Apps for the specified
@@ -259,5 +259,5 @@ FirebaseProject.
 platform-specific service, but some tool use-cases require a summary of all
 known Apps (such as for App selector interfaces).
 */
-await gapi.client.projects.searchApps({ parent: "parent",  });
+await gapi.client.firebase.projects.searchApps({ parent: "parent",  });
 ```

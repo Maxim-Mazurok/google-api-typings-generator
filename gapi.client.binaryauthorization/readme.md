@@ -68,7 +68,7 @@ requests are permitted if a project has no policy.
 Gets the policy for this project. Returns a default
 policy if the project does not have one.
 */
-await gapi.client.projects.getPolicy({ name: "name",  });
+await gapi.client.binaryauthorization.projects.getPolicy({ name: "name",  });
 
 /*
 Creates or updates a project's policy, and returns a copy of the
@@ -77,5 +77,5 @@ conditions with concurrent policy enforcement (or management!)
 requests. Returns NOT_FOUND if the project does not exist, INVALID_ARGUMENT
 if the request is malformed.
 */
-await gapi.client.projects.updatePolicy({ name: "name",  });
+await gapi.client.binaryauthorization.projects.updatePolicy({ name: "name",  });
 ```

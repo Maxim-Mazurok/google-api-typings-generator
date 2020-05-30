@@ -61,10 +61,10 @@ After that you can use Chrome Verified Access API resources:
 /*
 CreateChallenge API
 */
-await gapi.client.challenge.create({  });
+await gapi.client.verifiedaccess.challenge.create({  });
 
 /*
 VerifyChallengeResponse API
 */
-await gapi.client.challenge.verify({  });
+await gapi.client.verifiedaccess.challenge.verify({  });
 ```

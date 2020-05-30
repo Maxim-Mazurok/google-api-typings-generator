@@ -66,45 +66,45 @@ Query your data with filters and parameters that you define. Returns zero or mor
 
 When date is one of the group by values, any days without data are omitted from the result list. If you need to know which days have data, issue a broad date range query grouped by date for any metric, and see which day rows are returned.
 */
-await gapi.client.searchanalytics.query({ siteUrl: "siteUrl",  });
+await gapi.client.webmasters.searchanalytics.query({ siteUrl: "siteUrl",  });
 
 /*
 Deletes a sitemap from this site.
 */
-await gapi.client.sitemaps.delete({ feedpath: "feedpath", siteUrl: "siteUrl",  });
+await gapi.client.webmasters.sitemaps.delete({ feedpath: "feedpath", siteUrl: "siteUrl",  });
 
 /*
 Retrieves information about a specific sitemap.
 */
-await gapi.client.sitemaps.get({ feedpath: "feedpath", siteUrl: "siteUrl",  });
+await gapi.client.webmasters.sitemaps.get({ feedpath: "feedpath", siteUrl: "siteUrl",  });
 
 /*
 Lists the sitemaps-entries submitted for this site, or included in the sitemap index file (if sitemapIndex is specified in the request).
 */
-await gapi.client.sitemaps.list({ siteUrl: "siteUrl",  });
+await gapi.client.webmasters.sitemaps.list({ siteUrl: "siteUrl",  });
 
 /*
 Submits a sitemap for a site.
 */
-await gapi.client.sitemaps.submit({ feedpath: "feedpath", siteUrl: "siteUrl",  });
+await gapi.client.webmasters.sitemaps.submit({ feedpath: "feedpath", siteUrl: "siteUrl",  });
 
 /*
 Adds a site to the set of the user's sites in Search Console.
 */
-await gapi.client.sites.add({ siteUrl: "siteUrl",  });
+await gapi.client.webmasters.sites.add({ siteUrl: "siteUrl",  });
 
 /*
 Removes a site from the set of the user's Search Console sites.
 */
-await gapi.client.sites.delete({ siteUrl: "siteUrl",  });
+await gapi.client.webmasters.sites.delete({ siteUrl: "siteUrl",  });
 
 /*
 Retrieves information about specific site.
 */
-await gapi.client.sites.get({ siteUrl: "siteUrl",  });
+await gapi.client.webmasters.sites.get({ siteUrl: "siteUrl",  });
 
 /*
 Lists the user's Search Console sites.
 */
-await gapi.client.sites.list({  });
+await gapi.client.webmasters.sites.list({  });
 ```

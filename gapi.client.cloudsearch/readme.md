@@ -106,14 +106,14 @@ For additional information, see
 
   **Note:** This API requires a service account to execute.
 */
-await gapi.client.media.upload({ resourceName: "resourceName",  });
+await gapi.client.cloudsearch.media.upload({ resourceName: "resourceName",  });
 
 /*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.operations.get({ name: "name",  });
+await gapi.client.cloudsearch.operations.get({ name: "name",  });
 
 /*
 The Cloud Search Query API provides the search method, which returns
@@ -127,7 +127,7 @@ service account to perform queries, set up [G Suite domain-wide delegation
 of
 authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
 */
-await gapi.client.query.search({  });
+await gapi.client.cloudsearch.query.search({  });
 
 /*
 Provides suggestions for autocompleting the query.
@@ -138,7 +138,7 @@ service account to perform queries, set up [G Suite domain-wide delegation
 of
 authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
 */
-await gapi.client.query.suggest({  });
+await gapi.client.cloudsearch.query.suggest({  });
 
 /*
 Gets indexed item statistics aggreggated across all data sources. This
@@ -147,14 +147,14 @@ statistics for the current day.
 
 **Note:** This API requires a standard end user account to execute.
 */
-await gapi.client.stats.getIndex({  });
+await gapi.client.cloudsearch.stats.getIndex({  });
 
 /*
 Get the query statistics for customer.
 
 **Note:** This API requires a standard end user account to execute.
 */
-await gapi.client.stats.getQuery({  });
+await gapi.client.cloudsearch.stats.getQuery({  });
 
 /*
 Get the # of search sessions, % of successful sessions with a click query
@@ -162,12 +162,12 @@ statistics for customer.
 
 **Note:** This API requires a standard end user account to execute.
 */
-await gapi.client.stats.getSession({  });
+await gapi.client.cloudsearch.stats.getSession({  });
 
 /*
 Get the users statistics for customer.
 
 **Note:** This API requires a standard end user account to execute.
 */
-await gapi.client.stats.getUser({  });
+await gapi.client.cloudsearch.stats.getUser({  });
 ```

@@ -44,12 +44,12 @@ PRIVATE assets are returned only if
  the currently authenticated user (via OAuth token) is the author of the
  asset.
 */
-await gapi.client.assets.get({ name: "name",  });
+await gapi.client.poly.assets.get({ name: "name",  });
 
 /*
 Lists all public, remixable assets. These are assets with an access level
 of PUBLIC and published under the
 CC-By license.
 */
-await gapi.client.assets.list({  });
+await gapi.client.poly.assets.list({  });
 ```

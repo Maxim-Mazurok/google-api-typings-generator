@@ -71,14 +71,14 @@ typically given to billing account
 This method will return an error if the master account has not been
 provisioned as a reseller account.
 */
-await gapi.client.billingAccounts.create({  });
+await gapi.client.cloudbilling.billingAccounts.create({  });
 
 /*
 Gets information about a billing account. The current authenticated user
 must be a [viewer of the billing
 account](https://cloud.google.com/billing/docs/how-to/billing-access).
 */
-await gapi.client.billingAccounts.get({ name: "name",  });
+await gapi.client.cloudbilling.billingAccounts.get({ name: "name",  });
 
 /*
 Gets the access control policy for a billing account.
@@ -86,14 +86,14 @@ The caller must have the `billing.accounts.getIamPolicy` permission on the
 account, which is often given to billing account
 [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
 */
-await gapi.client.billingAccounts.getIamPolicy({ resource: "resource",  });
+await gapi.client.cloudbilling.billingAccounts.getIamPolicy({ resource: "resource",  });
 
 /*
 Lists the billing accounts that the current authenticated user has
 permission to
 [view](https://cloud.google.com/billing/docs/how-to/billing-access).
 */
-await gapi.client.billingAccounts.list({  });
+await gapi.client.cloudbilling.billingAccounts.list({  });
 
 /*
 Updates a billing account's fields.
@@ -103,7 +103,7 @@ IAM permission, which is typically given to the
 [administrator](https://cloud.google.com/billing/docs/how-to/billing-access)
 of the billing account.
 */
-await gapi.client.billingAccounts.patch({ name: "name",  });
+await gapi.client.cloudbilling.billingAccounts.patch({ name: "name",  });
 
 /*
 Sets the access control policy for a billing account. Replaces any existing
@@ -112,14 +112,14 @@ The caller must have the `billing.accounts.setIamPolicy` permission on the
 account, which is often given to billing account
 [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
 */
-await gapi.client.billingAccounts.setIamPolicy({ resource: "resource",  });
+await gapi.client.cloudbilling.billingAccounts.setIamPolicy({ resource: "resource",  });
 
 /*
 Tests the access control policy for a billing account. This method takes
 the resource and a set of permissions as input and returns the subset of
 the input permissions that the caller is allowed for that resource.
 */
-await gapi.client.billingAccounts.testIamPermissions({ resource: "resource",  });
+await gapi.client.cloudbilling.billingAccounts.testIamPermissions({ resource: "resource",  });
 
 /*
 Gets the billing information for a project. The current authenticated user
@@ -127,7 +127,7 @@ must have [permission to view the
 project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
 ).
 */
-await gapi.client.projects.getBillingInfo({ name: "name",  });
+await gapi.client.cloudbilling.projects.getBillingInfo({ name: "name",  });
 
 /*
 Sets or updates the billing account associated with a project. You specify
@@ -162,10 +162,10 @@ resources used by the project will be shut down. Thus, unless you wish to
 disable billing, you should always call this method with the name of an
 *open* billing account.
 */
-await gapi.client.projects.updateBillingInfo({ name: "name",  });
+await gapi.client.cloudbilling.projects.updateBillingInfo({ name: "name",  });
 
 /*
 Lists all public cloud services.
 */
-await gapi.client.services.list({  });
+await gapi.client.cloudbilling.services.list({  });
 ```

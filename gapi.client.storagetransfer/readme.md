@@ -68,22 +68,22 @@ ACLs to grant access to Storage Transfer Service. This service
 account is created and owned by Storage Transfer Service and can
 only be used by Storage Transfer Service.
 */
-await gapi.client.googleServiceAccounts.get({ projectId: "projectId",  });
+await gapi.client.storagetransfer.googleServiceAccounts.get({ projectId: "projectId",  });
 
 /*
 Creates a transfer job that runs periodically.
 */
-await gapi.client.transferJobs.create({  });
+await gapi.client.storagetransfer.transferJobs.create({  });
 
 /*
 Gets a transfer job.
 */
-await gapi.client.transferJobs.get({ jobName: "jobName",  });
+await gapi.client.storagetransfer.transferJobs.get({ jobName: "jobName",  });
 
 /*
 Lists transfer jobs.
 */
-await gapi.client.transferJobs.list({  });
+await gapi.client.storagetransfer.transferJobs.list({  });
 
 /*
 Updates a transfer job. Updating a job's transfer spec does not affect
@@ -96,32 +96,32 @@ DELETED,
 DISABLED, or
 ENABLED).
 */
-await gapi.client.transferJobs.patch({ jobName: "jobName",  });
+await gapi.client.storagetransfer.transferJobs.patch({ jobName: "jobName",  });
 
 /*
 Cancels a transfer. Use the get method to check whether the cancellation succeeded or whether the operation completed despite cancellation.
 */
-await gapi.client.transferOperations.cancel({ name: "name",  });
+await gapi.client.storagetransfer.transferOperations.cancel({ name: "name",  });
 
 /*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.transferOperations.get({ name: "name",  });
+await gapi.client.storagetransfer.transferOperations.get({ name: "name",  });
 
 /*
 Lists transfer operations.
 */
-await gapi.client.transferOperations.list({ name: "name",  });
+await gapi.client.storagetransfer.transferOperations.list({ name: "name",  });
 
 /*
 Pauses a transfer operation.
 */
-await gapi.client.transferOperations.pause({ name: "name",  });
+await gapi.client.storagetransfer.transferOperations.pause({ name: "name",  });
 
 /*
 Resumes a transfer operation that is paused.
 */
-await gapi.client.transferOperations.resume({ name: "name",  });
+await gapi.client.storagetransfer.transferOperations.resume({ name: "name",  });
 ```

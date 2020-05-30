@@ -65,7 +65,7 @@ once the `AccessPolicy` has propagated to long-lasting storage.
 Syntactic and basic semantic errors will be returned in `metadata` as a
 BadRequest proto.
 */
-await gapi.client.accessPolicies.create({  });
+await gapi.client.accesscontextmanager.accessPolicies.create({  });
 
 /*
 Delete an AccessPolicy by resource
@@ -73,18 +73,18 @@ name. The longrunning Operation will have a successful status once the
 AccessPolicy
 has been removed from long-lasting storage.
 */
-await gapi.client.accessPolicies.delete({ name: "name",  });
+await gapi.client.accesscontextmanager.accessPolicies.delete({ name: "name",  });
 
 /*
 Get an AccessPolicy by name.
 */
-await gapi.client.accessPolicies.get({ name: "name",  });
+await gapi.client.accesscontextmanager.accessPolicies.get({ name: "name",  });
 
 /*
 List all AccessPolicies under a
 container.
 */
-await gapi.client.accessPolicies.list({  });
+await gapi.client.accesscontextmanager.accessPolicies.list({  });
 
 /*
 Update an AccessPolicy. The
@@ -93,7 +93,7 @@ changes to the AccessPolicy have propagated
 to long-lasting storage. Syntactic and basic semantic errors will be
 returned in `metadata` as a BadRequest proto.
 */
-await gapi.client.accessPolicies.patch({ name: "name",  });
+await gapi.client.accesscontextmanager.accessPolicies.patch({ name: "name",  });
 
 /*
 Starts asynchronous cancellation on a long-running operation.  The server
@@ -107,7 +107,7 @@ the operation is not deleted; instead, it becomes an operation with
 an Operation.error value with a google.rpc.Status.code of 1,
 corresponding to `Code.CANCELLED`.
 */
-await gapi.client.operations.cancel({ name: "name",  });
+await gapi.client.accesscontextmanager.operations.cancel({ name: "name",  });
 
 /*
 Deletes a long-running operation. This method indicates that the client is
@@ -115,14 +115,14 @@ no longer interested in the operation result. It does not cancel the
 operation. If the server doesn't support this method, it returns
 `google.rpc.Code.UNIMPLEMENTED`.
 */
-await gapi.client.operations.delete({ name: "name",  });
+await gapi.client.accesscontextmanager.operations.delete({ name: "name",  });
 
 /*
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 */
-await gapi.client.operations.get({ name: "name",  });
+await gapi.client.accesscontextmanager.operations.get({ name: "name",  });
 
 /*
 Lists operations that match the specified filter in the request. If the
@@ -136,5 +136,5 @@ For backwards compatibility, the default name includes the operations
 collection id, however overriding users must ensure the name binding
 is the parent resource, without the operations collection id.
 */
-await gapi.client.operations.list({ name: "name",  });
+await gapi.client.accesscontextmanager.operations.list({ name: "name",  });
 ```

@@ -74,7 +74,7 @@ permission on the specified service. For more information, see
 reliability, the server may inject these errors to prohibit any hard
 dependency on the quota functionality.
 */
-await gapi.client.services.allocateQuota({ serviceName: "serviceName",  });
+await gapi.client.servicecontrol.services.allocateQuota({ serviceName: "serviceName",  });
 
 /*
 Checks whether an operation on a service should be allowed to proceed
@@ -94,7 +94,7 @@ This method requires the `servicemanagement.services.check` permission
 on the specified service. For more information, see
 [Cloud IAM](https://cloud.google.com/iam).
 */
-await gapi.client.services.check({ serviceName: "serviceName",  });
+await gapi.client.servicecontrol.services.check({ serviceName: "serviceName",  });
 
 /*
 Reports operation results to Google Service Control, such as logs and
@@ -113,5 +113,5 @@ This method requires the `servicemanagement.services.report` permission
 on the specified service. For more information, see
 [Google Cloud IAM](https://cloud.google.com/iam).
 */
-await gapi.client.services.report({ serviceName: "serviceName",  });
+await gapi.client.servicecontrol.services.report({ serviceName: "serviceName",  });
 ```

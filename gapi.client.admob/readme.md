@@ -41,11 +41,11 @@ After that you can use AdMob API resources:
 /*
 Gets information about the specified AdMob publisher account.
 */
-await gapi.client.accounts.get({ name: "name",  });
+await gapi.client.admob.accounts.get({ name: "name",  });
 
 /*
 Lists the AdMob publisher account accessible with the client credential.
 Currently, all credentials have access to at most one AdMob account.
 */
-await gapi.client.accounts.list({  });
+await gapi.client.admob.accounts.list({  });
 ```

@@ -66,18 +66,18 @@ Approval disabled. If Access Approval is enabled at a higher level of the
 hierarchy, then Access Approval will still be enabled at this level as
 the settings are inherited.
 */
-await gapi.client.folders.deleteAccessApprovalSettings({ name: "name",  });
+await gapi.client.accessapproval.folders.deleteAccessApprovalSettings({ name: "name",  });
 
 /*
 Gets the settings associated with a project, folder, or organization.
 */
-await gapi.client.folders.getAccessApprovalSettings({ name: "name",  });
+await gapi.client.accessapproval.folders.getAccessApprovalSettings({ name: "name",  });
 
 /*
 Updates the settings associated with a project, folder, or organization.
 Settings to update are determined by the value of field_mask.
 */
-await gapi.client.folders.updateAccessApprovalSettings({ name: "name",  });
+await gapi.client.accessapproval.folders.updateAccessApprovalSettings({ name: "name",  });
 
 /*
 Deletes the settings associated with a project, folder, or organization.
@@ -87,18 +87,18 @@ Approval disabled. If Access Approval is enabled at a higher level of the
 hierarchy, then Access Approval will still be enabled at this level as
 the settings are inherited.
 */
-await gapi.client.organizations.deleteAccessApprovalSettings({ name: "name",  });
+await gapi.client.accessapproval.organizations.deleteAccessApprovalSettings({ name: "name",  });
 
 /*
 Gets the settings associated with a project, folder, or organization.
 */
-await gapi.client.organizations.getAccessApprovalSettings({ name: "name",  });
+await gapi.client.accessapproval.organizations.getAccessApprovalSettings({ name: "name",  });
 
 /*
 Updates the settings associated with a project, folder, or organization.
 Settings to update are determined by the value of field_mask.
 */
-await gapi.client.organizations.updateAccessApprovalSettings({ name: "name",  });
+await gapi.client.accessapproval.organizations.updateAccessApprovalSettings({ name: "name",  });
 
 /*
 Deletes the settings associated with a project, folder, or organization.
@@ -108,16 +108,16 @@ Approval disabled. If Access Approval is enabled at a higher level of the
 hierarchy, then Access Approval will still be enabled at this level as
 the settings are inherited.
 */
-await gapi.client.projects.deleteAccessApprovalSettings({ name: "name",  });
+await gapi.client.accessapproval.projects.deleteAccessApprovalSettings({ name: "name",  });
 
 /*
 Gets the settings associated with a project, folder, or organization.
 */
-await gapi.client.projects.getAccessApprovalSettings({ name: "name",  });
+await gapi.client.accessapproval.projects.getAccessApprovalSettings({ name: "name",  });
 
 /*
 Updates the settings associated with a project, folder, or organization.
 Settings to update are determined by the value of field_mask.
 */
-await gapi.client.projects.updateAccessApprovalSettings({ name: "name",  });
+await gapi.client.accessapproval.projects.updateAccessApprovalSettings({ name: "name",  });
 ```

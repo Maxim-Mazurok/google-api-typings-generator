@@ -70,45 +70,45 @@ After that you can use Google+ API resources:
 /*
 Shut down. See https://developers.google.com/+/api-shutdown for more details.
 */
-await gapi.client.activities.get({ activityId: "activityId",  });
+await gapi.client.plus.activities.get({ activityId: "activityId",  });
 
 /*
 Shut down. See https://developers.google.com/+/api-shutdown for more details.
 */
-await gapi.client.activities.list({ collection: "collection", userId: "userId",  });
+await gapi.client.plus.activities.list({ collection: "collection", userId: "userId",  });
 
 /*
 Shut down. See https://developers.google.com/+/api-shutdown for more details.
 */
-await gapi.client.activities.search({ query: "query",  });
+await gapi.client.plus.activities.search({ query: "query",  });
 
 /*
 Shut down. See https://developers.google.com/+/api-shutdown for more details.
 */
-await gapi.client.comments.get({ commentId: "commentId",  });
+await gapi.client.plus.comments.get({ commentId: "commentId",  });
 
 /*
 Shut down. See https://developers.google.com/+/api-shutdown for more details.
 */
-await gapi.client.comments.list({ activityId: "activityId",  });
+await gapi.client.plus.comments.list({ activityId: "activityId",  });
 
 /*
 Get a person's profile. If your app uses scope https://www.googleapis.com/auth/plus.login, this method is guaranteed to return ageRange and language.
 */
-await gapi.client.people.get({ userId: "userId",  });
+await gapi.client.plus.people.get({ userId: "userId",  });
 
 /*
 List all of the people in the specified collection.
 */
-await gapi.client.people.list({ collection: "collection", userId: "userId",  });
+await gapi.client.plus.people.list({ collection: "collection", userId: "userId",  });
 
 /*
 Shut down. See https://developers.google.com/+/api-shutdown for more details.
 */
-await gapi.client.people.listByActivity({ activityId: "activityId", collection: "collection",  });
+await gapi.client.plus.people.listByActivity({ activityId: "activityId", collection: "collection",  });
 
 /*
 Shut down. See https://developers.google.com/+/api-shutdown for more details.
 */
-await gapi.client.people.search({ query: "query",  });
+await gapi.client.plus.people.search({ query: "query",  });
 ```

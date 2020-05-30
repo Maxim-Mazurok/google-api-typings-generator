@@ -92,51 +92,51 @@ After that you can use People API resources:
 Get a list of contact groups owned by the authenticated user by specifying
 a list of contact group resource names.
 */
-await gapi.client.contactGroups.batchGet({  });
+await gapi.client.people.contactGroups.batchGet({  });
 
 /*
 Create a new contact group owned by the authenticated user.
 */
-await gapi.client.contactGroups.create({  });
+await gapi.client.people.contactGroups.create({  });
 
 /*
 Delete an existing contact group owned by the authenticated user by
 specifying a contact group resource name.
 */
-await gapi.client.contactGroups.delete({ resourceName: "resourceName",  });
+await gapi.client.people.contactGroups.delete({ resourceName: "resourceName",  });
 
 /*
 Get a specific contact group owned by the authenticated user by specifying
 a contact group resource name.
 */
-await gapi.client.contactGroups.get({ resourceName: "resourceName",  });
+await gapi.client.people.contactGroups.get({ resourceName: "resourceName",  });
 
 /*
 List all contact groups owned by the authenticated user. Members of the
 contact groups are not populated.
 */
-await gapi.client.contactGroups.list({  });
+await gapi.client.people.contactGroups.list({  });
 
 /*
 Update the name of an existing contact group owned by the authenticated
 user.
 */
-await gapi.client.contactGroups.update({ resourceName: "resourceName",  });
+await gapi.client.people.contactGroups.update({ resourceName: "resourceName",  });
 
 /*
 Create a new contact and return the person resource for that contact.
 */
-await gapi.client.people.createContact({  });
+await gapi.client.people.people.createContact({  });
 
 /*
 Delete a contact person. Any non-contact data will not be deleted.
 */
-await gapi.client.people.deleteContact({ resourceName: "resourceName",  });
+await gapi.client.people.people.deleteContact({ resourceName: "resourceName",  });
 
 /*
 Delete a contact's photo.
 */
-await gapi.client.people.deleteContactPhoto({ resourceName: "resourceName",  });
+await gapi.client.people.people.deleteContactPhoto({ resourceName: "resourceName",  });
 
 /*
 Provides information about a person by specifying a resource name. Use
@@ -144,7 +144,7 @@ Provides information about a person by specifying a resource name. Use
 
 The request throws a 400 error if 'personFields' is not specified.
 */
-await gapi.client.people.get({ resourceName: "resourceName",  });
+await gapi.client.people.people.get({ resourceName: "resourceName",  });
 
 /*
 Provides information about a list of specific people by specifying a list
@@ -153,7 +153,7 @@ user.
 
 The request throws a 400 error if 'personFields' is not specified.
 */
-await gapi.client.people.getBatchGet({  });
+await gapi.client.people.people.getBatchGet({  });
 
 /*
 Update contact data for an existing contact person. Any non-contact data
@@ -170,10 +170,10 @@ the contact's etag, which indicates the contact has changed since its data
 was read. Clients should get the latest person and re-apply their updates
 to the latest person.
 */
-await gapi.client.people.updateContact({ resourceName: "resourceName",  });
+await gapi.client.people.people.updateContact({ resourceName: "resourceName",  });
 
 /*
 Update a contact's photo.
 */
-await gapi.client.people.updateContactPhoto({ resourceName: "resourceName",  });
+await gapi.client.people.people.updateContactPhoto({ resourceName: "resourceName",  });
 ```

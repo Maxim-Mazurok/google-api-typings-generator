@@ -79,32 +79,32 @@ After that you can use YouTube Data API resources:
 /*
 Returns a list of channel activity events that match the request criteria. For example, you can retrieve events associated with a particular channel, events associated with the user's subscriptions and Google+ friends, or the YouTube home page feed, which is customized for each user.
 */
-await gapi.client.activities.list({ part: "part",  });
+await gapi.client.youtube.activities.list({ part: "part",  });
 
 /*
 Deletes a specified caption track.
 */
-await gapi.client.captions.delete({ id: "id",  });
+await gapi.client.youtube.captions.delete({ id: "id",  });
 
 /*
 Downloads a caption track. The caption track is returned in its original format unless the request specifies a value for the tfmt parameter and in its original language unless the request specifies a value for the tlang parameter.
 */
-await gapi.client.captions.download({ id: "id",  });
+await gapi.client.youtube.captions.download({ id: "id",  });
 
 /*
 Uploads a caption track.
 */
-await gapi.client.captions.insert({ part: "part",  });
+await gapi.client.youtube.captions.insert({ part: "part",  });
 
 /*
 Returns a list of caption tracks that are associated with a specified video. Note that the API response does not contain the actual captions and that the captions.download method provides the ability to retrieve a caption track.
 */
-await gapi.client.captions.list({ part: "part", videoId: "videoId",  });
+await gapi.client.youtube.captions.list({ part: "part", videoId: "videoId",  });
 
 /*
 Updates a caption track. When updating a caption track, you can change the track's draft status, upload a new caption file for the track, or both.
 */
-await gapi.client.captions.update({ part: "part",  });
+await gapi.client.youtube.captions.update({ part: "part",  });
 
 /*
 Uploads a channel banner image to YouTube. This method represents the first two steps in a three-step process to update the banner image for a channel:
@@ -113,350 +113,350 @@ Uploads a channel banner image to YouTube. This method represents the first two 
 - Extract the url property's value from the response that the API returns for step 1.
 - Call the channels.update method to update the channel's branding settings. Set the brandingSettings.image.bannerExternalUrl property's value to the URL obtained in step 2.
 */
-await gapi.client.channelBanners.insert({  });
+await gapi.client.youtube.channelBanners.insert({  });
 
 /*
 Returns a collection of zero or more channel resources that match the request criteria.
 */
-await gapi.client.channels.list({ part: "part",  });
+await gapi.client.youtube.channels.list({ part: "part",  });
 
 /*
 Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion objects and their child properties.
 */
-await gapi.client.channels.update({ part: "part",  });
+await gapi.client.youtube.channels.update({ part: "part",  });
 
 /*
 Deletes a channelSection.
 */
-await gapi.client.channelSections.delete({ id: "id",  });
+await gapi.client.youtube.channelSections.delete({ id: "id",  });
 
 /*
 Adds a channelSection for the authenticated user's channel.
 */
-await gapi.client.channelSections.insert({ part: "part",  });
+await gapi.client.youtube.channelSections.insert({ part: "part",  });
 
 /*
 Returns channelSection resources that match the API request criteria.
 */
-await gapi.client.channelSections.list({ part: "part",  });
+await gapi.client.youtube.channelSections.list({ part: "part",  });
 
 /*
 Update a channelSection.
 */
-await gapi.client.channelSections.update({ part: "part",  });
+await gapi.client.youtube.channelSections.update({ part: "part",  });
 
 /*
 Deletes a comment.
 */
-await gapi.client.comments.delete({ id: "id",  });
+await gapi.client.youtube.comments.delete({ id: "id",  });
 
 /*
 Creates a reply to an existing comment. Note: To create a top-level comment, use the commentThreads.insert method.
 */
-await gapi.client.comments.insert({ part: "part",  });
+await gapi.client.youtube.comments.insert({ part: "part",  });
 
 /*
 Returns a list of comments that match the API request parameters.
 */
-await gapi.client.comments.list({ part: "part",  });
+await gapi.client.youtube.comments.list({ part: "part",  });
 
 /*
 Expresses the caller's opinion that one or more comments should be flagged as spam.
 */
-await gapi.client.comments.markAsSpam({ id: "id",  });
+await gapi.client.youtube.comments.markAsSpam({ id: "id",  });
 
 /*
 Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the comments.
 */
-await gapi.client.comments.setModerationStatus({ id: "id", moderationStatus: "moderationStatus",  });
+await gapi.client.youtube.comments.setModerationStatus({ id: "id", moderationStatus: "moderationStatus",  });
 
 /*
 Modifies a comment.
 */
-await gapi.client.comments.update({ part: "part",  });
+await gapi.client.youtube.comments.update({ part: "part",  });
 
 /*
 Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead.
 */
-await gapi.client.commentThreads.insert({ part: "part",  });
+await gapi.client.youtube.commentThreads.insert({ part: "part",  });
 
 /*
 Returns a list of comment threads that match the API request parameters.
 */
-await gapi.client.commentThreads.list({ part: "part",  });
+await gapi.client.youtube.commentThreads.list({ part: "part",  });
 
 /*
 Modifies the top-level comment in a comment thread.
 */
-await gapi.client.commentThreads.update({ part: "part",  });
+await gapi.client.youtube.commentThreads.update({ part: "part",  });
 
 /*
 Returns a list of categories that can be associated with YouTube channels.
 */
-await gapi.client.guideCategories.list({ part: "part",  });
+await gapi.client.youtube.guideCategories.list({ part: "part",  });
 
 /*
 Returns a list of application languages that the YouTube website supports.
 */
-await gapi.client.i18nLanguages.list({ part: "part",  });
+await gapi.client.youtube.i18nLanguages.list({ part: "part",  });
 
 /*
 Returns a list of content regions that the YouTube website supports.
 */
-await gapi.client.i18nRegions.list({ part: "part",  });
+await gapi.client.youtube.i18nRegions.list({ part: "part",  });
 
 /*
 Binds a YouTube broadcast to a stream or removes an existing binding between a broadcast and a stream. A broadcast can only be bound to one video stream, though a video stream may be bound to more than one broadcast.
 */
-await gapi.client.liveBroadcasts.bind({ id: "id", part: "part",  });
+await gapi.client.youtube.liveBroadcasts.bind({ id: "id", part: "part",  });
 
 /*
 Controls the settings for a slate that can be displayed in the broadcast stream.
 */
-await gapi.client.liveBroadcasts.control({ id: "id", part: "part",  });
+await gapi.client.youtube.liveBroadcasts.control({ id: "id", part: "part",  });
 
 /*
 Deletes a broadcast.
 */
-await gapi.client.liveBroadcasts.delete({ id: "id",  });
+await gapi.client.youtube.liveBroadcasts.delete({ id: "id",  });
 
 /*
 Creates a broadcast.
 */
-await gapi.client.liveBroadcasts.insert({ part: "part",  });
+await gapi.client.youtube.liveBroadcasts.insert({ part: "part",  });
 
 /*
 Returns a list of YouTube broadcasts that match the API request parameters.
 */
-await gapi.client.liveBroadcasts.list({ part: "part",  });
+await gapi.client.youtube.liveBroadcasts.list({ part: "part",  });
 
 /*
 Changes the status of a YouTube live broadcast and initiates any processes associated with the new status. For example, when you transition a broadcast's status to testing, YouTube starts to transmit video to that broadcast's monitor stream. Before calling this method, you should confirm that the value of the status.streamStatus property for the stream bound to your broadcast is active.
 */
-await gapi.client.liveBroadcasts.transition({ broadcastStatus: "broadcastStatus", id: "id", part: "part",  });
+await gapi.client.youtube.liveBroadcasts.transition({ broadcastStatus: "broadcastStatus", id: "id", part: "part",  });
 
 /*
 Updates a broadcast. For example, you could modify the broadcast settings defined in the liveBroadcast resource's contentDetails object.
 */
-await gapi.client.liveBroadcasts.update({ part: "part",  });
+await gapi.client.youtube.liveBroadcasts.update({ part: "part",  });
 
 /*
 Removes a chat ban.
 */
-await gapi.client.liveChatBans.delete({ id: "id",  });
+await gapi.client.youtube.liveChatBans.delete({ id: "id",  });
 
 /*
 Adds a new ban to the chat.
 */
-await gapi.client.liveChatBans.insert({ part: "part",  });
+await gapi.client.youtube.liveChatBans.insert({ part: "part",  });
 
 /*
 Deletes a chat message.
 */
-await gapi.client.liveChatMessages.delete({ id: "id",  });
+await gapi.client.youtube.liveChatMessages.delete({ id: "id",  });
 
 /*
 Adds a message to a live chat.
 */
-await gapi.client.liveChatMessages.insert({ part: "part",  });
+await gapi.client.youtube.liveChatMessages.insert({ part: "part",  });
 
 /*
 Lists live chat messages for a specific chat.
 */
-await gapi.client.liveChatMessages.list({ liveChatId: "liveChatId", part: "part",  });
+await gapi.client.youtube.liveChatMessages.list({ liveChatId: "liveChatId", part: "part",  });
 
 /*
 Removes a chat moderator.
 */
-await gapi.client.liveChatModerators.delete({ id: "id",  });
+await gapi.client.youtube.liveChatModerators.delete({ id: "id",  });
 
 /*
 Adds a new moderator for the chat.
 */
-await gapi.client.liveChatModerators.insert({ part: "part",  });
+await gapi.client.youtube.liveChatModerators.insert({ part: "part",  });
 
 /*
 Lists moderators for a live chat.
 */
-await gapi.client.liveChatModerators.list({ liveChatId: "liveChatId", part: "part",  });
+await gapi.client.youtube.liveChatModerators.list({ liveChatId: "liveChatId", part: "part",  });
 
 /*
 Deletes a video stream.
 */
-await gapi.client.liveStreams.delete({ id: "id",  });
+await gapi.client.youtube.liveStreams.delete({ id: "id",  });
 
 /*
 Creates a video stream. The stream enables you to send your video to YouTube, which can then broadcast the video to your audience.
 */
-await gapi.client.liveStreams.insert({ part: "part",  });
+await gapi.client.youtube.liveStreams.insert({ part: "part",  });
 
 /*
 Returns a list of video streams that match the API request parameters.
 */
-await gapi.client.liveStreams.list({ part: "part",  });
+await gapi.client.youtube.liveStreams.list({ part: "part",  });
 
 /*
 Updates a video stream. If the properties that you want to change cannot be updated, then you need to create a new stream with the proper settings.
 */
-await gapi.client.liveStreams.update({ part: "part",  });
+await gapi.client.youtube.liveStreams.update({ part: "part",  });
 
 /*
 Lists members for a channel.
 */
-await gapi.client.members.list({ part: "part",  });
+await gapi.client.youtube.members.list({ part: "part",  });
 
 /*
 Lists pricing levels for a channel.
 */
-await gapi.client.membershipsLevels.list({ part: "part",  });
+await gapi.client.youtube.membershipsLevels.list({ part: "part",  });
 
 /*
 Deletes a playlist item.
 */
-await gapi.client.playlistItems.delete({ id: "id",  });
+await gapi.client.youtube.playlistItems.delete({ id: "id",  });
 
 /*
 Adds a resource to a playlist.
 */
-await gapi.client.playlistItems.insert({ part: "part",  });
+await gapi.client.youtube.playlistItems.insert({ part: "part",  });
 
 /*
 Returns a collection of playlist items that match the API request parameters. You can retrieve all of the playlist items in a specified playlist or retrieve one or more playlist items by their unique IDs.
 */
-await gapi.client.playlistItems.list({ part: "part",  });
+await gapi.client.youtube.playlistItems.list({ part: "part",  });
 
 /*
 Modifies a playlist item. For example, you could update the item's position in the playlist.
 */
-await gapi.client.playlistItems.update({ part: "part",  });
+await gapi.client.youtube.playlistItems.update({ part: "part",  });
 
 /*
 Deletes a playlist.
 */
-await gapi.client.playlists.delete({ id: "id",  });
+await gapi.client.youtube.playlists.delete({ id: "id",  });
 
 /*
 Creates a playlist.
 */
-await gapi.client.playlists.insert({ part: "part",  });
+await gapi.client.youtube.playlists.insert({ part: "part",  });
 
 /*
 Returns a collection of playlists that match the API request parameters. For example, you can retrieve all playlists that the authenticated user owns, or you can retrieve one or more playlists by their unique IDs.
 */
-await gapi.client.playlists.list({ part: "part",  });
+await gapi.client.youtube.playlists.list({ part: "part",  });
 
 /*
 Modifies a playlist. For example, you could change a playlist's title, description, or privacy status.
 */
-await gapi.client.playlists.update({ part: "part",  });
+await gapi.client.youtube.playlists.update({ part: "part",  });
 
 /*
 Returns a collection of search results that match the query parameters specified in the API request. By default, a search result set identifies matching video, channel, and playlist resources, but you can also configure queries to only retrieve a specific type of resource.
 */
-await gapi.client.search.list({ part: "part",  });
+await gapi.client.youtube.search.list({ part: "part",  });
 
 /*
 Lists sponsors for a channel.
 */
-await gapi.client.sponsors.list({ part: "part",  });
+await gapi.client.youtube.sponsors.list({ part: "part",  });
 
 /*
 Deletes a subscription.
 */
-await gapi.client.subscriptions.delete({ id: "id",  });
+await gapi.client.youtube.subscriptions.delete({ id: "id",  });
 
 /*
 Adds a subscription for the authenticated user's channel.
 */
-await gapi.client.subscriptions.insert({ part: "part",  });
+await gapi.client.youtube.subscriptions.insert({ part: "part",  });
 
 /*
 Returns subscription resources that match the API request criteria.
 */
-await gapi.client.subscriptions.list({ part: "part",  });
+await gapi.client.youtube.subscriptions.list({ part: "part",  });
 
 /*
 Lists Super Chat events for a channel.
 */
-await gapi.client.superChatEvents.list({ part: "part",  });
+await gapi.client.youtube.superChatEvents.list({ part: "part",  });
 
 /*
 Deletes a third-party account link.
 */
-await gapi.client.thirdPartyLink.delete({ linkingToken: "linkingToken", type: "type",  });
+await gapi.client.youtube.thirdPartyLink.delete({ linkingToken: "linkingToken", type: "type",  });
 
 /*
 Creates a third-party account link.
 */
-await gapi.client.thirdPartyLink.insert({ part: "part",  });
+await gapi.client.youtube.thirdPartyLink.insert({ part: "part",  });
 
 /*
 Modifies a third-party account link. For example, you could change a third-party account link's type.
 */
-await gapi.client.thirdPartyLink.update({ part: "part",  });
+await gapi.client.youtube.thirdPartyLink.update({ part: "part",  });
 
 /*
 Returns a collection of third-party account links that match the API request parameters. For example, you can retrieve all links that the authenticated user owns, or you can retrieve one or more links by their unique IDs.
 */
-await gapi.client.thirdPartyLinks.list({ part: "part",  });
+await gapi.client.youtube.thirdPartyLinks.list({ part: "part",  });
 
 /*
 Uploads a custom video thumbnail to YouTube and sets it for a video.
 */
-await gapi.client.thumbnails.set({ videoId: "videoId",  });
+await gapi.client.youtube.thumbnails.set({ videoId: "videoId",  });
 
 /*
 Returns a list of abuse reasons that can be used for reporting abusive videos.
 */
-await gapi.client.videoAbuseReportReasons.list({ part: "part",  });
+await gapi.client.youtube.videoAbuseReportReasons.list({ part: "part",  });
 
 /*
 Returns a list of categories that can be associated with YouTube videos.
 */
-await gapi.client.videoCategories.list({ part: "part",  });
+await gapi.client.youtube.videoCategories.list({ part: "part",  });
 
 /*
 Deletes a YouTube video.
 */
-await gapi.client.videos.delete({ id: "id",  });
+await gapi.client.youtube.videos.delete({ id: "id",  });
 
 /*
 Retrieves the ratings that the authorized user gave to a list of specified videos.
 */
-await gapi.client.videos.getRating({ id: "id",  });
+await gapi.client.youtube.videos.getRating({ id: "id",  });
 
 /*
 Uploads a video to YouTube and optionally sets the video's metadata.
 */
-await gapi.client.videos.insert({ part: "part",  });
+await gapi.client.youtube.videos.insert({ part: "part",  });
 
 /*
 Returns a list of videos that match the API request parameters.
 */
-await gapi.client.videos.list({ part: "part",  });
+await gapi.client.youtube.videos.list({ part: "part",  });
 
 /*
 Add a like or dislike rating to a video or remove a rating from a video.
 */
-await gapi.client.videos.rate({ id: "id", rating: "rating",  });
+await gapi.client.youtube.videos.rate({ id: "id", rating: "rating",  });
 
 /*
 Report abuse for a video.
 */
-await gapi.client.videos.reportAbuse({  });
+await gapi.client.youtube.videos.reportAbuse({  });
 
 /*
 Updates a video's metadata.
 */
-await gapi.client.videos.update({ part: "part",  });
+await gapi.client.youtube.videos.update({ part: "part",  });
 
 /*
 Uploads a watermark image to YouTube and sets it for a channel.
 */
-await gapi.client.watermarks.set({ channelId: "channelId",  });
+await gapi.client.youtube.watermarks.set({ channelId: "channelId",  });
 
 /*
 Deletes a channel's watermark image.
 */
-await gapi.client.watermarks.unset({ channelId: "channelId",  });
+await gapi.client.youtube.watermarks.unset({ channelId: "channelId",  });
 ```

@@ -62,5 +62,5 @@ After that you can use Policy Troubleshooter API resources:
 Checks whether a member has a specific permission for a specific resource,
 and explains why the member does or does not have that permission.
 */
-await gapi.client.iam.troubleshoot({  });
+await gapi.client.policytroubleshooter.iam.troubleshoot({  });
 ```

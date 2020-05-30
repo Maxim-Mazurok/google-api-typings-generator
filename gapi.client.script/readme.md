@@ -114,36 +114,36 @@ After that you can use Apps Script API resources:
 List information about processes made by or on behalf of a user,
 such as process type and current status.
 */
-await gapi.client.processes.list({  });
+await gapi.client.script.processes.list({  });
 
 /*
 List information about a script's executed processes, such as process type
 and current status.
 */
-await gapi.client.processes.listScriptProcesses({  });
+await gapi.client.script.processes.listScriptProcesses({  });
 
 /*
 Creates a new, empty script project with no script files and a base
 manifest file.
 */
-await gapi.client.projects.create({  });
+await gapi.client.script.projects.create({  });
 
 /*
 Gets a script project's metadata.
 */
-await gapi.client.projects.get({ scriptId: "scriptId",  });
+await gapi.client.script.projects.get({ scriptId: "scriptId",  });
 
 /*
 Gets the content of the script project, including the code source and
 metadata for each script file.
 */
-await gapi.client.projects.getContent({ scriptId: "scriptId",  });
+await gapi.client.script.projects.getContent({ scriptId: "scriptId",  });
 
 /*
 Get metrics data for scripts, such as number of executions and
 active users.
 */
-await gapi.client.projects.getMetrics({ scriptId: "scriptId",  });
+await gapi.client.script.projects.getMetrics({ scriptId: "scriptId",  });
 
 /*
 Updates the content of the specified script project.
@@ -152,7 +152,7 @@ executed as a trigger, in the script editor, in add-on preview mode, or as
 a web app or Apps Script API in development mode. This clears all the
 existing files in the project.
 */
-await gapi.client.projects.updateContent({ scriptId: "scriptId",  });
+await gapi.client.script.projects.updateContent({ scriptId: "scriptId",  });
 
 /*
 Runs a function in an Apps Script project. The script project must be
@@ -171,5 +171,5 @@ The error `403, PERMISSION_DENIED: The caller does not have permission`
 indicates that the Cloud Platform project used to authorize the request is
 not the same as the one used by the script.
 */
-await gapi.client.scripts.run({ scriptId: "scriptId",  });
+await gapi.client.script.scripts.run({ scriptId: "scriptId",  });
 ```

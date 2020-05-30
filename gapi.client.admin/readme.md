@@ -64,30 +64,30 @@ After that you can use Admin Reports API resources:
 /*
 Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application. For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters, see the activity parameters reference guides.
 */
-await gapi.client.activities.list({ applicationName: "applicationName", userKey: "userKey",  });
+await gapi.client.admin.activities.list({ applicationName: "applicationName", userKey: "userKey",  });
 
 /*
 Start receiving notifications for account activities. For more information, see Receiving Push Notifications.
 */
-await gapi.client.activities.watch({ applicationName: "applicationName", userKey: "userKey",  });
+await gapi.client.admin.activities.watch({ applicationName: "applicationName", userKey: "userKey",  });
 
 /*
 Stop watching resources through this channel
 */
-await gapi.client.channels.stop({  });
+await gapi.client.admin.channels.stop({  });
 
 /*
 Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides.
 */
-await gapi.client.customerUsageReports.get({ date: "date",  });
+await gapi.client.admin.customerUsageReports.get({ date: "date",  });
 
 /*
 Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the Entities Usage Report guide. For more information about the entities report's parameters, see the Entities Usage parameters reference guides.
 */
-await gapi.client.entityUsageReports.get({ date: "date", entityKey: "entityKey", entityType: "entityType",  });
+await gapi.client.admin.entityUsageReports.get({ date: "date", entityKey: "entityKey", entityType: "entityType",  });
 
 /*
 Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage Report guide. For more information about the user report's parameters, see the Users Usage parameters reference guides.
 */
-await gapi.client.userUsageReport.get({ date: "date", userKey: "userKey",  });
+await gapi.client.admin.userUsageReport.get({ date: "date", userKey: "userKey",  });
 ```

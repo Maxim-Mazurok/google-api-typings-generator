@@ -50,7 +50,7 @@ The third-party user's identity is passed in via the `agent_user_id`
 This request must be authorized using service account credentials from your
 Actions console project.
 */
-await gapi.client.agentUsers.delete({ agentUserId: "agentUserId",  });
+await gapi.client.homegraph.agentUsers.delete({ agentUserId: "agentUserId",  });
 
 /*
 Gets the current states in Home Graph for the given set of the third-party
@@ -61,7 +61,7 @@ The third-party user's identity is passed in via the `agent_user_id`
 This request must be authorized using service account credentials from your
 Actions console project.
 */
-await gapi.client.devices.query({  });
+await gapi.client.homegraph.devices.query({  });
 
 /*
 Reports device state and optionally sends device notifications.
@@ -81,7 +81,7 @@ The third-party user's identity is passed in via the `agent_user_id`
 This request must be authorized using service account credentials from your
 Actions console project.
 */
-await gapi.client.devices.reportStateAndNotification({  });
+await gapi.client.homegraph.devices.reportStateAndNotification({  });
 
 /*
 Requests Google to send an `action.devices.SYNC`
@@ -94,7 +94,7 @@ The third-party user's identity is passed via the `agent_user_id`
 This request must be authorized using service account credentials from your
 Actions console project.
 */
-await gapi.client.devices.requestSync({  });
+await gapi.client.homegraph.devices.requestSync({  });
 
 /*
 Gets all the devices associated with the given third-party user.
@@ -104,5 +104,5 @@ The third-party user's identity is passed in via the `agent_user_id`
 This request must be authorized using service account credentials from your
 Actions console project.
 */
-await gapi.client.devices.sync({  });
+await gapi.client.homegraph.devices.sync({  });
 ```

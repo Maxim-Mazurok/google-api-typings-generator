@@ -40,11 +40,11 @@ After that you can use Ad Experience Report API resources:
 /*
 Gets a site's Ad Experience Report summary.
 */
-await gapi.client.sites.get({ name: "name",  });
+await gapi.client.adexperiencereport.sites.get({ name: "name",  });
 
 /*
 Lists sites that are failing in the Ad Experience Report on at least one
 platform.
 */
-await gapi.client.violatingSites.list({  });
+await gapi.client.adexperiencereport.violatingSites.list({  });
 ```

@@ -70,10 +70,10 @@ After that you can use Firebase Hosting API resources:
 /*
 Gets the Hosting metadata for a specific site.
 */
-await gapi.client.sites.getConfig({ name: "name",  });
+await gapi.client.firebasehosting.sites.getConfig({ name: "name",  });
 
 /*
 Sets the Hosting metadata for a specific site.
 */
-await gapi.client.sites.updateConfig({ name: "name",  });
+await gapi.client.firebasehosting.sites.updateConfig({ name: "name",  });
 ```

@@ -64,5 +64,5 @@ After that you can use Drive Activity API resources:
 /*
 Query past activity in Google Drive.
 */
-await gapi.client.activity.query({  });
+await gapi.client.driveactivity.activity.query({  });
 ```

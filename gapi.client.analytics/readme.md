@@ -79,10 +79,10 @@ After that you can use Google Analytics API resources:
 /*
 Creates an account ticket.
 */
-await gapi.client.provisioning.createAccountTicket({  });
+await gapi.client.analytics.provisioning.createAccountTicket({  });
 
 /*
 Provision account.
 */
-await gapi.client.provisioning.createAccountTree({  });
+await gapi.client.analytics.provisioning.createAccountTree({  });
 ```

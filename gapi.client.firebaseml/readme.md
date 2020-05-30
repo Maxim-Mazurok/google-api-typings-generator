@@ -70,7 +70,7 @@ the operation is not deleted; instead, it becomes an operation with
 an Operation.error value with a google.rpc.Status.code of 1,
 corresponding to `Code.CANCELLED`.
 */
-await gapi.client.operations.cancel({ name: "name",  });
+await gapi.client.firebaseml.operations.cancel({ name: "name",  });
 
 /*
 Deletes a long-running operation. This method indicates that the client is
@@ -78,7 +78,7 @@ no longer interested in the operation result. It does not cancel the
 operation. If the server doesn't support this method, it returns
 `google.rpc.Code.UNIMPLEMENTED`.
 */
-await gapi.client.operations.delete({ name: "name",  });
+await gapi.client.firebaseml.operations.delete({ name: "name",  });
 
 /*
 Lists operations that match the specified filter in the request. If the
@@ -92,5 +92,5 @@ For backwards compatibility, the default name includes the operations
 collection id, however overriding users must ensure the name binding
 is the parent resource, without the operations collection id.
 */
-await gapi.client.operations.list({ name: "name",  });
+await gapi.client.firebaseml.operations.list({ name: "name",  });
 ```

@@ -62,5 +62,5 @@ After that you can use Error Reporting API resources:
 /*
 Deletes all error events of a given project.
 */
-await gapi.client.projects.deleteEvents({ projectName: "projectName",  });
+await gapi.client.clouderrorreporting.projects.deleteEvents({ projectName: "projectName",  });
 ```

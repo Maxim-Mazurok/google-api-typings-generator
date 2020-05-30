@@ -61,10 +61,10 @@ After that you can use Security Command Center API resources:
 /*
 Gets the settings for an organization.
 */
-await gapi.client.organizations.getOrganizationSettings({ name: "name",  });
+await gapi.client.securitycenter.organizations.getOrganizationSettings({ name: "name",  });
 
 /*
 Updates an organization's settings.
 */
-await gapi.client.organizations.updateOrganizationSettings({ name: "name",  });
+await gapi.client.securitycenter.organizations.updateOrganizationSettings({ name: "name",  });
 ```

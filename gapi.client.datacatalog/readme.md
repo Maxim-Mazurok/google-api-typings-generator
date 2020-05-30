@@ -77,12 +77,12 @@ See [Data Catalog Search
 Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference)
 for more information.
 */
-await gapi.client.catalog.search({  });
+await gapi.client.datacatalog.catalog.search({  });
 
 /*
 Get an entry by target resource name. This method allows clients to use
 the resource name from the source Google Cloud Platform service to get the
 Data Catalog Entry.
 */
-await gapi.client.entries.lookup({  });
+await gapi.client.datacatalog.entries.lookup({  });
 ```

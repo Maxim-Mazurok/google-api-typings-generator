@@ -73,7 +73,7 @@ This differs from CreateShortDynamicLink in the following ways:
 The Dynamic Link domain in the request must be owned by requester's
 Firebase project.
 */
-await gapi.client.managedShortLinks.create({  });
+await gapi.client.firebasedynamiclinks.managedShortLinks.create({  });
 
 /*
 Creates a short Dynamic Link given either a valid long Dynamic Link or
@@ -86,22 +86,22 @@ will produce the same short Dynamic Link.
 The Dynamic Link domain in the request must be owned by requester's
 Firebase project.
 */
-await gapi.client.shortLinks.create({  });
+await gapi.client.firebasedynamiclinks.shortLinks.create({  });
 
 /*
 Fetches analytics stats of a short Dynamic Link for a given
 duration. Metrics include number of clicks, redirects, installs,
 app first opens, and app reopens.
 */
-await gapi.client.v1.getLinkStats({ dynamicLink: "dynamicLink",  });
+await gapi.client.firebasedynamiclinks.v1.getLinkStats({ dynamicLink: "dynamicLink",  });
 
 /*
 Get iOS strong/weak-match info for post-install attribution.
 */
-await gapi.client.v1.installAttribution({  });
+await gapi.client.firebasedynamiclinks.v1.installAttribution({  });
 
 /*
 Get iOS reopen attribution for app universal link open deeplinking.
 */
-await gapi.client.v1.reopenAttribution({  });
+await gapi.client.firebasedynamiclinks.v1.reopenAttribution({  });
 ```

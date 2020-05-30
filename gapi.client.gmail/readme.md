@@ -100,15 +100,15 @@ After that you can use Gmail API resources:
 /*
 Gets the current user's Gmail profile.
 */
-await gapi.client.users.getProfile({ userId: "userId",  });
+await gapi.client.gmail.users.getProfile({ userId: "userId",  });
 
 /*
 Stop receiving push notifications for the given user mailbox.
 */
-await gapi.client.users.stop({ userId: "userId",  });
+await gapi.client.gmail.users.stop({ userId: "userId",  });
 
 /*
 Set up or update a push notification watch on the given user mailbox.
 */
-await gapi.client.users.watch({ userId: "userId",  });
+await gapi.client.gmail.users.watch({ userId: "userId",  });
 ```

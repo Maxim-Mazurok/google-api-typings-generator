@@ -70,105 +70,105 @@ After that you can use Google Cloud DNS API resources:
 /*
 
 */
-await gapi.client.changes.create({ managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.changes.create({ managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.changes.get({ changeId: "changeId", managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.changes.get({ changeId: "changeId", managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.changes.list({ managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.changes.list({ managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.dnsKeys.get({ dnsKeyId: "dnsKeyId", managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.dnsKeys.get({ dnsKeyId: "dnsKeyId", managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.dnsKeys.list({ managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.dnsKeys.list({ managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.managedZoneOperations.get({ managedZone: "managedZone", operation: "operation", project: "project",  });
+await gapi.client.dns.managedZoneOperations.get({ managedZone: "managedZone", operation: "operation", project: "project",  });
 
 /*
 
 */
-await gapi.client.managedZoneOperations.list({ managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.managedZoneOperations.list({ managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.managedZones.create({ project: "project",  });
+await gapi.client.dns.managedZones.create({ project: "project",  });
 
 /*
 
 */
-await gapi.client.managedZones.delete({ managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.managedZones.delete({ managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.managedZones.get({ managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.managedZones.get({ managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.managedZones.list({ project: "project",  });
+await gapi.client.dns.managedZones.list({ project: "project",  });
 
 /*
 
 */
-await gapi.client.managedZones.patch({ managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.managedZones.patch({ managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.managedZones.update({ managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.managedZones.update({ managedZone: "managedZone", project: "project",  });
 
 /*
 
 */
-await gapi.client.policies.create({ project: "project",  });
+await gapi.client.dns.policies.create({ project: "project",  });
 
 /*
 
 */
-await gapi.client.policies.delete({ policy: "policy", project: "project",  });
+await gapi.client.dns.policies.delete({ policy: "policy", project: "project",  });
 
 /*
 
 */
-await gapi.client.policies.get({ policy: "policy", project: "project",  });
+await gapi.client.dns.policies.get({ policy: "policy", project: "project",  });
 
 /*
 
 */
-await gapi.client.policies.list({ project: "project",  });
+await gapi.client.dns.policies.list({ project: "project",  });
 
 /*
 
 */
-await gapi.client.policies.patch({ policy: "policy", project: "project",  });
+await gapi.client.dns.policies.patch({ policy: "policy", project: "project",  });
 
 /*
 
 */
-await gapi.client.policies.update({ policy: "policy", project: "project",  });
+await gapi.client.dns.policies.update({ policy: "policy", project: "project",  });
 
 /*
 
 */
-await gapi.client.projects.get({ project: "project",  });
+await gapi.client.dns.projects.get({ project: "project",  });
 
 /*
 
 */
-await gapi.client.resourceRecordSets.list({ managedZone: "managedZone", project: "project",  });
+await gapi.client.dns.resourceRecordSets.list({ managedZone: "managedZone", project: "project",  });
 ```

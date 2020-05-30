@@ -70,10 +70,10 @@ After that you can use Cloud Source Repositories API resources:
 /*
 Returns the Cloud Source Repositories configuration of the project.
 */
-await gapi.client.projects.getConfig({ name: "name",  });
+await gapi.client.sourcerepo.projects.getConfig({ name: "name",  });
 
 /*
 Updates the Cloud Source Repositories configuration of the project.
 */
-await gapi.client.projects.updateConfig({ name: "name",  });
+await gapi.client.sourcerepo.projects.updateConfig({ name: "name",  });
 ```
