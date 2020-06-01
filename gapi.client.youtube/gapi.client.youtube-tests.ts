@@ -39,10 +39,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Returns a list of channel activity events that match the request criteria. For example, you can retrieve events associated with a particular channel,
-         * events associated with the user's subscriptions and Google+ friends, or the YouTube home page feed, which is customized for each user.
-         */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.activities.list({
             channelId: "Test string",
             home: true,
@@ -54,16 +51,13 @@ gapi.load('client', () => {
             publishedBefore: "Test string",
             regionCode: "Test string",
         });
-        /** Deletes a specified caption track. */
+        /** Deletes a resource. */
         await gapi.client.youtube.captions.delete({
             id: "Test string",
             onBehalfOf: "Test string",
             onBehalfOfContentOwner: "Test string",
         });
-        /**
-         * Downloads a caption track. The caption track is returned in its original format unless the request specifies a value for the tfmt parameter and in its
-         * original language unless the request specifies a value for the tlang parameter.
-         */
+        /** Downloads a caption track. */
         await gapi.client.youtube.captions.download({
             id: "Test string",
             onBehalfOf: "Test string",
@@ -71,7 +65,7 @@ gapi.load('client', () => {
             tfmt: "Test string",
             tlang: "Test string",
         });
-        /** Uploads a caption track. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.captions.insert({
             onBehalfOf: "Test string",
             onBehalfOfContentOwner: "Test string",
@@ -97,10 +91,7 @@ gapi.load('client', () => {
                 videoId: "Test string",
             },
         });
-        /**
-         * Returns a list of caption tracks that are associated with a specified video. Note that the API response does not contain the actual captions and that
-         * the captions.download method provides the ability to retrieve a caption track.
-         */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.captions.list({
             id: "Test string",
             onBehalfOf: "Test string",
@@ -108,7 +99,7 @@ gapi.load('client', () => {
             part: "Test string",
             videoId: "Test string",
         });
-        /** Updates a caption track. When updating a caption track, you can change the track's draft status, upload a new caption file for the track, or both. */
+        /** Updates an existing resource. */
         await gapi.client.youtube.captions.update({
             onBehalfOf: "Test string",
             onBehalfOfContentOwner: "Test string",
@@ -134,24 +125,17 @@ gapi.load('client', () => {
                 videoId: "Test string",
             },
         });
-        /**
-         * Uploads a channel banner image to YouTube. This method represents the first two steps in a three-step process to update the banner image for a channel:
-         *
-         * - Call the channelBanners.insert method to upload the binary image data to YouTube. The image must have a 16:9 aspect ratio and be at least 2120x1192
-         * pixels.
-         * - Extract the url property's value from the response that the API returns for step 1.
-         * - Call the channels.update method to update the channel's branding settings. Set the brandingSettings.image.bannerExternalUrl property's value to the
-         * URL obtained in step 2.
-         */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.channelBanners.insert({
             channelId: "Test string",
             onBehalfOfContentOwner: "Test string",
+            onBehalfOfContentOwnerChannel: "Test string",
         }, {
             etag: "Test string",
             kind: "Test string",
             url: "Test string",
         });
-        /** Returns a collection of zero or more channel resources that match the request criteria. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.channels.list({
             categoryId: "Test string",
             forUsername: "Test string",
@@ -165,10 +149,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             part: "Test string",
         });
-        /**
-         * Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion
-         * objects and their child properties.
-         */
+        /** Updates an existing resource. */
         await gapi.client.youtube.channels.update({
             onBehalfOfContentOwner: "Test string",
             part: "Test string",
@@ -397,12 +378,12 @@ gapi.load('client', () => {
                     "Test string"                ],
             },
         });
-        /** Deletes a channelSection. */
+        /** Deletes a resource. */
         await gapi.client.youtube.channelSections.delete({
             id: "Test string",
             onBehalfOfContentOwner: "Test string",
         });
-        /** Adds a channelSection for the authenticated user's channel. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.channelSections.insert({
             onBehalfOfContentOwner: "Test string",
             onBehalfOfContentOwnerChannel: "Test string",
@@ -441,7 +422,7 @@ gapi.load('client', () => {
                     "Test string"                ],
             },
         });
-        /** Returns channelSection resources that match the API request criteria. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.channelSections.list({
             channelId: "Test string",
             hl: "Test string",
@@ -450,7 +431,7 @@ gapi.load('client', () => {
             onBehalfOfContentOwner: "Test string",
             part: "Test string",
         });
-        /** Update a channelSection. */
+        /** Updates an existing resource. */
         await gapi.client.youtube.channelSections.update({
             onBehalfOfContentOwner: "Test string",
             part: "Test string",
@@ -488,11 +469,11 @@ gapi.load('client', () => {
                     "Test string"                ],
             },
         });
-        /** Deletes a comment. */
+        /** Deletes a resource. */
         await gapi.client.youtube.comments.delete({
             id: "Test string",
         });
-        /** Creates a reply to an existing comment. Note: To create a top-level comment, use the commentThreads.insert method. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.comments.insert({
             part: "Test string",
         }, {
@@ -500,7 +481,9 @@ gapi.load('client', () => {
             id: "Test string",
             kind: "Test string",
             snippet: {
-                authorChannelId: 42,
+                authorChannelId: {
+                    value: "Test string",
+                },
                 authorChannelUrl: "Test string",
                 authorDisplayName: "Test string",
                 authorProfileImageUrl: "Test string",
@@ -517,7 +500,7 @@ gapi.load('client', () => {
                 viewerRating: "Test string",
             },
         });
-        /** Returns a list of comments that match the API request parameters. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.comments.list({
             id: "Test string",
             maxResults: 42,
@@ -526,20 +509,20 @@ gapi.load('client', () => {
             part: "Test string",
             textFormat: "Test string",
         });
-        /** Expresses the caller's opinion that one or more comments should be flagged as spam. */
+        /**
+         * Expresses the caller's opinion that one or more comments should be flagged
+         * as spam.
+         */
         await gapi.client.youtube.comments.markAsSpam({
             id: "Test string",
         });
-        /**
-         * Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the
-         * comments.
-         */
+        /** Sets the moderation status of one or more comments. */
         await gapi.client.youtube.comments.setModerationStatus({
             banAuthor: true,
             id: "Test string",
             moderationStatus: "Test string",
         });
-        /** Modifies a comment. */
+        /** Updates an existing resource. */
         await gapi.client.youtube.comments.update({
             part: "Test string",
         }, {
@@ -547,7 +530,9 @@ gapi.load('client', () => {
             id: "Test string",
             kind: "Test string",
             snippet: {
-                authorChannelId: 42,
+                authorChannelId: {
+                    value: "Test string",
+                },
                 authorChannelUrl: "Test string",
                 authorDisplayName: "Test string",
                 authorProfileImageUrl: "Test string",
@@ -564,7 +549,7 @@ gapi.load('client', () => {
                 viewerRating: "Test string",
             },
         });
-        /** Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.commentThreads.insert({
             part: "Test string",
         }, {
@@ -578,7 +563,9 @@ gapi.load('client', () => {
                         id: "Test string",
                         kind: "Test string",
                         snippet: {
-                            authorChannelId: 42,
+                            authorChannelId: {
+                                value: "Test string",
+                            },
                             authorChannelUrl: "Test string",
                             authorDisplayName: "Test string",
                             authorProfileImageUrl: "Test string",
@@ -605,7 +592,9 @@ gapi.load('client', () => {
                     id: "Test string",
                     kind: "Test string",
                     snippet: {
-                        authorChannelId: 42,
+                        authorChannelId: {
+                            value: "Test string",
+                        },
                         authorChannelUrl: "Test string",
                         authorDisplayName: "Test string",
                         authorProfileImageUrl: "Test string",
@@ -626,7 +615,7 @@ gapi.load('client', () => {
                 videoId: "Test string",
             },
         });
-        /** Returns a list of comment threads that match the API request parameters. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.commentThreads.list({
             allThreadsRelatedToChannelId: "Test string",
             channelId: "Test string",
@@ -640,7 +629,7 @@ gapi.load('client', () => {
             textFormat: "Test string",
             videoId: "Test string",
         });
-        /** Modifies the top-level comment in a comment thread. */
+        /** Updates an existing resource. */
         await gapi.client.youtube.commentThreads.update({
             part: "Test string",
         }, {
@@ -654,7 +643,9 @@ gapi.load('client', () => {
                         id: "Test string",
                         kind: "Test string",
                         snippet: {
-                            authorChannelId: 42,
+                            authorChannelId: {
+                                value: "Test string",
+                            },
                             authorChannelUrl: "Test string",
                             authorDisplayName: "Test string",
                             authorProfileImageUrl: "Test string",
@@ -681,7 +672,9 @@ gapi.load('client', () => {
                     id: "Test string",
                     kind: "Test string",
                     snippet: {
-                        authorChannelId: 42,
+                        authorChannelId: {
+                            value: "Test string",
+                        },
                         authorChannelUrl: "Test string",
                         authorDisplayName: "Test string",
                         authorProfileImageUrl: "Test string",
@@ -702,27 +695,24 @@ gapi.load('client', () => {
                 videoId: "Test string",
             },
         });
-        /** Returns a list of categories that can be associated with YouTube channels. */
+        /** Retrieves a list of guide categories. */
         await gapi.client.youtube.guideCategories.list({
             hl: "Test string",
             id: "Test string",
             part: "Test string",
             regionCode: "Test string",
         });
-        /** Returns a list of application languages that the YouTube website supports. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.i18nLanguages.list({
             hl: "Test string",
             part: "Test string",
         });
-        /** Returns a list of content regions that the YouTube website supports. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.i18nRegions.list({
             hl: "Test string",
             part: "Test string",
         });
-        /**
-         * Binds a YouTube broadcast to a stream or removes an existing binding between a broadcast and a stream. A broadcast can only be bound to one video
-         * stream, though a video stream may be bound to more than one broadcast.
-         */
+        /** Bind a broadcast to a stream. */
         await gapi.client.youtube.liveBroadcasts.bind({
             id: "Test string",
             onBehalfOfContentOwner: "Test string",
@@ -730,7 +720,11 @@ gapi.load('client', () => {
             part: "Test string",
             streamId: "Test string",
         });
-        /** Controls the settings for a slate that can be displayed in the broadcast stream. */
+        /**
+         * Slate and recording control of the live broadcast.
+         * Support actions: slate on/off, recording start/stop/pause/resume.
+         * Design doc: goto/yt-api-liveBroadcast-control
+         */
         await gapi.client.youtube.liveBroadcasts.control({
             displaySlate: true,
             id: "Test string",
@@ -740,13 +734,13 @@ gapi.load('client', () => {
             part: "Test string",
             walltime: "Test string",
         });
-        /** Deletes a broadcast. */
+        /** Delete a given broadcast. */
         await gapi.client.youtube.liveBroadcasts.delete({
             id: "Test string",
             onBehalfOfContentOwner: "Test string",
             onBehalfOfContentOwnerChannel: "Test string",
         });
-        /** Creates a broadcast. */
+        /** Inserts a new stream for the authenticated user. */
         await gapi.client.youtube.liveBroadcasts.insert({
             onBehalfOfContentOwner: "Test string",
             onBehalfOfContentOwnerChannel: "Test string",
@@ -773,7 +767,6 @@ gapi.load('client', () => {
                 projection: "Test string",
                 recordFromStart: true,
                 startWithSlate: true,
-                stereoLayout: "Test string",
             },
             etag: "Test string",
             id: "Test string",
@@ -781,7 +774,6 @@ gapi.load('client', () => {
             snippet: {
                 actualEndTime: "Test string",
                 actualStartTime: "Test string",
-                broadcastType: "Test string",
                 channelId: "Test string",
                 description: "Test string",
                 isDefaultBroadcast: true,
@@ -819,7 +811,6 @@ gapi.load('client', () => {
                 title: "Test string",
             },
             statistics: {
-                concurrentViewers: "Test string",
                 totalChatCount: "Test string",
             },
             status: {
@@ -831,7 +822,7 @@ gapi.load('client', () => {
                 selfDeclaredMadeForKids: true,
             },
         });
-        /** Returns a list of YouTube broadcasts that match the API request parameters. */
+        /** Retrieve the list of broadcasts associated with the given channel. */
         await gapi.client.youtube.liveBroadcasts.list({
             broadcastStatus: "Test string",
             broadcastType: "Test string",
@@ -843,11 +834,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             part: "Test string",
         });
-        /**
-         * Changes the status of a YouTube live broadcast and initiates any processes associated with the new status. For example, when you transition a
-         * broadcast's status to testing, YouTube starts to transmit video to that broadcast's monitor stream. Before calling this method, you should confirm that
-         * the value of the status.streamStatus property for the stream bound to your broadcast is active.
-         */
+        /** Transition a broadcast to a given status. */
         await gapi.client.youtube.liveBroadcasts.transition({
             broadcastStatus: "Test string",
             id: "Test string",
@@ -855,7 +842,7 @@ gapi.load('client', () => {
             onBehalfOfContentOwnerChannel: "Test string",
             part: "Test string",
         });
-        /** Updates a broadcast. For example, you could modify the broadcast settings defined in the liveBroadcast resource's contentDetails object. */
+        /** Updates an existing broadcast for the authenticated user. */
         await gapi.client.youtube.liveBroadcasts.update({
             onBehalfOfContentOwner: "Test string",
             onBehalfOfContentOwnerChannel: "Test string",
@@ -882,7 +869,6 @@ gapi.load('client', () => {
                 projection: "Test string",
                 recordFromStart: true,
                 startWithSlate: true,
-                stereoLayout: "Test string",
             },
             etag: "Test string",
             id: "Test string",
@@ -890,7 +876,6 @@ gapi.load('client', () => {
             snippet: {
                 actualEndTime: "Test string",
                 actualStartTime: "Test string",
-                broadcastType: "Test string",
                 channelId: "Test string",
                 description: "Test string",
                 isDefaultBroadcast: true,
@@ -928,7 +913,6 @@ gapi.load('client', () => {
                 title: "Test string",
             },
             statistics: {
-                concurrentViewers: "Test string",
                 totalChatCount: "Test string",
             },
             status: {
@@ -940,11 +924,11 @@ gapi.load('client', () => {
                 selfDeclaredMadeForKids: true,
             },
         });
-        /** Removes a chat ban. */
+        /** Deletes a chat ban. */
         await gapi.client.youtube.liveChatBans.delete({
             id: "Test string",
         });
-        /** Adds a new ban to the chat. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.liveChatBans.insert({
             part: "Test string",
         }, {
@@ -967,7 +951,7 @@ gapi.load('client', () => {
         await gapi.client.youtube.liveChatMessages.delete({
             id: "Test string",
         });
-        /** Adds a message to a live chat. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.liveChatMessages.insert({
             part: "Test string",
         }, {
@@ -1036,7 +1020,7 @@ gapi.load('client', () => {
                 },
             },
         });
-        /** Lists live chat messages for a specific chat. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.liveChatMessages.list({
             hl: "Test string",
             liveChatId: "Test string",
@@ -1045,11 +1029,11 @@ gapi.load('client', () => {
             part: "Test string",
             profileImageSize: 42,
         });
-        /** Removes a chat moderator. */
+        /** Deletes a chat moderator. */
         await gapi.client.youtube.liveChatModerators.delete({
             id: "Test string",
         });
-        /** Adds a new moderator for the chat. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.liveChatModerators.insert({
             part: "Test string",
         }, {
@@ -1066,20 +1050,20 @@ gapi.load('client', () => {
                 },
             },
         });
-        /** Lists moderators for a live chat. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.liveChatModerators.list({
             liveChatId: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             part: "Test string",
         });
-        /** Deletes a video stream. */
+        /** Deletes an existing stream for the authenticated user. */
         await gapi.client.youtube.liveStreams.delete({
             id: "Test string",
             onBehalfOfContentOwner: "Test string",
             onBehalfOfContentOwnerChannel: "Test string",
         });
-        /** Creates a video stream. The stream enables you to send your video to YouTube, which can then broadcast the video to your audience. */
+        /** Inserts a new stream for the authenticated user. */
         await gapi.client.youtube.liveStreams.insert({
             onBehalfOfContentOwner: "Test string",
             onBehalfOfContentOwnerChannel: "Test string",
@@ -1127,7 +1111,7 @@ gapi.load('client', () => {
                 streamStatus: "Test string",
             },
         });
-        /** Returns a list of video streams that match the API request parameters. */
+        /** Retrieve the list of streams associated with the given channel. -- */
         await gapi.client.youtube.liveStreams.list({
             id: "Test string",
             maxResults: 42,
@@ -1137,7 +1121,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             part: "Test string",
         });
-        /** Updates a video stream. If the properties that you want to change cannot be updated, then you need to create a new stream with the proper settings. */
+        /** Updates an existing stream for the authenticated user. */
         await gapi.client.youtube.liveStreams.update({
             onBehalfOfContentOwner: "Test string",
             onBehalfOfContentOwnerChannel: "Test string",
@@ -1185,7 +1169,7 @@ gapi.load('client', () => {
                 streamStatus: "Test string",
             },
         });
-        /** Lists members for a channel. */
+        /** Retrieves a list of members that match the request criteria for a channel. */
         await gapi.client.youtube.members.list({
             filterByMemberChannelId: "Test string",
             hasAccessToLevel: "Test string",
@@ -1194,16 +1178,16 @@ gapi.load('client', () => {
             pageToken: "Test string",
             part: "Test string",
         });
-        /** Lists pricing levels for a channel. */
+        /** Retrieves a list of all pricing levels offered by a creator to the fans. */
         await gapi.client.youtube.membershipsLevels.list({
             part: "Test string",
         });
-        /** Deletes a playlist item. */
+        /** Deletes a resource. */
         await gapi.client.youtube.playlistItems.delete({
             id: "Test string",
             onBehalfOfContentOwner: "Test string",
         });
-        /** Adds a resource to a playlist. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.playlistItems.insert({
             onBehalfOfContentOwner: "Test string",
             part: "Test string",
@@ -1264,10 +1248,7 @@ gapi.load('client', () => {
                 privacyStatus: "Test string",
             },
         });
-        /**
-         * Returns a collection of playlist items that match the API request parameters. You can retrieve all of the playlist items in a specified playlist or
-         * retrieve one or more playlist items by their unique IDs.
-         */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.playlistItems.list({
             id: "Test string",
             maxResults: 42,
@@ -1277,7 +1258,7 @@ gapi.load('client', () => {
             playlistId: "Test string",
             videoId: "Test string",
         });
-        /** Modifies a playlist item. For example, you could update the item's position in the playlist. */
+        /** Updates an existing resource. */
         await gapi.client.youtube.playlistItems.update({
             onBehalfOfContentOwner: "Test string",
             part: "Test string",
@@ -1338,12 +1319,12 @@ gapi.load('client', () => {
                 privacyStatus: "Test string",
             },
         });
-        /** Deletes a playlist. */
+        /** Deletes a resource. */
         await gapi.client.youtube.playlists.delete({
             id: "Test string",
             onBehalfOfContentOwner: "Test string",
         });
-        /** Creates a playlist. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.playlists.insert({
             onBehalfOfContentOwner: "Test string",
             onBehalfOfContentOwnerChannel: "Test string",
@@ -1408,10 +1389,7 @@ gapi.load('client', () => {
                 privacyStatus: "Test string",
             },
         });
-        /**
-         * Returns a collection of playlists that match the API request parameters. For example, you can retrieve all playlists that the authenticated user owns,
-         * or you can retrieve one or more playlists by their unique IDs.
-         */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.playlists.list({
             channelId: "Test string",
             hl: "Test string",
@@ -1423,7 +1401,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             part: "Test string",
         });
-        /** Modifies a playlist. For example, you could change a playlist's title, description, or privacy status. */
+        /** Updates an existing resource. */
         await gapi.client.youtube.playlists.update({
             onBehalfOfContentOwner: "Test string",
             part: "Test string",
@@ -1487,10 +1465,7 @@ gapi.load('client', () => {
                 privacyStatus: "Test string",
             },
         });
-        /**
-         * Returns a collection of search results that match the query parameters specified in the API request. By default, a search result set identifies
-         * matching video, channel, and playlist resources, but you can also configure queries to only retrieve a specific type of resource.
-         */
+        /** Retrieves a list of search resources */
         await gapi.client.youtube.search.list({
             channelId: "Test string",
             channelType: "Test string",
@@ -1524,18 +1499,21 @@ gapi.load('client', () => {
             videoSyndicated: "Test string",
             videoType: "Test string",
         });
-        /** Lists sponsors for a channel. */
+        /**
+         * Retrieves a list of sponsors that match the request criteria for a
+         * channel.
+         */
         await gapi.client.youtube.sponsors.list({
             filter: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             part: "Test string",
         });
-        /** Deletes a subscription. */
+        /** Deletes a resource. */
         await gapi.client.youtube.subscriptions.delete({
             id: "Test string",
         });
-        /** Adds a subscription for the authenticated user's channel. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.subscriptions.insert({
             part: "Test string",
         }, {
@@ -1620,7 +1598,7 @@ gapi.load('client', () => {
                 title: "Test string",
             },
         });
-        /** Returns subscription resources that match the API request criteria. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.subscriptions.list({
             channelId: "Test string",
             forChannelId: "Test string",
@@ -1635,92 +1613,48 @@ gapi.load('client', () => {
             pageToken: "Test string",
             part: "Test string",
         });
-        /** Lists Super Chat events for a channel. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.superChatEvents.list({
             hl: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             part: "Test string",
         });
-        /** Deletes a third-party account link. */
-        await gapi.client.youtube.thirdPartyLink.delete({
-            linkingToken: "Test string",
-            type: "Test string",
-        });
-        /** Creates a third-party account link. */
-        await gapi.client.youtube.thirdPartyLink.insert({
-            debugProjectIdOverride: "Test string",
-            part: "Test string",
-        }, {
-            etag: "Test string",
-            kind: "Test string",
-            linkingToken: "Test string",
-            snippet: {
-                channelToStoreLink: {
-                    storeName: "Test string",
-                    storeUrl: "Test string",
-                },
-                type: "Test string",
-            },
-            status: {
-                linkStatus: "Test string",
-            },
-        });
-        /** Modifies a third-party account link. For example, you could change a third-party account link's type. */
-        await gapi.client.youtube.thirdPartyLink.update({
-            part: "Test string",
-        }, {
-            etag: "Test string",
-            kind: "Test string",
-            linkingToken: "Test string",
-            snippet: {
-                channelToStoreLink: {
-                    storeName: "Test string",
-                    storeUrl: "Test string",
-                },
-                type: "Test string",
-            },
-            status: {
-                linkStatus: "Test string",
-            },
-        });
         /**
-         * Returns a collection of third-party account links that match the API request parameters. For example, you can retrieve all links that the authenticated
-         * user owns, or you can retrieve one or more links by their unique IDs.
+         * As this is not an insert in a strict sense (it supports uploading/setting
+         * of a thumbnail for multiple videos, which doesn't result in creation of a
+         * single resource), I use a custom verb here.
          */
-        await gapi.client.youtube.thirdPartyLinks.list({
-            linkingToken: "Test string",
-            part: "Test string",
-            type: "Test string",
-        });
-        /** Uploads a custom video thumbnail to YouTube and sets it for a video. */
         await gapi.client.youtube.thumbnails.set({
             onBehalfOfContentOwner: "Test string",
             videoId: "Test string",
         });
-        /** Returns a list of abuse reasons that can be used for reporting abusive videos. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.videoAbuseReportReasons.list({
             hl: "Test string",
             part: "Test string",
         });
-        /** Returns a list of categories that can be associated with YouTube videos. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.videoCategories.list({
             hl: "Test string",
             id: "Test string",
             part: "Test string",
             regionCode: "Test string",
         });
-        /** Deletes a YouTube video. */
+        /** Deletes a resource. */
         await gapi.client.youtube.videos.delete({
             id: "Test string",
             onBehalfOfContentOwner: "Test string",
         });
-        /** Retrieves the ratings that the authorized user gave to a list of specified videos. */
+        /**
+         * Retrieves the ratings that the authorized user gave to a list of specified
+         * videos.
+         */
         await gapi.client.youtube.videos.getRating({
             id: "Test string",
             onBehalfOfContentOwner: "Test string",
         });
-        /** Uploads a video to YouTube and optionally sets the video's metadata. */
+        /** Inserts a new resource into this collection. */
         await gapi.client.youtube.videos.insert({
             autoLevels: true,
             notifySubscribers: true,
@@ -1999,7 +1933,7 @@ gapi.load('client', () => {
                     "Test string"                ],
             },
         });
-        /** Returns a list of videos that match the API request parameters. */
+        /** Retrieves a list of resources, possibly filtered. */
         await gapi.client.youtube.videos.list({
             chart: "Test string",
             hl: "Test string",
@@ -2015,7 +1949,7 @@ gapi.load('client', () => {
             regionCode: "Test string",
             videoCategoryId: "Test string",
         });
-        /** Add a like or dislike rating to a video or remove a rating from a video. */
+        /** Adds a like or dislike rating to a video or removes a rating from a video. */
         await gapi.client.youtube.videos.rate({
             id: "Test string",
             rating: "Test string",
@@ -2030,7 +1964,7 @@ gapi.load('client', () => {
             secondaryReasonId: "Test string",
             videoId: "Test string",
         });
-        /** Updates a video's metadata. */
+        /** Updates an existing resource. */
         await gapi.client.youtube.videos.update({
             onBehalfOfContentOwner: "Test string",
             part: "Test string",
@@ -2305,7 +2239,7 @@ gapi.load('client', () => {
                     "Test string"                ],
             },
         });
-        /** Uploads a watermark image to YouTube and sets it for a channel. */
+        /** Allows upload of watermark image and setting it for a channel. */
         await gapi.client.youtube.watermarks.set({
             channelId: "Test string",
             onBehalfOfContentOwner: "Test string",
@@ -2323,7 +2257,7 @@ gapi.load('client', () => {
                 type: "Test string",
             },
         });
-        /** Deletes a channel's watermark image. */
+        /** Allows removal of channel watermark. */
         await gapi.client.youtube.watermarks.unset({
             channelId: "Test string",
             onBehalfOfContentOwner: "Test string",
