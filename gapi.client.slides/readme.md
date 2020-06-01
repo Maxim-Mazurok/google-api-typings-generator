@@ -99,7 +99,7 @@ collaborators, the presentation should reflect your changes. In any case,
 the updates in your request are guaranteed to be applied together
 atomically.
 */
-await gapi.client.presentations.batchUpdate({ presentationId: "presentationId",  });
+await gapi.client.slides.presentations.batchUpdate({ presentationId: "presentationId",  });
 
 /*
 Creates a blank presentation using the title given in the request. If a
@@ -108,10 +108,10 @@ Otherwise, a new ID is generated. Other fields in the request, including
 any provided content, are ignored.
 Returns the created presentation.
 */
-await gapi.client.presentations.create({  });
+await gapi.client.slides.presentations.create({  });
 
 /*
 Gets the latest version of the specified presentation.
 */
-await gapi.client.presentations.get({ presentationId: "presentationId",  });
+await gapi.client.slides.presentations.get({ presentationId: "presentationId",  });
 ```
