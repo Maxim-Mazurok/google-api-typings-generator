@@ -318,6 +318,32 @@ declare namespace gapi.client {
             /** The role of this asset for the creative. */
             role?: string;
         }
+        interface AssignedInventorySource {
+            /**
+             * Output only. The unique ID of the assigned inventory source. The ID is only
+             * unique within a given inventory source group. It may be reused in other
+             * contexts.
+             */
+            assignedInventorySourceId?: string;
+            /** Required. The ID of the inventory source entity being targeted. */
+            inventorySourceId?: string;
+            /** Output only. The resource name of the assigned inventory source. */
+            name?: string;
+        }
+        interface AssignedLocation {
+            /**
+             * Output only. The unique ID of the assigned location. The ID is only unique within a
+             * location list. It may be reused in other contexts.
+             */
+            assignedLocationId?: string;
+            /** Output only. The resource name of the assigned location. */
+            name?: string;
+            /**
+             * Required. The ID of the targeting option assigned to the location list. Must be of
+             * type TARGETING_TYPE_GEO_REGION.
+             */
+            targetingOptionId?: string;
+        }
         interface AssignedTargetingOption {
             /**
              * Age range details. This field will be populated when the
@@ -690,6 +716,60 @@ declare namespace gapi.client {
              */
             createdAssignedTargetingOptions?: AssignedTargetingOption[];
         }
+        interface BulkEditAssignedInventorySourcesRequest {
+            /**
+             * The ID of the advertiser that owns the parent inventory source group.
+             *
+             * The parent partner does not have access to these assigned inventory
+             * sources.
+             */
+            advertiserId?: string;
+            /**
+             * The assigned inventory sources to create in bulk, specified as a list of
+             * AssignedInventorySources.
+             */
+            createdAssignedInventorySources?: AssignedInventorySource[];
+            /**
+             * The IDs of the assigned inventory sources to delete in bulk, specified as a
+             * list of
+             * assigned_inventory_source_ids.
+             */
+            deletedAssignedInventorySources?: string[];
+            /**
+             * The ID of the partner that owns the inventory source group.
+             *
+             * Only this partner has write access to these assigned inventory sources.
+             */
+            partnerId?: string;
+        }
+        interface BulkEditAssignedInventorySourcesResponse {
+            /**
+             * The list of assigned inventory sources that have been successfully created.
+             *
+             * This list will be absent if empty.
+             */
+            assignedInventorySources?: AssignedInventorySource[];
+        }
+        interface BulkEditAssignedLocationsRequest {
+            /**
+             * The assigned locations to create in bulk, specified as a list of
+             * AssignedLocations.
+             */
+            createdAssignedLocations?: AssignedLocation[];
+            /**
+             * The IDs of the assigned locations to delete in bulk, specified as a list of
+             * assigned_location_ids.
+             */
+            deletedAssignedLocations?: string[];
+        }
+        interface BulkEditAssignedLocationsResponse {
+            /**
+             * The list of assigned locations that have been successfully created.
+             *
+             * This list will be absent if empty.
+             */
+            assignedLocations?: AssignedLocation[];
+        }
         interface BulkEditLineItemAssignedTargetingOptionsRequest {
             /**
              * The assigned targeting options to create in batch, specified as a list of
@@ -709,6 +789,47 @@ declare namespace gapi.client {
              * This list will be absent if empty.
              */
             createdAssignedTargetingOptions?: AssignedTargetingOption[];
+        }
+        interface BulkEditNegativeKeywordsRequest {
+            /**
+             * The negative keywords to create in batch, specified as a list of
+             * NegativeKeywords.
+             */
+            createdNegativeKeywords?: NegativeKeyword[];
+            /**
+             * The negative keywords to delete in batch, specified as a list of
+             * keyword_values.
+             */
+            deletedNegativeKeywords?: string[];
+        }
+        interface BulkEditNegativeKeywordsResponse {
+            /**
+             * The list of negative keywords that have been successfully created.
+             *
+             * This list will be absent if empty.
+             */
+            negativeKeywords?: NegativeKeyword[];
+        }
+        interface BulkEditSitesRequest {
+            /** The ID of the advertiser that owns the parent channel. */
+            advertiserId?: string;
+            /** The sites to create in batch, specified as a list of Sites. */
+            createdSites?: Site[];
+            /**
+             * The sites to delete in batch, specified as a list of site
+             * url_or_app_ids.
+             */
+            deletedSites?: string[];
+            /** The ID of the partner that owns the parent channel. */
+            partnerId?: string;
+        }
+        interface BulkEditSitesResponse {
+            /**
+             * The list of sites that have been successfully created.
+             *
+             * This list will be absent if empty.
+             */
+            sites?: Site[];
         }
         interface BulkListAdvertiserAssignedTargetingOptionsResponse {
             /**
@@ -2533,6 +2654,40 @@ declare namespace gapi.client {
              */
             nextPageToken?: string;
         }
+        interface ListAssignedInventorySourcesResponse {
+            /**
+             * The list of assigned inventory sources.
+             *
+             * This list will be absent if empty.
+             */
+            assignedInventorySources?: AssignedInventorySource[];
+            /**
+             * A token to retrieve the next page of results.
+             *
+             * Pass this value in the
+             * page_token field
+             * in the subsequent call to `ListAssignedInventorySources` method to
+             * retrieve the next page of results.
+             */
+            nextPageToken?: string;
+        }
+        interface ListAssignedLocationsResponse {
+            /**
+             * The list of assigned locations.
+             *
+             * This list will be absent if empty.
+             */
+            assignedLocations?: AssignedLocation[];
+            /**
+             * A token to retrieve the next page of results.
+             *
+             * Pass this value in the
+             * page_token field
+             * in the subsequent call to `ListAssignedLocations` method to
+             * retrieve the next page of results.
+             */
+            nextPageToken?: string;
+        }
         interface ListCampaignsResponse {
             /**
              * The list of campaigns.
@@ -2759,6 +2914,38 @@ declare namespace gapi.client {
              */
             nextPageToken?: string;
         }
+        interface ListNegativeKeywordsResponse {
+            /**
+             * The list of negative keywords.
+             *
+             * This list will be absent if empty.
+             */
+            negativeKeywords?: NegativeKeyword[];
+            /**
+             * A token to retrieve the next page of results.
+             *
+             * Pass this value in the page_token
+             * field in the subsequent call to `ListNegativeKeywords` method to retrieve
+             * the next page of results.
+             */
+            nextPageToken?: string;
+        }
+        interface ListSitesResponse {
+            /**
+             * A token to retrieve the next page of results.
+             *
+             * Pass this value in the page_token field
+             * in the subsequent call to `ListSites` method to retrieve the next page
+             * of results.
+             */
+            nextPageToken?: string;
+            /**
+             * The list of sites.
+             *
+             * This list will be absent if empty.
+             */
+            sites?: Site[];
+        }
         interface ListTargetingOptionsResponse {
             /**
              * A token to retrieve the next page of results.
@@ -2836,6 +3023,21 @@ declare namespace gapi.client {
              * For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
              */
             units?: string;
+        }
+        interface NegativeKeyword {
+            /**
+             * Required. Immutable. The negatively targeted keyword, for example `car insurance`.
+             *
+             * Must be UTF-8 encoded with a maximum size of 255 bytes. Maximum number
+             * of characters is 80. Maximum number of words is 10.
+             *
+             * Valid characters are restricted to ASCII characters only. The only
+             * URL-escaping permitted is for representing whitespace between words.
+             * Leading or trailing whitespace is ignored.
+             */
+            keywordValue?: string;
+            /** Output only. The resource name of the negative keyword. */
+            name?: string;
         }
         interface NegativeKeywordList {
             /** Output only. The unique ID of the advertiser the negative keyword list belongs to. */
@@ -3290,6 +3492,15 @@ declare namespace gapi.client {
         interface SensitiveCategoryTargetingOptionDetails {
             /** Output only. An enum for the DV360 Sensitive category content classifier. */
             sensitiveCategory?: string;
+        }
+        interface Site {
+            /** Output only. The resource name of the site. */
+            name?: string;
+            /**
+             * Required. The URL or app ID of the site.
+             * Must be UTF-8 encoded with a maximum length of 240 bytes.
+             */
+            urlOrAppId?: string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
@@ -3855,6 +4066,246 @@ declare namespace gapi.client {
             },
             body: Campaign): Request<Campaign>;
         }
+        interface SitesResource {
+            /**
+             * Bulk edits sites under a single channel.
+             *
+             * The operation will delete the sites provided in
+             * BulkEditSitesRequest.deleted_sites and then create the sites
+             * provided in BulkEditSitesRequest.created_sites.
+             */
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel to which the sites belong. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: BulkEditSitesRequest;
+            }): Request<BulkEditSitesResponse>;
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel to which the sites belong. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: BulkEditSitesRequest): Request<BulkEditSitesResponse>;
+            /** Creates a site in a channel. */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel in which the site will be created. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: Site;
+            }): Request<Site>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel in which the site will be created. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: Site): Request<Site>;
+            /** Deletes a site from a channel. */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel to which the site belongs. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Required. The URL or app ID of the site to delete. */
+                urlOrAppId: string;
+            }): Request<{}>;
+            /** Lists sites in a channel. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel to which the requested sites belong. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Allows filtering by site fields.
+                 *
+                 * Supported syntax:
+                 *
+                 * &#42; Filter expressions for site currently can only contain at most one
+                 * &#42; restriction.
+                 * &#42; A restriction has the form of `{field} {operator} {value}`.
+                 * &#42; The operator must be `CONTAINS (:)`.
+                 * &#42; Supported fields:
+                 * - `urlOrAppId`
+                 *
+                 * Examples:
+                 *
+                 * &#42; All sites for which the URL or app ID contains "google":
+                 * `urlOrAppId : "google"`
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Field by which to sort the list.
+                 * Acceptable values are:
+                 *
+                 * &#42; `urlOrAppId` (default)
+                 *
+                 * The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix " desc" should be added to the field name. Example:
+                 * `urlOrAppId desc`.
+                 */
+                orderBy?: string;
+                /**
+                 * Requested page size. Must be between `1` and `100`. If unspecified will
+                 * default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+                 * is specified.
+                 */
+                pageSize?: number;
+                /**
+                 * A token identifying a page of results the server should return.
+                 *
+                 * Typically, this is the value of
+                 * next_page_token returned from the
+                 * previous call to `ListSites` method. If not specified, the first page
+                 * of results will be returned.
+                 */
+                pageToken?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ListSitesResponse>;
+        }
         interface ChannelsResource {
             /** Gets a channel for a partner or advertiser. */
             get(request?: {
@@ -3962,6 +4413,75 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListChannelsResponse>;
+            /** Updates a channel. Returns the updated channel if successful. */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the created channel. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Output only. The unique ID of the channel. Assigned by the system. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the created channel. */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: Channel;
+            }): Request<Channel>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the created channel. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Output only. The unique ID of the channel. Assigned by the system. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the created channel. */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: Channel): Request<Channel>;
+            sites: SitesResource;
         }
         interface CreativesResource {
             /**
@@ -5200,7 +5720,297 @@ declare namespace gapi.client {
             body: LineItem): Request<LineItem>;
             targetingTypes: TargetingTypesResource;
         }
+        interface AssignedLocationsResource {
+            /**
+             * Bulk edits multiple assignments between locations and a single location
+             * list.
+             *
+             * The operation will delete the assigned locations provided in
+             * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+             * create the assigned locations provided in
+             * BulkEditAssignedLocationsRequest.created_assigned_locations.
+             */
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The ID of the location list to which these assignments are assigned. */
+                locationListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: BulkEditAssignedLocationsRequest;
+            }): Request<BulkEditAssignedLocationsResponse>;
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The ID of the location list to which these assignments are assigned. */
+                locationListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: BulkEditAssignedLocationsRequest): Request<BulkEditAssignedLocationsResponse>;
+            /** Creates an assignment between a location and a location list. */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The ID of the location list for which the assignment will be created. */
+                locationListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: AssignedLocation;
+            }): Request<AssignedLocation>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The ID of the location list for which the assignment will be created. */
+                locationListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: AssignedLocation): Request<AssignedLocation>;
+            /** Deletes the assignment between a location and a location list. */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** Required. The ID of the assigned location to delete. */
+                assignedLocationId: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The ID of the location list to which this assignment is assigned. */
+                locationListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<{}>;
+            /** Lists locations assigned to a location list. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Allows filtering by location list assignment fields.
+                 *
+                 * Supported syntax:
+                 *
+                 * &#42; Filter expressions are made up of one or more restrictions.
+                 * &#42; Restrictions can be combined by the logical operator `OR`.
+                 * &#42; A restriction has the form of `{field} {operator} {value}`.
+                 * &#42; The operator must be `EQUALS (=)`.
+                 * &#42; Supported fields:
+                 * - `assignedLocationId`
+                 *
+                 * The length of this field should be no more than 500 characters.
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The ID of the location list to which these assignments are assigned. */
+                locationListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Field by which to sort the list.
+                 * Acceptable values are:
+                 *
+                 * &#42; `assignedLocationId` (default)
+                 *
+                 * The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix " desc" should be added to the field name. Example:
+                 * `assignedLocationId desc`.
+                 */
+                orderBy?: string;
+                /**
+                 * Requested page size. Must be between `1` and `100`. If unspecified will
+                 * default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+                 * is specified.
+                 */
+                pageSize?: number;
+                /**
+                 * A token identifying a page of results the server should return.
+                 *
+                 * Typically, this is the value of
+                 * next_page_token
+                 * returned from the previous call to `ListAssignedLocations`
+                 * method. If not specified, the first page of results will be returned.
+                 */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ListAssignedLocationsResponse>;
+        }
         interface LocationListsResource {
+            /**
+             * Creates a new location list. Returns the newly created location list if
+             * successful.
+             */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: LocationList;
+            }): Request<LocationList>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: LocationList): Request<LocationList>;
             /** Gets a location list. */
             get(request?: {
                 /** V1 error format. */
@@ -5305,8 +6115,443 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListLocationListsResponse>;
+            /** Updates a location list. Returns the updated location list if successful. */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location lists belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Output only. The unique ID of the location list. Assigned by the system. */
+                locationListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: LocationList;
+            }): Request<LocationList>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the location lists belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Output only. The unique ID of the location list. Assigned by the system. */
+                locationListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: LocationList): Request<LocationList>;
+            assignedLocations: AssignedLocationsResource;
+        }
+        interface NegativeKeywordsResource {
+            /**
+             * Bulk edits negative keywords in a single negative keyword list.
+             *
+             * The operation will delete the negative keywords provided in
+             * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+             * create the negative keywords provided in
+             * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+             *
+             * This operation is guaranteed to be atomic and will never result in a
+             * partial success or partial failure.
+             */
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * Required. The ID of the DV360 advertiser to which the parent negative keyword list
+                 * belongs.
+                 */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The ID of the parent negative keyword list to which the negative keywords
+                 * belong.
+                 */
+                negativeKeywordListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: BulkEditNegativeKeywordsRequest;
+            }): Request<BulkEditNegativeKeywordsResponse>;
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * Required. The ID of the DV360 advertiser to which the parent negative keyword list
+                 * belongs.
+                 */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The ID of the parent negative keyword list to which the negative keywords
+                 * belong.
+                 */
+                negativeKeywordListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: BulkEditNegativeKeywordsRequest): Request<BulkEditNegativeKeywordsResponse>;
+            /** Creates a negative keyword in a negative keyword list. */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * Required. The ID of the DV360 advertiser to which the parent negative keyword list
+                 * belongs.
+                 */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The ID of the parent negative keyword list in which the negative keyword
+                 * will be created.
+                 */
+                negativeKeywordListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: NegativeKeyword;
+            }): Request<NegativeKeyword>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * Required. The ID of the DV360 advertiser to which the parent negative keyword list
+                 * belongs.
+                 */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The ID of the parent negative keyword list in which the negative keyword
+                 * will be created.
+                 */
+                negativeKeywordListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: NegativeKeyword): Request<NegativeKeyword>;
+            /** Deletes a negative keyword from a negative keyword list. */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * Required. The ID of the DV360 advertiser to which the parent negative keyword list
+                 * belongs.
+                 */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The keyword value of the negative keyword to delete. */
+                keywordValue: string;
+                /**
+                 * Required. The ID of the parent negative keyword list to which the negative keyword
+                 * belongs.
+                 */
+                negativeKeywordListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<{}>;
+            /** Lists negative keywords in a negative keyword list. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * Required. The ID of the DV360 advertiser to which the parent negative keyword list
+                 * belongs.
+                 */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Allows filtering by negative keyword fields.
+                 *
+                 * Supported syntax:
+                 *
+                 * &#42; Filter expressions for negative keyword currently can only contain at
+                 * most one
+                 * &#42; restriction.
+                 * &#42; A restriction has the form of `{field} {operator} {value}`.
+                 * &#42; The operator must be `CONTAINS (:)`.
+                 * &#42; Supported fields:
+                 * - `keywordValue`
+                 *
+                 * Examples:
+                 *
+                 * &#42; All negative keywords for which the keyword value contains "google":
+                 * `keywordValue : "google"`
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Required. The ID of the parent negative keyword list to which the requested negative
+                 * keywords belong.
+                 */
+                negativeKeywordListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Field by which to sort the list.
+                 * Acceptable values are:
+                 *
+                 * &#42; `keywordValue` (default)
+                 *
+                 * The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix " desc" should be added to the field name. Example:
+                 * `keywordValue desc`.
+                 */
+                orderBy?: string;
+                /**
+                 * Requested page size. Must be between `1` and `100`. If unspecified will
+                 * default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+                 * is specified.
+                 */
+                pageSize?: number;
+                /**
+                 * A token identifying a page of results the server should return.
+                 *
+                 * Typically, this is the value of
+                 * next_page_token returned
+                 * from the previous call to `ListNegativeKeywords` method. If not specified,
+                 * the first page of results will be returned.
+                 */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ListNegativeKeywordsResponse>;
         }
         interface NegativeKeywordListsResource {
+            /**
+             * Creates a new negative keyword list. Returns the newly created negative
+             * keyword list if successful.
+             */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * Required. The ID of the DV360 advertiser to which the negative keyword list will
+                 * belong.
+                 */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: NegativeKeywordList;
+            }): Request<NegativeKeywordList>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * Required. The ID of the DV360 advertiser to which the negative keyword list will
+                 * belong.
+                 */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: NegativeKeywordList): Request<NegativeKeywordList>;
+            /**
+             * Deletes a negative keyword list given an advertiser ID and a negative
+             * keyword list ID.
+             */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the negative keyword list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The ID of the negative keyword list to delete. */
+                negativeKeywordListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<{}>;
             /**
              * Gets a negative keyword list given an advertiser ID and a negative keyword
              * list ID.
@@ -5387,6 +6632,74 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListNegativeKeywordListsResponse>;
+            /**
+             * Updates a negative keyword list. Returns the updated negative keyword list
+             * if successful.
+             */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the negative keyword list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Output only. The unique ID of the negative keyword list. Assigned by the system. */
+                negativeKeywordListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: NegativeKeywordList;
+            }): Request<NegativeKeywordList>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Required. The ID of the DV360 advertiser to which the negative keyword list belongs. */
+                advertiserId: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Output only. The unique ID of the negative keyword list. Assigned by the system. */
+                negativeKeywordListId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: NegativeKeywordList): Request<NegativeKeywordList>;
+            negativeKeywords: NegativeKeywordsResource;
         }
         interface AssignedTargetingOptionsResource {
             /**
@@ -6573,8 +7886,426 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListGoogleAudiencesResponse>;
         }
+        interface AssignedInventorySourcesResource {
+            /**
+             * Bulk edits multiple assignments between inventory sources and a single
+             * inventory source group.
+             *
+             * The operation will delete the assigned inventory sources provided in
+             * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
+             * and then create the assigned inventory sources provided in
+             * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
+             */
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Required. The ID of the inventory source group to which the assignments are
+                 * assigned.
+                 */
+                inventorySourceGroupId: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: BulkEditAssignedInventorySourcesRequest;
+            }): Request<BulkEditAssignedInventorySourcesResponse>;
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Required. The ID of the inventory source group to which the assignments are
+                 * assigned.
+                 */
+                inventorySourceGroupId: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: BulkEditAssignedInventorySourcesRequest): Request<BulkEditAssignedInventorySourcesResponse>;
+            /**
+             * Creates an assignment between an inventory source and an inventory source
+             * group.
+             */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * The ID of the advertiser that owns the parent inventory source group.
+                 *
+                 * The parent partner will not have access to this assigned inventory
+                 * source.
+                 */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Required. The ID of the inventory source group to which the assignment will be
+                 * assigned.
+                 */
+                inventorySourceGroupId: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The ID of the partner that owns the parent inventory source group.
+                 *
+                 * Only this partner will have write access to this assigned inventory
+                 * source.
+                 */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: AssignedInventorySource;
+            }): Request<AssignedInventorySource>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * The ID of the advertiser that owns the parent inventory source group.
+                 *
+                 * The parent partner will not have access to this assigned inventory
+                 * source.
+                 */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Required. The ID of the inventory source group to which the assignment will be
+                 * assigned.
+                 */
+                inventorySourceGroupId: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The ID of the partner that owns the parent inventory source group.
+                 *
+                 * Only this partner will have write access to this assigned inventory
+                 * source.
+                 */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: AssignedInventorySource): Request<AssignedInventorySource>;
+            /**
+             * Deletes the assignment between an inventory source and an inventory source
+             * group.
+             */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * The ID of the advertiser that owns the parent inventory source group.
+                 *
+                 * The parent partner does not have access to this assigned inventory
+                 * source.
+                 */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** Required. The ID of the assigned inventory source to delete. */
+                assignedInventorySourceId: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Required. The ID of the inventory source group to which this assignment is assigned. */
+                inventorySourceGroupId: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The ID of the partner that owns the parent inventory source group.
+                 *
+                 * Only this partner has write access to this assigned inventory source.
+                 */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<{}>;
+            /** Lists inventory sources assigned to an inventory source group. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * The ID of the advertiser that has access to the assignment.
+                 *
+                 * If the parent inventory source group is partner-owned, only advertisers
+                 * to which the parent group is explicitly shared can access the assigned
+                 * inventory source.
+                 */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Allows filtering by assigned inventory source fields.
+                 *
+                 * Supported syntax:
+                 *
+                 * &#42; Filter expressions are made up of one or more restrictions.
+                 * &#42; Restrictions can be combined by the logical operator `OR`.
+                 * &#42; A restriction has the form of `{field} {operator} {value}`.
+                 * &#42; The operator must be `EQUALS (=)`.
+                 * &#42; Supported fields:
+                 * - `assignedInventorySourceId`
+                 *
+                 * The length of this field should be no more than 500 characters.
+                 */
+                filter?: string;
+                /**
+                 * Required. The ID of the inventory source group to which these assignments are
+                 * assigned.
+                 */
+                inventorySourceGroupId: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Field by which to sort the list.
+                 * Acceptable values are:
+                 *
+                 * &#42; `assignedInventorySourceId` (default)
+                 *
+                 * The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix " desc" should be added to the field name. Example:
+                 * `assignedInventorySourceId desc`.
+                 */
+                orderBy?: string;
+                /**
+                 * Requested page size. Must be between `1` and `100`. If unspecified will
+                 * default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+                 * is specified.
+                 */
+                pageSize?: number;
+                /**
+                 * A token identifying a page of results the server should return.
+                 *
+                 * Typically, this is the value of
+                 * next_page_token
+                 * returned from the previous call to `ListAssignedInventorySources`
+                 * method. If not specified, the first page of results will be returned.
+                 */
+                pageToken?: string;
+                /**
+                 * The ID of the partner that has access to the assignment.
+                 *
+                 * If the parent inventory source group is advertiser-owned, the assignment
+                 * cannot be accessed via a partner.
+                 */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ListAssignedInventorySourcesResponse>;
+        }
         // tslint:disable-next-line:interface-name
         interface InventorySourceGroupsResource {
+            /**
+             * Creates a new inventory source group. Returns the newly created inventory
+             * source group if successful.
+             */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * The ID of the advertiser that owns the inventory source group.
+                 *
+                 * The parent partner will not have access to this group.
+                 */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The ID of the partner that owns the inventory source group.
+                 *
+                 * Only this partner will have write access to this group. Only advertisers
+                 * to which this group is explicitly shared will have read access to this
+                 * group.
+                 */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: InventorySourceGroup;
+            }): Request<InventorySourceGroup>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * The ID of the advertiser that owns the inventory source group.
+                 *
+                 * The parent partner will not have access to this group.
+                 */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The ID of the partner that owns the inventory source group.
+                 *
+                 * Only this partner will have write access to this group. Only advertisers
+                 * to which this group is explicitly shared will have read access to this
+                 * group.
+                 */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: InventorySourceGroup): Request<InventorySourceGroup>;
+            /** Deletes an inventory source group. */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * The ID of the advertiser that owns the inventory source group.
+                 *
+                 * The parent partner does not have access to this group.
+                 */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Required. The ID of the inventory source group to delete. */
+                inventorySourceGroupId: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The ID of the partner that owns the inventory source group.
+                 *
+                 * Only this partner has write access to this group.
+                 */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<{}>;
             /** Gets an inventory source group. */
             get(request?: {
                 /** V1 error format. */
@@ -6698,6 +8429,94 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListInventorySourceGroupsResponse>;
+            /**
+             * Updates an inventory source group. Returns the updated inventory source
+             * group if successful.
+             */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * The ID of the advertiser that owns the inventory source group.
+                 *
+                 * The parent partner does not have access to this group.
+                 */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Output only. The unique ID of the inventory source group. Assigned by the system. */
+                inventorySourceGroupId: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The ID of the partner that owns the inventory source group.
+                 *
+                 * Only this partner has write access to this group.
+                 */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: InventorySourceGroup;
+            }): Request<InventorySourceGroup>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /**
+                 * The ID of the advertiser that owns the inventory source group.
+                 *
+                 * The parent partner does not have access to this group.
+                 */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Output only. The unique ID of the inventory source group. Assigned by the system. */
+                inventorySourceGroupId: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The ID of the partner that owns the inventory source group.
+                 *
+                 * Only this partner has write access to this group.
+                 */
+                partnerId?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: InventorySourceGroup): Request<InventorySourceGroup>;
+            assignedInventorySources: AssignedInventorySourcesResource;
         }
         // tslint:disable-next-line:interface-name
         interface InventorySourcesResource {
@@ -6859,6 +8678,246 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleBytestreamMedia>;
         }
+        interface SitesResource {
+            /**
+             * Bulk edits sites under a single channel.
+             *
+             * The operation will delete the sites provided in
+             * BulkEditSitesRequest.deleted_sites and then create the sites
+             * provided in BulkEditSitesRequest.created_sites.
+             */
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel to which the sites belong. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: BulkEditSitesRequest;
+            }): Request<BulkEditSitesResponse>;
+            bulkEdit(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel to which the sites belong. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: BulkEditSitesRequest): Request<BulkEditSitesResponse>;
+            /** Creates a site in a channel. */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel in which the site will be created. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: Site;
+            }): Request<Site>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel in which the site will be created. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: Site): Request<Site>;
+            /** Deletes a site from a channel. */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel to which the site belongs. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Required. The URL or app ID of the site to delete. */
+                urlOrAppId: string;
+            }): Request<{}>;
+            /** Lists sites in a channel. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the parent channel. */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID of the parent channel to which the requested sites belong. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /**
+                 * Allows filtering by site fields.
+                 *
+                 * Supported syntax:
+                 *
+                 * &#42; Filter expressions for site currently can only contain at most one
+                 * &#42; restriction.
+                 * &#42; A restriction has the form of `{field} {operator} {value}`.
+                 * &#42; The operator must be `CONTAINS (:)`.
+                 * &#42; Supported fields:
+                 * - `urlOrAppId`
+                 *
+                 * Examples:
+                 *
+                 * &#42; All sites for which the URL or app ID contains "google":
+                 * `urlOrAppId : "google"`
+                 */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * Field by which to sort the list.
+                 * Acceptable values are:
+                 *
+                 * &#42; `urlOrAppId` (default)
+                 *
+                 * The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix " desc" should be added to the field name. Example:
+                 * `urlOrAppId desc`.
+                 */
+                orderBy?: string;
+                /**
+                 * Requested page size. Must be between `1` and `100`. If unspecified will
+                 * default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+                 * is specified.
+                 */
+                pageSize?: number;
+                /**
+                 * A token identifying a page of results the server should return.
+                 *
+                 * Typically, this is the value of
+                 * next_page_token returned from the
+                 * previous call to `ListSites` method. If not specified, the first page
+                 * of results will be returned.
+                 */
+                pageToken?: string;
+                /** The ID of the partner that owns the parent channel. */
+                partnerId: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ListSitesResponse>;
+        }
         interface ChannelsResource {
             /** Gets a channel for a partner or advertiser. */
             get(request?: {
@@ -6966,6 +9025,75 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListChannelsResponse>;
+            /** Updates a channel. Returns the updated channel if successful. */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the created channel. */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Output only. The unique ID of the channel. Assigned by the system. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the created channel. */
+                partnerId: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: Channel;
+            }): Request<Channel>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** The ID of the advertiser that owns the created channel. */
+                advertiserId?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Output only. The unique ID of the channel. Assigned by the system. */
+                channelId: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The ID of the partner that owns the created channel. */
+                partnerId: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The mask to control which fields to update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: Channel): Request<Channel>;
+            sites: SitesResource;
         }
         interface PartnersResource {
             channels: ChannelsResource;

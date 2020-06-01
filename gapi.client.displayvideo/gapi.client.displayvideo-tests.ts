@@ -432,9 +432,163 @@ gapi.load('client', () => {
             channelId: "Test string",
             partnerId: "Test string",
         });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /** Lists channels for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.list({
             advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -1451,15 +1605,336 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
+        /**
+         * Creates a new location list. Returns the newly created location list if
+         * successful.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Gets a location list. */
         await gapi.client.displayvideo.advertisers.locationLists.get({
             advertiserId: "Test string",
             locationListId: "Test string",
         });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists location lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.locationLists.list({
             advertiserId: "Test string",
             filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a location list. Returns the updated location list if successful. */
+        await gapi.client.displayvideo.advertisers.locationLists.patch({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new negative keyword list. Returns the newly created negative
+         * keyword list if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Deletes a negative keyword list given an advertiser ID and a negative
+         * keyword list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
@@ -1472,9 +1947,161 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates a negative keyword list. Returns the updated negative keyword list
+         * if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
         });
@@ -1624,9 +2251,163 @@ gapi.load('client', () => {
             channelId: "Test string",
             partnerId: "Test string",
         });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /** Lists channels for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.list({
             advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -2643,15 +3424,336 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
+        /**
+         * Creates a new location list. Returns the newly created location list if
+         * successful.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Gets a location list. */
         await gapi.client.displayvideo.advertisers.locationLists.get({
             advertiserId: "Test string",
             locationListId: "Test string",
         });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists location lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.locationLists.list({
             advertiserId: "Test string",
             filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a location list. Returns the updated location list if successful. */
+        await gapi.client.displayvideo.advertisers.locationLists.patch({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new negative keyword list. Returns the newly created negative
+         * keyword list if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Deletes a negative keyword list given an advertiser ID and a negative
+         * keyword list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
@@ -2664,9 +3766,161 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates a negative keyword list. Returns the updated negative keyword list
+         * if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
         });
@@ -2863,9 +4117,163 @@ gapi.load('client', () => {
             channelId: "Test string",
             partnerId: "Test string",
         });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /** Lists channels for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.list({
             advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -3882,15 +5290,336 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
+        /**
+         * Creates a new location list. Returns the newly created location list if
+         * successful.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Gets a location list. */
         await gapi.client.displayvideo.advertisers.locationLists.get({
             advertiserId: "Test string",
             locationListId: "Test string",
         });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists location lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.locationLists.list({
             advertiserId: "Test string",
             filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a location list. Returns the updated location list if successful. */
+        await gapi.client.displayvideo.advertisers.locationLists.patch({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new negative keyword list. Returns the newly created negative
+         * keyword list if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Deletes a negative keyword list given an advertiser ID and a negative
+         * keyword list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
@@ -3903,9 +5632,161 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates a negative keyword list. Returns the updated negative keyword list
+         * if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
         });
@@ -4056,9 +5937,163 @@ gapi.load('client', () => {
             channelId: "Test string",
             partnerId: "Test string",
         });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /** Lists channels for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.list({
             advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -5075,15 +7110,336 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
+        /**
+         * Creates a new location list. Returns the newly created location list if
+         * successful.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Gets a location list. */
         await gapi.client.displayvideo.advertisers.locationLists.get({
             advertiserId: "Test string",
             locationListId: "Test string",
         });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists location lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.locationLists.list({
             advertiserId: "Test string",
             filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a location list. Returns the updated location list if successful. */
+        await gapi.client.displayvideo.advertisers.locationLists.patch({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new negative keyword list. Returns the newly created negative
+         * keyword list if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Deletes a negative keyword list given an advertiser ID and a negative
+         * keyword list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
@@ -5096,9 +7452,161 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates a negative keyword list. Returns the updated negative keyword list
+         * if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
         });
@@ -5244,9 +7752,163 @@ gapi.load('client', () => {
             channelId: "Test string",
             partnerId: "Test string",
         });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /** Lists channels for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.list({
             advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -6263,15 +8925,336 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
+        /**
+         * Creates a new location list. Returns the newly created location list if
+         * successful.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Gets a location list. */
         await gapi.client.displayvideo.advertisers.locationLists.get({
             advertiserId: "Test string",
             locationListId: "Test string",
         });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists location lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.locationLists.list({
             advertiserId: "Test string",
             filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a location list. Returns the updated location list if successful. */
+        await gapi.client.displayvideo.advertisers.locationLists.patch({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new negative keyword list. Returns the newly created negative
+         * keyword list if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Deletes a negative keyword list given an advertiser ID and a negative
+         * keyword list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
@@ -6284,9 +9267,161 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates a negative keyword list. Returns the updated negative keyword list
+         * if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
         });
@@ -6444,9 +9579,163 @@ gapi.load('client', () => {
             channelId: "Test string",
             partnerId: "Test string",
         });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /** Lists channels for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.list({
             advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -7463,15 +10752,336 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
+        /**
+         * Creates a new location list. Returns the newly created location list if
+         * successful.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Gets a location list. */
         await gapi.client.displayvideo.advertisers.locationLists.get({
             advertiserId: "Test string",
             locationListId: "Test string",
         });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists location lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.locationLists.list({
             advertiserId: "Test string",
             filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a location list. Returns the updated location list if successful. */
+        await gapi.client.displayvideo.advertisers.locationLists.patch({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new negative keyword list. Returns the newly created negative
+         * keyword list if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Deletes a negative keyword list given an advertiser ID and a negative
+         * keyword list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
@@ -7484,9 +11094,161 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates a negative keyword list. Returns the updated negative keyword list
+         * if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
         });
@@ -7684,9 +11446,163 @@ gapi.load('client', () => {
             channelId: "Test string",
             partnerId: "Test string",
         });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /** Lists channels for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.list({
             advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -8703,15 +12619,336 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
+        /**
+         * Creates a new location list. Returns the newly created location list if
+         * successful.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Gets a location list. */
         await gapi.client.displayvideo.advertisers.locationLists.get({
             advertiserId: "Test string",
             locationListId: "Test string",
         });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists location lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.locationLists.list({
             advertiserId: "Test string",
             filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a location list. Returns the updated location list if successful. */
+        await gapi.client.displayvideo.advertisers.locationLists.patch({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location
+         * list.
+         *
+         * The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+         * create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Creates a new negative keyword list. Returns the newly created negative
+         * keyword list if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Deletes a negative keyword list given an advertiser ID and a negative
+         * keyword list ID.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
@@ -8724,9 +12961,161 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates a negative keyword list. Returns the updated negative keyword list
+         * if successful.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list.
+         *
+         * The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+         * create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
+         *
+         * This operation is guaranteed to be atomic and will never result in a
+         * partial success or partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
         });
@@ -8840,10 +13229,196 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /**
+         * Creates a new inventory source group. Returns the newly created inventory
+         * source group if successful.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            displayName: "Test string",
+            inventorySourceGroupId: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between inventory sources and a single
+         * inventory source group.
+         *
+         * The operation will delete the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
+         * and then create the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
+            inventorySourceGroupId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdAssignedInventorySources: [
+                {
+                    assignedInventorySourceId: "Test string",
+                    inventorySourceId: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedAssignedInventorySources: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /**
+         * Creates an assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
+            advertiserId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        }, {
+            assignedInventorySourceId: "Test string",
+            inventorySourceId: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Deletes the assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
+            advertiserId: "Test string",
+            assignedInventorySourceId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists inventory sources assigned to an inventory source group. */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            inventorySourceGroupId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Deletes an inventory source group. */
+        await gapi.client.displayvideo.inventorySourceGroups.delete({
+            advertiserId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between inventory sources and a single
+         * inventory source group.
+         *
+         * The operation will delete the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
+         * and then create the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
+            inventorySourceGroupId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdAssignedInventorySources: [
+                {
+                    assignedInventorySourceId: "Test string",
+                    inventorySourceId: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedAssignedInventorySources: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /**
+         * Creates an assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
+            advertiserId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        }, {
+            assignedInventorySourceId: "Test string",
+            inventorySourceId: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Deletes the assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
+            advertiserId: "Test string",
+            assignedInventorySourceId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists inventory sources assigned to an inventory source group. */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            inventorySourceGroupId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /** Gets an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.get({
             advertiserId: "Test string",
             inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between inventory sources and a single
+         * inventory source group.
+         *
+         * The operation will delete the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
+         * and then create the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
+            inventorySourceGroupId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdAssignedInventorySources: [
+                {
+                    assignedInventorySourceId: "Test string",
+                    inventorySourceId: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedAssignedInventorySources: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /**
+         * Creates an assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
+            advertiserId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        }, {
+            assignedInventorySourceId: "Test string",
+            inventorySourceId: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Deletes the assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
+            advertiserId: "Test string",
+            assignedInventorySourceId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists inventory sources assigned to an inventory source group. */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            inventorySourceGroupId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
             partnerId: "Test string",
         });
         /**
@@ -8855,6 +13430,132 @@ gapi.load('client', () => {
         await gapi.client.displayvideo.inventorySourceGroups.list({
             advertiserId: "Test string",
             filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between inventory sources and a single
+         * inventory source group.
+         *
+         * The operation will delete the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
+         * and then create the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
+            inventorySourceGroupId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdAssignedInventorySources: [
+                {
+                    assignedInventorySourceId: "Test string",
+                    inventorySourceId: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedAssignedInventorySources: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /**
+         * Creates an assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
+            advertiserId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        }, {
+            assignedInventorySourceId: "Test string",
+            inventorySourceId: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Deletes the assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
+            advertiserId: "Test string",
+            assignedInventorySourceId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists inventory sources assigned to an inventory source group. */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            inventorySourceGroupId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Updates an inventory source group. Returns the updated inventory source
+         * group if successful.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.patch({
+            advertiserId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            inventorySourceGroupId: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between inventory sources and a single
+         * inventory source group.
+         *
+         * The operation will delete the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
+         * and then create the assigned inventory sources provided in
+         * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
+            inventorySourceGroupId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdAssignedInventorySources: [
+                {
+                    assignedInventorySourceId: "Test string",
+                    inventorySourceId: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedAssignedInventorySources: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /**
+         * Creates an assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
+            advertiserId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        }, {
+            assignedInventorySourceId: "Test string",
+            inventorySourceId: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Deletes the assignment between an inventory source and an inventory source
+         * group.
+         */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
+            advertiserId: "Test string",
+            assignedInventorySourceId: "Test string",
+            inventorySourceGroupId: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists inventory sources assigned to an inventory source group. */
+        await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            inventorySourceGroupId: "Test string",
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",

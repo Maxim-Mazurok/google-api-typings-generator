@@ -176,6 +176,17 @@ parameter.
 await gapi.client.displayvideo.googleAudiences.list({  });
 
 /*
+Creates a new inventory source group. Returns the newly created inventory
+source group if successful.
+*/
+await gapi.client.displayvideo.inventorySourceGroups.create({  });
+
+/*
+Deletes an inventory source group.
+*/
+await gapi.client.displayvideo.inventorySourceGroups.delete({ inventorySourceGroupId: "inventorySourceGroupId",  });
+
+/*
 Gets an inventory source group.
 */
 await gapi.client.displayvideo.inventorySourceGroups.get({ inventorySourceGroupId: "inventorySourceGroupId",  });
@@ -187,6 +198,12 @@ The order is defined by the
 order_by parameter.
 */
 await gapi.client.displayvideo.inventorySourceGroups.list({  });
+
+/*
+Updates an inventory source group. Returns the updated inventory source
+group if successful.
+*/
+await gapi.client.displayvideo.inventorySourceGroups.patch({ inventorySourceGroupId: "inventorySourceGroupId",  });
 
 /*
 Gets an inventory source.
