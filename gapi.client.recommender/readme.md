@@ -1,4 +1,4 @@
-# TypeScript typings for Recommender API v1beta1
+# TypeScript typings for Recommender API v1
 
 
 For detailed description please check [documentation](https://cloud.google.com/recommender/docs/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/r
 Install typings for Recommender API:
 
 ```
-npm install @types/gapi.client.recommender@v1beta1 --save-dev
+npm install @types/gapi.client.recommender@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('recommender', 'v1beta1', () => {
+gapi.client.load('recommender', 'v1', () => {
   // now we can use gapi.client.recommender
   // ...
 });
