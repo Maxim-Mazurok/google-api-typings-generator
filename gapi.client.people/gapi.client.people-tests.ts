@@ -210,6 +210,13 @@ gapi.load('client', () => {
             resourceNamesToRemove: [
                 "Test string"            ],
         });
+        /** Copies an other contact to a new contact in the user's MY_CONTACTS group */
+        await gapi.client.people.otherContacts.copyOtherContactToMyContactsGroup({
+            resourceName: "Test string",
+        }, {
+            copyMask: "Test string",
+            readMask: "Test string",
+        });
         /** Create a new contact and return the person resource for that contact. */
         await gapi.client.people.people.createContact({
         }, {
@@ -855,8 +862,7 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Provides a list of the authenticated user's contacts merged with any
-         * connected profiles.
+         * Provides a list of the authenticated user's contacts.
          *
          * The request throws a 400 error if 'personFields' is not specified.
          */
@@ -875,8 +881,7 @@ gapi.load('client', () => {
             resourceName: "Test string",
         });
         /**
-         * Provides a list of the authenticated user's contacts merged with any
-         * connected profiles.
+         * Provides a list of the authenticated user's contacts.
          *
          * The request throws a 400 error if 'personFields' is not specified.
          */
@@ -896,8 +901,7 @@ gapi.load('client', () => {
             resourceName: "Test string",
         });
         /**
-         * Provides a list of the authenticated user's contacts merged with any
-         * connected profiles.
+         * Provides a list of the authenticated user's contacts.
          *
          * The request throws a 400 error if 'personFields' is not specified.
          */
@@ -923,8 +927,7 @@ gapi.load('client', () => {
             resourceName: "Test string",
         });
         /**
-         * Provides a list of the authenticated user's contacts merged with any
-         * connected profiles.
+         * Provides a list of the authenticated user's contacts.
          *
          * The request throws a 400 error if 'personFields' is not specified.
          */
@@ -951,8 +954,7 @@ gapi.load('client', () => {
             resourceNames: "Test string",
         });
         /**
-         * Provides a list of the authenticated user's contacts merged with any
-         * connected profiles.
+         * Provides a list of the authenticated user's contacts.
          *
          * The request throws a 400 error if 'personFields' is not specified.
          */
@@ -1627,8 +1629,7 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Provides a list of the authenticated user's contacts merged with any
-         * connected profiles.
+         * Provides a list of the authenticated user's contacts.
          *
          * The request throws a 400 error if 'personFields' is not specified.
          */
@@ -1650,8 +1651,7 @@ gapi.load('client', () => {
             photoBytes: "Test string",
         });
         /**
-         * Provides a list of the authenticated user's contacts merged with any
-         * connected profiles.
+         * Provides a list of the authenticated user's contacts.
          *
          * The request throws a 400 error if 'personFields' is not specified.
          */
@@ -1663,6 +1663,17 @@ gapi.load('client', () => {
             requestSyncToken: true,
             resourceName: "Test string",
             sortOrder: "Test string",
+            syncToken: "Test string",
+        });
+        /**
+         * List all other contacts, that is contacts that are not in a contact group.
+         * Other contacts are typically auto created contacts from interactions.
+         */
+        await gapi.client.people.v1.otherContacts({
+            pageSize: 42,
+            pageToken: "Test string",
+            readMask: "Test string",
+            requestSyncToken: true,
             syncToken: "Test string",
         });
     }
