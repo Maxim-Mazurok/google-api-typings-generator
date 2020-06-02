@@ -84,6 +84,11 @@ Validates the identity of a Certified Professional Installer (CPI).
 await gapi.client.sasportal.installer.validate({  });
 
 /*
+Returns a requested node.
+*/
+await gapi.client.sasportal.nodes.get({ name: "name",  });
+
+/*
 Gets the access control policy for a resource.
 Returns an empty policy if the resource exists and does not have a policy
 set.
