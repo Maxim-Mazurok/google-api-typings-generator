@@ -61,20 +61,20 @@ After that you can use Android Management API resources:
 /*
 Creates an enterprise. This is the last step in the enterprise signup flow.
 */
-await gapi.client.enterprises.create({  });
+await gapi.client.androidmanagement.enterprises.create({  });
 
 /*
 Gets an enterprise.
 */
-await gapi.client.enterprises.get({ name: "name",  });
+await gapi.client.androidmanagement.enterprises.get({ name: "name",  });
 
 /*
 Updates an enterprise.
 */
-await gapi.client.enterprises.patch({ name: "name",  });
+await gapi.client.androidmanagement.enterprises.patch({ name: "name",  });
 
 /*
 Creates an enterprise signup URL.
 */
-await gapi.client.signupUrls.create({  });
+await gapi.client.androidmanagement.signupUrls.create({  });
 ```
