@@ -64,7 +64,7 @@ After that you can use Cloud Testing API resources:
 /*
 Gets the details of an Android application APK.
 */
-await gapi.client.applicationDetailService.getApkDetails({  });
+await gapi.client.testing.applicationDetailService.getApkDetails({  });
 
 /*
 Gets the catalog of supported test environments.
@@ -75,5 +75,5 @@ May return any of the following canonical error codes:
 - NOT_FOUND - if the environment type does not exist
 - INTERNAL - if an internal error occurred
 */
-await gapi.client.testEnvironmentCatalog.get({ environmentType: "environmentType",  });
+await gapi.client.testing.testEnvironmentCatalog.get({ environmentType: "environmentType",  });
 ```
