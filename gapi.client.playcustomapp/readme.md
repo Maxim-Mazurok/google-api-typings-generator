@@ -1,7 +1,7 @@
 # TypeScript typings for Google Play Custom App Publishing API v1
 
-An API to publish custom Android apps.
-For detailed description please check [documentation](https://developers.google.com/android/work/play/custom-app-api).
+API to create and publish custom Android apps
+For detailed description please check [documentation](https://developers.google.com/android/work/play/custom-app-api/).
 
 ## Installing
 
