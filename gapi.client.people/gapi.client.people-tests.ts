@@ -557,6 +557,7 @@ gapi.load('client', () => {
                     phoneticHonorificPrefix: "Test string",
                     phoneticHonorificSuffix: "Test string",
                     phoneticMiddleName: "Test string",
+                    unstructuredName: "Test string",
                 }            ],
             nicknames: [
                 {
@@ -1324,6 +1325,7 @@ gapi.load('client', () => {
                     phoneticHonorificPrefix: "Test string",
                     phoneticHonorificSuffix: "Test string",
                     phoneticMiddleName: "Test string",
+                    unstructuredName: "Test string",
                 }            ],
             nicknames: [
                 {
