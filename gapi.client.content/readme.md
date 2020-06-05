@@ -355,6 +355,16 @@ Lists the orders in your Merchant Center account.
 await gapi.client.content.orders.list({ merchantId: "merchantId",  });
 
 /*
+Issues a partial or total refund for items and shipment.
+*/
+await gapi.client.content.orders.refunditem({ merchantId: "merchantId", orderId: "orderId",  });
+
+/*
+Issues a partial or total refund for an order.
+*/
+await gapi.client.content.orders.refundorder({ merchantId: "merchantId", orderId: "orderId",  });
+
+/*
 Rejects return on an line item.
 */
 await gapi.client.content.orders.rejectreturnlineitem({ merchantId: "merchantId", orderId: "orderId",  });

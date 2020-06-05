@@ -984,6 +984,7 @@ gapi.load('client', () => {
                                 methodName: "Test string",
                                 minDaysInTransit: 42,
                             },
+                            pickupPromiseInMinutes: 42,
                             shipByDate: "Test string",
                             type: "Test string",
                         },
@@ -1097,6 +1098,59 @@ gapi.load('client', () => {
             placedDateStart: "Test string",
             statuses: "Test string",
         });
+        /** Issues a partial or total refund for items and shipment. */
+        await gapi.client.content.orders.refunditem({
+            merchantId: "Test string",
+            orderId: "Test string",
+        }, {
+            items: [
+                {
+                    amount: {
+                        priceAmount: {
+                            currency: "Test string",
+                            value: "Test string",
+                        },
+                        taxAmount: {
+                            currency: "Test string",
+                            value: "Test string",
+                        },
+                    },
+                    fullRefund: true,
+                    lineItemId: "Test string",
+                    productId: "Test string",
+                    quantity: 42,
+                }            ],
+            operationId: "Test string",
+            reason: "Test string",
+            reasonText: "Test string",
+            shipping: {
+                amount: {
+                    currency: "Test string",
+                    value: "Test string",
+                },
+                fullRefund: true,
+            },
+        });
+        /** Issues a partial or total refund for an order. */
+        await gapi.client.content.orders.refundorder({
+            merchantId: "Test string",
+            orderId: "Test string",
+        }, {
+            amount: {
+                priceAmount: {
+                    currency: "Test string",
+                    value: "Test string",
+                },
+                taxAmount: {
+                    currency: "Test string",
+                    value: "Test string",
+                },
+            },
+            fullRefund: true,
+            operationId: "Test string",
+            reason: "Test string",
+            reasonText: "Test string",
+        });
         /** Rejects return on an line item. */
         await gapi.client.content.orders.rejectreturnlineitem({
             merchantId: "Test string",
@@ -1197,10 +1251,13 @@ gapi.load('client', () => {
         }, {
             carrier: "Test string",
             deliveryDate: "Test string",
+            lastPickupDate: "Test string",
             operationId: "Test string",
+            readyPickupDate: "Test string",
             shipmentId: "Test string",
             status: "Test string",
             trackingId: "Test string",
+            undeliveredDate: "Test string",
         });
         /** Batches multiple POS-related calls in a single request. */
         await gapi.client.content.pos.custombatch({} , {
