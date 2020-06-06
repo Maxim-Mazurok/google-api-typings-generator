@@ -16,7 +16,7 @@ const params = program
     '-s, --service [name]',
     'process only specific REST service definition by name'
   )
-  .option('-a, --all', 'include previously versions', false)
+  .option('-a, --all', 'include previous versions', false)
   .option('-o, --out [path]', 'output directory', App.parseOutPath)
   .option(
     '-n, --new-revisions-only',
