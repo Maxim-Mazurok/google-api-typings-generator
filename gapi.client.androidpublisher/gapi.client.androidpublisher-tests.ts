@@ -27,14 +27,16 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /** Commits/applies the changes made in this edit back to the app. */
+        /** Commits an app edit. */
         await gapi.client.androidpublisher.edits.commit({
             editId: "Test string",
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * enterprises using Google Play for Work whose application is configured to restrict distribution to the enterprise domain.
+         * Creates a new APK without uploading the APK itself to Google Play, instead
+         * hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to
+         * restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -65,21 +67,28 @@ gapi.load('client', () => {
                 versionName: "Test string",
             },
         });
+        /** Lists all current APKs of the app and edit. */
         await gapi.client.androidpublisher.edits.apks.list({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Uploads an APK and adds to the current edit. */
         await gapi.client.androidpublisher.edits.apks.upload({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Lists all current Android App Bundles of the app and edit. */
         await gapi.client.androidpublisher.edits.bundles.list({
             editId: "Test string",
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
+         * Uploads a new Android App Bundle to this edit.
+         * If you are using the Google API client libraries, please increase the
+         * timeout of the http request before calling this endpoint
+         * (a timeout of 2 minutes is recommended).
+         * See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
          * for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
@@ -87,22 +96,19 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
-         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
-         */
+        /** Uploads a new deobfuscation file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches app details for this edit. This includes the default language and developer support contact information. */
+        /** Gets details of an app. */
         await gapi.client.androidpublisher.edits.details.get({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates app details for this edit. This method supports patch semantics. */
+        /** Patches details of an app. */
         await gapi.client.androidpublisher.edits.details.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -112,7 +118,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Updates app details for this edit. */
+        /** Updates details of an app. */
         await gapi.client.androidpublisher.edits.details.update({
             editId: "Test string",
             packageName: "Test string",
@@ -122,7 +128,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Fetches the Expansion File configuration for the APK specified. */
+        /** Fetches the expansion file configuration for the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.get({
             apkVersionCode: 42,
             editId: "Test string",
@@ -130,8 +136,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. This
-         * method supports patch semantics.
+         * Patches the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
          */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
@@ -142,7 +149,11 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. */
+        /**
+         * Updates the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
+         */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -152,7 +163,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Uploads and attaches a new Expansion File to the APK specified. */
+        /** Uploads a new expansion file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.upload({
             apkVersionCode: 42,
             editId: "Test string",
@@ -167,50 +178,56 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all images for the specified language and image type. */
+        /**
+         * Deletes all images for the specified language and image type.
+         * Returns an empty response if no images are found.
+         */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Lists all images for the specified language and image type. */
+        /** Lists all images. The response may be empty. */
         await gapi.client.androidpublisher.edits.images.list({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Uploads a new image and adds it to the list of images for the specified language and image type. */
+        /**
+         * Uploads an image of the specified language and image type, and adds to the
+         * edit.
+         */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes the specified localized store listing from an edit. */
+        /** Deletes a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.delete({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all localized listings from an edit. */
+        /** Deletes all store listings. */
         await gapi.client.androidpublisher.edits.listings.deleteall({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches information about a localized store listing. */
+        /** Gets a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.get({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Returns all of the localized store listings attached to this edit. */
+        /** Lists all localized store listings. */
         await gapi.client.androidpublisher.edits.listings.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Creates or updates a localized store listing. This method supports patch semantics. */
+        /** Patches a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.patch({
             editId: "Test string",
             language: "Test string",
@@ -234,51 +251,42 @@ gapi.load('client', () => {
             title: "Test string",
             video: "Test string",
         });
+        /** Gets testers. */
         await gapi.client.androidpublisher.edits.testers.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
+        /** Patches testers. */
         await gapi.client.androidpublisher.edits.testers.patch({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
+        /** Updates testers. */
         await gapi.client.androidpublisher.edits.testers.update({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
-        /** Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track. */
+        /** Gets a track. */
         await gapi.client.androidpublisher.edits.tracks.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
-        /** Lists all the track configurations for this edit. */
+        /** Lists all tracks. */
         await gapi.client.androidpublisher.edits.tracks.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates the track configuration for the specified track type. This method supports patch semantics. */
+        /** Patches a track. */
         await gapi.client.androidpublisher.edits.tracks.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -286,27 +294,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -314,53 +301,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -368,7 +313,7 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /** Updates the track configuration for the specified track type. */
+        /** Updates a track. */
         await gapi.client.androidpublisher.edits.tracks.update({
             editId: "Test string",
             packageName: "Test string",
@@ -376,27 +321,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -404,53 +328,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -458,17 +340,16 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /**
-         * Deletes an edit for an app. Creating a new edit will automatically delete any of your previous edits so this method need only be called if you want to
-         * preemptively abandon an edit.
-         */
+        /** Deletes an app edit. */
         await gapi.client.androidpublisher.edits.delete({
             editId: "Test string",
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * enterprises using Google Play for Work whose application is configured to restrict distribution to the enterprise domain.
+         * Creates a new APK without uploading the APK itself to Google Play, instead
+         * hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to
+         * restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -499,21 +380,28 @@ gapi.load('client', () => {
                 versionName: "Test string",
             },
         });
+        /** Lists all current APKs of the app and edit. */
         await gapi.client.androidpublisher.edits.apks.list({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Uploads an APK and adds to the current edit. */
         await gapi.client.androidpublisher.edits.apks.upload({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Lists all current Android App Bundles of the app and edit. */
         await gapi.client.androidpublisher.edits.bundles.list({
             editId: "Test string",
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
+         * Uploads a new Android App Bundle to this edit.
+         * If you are using the Google API client libraries, please increase the
+         * timeout of the http request before calling this endpoint
+         * (a timeout of 2 minutes is recommended).
+         * See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
          * for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
@@ -521,22 +409,19 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
-         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
-         */
+        /** Uploads a new deobfuscation file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches app details for this edit. This includes the default language and developer support contact information. */
+        /** Gets details of an app. */
         await gapi.client.androidpublisher.edits.details.get({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates app details for this edit. This method supports patch semantics. */
+        /** Patches details of an app. */
         await gapi.client.androidpublisher.edits.details.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -546,7 +431,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Updates app details for this edit. */
+        /** Updates details of an app. */
         await gapi.client.androidpublisher.edits.details.update({
             editId: "Test string",
             packageName: "Test string",
@@ -556,7 +441,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Fetches the Expansion File configuration for the APK specified. */
+        /** Fetches the expansion file configuration for the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.get({
             apkVersionCode: 42,
             editId: "Test string",
@@ -564,8 +449,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. This
-         * method supports patch semantics.
+         * Patches the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
          */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
@@ -576,7 +462,11 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. */
+        /**
+         * Updates the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
+         */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -586,7 +476,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Uploads and attaches a new Expansion File to the APK specified. */
+        /** Uploads a new expansion file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.upload({
             apkVersionCode: 42,
             editId: "Test string",
@@ -601,50 +491,56 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all images for the specified language and image type. */
+        /**
+         * Deletes all images for the specified language and image type.
+         * Returns an empty response if no images are found.
+         */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Lists all images for the specified language and image type. */
+        /** Lists all images. The response may be empty. */
         await gapi.client.androidpublisher.edits.images.list({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Uploads a new image and adds it to the list of images for the specified language and image type. */
+        /**
+         * Uploads an image of the specified language and image type, and adds to the
+         * edit.
+         */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes the specified localized store listing from an edit. */
+        /** Deletes a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.delete({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all localized listings from an edit. */
+        /** Deletes all store listings. */
         await gapi.client.androidpublisher.edits.listings.deleteall({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches information about a localized store listing. */
+        /** Gets a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.get({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Returns all of the localized store listings attached to this edit. */
+        /** Lists all localized store listings. */
         await gapi.client.androidpublisher.edits.listings.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Creates or updates a localized store listing. This method supports patch semantics. */
+        /** Patches a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.patch({
             editId: "Test string",
             language: "Test string",
@@ -668,51 +564,42 @@ gapi.load('client', () => {
             title: "Test string",
             video: "Test string",
         });
+        /** Gets testers. */
         await gapi.client.androidpublisher.edits.testers.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
+        /** Patches testers. */
         await gapi.client.androidpublisher.edits.testers.patch({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
+        /** Updates testers. */
         await gapi.client.androidpublisher.edits.testers.update({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
-        /** Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track. */
+        /** Gets a track. */
         await gapi.client.androidpublisher.edits.tracks.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
-        /** Lists all the track configurations for this edit. */
+        /** Lists all tracks. */
         await gapi.client.androidpublisher.edits.tracks.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates the track configuration for the specified track type. This method supports patch semantics. */
+        /** Patches a track. */
         await gapi.client.androidpublisher.edits.tracks.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -720,27 +607,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -748,53 +614,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -802,7 +626,7 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /** Updates the track configuration for the specified track type. */
+        /** Updates a track. */
         await gapi.client.androidpublisher.edits.tracks.update({
             editId: "Test string",
             packageName: "Test string",
@@ -810,27 +634,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -838,53 +641,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -892,14 +653,16 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /** Returns information about the edit specified. Calls will fail if the edit is no long active (e.g. has been deleted, superseded or expired). */
+        /** Gets an app edit. */
         await gapi.client.androidpublisher.edits.get({
             editId: "Test string",
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * enterprises using Google Play for Work whose application is configured to restrict distribution to the enterprise domain.
+         * Creates a new APK without uploading the APK itself to Google Play, instead
+         * hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to
+         * restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -930,21 +693,28 @@ gapi.load('client', () => {
                 versionName: "Test string",
             },
         });
+        /** Lists all current APKs of the app and edit. */
         await gapi.client.androidpublisher.edits.apks.list({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Uploads an APK and adds to the current edit. */
         await gapi.client.androidpublisher.edits.apks.upload({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Lists all current Android App Bundles of the app and edit. */
         await gapi.client.androidpublisher.edits.bundles.list({
             editId: "Test string",
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
+         * Uploads a new Android App Bundle to this edit.
+         * If you are using the Google API client libraries, please increase the
+         * timeout of the http request before calling this endpoint
+         * (a timeout of 2 minutes is recommended).
+         * See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
          * for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
@@ -952,22 +722,19 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
-         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
-         */
+        /** Uploads a new deobfuscation file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches app details for this edit. This includes the default language and developer support contact information. */
+        /** Gets details of an app. */
         await gapi.client.androidpublisher.edits.details.get({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates app details for this edit. This method supports patch semantics. */
+        /** Patches details of an app. */
         await gapi.client.androidpublisher.edits.details.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -977,7 +744,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Updates app details for this edit. */
+        /** Updates details of an app. */
         await gapi.client.androidpublisher.edits.details.update({
             editId: "Test string",
             packageName: "Test string",
@@ -987,7 +754,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Fetches the Expansion File configuration for the APK specified. */
+        /** Fetches the expansion file configuration for the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.get({
             apkVersionCode: 42,
             editId: "Test string",
@@ -995,8 +762,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. This
-         * method supports patch semantics.
+         * Patches the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
          */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
@@ -1007,7 +775,11 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. */
+        /**
+         * Updates the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
+         */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1017,7 +789,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Uploads and attaches a new Expansion File to the APK specified. */
+        /** Uploads a new expansion file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.upload({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1032,50 +804,56 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all images for the specified language and image type. */
+        /**
+         * Deletes all images for the specified language and image type.
+         * Returns an empty response if no images are found.
+         */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Lists all images for the specified language and image type. */
+        /** Lists all images. The response may be empty. */
         await gapi.client.androidpublisher.edits.images.list({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Uploads a new image and adds it to the list of images for the specified language and image type. */
+        /**
+         * Uploads an image of the specified language and image type, and adds to the
+         * edit.
+         */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes the specified localized store listing from an edit. */
+        /** Deletes a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.delete({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all localized listings from an edit. */
+        /** Deletes all store listings. */
         await gapi.client.androidpublisher.edits.listings.deleteall({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches information about a localized store listing. */
+        /** Gets a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.get({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Returns all of the localized store listings attached to this edit. */
+        /** Lists all localized store listings. */
         await gapi.client.androidpublisher.edits.listings.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Creates or updates a localized store listing. This method supports patch semantics. */
+        /** Patches a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.patch({
             editId: "Test string",
             language: "Test string",
@@ -1099,51 +877,42 @@ gapi.load('client', () => {
             title: "Test string",
             video: "Test string",
         });
+        /** Gets testers. */
         await gapi.client.androidpublisher.edits.testers.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
+        /** Patches testers. */
         await gapi.client.androidpublisher.edits.testers.patch({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
+        /** Updates testers. */
         await gapi.client.androidpublisher.edits.testers.update({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
-        /** Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track. */
+        /** Gets a track. */
         await gapi.client.androidpublisher.edits.tracks.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
-        /** Lists all the track configurations for this edit. */
+        /** Lists all tracks. */
         await gapi.client.androidpublisher.edits.tracks.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates the track configuration for the specified track type. This method supports patch semantics. */
+        /** Patches a track. */
         await gapi.client.androidpublisher.edits.tracks.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -1151,27 +920,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -1179,53 +927,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -1233,7 +939,7 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /** Updates the track configuration for the specified track type. */
+        /** Updates a track. */
         await gapi.client.androidpublisher.edits.tracks.update({
             editId: "Test string",
             packageName: "Test string",
@@ -1241,27 +947,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -1269,53 +954,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -1323,7 +966,7 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /** Creates a new edit for an app, populated with the app's current state. */
+        /** Creates a new edit for an app. */
         await gapi.client.androidpublisher.edits.insert({
             packageName: "Test string",
         }, {
@@ -1331,8 +974,10 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * enterprises using Google Play for Work whose application is configured to restrict distribution to the enterprise domain.
+         * Creates a new APK without uploading the APK itself to Google Play, instead
+         * hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to
+         * restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -1363,21 +1008,28 @@ gapi.load('client', () => {
                 versionName: "Test string",
             },
         });
+        /** Lists all current APKs of the app and edit. */
         await gapi.client.androidpublisher.edits.apks.list({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Uploads an APK and adds to the current edit. */
         await gapi.client.androidpublisher.edits.apks.upload({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Lists all current Android App Bundles of the app and edit. */
         await gapi.client.androidpublisher.edits.bundles.list({
             editId: "Test string",
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
+         * Uploads a new Android App Bundle to this edit.
+         * If you are using the Google API client libraries, please increase the
+         * timeout of the http request before calling this endpoint
+         * (a timeout of 2 minutes is recommended).
+         * See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
          * for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
@@ -1385,22 +1037,19 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
-         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
-         */
+        /** Uploads a new deobfuscation file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches app details for this edit. This includes the default language and developer support contact information. */
+        /** Gets details of an app. */
         await gapi.client.androidpublisher.edits.details.get({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates app details for this edit. This method supports patch semantics. */
+        /** Patches details of an app. */
         await gapi.client.androidpublisher.edits.details.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -1410,7 +1059,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Updates app details for this edit. */
+        /** Updates details of an app. */
         await gapi.client.androidpublisher.edits.details.update({
             editId: "Test string",
             packageName: "Test string",
@@ -1420,7 +1069,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Fetches the Expansion File configuration for the APK specified. */
+        /** Fetches the expansion file configuration for the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.get({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1428,8 +1077,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. This
-         * method supports patch semantics.
+         * Patches the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
          */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
@@ -1440,7 +1090,11 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. */
+        /**
+         * Updates the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
+         */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1450,7 +1104,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Uploads and attaches a new Expansion File to the APK specified. */
+        /** Uploads a new expansion file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.upload({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1465,50 +1119,56 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all images for the specified language and image type. */
+        /**
+         * Deletes all images for the specified language and image type.
+         * Returns an empty response if no images are found.
+         */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Lists all images for the specified language and image type. */
+        /** Lists all images. The response may be empty. */
         await gapi.client.androidpublisher.edits.images.list({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Uploads a new image and adds it to the list of images for the specified language and image type. */
+        /**
+         * Uploads an image of the specified language and image type, and adds to the
+         * edit.
+         */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes the specified localized store listing from an edit. */
+        /** Deletes a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.delete({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all localized listings from an edit. */
+        /** Deletes all store listings. */
         await gapi.client.androidpublisher.edits.listings.deleteall({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches information about a localized store listing. */
+        /** Gets a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.get({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Returns all of the localized store listings attached to this edit. */
+        /** Lists all localized store listings. */
         await gapi.client.androidpublisher.edits.listings.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Creates or updates a localized store listing. This method supports patch semantics. */
+        /** Patches a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.patch({
             editId: "Test string",
             language: "Test string",
@@ -1532,51 +1192,42 @@ gapi.load('client', () => {
             title: "Test string",
             video: "Test string",
         });
+        /** Gets testers. */
         await gapi.client.androidpublisher.edits.testers.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
+        /** Patches testers. */
         await gapi.client.androidpublisher.edits.testers.patch({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
+        /** Updates testers. */
         await gapi.client.androidpublisher.edits.testers.update({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
-        /** Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track. */
+        /** Gets a track. */
         await gapi.client.androidpublisher.edits.tracks.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
-        /** Lists all the track configurations for this edit. */
+        /** Lists all tracks. */
         await gapi.client.androidpublisher.edits.tracks.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates the track configuration for the specified track type. This method supports patch semantics. */
+        /** Patches a track. */
         await gapi.client.androidpublisher.edits.tracks.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -1584,27 +1235,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -1612,53 +1242,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -1666,7 +1254,7 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /** Updates the track configuration for the specified track type. */
+        /** Updates a track. */
         await gapi.client.androidpublisher.edits.tracks.update({
             editId: "Test string",
             packageName: "Test string",
@@ -1674,27 +1262,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -1702,53 +1269,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -1756,14 +1281,16 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /** Checks that the edit can be successfully committed. The edit's changes are not applied to the live app. */
+        /** Validates an app edit. */
         await gapi.client.androidpublisher.edits.validate({
             editId: "Test string",
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * enterprises using Google Play for Work whose application is configured to restrict distribution to the enterprise domain.
+         * Creates a new APK without uploading the APK itself to Google Play, instead
+         * hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to
+         * restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -1794,21 +1321,28 @@ gapi.load('client', () => {
                 versionName: "Test string",
             },
         });
+        /** Lists all current APKs of the app and edit. */
         await gapi.client.androidpublisher.edits.apks.list({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Uploads an APK and adds to the current edit. */
         await gapi.client.androidpublisher.edits.apks.upload({
             editId: "Test string",
             packageName: "Test string",
         });
+        /** Lists all current Android App Bundles of the app and edit. */
         await gapi.client.androidpublisher.edits.bundles.list({
             editId: "Test string",
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
+         * Uploads a new Android App Bundle to this edit.
+         * If you are using the Google API client libraries, please increase the
+         * timeout of the http request before calling this endpoint
+         * (a timeout of 2 minutes is recommended).
+         * See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
          * for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
@@ -1816,22 +1350,19 @@ gapi.load('client', () => {
             editId: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads the deobfuscation file of the specified APK. If a deobfuscation or symbolication file already exists, it will be replaced. See
-         * https://developer.android.com/studio/build/shrink-code to learn more about deobfuscation files.
-         */
+        /** Uploads a new deobfuscation file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
             apkVersionCode: 42,
             deobfuscationFileType: "Test string",
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches app details for this edit. This includes the default language and developer support contact information. */
+        /** Gets details of an app. */
         await gapi.client.androidpublisher.edits.details.get({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates app details for this edit. This method supports patch semantics. */
+        /** Patches details of an app. */
         await gapi.client.androidpublisher.edits.details.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -1841,7 +1372,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Updates app details for this edit. */
+        /** Updates details of an app. */
         await gapi.client.androidpublisher.edits.details.update({
             editId: "Test string",
             packageName: "Test string",
@@ -1851,7 +1382,7 @@ gapi.load('client', () => {
             contactWebsite: "Test string",
             defaultLanguage: "Test string",
         });
-        /** Fetches the Expansion File configuration for the APK specified. */
+        /** Fetches the expansion file configuration for the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.get({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1859,8 +1390,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. This
-         * method supports patch semantics.
+         * Patches the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
          */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
@@ -1871,7 +1403,11 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. */
+        /**
+         * Updates the APK's expansion file configuration to reference another APK's
+         * expansion file.
+         * To add a new expansion file use the Upload method.
+         */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1881,7 +1417,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /** Uploads and attaches a new Expansion File to the APK specified. */
+        /** Uploads a new expansion file and attaches to the specified APK. */
         await gapi.client.androidpublisher.edits.expansionfiles.upload({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1896,50 +1432,56 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all images for the specified language and image type. */
+        /**
+         * Deletes all images for the specified language and image type.
+         * Returns an empty response if no images are found.
+         */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Lists all images for the specified language and image type. */
+        /** Lists all images. The response may be empty. */
         await gapi.client.androidpublisher.edits.images.list({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Uploads a new image and adds it to the list of images for the specified language and image type. */
+        /**
+         * Uploads an image of the specified language and image type, and adds to the
+         * edit.
+         */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes the specified localized store listing from an edit. */
+        /** Deletes a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.delete({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Deletes all localized listings from an edit. */
+        /** Deletes all store listings. */
         await gapi.client.androidpublisher.edits.listings.deleteall({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Fetches information about a localized store listing. */
+        /** Gets a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.get({
             editId: "Test string",
             language: "Test string",
             packageName: "Test string",
         });
-        /** Returns all of the localized store listings attached to this edit. */
+        /** Lists all localized store listings. */
         await gapi.client.androidpublisher.edits.listings.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Creates or updates a localized store listing. This method supports patch semantics. */
+        /** Patches a localized store listing. */
         await gapi.client.androidpublisher.edits.listings.patch({
             editId: "Test string",
             language: "Test string",
@@ -1963,51 +1505,42 @@ gapi.load('client', () => {
             title: "Test string",
             video: "Test string",
         });
+        /** Gets testers. */
         await gapi.client.androidpublisher.edits.testers.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
+        /** Patches testers. */
         await gapi.client.androidpublisher.edits.testers.patch({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
+        /** Updates testers. */
         await gapi.client.androidpublisher.edits.testers.update({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         }, {
-            autoEnrolledAndroidGroups: [
-                "Test string"            ],
-            autoEnrolledGoogleGroups: [
-                "Test string"            ],
-            excludedGoogleGroups: [
-                "Test string"            ],
             googleGroups: [
                 "Test string"            ],
         });
-        /** Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track. */
+        /** Gets a track. */
         await gapi.client.androidpublisher.edits.tracks.get({
             editId: "Test string",
             packageName: "Test string",
             track: "Test string",
         });
-        /** Lists all the track configurations for this edit. */
+        /** Lists all tracks. */
         await gapi.client.androidpublisher.edits.tracks.list({
             editId: "Test string",
             packageName: "Test string",
         });
-        /** Updates the track configuration for the specified track type. This method supports patch semantics. */
+        /** Patches a track. */
         await gapi.client.androidpublisher.edits.tracks.patch({
             editId: "Test string",
             packageName: "Test string",
@@ -2015,27 +1548,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -2043,53 +1555,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -2097,7 +1567,7 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /** Updates the track configuration for the specified track type. */
+        /** Updates a track. */
         await gapi.client.androidpublisher.edits.tracks.update({
             editId: "Test string",
             packageName: "Test string",
@@ -2105,27 +1575,6 @@ gapi.load('client', () => {
         }, {
             releases: [
                 {
-                    controls: [
-                        {
-                            modRanges: [
-                                {
-                                    end: "Test string",
-                                    start: "Test string",
-                                }                            ],
-                            stratifiedSamplings: [
-                                {
-                                    modRanges: [
-                                        {
-                                            end: "Test string",
-                                            start: "Test string",
-                                        }                                    ],
-                                    stratum: {
-                                        brand: "Test string",
-                                    },
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     countryTargeting: {
                         countries: [
                             "Test string"                        ],
@@ -2133,53 +1582,11 @@ gapi.load('client', () => {
                     },
                     inAppUpdatePriority: 42,
                     name: "Test string",
-                    pinnedVersions: [
-                        {
-                            targetings: [
-                                {
-                                    countryCodes: [
-                                        "Test string"                                    ],
-                                    devices: [
-                                        {
-                                            brand: "Test string",
-                                            device: "Test string",
-                                            product: "Test string",
-                                        }                                    ],
-                                    phoneskyVersions: [
-                                        "Test string"                                    ],
-                                    sdkVersions: [
-                                        42                                    ],
-                                }                            ],
-                            versionCodes: [
-                                "Test string"                            ],
-                        }                    ],
                     releaseNotes: [
                         {
                             language: "Test string",
                             text: "Test string",
                         }                    ],
-                    rollbackEnabled: true,
-                    sampling: {
-                        modRanges: [
-                            {
-                                end: "Test string",
-                                start: "Test string",
-                            }                        ],
-                        modulus: "Test string",
-                        salt: 42,
-                        stratifiedSamplings: [
-                            {
-                                modRanges: [
-                                    {
-                                        end: "Test string",
-                                        start: "Test string",
-                                    }                                ],
-                                stratum: {
-                                    brand: "Test string",
-                                },
-                            }                        ],
-                        useAndroidId: true,
-                    },
                     status: "Test string",
                     userFraction: 42,
                     versionCodes: [
@@ -2187,17 +1594,17 @@ gapi.load('client', () => {
                 }            ],
             track: "Test string",
         });
-        /** Delete an in-app product for an app. */
+        /** Deletes an in-app product (i.e. a managed product or a subscriptions). */
         await gapi.client.androidpublisher.inappproducts.delete({
             packageName: "Test string",
             sku: "Test string",
         });
-        /** Returns information about the in-app product specified. */
+        /** Gets an in-app product, which can be a managed product or a subscription. */
         await gapi.client.androidpublisher.inappproducts.get({
             packageName: "Test string",
             sku: "Test string",
         });
-        /** Creates a new in-app product for an app. */
+        /** Creates an in-app product (i.e. a managed product or a subscriptions). */
         await gapi.client.androidpublisher.inappproducts.insert({
             autoConvertMissingPrices: true,
             packageName: "Test string",
@@ -2222,20 +1629,19 @@ gapi.load('client', () => {
                     priceMicros: "Test string",
                 }            },
             purchaseType: "Test string",
-            resubscribeEligibility: "Test string",
             sku: "Test string",
             status: "Test string",
             subscriptionPeriod: "Test string",
             trialPeriod: "Test string",
         });
-        /** List all the in-app products for an Android app, both subscriptions and managed in-app products.. */
+        /** Lists all in-app products - both managed products and subscriptions. */
         await gapi.client.androidpublisher.inappproducts.list({
             maxResults: 42,
             packageName: "Test string",
             startIndex: 42,
             token: "Test string",
         });
-        /** Updates the details of an in-app product. This method supports patch semantics. */
+        /** Patches an in-app product (i.e. a managed product or a subscriptions). */
         await gapi.client.androidpublisher.inappproducts.patch({
             autoConvertMissingPrices: true,
             packageName: "Test string",
@@ -2261,13 +1667,12 @@ gapi.load('client', () => {
                     priceMicros: "Test string",
                 }            },
             purchaseType: "Test string",
-            resubscribeEligibility: "Test string",
             sku: "Test string",
             status: "Test string",
             subscriptionPeriod: "Test string",
             trialPeriod: "Test string",
         });
-        /** Updates the details of an in-app product. */
+        /** Updates an in-app product (i.e. a managed product or a subscriptions). */
         await gapi.client.androidpublisher.inappproducts.update({
             autoConvertMissingPrices: true,
             packageName: "Test string",
@@ -2293,23 +1698,32 @@ gapi.load('client', () => {
                     priceMicros: "Test string",
                 }            },
             purchaseType: "Test string",
-            resubscribeEligibility: "Test string",
             sku: "Test string",
             status: "Test string",
             subscriptionPeriod: "Test string",
             trialPeriod: "Test string",
         });
         /**
-         * Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
+         * Uploads an APK to internal app sharing.
+         * If you are using the Google API client libraries, please increase the
+         * timeout of the http request before calling this endpoint
+         * (a timeout of 2 minutes is recommended).
+         *
+         * See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
          * for an example in java.
          */
         await gapi.client.androidpublisher.internalappsharingartifacts.uploadapk({
             packageName: "Test string",
         });
         /**
-         * Uploads an app bundle to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors
+         * Uploads an app bundle to internal app sharing.
+         * If you are using the Google API client libraries, please increase the
+         * timeout of the http request before calling this endpoint
+         * (a timeout of 2 minutes is recommended).
+         *
+         * See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
          * for an example in java.
          */
         await gapi.client.androidpublisher.internalappsharingartifacts.uploadbundle({
@@ -2321,13 +1735,13 @@ gapi.load('client', () => {
             packageName: "Test string",
             revoke: true,
         });
-        /** Returns a single review. */
+        /** Gets a single review. */
         await gapi.client.androidpublisher.reviews.get({
             packageName: "Test string",
             reviewId: "Test string",
             translationLanguage: "Test string",
         });
-        /** Returns a list of reviews. Only reviews from last week will be returned. */
+        /** Lists all reviews. */
         await gapi.client.androidpublisher.reviews.list({
             maxResults: 42,
             packageName: "Test string",
@@ -2335,7 +1749,7 @@ gapi.load('client', () => {
             token: "Test string",
             translationLanguage: "Test string",
         });
-        /** Reply to a single review, or update an existing reply. */
+        /** Replies to a single review, or updates an existing reply. */
         await gapi.client.androidpublisher.reviews.reply({
             packageName: "Test string",
             reviewId: "Test string",

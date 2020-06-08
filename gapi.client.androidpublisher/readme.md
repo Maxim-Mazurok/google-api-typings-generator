@@ -1,11 +1,11 @@
-# TypeScript typings for Google Play Developer API v3
+# TypeScript typings for Google Play Android Developer API v3
 
-Accesses Android application developers' Google Play accounts.
+Lets Android application developers access their Google Play accounts.
 For detailed description please check [documentation](https://developers.google.com/android-publisher).
 
 ## Installing
 
-Install typings for Google Play Developer API:
+Install typings for Google Play Android Developer API:
 
 ```
 npm install @types/gapi.client.androidpublisher@v3 --save-dev
@@ -54,72 +54,86 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Google Play Developer API resources:
+After that you can use Google Play Android Developer API resources:
 
 ```typescript
 
 /*
-Commits/applies the changes made in this edit back to the app.
+Commits an app edit.
 */
 await gapi.client.androidpublisher.edits.commit({ editId: "editId", packageName: "packageName",  });
 
 /*
-Deletes an edit for an app. Creating a new edit will automatically delete any of your previous edits so this method need only be called if you want to preemptively abandon an edit.
+Deletes an app edit.
 */
 await gapi.client.androidpublisher.edits.delete({ editId: "editId", packageName: "packageName",  });
 
 /*
-Returns information about the edit specified. Calls will fail if the edit is no long active (e.g. has been deleted, superseded or expired).
+Gets an app edit.
 */
 await gapi.client.androidpublisher.edits.get({ editId: "editId", packageName: "packageName",  });
 
 /*
-Creates a new edit for an app, populated with the app's current state.
+Creates a new edit for an app.
 */
 await gapi.client.androidpublisher.edits.insert({ packageName: "packageName",  });
 
 /*
-Checks that the edit can be successfully committed. The edit's changes are not applied to the live app.
+Validates an app edit.
 */
 await gapi.client.androidpublisher.edits.validate({ editId: "editId", packageName: "packageName",  });
 
 /*
-Delete an in-app product for an app.
+Deletes an in-app product (i.e. a managed product or a subscriptions).
 */
 await gapi.client.androidpublisher.inappproducts.delete({ packageName: "packageName", sku: "sku",  });
 
 /*
-Returns information about the in-app product specified.
+Gets an in-app product, which can be a managed product or a subscription.
 */
 await gapi.client.androidpublisher.inappproducts.get({ packageName: "packageName", sku: "sku",  });
 
 /*
-Creates a new in-app product for an app.
+Creates an in-app product (i.e. a managed product or a subscriptions).
 */
 await gapi.client.androidpublisher.inappproducts.insert({ packageName: "packageName",  });
 
 /*
-List all the in-app products for an Android app, both subscriptions and managed in-app products..
+Lists all in-app products - both managed products and subscriptions.
 */
 await gapi.client.androidpublisher.inappproducts.list({ packageName: "packageName",  });
 
 /*
-Updates the details of an in-app product. This method supports patch semantics.
+Patches an in-app product (i.e. a managed product or a subscriptions).
 */
 await gapi.client.androidpublisher.inappproducts.patch({ packageName: "packageName", sku: "sku",  });
 
 /*
-Updates the details of an in-app product.
+Updates an in-app product (i.e. a managed product or a subscriptions).
 */
 await gapi.client.androidpublisher.inappproducts.update({ packageName: "packageName", sku: "sku",  });
 
 /*
-Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors for an example in java.
+Uploads an APK to internal app sharing.
+If you are using the Google API client libraries, please increase the
+timeout of the http request before calling this endpoint
+(a timeout of 2 minutes is recommended).
+
+See [Timeouts and
+Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
+for an example in java.
 */
 await gapi.client.androidpublisher.internalappsharingartifacts.uploadapk({ packageName: "packageName",  });
 
 /*
-Uploads an app bundle to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of 2 minutes is recommended). See: https://developers.google.com/api-client-library/java/google-api-java-client/errors for an example in java.
+Uploads an app bundle to internal app sharing.
+If you are using the Google API client libraries, please increase the
+timeout of the http request before calling this endpoint
+(a timeout of 2 minutes is recommended).
+
+See [Timeouts and
+Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
+for an example in java.
 */
 await gapi.client.androidpublisher.internalappsharingartifacts.uploadbundle({ packageName: "packageName",  });
 
@@ -129,17 +143,17 @@ Refund a user's subscription or in-app purchase order.
 await gapi.client.androidpublisher.orders.refund({ orderId: "orderId", packageName: "packageName",  });
 
 /*
-Returns a single review.
+Gets a single review.
 */
 await gapi.client.androidpublisher.reviews.get({ packageName: "packageName", reviewId: "reviewId",  });
 
 /*
-Returns a list of reviews. Only reviews from last week will be returned.
+Lists all reviews.
 */
 await gapi.client.androidpublisher.reviews.list({ packageName: "packageName",  });
 
 /*
-Reply to a single review, or update an existing reply.
+Replies to a single review, or updates an existing reply.
 */
 await gapi.client.androidpublisher.reviews.reply({ packageName: "packageName", reviewId: "reviewId",  });
 ```
