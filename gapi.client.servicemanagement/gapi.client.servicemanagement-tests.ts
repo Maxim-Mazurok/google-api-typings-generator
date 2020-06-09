@@ -215,8 +215,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -785,8 +783,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -1356,8 +1352,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -1928,8 +1922,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -2507,8 +2499,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -3073,8 +3063,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -3638,8 +3626,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -4209,8 +4195,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -4785,8 +4769,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -5381,8 +5363,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -5955,8 +5935,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
@@ -6525,8 +6503,6 @@ gapi.load('client', () => {
                     aliases: [
                         "Test string"                    ],
                     allowCors: true,
-                    features: [
-                        "Test string"                    ],
                     name: "Test string",
                     target: "Test string",
                 }            ],
