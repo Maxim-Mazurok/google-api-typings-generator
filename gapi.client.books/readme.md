@@ -61,135 +61,135 @@ After that you can use Books API resources:
 /*
 Retrieves metadata for a specific bookshelf for the specified user.
 */
-await gapi.client.bookshelves.get({ shelf: "shelf", userId: "userId",  });
+await gapi.client.books.bookshelves.get({ shelf: "shelf", userId: "userId",  });
 
 /*
 Retrieves a list of public bookshelves for the specified user.
 */
-await gapi.client.bookshelves.list({ userId: "userId",  });
+await gapi.client.books.bookshelves.list({ userId: "userId",  });
 
 /*
 Add a user-upload volume and triggers processing.
 */
-await gapi.client.cloudloading.addBook({  });
+await gapi.client.books.cloudloading.addBook({  });
 
 /*
 Remove the book and its contents
 */
-await gapi.client.cloudloading.deleteBook({  });
+await gapi.client.books.cloudloading.deleteBook({  });
 
 /*
 Updates a user-upload volume.
 */
-await gapi.client.cloudloading.updateBook({  });
+await gapi.client.books.cloudloading.updateBook({  });
 
 /*
 Returns a list of offline dictionary metadata available
 */
-await gapi.client.dictionary.listOfflineMetadata({  });
+await gapi.client.books.dictionary.listOfflineMetadata({  });
 
 /*
 Gets information regarding the family that the user is part of.
 */
-await gapi.client.familysharing.getFamilyInfo({  });
+await gapi.client.books.familysharing.getFamilyInfo({  });
 
 /*
 Initiates sharing of the content with the user's family. Empty response
 indicates success.
 */
-await gapi.client.familysharing.share({  });
+await gapi.client.books.familysharing.share({  });
 
 /*
 Initiates revoking content that has already been shared with the user's
 family. Empty response indicates success.
 */
-await gapi.client.familysharing.unshare({  });
+await gapi.client.books.familysharing.unshare({  });
 
 /*
 Gets the layer summary for a volume.
 */
-await gapi.client.layers.get({ summaryId: "summaryId", volumeId: "volumeId",  });
+await gapi.client.books.layers.get({ summaryId: "summaryId", volumeId: "volumeId",  });
 
 /*
 List the layer summaries for a volume.
 */
-await gapi.client.layers.list({ volumeId: "volumeId",  });
+await gapi.client.books.layers.list({ volumeId: "volumeId",  });
 
 /*
 Gets the current settings for the user.
 */
-await gapi.client.myconfig.getUserSettings({  });
+await gapi.client.books.myconfig.getUserSettings({  });
 
 /*
 Release downloaded content access restriction.
 */
-await gapi.client.myconfig.releaseDownloadAccess({  });
+await gapi.client.books.myconfig.releaseDownloadAccess({  });
 
 /*
 Request concurrent and download access restrictions.
 */
-await gapi.client.myconfig.requestAccess({  });
+await gapi.client.books.myconfig.requestAccess({  });
 
 /*
 Request downloaded content access for specified volumes on the My eBooks
 shelf.
 */
-await gapi.client.myconfig.syncVolumeLicenses({  });
+await gapi.client.books.myconfig.syncVolumeLicenses({  });
 
 /*
 Sets the settings for the user. If a sub-object is specified, it will
 overwrite the existing sub-object stored in the server. Unspecified
 sub-objects will retain the existing value.
 */
-await gapi.client.myconfig.updateUserSettings({  });
+await gapi.client.books.myconfig.updateUserSettings({  });
 
 /*
 Returns notification details for a given notification id.
 */
-await gapi.client.notification.get({  });
+await gapi.client.books.notification.get({  });
 
 /*
 List categories for onboarding experience.
 */
-await gapi.client.onboarding.listCategories({  });
+await gapi.client.books.onboarding.listCategories({  });
 
 /*
 List available volumes under categories for onboarding experience.
 */
-await gapi.client.onboarding.listCategoryVolumes({  });
+await gapi.client.books.onboarding.listCategoryVolumes({  });
 
 /*
 Returns a stream of personalized book clusters
 */
-await gapi.client.personalizedstream.get({  });
+await gapi.client.books.personalizedstream.get({  });
 
 /*
 Accepts the promo offer.
 */
-await gapi.client.promooffer.accept({  });
+await gapi.client.books.promooffer.accept({  });
 
 /*
 Marks the promo offer as dismissed.
 */
-await gapi.client.promooffer.dismiss({  });
+await gapi.client.books.promooffer.dismiss({  });
 
 /*
 Returns a list of promo offers available to the user
 */
-await gapi.client.promooffer.get({  });
+await gapi.client.books.promooffer.get({  });
 
 /*
 Returns Series metadata for the given series ids.
 */
-await gapi.client.series.get({  });
+await gapi.client.books.series.get({  });
 
 /*
 Gets volume information for a single volume.
 */
-await gapi.client.volumes.get({ volumeId: "volumeId",  });
+await gapi.client.books.volumes.get({ volumeId: "volumeId",  });
 
 /*
 Performs a book search.
 */
-await gapi.client.volumes.list({  });
+await gapi.client.books.volumes.list({  });
 ```
