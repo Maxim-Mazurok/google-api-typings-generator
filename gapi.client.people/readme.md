@@ -129,6 +129,12 @@ Copies an other contact to a new contact in the user's MY_CONTACTS group
 await gapi.client.people.otherContacts.copyOtherContactToMyContactsGroup({ resourceName: "resourceName",  });
 
 /*
+List all other contacts, that is contacts that are not in a contact group.
+Other contacts are typically auto created contacts from interactions.
+*/
+await gapi.client.people.otherContacts.list({  });
+
+/*
 Create a new contact and return the person resource for that contact.
 */
 await gapi.client.people.people.createContact({  });
@@ -181,10 +187,4 @@ await gapi.client.people.people.updateContact({ resourceName: "resourceName",  }
 Update a contact's photo.
 */
 await gapi.client.people.people.updateContactPhoto({ resourceName: "resourceName",  });
-
-/*
-List all other contacts, that is contacts that are not in a contact group.
-Other contacts are typically auto created contacts from interactions.
-*/
-await gapi.client.people.v1.otherContacts({  });
 ```

@@ -216,9 +216,24 @@ gapi.load('client', () => {
         }, {
             copyMask: "Test string",
             readMask: "Test string",
+            sources: [
+                "Test string"            ],
+        });
+        /**
+         * List all other contacts, that is contacts that are not in a contact group.
+         * Other contacts are typically auto created contacts from interactions.
+         */
+        await gapi.client.people.otherContacts.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            readMask: "Test string",
+            requestSyncToken: true,
+            syncToken: "Test string",
         });
         /** Create a new contact and return the person resource for that contact. */
         await gapi.client.people.people.createContact({
+            personFields: "Test string",
+            sources: "Test string",
         }, {
             addresses: [
                 {
@@ -875,6 +890,7 @@ gapi.load('client', () => {
             requestSyncToken: true,
             resourceName: "Test string",
             sortOrder: "Test string",
+            sources: "Test string",
             syncToken: "Test string",
         });
         /** Delete a contact person. Any non-contact data will not be deleted. */
@@ -894,12 +910,14 @@ gapi.load('client', () => {
             requestSyncToken: true,
             resourceName: "Test string",
             sortOrder: "Test string",
+            sources: "Test string",
             syncToken: "Test string",
         });
         /** Delete a contact's photo. */
         await gapi.client.people.people.deleteContactPhoto({
             personFields: "Test string",
             resourceName: "Test string",
+            sources: "Test string",
         });
         /**
          * Provides a list of the authenticated user's contacts.
@@ -914,6 +932,7 @@ gapi.load('client', () => {
             requestSyncToken: true,
             resourceName: "Test string",
             sortOrder: "Test string",
+            sources: "Test string",
             syncToken: "Test string",
         });
         /**
@@ -926,6 +945,7 @@ gapi.load('client', () => {
             personFields: "Test string",
             "requestMask.includeField": "Test string",
             resourceName: "Test string",
+            sources: "Test string",
         });
         /**
          * Provides a list of the authenticated user's contacts.
@@ -940,6 +960,7 @@ gapi.load('client', () => {
             requestSyncToken: true,
             resourceName: "Test string",
             sortOrder: "Test string",
+            sources: "Test string",
             syncToken: "Test string",
         });
         /**
@@ -953,6 +974,7 @@ gapi.load('client', () => {
             personFields: "Test string",
             "requestMask.includeField": "Test string",
             resourceNames: "Test string",
+            sources: "Test string",
         });
         /**
          * Provides a list of the authenticated user's contacts.
@@ -967,6 +989,7 @@ gapi.load('client', () => {
             requestSyncToken: true,
             resourceName: "Test string",
             sortOrder: "Test string",
+            sources: "Test string",
             syncToken: "Test string",
         });
         /**
@@ -985,7 +1008,9 @@ gapi.load('client', () => {
          * to the latest person.
          */
         await gapi.client.people.people.updateContact({
+            personFields: "Test string",
             resourceName: "Test string",
+            sources: "Test string",
             updatePersonFields: "Test string",
         }, {
             addresses: [
@@ -1643,6 +1668,7 @@ gapi.load('client', () => {
             requestSyncToken: true,
             resourceName: "Test string",
             sortOrder: "Test string",
+            sources: "Test string",
             syncToken: "Test string",
         });
         /** Update a contact's photo. */
@@ -1651,6 +1677,8 @@ gapi.load('client', () => {
         }, {
             personFields: "Test string",
             photoBytes: "Test string",
+            sources: [
+                "Test string"            ],
         });
         /**
          * Provides a list of the authenticated user's contacts.
@@ -1665,17 +1693,7 @@ gapi.load('client', () => {
             requestSyncToken: true,
             resourceName: "Test string",
             sortOrder: "Test string",
-            syncToken: "Test string",
-        });
-        /**
-         * List all other contacts, that is contacts that are not in a contact group.
-         * Other contacts are typically auto created contacts from interactions.
-         */
-        await gapi.client.people.v1.otherContacts({
-            pageSize: 42,
-            pageToken: "Test string",
-            readMask: "Test string",
-            requestSyncToken: true,
+            sources: "Test string",
             syncToken: "Test string",
         });
     }
