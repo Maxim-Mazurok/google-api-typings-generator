@@ -66,5 +66,5 @@ After that you can use Cloud Talent Solution API resources:
 Completes the specified prefix with keyword suggestions.
 Intended for use by a job search auto-complete search box.
 */
-await gapi.client.projects.complete({ name: "name",  });
+await gapi.client.jobs.projects.complete({ name: "name",  });
 ```
