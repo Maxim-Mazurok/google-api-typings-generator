@@ -415,6 +415,25 @@ gapi.load('client', () => {
                     },
                     type: "Test string",
                 }            ],
+            fileAses: [
+                {
+                    metadata: {
+                        primary: true,
+                        source: {
+                            etag: "Test string",
+                            id: "Test string",
+                            profileMetadata: {
+                                objectType: "Test string",
+                                userTypes: [
+                                    "Test string"                                ],
+                            },
+                            type: "Test string",
+                            updateTime: "Test string",
+                        },
+                        verified: true,
+                    },
+                    value: "Test string",
+                }            ],
             genders: [
                 {
                     addressMeAs: "Test string",
@@ -993,6 +1012,63 @@ gapi.load('client', () => {
             syncToken: "Test string",
         });
         /**
+         * Provides a list of domain profiles and domain contacts in the authenticated
+         * user's domain directory.
+         */
+        await gapi.client.people.people.listDirectoryPeople({
+            mergeSources: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            readMask: "Test string",
+            requestSyncToken: true,
+            sources: "Test string",
+            syncToken: "Test string",
+        });
+        /**
+         * Provides a list of the authenticated user's contacts.
+         *
+         * The request throws a 400 error if 'personFields' is not specified.
+         */
+        await gapi.client.people.people.connections.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            personFields: "Test string",
+            "requestMask.includeField": "Test string",
+            requestSyncToken: true,
+            resourceName: "Test string",
+            sortOrder: "Test string",
+            sources: "Test string",
+            syncToken: "Test string",
+        });
+        /**
+         * Provides a list of domain profiles and domain contacts in the authenticated
+         * user's domain directory that match the search query.
+         */
+        await gapi.client.people.people.searchDirectoryPeople({
+            mergeSources: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            query: "Test string",
+            readMask: "Test string",
+            sources: "Test string",
+        });
+        /**
+         * Provides a list of the authenticated user's contacts.
+         *
+         * The request throws a 400 error if 'personFields' is not specified.
+         */
+        await gapi.client.people.people.connections.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            personFields: "Test string",
+            "requestMask.includeField": "Test string",
+            requestSyncToken: true,
+            resourceName: "Test string",
+            sortOrder: "Test string",
+            sources: "Test string",
+            syncToken: "Test string",
+        });
+        /**
          * Update contact data for an existing contact person. Any non-contact data
          * will not be modified.
          *
@@ -1192,6 +1268,25 @@ gapi.load('client', () => {
                         verified: true,
                     },
                     type: "Test string",
+                }            ],
+            fileAses: [
+                {
+                    metadata: {
+                        primary: true,
+                        source: {
+                            etag: "Test string",
+                            id: "Test string",
+                            profileMetadata: {
+                                objectType: "Test string",
+                                userTypes: [
+                                    "Test string"                                ],
+                            },
+                            type: "Test string",
+                            updateTime: "Test string",
+                        },
+                        verified: true,
+                    },
+                    value: "Test string",
                 }            ],
             genders: [
                 {

@@ -167,6 +167,18 @@ The request throws a 400 error if 'personFields' is not specified.
 await gapi.client.people.people.getBatchGet({  });
 
 /*
+Provides a list of domain profiles and domain contacts in the authenticated
+user's domain directory.
+*/
+await gapi.client.people.people.listDirectoryPeople({  });
+
+/*
+Provides a list of domain profiles and domain contacts in the authenticated
+user's domain directory that match the search query.
+*/
+await gapi.client.people.people.searchDirectoryPeople({  });
+
+/*
 Update contact data for an existing contact person. Any non-contact data
 will not be modified.
 
