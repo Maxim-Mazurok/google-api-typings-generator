@@ -1,6 +1,7 @@
 # TypeScript typings for Groups Migration API v1
 
-Groups Migration Api.
+The Groups Migration API allows domain administrators to archive
+    emails into Google groups.
 For detailed description please check [documentation](https://developers.google.com/google-apps/groups-migration/).
 
 ## Installing
