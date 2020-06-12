@@ -59,7 +59,7 @@ export class Git {
     console.log(`Getting archive link for ${commitSHA}...`);
 
     const {user: owner, thisRepo: repo} = this.settings;
-    const response = await this.octokit.repos.getArchiveLink({
+    const response = await this.octokit.repos.downloadArchive({
       owner,
       repo,
       ref: commitSHA,

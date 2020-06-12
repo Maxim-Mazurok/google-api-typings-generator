@@ -39,15 +39,13 @@ export class GitHelpers {
       thisRepo,
       templateUpdateLabel: label,
     } = this.settings;
-    const metrics = await this.git.octokit.repos.retrieveCommunityProfileMetrics(
-      {
-        owner,
-        repo,
-        mediaType: {
-          previews: ['black-panther'],
-        },
-      }
-    );
+    const metrics = await this.git.octokit.repos.getCommunityProfileMetrics({
+      owner,
+      repo,
+      mediaType: {
+        previews: ['black-panther'],
+      },
+    });
     const pullRequestTemplateURL = metrics.data.files.pull_request_template.url;
     const pullRequestTemplateSHA = (
       await this.git.octokit.request<{sha: string}>({
