@@ -8,12 +8,12 @@
   "license": "MIT",
   "scripts": {
     "auto-update": "ts-node bin/auto-update/index.ts",
-    "precheck": "prettier --check .",
+    "precheck": "prettier --ignore-path ./.gitignore --check .",
     "check": "gts check",
     "clean": "gts clean",
     "compile": "tsc",
     "dtslint": "dtslint",
-    "prefix": "prettier --write .",
+    "prefix": "prettier --ignore-path ./.gitignore --write .",
     "fix": "gts fix",
     "get-latest-types": "ts-node bin/get-latest-types.ts ./types",
     "lint": "ts-node bin/lint.ts ./types",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@expo/spawn-async": "^1.5.0",
-    "@octokit/rest": "^17.11.0",
+    "@octokit/rest": "^18.0.0",
     "@types/commander": "^2.12.2",
     "@types/dot": "^1.1.4",
     "@types/gapi.client.discovery": "^1.0.3",
