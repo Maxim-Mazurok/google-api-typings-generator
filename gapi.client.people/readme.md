@@ -124,13 +124,14 @@ user.
 await gapi.client.people.contactGroups.update({ resourceName: "resourceName",  });
 
 /*
-Copies an other contact to a new contact in the user's MY_CONTACTS group
+Copies an "Other contact" to a new contact in the user's "myContacts" group
 */
 await gapi.client.people.otherContacts.copyOtherContactToMyContactsGroup({ resourceName: "resourceName",  });
 
 /*
-List all other contacts, that is contacts that are not in a contact group.
-Other contacts are typically auto created contacts from interactions.
+List all "Other contacts", that is contacts that are not in a contact
+group. "Other contacts" are typically auto created contacts from
+interactions.
 */
 await gapi.client.people.otherContacts.list({  });
 
