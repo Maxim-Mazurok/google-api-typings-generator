@@ -46,6 +46,7 @@ gapi.load('client', () => {
             pubsubTopic: "Test string",
             signinDetails: [
                 {
+                    allowPersonalUsage: "Test string",
                     qrCode: "Test string",
                     signinEnrollmentToken: "Test string",
                     signinUrl: "Test string",
@@ -378,6 +379,7 @@ gapi.load('client', () => {
                     packageName: "Test string",
                     settingName: "Test string",
                 }            ],
+            ownership: "Test string",
             policyCompliant: true,
             policyName: "Test string",
             powerManagementEvents: [
@@ -462,6 +464,7 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             additionalData: "Test string",
+            allowPersonalUsage: "Test string",
             duration: "Test string",
             expirationTimestamp: "Test string",
             name: "Test string",
@@ -662,11 +665,25 @@ gapi.load('client', () => {
                         "Test string"                    ],
                     receiverActivity: "Test string",
                 }            ],
+            personalUsagePolicies: {
+                accountTypesWithManagementDisabled: [
+                    "Test string"                ],
+                cameraDisabled: true,
+                maxDaysWithWorkOff: 42,
+                personalApplications: [
+                    {
+                        installType: "Test string",
+                        packageName: "Test string",
+                    }                ],
+                personalPlayStoreMode: "Test string",
+                screenCaptureDisabled: true,
+            },
             playStoreMode: "Test string",
             policyEnforcementRules: [
                 {
                     blockAction: {
                         blockAfterDays: 42,
+                        blockScope: "Test string",
                     },
                     settingName: "Test string",
                     wipeAction: {
@@ -1129,6 +1146,7 @@ gapi.load('client', () => {
                     packageName: "Test string",
                     settingName: "Test string",
                 }            ],
+            ownership: "Test string",
             policyCompliant: true,
             policyName: "Test string",
             powerManagementEvents: [
@@ -1213,6 +1231,7 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             additionalData: "Test string",
+            allowPersonalUsage: "Test string",
             duration: "Test string",
             expirationTimestamp: "Test string",
             name: "Test string",
@@ -1413,11 +1432,25 @@ gapi.load('client', () => {
                         "Test string"                    ],
                     receiverActivity: "Test string",
                 }            ],
+            personalUsagePolicies: {
+                accountTypesWithManagementDisabled: [
+                    "Test string"                ],
+                cameraDisabled: true,
+                maxDaysWithWorkOff: 42,
+                personalApplications: [
+                    {
+                        installType: "Test string",
+                        packageName: "Test string",
+                    }                ],
+                personalPlayStoreMode: "Test string",
+                screenCaptureDisabled: true,
+            },
             playStoreMode: "Test string",
             policyEnforcementRules: [
                 {
                     blockAction: {
                         blockAfterDays: 42,
+                        blockScope: "Test string",
                     },
                     settingName: "Test string",
                     wipeAction: {
@@ -1580,6 +1613,7 @@ gapi.load('client', () => {
             pubsubTopic: "Test string",
             signinDetails: [
                 {
+                    allowPersonalUsage: "Test string",
                     qrCode: "Test string",
                     signinEnrollmentToken: "Test string",
                     signinUrl: "Test string",
@@ -1912,6 +1946,7 @@ gapi.load('client', () => {
                     packageName: "Test string",
                     settingName: "Test string",
                 }            ],
+            ownership: "Test string",
             policyCompliant: true,
             policyName: "Test string",
             powerManagementEvents: [
@@ -1996,6 +2031,7 @@ gapi.load('client', () => {
             parent: "Test string",
         }, {
             additionalData: "Test string",
+            allowPersonalUsage: "Test string",
             duration: "Test string",
             expirationTimestamp: "Test string",
             name: "Test string",
@@ -2196,11 +2232,25 @@ gapi.load('client', () => {
                         "Test string"                    ],
                     receiverActivity: "Test string",
                 }            ],
+            personalUsagePolicies: {
+                accountTypesWithManagementDisabled: [
+                    "Test string"                ],
+                cameraDisabled: true,
+                maxDaysWithWorkOff: 42,
+                personalApplications: [
+                    {
+                        installType: "Test string",
+                        packageName: "Test string",
+                    }                ],
+                personalPlayStoreMode: "Test string",
+                screenCaptureDisabled: true,
+            },
             playStoreMode: "Test string",
             policyEnforcementRules: [
                 {
                     blockAction: {
                         blockAfterDays: 42,
+                        blockScope: "Test string",
                     },
                     settingName: "Test string",
                     wipeAction: {
