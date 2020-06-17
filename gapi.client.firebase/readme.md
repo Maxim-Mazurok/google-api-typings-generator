@@ -98,7 +98,7 @@ Adds Firebase resources to the specified existing
 <br>
 <br>Since a FirebaseProject is actually also a GCP `Project`, a
 `FirebaseProject` uses underlying GCP identifiers (most importantly,
-the `projectId`) as its own for easy interop with GCP APIs.
+the `PROJECT_NUMBER`) as its own for easy interop with GCP APIs.
 <br>
 <br>The result of this call is an [`Operation`](../../v1beta1/operations).
 Poll the `Operation` to track the provisioning process by calling

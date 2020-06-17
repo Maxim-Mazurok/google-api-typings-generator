@@ -67,7 +67,7 @@ gapi.load('client', () => {
          * <br>
          * <br>Since a FirebaseProject is actually also a GCP `Project`, a
          * `FirebaseProject` uses underlying GCP identifiers (most importantly,
-         * the `projectId`) as its own for easy interop with GCP APIs.
+         * the `PROJECT_NUMBER`) as its own for easy interop with GCP APIs.
          * <br>
          * <br>The result of this call is an [`Operation`](../../v1beta1/operations).
          * Poll the `Operation` to track the provisioning process by calling
@@ -262,9 +262,8 @@ gapi.load('client', () => {
          * restrictions](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations)
          * for the specified Project and, thus, might return a subset of all possible
          * GCP resource locations. To list all GCP resource locations (regardless of
-         * any restrictions), call the endpoint without specifying a `projectId` (that
-         * is, `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
+         * any restrictions), call the endpoint without specifying a `PROJECT_NUMBER`
+         * (that is, `/v1beta1/{parent=projects/-}/listAvailableLocations`). <br>
          * <br>To call `ListAvailableLocations` with a specified project, a member
          * must be at minimum a Viewer of the project. Calls without a specified
          * project do not require any specific project permissions.
@@ -648,9 +647,8 @@ gapi.load('client', () => {
          * restrictions](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations)
          * for the specified Project and, thus, might return a subset of all possible
          * GCP resource locations. To list all GCP resource locations (regardless of
-         * any restrictions), call the endpoint without specifying a `projectId` (that
-         * is, `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
+         * any restrictions), call the endpoint without specifying a `PROJECT_NUMBER`
+         * (that is, `/v1beta1/{parent=projects/-}/listAvailableLocations`). <br>
          * <br>To call `ListAvailableLocations` with a specified project, a member
          * must be at minimum a Viewer of the project. Calls without a specified
          * project do not require any specific project permissions.
@@ -977,9 +975,8 @@ gapi.load('client', () => {
          * restrictions](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations)
          * for the specified Project and, thus, might return a subset of all possible
          * GCP resource locations. To list all GCP resource locations (regardless of
-         * any restrictions), call the endpoint without specifying a `projectId` (that
-         * is, `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
+         * any restrictions), call the endpoint without specifying a `PROJECT_NUMBER`
+         * (that is, `/v1beta1/{parent=projects/-}/listAvailableLocations`). <br>
          * <br>To call `ListAvailableLocations` with a specified project, a member
          * must be at minimum a Viewer of the project. Calls without a specified
          * project do not require any specific project permissions.
@@ -1312,9 +1309,8 @@ gapi.load('client', () => {
          * restrictions](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations)
          * for the specified Project and, thus, might return a subset of all possible
          * GCP resource locations. To list all GCP resource locations (regardless of
-         * any restrictions), call the endpoint without specifying a `projectId` (that
-         * is, `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
+         * any restrictions), call the endpoint without specifying a `PROJECT_NUMBER`
+         * (that is, `/v1beta1/{parent=projects/-}/listAvailableLocations`). <br>
          * <br>To call `ListAvailableLocations` with a specified project, a member
          * must be at minimum a Viewer of the project. Calls without a specified
          * project do not require any specific project permissions.
@@ -1647,9 +1643,8 @@ gapi.load('client', () => {
          * restrictions](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations)
          * for the specified Project and, thus, might return a subset of all possible
          * GCP resource locations. To list all GCP resource locations (regardless of
-         * any restrictions), call the endpoint without specifying a `projectId` (that
-         * is, `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
+         * any restrictions), call the endpoint without specifying a `PROJECT_NUMBER`
+         * (that is, `/v1beta1/{parent=projects/-}/listAvailableLocations`). <br>
          * <br>To call `ListAvailableLocations` with a specified project, a member
          * must be at minimum a Viewer of the project. Calls without a specified
          * project do not require any specific project permissions.
@@ -1992,9 +1987,8 @@ gapi.load('client', () => {
          * restrictions](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations)
          * for the specified Project and, thus, might return a subset of all possible
          * GCP resource locations. To list all GCP resource locations (regardless of
-         * any restrictions), call the endpoint without specifying a `projectId` (that
-         * is, `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
+         * any restrictions), call the endpoint without specifying a `PROJECT_NUMBER`
+         * (that is, `/v1beta1/{parent=projects/-}/listAvailableLocations`). <br>
          * <br>To call `ListAvailableLocations` with a specified project, a member
          * must be at minimum a Viewer of the project. Calls without a specified
          * project do not require any specific project permissions.
@@ -2338,9 +2332,8 @@ gapi.load('client', () => {
          * restrictions](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations)
          * for the specified Project and, thus, might return a subset of all possible
          * GCP resource locations. To list all GCP resource locations (regardless of
-         * any restrictions), call the endpoint without specifying a `projectId` (that
-         * is, `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
+         * any restrictions), call the endpoint without specifying a `PROJECT_NUMBER`
+         * (that is, `/v1beta1/{parent=projects/-}/listAvailableLocations`). <br>
          * <br>To call `ListAvailableLocations` with a specified project, a member
          * must be at minimum a Viewer of the project. Calls without a specified
          * project do not require any specific project permissions.
@@ -2687,9 +2680,8 @@ gapi.load('client', () => {
          * restrictions](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations)
          * for the specified Project and, thus, might return a subset of all possible
          * GCP resource locations. To list all GCP resource locations (regardless of
-         * any restrictions), call the endpoint without specifying a `projectId` (that
-         * is, `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
+         * any restrictions), call the endpoint without specifying a `PROJECT_NUMBER`
+         * (that is, `/v1beta1/{parent=projects/-}/listAvailableLocations`). <br>
          * <br>To call `ListAvailableLocations` with a specified project, a member
          * must be at minimum a Viewer of the project. Calls without a specified
          * project do not require any specific project permissions.
@@ -3025,9 +3017,8 @@ gapi.load('client', () => {
          * restrictions](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations)
          * for the specified Project and, thus, might return a subset of all possible
          * GCP resource locations. To list all GCP resource locations (regardless of
-         * any restrictions), call the endpoint without specifying a `projectId` (that
-         * is, `/v1beta1/{parent=projects/-}/listAvailableLocations`).
-         * <br>
+         * any restrictions), call the endpoint without specifying a `PROJECT_NUMBER`
+         * (that is, `/v1beta1/{parent=projects/-}/listAvailableLocations`). <br>
          * <br>To call `ListAvailableLocations` with a specified project, a member
          * must be at minimum a Viewer of the project. Calls without a specified
          * project do not require any specific project permissions.
