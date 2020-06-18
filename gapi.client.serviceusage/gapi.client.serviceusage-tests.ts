@@ -113,6 +113,7 @@ gapi.load('client', () => {
         await gapi.client.serviceusage.services.disable({
             name: "Test string",
         }, {
+            checkIfServiceHasUsage: "Test string",
             disableDependentServices: true,
         });
         /** Enable a service so that it can be used with a project. */
