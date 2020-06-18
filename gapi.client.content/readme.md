@@ -104,7 +104,7 @@ Returns the list of accounts linked to your Merchant Center account.
 await gapi.client.content.accounts.listlinks({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
-Updates a Merchant Center account.
+Updates a Merchant Center account. Any fields that are not provided are deleted from the resource.
 */
 await gapi.client.content.accounts.update({ accountId: "accountId", merchantId: "merchantId",  });
 
@@ -139,7 +139,7 @@ Lists the tax settings of the sub-accounts in your Merchant Center account.
 await gapi.client.content.accounttax.list({ merchantId: "merchantId",  });
 
 /*
-Updates the tax settings of the account.
+Updates the tax settings of the account. Any fields that are not provided are deleted from the resource.
 */
 await gapi.client.content.accounttax.update({ accountId: "accountId", merchantId: "merchantId",  });
 
@@ -174,7 +174,7 @@ Lists the configurations for datafeeds in your Merchant Center account.
 await gapi.client.content.datafeeds.list({ merchantId: "merchantId",  });
 
 /*
-Updates a datafeed configuration of your Merchant Center account.
+Updates a datafeed configuration of your Merchant Center account. Any fields that are not provided are deleted from the resource.
 */
 await gapi.client.content.datafeeds.update({ datafeedId: "datafeedId", merchantId: "merchantId",  });
 
@@ -239,7 +239,7 @@ Sets the POS data provider for the specified country.
 await gapi.client.content.liasettings.setposdataprovider({ accountId: "accountId", country: "country", merchantId: "merchantId",  });
 
 /*
-Updates the LIA settings of the account.
+Updates the LIA settings of the account. Any fields that are not provided are deleted from the resource.
 */
 await gapi.client.content.liasettings.update({ accountId: "accountId", merchantId: "merchantId",  });
 
@@ -590,7 +590,7 @@ Lists the shipping settings of the sub-accounts in your Merchant Center account.
 await gapi.client.content.shippingsettings.list({ merchantId: "merchantId",  });
 
 /*
-Updates the shipping settings of the account.
+Updates the shipping settings of the account. Any fields that are not provided are deleted from the resource.
 */
 await gapi.client.content.shippingsettings.update({ accountId: "accountId", merchantId: "merchantId",  });
 ```

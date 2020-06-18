@@ -184,7 +184,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             pageToken: "Test string",
         });
-        /** Updates a Merchant Center account. */
+        /** Updates a Merchant Center account. Any fields that are not provided are deleted from the resource. */
         await gapi.client.content.accounts.update({
             accountId: "Test string",
             merchantId: "Test string",
@@ -292,7 +292,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             pageToken: "Test string",
         });
-        /** Updates the tax settings of the account. */
+        /** Updates the tax settings of the account. Any fields that are not provided are deleted from the resource. */
         await gapi.client.content.accounttax.update({
             accountId: "Test string",
             merchantId: "Test string",
@@ -408,7 +408,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             pageToken: "Test string",
         });
-        /** Updates a datafeed configuration of your Merchant Center account. */
+        /** Updates a datafeed configuration of your Merchant Center account. Any fields that are not provided are deleted from the resource. */
         await gapi.client.content.datafeeds.update({
             datafeedId: "Test string",
             merchantId: "Test string",
@@ -561,7 +561,7 @@ gapi.load('client', () => {
             posDataProviderId: "Test string",
             posExternalAccountId: "Test string",
         });
-        /** Updates the LIA settings of the account. */
+        /** Updates the LIA settings of the account. Any fields that are not provided are deleted from the resource. */
         await gapi.client.content.liasettings.update({
             accountId: "Test string",
             merchantId: "Test string",
@@ -1385,6 +1385,7 @@ gapi.load('client', () => {
                         availability: "Test string",
                         availabilityDate: "Test string",
                         brand: "Test string",
+                        canonicalLink: "Test string",
                         channel: "Test string",
                         color: "Test string",
                         condition: "Test string",
@@ -1453,6 +1454,14 @@ gapi.load('client', () => {
                             currency: "Test string",
                             value: "Test string",
                         },
+                        productDetails: [
+                            {
+                                attributeName: "Test string",
+                                attributeValue: "Test string",
+                                sectionName: "Test string",
+                            }                        ],
+                        productHighlights: [
+                            "Test string"                        ],
                         productTypes: [
                             "Test string"                        ],
                         promotionIds: [
@@ -1498,6 +1507,14 @@ gapi.load('client', () => {
                         sizeSystem: "Test string",
                         sizeType: "Test string",
                         source: "Test string",
+                        subscriptionCost: {
+                            amount: {
+                                currency: "Test string",
+                                value: "Test string",
+                            },
+                            period: "Test string",
+                            periodLength: "Test string",
+                        },
                         targetCountry: "Test string",
                         taxCategory: "Test string",
                         taxes: [
@@ -1553,6 +1570,7 @@ gapi.load('client', () => {
             availability: "Test string",
             availabilityDate: "Test string",
             brand: "Test string",
+            canonicalLink: "Test string",
             channel: "Test string",
             color: "Test string",
             condition: "Test string",
@@ -1621,6 +1639,14 @@ gapi.load('client', () => {
                 currency: "Test string",
                 value: "Test string",
             },
+            productDetails: [
+                {
+                    attributeName: "Test string",
+                    attributeValue: "Test string",
+                    sectionName: "Test string",
+                }            ],
+            productHighlights: [
+                "Test string"            ],
             productTypes: [
                 "Test string"            ],
             promotionIds: [
@@ -1666,6 +1692,14 @@ gapi.load('client', () => {
             sizeSystem: "Test string",
             sizeType: "Test string",
             source: "Test string",
+            subscriptionCost: {
+                amount: {
+                    currency: "Test string",
+                    value: "Test string",
+                },
+                period: "Test string",
+                periodLength: "Test string",
+            },
             targetCountry: "Test string",
             taxCategory: "Test string",
             taxes: [
@@ -2215,7 +2249,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             pageToken: "Test string",
         });
-        /** Updates the shipping settings of the account. */
+        /** Updates the shipping settings of the account. Any fields that are not provided are deleted from the resource. */
         await gapi.client.content.shippingsettings.update({
             accountId: "Test string",
             merchantId: "Test string",
