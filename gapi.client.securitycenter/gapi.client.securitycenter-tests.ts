@@ -105,7 +105,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates a notification config. */
+        /**
+         * Updates a notification config. The following update
+         * fields are allowed: description, pubsub_topic, streaming_config.filter
+         */
         await gapi.client.securitycenter.organizations.notificationConfigs.patch({
             name: "Test string",
             updateMask: "Test string",
@@ -1015,7 +1018,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates a notification config. */
+        /**
+         * Updates a notification config. The following update
+         * fields are allowed: description, pubsub_topic, streaming_config.filter
+         */
         await gapi.client.securitycenter.organizations.notificationConfigs.patch({
             name: "Test string",
             updateMask: "Test string",
