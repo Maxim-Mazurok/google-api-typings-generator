@@ -426,6 +426,64 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /**
          * Updates an existing inventory source.
          * Returns the updated inventory source if successful.
@@ -2248,6 +2306,64 @@ gapi.load('client', () => {
             },
             name: "Test string",
             updateTime: "Test string",
+        });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
         });
         /**
          * Updates an existing inventory source.
@@ -4119,6 +4235,64 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /**
          * Updates an existing inventory source.
          * Returns the updated inventory source if successful.
@@ -5943,6 +6117,64 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
         /**
          * Updates an existing inventory source.
          * Returns the updated inventory source if successful.
@@ -7761,6 +7993,64 @@ gapi.load('client', () => {
             },
             name: "Test string",
             updateTime: "Test string",
+        });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
         });
         /**
          * Updates an existing inventory source.
@@ -9592,6 +9882,64 @@ gapi.load('client', () => {
             },
             name: "Test string",
             updateTime: "Test string",
+        });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
         });
         /**
          * Updates an existing inventory source.
@@ -11463,6 +11811,64 @@ gapi.load('client', () => {
             },
             name: "Test string",
             updateTime: "Test string",
+        });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel.
+         *
+         * The operation will delete the sites provided in
+         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
         });
         /**
          * Updates an existing inventory source.
