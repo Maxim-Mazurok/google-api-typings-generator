@@ -78,6 +78,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -215,6 +217,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -320,6 +324,8 @@ gapi.load('client', () => {
                     state: "Test string",
                     updateTime: "Test string",
                     userId: "Test string",
+                },
+                deviceMetadata: {
                 },
                 displayName: "Test string",
                 fccId: "Test string",
@@ -574,6 +580,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -711,6 +719,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -816,6 +826,8 @@ gapi.load('client', () => {
                     state: "Test string",
                     updateTime: "Test string",
                     userId: "Test string",
+                },
+                deviceMetadata: {
                 },
                 displayName: "Test string",
                 fccId: "Test string",
@@ -1075,6 +1087,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -1212,6 +1226,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -1317,6 +1333,8 @@ gapi.load('client', () => {
                     state: "Test string",
                     updateTime: "Test string",
                     userId: "Test string",
+                },
+                deviceMetadata: {
                 },
                 displayName: "Test string",
                 fccId: "Test string",
@@ -1581,6 +1599,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -1718,6 +1738,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -1823,6 +1845,8 @@ gapi.load('client', () => {
                     state: "Test string",
                     updateTime: "Test string",
                     userId: "Test string",
+                },
+                deviceMetadata: {
                 },
                 displayName: "Test string",
                 fccId: "Test string",
@@ -1951,6 +1975,8 @@ gapi.load('client', () => {
                 state: "Test string",
                 updateTime: "Test string",
                 userId: "Test string",
+            },
+            deviceMetadata: {
             },
             displayName: "Test string",
             fccId: "Test string",
@@ -2099,6 +2125,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -2245,6 +2273,8 @@ gapi.load('client', () => {
                 state: "Test string",
                 updateTime: "Test string",
                 userId: "Test string",
+            },
+            deviceMetadata: {
             },
             displayName: "Test string",
             fccId: "Test string",
@@ -2395,6 +2425,8 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            deviceMetadata: {
+            },
             displayName: "Test string",
             fccId: "Test string",
             grants: [
@@ -2543,6 +2575,8 @@ gapi.load('client', () => {
                 state: "Test string",
                 updateTime: "Test string",
                 userId: "Test string",
+            },
+            deviceMetadata: {
             },
             displayName: "Test string",
             fccId: "Test string",
@@ -2696,6 +2730,8 @@ gapi.load('client', () => {
                 state: "Test string",
                 updateTime: "Test string",
                 userId: "Test string",
+            },
+            deviceMetadata: {
             },
             displayName: "Test string",
             fccId: "Test string",
