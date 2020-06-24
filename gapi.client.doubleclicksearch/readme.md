@@ -1,7 +1,7 @@
 # TypeScript typings for Search Ads 360 API v2
 
-Reports and modifies your advertising data in DoubleClick Search (for example, campaigns, ad groups, keywords, and conversions).
-For detailed description please check [documentation](https://developers.google.com/doubleclick-search/).
+The Search Ads 360 API allows developers to automate uploading conversions and downloading reports from Search Ads 360.
+For detailed description please check [documentation](https://developers.google.com/search-ads).
 
 ## Installing
 
@@ -74,7 +74,8 @@ Updates a batch of conversions in DoubleClick Search.
 await gapi.client.doubleclicksearch.conversion.update({  });
 
 /*
-Updates the availabilities of a batch of floodlight activities in DoubleClick Search.
+Updates the availabilities of a batch of floodlight activities in
+DoubleClick Search.
 */
 await gapi.client.doubleclicksearch.conversion.updateAvailability({  });
 
