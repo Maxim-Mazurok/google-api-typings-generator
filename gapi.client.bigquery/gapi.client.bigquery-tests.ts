@@ -226,11 +226,13 @@ gapi.load('client', () => {
                     destinationEncryptionConfiguration: {
                         kmsKeyName: "Test string",
                     },
+                    destinationExpirationTime: 42,
                     destinationTable: {
                         datasetId: "Test string",
                         projectId: "Test string",
                         tableId: "Test string",
                     },
+                    operationType: "Test string",
                     sourceTable: {
                         datasetId: "Test string",
                         projectId: "Test string",
@@ -1001,6 +1003,7 @@ gapi.load('client', () => {
                         numClusters: "Test string",
                         numFactors: "Test string",
                         optimizationStrategy: "Test string",
+                        preserveInputStructs: true,
                         subsample: 42,
                         userColumn: "Test string",
                         walsAlpha: 42,
@@ -1055,6 +1058,7 @@ gapi.load('client', () => {
             creationTime: "Test string",
             definitionBody: "Test string",
             description: "Test string",
+            determinismLevel: "Test string",
             etag: "Test string",
             importedLibraries: [
                 "Test string"            ],
@@ -1119,6 +1123,7 @@ gapi.load('client', () => {
             creationTime: "Test string",
             definitionBody: "Test string",
             description: "Test string",
+            determinismLevel: "Test string",
             etag: "Test string",
             importedLibraries: [
                 "Test string"            ],
