@@ -115,4 +115,20 @@ result. For regular-size resource parent, the export operation usually
 finishes within 5 minutes.
 */
 await gapi.client.cloudasset.v1.exportAssets({ parent: "parent",  });
+
+/*
+Searches all the IAM policies within the given accessible scope (e.g., a
+project, a folder or an organization). Callers should have
+`cloud.assets.SearchAllIamPolicies` permission upon the requested scope,
+otherwise the request will be rejected.
+*/
+await gapi.client.cloudasset.v1.searchAllIamPolicies({ scope: "scope",  });
+
+/*
+Searches all the resources within the given accessible scope (e.g., a
+project, a folder or an organization). Callers should have
+`cloud.assets.SearchAllResources` permission upon the requested scope,
+otherwise the request will be rejected.
+*/
+await gapi.client.cloudasset.v1.searchAllResources({ scope: "scope",  });
 ```
