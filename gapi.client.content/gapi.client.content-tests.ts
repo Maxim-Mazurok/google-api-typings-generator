@@ -937,6 +937,21 @@ gapi.load('client', () => {
             country: "Test string",
             templateName: "Test string",
             testOrder: {
+                deliveryDetails: {
+                    address: {
+                        country: "Test string",
+                        fullAddress: [
+                            "Test string"                        ],
+                        isPostOfficeBox: true,
+                        locality: "Test string",
+                        postalCode: "Test string",
+                        recipientName: "Test string",
+                        region: "Test string",
+                        streetAddress: [
+                            "Test string"                        ],
+                    },
+                    phoneNumber: "Test string",
+                },
                 enableOrderinvoices: true,
                 kind: "Test string",
                 lineItems: [
@@ -990,6 +1005,27 @@ gapi.load('client', () => {
                         },
                     }                ],
                 notificationMode: "Test string",
+                pickupDetails: {
+                    locationCode: "Test string",
+                    pickupLocationAddress: {
+                        country: "Test string",
+                        fullAddress: [
+                            "Test string"                        ],
+                        isPostOfficeBox: true,
+                        locality: "Test string",
+                        postalCode: "Test string",
+                        recipientName: "Test string",
+                        region: "Test string",
+                        streetAddress: [
+                            "Test string"                        ],
+                    },
+                    pickupLocationType: "Test string",
+                    pickupPersons: [
+                        {
+                            name: "Test string",
+                            phoneNumber: "Test string",
+                        }                    ],
+                },
                 predefinedBillingAddress: "Test string",
                 predefinedDeliveryAddress: "Test string",
                 predefinedEmail: "Test string",
