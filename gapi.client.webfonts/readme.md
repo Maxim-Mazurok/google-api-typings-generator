@@ -1,11 +1,12 @@
-# TypeScript typings for Google Fonts Developer API v1
+# TypeScript typings for Web Fonts Developer API v1
 
-Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (including available styles and a list of supported script subsets).
+The Google Web Fonts Developer API lets you retrieve information about web fonts served
+    by Google.
 For detailed description please check [documentation](https://developers.google.com/fonts/docs/developer_api).
 
 ## Installing
 
-Install typings for Google Fonts Developer API:
+Install typings for Web Fonts Developer API:
 
 ```
 npm install @types/gapi.client.webfonts@v1 --save-dev
@@ -33,12 +34,13 @@ gapi.client.load('webfonts', 'v1', () => {
 
 
 
-After that you can use Google Fonts Developer API resources:
+After that you can use Web Fonts Developer API resources:
 
 ```typescript
 
 /*
-Retrieves the list of fonts currently served by the Google Fonts Developer API
+Retrieves the list of fonts currently served by the Google Fonts Developer
+API.
 */
 await gapi.client.webfonts.webfonts.list({  });
 ```
