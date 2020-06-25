@@ -52,7 +52,7 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
-        /** Retrieves a list of accelerator types available to the specified project. */
+        /** Retrieves a list of accelerator types that are available to the specified project. */
         await gapi.client.compute.acceleratorTypes.list({
             filter: "Test string",
             maxResults: 42,
@@ -1607,6 +1607,8 @@ gapi.load('client', () => {
         }, {
             networkEndpoints: [
                 {
+                    annotations: {
+                        A: "Test string"                    },
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
@@ -1627,6 +1629,8 @@ gapi.load('client', () => {
         }, {
             networkEndpoints: [
                 {
+                    annotations: {
+                        A: "Test string"                    },
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
@@ -1643,6 +1647,8 @@ gapi.load('client', () => {
             project: "Test string",
             requestId: "Test string",
         }, {
+            annotations: {
+                A: "Test string"            },
             creationTimestamp: "Test string",
             defaultPort: 42,
             description: "Test string",
@@ -3195,7 +3201,10 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
-        /** Retrieves the list of referrers to instances contained within the specified zone. For more information, read Viewing Referrers to VM Instances. */
+        /**
+         * Retrieves a list of resources that refer to the VM instance specified in the request. For example, if the VM instance is part of a managed instance
+         * group, the referrers list includes the managed instance group. For more information, read Viewing Referrers to VM Instances.
+         */
         await gapi.client.compute.instances.listReferrers({
             filter: "Test string",
             instance: "Test string",
@@ -3390,7 +3399,10 @@ gapi.load('client', () => {
         }, {
             minCpuPlatform: "Test string",
         });
-        /** Sets an instance's scheduling options. */
+        /**
+         * Sets an instance's scheduling options. You can only call this method on a stopped instance, that is, a VM instance that is in a `TERMINATED` state. See
+         * Instance Life Cycle for more information on the possible instance states.
+         */
         await gapi.client.compute.instances.setScheduling({
             instance: "Test string",
             project: "Test string",
@@ -4525,6 +4537,8 @@ gapi.load('client', () => {
         }, {
             networkEndpoints: [
                 {
+                    annotations: {
+                        A: "Test string"                    },
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
@@ -4550,6 +4564,8 @@ gapi.load('client', () => {
         }, {
             networkEndpoints: [
                 {
+                    annotations: {
+                        A: "Test string"                    },
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
@@ -4568,6 +4584,8 @@ gapi.load('client', () => {
             requestId: "Test string",
             zone: "Test string",
         }, {
+            annotations: {
+                A: "Test string"            },
             creationTimestamp: "Test string",
             defaultPort: 42,
             description: "Test string",
@@ -6546,6 +6564,76 @@ gapi.load('client', () => {
             type: "Test string",
             unhealthyThreshold: 42,
         });
+        /** Deletes the specified regional HealthCheckService. */
+        await gapi.client.compute.regionHealthCheckServices.delete({
+            healthCheckService: "Test string",
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        });
+        /** Returns the specified regional HealthCheckService resource. */
+        await gapi.client.compute.regionHealthCheckServices.get({
+            healthCheckService: "Test string",
+            project: "Test string",
+            region: "Test string",
+        });
+        /** Creates a regional HealthCheckService resource in the specified project and region using the data included in the request. */
+        await gapi.client.compute.regionHealthCheckServices.insert({
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            fingerprint: "Test string",
+            healthChecks: [
+                "Test string"            ],
+            healthStatusAggregationPolicy: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            networkEndpointGroups: [
+                "Test string"            ],
+            notificationEndpoints: [
+                "Test string"            ],
+            region: "Test string",
+            selfLink: "Test string",
+        });
+        /** Lists all the HealthCheckService resources that have been configured for the specified project in the given region. */
+        await gapi.client.compute.regionHealthCheckServices.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            region: "Test string",
+        });
+        /**
+         * Updates the specified regional HealthCheckService resource with the data included in the request. This method supports PATCH semantics and uses the
+         * JSON merge patch format and processing rules.
+         */
+        await gapi.client.compute.regionHealthCheckServices.patch({
+            healthCheckService: "Test string",
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            fingerprint: "Test string",
+            healthChecks: [
+                "Test string"            ],
+            healthStatusAggregationPolicy: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            networkEndpointGroups: [
+                "Test string"            ],
+            notificationEndpoints: [
+                "Test string"            ],
+            region: "Test string",
+            selfLink: "Test string",
+        });
         /**
          * Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it
          * does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed
@@ -6934,6 +7022,52 @@ gapi.load('client', () => {
                     name: "Test string",
                     port: 42,
                 }            ],
+        });
+        /** Deletes the specified NotificationEndpoint in the given region */
+        await gapi.client.compute.regionNotificationEndpoints.delete({
+            notificationEndpoint: "Test string",
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        });
+        /** Returns the specified NotificationEndpoint resource in the given region. */
+        await gapi.client.compute.regionNotificationEndpoints.get({
+            notificationEndpoint: "Test string",
+            project: "Test string",
+            region: "Test string",
+        });
+        /** Create a NotificationEndpoint in the specified project in the given region using the parameters that are included in the request. */
+        await gapi.client.compute.regionNotificationEndpoints.insert({
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            grpcSettings: {
+                authority: "Test string",
+                endpoint: "Test string",
+                payloadName: "Test string",
+                resendInterval: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                retryDurationSec: 42,
+            },
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            region: "Test string",
+            selfLink: "Test string",
+        });
+        /** Lists the NotificationEndpoints for a project in the given region. */
+        await gapi.client.compute.regionNotificationEndpoints.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            region: "Test string",
         });
         /** Deletes the specified region-specific Operations resource. */
         await gapi.client.compute.regionOperations.delete({
