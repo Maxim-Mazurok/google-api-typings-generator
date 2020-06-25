@@ -166,6 +166,7 @@ gapi.load('client', () => {
                     maxRunningTime: "Test string",
                     maxWaitTime: "Test string",
                 },
+                serviceAccount: "Test string",
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -367,6 +368,7 @@ gapi.load('client', () => {
                     maxRunningTime: "Test string",
                     maxWaitTime: "Test string",
                 },
+                serviceAccount: "Test string",
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -3292,6 +3294,7 @@ gapi.load('client', () => {
                     maxRunningTime: "Test string",
                     maxWaitTime: "Test string",
                 },
+                serviceAccount: "Test string",
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -3493,6 +3496,7 @@ gapi.load('client', () => {
                     maxRunningTime: "Test string",
                     maxWaitTime: "Test string",
                 },
+                serviceAccount: "Test string",
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -6425,6 +6429,7 @@ gapi.load('client', () => {
                     maxRunningTime: "Test string",
                     maxWaitTime: "Test string",
                 },
+                serviceAccount: "Test string",
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
@@ -6626,6 +6631,7 @@ gapi.load('client', () => {
                     maxRunningTime: "Test string",
                     maxWaitTime: "Test string",
                 },
+                serviceAccount: "Test string",
                 useChiefInTfConfig: true,
                 workerConfig: {
                     acceleratorConfig: {
