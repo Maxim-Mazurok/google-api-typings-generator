@@ -130,6 +130,9 @@ gapi.load('client', () => {
             operation: {
                 consumerId: "Test string",
                 endTime: "Test string",
+                extensions: [
+                    {
+                        A: 42                    }                ],
                 importance: "Test string",
                 labels: {
                     A: "Test string"                },
@@ -304,6 +307,9 @@ gapi.load('client', () => {
                 {
                     consumerId: "Test string",
                     endTime: "Test string",
+                    extensions: [
+                        {
+                            A: 42                        }                    ],
                     importance: "Test string",
                     labels: {
                         A: "Test string"                    },
