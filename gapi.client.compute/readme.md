@@ -84,7 +84,7 @@ Returns the specified accelerator type.
 await gapi.client.compute.acceleratorTypes.get({ acceleratorType: "acceleratorType", project: "project", zone: "zone",  });
 
 /*
-Retrieves a list of accelerator types available to the specified project.
+Retrieves a list of accelerator types that are available to the specified project.
 */
 await gapi.client.compute.acceleratorTypes.list({ project: "project", zone: "zone",  });
 
@@ -903,7 +903,7 @@ Retrieves the list of instances contained within the specified zone.
 await gapi.client.compute.instances.list({ project: "project", zone: "zone",  });
 
 /*
-Retrieves the list of referrers to instances contained within the specified zone. For more information, read Viewing Referrers to VM Instances.
+Retrieves a list of resources that refer to the VM instance specified in the request. For example, if the VM instance is part of a managed instance group, the referrers list includes the managed instance group. For more information, read Viewing Referrers to VM Instances.
 */
 await gapi.client.compute.instances.listReferrers({ instance: "instance", project: "project", zone: "zone",  });
 
@@ -958,7 +958,7 @@ Changes the minimum CPU platform that this instance should use. This method can 
 await gapi.client.compute.instances.setMinCpuPlatform({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
-Sets an instance's scheduling options.
+Sets an instance's scheduling options. You can only call this method on a stopped instance, that is, a VM instance that is in a `TERMINATED` state. See Instance Life Cycle for more information on the possible instance states.
 */
 await gapi.client.compute.instances.setScheduling({ instance: "instance", project: "project", zone: "zone",  });
 
@@ -1693,6 +1693,31 @@ Updates a HealthCheck resource in the specified project using the data included 
 await gapi.client.compute.regionHealthChecks.update({ healthCheck: "healthCheck", project: "project", region: "region",  });
 
 /*
+Deletes the specified regional HealthCheckService.
+*/
+await gapi.client.compute.regionHealthCheckServices.delete({ healthCheckService: "healthCheckService", project: "project", region: "region",  });
+
+/*
+Returns the specified regional HealthCheckService resource.
+*/
+await gapi.client.compute.regionHealthCheckServices.get({ healthCheckService: "healthCheckService", project: "project", region: "region",  });
+
+/*
+Creates a regional HealthCheckService resource in the specified project and region using the data included in the request.
+*/
+await gapi.client.compute.regionHealthCheckServices.insert({ project: "project", region: "region",  });
+
+/*
+Lists all the HealthCheckService resources that have been configured for the specified project in the given region.
+*/
+await gapi.client.compute.regionHealthCheckServices.list({ project: "project", region: "region",  });
+
+/*
+Updates the specified regional HealthCheckService resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.regionHealthCheckServices.patch({ healthCheckService: "healthCheckService", project: "project", region: "region",  });
+
+/*
 Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.
 
 If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
@@ -1804,6 +1829,26 @@ await gapi.client.compute.regionInstanceGroups.listInstances({ instanceGroup: "i
 Sets the named ports for the specified regional instance group.
 */
 await gapi.client.compute.regionInstanceGroups.setNamedPorts({ instanceGroup: "instanceGroup", project: "project", region: "region",  });
+
+/*
+Deletes the specified NotificationEndpoint in the given region
+*/
+await gapi.client.compute.regionNotificationEndpoints.delete({ notificationEndpoint: "notificationEndpoint", project: "project", region: "region",  });
+
+/*
+Returns the specified NotificationEndpoint resource in the given region.
+*/
+await gapi.client.compute.regionNotificationEndpoints.get({ notificationEndpoint: "notificationEndpoint", project: "project", region: "region",  });
+
+/*
+Create a NotificationEndpoint in the specified project in the given region using the parameters that are included in the request.
+*/
+await gapi.client.compute.regionNotificationEndpoints.insert({ project: "project", region: "region",  });
+
+/*
+Lists the NotificationEndpoints for a project in the given region.
+*/
+await gapi.client.compute.regionNotificationEndpoints.list({ project: "project", region: "region",  });
 
 /*
 Deletes the specified region-specific Operations resource.
