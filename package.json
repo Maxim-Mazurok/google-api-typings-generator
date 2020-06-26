@@ -47,7 +47,7 @@
     "parse-git-status": "^0.1.0",
     "request": "^2.88.2",
     "ts-node": "^8.10.2",
-    "typescript": "^4.0.0-dev.20200624"
+    "typescript": "^4.0.0-dev.20200625"
   },
   "engines": {
     "node": "12.16.3",
