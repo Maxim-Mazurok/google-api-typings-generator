@@ -1,7 +1,7 @@
 # TypeScript typings for Google Civic Information API v2
 
 Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.
-For detailed description please check [documentation](https://developers.google.com/civic-information).
+For detailed description please check [documentation](https://developers.google.com/civic-information/).
 
 ## Installing
 
