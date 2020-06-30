@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Cloud Run Admin API v1 1.0
+// Type definitions for non-npm package Cloud Run API v1 1.0
 // Project: https://cloud.google.com/run/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -13,7 +13,7 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Cloud Run Admin API v1 */
+    /** Load Cloud Run API v1 */
     function load(name: "run", version: "v1"): PromiseLike<void>;
     function load(name: "run", version: "v1", callback: () => any): void;
 
@@ -1464,16 +1464,6 @@ declare namespace gapi.client {
              * not provided, the revision will use the project's default service account.
              */
             serviceAccountName?: string;
-            /**
-             * TimeoutSeconds holds the max duration the instance is allowed for
-             * responding to a request.
-             *
-             * Cloud Run fully managed: defaults to 300 seconds (5 minutes). Maximum
-             * allowed value is 900 seconds (15 minutes).
-             *
-             * Cloud Run for Anthos: defaults to 300 seconds (5 minutes). Maximum allowed
-             * value is configurable by the cluster operator.
-             */
             timeoutSeconds?: number;
             volumes?: Volume[];
         }
