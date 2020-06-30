@@ -1,4 +1,4 @@
-# TypeScript typings for Game Services API v1beta
+# TypeScript typings for Game Services API v1
 
 Deploy and manage infrastructure for global multiplayer gaming experiences.
 For detailed description please check [documentation](https://cloud.google.com/solutions/gaming/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/s
 Install typings for Game Services API:
 
 ```
-npm install @types/gapi.client.gameservices@v1beta --save-dev
+npm install @types/gapi.client.gameservices@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('gameservices', 'v1beta', () => {
+gapi.client.load('gameservices', 'v1', () => {
   // now we can use gapi.client.gameservices
   // ...
 });
