@@ -1,11 +1,11 @@
-# TypeScript typings for Cloud Run Admin API v1
+# TypeScript typings for Cloud Run API v1
 
 Deploy and manage user provided container images that scale automatically based on HTTP traffic.
 For detailed description please check [documentation](https://cloud.google.com/run/).
 
 ## Installing
 
-Install typings for Cloud Run Admin API:
+Install typings for Cloud Run API:
 
 ```
 npm install @types/gapi.client.run@v1 --save-dev
@@ -54,7 +54,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Cloud Run Admin API resources:
+After that you can use Cloud Run API resources:
 
 ```typescript
 ```
