@@ -345,6 +345,7 @@ gapi.load('client', () => {
                 A: "Test string"            },
             capabilities: {
                 canAddChildren: true,
+                canAddFolderFromAnotherDrive: true,
                 canAddMyDriveParent: true,
                 canChangeCopyRequiresWriterPermission: true,
                 canChangeViewersCanCopyContent: true,
@@ -546,6 +547,7 @@ gapi.load('client', () => {
                 A: "Test string"            },
             capabilities: {
                 canAddChildren: true,
+                canAddFolderFromAnotherDrive: true,
                 canAddMyDriveParent: true,
                 canChangeCopyRequiresWriterPermission: true,
                 canChangeViewersCanCopyContent: true,
@@ -793,6 +795,7 @@ gapi.load('client', () => {
                 A: "Test string"            },
             capabilities: {
                 canAddChildren: true,
+                canAddFolderFromAnotherDrive: true,
                 canAddMyDriveParent: true,
                 canChangeCopyRequiresWriterPermission: true,
                 canChangeViewersCanCopyContent: true,
