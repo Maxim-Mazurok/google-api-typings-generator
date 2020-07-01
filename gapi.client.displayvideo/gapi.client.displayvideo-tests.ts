@@ -484,11 +484,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Updates an existing inventory source.
-         * Returns the updated inventory source if successful.
-         * Gets a channel for a partner or advertiser.
-         */
+        /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
             channelId: "Test string",
@@ -2365,11 +2361,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Updates an existing inventory source.
-         * Returns the updated inventory source if successful.
-         * Gets a channel for a partner or advertiser.
-         */
+        /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
             channelId: "Test string",
@@ -4293,11 +4285,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Updates an existing inventory source.
-         * Returns the updated inventory source if successful.
-         * Gets a channel for a partner or advertiser.
-         */
+        /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
             channelId: "Test string",
@@ -6175,11 +6163,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Updates an existing inventory source.
-         * Returns the updated inventory source if successful.
-         * Gets a channel for a partner or advertiser.
-         */
+        /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
             channelId: "Test string",
@@ -8052,11 +8036,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Updates an existing inventory source.
-         * Returns the updated inventory source if successful.
-         * Gets a channel for a partner or advertiser.
-         */
+        /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
             channelId: "Test string",
@@ -9941,11 +9921,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Updates an existing inventory source.
-         * Returns the updated inventory source if successful.
-         * Gets a channel for a partner or advertiser.
-         */
+        /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
             channelId: "Test string",
@@ -11870,11 +11846,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Updates an existing inventory source.
-         * Returns the updated inventory source if successful.
-         * Gets a channel for a partner or advertiser.
-         */
+        /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
             channelId: "Test string",
