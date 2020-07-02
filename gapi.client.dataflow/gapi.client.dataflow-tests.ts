@@ -3963,8 +3963,6 @@ gapi.load('client', () => {
                 },
                 containerSpecGcsPath: "Test string",
                 jobName: "Test string",
-                launchOptions: {
-                    A: "Test string"                },
                 parameters: {
                     A: "Test string"                },
             },
@@ -11236,8 +11234,6 @@ gapi.load('client', () => {
                 },
                 containerSpecGcsPath: "Test string",
                 jobName: "Test string",
-                launchOptions: {
-                    A: "Test string"                },
                 parameters: {
                     A: "Test string"                },
             },

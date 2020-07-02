@@ -39,12 +39,6 @@ gapi.load('client', () => {
                     "Test string"                ],
                 assetTypes: [
                     "Test string"                ],
-                condition: {
-                    description: "Test string",
-                    expression: "Test string",
-                    location: "Test string",
-                    title: "Test string",
-                },
                 contentType: "Test string",
                 feedOutputConfig: {
                     pubsubDestination: {
@@ -76,12 +70,6 @@ gapi.load('client', () => {
                     "Test string"                ],
                 assetTypes: [
                     "Test string"                ],
-                condition: {
-                    description: "Test string",
-                    expression: "Test string",
-                    location: "Test string",
-                    title: "Test string",
-                },
                 contentType: "Test string",
                 feedOutputConfig: {
                     pubsubDestination: {
@@ -146,32 +134,6 @@ gapi.load('client', () => {
                 },
             },
             readTime: "Test string",
-        });
-        /**
-         * Searches all the IAM policies within the given accessible scope (e.g., a
-         * project, a folder or an organization). Callers should have
-         * `cloud.assets.SearchAllIamPolicies` permission upon the requested scope,
-         * otherwise the request will be rejected.
-         */
-        await gapi.client.cloudasset.v1.searchAllIamPolicies({
-            pageSize: 42,
-            pageToken: "Test string",
-            query: "Test string",
-            scope: "Test string",
-        });
-        /**
-         * Searches all the resources within the given accessible scope (e.g., a
-         * project, a folder or an organization). Callers should have
-         * `cloud.assets.SearchAllResources` permission upon the requested scope,
-         * otherwise the request will be rejected.
-         */
-        await gapi.client.cloudasset.v1.searchAllResources({
-            assetTypes: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            query: "Test string",
-            scope: "Test string",
         });
     }
 });
