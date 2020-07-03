@@ -423,8 +423,8 @@ gapi.load('client', () => {
             group: "Test string",
         });
         /**
-         * Creates a BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to
-         * keep in mind when creating a backend service. Read  Understanding backend services for more information.
+         * Creates a BackendService resource in the specified project using the data included in the request. For more information, see  Backend services
+         * overview.
          */
         await gapi.client.compute.backendServices.insert({
             project: "Test string",
@@ -548,9 +548,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Patches the specified BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind
-         * when updating a backend service. Read  Understanding backend services for more information. This method supports PATCH semantics and uses the JSON
-         * merge patch format and processing rules.
+         * Patches the specified BackendService resource with the data included in the request. For more information, see  Backend services overview. This method
+         * supports PATCH semantics and uses the JSON merge patch format and processing rules.
          */
         await gapi.client.compute.backendServices.patch({
             backendService: "Test string",
@@ -674,10 +673,7 @@ gapi.load('client', () => {
         }, {
             securityPolicy: "Test string",
         });
-        /**
-         * Updates the specified BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind
-         * when updating a backend service. Read  Understanding backend services for more information.
-         */
+        /** Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview. */
         await gapi.client.compute.backendServices.update({
             backendService: "Test string",
             project: "Test string",
@@ -921,6 +917,8 @@ gapi.load('client', () => {
                 "Test string"            ],
             selfLink: "Test string",
             sizeGb: "Test string",
+            sourceDisk: "Test string",
+            sourceDiskId: "Test string",
             sourceImage: "Test string",
             sourceImageEncryptionKey: {
                 kmsKeyName: "Test string",
@@ -1779,6 +1777,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -1852,6 +1853,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -1914,6 +1918,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -2539,7 +2546,7 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
-        /** Lists all errors thrown by actions on instances for a given managed instance group. */
+        /** Lists all errors thrown by actions on instances for a given managed instance group. The filter and orderBy query parameters are not supported. */
         await gapi.client.compute.instanceGroupManagers.listErrors({
             filter: "Test string",
             instanceGroupManager: "Test string",
@@ -2552,7 +2559,7 @@ gapi.load('client', () => {
         /**
          * Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed
          * instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous
-         * action failed, the list displays the errors for that failed action.
+         * action failed, the list displays the errors for that failed action. The orderBy query parameter is not supported.
          */
         await gapi.client.compute.instanceGroupManagers.listManagedInstances({
             filter: "Test string",
@@ -2792,7 +2799,7 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
-        /** Lists the instances in the specified instance group. */
+        /** Lists the instances in the specified instance group. The orderBy query parameter is not supported. */
         await gapi.client.compute.instanceGroups.listInstances({
             filter: "Test string",
             instanceGroup: "Test string",
@@ -5614,8 +5621,8 @@ gapi.load('client', () => {
             group: "Test string",
         });
         /**
-         * Creates a regional BackendService resource in the specified project using the data included in the request. There are several restrictions and
-         * guidelines to keep in mind when creating a regional backend service. Read  Understanding backend services for more information.
+         * Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see  Backend services
+         * overview.
          */
         await gapi.client.compute.regionBackendServices.insert({
             project: "Test string",
@@ -5741,9 +5748,8 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Updates the specified regional BackendService resource with the data included in the request. There are several Understanding backend services to keep
-         * in mind when updating a backend service. Read  Understanding backend services for more information. This method supports PATCH semantics and uses the
-         * JSON merge patch format and processing rules.
+         * Updates the specified regional BackendService resource with the data included in the request. For more information, see  Understanding backend services
+         * This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
          */
         await gapi.client.compute.regionBackendServices.patch({
             backendService: "Test string",
@@ -5860,10 +5866,7 @@ gapi.load('client', () => {
             sessionAffinity: "Test string",
             timeoutSec: 42,
         });
-        /**
-         * Updates the specified regional BackendService resource with the data included in the request. There are several Understanding backend services to keep
-         * in mind when updating a backend service. Read  Understanding backend services for more information.
-         */
+        /** Updates the specified regional BackendService resource with the data included in the request. For more information, see  Backend services overview. */
         await gapi.client.compute.regionBackendServices.update({
             backendService: "Test string",
             project: "Test string",
@@ -6175,6 +6178,8 @@ gapi.load('client', () => {
                 "Test string"            ],
             selfLink: "Test string",
             sizeGb: "Test string",
+            sourceDisk: "Test string",
+            sourceDiskId: "Test string",
             sourceImage: "Test string",
             sourceImageEncryptionKey: {
                 kmsKeyName: "Test string",
@@ -6403,6 +6408,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -6478,6 +6486,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -6541,6 +6552,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -6812,7 +6826,7 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
-        /** Lists all errors thrown by actions on instances for a given regional managed instance group. */
+        /** Lists all errors thrown by actions on instances for a given regional managed instance group. The filter and orderBy query parameters are not supported. */
         await gapi.client.compute.regionInstanceGroupManagers.listErrors({
             filter: "Test string",
             instanceGroupManager: "Test string",
@@ -6824,7 +6838,7 @@ gapi.load('client', () => {
         });
         /**
          * Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group
-         * has scheduled for its instances.
+         * has scheduled for its instances. The orderBy query parameter is not supported.
          */
         await gapi.client.compute.regionInstanceGroupManagers.listManagedInstances({
             filter: "Test string",
@@ -6995,7 +7009,7 @@ gapi.load('client', () => {
         });
         /**
          * Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can
-         * list all instances or only the instances that are running.
+         * list all instances or only the instances that are running. The orderBy query parameter is not supported.
          */
         await gapi.client.compute.regionInstanceGroups.listInstances({
             filter: "Test string",
@@ -10477,10 +10491,7 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
-        /**
-         * Retrieves an aggregated list of all usable subnetworks in the project. The list contains all of the subnetworks in the project and the subnetworks that
-         * were shared by a Shared VPC host project.
-         */
+        /** Retrieves an aggregated list of all usable subnetworks in the project. */
         await gapi.client.compute.subnetworks.listUsable({
             filter: "Test string",
             maxResults: 42,

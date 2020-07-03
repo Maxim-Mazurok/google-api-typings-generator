@@ -223,7 +223,7 @@ Example request body:
 await gapi.client.compute.backendServices.getHealth({ backendService: "backendService", project: "project",  });
 
 /*
-Creates a BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a backend service. Read  Understanding backend services for more information.
+Creates a BackendService resource in the specified project using the data included in the request. For more information, see  Backend services overview.
 */
 await gapi.client.compute.backendServices.insert({ project: "project",  });
 
@@ -233,7 +233,7 @@ Retrieves the list of BackendService resources available to the specified projec
 await gapi.client.compute.backendServices.list({ project: "project",  });
 
 /*
-Patches the specified BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind when updating a backend service. Read  Understanding backend services for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+Patches the specified BackendService resource with the data included in the request. For more information, see  Backend services overview. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.backendServices.patch({ backendService: "backendService", project: "project",  });
 
@@ -243,7 +243,7 @@ Sets the security policy for the specified backend service.
 await gapi.client.compute.backendServices.setSecurityPolicy({ backendService: "backendService", project: "project",  });
 
 /*
-Updates the specified BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind when updating a backend service. Read  Understanding backend services for more information.
+Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview.
 */
 await gapi.client.compute.backendServices.update({ backendService: "backendService", project: "project",  });
 
@@ -739,12 +739,12 @@ Retrieves a list of managed instance groups that are contained within the specif
 await gapi.client.compute.instanceGroupManagers.list({ project: "project", zone: "zone",  });
 
 /*
-Lists all errors thrown by actions on instances for a given managed instance group.
+Lists all errors thrown by actions on instances for a given managed instance group. The filter and orderBy query parameters are not supported.
 */
 await gapi.client.compute.instanceGroupManagers.listErrors({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous action failed, the list displays the errors for that failed action.
+Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous action failed, the list displays the errors for that failed action. The orderBy query parameter is not supported.
 */
 await gapi.client.compute.instanceGroupManagers.listManagedInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
@@ -816,7 +816,7 @@ Retrieves the list of instance groups that are located in the specified project 
 await gapi.client.compute.instanceGroups.list({ project: "project", zone: "zone",  });
 
 /*
-Lists the instances in the specified instance group.
+Lists the instances in the specified instance group. The orderBy query parameter is not supported.
 */
 await gapi.client.compute.instanceGroups.listInstances({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
@@ -1553,7 +1553,7 @@ Gets the most recent health check results for this regional BackendService.
 await gapi.client.compute.regionBackendServices.getHealth({ backendService: "backendService", project: "project", region: "region",  });
 
 /*
-Creates a regional BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a regional backend service. Read  Understanding backend services for more information.
+Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see  Backend services overview.
 */
 await gapi.client.compute.regionBackendServices.insert({ project: "project", region: "region",  });
 
@@ -1563,12 +1563,12 @@ Retrieves the list of regional BackendService resources available to the specifi
 await gapi.client.compute.regionBackendServices.list({ project: "project", region: "region",  });
 
 /*
-Updates the specified regional BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind when updating a backend service. Read  Understanding backend services for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+Updates the specified regional BackendService resource with the data included in the request. For more information, see  Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.regionBackendServices.patch({ backendService: "backendService", project: "project", region: "region",  });
 
 /*
-Updates the specified regional BackendService resource with the data included in the request. There are several Understanding backend services to keep in mind when updating a backend service. Read  Understanding backend services for more information.
+Updates the specified regional BackendService resource with the data included in the request. For more information, see  Backend services overview.
 */
 await gapi.client.compute.regionBackendServices.update({ backendService: "backendService", project: "project", region: "region",  });
 
@@ -1768,12 +1768,12 @@ Retrieves the list of managed instance groups that are contained within the spec
 await gapi.client.compute.regionInstanceGroupManagers.list({ project: "project", region: "region",  });
 
 /*
-Lists all errors thrown by actions on instances for a given regional managed instance group.
+Lists all errors thrown by actions on instances for a given regional managed instance group. The filter and orderBy query parameters are not supported.
 */
 await gapi.client.compute.regionInstanceGroupManagers.listErrors({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group has scheduled for its instances.
+Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group has scheduled for its instances. The orderBy query parameter is not supported.
 */
 await gapi.client.compute.regionInstanceGroupManagers.listManagedInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
@@ -1821,7 +1821,7 @@ Retrieves the list of instance group resources contained within the specified re
 await gapi.client.compute.regionInstanceGroups.list({ project: "project", region: "region",  });
 
 /*
-Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can list all instances or only the instances that are running.
+Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can list all instances or only the instances that are running. The orderBy query parameter is not supported.
 */
 await gapi.client.compute.regionInstanceGroups.listInstances({ instanceGroup: "instanceGroup", project: "project", region: "region",  });
 
@@ -2327,7 +2327,7 @@ Retrieves a list of subnetworks available to the specified project.
 await gapi.client.compute.subnetworks.list({ project: "project", region: "region",  });
 
 /*
-Retrieves an aggregated list of all usable subnetworks in the project. The list contains all of the subnetworks in the project and the subnetworks that were shared by a Shared VPC host project.
+Retrieves an aggregated list of all usable subnetworks in the project.
 */
 await gapi.client.compute.subnetworks.listUsable({ project: "project",  });
 
