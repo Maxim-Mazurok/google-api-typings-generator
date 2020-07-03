@@ -1,12 +1,11 @@
-# TypeScript typings for Google Play Game Services v1
+# TypeScript typings for Google Play Game Services API v1
 
-The Google Play games service allows developers to enhance games with social leaderboards,
-    achievements, game state, sign-in with Google, and more.
-For detailed description please check [documentation](https://developers.google.com/games/).
+The API for Google Play Game Services.
+For detailed description please check [documentation](https://developers.google.com/games/services/).
 
 ## Installing
 
-Install typings for Google Play Game Services:
+Install typings for Google Play Game Services API:
 
 ```
 npm install @types/gapi.client.games@v1 --save-dev
@@ -58,7 +57,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Google Play Game Services resources:
+After that you can use Google Play Game Services API resources:
 
 ```typescript
 
@@ -68,28 +67,22 @@ Lists all the achievement definitions for your application.
 await gapi.client.games.achievementDefinitions.list({  });
 
 /*
-Increments the steps of the achievement with the given ID for the currently
-authenticated player.
+Increments the steps of the achievement with the given ID for the currently authenticated player.
 */
 await gapi.client.games.achievements.increment({ achievementId: "achievementId", stepsToIncrement: 1,  });
 
 /*
-Lists the progress for all your application's achievements for the
-currently authenticated player.
+Lists the progress for all your application's achievements for the currently authenticated player.
 */
 await gapi.client.games.achievements.list({ playerId: "playerId",  });
 
 /*
-Sets the state of the achievement with the given ID to
-`REVEALED` for the currently authenticated player.
+Sets the state of the achievement with the given ID to REVEALED for the currently authenticated player.
 */
 await gapi.client.games.achievements.reveal({ achievementId: "achievementId",  });
 
 /*
-Sets the steps for the currently authenticated player towards unlocking an
-achievement. If the steps parameter is less than the current number of
-steps that the player already gained for the achievement, the achievement
-is not modified.
+Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps that the player already gained for the achievement, the achievement is not modified.
 */
 await gapi.client.games.achievements.setStepsAtLeast({ achievementId: "achievementId", steps: 1,  });
 
@@ -104,28 +97,22 @@ Updates multiple achievements for the currently authenticated player.
 await gapi.client.games.achievements.updateMultiple({  });
 
 /*
-Retrieves the metadata of the application with the given ID. If the
-requested application is not available for the specified
-`platformType`, the returned response will not include any
-instance data.
+Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified platformType, the returned response will not include any instance data.
 */
 await gapi.client.games.applications.get({ applicationId: "applicationId",  });
 
 /*
-Indicate that the currently authenticated user is playing your
-application.
+Indicate that the the currently authenticated user is playing your application.
 */
 await gapi.client.games.applications.played({  });
 
 /*
-Verifies the auth token provided with this request is for the application
-with the specified ID, and returns the ID of the player it was granted for.
+Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for.
 */
 await gapi.client.games.applications.verify({ applicationId: "applicationId",  });
 
 /*
-Returns a list showing the current progress on events in this application
-for the currently authenticated user.
+Returns a list showing the current progress on events in this application for the currently authenticated user.
 */
 await gapi.client.games.events.listByPlayer({  });
 
@@ -135,8 +122,7 @@ Returns a list of the event definitions in this application.
 await gapi.client.games.events.listDefinitions({  });
 
 /*
-Records a batch of changes to the number of times events have occurred for
-the currently authenticated user of this application.
+Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application.
 */
 await gapi.client.games.events.record({  });
 
@@ -156,14 +142,12 @@ Return the metagame configuration data for the calling application.
 await gapi.client.games.metagame.getMetagameConfig({  });
 
 /*
-List play data aggregated per category for the player corresponding to
-`playerId`.
+List play data aggregated per category for the player corresponding to playerId.
 */
 await gapi.client.games.metagame.listCategoriesByPlayer({ collection: "collection", playerId: "playerId",  });
 
 /*
-Retrieves the Player resource with the given ID.  To retrieve the player
-for the currently authenticated user, set `playerId` to `me`.
+Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set playerId to me.
 */
 await gapi.client.games.players.get({ playerId: "playerId",  });
 
@@ -173,17 +157,63 @@ Get the collection of players for the currently authenticated user.
 await gapi.client.games.players.list({ collection: "collection",  });
 
 /*
+Removes a push token for the current user and application. Removing a non-existent push token will report success.
+*/
+await gapi.client.games.pushtokens.remove({  });
+
+/*
+Registers a push token for the current user and application.
+*/
+await gapi.client.games.pushtokens.update({  });
+
+/*
 Checks whether the games client is out of date.
 */
 await gapi.client.games.revisions.check({ clientRevision: "clientRevision",  });
 
 /*
-Get high scores, and optionally ranks, in leaderboards for the currently
-authenticated player.  For a specific time span, `leaderboardId`
-can be set to `ALL` to retrieve data for all leaderboards in a
-given time span.  `NOTE: You cannot ask for 'ALL' leaderboards and
-'ALL' timeSpans in the same request; only one parameter may be set to
-'ALL'.
+Create a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
+*/
+await gapi.client.games.rooms.create({  });
+
+/*
+Decline an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
+*/
+await gapi.client.games.rooms.decline({ roomId: "roomId",  });
+
+/*
+Dismiss an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
+*/
+await gapi.client.games.rooms.dismiss({ roomId: "roomId",  });
+
+/*
+Get the data for a room.
+*/
+await gapi.client.games.rooms.get({ roomId: "roomId",  });
+
+/*
+Join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
+*/
+await gapi.client.games.rooms.join({ roomId: "roomId",  });
+
+/*
+Leave a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
+*/
+await gapi.client.games.rooms.leave({ roomId: "roomId",  });
+
+/*
+Returns invitations to join rooms.
+*/
+await gapi.client.games.rooms.list({  });
+
+/*
+Updates sent by a client reporting the status of peers in a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
+*/
+await gapi.client.games.rooms.reportStatus({ roomId: "roomId",  });
+
+/*
+Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, leaderboardId can be set to ALL to retrieve data for all leaderboards in a given time span.
+NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'.
 */
 await gapi.client.games.scores.get({ leaderboardId: "leaderboardId", playerId: "playerId", timeSpan: "timeSpan",  });
 
@@ -213,14 +243,72 @@ Retrieves the metadata for a given snapshot ID.
 await gapi.client.games.snapshots.get({ snapshotId: "snapshotId",  });
 
 /*
-Retrieves a list of snapshots created by your application for the player
-corresponding to the player ID.
+Retrieves a list of snapshots created by your application for the player corresponding to the player ID.
 */
 await gapi.client.games.snapshots.list({ playerId: "playerId",  });
 
 /*
-Returns engagement and spend statistics in this application for the
-currently authenticated user.
+Cancel a turn-based match.
 */
-await gapi.client.games.stats.get({  });
+await gapi.client.games.turnBasedMatches.cancel({ matchId: "matchId",  });
+
+/*
+Create a turn-based match.
+*/
+await gapi.client.games.turnBasedMatches.create({  });
+
+/*
+Decline an invitation to play a turn-based match.
+*/
+await gapi.client.games.turnBasedMatches.decline({ matchId: "matchId",  });
+
+/*
+Dismiss a turn-based match from the match list. The match will no longer show up in the list and will not generate notifications.
+*/
+await gapi.client.games.turnBasedMatches.dismiss({ matchId: "matchId",  });
+
+/*
+Finish a turn-based match. Each player should make this call once, after all results are in. Only the player whose turn it is may make the first call to Finish, and can pass in the final match state.
+*/
+await gapi.client.games.turnBasedMatches.finish({ matchId: "matchId",  });
+
+/*
+Get the data for a turn-based match.
+*/
+await gapi.client.games.turnBasedMatches.get({ matchId: "matchId",  });
+
+/*
+Join a turn-based match.
+*/
+await gapi.client.games.turnBasedMatches.join({ matchId: "matchId",  });
+
+/*
+Leave a turn-based match when it is not the current player's turn, without canceling the match.
+*/
+await gapi.client.games.turnBasedMatches.leave({ matchId: "matchId",  });
+
+/*
+Leave a turn-based match during the current player's turn, without canceling the match.
+*/
+await gapi.client.games.turnBasedMatches.leaveTurn({ matchId: "matchId", matchVersion: 1,  });
+
+/*
+Returns turn-based matches the player is or was involved in.
+*/
+await gapi.client.games.turnBasedMatches.list({  });
+
+/*
+Create a rematch of a match that was previously completed, with the same participants. This can be called by only one player on a match still in their list; the player must have called Finish first. Returns the newly created match; it will be the caller's turn.
+*/
+await gapi.client.games.turnBasedMatches.rematch({ matchId: "matchId",  });
+
+/*
+Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches that should be removed from the local cache will have a status of MATCH_DELETED.
+*/
+await gapi.client.games.turnBasedMatches.sync({  });
+
+/*
+Commit the results of a player turn.
+*/
+await gapi.client.games.turnBasedMatches.takeTurn({ matchId: "matchId",  });
 ```
