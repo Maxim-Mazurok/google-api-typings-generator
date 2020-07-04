@@ -625,7 +625,7 @@ export class App {
       );
 
       writer.method(
-        'functionload', // TODO remove debugging
+        'function load',
         [
           {parameter: 'name', type: `"${api.name}"`, required: true},
           {parameter: 'version', type: `"${api.version}"`, required: true},
