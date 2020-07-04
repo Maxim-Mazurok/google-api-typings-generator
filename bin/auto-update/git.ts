@@ -1,9 +1,9 @@
 import {SH} from './sh';
-import {typingsPrefix} from '../../src/app';
 import {basename, parse} from 'path';
 import parseGitStatus from 'parse-git-status';
 import {Octokit} from '@octokit/rest';
 import {tmpBranchNameFunc} from './helpers';
+import {TYPE_PREFIX} from '../../src/utils';
 
 export interface Settings {
   user: string; // user who submits PRs to DT
@@ -93,7 +93,7 @@ export class Git {
     const gitStatus = await this.getGitStatus();
     const status = parseGitStatus(gitStatus);
     return [...new Set(status.map(x => basename(parse(x.to).dir)))].filter(
-      x => x.indexOf(typingsPrefix) === 0
+      x => x.indexOf(TYPE_PREFIX) === 0
     );
   };
 
@@ -135,7 +135,7 @@ export class Git {
       .split('\n')
       .filter(x => x !== '')
       .map(x => x.trim().replace('origin/', ''))
-      .filter(x => x.indexOf(typingsPrefix) === 0);
+      .filter(x => x.indexOf(TYPE_PREFIX) === 0);
   };
 
   checkBranchFormat = async (name: string): Promise<boolean> => {

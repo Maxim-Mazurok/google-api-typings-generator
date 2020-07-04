@@ -13,8 +13,8 @@ jobs:
       # setup
       - uses: actions/checkout@v2
       - name: Read .nvmrc
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
         id: nvm
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
       - name: Use Node.js ${{ steps.nvm.outputs.NVMRC }}
         uses: actions/setup-node@v1
         with:

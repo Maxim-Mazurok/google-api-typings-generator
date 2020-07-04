@@ -15,8 +15,8 @@ jobs:
       # setup
       - uses: actions/checkout@v2
       - name: Read .nvmrc
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
         id: nvm
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
       - name: Use Node.js ${{ steps.nvm.outputs.NVMRC }}
         uses: actions/setup-node@v1
         with:
@@ -28,21 +28,25 @@ jobs:
 
       # generate and lint types
       - name: Generate types
+        env:
+          GAPI_DISCOVERY_JSON_DIR: ${{ runner.temp }}
         run: npm start -- --new-revisions-only
       - name: Lint types
+        id: lint
         run: npm run lint
         env:
           GAPI_MAX_PARALLEL: 3
+
       # upload failed type for investigation
       - name: Copy discovery service response
         if: failure()
-        run: cp .tmp/${{ env.FAILED_TYPE }}.json types/${{ env.FAILED_TYPE }}
+        run: cp ${{ runner.temp }}/${{ steps.lint.outputs.FAILED_TYPE }}.json types/${{ steps.lint.outputs.FAILED_TYPE }}
       - name: Upload failed type
         uses: actions/upload-artifact@v1
         if: failure()
         with:
-          name: ${{ env.FAILED_TYPE }}
-          path: types/${{ env.FAILED_TYPE }}
+          name: ${{ steps.lint.outputs.FAILED_TYPE }}
+          path: types/${{ steps.lint.outputs.FAILED_TYPE }}
 
       # upload types on success
       - name: Deploy

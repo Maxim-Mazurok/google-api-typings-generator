@@ -30,7 +30,11 @@ console.info(`Output directory: ${params.out}`);
   const proxy = (await getProxySettings()) as ProxySettings | null; // TODO: remove `as ...` when https://github.com/Azure/get-proxy-settings/issues/24 is fixed
   const bestProxy = (proxy && (proxy.https || proxy.http)) || undefined; // TODO: remove `proxy && ` when https://github.com/Azure/get-proxy-settings/issues/24 is fixed
 
-  const app = new App(params.out, bestProxy);
+  const app = new App({
+    discoveryJsonDirectory: process.env.GAPI_DISCOVERY_JSON_DIR,
+    proxy: bestProxy,
+    typesDirectory: params.out,
+  });
 
   if (params.url) {
     app.processService(params.url, true, params.newRevisionsOnly).then(

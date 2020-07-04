@@ -1,12 +1,13 @@
 import fs from 'fs';
 import _ from 'lodash';
-import path, {basename, join, resolve} from 'path';
+import path, {basename, join} from 'path';
 import request from 'request';
 import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
 import {
   ensureDirectoryExists,
   getResourceTypeName,
+  getTypeDirectory,
   parseVersion,
 } from './utils';
 import {StreamWriter, TextWriter} from './writer';
@@ -19,8 +20,6 @@ type RestDescription = gapi.client.discovery.RestDescription;
 type RestMethod = gapi.client.discovery.RestMethod;
 type DirectoryList = gapi.client.discovery.DirectoryList;
 
-export const typingsPrefix = 'gapi.client.';
-export const tmpDirPath = resolve(__dirname, './../.tmp');
 export const revisionPrefix = '// Revision: ';
 
 const typesMap: {[key: string]: string} = {
@@ -432,23 +431,19 @@ function isEmptySchema(schema: JsonSchema) {
   return _.isEmpty(schema.properties) && !schema.additionalProperties;
 }
 
+export interface Configuration {
+  discoveryJsonDirectory?: string; // temporary directory to cache discovery service JSON
+  proxy?: ProxySetting;
+  typesDirectory: string;
+}
+
 export class App {
-  private readonly typingsDirectory: string;
-  private readonly proxy?: ProxySetting;
   private seenSchemaRefs: Set<string> = new Set();
 
-  constructor(private base = __dirname + '/../types/', proxy?: ProxySetting) {
-    this.typingsDirectory = base;
-    this.proxy = proxy;
+  constructor(private readonly config: Configuration) {
+    ensureDirectoryExists(config.typesDirectory);
 
-    ensureDirectoryExists(this.base);
-
-    ensureDirectoryExists(this.typingsDirectory);
-
-    ensureDirectoryExists(tmpDirPath);
-
-    console.log(`base directory: ${this.base}`);
-    console.log(`typings directory: ${this.typingsDirectory}`);
+    console.log(`types directory: ${config.typesDirectory}`);
     console.log();
   }
 
@@ -569,18 +564,6 @@ export class App {
     });
   }
 
-  private static getTypingsName(api: string, version: string | null) {
-    if (version === null) {
-      return `${typingsPrefix}${api}`;
-    } else {
-      return path.join(`${typingsPrefix}${api}`, version);
-    }
-  }
-
-  private getTypingsDirectory(api: string, version: string | null) {
-    return path.join(this.typingsDirectory, App.getTypingsName(api, version));
-  }
-
   /// writes api description for specified JSON object
   private processApi(
     destinationDirectory: string,
@@ -642,7 +625,7 @@ export class App {
       );
 
       writer.method(
-        'function load',
+        'functionload', // TODO remove debugging
         [
           {parameter: 'name', type: `"${api.name}"`, required: true},
           {parameter: 'version', type: `"${api.version}"`, required: true},
@@ -709,7 +692,10 @@ export class App {
     return new Promise((resolve, reject) => {
       request(
         url,
-        {gzip: true, ...(this.proxy ? {proxy: this.proxy.toString()} : {})},
+        {
+          gzip: true,
+          ...(this.config.proxy ? {proxy: this.config.proxy.toString()} : {}),
+        },
         (error, response, body) => {
           if (!error && response.statusCode === 200) {
             try {
@@ -758,15 +744,20 @@ export class App {
     api.name = api.name!.toLocaleLowerCase();
     api.version = api.version!.toLocaleLowerCase();
 
-    const destinationDirectory = this.getTypingsDirectory(
-      api.name,
-      actualVersion ? null : api.version
+    const destinationDirectory = path.join(
+      this.config.typesDirectory,
+      getTypeDirectory(api.name, actualVersion ? null : api.version)
     );
 
-    fs.writeFileSync(
-      join(tmpDirPath, `${basename(destinationDirectory)}.json`),
-      JSON.stringify(api)
-    );
+    if (this.config.discoveryJsonDirectory) {
+      fs.writeFileSync(
+        join(
+          this.config.discoveryJsonDirectory,
+          `${basename(destinationDirectory)}.json`
+        ),
+        JSON.stringify(api)
+      );
+    }
 
     ensureDirectoryExists(destinationDirectory);
     const indexDTSPath = path.join(destinationDirectory, 'index.d.ts');

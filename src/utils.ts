@@ -1,4 +1,7 @@
 import fs from 'fs';
+import path from 'path';
+
+export const TYPE_PREFIX = 'gapi.client.';
 
 /**
  * Converts the specified version into a `major.minor` convention.
@@ -25,10 +28,18 @@ export function getResourceTypeName(resourceName: string) {
 
 /**
  * Creates directory recursively if it doesn't exist
- * @param directory
  */
-export const ensureDirectoryExists = (directory: string) => {
+export function ensureDirectoryExists(directory: string) {
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory, {recursive: true});
   }
-};
+}
+
+/**
+ * Returns the filesystem directory for the specified service.
+ */
+export function getTypeDirectory(api: string, version: string | null) {
+  const name = `${TYPE_PREFIX}${api}`;
+
+  return null === version ? name : path.join(name, version);
+}
