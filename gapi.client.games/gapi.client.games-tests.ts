@@ -35,19 +35,13 @@ gapi.load('client', () => {
             maxResults: 42,
             pageToken: "Test string",
         });
-        /**
-         * Increments the steps of the achievement with the given ID for the currently
-         * authenticated player.
-         */
+        /** Increments the steps of the achievement with the given ID for the currently authenticated player. */
         await gapi.client.games.achievements.increment({
             achievementId: "Test string",
             requestId: "Test string",
             stepsToIncrement: 42,
         });
-        /**
-         * Lists the progress for all your application's achievements for the
-         * currently authenticated player.
-         */
+        /** Lists the progress for all your application's achievements for the currently authenticated player. */
         await gapi.client.games.achievements.list({
             language: "Test string",
             maxResults: 42,
@@ -55,18 +49,13 @@ gapi.load('client', () => {
             playerId: "Test string",
             state: "Test string",
         });
-        /**
-         * Sets the state of the achievement with the given ID to
-         * `REVEALED` for the currently authenticated player.
-         */
+        /** Sets the state of the achievement with the given ID to REVEALED for the currently authenticated player. */
         await gapi.client.games.achievements.reveal({
             achievementId: "Test string",
         });
         /**
-         * Sets the steps for the currently authenticated player towards unlocking an
-         * achievement. If the steps parameter is less than the current number of
-         * steps that the player already gained for the achievement, the achievement
-         * is not modified.
+         * Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps
+         * that the player already gained for the achievement, the achievement is not modified.
          */
         await gapi.client.games.achievements.setStepsAtLeast({
             achievementId: "Test string",
@@ -77,8 +66,7 @@ gapi.load('client', () => {
             achievementId: "Test string",
         });
         /** Updates multiple achievements for the currently authenticated player. */
-        await gapi.client.games.achievements.updateMultiple({
-        }, {
+        await gapi.client.games.achievements.updateMultiple({} , {
             kind: "Test string",
             updates: [
                 {
@@ -97,33 +85,21 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Retrieves the metadata of the application with the given ID. If the
-         * requested application is not available for the specified
-         * `platformType`, the returned response will not include any
-         * instance data.
+         * Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified platformType, the returned
+         * response will not include any instance data.
          */
         await gapi.client.games.applications.get({
             applicationId: "Test string",
             language: "Test string",
             platformType: "Test string",
         });
-        /**
-         * Indicate that the currently authenticated user is playing your
-         * application.
-         */
-        await gapi.client.games.applications.played({
-        });
-        /**
-         * Verifies the auth token provided with this request is for the application
-         * with the specified ID, and returns the ID of the player it was granted for.
-         */
+        /** Indicate that the the currently authenticated user is playing your application. */
+        await gapi.client.games.applications.played();
+        /** Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for. */
         await gapi.client.games.applications.verify({
             applicationId: "Test string",
         });
-        /**
-         * Returns a list showing the current progress on events in this application
-         * for the currently authenticated user.
-         */
+        /** Returns a list showing the current progress on events in this application for the currently authenticated user. */
         await gapi.client.games.events.listByPlayer({
             language: "Test string",
             maxResults: 42,
@@ -135,10 +111,7 @@ gapi.load('client', () => {
             maxResults: 42,
             pageToken: "Test string",
         });
-        /**
-         * Records a batch of changes to the number of times events have occurred for
-         * the currently authenticated user of this application.
-         */
+        /** Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application. */
         await gapi.client.games.events.record({
             language: "Test string",
         }, {
@@ -173,12 +146,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Return the metagame configuration data for the calling application. */
-        await gapi.client.games.metagame.getMetagameConfig({
-        });
-        /**
-         * List play data aggregated per category for the player corresponding to
-         * `playerId`.
-         */
+        await gapi.client.games.metagame.getMetagameConfig();
+        /** List play data aggregated per category for the player corresponding to playerId. */
         await gapi.client.games.metagame.listCategoriesByPlayer({
             collection: "Test string",
             language: "Test string",
@@ -186,10 +155,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             playerId: "Test string",
         });
-        /**
-         * Retrieves the Player resource with the given ID.  To retrieve the player
-         * for the currently authenticated user, set `playerId` to `me`.
-         */
+        /** Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set playerId to me. */
         await gapi.client.games.players.get({
             language: "Test string",
             playerId: "Test string",
@@ -201,17 +167,204 @@ gapi.load('client', () => {
             maxResults: 42,
             pageToken: "Test string",
         });
+        /** Removes a push token for the current user and application. Removing a non-existent push token will report success. */
+        await gapi.client.games.pushtokens.remove({} , {
+            ios: {
+                apns_device_token: "Test string",
+                apns_environment: "Test string",
+            },
+            kind: "Test string",
+        });
+        /** Registers a push token for the current user and application. */
+        await gapi.client.games.pushtokens.update({} , {
+            clientRevision: "Test string",
+            id: {
+                ios: {
+                    apns_device_token: "Test string",
+                    apns_environment: "Test string",
+                },
+                kind: "Test string",
+            },
+            kind: "Test string",
+            language: "Test string",
+        });
         /** Checks whether the games client is out of date. */
         await gapi.client.games.revisions.check({
             clientRevision: "Test string",
         });
+        /** Create a room. For internal use by the Games SDK only. Calling this method directly is unsupported. */
+        await gapi.client.games.rooms.create({
+            language: "Test string",
+        }, {
+            autoMatchingCriteria: {
+                exclusiveBitmask: "Test string",
+                kind: "Test string",
+                maxAutoMatchingPlayers: 42,
+                minAutoMatchingPlayers: 42,
+            },
+            capabilities: [
+                "Test string"            ],
+            clientAddress: {
+                kind: "Test string",
+                xmppAddress: "Test string",
+            },
+            invitedPlayerIds: [
+                "Test string"            ],
+            kind: "Test string",
+            networkDiagnostics: {
+                androidNetworkSubtype: 42,
+                androidNetworkType: 42,
+                iosNetworkType: 42,
+                kind: "Test string",
+                networkOperatorCode: "Test string",
+                networkOperatorName: "Test string",
+                registrationLatencyMillis: 42,
+            },
+            requestId: "Test string",
+            variant: 42,
+        });
+        /** Decline an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported. */
+        await gapi.client.games.rooms.decline({
+            language: "Test string",
+            roomId: "Test string",
+        });
+        /** Dismiss an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported. */
+        await gapi.client.games.rooms.dismiss({
+            roomId: "Test string",
+        });
+        /** Get the data for a room. */
+        await gapi.client.games.rooms.get({
+            language: "Test string",
+            roomId: "Test string",
+        });
+        /** Join a room. For internal use by the Games SDK only. Calling this method directly is unsupported. */
+        await gapi.client.games.rooms.join({
+            language: "Test string",
+            roomId: "Test string",
+        }, {
+            capabilities: [
+                "Test string"            ],
+            clientAddress: {
+                kind: "Test string",
+                xmppAddress: "Test string",
+            },
+            kind: "Test string",
+            networkDiagnostics: {
+                androidNetworkSubtype: 42,
+                androidNetworkType: 42,
+                iosNetworkType: 42,
+                kind: "Test string",
+                networkOperatorCode: "Test string",
+                networkOperatorName: "Test string",
+                registrationLatencyMillis: 42,
+            },
+        });
+        /** Leave a room. For internal use by the Games SDK only. Calling this method directly is unsupported. */
+        await gapi.client.games.rooms.leave({
+            language: "Test string",
+            roomId: "Test string",
+        }, {
+            kind: "Test string",
+            leaveDiagnostics: {
+                androidNetworkSubtype: 42,
+                androidNetworkType: 42,
+                iosNetworkType: 42,
+                kind: "Test string",
+                networkOperatorCode: "Test string",
+                networkOperatorName: "Test string",
+                peerSession: [
+                    {
+                        connectedTimestampMillis: "Test string",
+                        kind: "Test string",
+                        participantId: "Test string",
+                        reliableChannel: {
+                            bytesReceived: {
+                                count: "Test string",
+                                kind: "Test string",
+                                max: "Test string",
+                                min: "Test string",
+                                sum: "Test string",
+                            },
+                            bytesSent: {
+                                count: "Test string",
+                                kind: "Test string",
+                                max: "Test string",
+                                min: "Test string",
+                                sum: "Test string",
+                            },
+                            kind: "Test string",
+                            numMessagesLost: 42,
+                            numMessagesReceived: 42,
+                            numMessagesSent: 42,
+                            numSendFailures: 42,
+                            roundtripLatencyMillis: {
+                                count: "Test string",
+                                kind: "Test string",
+                                max: "Test string",
+                                min: "Test string",
+                                sum: "Test string",
+                            },
+                        },
+                        unreliableChannel: {
+                            bytesReceived: {
+                                count: "Test string",
+                                kind: "Test string",
+                                max: "Test string",
+                                min: "Test string",
+                                sum: "Test string",
+                            },
+                            bytesSent: {
+                                count: "Test string",
+                                kind: "Test string",
+                                max: "Test string",
+                                min: "Test string",
+                                sum: "Test string",
+                            },
+                            kind: "Test string",
+                            numMessagesLost: 42,
+                            numMessagesReceived: 42,
+                            numMessagesSent: 42,
+                            numSendFailures: 42,
+                            roundtripLatencyMillis: {
+                                count: "Test string",
+                                kind: "Test string",
+                                max: "Test string",
+                                min: "Test string",
+                                sum: "Test string",
+                            },
+                        },
+                    }                ],
+                socketsUsed: true,
+            },
+            reason: "Test string",
+        });
+        /** Returns invitations to join rooms. */
+        await gapi.client.games.rooms.list({
+            language: "Test string",
+            maxResults: 42,
+            pageToken: "Test string",
+        });
+        /** Updates sent by a client reporting the status of peers in a room. For internal use by the Games SDK only. Calling this method directly is unsupported. */
+        await gapi.client.games.rooms.reportStatus({
+            language: "Test string",
+            roomId: "Test string",
+        }, {
+            kind: "Test string",
+            updates: [
+                {
+                    connectionSetupLatencyMillis: 42,
+                    error: "Test string",
+                    error_reason: "Test string",
+                    kind: "Test string",
+                    participantId: "Test string",
+                    status: "Test string",
+                    unreliableRoundtripLatencyMillis: 42,
+                }            ],
+        });
         /**
-         * Get high scores, and optionally ranks, in leaderboards for the currently
-         * authenticated player.  For a specific time span, `leaderboardId`
-         * can be set to `ALL` to retrieve data for all leaderboards in a
-         * given time span.  `NOTE: You cannot ask for 'ALL' leaderboards and
-         * 'ALL' timeSpans in the same request; only one parameter may be set to
-         * 'ALL'.
+         * Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, leaderboardId can be set to
+         * ALL to retrieve data for all leaderboards in a given time span.
+         * NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'.
          */
         await gapi.client.games.scores.get({
             includeRankType: "Test string",
@@ -268,21 +421,134 @@ gapi.load('client', () => {
             language: "Test string",
             snapshotId: "Test string",
         });
-        /**
-         * Retrieves a list of snapshots created by your application for the player
-         * corresponding to the player ID.
-         */
+        /** Retrieves a list of snapshots created by your application for the player corresponding to the player ID. */
         await gapi.client.games.snapshots.list({
             language: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             playerId: "Test string",
         });
+        /** Cancel a turn-based match. */
+        await gapi.client.games.turnBasedMatches.cancel({
+            matchId: "Test string",
+        });
+        /** Create a turn-based match. */
+        await gapi.client.games.turnBasedMatches.create({
+            language: "Test string",
+        }, {
+            autoMatchingCriteria: {
+                exclusiveBitmask: "Test string",
+                kind: "Test string",
+                maxAutoMatchingPlayers: 42,
+                minAutoMatchingPlayers: 42,
+            },
+            invitedPlayerIds: [
+                "Test string"            ],
+            kind: "Test string",
+            requestId: "Test string",
+            variant: 42,
+        });
+        /** Decline an invitation to play a turn-based match. */
+        await gapi.client.games.turnBasedMatches.decline({
+            language: "Test string",
+            matchId: "Test string",
+        });
+        /** Dismiss a turn-based match from the match list. The match will no longer show up in the list and will not generate notifications. */
+        await gapi.client.games.turnBasedMatches.dismiss({
+            matchId: "Test string",
+        });
         /**
-         * Returns engagement and spend statistics in this application for the
-         * currently authenticated user.
+         * Finish a turn-based match. Each player should make this call once, after all results are in. Only the player whose turn it is may make the first call
+         * to Finish, and can pass in the final match state.
          */
-        await gapi.client.games.stats.get({
+        await gapi.client.games.turnBasedMatches.finish({
+            language: "Test string",
+            matchId: "Test string",
+        }, {
+            data: {
+                data: "Test string",
+                kind: "Test string",
+            },
+            kind: "Test string",
+            matchVersion: 42,
+            results: [
+                {
+                    kind: "Test string",
+                    participantId: "Test string",
+                    placing: 42,
+                    result: "Test string",
+                }            ],
+        });
+        /** Get the data for a turn-based match. */
+        await gapi.client.games.turnBasedMatches.get({
+            includeMatchData: true,
+            language: "Test string",
+            matchId: "Test string",
+        });
+        /** Join a turn-based match. */
+        await gapi.client.games.turnBasedMatches.join({
+            language: "Test string",
+            matchId: "Test string",
+        });
+        /** Leave a turn-based match when it is not the current player's turn, without canceling the match. */
+        await gapi.client.games.turnBasedMatches.leave({
+            language: "Test string",
+            matchId: "Test string",
+        });
+        /** Leave a turn-based match during the current player's turn, without canceling the match. */
+        await gapi.client.games.turnBasedMatches.leaveTurn({
+            language: "Test string",
+            matchId: "Test string",
+            matchVersion: 42,
+            pendingParticipantId: "Test string",
+        });
+        /** Returns turn-based matches the player is or was involved in. */
+        await gapi.client.games.turnBasedMatches.list({
+            includeMatchData: true,
+            language: "Test string",
+            maxCompletedMatches: 42,
+            maxResults: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Create a rematch of a match that was previously completed, with the same participants. This can be called by only one player on a match still in their
+         * list; the player must have called Finish first. Returns the newly created match; it will be the caller's turn.
+         */
+        await gapi.client.games.turnBasedMatches.rematch({
+            language: "Test string",
+            matchId: "Test string",
+            requestId: "Test string",
+        });
+        /**
+         * Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches
+         * that should be removed from the local cache will have a status of MATCH_DELETED.
+         */
+        await gapi.client.games.turnBasedMatches.sync({
+            includeMatchData: true,
+            language: "Test string",
+            maxCompletedMatches: 42,
+            maxResults: 42,
+            pageToken: "Test string",
+        });
+        /** Commit the results of a player turn. */
+        await gapi.client.games.turnBasedMatches.takeTurn({
+            language: "Test string",
+            matchId: "Test string",
+        }, {
+            data: {
+                data: "Test string",
+                kind: "Test string",
+            },
+            kind: "Test string",
+            matchVersion: 42,
+            pendingParticipantId: "Test string",
+            results: [
+                {
+                    kind: "Test string",
+                    participantId: "Test string",
+                    placing: 42,
+                    result: "Test string",
+                }            ],
         });
     }
 });
