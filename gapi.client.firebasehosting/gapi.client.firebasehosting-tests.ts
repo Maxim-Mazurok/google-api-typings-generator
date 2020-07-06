@@ -373,7 +373,10 @@ gapi.load('client', () => {
             parent: "Test string",
             status: "Test string",
         });
-        /** Adds content files to a version. */
+        /**
+         * Adds content files to a version.
+         * Each file must be under 2 GB.
+         */
         await gapi.client.firebasehosting.sites.versions.populateFiles({
             parent: "Test string",
         }, {
@@ -731,7 +734,10 @@ gapi.load('client', () => {
             parent: "Test string",
             status: "Test string",
         });
-        /** Adds content files to a version. */
+        /**
+         * Adds content files to a version.
+         * Each file must be under 2 GB.
+         */
         await gapi.client.firebasehosting.sites.versions.populateFiles({
             parent: "Test string",
         }, {
