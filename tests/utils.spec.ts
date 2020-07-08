@@ -1,6 +1,10 @@
 import _ from 'lodash';
 import assert from 'assert';
-import {getResourceTypeName, parseVersion} from '../src/utils';
+import {
+  getResourceTypeName,
+  getTypeDirectory,
+  parseVersion,
+} from '../src/utils';
 
 describe('parseVersion', () => {
   const expectations = {
@@ -13,7 +17,7 @@ describe('parseVersion', () => {
 
   _.forEach(expectations, (expected, given) => {
     it(`should parse: ${given}`, () => {
-      assert.equal(parseVersion(given), expected);
+      assert.strictEqual(parseVersion(given), expected);
     });
   });
 });
@@ -28,7 +32,21 @@ describe('getResourceTypeName', () => {
 
   _.forEach(expectations, (expected, given) => {
     it(`should convert: ${given}`, () => {
-      assert.equal(getResourceTypeName(given), expected);
+      assert.strictEqual(getResourceTypeName(given), expected);
+    });
+  });
+});
+
+describe('getTypeDirectory', () => {
+  describe('no version', () => {
+    it('should return name', () => {
+      assert.strictEqual('gapi.client.API', getTypeDirectory('API', null));
+    });
+  });
+
+  describe('with version', () => {
+    it('should return name', () => {
+      assert.strictEqual('gapi.client.API/v1', getTypeDirectory('API', 'v1'));
     });
   });
 });

@@ -3,7 +3,7 @@ import {SH} from './sh';
 import {Git, Settings as GitSettings} from './git';
 import {Helpers, tmpBranchNameFunc} from './helpers';
 import {GitHelpers} from './gitHelpers';
-import {typingsPrefix} from '../../src/app';
+import {TYPE_PREFIX} from '../../src/utils';
 
 if (!process.env.GH_AUTH_TOKEN) {
   throw new Error('Please, set env var: GH_AUTH_TOKEN');
@@ -48,7 +48,7 @@ const whiteListedTypes = [
   'calendar',
   'storage',
   'discovery',
-].map(x => `${typingsPrefix}${x}`);
+].map(x => `${TYPE_PREFIX}${x}`);
 
 const sh = new SH(settings.dtForkPath);
 const git = new Git(sh, settings);
