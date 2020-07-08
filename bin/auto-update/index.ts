@@ -41,7 +41,7 @@ const settings: Settings = {
   templateUpdateLabel: 'DT PR template update',
 };
 
-const whiteListedTypes = [
+const supportedApis = [
   'sheets',
   'drive',
   'classroom',
@@ -112,7 +112,7 @@ process.on('unhandledRejection', reason => {
 
   for (const type of changedTypes) {
     if (
-      whiteListedTypes.indexOf(type) === -1 ||
+      supportedApis.indexOf(type) === -1 ||
       (await gitHelpers.onlyRevisionChanged(type))
     ) {
       continue;

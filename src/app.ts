@@ -29,13 +29,14 @@ const typesMap: {[key: string]: string} = {
   string: 'string',
 };
 
-const excludedApi = [
+const excludedApis = [
   'dialogflow',
   'replicapool',
   'replicapoolupdater',
   'apigee',
   'storage',
   'vision',
+  'youtube',
 ];
 
 const irregularSpaces = [
@@ -1088,7 +1089,7 @@ export class App {
 
     const apis = list
       .items!.filter(api => (service ? api.name === service : true))
-      .filter(api => excludedApi.indexOf(checkExists(api.name)) < 0);
+      .filter(api => excludedApis.indexOf(checkExists(api.name)) < 0);
 
     if (apis.length === 0) {
       throw Error("Can't find services");
