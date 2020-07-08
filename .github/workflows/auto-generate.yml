@@ -28,9 +28,7 @@ jobs:
 
       # generate and lint types
       - name: Generate types
-        env:
-          GAPI_DISCOVERY_JSON_DIR: ${{ runner.temp }}
-        run: npm start -- --new-revisions-only
+        run: npm start -- --new-revisions-only --cache-discovery-json ${{ runner.temp }}
       - name: Lint types
         id: lint
         run: npm run lint

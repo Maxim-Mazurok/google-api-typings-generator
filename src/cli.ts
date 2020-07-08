@@ -22,6 +22,10 @@ const params = program
     '-n, --new-revisions-only',
     'overwrite existing type only if revision is newer'
   )
+  .option(
+    '--cache-discovery-json <directory>',
+    'temporary directory to cache discovery service JSON'
+  )
   .parse(process.argv);
 
 console.info(`Output directory: ${params.out}`);
@@ -31,7 +35,7 @@ console.info(`Output directory: ${params.out}`);
   const bestProxy = (proxy && (proxy.https || proxy.http)) || undefined; // TODO: remove `proxy && ` when https://github.com/Azure/get-proxy-settings/issues/24 is fixed
 
   const app = new App({
-    discoveryJsonDirectory: process.env.GAPI_DISCOVERY_JSON_DIR,
+    discoveryJsonDirectory: params.cacheDiscoveryJson,
     proxy: bestProxy,
     typesDirectory: params.out,
   });
