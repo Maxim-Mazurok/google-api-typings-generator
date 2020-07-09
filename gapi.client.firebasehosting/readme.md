@@ -1,4 +1,4 @@
-# TypeScript typings for Firebase Hosting API v1beta1
+# TypeScript typings for Firebase Hosting API v1
 
 The Firebase Hosting REST API enables programmatic and customizable deployments to your Firebase-hosted sites. Use this REST API to deploy new or updated hosting configurations and content files.
 For detailed description please check [documentation](https://firebase.google.com/docs/hosting/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://firebase.google.co
 Install typings for Firebase Hosting API:
 
 ```
-npm install @types/gapi.client.firebasehosting@v1beta1 --save-dev
+npm install @types/gapi.client.firebasehosting@v1 --save-dev
 ```
 
 ## Usage
@@ -25,55 +25,51 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('firebasehosting', 'v1beta1', () => {
+gapi.client.load('firebasehosting', 'v1', () => {
   // now we can use gapi.client.firebasehosting
   // ...
 });
 ```
 
-Don't forget to authenticate your client before sending any request to resources:
 
-```typescript
-// declare client_id registered in Google Developers Console
-var client_id = '',
-  scope = [ 
-      // View and manage your data across Google Cloud Platform services
-      'https://www.googleapis.com/auth/cloud-platform',
-
-      // View your data across Google Cloud Platform services
-      'https://www.googleapis.com/auth/cloud-platform.read-only',
-
-      // View and administer all your Firebase data and settings
-      'https://www.googleapis.com/auth/firebase',
-
-      // View all your Firebase data and settings
-      'https://www.googleapis.com/auth/firebase.readonly',
-    ],
-    immediate = true;
-// ...
-
-gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
-  authResult => {
-    if (authResult && !authResult.error) {
-        /* handle successful authorization */
-    } else {
-        /* handle authorization error */
-    }
-});
-```
 
 After that you can use Firebase Hosting API resources:
 
 ```typescript
 
 /*
-Gets the Hosting metadata for a specific site.
+Starts asynchronous cancellation on a long-running operation.  The server
+makes a best effort to cancel the operation, but success is not
+guaranteed.  If the server doesn't support this method, it returns
+`google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+Operations.GetOperation or
+other methods to check whether the cancellation succeeded or whether the
+operation completed despite cancellation. On successful cancellation,
+the operation is not deleted; instead, it becomes an operation with
+an Operation.error value with a google.rpc.Status.code of 1,
+corresponding to `Code.CANCELLED`.
 */
-await gapi.client.firebasehosting.sites.getConfig({ name: "name",  });
+await gapi.client.firebasehosting.operations.cancel({ name: "name",  });
 
 /*
-Sets the Hosting metadata for a specific site.
+Deletes a long-running operation. This method indicates that the client is
+no longer interested in the operation result. It does not cancel the
+operation. If the server doesn't support this method, it returns
+`google.rpc.Code.UNIMPLEMENTED`.
 */
-await gapi.client.firebasehosting.sites.updateConfig({ name: "name",  });
+await gapi.client.firebasehosting.operations.delete({ name: "name",  });
+
+/*
+Lists operations that match the specified filter in the request. If the
+server doesn't support this method, it returns `UNIMPLEMENTED`.
+
+NOTE: the `name` binding allows API services to override the binding
+to use different resource name schemes, such as `users/*/operations`. To
+override the binding, API services can add a binding such as
+`"/v1/{name=users/*}/operations"` to their service configuration.
+For backwards compatibility, the default name includes the operations
+collection id, however overriding users must ensure the name binding
+is the parent resource, without the operations collection id.
+*/
+await gapi.client.firebasehosting.operations.list({ name: "name",  });
 ```
