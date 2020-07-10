@@ -1747,12 +1747,6 @@ gapi.load('client', () => {
             checkIntervalSec: 42,
             creationTimestamp: "Test string",
             description: "Test string",
-            grpcHealthCheck: {
-                grpcServiceName: "Test string",
-                port: 42,
-                portName: "Test string",
-                portSpecification: "Test string",
-            },
             healthyThreshold: 42,
             http2HealthCheck: {
                 host: "Test string",
@@ -1829,12 +1823,6 @@ gapi.load('client', () => {
             checkIntervalSec: 42,
             creationTimestamp: "Test string",
             description: "Test string",
-            grpcHealthCheck: {
-                grpcServiceName: "Test string",
-                port: 42,
-                portName: "Test string",
-                portSpecification: "Test string",
-            },
             healthyThreshold: 42,
             http2HealthCheck: {
                 host: "Test string",
@@ -1900,12 +1888,6 @@ gapi.load('client', () => {
             checkIntervalSec: 42,
             creationTimestamp: "Test string",
             description: "Test string",
-            grpcHealthCheck: {
-                grpcServiceName: "Test string",
-                port: 42,
-                portName: "Test string",
-                portSpecification: "Test string",
-            },
             healthyThreshold: 42,
             http2HealthCheck: {
                 host: "Test string",
@@ -6396,12 +6378,6 @@ gapi.load('client', () => {
             checkIntervalSec: 42,
             creationTimestamp: "Test string",
             description: "Test string",
-            grpcHealthCheck: {
-                grpcServiceName: "Test string",
-                port: 42,
-                portName: "Test string",
-                portSpecification: "Test string",
-            },
             healthyThreshold: 42,
             http2HealthCheck: {
                 host: "Test string",
@@ -6480,12 +6456,6 @@ gapi.load('client', () => {
             checkIntervalSec: 42,
             creationTimestamp: "Test string",
             description: "Test string",
-            grpcHealthCheck: {
-                grpcServiceName: "Test string",
-                port: 42,
-                portName: "Test string",
-                portSpecification: "Test string",
-            },
             healthyThreshold: 42,
             http2HealthCheck: {
                 host: "Test string",
@@ -6552,12 +6522,6 @@ gapi.load('client', () => {
             checkIntervalSec: 42,
             creationTimestamp: "Test string",
             description: "Test string",
-            grpcHealthCheck: {
-                grpcServiceName: "Test string",
-                port: 42,
-                portName: "Test string",
-                portSpecification: "Test string",
-            },
             healthyThreshold: 42,
             http2HealthCheck: {
                 host: "Test string",
@@ -10687,61 +10651,6 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
-        });
-        /** Deletes the specified TargetGrpcProxy in the given scope */
-        await gapi.client.compute.targetGrpcProxies.delete({
-            project: "Test string",
-            requestId: "Test string",
-            targetGrpcProxy: "Test string",
-        });
-        /** Returns the specified TargetGrpcProxy resource in the given scope. */
-        await gapi.client.compute.targetGrpcProxies.get({
-            project: "Test string",
-            targetGrpcProxy: "Test string",
-        });
-        /** Creates a TargetGrpcProxy in the specified project in the given scope using the parameters that are included in the request. */
-        await gapi.client.compute.targetGrpcProxies.insert({
-            project: "Test string",
-            requestId: "Test string",
-        }, {
-            creationTimestamp: "Test string",
-            description: "Test string",
-            fingerprint: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            name: "Test string",
-            selfLink: "Test string",
-            selfLinkWithId: "Test string",
-            urlMap: "Test string",
-            validateForProxyless: true,
-        });
-        /** Lists the TargetGrpcProxies for a project in the given scope. */
-        await gapi.client.compute.targetGrpcProxies.list({
-            filter: "Test string",
-            maxResults: 42,
-            orderBy: "Test string",
-            pageToken: "Test string",
-            project: "Test string",
-        });
-        /**
-         * Patches the specified TargetGrpcProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch
-         * format and processing rules.
-         */
-        await gapi.client.compute.targetGrpcProxies.patch({
-            project: "Test string",
-            requestId: "Test string",
-            targetGrpcProxy: "Test string",
-        }, {
-            creationTimestamp: "Test string",
-            description: "Test string",
-            fingerprint: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            name: "Test string",
-            selfLink: "Test string",
-            selfLinkWithId: "Test string",
-            urlMap: "Test string",
-            validateForProxyless: true,
         });
         /** Retrieves the list of all TargetHttpProxy resources, regional and global, available to the specified project. */
         await gapi.client.compute.targetHttpProxies.aggregatedList({

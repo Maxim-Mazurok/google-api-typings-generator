@@ -2352,31 +2352,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.subnetworks.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Deletes the specified TargetGrpcProxy in the given scope
-*/
-await gapi.client.compute.targetGrpcProxies.delete({ project: "project", targetGrpcProxy: "targetGrpcProxy",  });
-
-/*
-Returns the specified TargetGrpcProxy resource in the given scope.
-*/
-await gapi.client.compute.targetGrpcProxies.get({ project: "project", targetGrpcProxy: "targetGrpcProxy",  });
-
-/*
-Creates a TargetGrpcProxy in the specified project in the given scope using the parameters that are included in the request.
-*/
-await gapi.client.compute.targetGrpcProxies.insert({ project: "project",  });
-
-/*
-Lists the TargetGrpcProxies for a project in the given scope.
-*/
-await gapi.client.compute.targetGrpcProxies.list({ project: "project",  });
-
-/*
-Patches the specified TargetGrpcProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
-*/
-await gapi.client.compute.targetGrpcProxies.patch({ project: "project", targetGrpcProxy: "targetGrpcProxy",  });
-
-/*
 Retrieves the list of all TargetHttpProxy resources, regional and global, available to the specified project.
 */
 await gapi.client.compute.targetHttpProxies.aggregatedList({ project: "project",  });
