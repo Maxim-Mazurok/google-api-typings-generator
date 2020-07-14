@@ -51,6 +51,21 @@ gapi.load('client', () => {
                     },
                 }            ],
             argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
             cards: [
                 {
                     cardActions: [
@@ -221,12 +236,33 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
+        /**
+         * Gets the metadata of a message attachment. The attachment data is fetched
+         * using the media API.
+         */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
+        });
         /** Deletes a message. */
         await gapi.client.chat.spaces.messages.delete({
             name: "Test string",
         });
+        /**
+         * Gets the metadata of a message attachment. The attachment data is fetched
+         * using the media API.
+         */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
+        });
         /** Returns a message. */
         await gapi.client.chat.spaces.messages.get({
+            name: "Test string",
+        });
+        /**
+         * Gets the metadata of a message attachment. The attachment data is fetched
+         * using the media API.
+         */
+        await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });
         /** Updates a message. */
@@ -254,6 +290,21 @@ gapi.load('client', () => {
                     },
                 }            ],
             argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
             cards: [
                 {
                     cardActions: [
@@ -423,6 +474,13 @@ gapi.load('client', () => {
             thread: {
                 name: "Test string",
             },
+        });
+        /**
+         * Gets the metadata of a message attachment. The attachment data is fetched
+         * using the media API.
+         */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
         });
         /** Lists spaces the caller is a member of. */
         await gapi.client.chat.spaces.list({
@@ -464,6 +522,21 @@ gapi.load('client', () => {
                     },
                 }            ],
             argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
             cards: [
                 {
                     cardActions: [
@@ -634,12 +707,33 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
+        /**
+         * Gets the metadata of a message attachment. The attachment data is fetched
+         * using the media API.
+         */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
+        });
         /** Deletes a message. */
         await gapi.client.chat.spaces.messages.delete({
             name: "Test string",
         });
+        /**
+         * Gets the metadata of a message attachment. The attachment data is fetched
+         * using the media API.
+         */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
+        });
         /** Returns a message. */
         await gapi.client.chat.spaces.messages.get({
+            name: "Test string",
+        });
+        /**
+         * Gets the metadata of a message attachment. The attachment data is fetched
+         * using the media API.
+         */
+        await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });
         /** Updates a message. */
@@ -667,6 +761,21 @@ gapi.load('client', () => {
                     },
                 }            ],
             argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
             cards: [
                 {
                     cardActions: [
@@ -836,6 +945,13 @@ gapi.load('client', () => {
             thread: {
                 name: "Test string",
             },
+        });
+        /**
+         * Gets the metadata of a message attachment. The attachment data is fetched
+         * using the media API.
+         */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
         });
     }
 });
