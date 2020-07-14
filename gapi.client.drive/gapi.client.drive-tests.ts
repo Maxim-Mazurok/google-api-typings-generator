@@ -331,7 +331,7 @@ gapi.load('client', () => {
             },
             themeId: "Test string",
         });
-        /** Creates a copy of a file and applies any requested updates with patch semantics. */
+        /** Creates a copy of a file and applies any requested updates with patch semantics. Folders cannot be copied. */
         await gapi.client.drive.files.copy({
             enforceSingleParent: true,
             fileId: "Test string",
@@ -357,6 +357,7 @@ gapi.load('client', () => {
                 canEdit: true,
                 canListChildren: true,
                 canModifyContent: true,
+                canModifyContentRestriction: true,
                 canMoveChildrenOutOfDrive: true,
                 canMoveChildrenOutOfTeamDrive: true,
                 canMoveChildrenWithinDrive: true,
@@ -385,6 +386,21 @@ gapi.load('client', () => {
                     mimeType: "Test string",
                 },
             },
+            contentRestrictions: [
+                {
+                    readOnly: true,
+                    reason: "Test string",
+                    restrictingUser: {
+                        displayName: "Test string",
+                        emailAddress: "Test string",
+                        kind: "Test string",
+                        me: true,
+                        permissionId: "Test string",
+                        photoLink: "Test string",
+                    },
+                    restrictionTime: "Test string",
+                    type: "Test string",
+                }            ],
             copyRequiresWriterPermission: true,
             createdTime: "Test string",
             description: "Test string",
@@ -559,6 +575,7 @@ gapi.load('client', () => {
                 canEdit: true,
                 canListChildren: true,
                 canModifyContent: true,
+                canModifyContentRestriction: true,
                 canMoveChildrenOutOfDrive: true,
                 canMoveChildrenOutOfTeamDrive: true,
                 canMoveChildrenWithinDrive: true,
@@ -587,6 +604,21 @@ gapi.load('client', () => {
                     mimeType: "Test string",
                 },
             },
+            contentRestrictions: [
+                {
+                    readOnly: true,
+                    reason: "Test string",
+                    restrictingUser: {
+                        displayName: "Test string",
+                        emailAddress: "Test string",
+                        kind: "Test string",
+                        me: true,
+                        permissionId: "Test string",
+                        photoLink: "Test string",
+                    },
+                    restrictionTime: "Test string",
+                    type: "Test string",
+                }            ],
             copyRequiresWriterPermission: true,
             createdTime: "Test string",
             description: "Test string",
@@ -779,7 +811,7 @@ gapi.load('client', () => {
             supportsTeamDrives: true,
             teamDriveId: "Test string",
         });
-        /** Updates a file's metadata and/or content with patch semantics. */
+        /** Updates a file's metadata and/or content. This method supports patch semantics. */
         await gapi.client.drive.files.update({
             addParents: "Test string",
             enforceSingleParent: true,
@@ -807,6 +839,7 @@ gapi.load('client', () => {
                 canEdit: true,
                 canListChildren: true,
                 canModifyContent: true,
+                canModifyContentRestriction: true,
                 canMoveChildrenOutOfDrive: true,
                 canMoveChildrenOutOfTeamDrive: true,
                 canMoveChildrenWithinDrive: true,
@@ -835,6 +868,21 @@ gapi.load('client', () => {
                     mimeType: "Test string",
                 },
             },
+            contentRestrictions: [
+                {
+                    readOnly: true,
+                    reason: "Test string",
+                    restrictingUser: {
+                        displayName: "Test string",
+                        emailAddress: "Test string",
+                        kind: "Test string",
+                        me: true,
+                        permissionId: "Test string",
+                        photoLink: "Test string",
+                    },
+                    restrictionTime: "Test string",
+                    type: "Test string",
+                }            ],
             copyRequiresWriterPermission: true,
             createdTime: "Test string",
             description: "Test string",
