@@ -32,7 +32,7 @@
     "@types/lodash": "^4.14.157",
     "@types/mocha": "^8.0.0",
     "@types/n-readlines": "^1.0.1",
-    "@types/node": "^12.12.48",
+    "@types/node": "^12.12.50",
     "@types/request": "2.48.5",
     "commander": "^5.1.0",
     "deep-sort-object": "^1.0.2",
