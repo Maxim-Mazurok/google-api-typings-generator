@@ -1,11 +1,11 @@
-# TypeScript typings for Google Search Console URL Testing Tools API v1
+# TypeScript typings for Google Search Console API v1
 
-Provides tools for running validation tests against single URLs
+The Search Console API provides access to both Search Console data (verified users only) and to public information on an URL basis (anyone)
 For detailed description please check [documentation](https://developers.google.com/webmaster-tools/search-console-api/).
 
 ## Installing
 
-Install typings for Google Search Console URL Testing Tools API:
+Install typings for Google Search Console API:
 
 ```
 npm install @types/gapi.client.searchconsole@v1 --save-dev
@@ -33,7 +33,7 @@ gapi.client.load('searchconsole', 'v1', () => {
 
 
 
-After that you can use Google Search Console URL Testing Tools API resources:
+After that you can use Google Search Console API resources:
 
 ```typescript
 ```
