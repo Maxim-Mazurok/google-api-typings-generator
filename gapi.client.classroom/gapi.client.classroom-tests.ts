@@ -14688,8 +14688,11 @@ gapi.load('client', () => {
          * &#42; `PERMISSION_DENIED` if:
          * &#42; the authenticated user does not have permission to receive
          * notifications from the requested field; or
-         * &#42; the credential provided does not include the appropriate scope for
-         * the requested feed.
+         * &#42; the current user has not granted access to the current Cloud project
+         * with the appropriate scope for the requested feed. Note that
+         * domain-wide delegation of authority is not currently supported for
+         * this purpose. If the request has the appropriate scope, but no grant
+         * exists, a Request Errors is returned.
          * &#42; another access error is encountered.
          * &#42; `INVALID_ARGUMENT` if:
          * &#42; no `cloudPubsubTopic` is specified, or the specified
