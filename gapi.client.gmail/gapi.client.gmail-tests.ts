@@ -57,7 +57,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.getProfile({
             userId: "Test string",
         });
-        /** Creates a new draft with the <code>DRAFT</code> label. */
+        /** Creates a new draft with the `DRAFT` label. */
         await gapi.client.gmail.users.drafts.create({
             userId: "Test string",
         }, {
@@ -114,7 +114,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends the specified, existing draft to the recipients in the
-         * <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
+         * `To`, `Cc`, and `Bcc` headers.
          */
         await gapi.client.gmail.users.drafts.send({
             userId: "Test string",
@@ -184,7 +184,7 @@ gapi.load('client', () => {
         });
         /**
          * Lists the history of all changes to the given mailbox. History results are
-         * returned in chronological order (increasing <code>historyId</code>).
+         * returned in chronological order (increasing `historyId`).
          */
         await gapi.client.gmail.users.history.list({
             historyTypes: "Test string",
@@ -302,7 +302,7 @@ gapi.load('client', () => {
         });
         /**
          * Immediately and permanently deletes the specified message. This operation
-         * cannot be undone.  Prefer <code>messages.trash</code> instead.
+         * cannot be undone.  Prefer `messages.trash` instead.
          */
         await gapi.client.gmail.users.messages.delete({
             id: "Test string",
@@ -373,7 +373,7 @@ gapi.load('client', () => {
         });
         /**
          * Directly inserts a message into only this user's mailbox similar to
-         * <code>IMAP APPEND</code>, bypassing most scanning and classification.
+         * `IMAP APPEND`, bypassing most scanning and classification.
          * Does not send a message.
          */
         await gapi.client.gmail.users.messages.insert({
@@ -446,7 +446,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends the specified message to the recipients in the
-         * <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
+         * `To`, `Cc`, and `Bcc` headers.
          */
         await gapi.client.gmail.users.messages.send({
             userId: "Test string",
@@ -511,7 +511,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -612,8 +612,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -649,9 +649,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -988,7 +988,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -1042,7 +1042,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -1143,8 +1143,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -1180,9 +1180,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -1519,7 +1519,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -1573,7 +1573,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -1674,8 +1674,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -1711,9 +1711,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -2050,7 +2050,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -2104,7 +2104,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -2205,8 +2205,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -2242,9 +2242,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -2581,7 +2581,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -2635,7 +2635,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -2736,8 +2736,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -2773,9 +2773,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -3112,7 +3112,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -3176,7 +3176,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -3277,8 +3277,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -3314,9 +3314,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -3653,7 +3653,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -3712,7 +3712,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -3813,8 +3813,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -3850,9 +3850,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -4189,7 +4189,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -4240,9 +4240,9 @@ gapi.load('client', () => {
         /**
          * Updates language settings.
          *
-         * If successful, the return object contains the <code>displayLanguage</code>
+         * If successful, the return object contains the `displayLanguage`
          * that was saved for the user, which may differ from the value passed into
-         * the request. This is because the requested <code>displayLanguage</code> may
+         * the request. This is because the requested `displayLanguage` may
          * not be directly supported by Gmail but have a close variant that is, and so
          * the variant may be chosen and saved instead.
          */
@@ -4253,7 +4253,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -4354,8 +4354,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -4391,9 +4391,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -4730,7 +4730,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -4787,7 +4787,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -4888,8 +4888,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -4925,9 +4925,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -5264,7 +5264,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -5327,7 +5327,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -5428,8 +5428,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -5465,9 +5465,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -5804,7 +5804,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -5854,7 +5854,7 @@ gapi.load('client', () => {
         });
         /**
          * Immediately and permanently deletes the specified thread. This operation
-         * cannot be undone. Prefer <code>threads.trash</code> instead.
+         * cannot be undone. Prefer `threads.trash` instead.
          */
         await gapi.client.gmail.users.threads.delete({
             id: "Test string",
@@ -5903,7 +5903,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.stop({
             userId: "Test string",
         });
-        /** Creates a new draft with the <code>DRAFT</code> label. */
+        /** Creates a new draft with the `DRAFT` label. */
         await gapi.client.gmail.users.drafts.create({
             userId: "Test string",
         }, {
@@ -5960,7 +5960,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends the specified, existing draft to the recipients in the
-         * <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
+         * `To`, `Cc`, and `Bcc` headers.
          */
         await gapi.client.gmail.users.drafts.send({
             userId: "Test string",
@@ -6030,7 +6030,7 @@ gapi.load('client', () => {
         });
         /**
          * Lists the history of all changes to the given mailbox. History results are
-         * returned in chronological order (increasing <code>historyId</code>).
+         * returned in chronological order (increasing `historyId`).
          */
         await gapi.client.gmail.users.history.list({
             historyTypes: "Test string",
@@ -6148,7 +6148,7 @@ gapi.load('client', () => {
         });
         /**
          * Immediately and permanently deletes the specified message. This operation
-         * cannot be undone.  Prefer <code>messages.trash</code> instead.
+         * cannot be undone.  Prefer `messages.trash` instead.
          */
         await gapi.client.gmail.users.messages.delete({
             id: "Test string",
@@ -6219,7 +6219,7 @@ gapi.load('client', () => {
         });
         /**
          * Directly inserts a message into only this user's mailbox similar to
-         * <code>IMAP APPEND</code>, bypassing most scanning and classification.
+         * `IMAP APPEND`, bypassing most scanning and classification.
          * Does not send a message.
          */
         await gapi.client.gmail.users.messages.insert({
@@ -6292,7 +6292,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends the specified message to the recipients in the
-         * <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
+         * `To`, `Cc`, and `Bcc` headers.
          */
         await gapi.client.gmail.users.messages.send({
             userId: "Test string",
@@ -6357,7 +6357,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -6458,8 +6458,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -6495,9 +6495,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -6834,7 +6834,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -6888,7 +6888,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -6989,8 +6989,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -7026,9 +7026,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -7365,7 +7365,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -7419,7 +7419,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -7520,8 +7520,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -7557,9 +7557,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -7896,7 +7896,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -7950,7 +7950,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -8051,8 +8051,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -8088,9 +8088,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -8427,7 +8427,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -8481,7 +8481,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -8582,8 +8582,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -8619,9 +8619,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -8958,7 +8958,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -9022,7 +9022,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -9123,8 +9123,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -9160,9 +9160,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -9499,7 +9499,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -9558,7 +9558,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -9659,8 +9659,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -9696,9 +9696,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -10035,7 +10035,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -10086,9 +10086,9 @@ gapi.load('client', () => {
         /**
          * Updates language settings.
          *
-         * If successful, the return object contains the <code>displayLanguage</code>
+         * If successful, the return object contains the `displayLanguage`
          * that was saved for the user, which may differ from the value passed into
-         * the request. This is because the requested <code>displayLanguage</code> may
+         * the request. This is because the requested `displayLanguage` may
          * not be directly supported by Gmail but have a close variant that is, and so
          * the variant may be chosen and saved instead.
          */
@@ -10099,7 +10099,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -10200,8 +10200,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -10237,9 +10237,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -10576,7 +10576,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -10633,7 +10633,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -10734,8 +10734,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -10771,9 +10771,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -11110,7 +11110,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -11173,7 +11173,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -11274,8 +11274,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -11311,9 +11311,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -11650,7 +11650,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -11700,7 +11700,7 @@ gapi.load('client', () => {
         });
         /**
          * Immediately and permanently deletes the specified thread. This operation
-         * cannot be undone. Prefer <code>threads.trash</code> instead.
+         * cannot be undone. Prefer `threads.trash` instead.
          */
         await gapi.client.gmail.users.threads.delete({
             id: "Test string",
@@ -11754,7 +11754,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             topicName: "Test string",
         });
-        /** Creates a new draft with the <code>DRAFT</code> label. */
+        /** Creates a new draft with the `DRAFT` label. */
         await gapi.client.gmail.users.drafts.create({
             userId: "Test string",
         }, {
@@ -11811,7 +11811,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends the specified, existing draft to the recipients in the
-         * <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
+         * `To`, `Cc`, and `Bcc` headers.
          */
         await gapi.client.gmail.users.drafts.send({
             userId: "Test string",
@@ -11881,7 +11881,7 @@ gapi.load('client', () => {
         });
         /**
          * Lists the history of all changes to the given mailbox. History results are
-         * returned in chronological order (increasing <code>historyId</code>).
+         * returned in chronological order (increasing `historyId`).
          */
         await gapi.client.gmail.users.history.list({
             historyTypes: "Test string",
@@ -11999,7 +11999,7 @@ gapi.load('client', () => {
         });
         /**
          * Immediately and permanently deletes the specified message. This operation
-         * cannot be undone.  Prefer <code>messages.trash</code> instead.
+         * cannot be undone.  Prefer `messages.trash` instead.
          */
         await gapi.client.gmail.users.messages.delete({
             id: "Test string",
@@ -12070,7 +12070,7 @@ gapi.load('client', () => {
         });
         /**
          * Directly inserts a message into only this user's mailbox similar to
-         * <code>IMAP APPEND</code>, bypassing most scanning and classification.
+         * `IMAP APPEND`, bypassing most scanning and classification.
          * Does not send a message.
          */
         await gapi.client.gmail.users.messages.insert({
@@ -12143,7 +12143,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends the specified message to the recipients in the
-         * <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
+         * `To`, `Cc`, and `Bcc` headers.
          */
         await gapi.client.gmail.users.messages.send({
             userId: "Test string",
@@ -12208,7 +12208,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -12309,8 +12309,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -12346,9 +12346,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -12685,7 +12685,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -12739,7 +12739,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -12840,8 +12840,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -12877,9 +12877,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -13216,7 +13216,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -13270,7 +13270,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -13371,8 +13371,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -13408,9 +13408,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -13747,7 +13747,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -13801,7 +13801,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -13902,8 +13902,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -13939,9 +13939,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -14278,7 +14278,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -14332,7 +14332,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -14433,8 +14433,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -14470,9 +14470,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -14809,7 +14809,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -14873,7 +14873,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -14974,8 +14974,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -15011,9 +15011,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -15350,7 +15350,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -15409,7 +15409,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -15510,8 +15510,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -15547,9 +15547,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -15886,7 +15886,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -15937,9 +15937,9 @@ gapi.load('client', () => {
         /**
          * Updates language settings.
          *
-         * If successful, the return object contains the <code>displayLanguage</code>
+         * If successful, the return object contains the `displayLanguage`
          * that was saved for the user, which may differ from the value passed into
-         * the request. This is because the requested <code>displayLanguage</code> may
+         * the request. This is because the requested `displayLanguage` may
          * not be directly supported by Gmail but have a close variant that is, and so
          * the variant may be chosen and saved instead.
          */
@@ -15950,7 +15950,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -16051,8 +16051,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -16088,9 +16088,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -16427,7 +16427,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -16484,7 +16484,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -16585,8 +16585,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -16622,9 +16622,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -16961,7 +16961,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -17024,7 +17024,7 @@ gapi.load('client', () => {
         });
         /**
          * Adds a delegate with its verification status set directly to
-         * <code>accepted</code>, without sending any verification email.  The
+         * `accepted`, without sending any verification email.  The
          * delegate user must be a member of the same G Suite organization as the
          * delegator user.
          *
@@ -17125,8 +17125,8 @@ gapi.load('client', () => {
         /**
          * Creates a forwarding address.  If ownership verification is required, a
          * message will be sent to the recipient and the resource's verification
-         * status will be set to <code>pending</code>; otherwise, the resource will be
-         * created with verification status set to <code>accepted</code>.
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -17162,9 +17162,9 @@ gapi.load('client', () => {
          * will attempt to connect to the SMTP service to validate the configuration
          * before creating the alias.  If ownership verification is required for the
          * alias, a message will be sent to the email address and the resource's
-         * verification status will be set to <code>pending</code>; otherwise, the
+         * verification status will be set to `pending`; otherwise, the
          * resource will be created with verification status set to
-         * <code>accepted</code>.  If a signature is provided, Gmail will sanitize the
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
          * HTML before saving it with the alias.
          *
          * This method is only available to service account clients that have been
@@ -17501,7 +17501,7 @@ gapi.load('client', () => {
         });
         /**
          * Sends a verification email to the specified send-as alias address.
-         * The verification status must be <code>pending</code>.
+         * The verification status must be `pending`.
          *
          * This method is only available to service account clients that have been
          * delegated domain-wide authority.
@@ -17551,7 +17551,7 @@ gapi.load('client', () => {
         });
         /**
          * Immediately and permanently deletes the specified thread. This operation
-         * cannot be undone. Prefer <code>threads.trash</code> instead.
+         * cannot be undone. Prefer `threads.trash` instead.
          */
         await gapi.client.gmail.users.threads.delete({
             id: "Test string",
