@@ -57,7 +57,7 @@ gapi.load('client', () => {
             },
             resourceUiUrl: "Test string",
         });
-        /** Update a customer account's settings. This method supports patch semantics. */
+        /** Patch a customer account's settings via Apiary Patch Orchestration */
         await gapi.client.reseller.customers.patch({
             customerId: "Test string",
         }, {
@@ -106,7 +106,8 @@ gapi.load('client', () => {
             resourceUiUrl: "Test string",
         });
         /** Returns all the details of the watch corresponding to the reseller. */
-        await gapi.client.reseller.resellernotify.getwatchdetails();
+        await gapi.client.reseller.resellernotify.getwatchdetails({
+        });
         /** Registers a Reseller for receiving notifications. */
         await gapi.client.reseller.resellernotify.register({
             serviceAccountEmailAddress: "Test string",
@@ -121,7 +122,8 @@ gapi.load('client', () => {
             subscriptionId: "Test string",
         });
         /**
-         * Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with
+         * Update a subscription plan. Use this method to update a plan for a 30-day
+         * trial or a flexible plan subscription to an annual commitment plan with
          * monthly or yearly payments.
          */
         await gapi.client.reseller.subscriptions.changePlan({
@@ -139,7 +141,10 @@ gapi.load('client', () => {
                 numberOfSeats: 42,
             },
         });
-        /** Update a user license's renewal settings. This is applicable for accounts with annual commitment plans only. */
+        /**
+         * Update a user license&#39;s renewal settings. This is applicable for
+         * accounts with annual commitment plans only.
+         */
         await gapi.client.reseller.subscriptions.changeRenewalSettings({
             customerId: "Test string",
             subscriptionId: "Test string",
@@ -147,7 +152,7 @@ gapi.load('client', () => {
             kind: "Test string",
             renewalType: "Test string",
         });
-        /** Update a subscription's user license settings. */
+        /** Update a subscription&#39;s user license settings. */
         await gapi.client.reseller.subscriptions.changeSeats({
             customerId: "Test string",
             subscriptionId: "Test string",
@@ -215,8 +220,9 @@ gapi.load('client', () => {
             },
         });
         /**
-         * List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's
-         * transferable subscriptions.
+         * List of subscriptions managed by the reseller. The list can be all
+         * subscriptions, all of a customer&#39;s subscriptions, or all of a
+         * customer&#39;s transferable subscriptions.
          */
         await gapi.client.reseller.subscriptions.list({
             customerAuthToken: "Test string",
@@ -225,7 +231,10 @@ gapi.load('client', () => {
             maxResults: 42,
             pageToken: "Test string",
         });
-        /** Immediately move a 30-day free trial subscription to a paid service subscription. */
+        /**
+         * Immediately move a 30-day free trial subscription to a paid service
+         * subscription.
+         */
         await gapi.client.reseller.subscriptions.startPaidService({
             customerId: "Test string",
             subscriptionId: "Test string",
