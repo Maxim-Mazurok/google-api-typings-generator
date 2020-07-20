@@ -14,6 +14,8 @@ gapi.load('client', () => {
         const scope = [
             /** Create, see, edit, and permanently delete your Display & Video 360 entities and reports */
             'https://www.googleapis.com/auth/display-video',
+            /** Create, see, and edit Display & Video 360 Campaign entities and see billing invoices */
+            'https://www.googleapis.com/auth/display-video-mediaplanning',
             /** View and manage your reports in DoubleClick Bid Manager */
             'https://www.googleapis.com/auth/doubleclickbidmanager',
         ];
@@ -30,10 +32,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Bulk edits targeting options under a single advertiser.
-         * The operation will delete the assigned targeting options provided in
-         * BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and
-         * then create the assigned targeting options provided in
+         * Bulk edits targeting options under a single advertiser. The operation will delete the assigned targeting options provided in
+         * BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
          * BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests .
          */
         await gapi.client.displayvideo.advertisers.bulkEditAdvertiserAssignedTargetingOptions({
@@ -295,20 +295,15 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Uploads an asset.
-         * Returns the ID of the newly uploaded asset if successful.
-         * The asset file size should be no more than 10 MB for images, 200 MB for
-         * ZIP files, and 1 GB for videos.
+         * Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP
+         * files, and 1 GB for videos.
          */
         await gapi.client.displayvideo.advertisers.assets.upload({
             advertiserId: "Test string",
         }, {
             filename: "Test string",
         });
-        /**
-         * Creates a new campaign.
-         * Returns the newly created campaign if successful.
-         */
+        /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
         }, {
@@ -350,10 +345,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
-         * The campaign should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.campaigns.delete({
             advertiserId: "Test string",
@@ -365,12 +358,7 @@ gapi.load('client', () => {
             campaignId: "Test string",
         });
         /**
-         * Lists campaigns in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, campaigns with
+         * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.campaigns.list({
@@ -380,10 +368,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing campaign.
-         * Returns the updated campaign if successful.
-         */
+        /** Updates an existing campaign. Returns the updated campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.patch({
             advertiserId: "Test string",
             campaignId: "Test string",
@@ -438,10 +423,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -491,10 +473,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -547,10 +526,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -607,10 +583,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -653,10 +626,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Creates a new creative.
-         * Returns the newly created creative if successful.
-         */
+        /** Creates a new creative. Returns the newly created creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.create({
             advertiserId: "Test string",
         }, {
@@ -796,11 +766,8 @@ gapi.load('client', () => {
             vpaid: true,
         });
         /**
-         * Deletes a creative.
-         * Returns error code `NOT_FOUND` if the creative does not exist.
-         * The creative should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
-         * it can be deleted.
+         * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
          */
         await gapi.client.displayvideo.advertisers.creatives.delete({
             advertiserId: "Test string",
@@ -812,12 +779,7 @@ gapi.load('client', () => {
             creativeId: "Test string",
         });
         /**
-         * Lists creatives in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, creatives with
+         * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.creatives.list({
@@ -827,10 +789,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing creative.
-         * Returns the updated creative if successful.
-         */
+        /** Updates an existing creative. Returns the updated creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.patch({
             advertiserId: "Test string",
             creativeId: "Test string",
@@ -971,10 +930,7 @@ gapi.load('client', () => {
             vastTagUrl: "Test string",
             vpaid: true,
         });
-        /**
-         * Creates a new insertion order.
-         * Returns the newly created insertion order if successful.
-         */
+        /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
             advertiserId: "Test string",
         }, {
@@ -1053,31 +1009,20 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         * The insertion order should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`,
-         * to be able to delete it.
+         * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e.
+         * set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.delete({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
-        /**
-         * Gets an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         */
+        /** Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. */
         await gapi.client.displayvideo.advertisers.insertionOrders.get({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
         /**
-         * Lists insertion orders in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, insertion
+         * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion
          * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.list({
@@ -1087,10 +1032,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing insertion order.
-         * Returns the updated insertion order if successful.
-         */
+        /** Updates an existing insertion order. Returns the updated insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.patch({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
@@ -1171,10 +1113,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Bulk edits targeting options under a single line item.
-         * The operation will delete the assigned targeting options provided in
-         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
-         * then create the assigned targeting options provided in
+         * Bulk edits targeting options under a single line item. The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
          * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
          */
         await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
@@ -1445,10 +1385,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new line item.
-         * Returns the newly created line item if successful.
-         */
+        /** Creates a new line item. Returns the newly created line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.create({
             advertiserId: "Test string",
         }, {
@@ -1538,11 +1475,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes a line item.
-         * Returns error code `NOT_FOUND` if the line item does not exist.
-         * The line item should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
@@ -1554,12 +1488,7 @@ gapi.load('client', () => {
             lineItemId: "Test string",
         });
         /**
-         * Lists line items in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, line items with
+         * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.lineItems.list({
@@ -1569,10 +1498,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing line item.
-         * Returns the updated line item if successful.
-         */
+        /** Updates an existing line item. Returns the updated line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.patch({
             advertiserId: "Test string",
             lineItemId: "Test string",
@@ -1663,10 +1589,7 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
-        /**
-         * Creates a new location list. Returns the newly created location list if
-         * successful.
-         */
+        /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
             advertiserId: "Test string",
         }, {
@@ -1677,12 +1600,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -1728,12 +1647,8 @@ gapi.load('client', () => {
             locationListId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -1782,12 +1697,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -1840,12 +1751,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -1885,10 +1792,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new negative keyword list. Returns the newly created negative
-         * keyword list if successful.
-         */
+        /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
             advertiserId: "Test string",
         }, {
@@ -1898,15 +1802,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -1943,24 +1842,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Deletes a negative keyword list given an advertiser ID and a negative
-         * keyword list ID.
-         */
+        /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -1997,24 +1888,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Gets a negative keyword list given an advertiser ID and a negative keyword
-         * list ID.
-         */
+        /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -2058,15 +1941,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -2103,10 +1981,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates a negative keyword list. Returns the updated negative keyword list
-         * if successful.
-         */
+        /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
@@ -2118,15 +1993,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -2172,20 +2042,15 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Uploads an asset.
-         * Returns the ID of the newly uploaded asset if successful.
-         * The asset file size should be no more than 10 MB for images, 200 MB for
-         * ZIP files, and 1 GB for videos.
+         * Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP
+         * files, and 1 GB for videos.
          */
         await gapi.client.displayvideo.advertisers.assets.upload({
             advertiserId: "Test string",
         }, {
             filename: "Test string",
         });
-        /**
-         * Creates a new campaign.
-         * Returns the newly created campaign if successful.
-         */
+        /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
         }, {
@@ -2227,10 +2092,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
-         * The campaign should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.campaigns.delete({
             advertiserId: "Test string",
@@ -2242,12 +2105,7 @@ gapi.load('client', () => {
             campaignId: "Test string",
         });
         /**
-         * Lists campaigns in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, campaigns with
+         * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.campaigns.list({
@@ -2257,10 +2115,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing campaign.
-         * Returns the updated campaign if successful.
-         */
+        /** Updates an existing campaign. Returns the updated campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.patch({
             advertiserId: "Test string",
             campaignId: "Test string",
@@ -2315,10 +2170,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -2368,10 +2220,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -2424,10 +2273,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -2484,10 +2330,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -2530,10 +2373,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Creates a new creative.
-         * Returns the newly created creative if successful.
-         */
+        /** Creates a new creative. Returns the newly created creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.create({
             advertiserId: "Test string",
         }, {
@@ -2673,11 +2513,8 @@ gapi.load('client', () => {
             vpaid: true,
         });
         /**
-         * Deletes a creative.
-         * Returns error code `NOT_FOUND` if the creative does not exist.
-         * The creative should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
-         * it can be deleted.
+         * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
          */
         await gapi.client.displayvideo.advertisers.creatives.delete({
             advertiserId: "Test string",
@@ -2689,12 +2526,7 @@ gapi.load('client', () => {
             creativeId: "Test string",
         });
         /**
-         * Lists creatives in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, creatives with
+         * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.creatives.list({
@@ -2704,10 +2536,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing creative.
-         * Returns the updated creative if successful.
-         */
+        /** Updates an existing creative. Returns the updated creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.patch({
             advertiserId: "Test string",
             creativeId: "Test string",
@@ -2848,10 +2677,7 @@ gapi.load('client', () => {
             vastTagUrl: "Test string",
             vpaid: true,
         });
-        /**
-         * Creates a new insertion order.
-         * Returns the newly created insertion order if successful.
-         */
+        /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
             advertiserId: "Test string",
         }, {
@@ -2930,31 +2756,20 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         * The insertion order should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`,
-         * to be able to delete it.
+         * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e.
+         * set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.delete({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
-        /**
-         * Gets an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         */
+        /** Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. */
         await gapi.client.displayvideo.advertisers.insertionOrders.get({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
         /**
-         * Lists insertion orders in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, insertion
+         * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion
          * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.list({
@@ -2964,10 +2779,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing insertion order.
-         * Returns the updated insertion order if successful.
-         */
+        /** Updates an existing insertion order. Returns the updated insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.patch({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
@@ -3048,10 +2860,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Bulk edits targeting options under a single line item.
-         * The operation will delete the assigned targeting options provided in
-         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
-         * then create the assigned targeting options provided in
+         * Bulk edits targeting options under a single line item. The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
          * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
          */
         await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
@@ -3322,10 +3132,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new line item.
-         * Returns the newly created line item if successful.
-         */
+        /** Creates a new line item. Returns the newly created line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.create({
             advertiserId: "Test string",
         }, {
@@ -3415,11 +3222,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes a line item.
-         * Returns error code `NOT_FOUND` if the line item does not exist.
-         * The line item should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
@@ -3431,12 +3235,7 @@ gapi.load('client', () => {
             lineItemId: "Test string",
         });
         /**
-         * Lists line items in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, line items with
+         * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.lineItems.list({
@@ -3446,10 +3245,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing line item.
-         * Returns the updated line item if successful.
-         */
+        /** Updates an existing line item. Returns the updated line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.patch({
             advertiserId: "Test string",
             lineItemId: "Test string",
@@ -3540,10 +3336,7 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
-        /**
-         * Creates a new location list. Returns the newly created location list if
-         * successful.
-         */
+        /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
             advertiserId: "Test string",
         }, {
@@ -3554,12 +3347,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -3605,12 +3394,8 @@ gapi.load('client', () => {
             locationListId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -3659,12 +3444,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -3717,12 +3498,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -3762,10 +3539,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new negative keyword list. Returns the newly created negative
-         * keyword list if successful.
-         */
+        /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
             advertiserId: "Test string",
         }, {
@@ -3775,15 +3549,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -3820,24 +3589,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Deletes a negative keyword list given an advertiser ID and a negative
-         * keyword list ID.
-         */
+        /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -3874,24 +3635,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Gets a negative keyword list given an advertiser ID and a negative keyword
-         * list ID.
-         */
+        /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -3935,15 +3688,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -3980,10 +3728,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates a negative keyword list. Returns the updated negative keyword list
-         * if successful.
-         */
+        /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
@@ -3995,15 +3740,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -4040,11 +3780,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new advertiser.
-         * Returns the newly created advertiser if successful.
-         * This method can take up to 180 seconds to complete.
-         */
+        /** Creates a new advertiser. Returns the newly created advertiser if successful. This method can take up to 180 seconds to complete. */
         await gapi.client.displayvideo.advertisers.create({
         }, {
             adServerConfig: {
@@ -4096,20 +3832,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Uploads an asset.
-         * Returns the ID of the newly uploaded asset if successful.
-         * The asset file size should be no more than 10 MB for images, 200 MB for
-         * ZIP files, and 1 GB for videos.
+         * Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP
+         * files, and 1 GB for videos.
          */
         await gapi.client.displayvideo.advertisers.assets.upload({
             advertiserId: "Test string",
         }, {
             filename: "Test string",
         });
-        /**
-         * Creates a new campaign.
-         * Returns the newly created campaign if successful.
-         */
+        /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
         }, {
@@ -4151,10 +3882,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
-         * The campaign should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.campaigns.delete({
             advertiserId: "Test string",
@@ -4166,12 +3895,7 @@ gapi.load('client', () => {
             campaignId: "Test string",
         });
         /**
-         * Lists campaigns in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, campaigns with
+         * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.campaigns.list({
@@ -4181,10 +3905,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing campaign.
-         * Returns the updated campaign if successful.
-         */
+        /** Updates an existing campaign. Returns the updated campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.patch({
             advertiserId: "Test string",
             campaignId: "Test string",
@@ -4239,10 +3960,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -4292,10 +4010,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -4348,10 +4063,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -4408,10 +4120,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -4454,10 +4163,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Creates a new creative.
-         * Returns the newly created creative if successful.
-         */
+        /** Creates a new creative. Returns the newly created creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.create({
             advertiserId: "Test string",
         }, {
@@ -4597,11 +4303,8 @@ gapi.load('client', () => {
             vpaid: true,
         });
         /**
-         * Deletes a creative.
-         * Returns error code `NOT_FOUND` if the creative does not exist.
-         * The creative should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
-         * it can be deleted.
+         * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
          */
         await gapi.client.displayvideo.advertisers.creatives.delete({
             advertiserId: "Test string",
@@ -4613,12 +4316,7 @@ gapi.load('client', () => {
             creativeId: "Test string",
         });
         /**
-         * Lists creatives in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, creatives with
+         * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.creatives.list({
@@ -4628,10 +4326,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing creative.
-         * Returns the updated creative if successful.
-         */
+        /** Updates an existing creative. Returns the updated creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.patch({
             advertiserId: "Test string",
             creativeId: "Test string",
@@ -4772,10 +4467,7 @@ gapi.load('client', () => {
             vastTagUrl: "Test string",
             vpaid: true,
         });
-        /**
-         * Creates a new insertion order.
-         * Returns the newly created insertion order if successful.
-         */
+        /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
             advertiserId: "Test string",
         }, {
@@ -4854,31 +4546,20 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         * The insertion order should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`,
-         * to be able to delete it.
+         * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e.
+         * set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.delete({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
-        /**
-         * Gets an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         */
+        /** Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. */
         await gapi.client.displayvideo.advertisers.insertionOrders.get({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
         /**
-         * Lists insertion orders in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, insertion
+         * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion
          * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.list({
@@ -4888,10 +4569,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing insertion order.
-         * Returns the updated insertion order if successful.
-         */
+        /** Updates an existing insertion order. Returns the updated insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.patch({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
@@ -4972,10 +4650,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Bulk edits targeting options under a single line item.
-         * The operation will delete the assigned targeting options provided in
-         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
-         * then create the assigned targeting options provided in
+         * Bulk edits targeting options under a single line item. The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
          * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
          */
         await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
@@ -5246,10 +4922,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new line item.
-         * Returns the newly created line item if successful.
-         */
+        /** Creates a new line item. Returns the newly created line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.create({
             advertiserId: "Test string",
         }, {
@@ -5339,11 +5012,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes a line item.
-         * Returns error code `NOT_FOUND` if the line item does not exist.
-         * The line item should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
@@ -5355,12 +5025,7 @@ gapi.load('client', () => {
             lineItemId: "Test string",
         });
         /**
-         * Lists line items in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, line items with
+         * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.lineItems.list({
@@ -5370,10 +5035,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing line item.
-         * Returns the updated line item if successful.
-         */
+        /** Updates an existing line item. Returns the updated line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.patch({
             advertiserId: "Test string",
             lineItemId: "Test string",
@@ -5464,10 +5126,7 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
-        /**
-         * Creates a new location list. Returns the newly created location list if
-         * successful.
-         */
+        /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
             advertiserId: "Test string",
         }, {
@@ -5478,12 +5137,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -5529,12 +5184,8 @@ gapi.load('client', () => {
             locationListId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -5583,12 +5234,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -5641,12 +5288,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -5686,10 +5329,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new negative keyword list. Returns the newly created negative
-         * keyword list if successful.
-         */
+        /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
             advertiserId: "Test string",
         }, {
@@ -5699,15 +5339,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -5744,24 +5379,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Deletes a negative keyword list given an advertiser ID and a negative
-         * keyword list ID.
-         */
+        /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -5798,24 +5425,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Gets a negative keyword list given an advertiser ID and a negative keyword
-         * list ID.
-         */
+        /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -5859,15 +5478,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -5904,10 +5518,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates a negative keyword list. Returns the updated negative keyword list
-         * if successful.
-         */
+        /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
@@ -5919,15 +5530,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -5965,29 +5571,22 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Deletes an advertiser.
-         * Deleting an advertiser will delete all of its child resources, for example,
-         * campaigns, insertion orders and line items.
-         * A deleted advertiser cannot be recovered.
+         * Deletes an advertiser. Deleting an advertiser will delete all of its child resources, for example, campaigns, insertion orders and line items. A
+         * deleted advertiser cannot be recovered.
          */
         await gapi.client.displayvideo.advertisers.delete({
             advertiserId: "Test string",
         });
         /**
-         * Uploads an asset.
-         * Returns the ID of the newly uploaded asset if successful.
-         * The asset file size should be no more than 10 MB for images, 200 MB for
-         * ZIP files, and 1 GB for videos.
+         * Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP
+         * files, and 1 GB for videos.
          */
         await gapi.client.displayvideo.advertisers.assets.upload({
             advertiserId: "Test string",
         }, {
             filename: "Test string",
         });
-        /**
-         * Creates a new campaign.
-         * Returns the newly created campaign if successful.
-         */
+        /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
         }, {
@@ -6029,10 +5628,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
-         * The campaign should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.campaigns.delete({
             advertiserId: "Test string",
@@ -6044,12 +5641,7 @@ gapi.load('client', () => {
             campaignId: "Test string",
         });
         /**
-         * Lists campaigns in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, campaigns with
+         * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.campaigns.list({
@@ -6059,10 +5651,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing campaign.
-         * Returns the updated campaign if successful.
-         */
+        /** Updates an existing campaign. Returns the updated campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.patch({
             advertiserId: "Test string",
             campaignId: "Test string",
@@ -6117,10 +5706,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -6170,10 +5756,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -6226,10 +5809,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -6286,10 +5866,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -6332,10 +5909,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Creates a new creative.
-         * Returns the newly created creative if successful.
-         */
+        /** Creates a new creative. Returns the newly created creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.create({
             advertiserId: "Test string",
         }, {
@@ -6475,11 +6049,8 @@ gapi.load('client', () => {
             vpaid: true,
         });
         /**
-         * Deletes a creative.
-         * Returns error code `NOT_FOUND` if the creative does not exist.
-         * The creative should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
-         * it can be deleted.
+         * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
          */
         await gapi.client.displayvideo.advertisers.creatives.delete({
             advertiserId: "Test string",
@@ -6491,12 +6062,7 @@ gapi.load('client', () => {
             creativeId: "Test string",
         });
         /**
-         * Lists creatives in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, creatives with
+         * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.creatives.list({
@@ -6506,10 +6072,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing creative.
-         * Returns the updated creative if successful.
-         */
+        /** Updates an existing creative. Returns the updated creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.patch({
             advertiserId: "Test string",
             creativeId: "Test string",
@@ -6650,10 +6213,7 @@ gapi.load('client', () => {
             vastTagUrl: "Test string",
             vpaid: true,
         });
-        /**
-         * Creates a new insertion order.
-         * Returns the newly created insertion order if successful.
-         */
+        /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
             advertiserId: "Test string",
         }, {
@@ -6732,31 +6292,20 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         * The insertion order should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`,
-         * to be able to delete it.
+         * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e.
+         * set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.delete({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
-        /**
-         * Gets an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         */
+        /** Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. */
         await gapi.client.displayvideo.advertisers.insertionOrders.get({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
         /**
-         * Lists insertion orders in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, insertion
+         * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion
          * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.list({
@@ -6766,10 +6315,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing insertion order.
-         * Returns the updated insertion order if successful.
-         */
+        /** Updates an existing insertion order. Returns the updated insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.patch({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
@@ -6850,10 +6396,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Bulk edits targeting options under a single line item.
-         * The operation will delete the assigned targeting options provided in
-         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
-         * then create the assigned targeting options provided in
+         * Bulk edits targeting options under a single line item. The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
          * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
          */
         await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
@@ -7124,10 +6668,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new line item.
-         * Returns the newly created line item if successful.
-         */
+        /** Creates a new line item. Returns the newly created line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.create({
             advertiserId: "Test string",
         }, {
@@ -7217,11 +6758,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes a line item.
-         * Returns error code `NOT_FOUND` if the line item does not exist.
-         * The line item should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
@@ -7233,12 +6771,7 @@ gapi.load('client', () => {
             lineItemId: "Test string",
         });
         /**
-         * Lists line items in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, line items with
+         * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.lineItems.list({
@@ -7248,10 +6781,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing line item.
-         * Returns the updated line item if successful.
-         */
+        /** Updates an existing line item. Returns the updated line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.patch({
             advertiserId: "Test string",
             lineItemId: "Test string",
@@ -7342,10 +6872,7 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
-        /**
-         * Creates a new location list. Returns the newly created location list if
-         * successful.
-         */
+        /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
             advertiserId: "Test string",
         }, {
@@ -7356,12 +6883,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -7407,12 +6930,8 @@ gapi.load('client', () => {
             locationListId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -7461,12 +6980,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -7519,12 +7034,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -7564,10 +7075,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new negative keyword list. Returns the newly created negative
-         * keyword list if successful.
-         */
+        /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
             advertiserId: "Test string",
         }, {
@@ -7577,15 +7085,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -7622,24 +7125,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Deletes a negative keyword list given an advertiser ID and a negative
-         * keyword list ID.
-         */
+        /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -7676,24 +7171,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Gets a negative keyword list given an advertiser ID and a negative keyword
-         * list ID.
-         */
+        /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -7737,15 +7224,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -7782,10 +7264,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates a negative keyword list. Returns the updated negative keyword list
-         * if successful.
-         */
+        /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
@@ -7797,15 +7276,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -7847,20 +7321,15 @@ gapi.load('client', () => {
             advertiserId: "Test string",
         });
         /**
-         * Uploads an asset.
-         * Returns the ID of the newly uploaded asset if successful.
-         * The asset file size should be no more than 10 MB for images, 200 MB for
-         * ZIP files, and 1 GB for videos.
+         * Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP
+         * files, and 1 GB for videos.
          */
         await gapi.client.displayvideo.advertisers.assets.upload({
             advertiserId: "Test string",
         }, {
             filename: "Test string",
         });
-        /**
-         * Creates a new campaign.
-         * Returns the newly created campaign if successful.
-         */
+        /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
         }, {
@@ -7902,10 +7371,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
-         * The campaign should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.campaigns.delete({
             advertiserId: "Test string",
@@ -7917,12 +7384,7 @@ gapi.load('client', () => {
             campaignId: "Test string",
         });
         /**
-         * Lists campaigns in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, campaigns with
+         * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.campaigns.list({
@@ -7932,10 +7394,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing campaign.
-         * Returns the updated campaign if successful.
-         */
+        /** Updates an existing campaign. Returns the updated campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.patch({
             advertiserId: "Test string",
             campaignId: "Test string",
@@ -7990,10 +7449,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -8043,10 +7499,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -8099,10 +7552,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -8159,10 +7609,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -8205,10 +7652,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Creates a new creative.
-         * Returns the newly created creative if successful.
-         */
+        /** Creates a new creative. Returns the newly created creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.create({
             advertiserId: "Test string",
         }, {
@@ -8348,11 +7792,8 @@ gapi.load('client', () => {
             vpaid: true,
         });
         /**
-         * Deletes a creative.
-         * Returns error code `NOT_FOUND` if the creative does not exist.
-         * The creative should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
-         * it can be deleted.
+         * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
          */
         await gapi.client.displayvideo.advertisers.creatives.delete({
             advertiserId: "Test string",
@@ -8364,12 +7805,7 @@ gapi.load('client', () => {
             creativeId: "Test string",
         });
         /**
-         * Lists creatives in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, creatives with
+         * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.creatives.list({
@@ -8379,10 +7815,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing creative.
-         * Returns the updated creative if successful.
-         */
+        /** Updates an existing creative. Returns the updated creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.patch({
             advertiserId: "Test string",
             creativeId: "Test string",
@@ -8523,10 +7956,7 @@ gapi.load('client', () => {
             vastTagUrl: "Test string",
             vpaid: true,
         });
-        /**
-         * Creates a new insertion order.
-         * Returns the newly created insertion order if successful.
-         */
+        /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
             advertiserId: "Test string",
         }, {
@@ -8605,31 +8035,20 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         * The insertion order should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`,
-         * to be able to delete it.
+         * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e.
+         * set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.delete({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
-        /**
-         * Gets an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         */
+        /** Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. */
         await gapi.client.displayvideo.advertisers.insertionOrders.get({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
         /**
-         * Lists insertion orders in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, insertion
+         * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion
          * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.list({
@@ -8639,10 +8058,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing insertion order.
-         * Returns the updated insertion order if successful.
-         */
+        /** Updates an existing insertion order. Returns the updated insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.patch({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
@@ -8723,10 +8139,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Bulk edits targeting options under a single line item.
-         * The operation will delete the assigned targeting options provided in
-         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
-         * then create the assigned targeting options provided in
+         * Bulk edits targeting options under a single line item. The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
          * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
          */
         await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
@@ -8997,10 +8411,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new line item.
-         * Returns the newly created line item if successful.
-         */
+        /** Creates a new line item. Returns the newly created line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.create({
             advertiserId: "Test string",
         }, {
@@ -9090,11 +8501,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes a line item.
-         * Returns error code `NOT_FOUND` if the line item does not exist.
-         * The line item should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
@@ -9106,12 +8514,7 @@ gapi.load('client', () => {
             lineItemId: "Test string",
         });
         /**
-         * Lists line items in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, line items with
+         * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.lineItems.list({
@@ -9121,10 +8524,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing line item.
-         * Returns the updated line item if successful.
-         */
+        /** Updates an existing line item. Returns the updated line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.patch({
             advertiserId: "Test string",
             lineItemId: "Test string",
@@ -9215,10 +8615,7 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
-        /**
-         * Creates a new location list. Returns the newly created location list if
-         * successful.
-         */
+        /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
             advertiserId: "Test string",
         }, {
@@ -9229,12 +8626,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -9280,12 +8673,8 @@ gapi.load('client', () => {
             locationListId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -9334,12 +8723,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -9392,12 +8777,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -9437,10 +8818,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new negative keyword list. Returns the newly created negative
-         * keyword list if successful.
-         */
+        /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
             advertiserId: "Test string",
         }, {
@@ -9450,15 +8828,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -9495,24 +8868,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Deletes a negative keyword list given an advertiser ID and a negative
-         * keyword list ID.
-         */
+        /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -9549,24 +8914,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Gets a negative keyword list given an advertiser ID and a negative keyword
-         * list ID.
-         */
+        /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -9610,15 +8967,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -9655,10 +9007,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates a negative keyword list. Returns the updated negative keyword list
-         * if successful.
-         */
+        /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
@@ -9670,15 +9019,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -9716,12 +9060,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Lists advertisers that are accessible to the current user.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         *
-         * A single partner_id is required.
+         * Lists advertisers that are accessible to the current user. The order is defined by the order_by parameter. A single partner_id is required.
          * Cross-partner listing is not supported.
          */
         await gapi.client.displayvideo.advertisers.list({
@@ -9732,20 +9071,15 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Uploads an asset.
-         * Returns the ID of the newly uploaded asset if successful.
-         * The asset file size should be no more than 10 MB for images, 200 MB for
-         * ZIP files, and 1 GB for videos.
+         * Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP
+         * files, and 1 GB for videos.
          */
         await gapi.client.displayvideo.advertisers.assets.upload({
             advertiserId: "Test string",
         }, {
             filename: "Test string",
         });
-        /**
-         * Creates a new campaign.
-         * Returns the newly created campaign if successful.
-         */
+        /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
         }, {
@@ -9787,10 +9121,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
-         * The campaign should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.campaigns.delete({
             advertiserId: "Test string",
@@ -9802,12 +9134,7 @@ gapi.load('client', () => {
             campaignId: "Test string",
         });
         /**
-         * Lists campaigns in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, campaigns with
+         * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.campaigns.list({
@@ -9817,10 +9144,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing campaign.
-         * Returns the updated campaign if successful.
-         */
+        /** Updates an existing campaign. Returns the updated campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.patch({
             advertiserId: "Test string",
             campaignId: "Test string",
@@ -9875,10 +9199,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -9928,10 +9249,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -9984,10 +9302,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -10044,10 +9359,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -10090,10 +9402,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Creates a new creative.
-         * Returns the newly created creative if successful.
-         */
+        /** Creates a new creative. Returns the newly created creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.create({
             advertiserId: "Test string",
         }, {
@@ -10233,11 +9542,8 @@ gapi.load('client', () => {
             vpaid: true,
         });
         /**
-         * Deletes a creative.
-         * Returns error code `NOT_FOUND` if the creative does not exist.
-         * The creative should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
-         * it can be deleted.
+         * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
          */
         await gapi.client.displayvideo.advertisers.creatives.delete({
             advertiserId: "Test string",
@@ -10249,12 +9555,7 @@ gapi.load('client', () => {
             creativeId: "Test string",
         });
         /**
-         * Lists creatives in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, creatives with
+         * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.creatives.list({
@@ -10264,10 +9565,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing creative.
-         * Returns the updated creative if successful.
-         */
+        /** Updates an existing creative. Returns the updated creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.patch({
             advertiserId: "Test string",
             creativeId: "Test string",
@@ -10408,10 +9706,7 @@ gapi.load('client', () => {
             vastTagUrl: "Test string",
             vpaid: true,
         });
-        /**
-         * Creates a new insertion order.
-         * Returns the newly created insertion order if successful.
-         */
+        /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
             advertiserId: "Test string",
         }, {
@@ -10490,31 +9785,20 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         * The insertion order should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`,
-         * to be able to delete it.
+         * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e.
+         * set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.delete({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
-        /**
-         * Gets an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         */
+        /** Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. */
         await gapi.client.displayvideo.advertisers.insertionOrders.get({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
         /**
-         * Lists insertion orders in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, insertion
+         * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion
          * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.list({
@@ -10524,10 +9808,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing insertion order.
-         * Returns the updated insertion order if successful.
-         */
+        /** Updates an existing insertion order. Returns the updated insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.patch({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
@@ -10608,10 +9889,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Bulk edits targeting options under a single line item.
-         * The operation will delete the assigned targeting options provided in
-         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
-         * then create the assigned targeting options provided in
+         * Bulk edits targeting options under a single line item. The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
          * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
          */
         await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
@@ -10882,10 +10161,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new line item.
-         * Returns the newly created line item if successful.
-         */
+        /** Creates a new line item. Returns the newly created line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.create({
             advertiserId: "Test string",
         }, {
@@ -10975,11 +10251,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes a line item.
-         * Returns error code `NOT_FOUND` if the line item does not exist.
-         * The line item should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
@@ -10991,12 +10264,7 @@ gapi.load('client', () => {
             lineItemId: "Test string",
         });
         /**
-         * Lists line items in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, line items with
+         * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.lineItems.list({
@@ -11006,10 +10274,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing line item.
-         * Returns the updated line item if successful.
-         */
+        /** Updates an existing line item. Returns the updated line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.patch({
             advertiserId: "Test string",
             lineItemId: "Test string",
@@ -11100,10 +10365,7 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
-        /**
-         * Creates a new location list. Returns the newly created location list if
-         * successful.
-         */
+        /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
             advertiserId: "Test string",
         }, {
@@ -11114,12 +10376,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -11165,12 +10423,8 @@ gapi.load('client', () => {
             locationListId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -11219,12 +10473,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -11277,12 +10527,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -11322,10 +10568,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new negative keyword list. Returns the newly created negative
-         * keyword list if successful.
-         */
+        /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
             advertiserId: "Test string",
         }, {
@@ -11335,15 +10578,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -11380,24 +10618,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Deletes a negative keyword list given an advertiser ID and a negative
-         * keyword list ID.
-         */
+        /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -11434,24 +10664,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Gets a negative keyword list given an advertiser ID and a negative keyword
-         * list ID.
-         */
+        /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -11495,15 +10717,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -11540,10 +10757,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates a negative keyword list. Returns the updated negative keyword list
-         * if successful.
-         */
+        /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
@@ -11555,15 +10769,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -11600,10 +10809,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing advertiser.
-         * Returns the updated advertiser if successful.
-         */
+        /** Updates an existing advertiser. Returns the updated advertiser if successful. */
         await gapi.client.displayvideo.advertisers.patch({
             advertiserId: "Test string",
             updateMask: "Test string",
@@ -11657,20 +10863,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Uploads an asset.
-         * Returns the ID of the newly uploaded asset if successful.
-         * The asset file size should be no more than 10 MB for images, 200 MB for
-         * ZIP files, and 1 GB for videos.
+         * Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP
+         * files, and 1 GB for videos.
          */
         await gapi.client.displayvideo.advertisers.assets.upload({
             advertiserId: "Test string",
         }, {
             filename: "Test string",
         });
-        /**
-         * Creates a new campaign.
-         * Returns the newly created campaign if successful.
-         */
+        /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
         }, {
@@ -11712,10 +10913,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Permanently deletes a campaign. A deleted campaign cannot be recovered.
-         * The campaign should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.campaigns.delete({
             advertiserId: "Test string",
@@ -11727,12 +10926,7 @@ gapi.load('client', () => {
             campaignId: "Test string",
         });
         /**
-         * Lists campaigns in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, campaigns with
+         * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.campaigns.list({
@@ -11742,10 +10936,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing campaign.
-         * Returns the updated campaign if successful.
-         */
+        /** Updates an existing campaign. Returns the updated campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.patch({
             advertiserId: "Test string",
             campaignId: "Test string",
@@ -11800,10 +10991,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -11853,10 +11041,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -11909,10 +11094,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -11969,10 +11151,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits sites under a single channel.
-         *
-         * The operation will delete the sites provided in
-         * BulkEditSitesRequest.deleted_sites and then create the sites
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
          * provided in BulkEditSitesRequest.created_sites.
          */
         await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
@@ -12015,10 +11194,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Creates a new creative.
-         * Returns the newly created creative if successful.
-         */
+        /** Creates a new creative. Returns the newly created creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.create({
             advertiserId: "Test string",
         }, {
@@ -12158,11 +11334,8 @@ gapi.load('client', () => {
             vpaid: true,
         });
         /**
-         * Deletes a creative.
-         * Returns error code `NOT_FOUND` if the creative does not exist.
-         * The creative should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, before
-         * it can be deleted.
+         * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
          */
         await gapi.client.displayvideo.advertisers.creatives.delete({
             advertiserId: "Test string",
@@ -12174,12 +11347,7 @@ gapi.load('client', () => {
             creativeId: "Test string",
         });
         /**
-         * Lists creatives in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, creatives with
+         * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.creatives.list({
@@ -12189,10 +11357,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing creative.
-         * Returns the updated creative if successful.
-         */
+        /** Updates an existing creative. Returns the updated creative if successful. */
         await gapi.client.displayvideo.advertisers.creatives.patch({
             advertiserId: "Test string",
             creativeId: "Test string",
@@ -12333,10 +11498,7 @@ gapi.load('client', () => {
             vastTagUrl: "Test string",
             vpaid: true,
         });
-        /**
-         * Creates a new insertion order.
-         * Returns the newly created insertion order if successful.
-         */
+        /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
             advertiserId: "Test string",
         }, {
@@ -12415,31 +11577,20 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         * The insertion order should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`,
-         * to be able to delete it.
+         * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e.
+         * set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.delete({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
-        /**
-         * Gets an insertion order.
-         * Returns error code `NOT_FOUND` if the insertion order does not exist.
-         */
+        /** Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. */
         await gapi.client.displayvideo.advertisers.insertionOrders.get({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
         });
         /**
-         * Lists insertion orders in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, insertion
+         * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion
          * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.insertionOrders.list({
@@ -12449,10 +11600,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing insertion order.
-         * Returns the updated insertion order if successful.
-         */
+        /** Updates an existing insertion order. Returns the updated insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.patch({
             advertiserId: "Test string",
             insertionOrderId: "Test string",
@@ -12533,10 +11681,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Bulk edits targeting options under a single line item.
-         * The operation will delete the assigned targeting options provided in
-         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and
-         * then create the assigned targeting options provided in
+         * Bulk edits targeting options under a single line item. The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
          * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
          */
         await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
@@ -12807,10 +11953,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new line item.
-         * Returns the newly created line item if successful.
-         */
+        /** Creates a new line item. Returns the newly created line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.create({
             advertiserId: "Test string",
         }, {
@@ -12900,11 +12043,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes a line item.
-         * Returns error code `NOT_FOUND` if the line item does not exist.
-         * The line item should be archived first, i.e. set
-         * entity_status to `ENTITY_STATUS_ARCHIVED`, to be
-         * able to delete it.
+         * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
          */
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
@@ -12916,12 +12056,7 @@ gapi.load('client', () => {
             lineItemId: "Test string",
         });
         /**
-         * Lists line items in an advertiser.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         * If a filter by
-         * entity_status is not specified, line items with
+         * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with
          * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.advertisers.lineItems.list({
@@ -12931,10 +12066,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates an existing line item.
-         * Returns the updated line item if successful.
-         */
+        /** Updates an existing line item. Returns the updated line item if successful. */
         await gapi.client.displayvideo.advertisers.lineItems.patch({
             advertiserId: "Test string",
             lineItemId: "Test string",
@@ -13025,10 +12157,7 @@ gapi.load('client', () => {
             },
             updateTime: "Test string",
         });
-        /**
-         * Creates a new location list. Returns the newly created location list if
-         * successful.
-         */
+        /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
             advertiserId: "Test string",
         }, {
@@ -13039,12 +12168,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -13090,12 +12215,8 @@ gapi.load('client', () => {
             locationListId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -13144,12 +12265,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -13202,12 +12319,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between locations and a single location
-         * list.
-         *
-         * The operation will delete the assigned locations provided in
-         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
-         * create the assigned locations provided in
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
          * BulkEditAssignedLocationsRequest.created_assigned_locations.
          */
         await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
@@ -13247,10 +12360,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new negative keyword list. Returns the newly created negative
-         * keyword list if successful.
-         */
+        /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
             advertiserId: "Test string",
         }, {
@@ -13260,15 +12370,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -13305,24 +12410,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Deletes a negative keyword list given an advertiser ID and a negative
-         * keyword list ID.
-         */
+        /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -13359,24 +12456,16 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Gets a negative keyword list given an advertiser ID and a negative keyword
-         * list ID.
-         */
+        /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -13420,15 +12509,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -13465,10 +12549,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Updates a negative keyword list. Returns the updated negative keyword list
-         * if successful.
-         */
+        /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
             advertiserId: "Test string",
             negativeKeywordListId: "Test string",
@@ -13480,15 +12561,10 @@ gapi.load('client', () => {
             negativeKeywordListId: "Test string",
         });
         /**
-         * Bulk edits negative keywords in a single negative keyword list.
-         *
-         * The operation will delete the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
-         * create the negative keywords provided in
-         * BulkEditNegativeKeywordsRequest.created_negative_keywords.
-         *
-         * This operation is guaranteed to be atomic and will never result in a
-         * partial success or partial failure.
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
          */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
             advertiserId: "Test string",
@@ -13531,12 +12607,7 @@ gapi.load('client', () => {
             combinedAudienceId: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Lists combined audiences.
-         *
-         * The order is defined by the
-         * order_by parameter.
-         */
+        /** Lists combined audiences. The order is defined by the order_by parameter. */
         await gapi.client.displayvideo.combinedAudiences.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -13550,12 +12621,7 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             customListId: "Test string",
         });
-        /**
-         * Lists custom lists.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         */
+        /** Lists custom lists. The order is defined by the order_by parameter. */
         await gapi.client.displayvideo.customLists.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -13569,12 +12635,7 @@ gapi.load('client', () => {
             firstAndThirdPartyAudienceId: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Lists first and third party audiences.
-         *
-         * The order is defined by the
-         * order_by parameter.
-         */
+        /** Lists first and third party audiences. The order is defined by the order_by parameter. */
         await gapi.client.displayvideo.firstAndThirdPartyAudiences.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -13588,10 +12649,7 @@ gapi.load('client', () => {
             floodlightGroupId: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Updates an existing Floodlight group.
-         * Returns the updated Floodlight group if successful.
-         */
+        /** Updates an existing Floodlight group. Returns the updated Floodlight group if successful. */
         await gapi.client.displayvideo.floodlightGroups.patch({
             floodlightGroupId: "Test string",
             partnerId: "Test string",
@@ -13621,12 +12679,7 @@ gapi.load('client', () => {
             googleAudienceId: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Lists Google audiences.
-         *
-         * The order is defined by the order_by
-         * parameter.
-         */
+        /** Lists Google audiences. The order is defined by the order_by parameter. */
         await gapi.client.displayvideo.googleAudiences.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -13635,10 +12688,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Creates a new inventory source group. Returns the newly created inventory
-         * source group if successful.
-         */
+        /** Creates a new inventory source group. Returns the newly created inventory source group if successful. */
         await gapi.client.displayvideo.inventorySourceGroups.create({
             advertiserId: "Test string",
             partnerId: "Test string",
@@ -13648,12 +12698,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between inventory sources and a single
-         * inventory source group.
-         *
-         * The operation will delete the assigned inventory sources provided in
-         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
-         * and then create the assigned inventory sources provided in
+         * Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources
+         * provided in BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources and then create the assigned inventory sources provided in
          * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
          */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
@@ -13670,10 +12716,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             partnerId: "Test string",
         });
-        /**
-         * Creates an assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Creates an assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
             advertiserId: "Test string",
             inventorySourceGroupId: "Test string",
@@ -13683,10 +12726,7 @@ gapi.load('client', () => {
             inventorySourceId: "Test string",
             name: "Test string",
         });
-        /**
-         * Deletes the assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Deletes the assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
             advertiserId: "Test string",
             assignedInventorySourceId: "Test string",
@@ -13710,12 +12750,8 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between inventory sources and a single
-         * inventory source group.
-         *
-         * The operation will delete the assigned inventory sources provided in
-         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
-         * and then create the assigned inventory sources provided in
+         * Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources
+         * provided in BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources and then create the assigned inventory sources provided in
          * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
          */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
@@ -13732,10 +12768,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             partnerId: "Test string",
         });
-        /**
-         * Creates an assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Creates an assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
             advertiserId: "Test string",
             inventorySourceGroupId: "Test string",
@@ -13745,10 +12778,7 @@ gapi.load('client', () => {
             inventorySourceId: "Test string",
             name: "Test string",
         });
-        /**
-         * Deletes the assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Deletes the assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
             advertiserId: "Test string",
             assignedInventorySourceId: "Test string",
@@ -13772,12 +12802,8 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between inventory sources and a single
-         * inventory source group.
-         *
-         * The operation will delete the assigned inventory sources provided in
-         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
-         * and then create the assigned inventory sources provided in
+         * Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources
+         * provided in BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources and then create the assigned inventory sources provided in
          * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
          */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
@@ -13794,10 +12820,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             partnerId: "Test string",
         });
-        /**
-         * Creates an assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Creates an assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
             advertiserId: "Test string",
             inventorySourceGroupId: "Test string",
@@ -13807,10 +12830,7 @@ gapi.load('client', () => {
             inventorySourceId: "Test string",
             name: "Test string",
         });
-        /**
-         * Deletes the assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Deletes the assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
             advertiserId: "Test string",
             assignedInventorySourceId: "Test string",
@@ -13827,12 +12847,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Lists inventory source groups that are accessible to the current user.
-         *
-         * The order is defined by the
-         * order_by parameter.
-         */
+        /** Lists inventory source groups that are accessible to the current user. The order is defined by the order_by parameter. */
         await gapi.client.displayvideo.inventorySourceGroups.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -13842,12 +12857,8 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between inventory sources and a single
-         * inventory source group.
-         *
-         * The operation will delete the assigned inventory sources provided in
-         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
-         * and then create the assigned inventory sources provided in
+         * Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources
+         * provided in BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources and then create the assigned inventory sources provided in
          * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
          */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
@@ -13864,10 +12875,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             partnerId: "Test string",
         });
-        /**
-         * Creates an assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Creates an assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
             advertiserId: "Test string",
             inventorySourceGroupId: "Test string",
@@ -13877,10 +12885,7 @@ gapi.load('client', () => {
             inventorySourceId: "Test string",
             name: "Test string",
         });
-        /**
-         * Deletes the assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Deletes the assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
             advertiserId: "Test string",
             assignedInventorySourceId: "Test string",
@@ -13897,10 +12902,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
-        /**
-         * Updates an inventory source group. Returns the updated inventory source
-         * group if successful.
-         */
+        /** Updates an inventory source group. Returns the updated inventory source group if successful. */
         await gapi.client.displayvideo.inventorySourceGroups.patch({
             advertiserId: "Test string",
             inventorySourceGroupId: "Test string",
@@ -13912,12 +12914,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Bulk edits multiple assignments between inventory sources and a single
-         * inventory source group.
-         *
-         * The operation will delete the assigned inventory sources provided in
-         * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
-         * and then create the assigned inventory sources provided in
+         * Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources
+         * provided in BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources and then create the assigned inventory sources provided in
          * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
          */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit({
@@ -13934,10 +12932,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             partnerId: "Test string",
         });
-        /**
-         * Creates an assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Creates an assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.create({
             advertiserId: "Test string",
             inventorySourceGroupId: "Test string",
@@ -13947,10 +12942,7 @@ gapi.load('client', () => {
             inventorySourceId: "Test string",
             name: "Test string",
         });
-        /**
-         * Deletes the assignment between an inventory source and an inventory source
-         * group.
-         */
+        /** Deletes the assignment between an inventory source and an inventory source group. */
         await gapi.client.displayvideo.inventorySourceGroups.assignedInventorySources.delete({
             advertiserId: "Test string",
             assignedInventorySourceId: "Test string",
@@ -13973,14 +12965,8 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Lists inventory sources that are accessible to the current user.
-         *
-         * The order is defined by the
-         * order_by parameter.
-         * If a filter by
-         * entity_status is not
-         * specified, inventory sources with entity status `ENTITY_STATUS_ARCHIVED`
-         * will not be included in the results.
+         * Lists inventory sources that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not
+         * specified, inventory sources with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results.
          */
         await gapi.client.displayvideo.inventorySources.list({
             advertiserId: "Test string",
@@ -13991,31 +12977,17 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Downloads media. Download is supported on the URI `/download/{resource_name=&#42;&#42;}?alt=media.`
-         *
-         * &#42;&#42;Note&#42;&#42;: Download requests will not be successful without including `alt=media` query string.
+         * Downloads media. Download is supported on the URI `/download/{resource_name=&#42;&#42;}?alt=media.` &#42;&#42;Note&#42;&#42;: Download requests will not be successful without
+         * including `alt=media` query string.
          */
         await gapi.client.displayvideo.media.download({
             resourceName: "Test string",
         });
         /**
-         * Creates an SDF Download Task. Returns an
-         * Operation.
-         *
-         * An SDF Download Task is a long-running, asynchronous operation. The
-         * metadata type of this operation is
-         * SdfDownloadTaskMetadata. If the request is successful, the
-         * response type of the operation is
-         * SdfDownloadTask. The response will not include the download files,
-         * which must be retrieved with
-         * media.download. The state of
-         * operation can be retrieved with
-         * sdfdownloadtask.operations.get.
-         *
-         * Any errors can be found in the
-         * error.message. Note
-         * that error.details is expected to be
-         * empty.
+         * Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a long-running, asynchronous operation. The metadata type of this operation
+         * is SdfDownloadTaskMetadata. If the request is successful, the response type of the operation is SdfDownloadTask. The response will not include the
+         * download files, which must be retrieved with media.download. The state of operation can be retrieved with sdfdownloadtask.operations.get. Any errors
+         * can be found in the error.message. Note that error.details is expected to be empty.
          */
         await gapi.client.displayvideo.sdfdownloadtasks.create({
         }, {
