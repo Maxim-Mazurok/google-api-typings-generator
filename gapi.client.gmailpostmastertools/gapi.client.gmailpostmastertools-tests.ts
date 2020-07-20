@@ -8,7 +8,22 @@ gapi.load('client', () => {
     gapi.client.load('gmailpostmastertools', 'v1beta1', () => {
         /** now we can use gapi.client.gmailpostmastertools */
 
-        run();
+        /** don't forget to authenticate your client before sending any request to resources: */
+        /** declare client_id registered in Google Developers Console */
+        const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+        const scope = [
+            /** See email traffic metrics for the domains you have registered in Gmail Postmaster Tools */
+            'https://www.googleapis.com/auth/postmaster.readonly',
+        ];
+        const immediate = false;
+        gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
+            if (authResult && !authResult.error) {
+                /** handle successful authorization */
+                run();
+            } else {
+                /** handle authorization error */
+            }
+        });
     });
 
     async function run() {
