@@ -37,6 +37,7 @@ const excludedApis = [
   'storage',
   'vision',
   'youtube',
+  'people',
 ];
 
 const irregularSpaces = [
