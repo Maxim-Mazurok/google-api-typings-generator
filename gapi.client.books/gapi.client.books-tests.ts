@@ -83,19 +83,13 @@ gapi.load('client', () => {
         await gapi.client.books.familysharing.getFamilyInfo({
             source: "Test string",
         });
-        /**
-         * Initiates sharing of the content with the user's family. Empty response
-         * indicates success.
-         */
+        /** Initiates sharing of the content with the user's family. Empty response indicates success. */
         await gapi.client.books.familysharing.share({
             docId: "Test string",
             source: "Test string",
             volumeId: "Test string",
         });
-        /**
-         * Initiates revoking content that has already been shared with the user's
-         * family. Empty response indicates success.
-         */
+        /** Initiates revoking content that has already been shared with the user's family. Empty response indicates success. */
         await gapi.client.books.familysharing.unshare({
             docId: "Test string",
             source: "Test string",
@@ -246,10 +240,7 @@ gapi.load('client', () => {
             source: "Test string",
             volumeId: "Test string",
         });
-        /**
-         * Request downloaded content access for specified volumes on the My eBooks
-         * shelf.
-         */
+        /** Request downloaded content access for specified volumes on the My eBooks shelf. */
         await gapi.client.books.myconfig.syncVolumeLicenses({
             cpksver: "Test string",
             features: "Test string",
@@ -261,9 +252,8 @@ gapi.load('client', () => {
             volumeIds: "Test string",
         });
         /**
-         * Sets the settings for the user. If a sub-object is specified, it will
-         * overwrite the existing sub-object stored in the server. Unspecified
-         * sub-objects will retain the existing value.
+         * Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects
+         * will retain the existing value.
          */
         await gapi.client.books.myconfig.updateUserSettings({
         }, {

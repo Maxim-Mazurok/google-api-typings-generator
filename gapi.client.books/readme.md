@@ -94,14 +94,12 @@ Gets information regarding the family that the user is part of.
 await gapi.client.books.familysharing.getFamilyInfo({  });
 
 /*
-Initiates sharing of the content with the user's family. Empty response
-indicates success.
+Initiates sharing of the content with the user's family. Empty response indicates success.
 */
 await gapi.client.books.familysharing.share({  });
 
 /*
-Initiates revoking content that has already been shared with the user's
-family. Empty response indicates success.
+Initiates revoking content that has already been shared with the user's family. Empty response indicates success.
 */
 await gapi.client.books.familysharing.unshare({  });
 
@@ -131,15 +129,12 @@ Request concurrent and download access restrictions.
 await gapi.client.books.myconfig.requestAccess({  });
 
 /*
-Request downloaded content access for specified volumes on the My eBooks
-shelf.
+Request downloaded content access for specified volumes on the My eBooks shelf.
 */
 await gapi.client.books.myconfig.syncVolumeLicenses({  });
 
 /*
-Sets the settings for the user. If a sub-object is specified, it will
-overwrite the existing sub-object stored in the server. Unspecified
-sub-objects will retain the existing value.
+Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects will retain the existing value.
 */
 await gapi.client.books.myconfig.updateUserSettings({  });
 
