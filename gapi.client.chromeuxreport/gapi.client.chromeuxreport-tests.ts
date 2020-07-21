@@ -20,6 +20,7 @@ gapi.load('client', () => {
          */
         await gapi.client.chromeuxreport.records.queryRecord({
         }, {
+            effectiveConnectionType: "Test string",
             formFactor: "Test string",
             metrics: [
                 "Test string"            ],
