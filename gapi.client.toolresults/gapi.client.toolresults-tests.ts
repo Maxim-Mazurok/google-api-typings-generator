@@ -88,6 +88,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -609,6 +610,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -2106,6 +2108,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -3343,6 +3346,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -4840,6 +4844,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -6082,6 +6087,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -7579,6 +7585,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -8383,6 +8390,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -8904,6 +8912,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -10401,6 +10410,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -11218,6 +11228,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -11739,6 +11750,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -13236,6 +13248,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -14473,6 +14486,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -15970,6 +15984,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -17212,6 +17227,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -18709,6 +18725,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -19513,6 +19530,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -20034,6 +20052,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -21531,6 +21550,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -22354,6 +22374,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -22875,6 +22896,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -24372,6 +24394,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -25609,6 +25632,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -27106,6 +27130,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -28348,6 +28373,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -29845,6 +29871,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -30649,6 +30676,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -31170,6 +31198,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -32667,6 +32696,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -33523,6 +33553,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -34044,6 +34075,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -35541,6 +35573,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -36778,6 +36811,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -38275,6 +38309,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -39517,6 +39552,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -41014,6 +41050,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -41818,6 +41855,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -42339,6 +42377,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -43836,6 +43875,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -44653,6 +44693,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -45174,6 +45215,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -46671,6 +46713,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -47908,6 +47951,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -49405,6 +49449,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -50647,6 +50692,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -52144,6 +52190,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -52948,6 +52995,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -53469,6 +53517,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -54966,6 +55015,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -55789,6 +55839,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -56310,6 +56361,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -57807,6 +57859,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -59044,6 +59097,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -60541,6 +60595,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -61783,6 +61838,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -63280,6 +63336,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -64084,6 +64141,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -64605,6 +64663,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
@@ -66102,6 +66161,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
                     timedOut: true,
