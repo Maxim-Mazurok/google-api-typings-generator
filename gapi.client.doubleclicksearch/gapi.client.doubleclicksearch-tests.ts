@@ -139,10 +139,7 @@ gapi.load('client', () => {
                 }            ],
             kind: "Test string",
         });
-        /**
-         * Updates the availabilities of a batch of floodlight activities in
-         * DoubleClick Search.
-         */
+        /** Updates the availabilities of a batch of floodlight activities in DoubleClick Search. */
         await gapi.client.doubleclicksearch.conversion.updateAvailability({
         }, {
             availabilities: [

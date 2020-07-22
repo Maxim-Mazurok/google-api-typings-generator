@@ -74,8 +74,7 @@ Updates a batch of conversions in DoubleClick Search.
 await gapi.client.doubleclicksearch.conversion.update({  });
 
 /*
-Updates the availabilities of a batch of floodlight activities in
-DoubleClick Search.
+Updates the availabilities of a batch of floodlight activities in DoubleClick Search.
 */
 await gapi.client.doubleclicksearch.conversion.updateAvailability({  });
 
