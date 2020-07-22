@@ -88,6 +88,8 @@ gapi.load('client', () => {
                     accountId: "Test string",
                     batchId: 42,
                     force: true,
+                    labelIds: [
+                        "Test string"                    ],
                     linkRequest: {
                         action: "Test string",
                         linkedAccountId: "Test string",
