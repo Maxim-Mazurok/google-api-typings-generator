@@ -12,6 +12,13 @@ gapi.load('client', () => {
     });
 
     async function run() {
+        /**
+         * Downloads media. Download is supported
+         * on the URI `/v1/media/{+name}?alt=media`.
+         */
+        await gapi.client.chat.media.download({
+            resourceName: "Test string",
+        });
         /** Returns a space. */
         await gapi.client.chat.spaces.get({
             name: "Test string",

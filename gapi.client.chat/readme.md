@@ -38,6 +38,12 @@ After that you can use Hangouts Chat API resources:
 ```typescript
 
 /*
+Downloads media. Download is supported
+on the URI `/v1/media/{+name}?alt=media`.
+*/
+await gapi.client.chat.media.download({ resourceName: "resourceName",  });
+
+/*
 Returns a space.
 */
 await gapi.client.chat.spaces.get({ name: "name",  });
