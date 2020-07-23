@@ -31,45 +31,6 @@ gapi.load('client', () => {
         await gapi.client.prod_tt_sasportal.customers.get({
             name: "Test string",
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Deletes a deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.delete({
-            name: "Test string",
-        });
-        /** Returns a requested deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.get({
-            name: "Test string",
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.customers.devices.bulk({
             parent: "Test string",
@@ -447,24 +408,6 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
             parent: "Test string",
@@ -483,24 +426,6 @@ gapi.load('client', () => {
         /** Deletes a node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.delete({
             name: "Test string",
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
@@ -521,24 +446,6 @@ gapi.load('client', () => {
         await gapi.client.prod_tt_sasportal.customers.nodes.get({
             name: "Test string",
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
             parent: "Test string",
@@ -556,24 +463,6 @@ gapi.load('client', () => {
         });
         /** Lists nodes. */
         await gapi.client.prod_tt_sasportal.customers.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -599,24 +488,6 @@ gapi.load('client', () => {
         }, {
             destination: "Test string",
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
             parent: "Test string",
@@ -641,24 +512,6 @@ gapi.load('client', () => {
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
@@ -680,45 +533,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Deletes a deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.delete({
-            name: "Test string",
-        });
-        /** Returns a requested deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.get({
-            name: "Test string",
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.customers.devices.bulk({
             parent: "Test string",
@@ -1096,24 +910,6 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
             parent: "Test string",
@@ -1132,24 +928,6 @@ gapi.load('client', () => {
         /** Deletes a node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.delete({
             name: "Test string",
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
@@ -1170,24 +948,6 @@ gapi.load('client', () => {
         await gapi.client.prod_tt_sasportal.customers.nodes.get({
             name: "Test string",
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
             parent: "Test string",
@@ -1205,24 +965,6 @@ gapi.load('client', () => {
         });
         /** Lists nodes. */
         await gapi.client.prod_tt_sasportal.customers.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -1248,24 +990,6 @@ gapi.load('client', () => {
         }, {
             destination: "Test string",
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
             parent: "Test string",
@@ -1290,24 +1014,6 @@ gapi.load('client', () => {
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
@@ -1334,45 +1040,6 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Deletes a deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.delete({
-            name: "Test string",
-        });
-        /** Returns a requested deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.get({
-            name: "Test string",
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing deployment. */
-        await gapi.client.prod_tt_sasportal.customers.deployments.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.customers.devices.bulk({
             parent: "Test string",
@@ -1750,24 +1417,6 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
             parent: "Test string",
@@ -1786,24 +1435,6 @@ gapi.load('client', () => {
         /** Deletes a node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.delete({
             name: "Test string",
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
@@ -1824,24 +1455,6 @@ gapi.load('client', () => {
         await gapi.client.prod_tt_sasportal.customers.nodes.get({
             name: "Test string",
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
             parent: "Test string",
@@ -1859,24 +1472,6 @@ gapi.load('client', () => {
         });
         /** Lists nodes. */
         await gapi.client.prod_tt_sasportal.customers.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -1901,24 +1496,6 @@ gapi.load('client', () => {
             name: "Test string",
         }, {
             destination: "Test string",
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
@@ -1945,24 +1522,6 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.customers.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a new node. */
         await gapi.client.prod_tt_sasportal.customers.nodes.nodes.create({
             parent: "Test string",
@@ -1978,10 +1537,6 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Returns a requested deployment. */
-        await gapi.client.prod_tt_sasportal.deployments.get({
-            name: "Test string",
-        });
         /** Generates a secret to be used with the ValidateInstaller method */
         await gapi.client.prod_tt_sasportal.installer.generateSecret({
         }, {
@@ -1996,33 +1551,6 @@ gapi.load('client', () => {
         /** Returns a requested node. */
         await gapi.client.prod_tt_sasportal.nodes.get({
             name: "Test string",
-        });
-        /** Deletes a deployment. */
-        await gapi.client.prod_tt_sasportal.nodes.deployments.delete({
-            name: "Test string",
-        });
-        /** Returns a requested deployment. */
-        await gapi.client.prod_tt_sasportal.nodes.deployments.get({
-            name: "Test string",
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing deployment. */
-        await gapi.client.prod_tt_sasportal.nodes.deployments.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
         });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.nodes.devices.bulk({
@@ -2401,24 +1929,6 @@ gapi.load('client', () => {
             sasUserIds: [
                 "Test string"            ],
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.bulk({
             parent: "Test string",
@@ -2567,24 +2077,6 @@ gapi.load('client', () => {
         /** Deletes a node. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.delete({
             name: "Test string",
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.bulk({
@@ -2735,24 +2227,6 @@ gapi.load('client', () => {
         await gapi.client.prod_tt_sasportal.nodes.nodes.get({
             name: "Test string",
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.bulk({
             parent: "Test string",
@@ -2900,24 +2374,6 @@ gapi.load('client', () => {
         });
         /** Lists nodes. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -3073,24 +2529,6 @@ gapi.load('client', () => {
         }, {
             destination: "Test string",
         });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.bulk({
             parent: "Test string",
@@ -3245,24 +2683,6 @@ gapi.load('client', () => {
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
-        });
-        /** Creates a new deployment. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.create({
-            parent: "Test string",
-        }, {
-            allowedBillingModes: [
-                "Test string"            ],
-            defaultBillingMode: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            sasUserIds: [
-                "Test string"            ],
-        });
-        /** Lists deployments. */
-        await gapi.client.prod_tt_sasportal.nodes.nodes.deployments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.bulk({
